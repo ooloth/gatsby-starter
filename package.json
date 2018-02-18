@@ -1,0 +1,55 @@
+{
+  "name": "tailyons-test",
+  "description": "Tailyons Test",
+  "version": "1.0.0",
+  "author": "Michael Uloth <hello@michaeluloth.com>",
+  "browserslist": [
+    "last 4 versions",
+    "> 1%",
+    "not ie < 11"
+  ],
+  "dependencies": {
+    "d3-ease": "^1.0.3",
+    "gatsby": "^1.9.158",
+    "gatsby-cli": "^1.1.40",
+    "gatsby-image": "^1.0.37",
+    "gatsby-link": "^1.6.34",
+    "gatsby-plugin-netlify": "^1.0.18",
+    "gatsby-plugin-preact": "^1.0.16",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-react-next": "^1.0.9",
+    "gatsby-plugin-sharp": "^1.6.30",
+    "gatsby-source-filesystem": "^1.5.20",
+    "gatsby-transformer-json": "^1.0.15",
+    "gatsby-transformer-sharp": "^1.6.19",
+    "isotope-layout": "^3.0.5",
+    "object-fit-images": "^3.2.3",
+    "postcss-cli": "^5.0.0",
+    "purgecss": "^0.20.0",
+    "react-aux": "^1.1.0",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^2.2.7",
+    "react-inlinesvg": "^0.7.5",
+    "react-move": "^2.7.0",
+    "react-scroll": "^1.7.6",
+    "react-slick": "^0.18.1",
+    "react-waypoint": "^8.0.0",
+    "scrollreveal": "^3.3.6",
+    "shortid": "^2.2.8",
+    "slick-carousel": "^1.8.1",
+    "tachyons": "^4.9.1",
+    "tailwindcss": "^0.4.1",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "precss": "^3.1.0",
+    "prettier": "^1.10.2"
+  },
+  "scripts": {
+    "watch:postcss": "postcss src/styles/index.css -o src/styles/builds/after-postcss/output.css -w",
+    "build:postcss": "postcss src/styles/index.css -o src/styles/builds/after-postcss/output.css",
+    "build:purgecss": "purgecss -c ./purgecss.config.js -o src/styles/builds/after-purgecss",
+    "dev": "gatsby develop & npm run watch:postcss",
+    "build": "npm run build:postcss && npm run build:purgecss && gatsby build"
+  }
+}
