@@ -10,14 +10,13 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
-.btn { @apply .bw1 .b--black .bg-black .pink .pv2 .ph3 .lh-solid .ttu .tracked .animate }
+.btn { 
+  @apply .bw1 .b--black .bg-black .pink .pv2 .ph3 .lh-solid .ttu .tracked .animate;
 
-.btn:hover,
-.btn:focus { @apply .bg-pink .black }
+  &:hover, &:focus { @apply .bg-pink .black }
 
-@screen sm { 
-  .btn { @apply .f4 } 
-}
+  @media (--sm) { @apply .f4 }
+ }
 
 /* 
  *
@@ -25,14 +24,13 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
-.container { @apply .ph3 }
+.container { 
+  @apply .ml-auto .mr-auto .ph3 .mw8;
 
-@screen md {
-  .container { @apply .ph4 }
-}
+  @media (--md) { @apply .ph4 }
+  @media (--lg) { @apply .ph5 }
 
-@screen lg {
-  .container { @apply .ph5 }
+  @supports (display: grid) { @apply .mw9 }
 }
 
 /* 
@@ -41,7 +39,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
-.heading { @apply .f2 .black }
+.heading    { @apply .f2 .black }
 .subheading { @apply .f5 .ttu .tracked }
 
 /* 
@@ -50,15 +48,20 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
-.icon { @apply .animate }
-.icon:hover,
-.icon:focus { @apply .green }
+.icon { 
+  @apply .animate;
 
-.icon-on-green { @apply .animate }
-.icon-on-green:hover,
-.icon-on-green:focus {
-  @apply .white;
-  filter: drop-shadow( 0px 15px 5px rgba(0,0,0,0.11) )
+  &:hover, &:focus { @apply .green }
+}
+
+.icon-on-green { 
+  @apply .animate;
+
+  &:hover, &:focus {
+    @apply .white;
+    filter: drop-shadow( 0px 15px 5px rgba(0, 0, 0, 0.11) )
+  }
+
 }
 
 /* 
@@ -69,14 +72,14 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 
 .link {
   @apply .shadow-lg .bw1 .b--black .bg-black .pv2 .ph3 .lh-tall .ttu .tracked .white .animate;
+  border-radius: 30px;
 
-  border-radius: 30px
+  &:hover, &:focus { @apply .b--pink .bg-pink .black }
 }
-.link:hover,
-.link:focus { @apply .b--pink .bg-pink .black }
 
-.link-white:hover,
-.link-white:focus { @apply .b--white .bg-white .black }
+.link-white {
+  &:hover, &:focus { @apply .b--white .bg-white .black }
+}
 
 /*
 .link-inline { @apply .custom-underline .animate }

@@ -17,5 +17,8 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify` // must come last
-  ]
+  ],
+  // I'll load my own Promise polyfill (only in browser that need it)
+  // See: https://www.gatsbyjs.org/docs/browser-support/#polyfills
+  polyfill: false
 }

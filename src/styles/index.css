@@ -122,7 +122,7 @@
 @import './utilities/_visibility';
 
 /* Variables (import here to override any variables above) */
-@import './utilities/_variables';
+@import './base/_variables';
 
 /* Debug */
 @import './utilities/_debug-children';
