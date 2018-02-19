@@ -81,13 +81,14 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   &:hover, &:focus { @apply .b--white .bg-white .black }
 }
 
-/*
 .link-inline { 
-  @apply .custom-underline .animate;
+  @apply .animate;
 
-  &:hover, &:focus { @apply .hover-custom-underline }
+  border-bottom: 1px solid var(--pink);
+  box-shadow: inset 0 -2px 0px 0px var(--pink);
+
+  &:hover, &:focus { box-shadow: inset 0 -12px 0px 0px var(--pink) }
 }
-*/
 
 /* 
  *
