@@ -59,7 +59,7 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   .pl6 { padding-left: var(--spacing-6) }
   .pl7 { padding-left: var(--spacing-7) }
 
-  // Vertical (top + bottom)
+  /* Vertical (top + bottom) */
   .pv0 {
     padding-top: 0;
     padding-bottom: 0;

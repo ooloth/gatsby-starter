@@ -37,9 +37,7 @@
     "scrollreveal": "^3.3.6",
     "shortid": "^2.2.8",
     "slick-carousel": "^1.8.1",
-    "tachyons": "^4.9.1",
-    "tailwindcss": "^0.4.1",
-    "whatwg-fetch": "^2.0.3"
+    "tailwindcss": "^0.4.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",

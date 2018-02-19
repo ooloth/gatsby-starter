@@ -38,7 +38,7 @@
  *
  */
 
-/* @import './supports/grid.css'; */
+@import './supports/grid.css';
 
 /*
  *
@@ -47,7 +47,7 @@
  */
 
 /* Animations */
-@import './utilities/transition';
+@import './utilities/animation';
 
 /* Backgrounds */
 @import './utilities/_background-attachment';
@@ -79,7 +79,7 @@
 @import './utilities/_hide-child';
 
 /* Layout */
-@import './utilities/_aspect-ratio';
+@import './utilities/_columns';
 @import './utilities/_display';
 @import './utilities/_flexbox';
 @import './utilities/_floats';
@@ -87,6 +87,7 @@
 @import './utilities/_z-index';
 
 /* Sizing */
+@import './utilities/_aspect-ratio';
 @import './utilities/_height';
 @import './utilities/_overflow';
 @import './utilities/_width';
@@ -104,6 +105,7 @@
 
 /* Transforms */
 @import './utilities/_rotation';
+@import './utilities/_transform-origin';
 
 /* Typography */
 @import './utilities/_color';

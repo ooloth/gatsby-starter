@@ -82,9 +82,11 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 }
 
 /*
-.link-inline { @apply .custom-underline .animate }
-.link-inline:hover,
-.link-inline:focus { @apply .hover-custom-underline }
+.link-inline { 
+  @apply .custom-underline .animate;
+
+  &:hover, &:focus { @apply .hover-custom-underline }
+}
 */
 
 /* 

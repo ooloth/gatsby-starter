@@ -28,6 +28,12 @@ Adapted from:
   *
   */
 
+/* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
+
   .ws-normal { white-space: normal }
   .nowrap    { white-space: nowrap }
   .pre       { white-space: pre }

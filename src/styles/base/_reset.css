@@ -22,9 +22,10 @@
 html,
 body {
   min-height: 100vh;
+  overflow-x: hidden;
 
   /* Font-size */
-  @media (min-width: 36em) { font-size: 1.05rem }
+  @media (--sm) { font-size: 1.05rem }
     
   /* Font-smoothing */
   -webkit-font-smoothing: antialiased;
@@ -48,8 +49,7 @@ img {
 }
 
 /* If a 'width' and/or 'height'' attribute have been explicitly defined, don't make the image fluid: */
-img[width],
-img[height] { max-width: none }
+img[width], img[height] { max-width: none }
 
 /*
  *
@@ -57,10 +57,7 @@ img[height] { max-width: none }
  *
  */
 
-a { 
-  text-decoration: none; 
-  color: inherit;
-}
+a { text-decoration: none; color: inherit }
 
 /*
  *
@@ -79,16 +76,10 @@ button { outline: 0 }
  *
  */
 
-ol,
-ul {
-  list-style: none;
-  padding-left: 0
-}
+ol, ul { list-style: none; padding-left: 0 }
 
 /* Remove trailing margins from nested lists: */
-li >
-  ol,
-  ul { margin-bottom: 0 }
+li > ol, li > ul { margin-bottom: 0 }
 
 /*
  *
@@ -105,10 +96,7 @@ textarea {
 }
 
 /* Reset Chrome and Firefox behaviour which sets a 'min-width: min-content;' on fieldsets: */
-fieldset {
-  min-width: 0;
-  border: 0
-}
+fieldset { min-width: 0; border: 0 }
 
 /*
  *

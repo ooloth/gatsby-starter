@@ -22,4 +22,20 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow
 .overflow-y-scroll  { overflow-y: scroll }
 .overflow-y-auto    { overflow-y: auto }
 
-.scrolling-touch { -webkit-overflow-scrolling: touch }
+/* Scrolling */
+.scrolling-touch    { -webkit-overflow-scrolling: touch }
+
+.hide-scrollbar {
+  /* For IE */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-face-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-3dlight-color: transparent;
+  scrollbar-darkshadow-color: transparent;
+  scrollbar-arrow-color: transparent;
+
+  /* For Chrome */
+  &::-webkit-scrollbar { width: 0px; height: 0px }
+
+  /* For Firefox...? (Nothing yet.) */
+}

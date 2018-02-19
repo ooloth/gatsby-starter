@@ -634,6 +634,7 @@ button,
 html,
 body {
   min-height: 100vh;
+  overflow-x: hidden;
   /* Font-size */
 }
 
@@ -712,9 +713,8 @@ ul {
 
 /* Remove trailing margins from nested lists: */
 
-li >
-  ol,
-ul {
+li > ol,
+li > ul {
   margin-bottom: 0;
 }
 
@@ -984,9 +984,11 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 }
 
 /*
-.link-inline { @apply .custom-underline .animate }
-.link-inline:hover,
-.link-inline:focus { @apply .hover-custom-underline }
+.link-inline { 
+  @apply .custom-underline .animate;
+
+  &:hover, &:focus { @apply .hover-custom-underline }
+}
 */
 
 /* 
@@ -1001,7 +1003,39 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
-/* @import './supports/grid.css'; */
+/* 
+ * 
+ * Grid component classes (only applied if grid is supported)
+ *
+ * NOTE: reset margins and widths here (not using utilities) so these resets
+ * only kick in if the grid layout is supported
+ * 
+ */
+
+/* 
+ * 
+ * Hero
+ *
+ */
+
+@supports (display: grid) {
+  @media (min-width: 48em) {
+    .hero-grid {
+      /* Grid styles *//* display: grid
+      grid-template-columns: 3fr 2fr
+      align-items: center *//* Resets for margins/widths *//* max-width: 96rem
+
+      & > figure
+        margin: 0
+        padding-top: 0
+        max-width: 100%
+
+      & > figure > div > div
+        width: auto
+        margin: 0 */
+    }
+  }
+}
 
 /*
  *
