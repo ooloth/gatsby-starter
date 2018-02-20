@@ -1,6 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `Insert Title`
+    description: `Add site description (limit to 150 characters)`,
+    // image: update siteImage variable in layouts/index.js
+    language: `en`,
+    locale: `en_CA`,
+    title: `Add Site Title`,
+    twitterHandle: `@pieczonka_a`,
+    url: `https://www.site.com`,
+    secondPage: {
+      description: `Add second page description (limit to 150 characters)`,
+      title: `Add Second Page Title`,
+      url: `https://www.site.com/second`
+    }
   },
   plugins: [
     {
@@ -18,7 +29,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify` // must come last
   ],
-  // I'll load my own Promise polyfill (only in browser that need it)
-  // See: https://www.gatsbyjs.org/docs/browser-support/#polyfills
+  // I conditionally load my own Promise polyfill in gatsby-node.js
   polyfill: false
 }

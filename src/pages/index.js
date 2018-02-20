@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'gatsby-link'
 
 const IndexPage = ({ data }) => (
@@ -22,6 +21,7 @@ export default IndexPage
  * 
  */
 
+import React from 'react'
 import shortid from 'shortid'
 
 /*
@@ -65,7 +65,7 @@ TODO:
  */
 
 export const query = graphql`
-  query WebsitePageQuery {
+  query IndexPageQuery {
     exampleJsonData: allExampleJson {
       edges {
         node {

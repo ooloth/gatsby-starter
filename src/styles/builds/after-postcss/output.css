@@ -983,13 +983,20 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   color: #000;
 }
 
-/*
-.link-inline { 
-  @apply .custom-underline .animate;
-
-  &:hover, &:focus { @apply .hover-custom-underline }
+.link-inline {
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  border-bottom: 1px solid #ff80cc;
+  -webkit-box-shadow: inset 0 -2px 0 0 #ff80cc;
+          box-shadow: inset 0 -2px 0 0 #ff80cc;
 }
-*/
+
+.link-inline:hover,
+.link-inline:focus {
+  -webkit-box-shadow: inset 0 -12px 0 0 #ff80cc;
+          box-shadow: inset 0 -12px 0 0 #ff80cc;
+}
 
 /* 
  *
@@ -1021,18 +1028,25 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 @supports (display: grid) {
   @media (min-width: 48em) {
     .hero-grid {
-      /* Grid styles *//* display: grid
-      grid-template-columns: 3fr 2fr
-      align-items: center *//* Resets for margins/widths *//* max-width: 96rem
+      /* Grid styles */
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      /* Resets for margins/widths */
+      max-width: 96rem;
+    }
 
-      & > figure
-        margin: 0
-        padding-top: 0
-        max-width: 100%
+    .hero-grid > figure {
+      margin: 0;
+      padding-top: 0;
+      max-width: 100%;
+    }
 
-      & > figure > div > div
-        width: auto
-        margin: 0 */
+    .hero-grid > figure > div > div {
+      width: auto;
+      margin: 0;
     }
   }
 }
@@ -1045,10 +1059,101 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 
 /* Animations */
 
-.animate {
+/* 
+ *
+ * Transitions
+ *
+ */
+
+.animate,
+.animate:hover,
+.animate:focus {
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+}
+
+/* 
+ *
+ * Ball Animations
+ *
+ */
+
+/*
+.anim-vertical
+  animation: anim-vertical 7s ease-in-out infinite alternate
+
+.anim-horizontal
+  animation: anim-horizontal 11s ease-in-out infinite alternate
+
+.anim-diagonal-right
+  animation: anim-diagonal-right 9s ease-in-out infinite alternate
+
+.anim-diagonal-left
+  animation: anim-diagonal-left 8s ease-in-out infinite alternate
+*/
+
+/* 
+ *
+ * Ball Keyframes
+ *
+ */
+
+/*
+@keyframes anim-vertical
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, 0, -80)
+
+@keyframes anim-horizontal
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, -80, 0)
+
+@keyframes anim-diagonal-right
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, 80, -80)
+
+@keyframes anim-diagonal-left
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, -80, -80)
+*/
+
+/* 
+ *
+ * Animation Delay (needs to come after all compound animation declarations)
+ *
+ */
+
+.anim-delay-1 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.anim-delay-2 {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.anim-delay-3 {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+.anim-delay-4 {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+
+.anim-delay-5 {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
 }
 
 /* Backgrounds */
@@ -3247,6 +3352,29 @@ Adapted from: https://tailwindcss.com/docs/shadows
           box-shadow: none;
 }
 
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
+
 .focus\:shadow:focus {
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -3272,6 +3400,29 @@ Adapted from: https://tailwindcss.com/docs/shadows
           box-shadow: none;
 }
 
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
+
 .hover\:shadow:hover {
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -3296,6 +3447,29 @@ Adapted from: https://tailwindcss.com/docs/shadows
   -webkit-box-shadow: none;
           box-shadow: none;
 }
+
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
 /* CMS */
 
@@ -3693,85 +3867,233 @@ Adapted from: http://tachyons.io/docs/themes/hovers/,
 /* Layout */
 
 /*
+ *
+ * Column Count
+ *
+ */
 
-ASPECT RATIOS
-=============
+/* Column count */
 
-This is for fluid media that is embedded from third party sites like YouTube, Vimeo etc.
+columns-2 {
+  -webkit-column-count: 2;
+          column-count: 2;
+}
 
-1. Add .aspect-ratio and the desired ratio class to the wrapping element
-2. Add .aspect-ratio--object to the wrapped element
-3. Make sure there are no height and width attributes on the wrapped element.
+columns-3 {
+  -webkit-column-count: 3;
+          column-count: 3;
+}
 
-Example:
+columns-4 {
+  -webkit-column-count: 4;
+          column-count: 4;
+}
 
-<div class="aspect-ratio aspect-ratio--16x9">
-  <iframe class="aspect-ratio--object"></iframe>
-</div>
+/* Column width */
 
-Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-ratios.css
+.column-w1 {
+  width: 1rem;
+}
+
+.column-w2 {
+  width: 2rem;
+}
+
+.column-w3 {
+  width: 4rem;
+}
+
+.column-w4 {
+  width: 8rem;
+}
+
+.column-w5 {
+  width: 16rem;
+}
+
+.column-w6 {
+  width: 32rem;
+}
+
+.column-w7 {
+  width: 48rem;
+}
+
+.column-w8 {
+  width: 64rem;
+}
+
+.column-w9 {
+  width: 96rem;
+}
+
+.column-w-10 {
+  width: 10%;
+}
+
+.column-w-20 {
+  width: 20%;
+}
+
+.column-w-25 {
+  width: 25%;
+}
+
+.column-w-30 {
+  width: 30%;
+}
+
+.column-w-40 {
+  width: 40%;
+}
+
+.column-w-50 {
+  width: 50%;
+}
+
+.column-w-60 {
+  width: 60%;
+}
+
+.column-w-70 {
+  width: 70%;
+}
+
+.column-w-75 {
+  width: 75%;
+}
+
+.column-w-80 {
+  width: 80%;
+}
+
+.column-w-90 {
+  width: 90%;
+}
+
+.column-w-100 {
+  width: 100%;
+}
+
+.column-w-third {
+  width: calc(100% / 3);
+}
+
+.column-w-two-thirds {
+  width: calc(100% / 1.5);
+}
+
+/* Column gap */
+
+.column-gap1 {
+  width: 1rem;
+}
+
+.column-gap2 {
+  width: 2rem;
+}
+
+.column-gap3 {
+  width: 4rem;
+}
+
+.column-gap4 {
+  width: 8rem;
+}
+
+.column-gap5 {
+  width: 16rem;
+}
+
+.column-gap6 {
+  width: 32rem;
+}
+
+.column-gap7 {
+  width: 48rem;
+}
+
+.column-gap8 {
+  width: 64rem;
+}
+
+.column-gap9 {
+  width: 96rem;
+}
+
+.column-gap-10 {
+  width: 10%;
+}
+
+.column-gap-20 {
+  width: 20%;
+}
+
+.column-gap-25 {
+  width: 25%;
+}
+
+.column-gap-30 {
+  width: 30%;
+}
+
+.column-gap-40 {
+  width: 40%;
+}
+
+.column-gap-50 {
+  width: 50%;
+}
+
+.column-gap-60 {
+  width: 60%;
+}
+
+.column-gap-70 {
+  width: 70%;
+}
+
+.column-gap-75 {
+  width: 75%;
+}
+
+.column-gap-80 {
+  width: 80%;
+}
+
+.column-gap-90 {
+  width: 90%;
+}
+
+.column-gap-100 {
+  width: 100%;
+}
+
+.column-gap-third {
+  width: calc(100% / 3);
+}
+
+.column-gap-two-thirds {
+  width: calc(100% / 1.5);
+}
+
+/*
+ *
+ * Column Break
+ *
+ */
+
+.break-avoid {
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* 
+
+For more column break properties, see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts
 
 */
-
-.aspect-ratio {
-  height: 0;
-  position: relative;
-}
-
-.aspect-ratio--16x9 {
-  padding-bottom: 56.25%;
-}
-
-.aspect-ratio--9x16 {
-  padding-bottom: 177.77%;
-}
-
-.aspect-ratio--4x3 {
-  padding-bottom: 75%;
-}
-
-.aspect-ratio--3x4 {
-  padding-bottom: 133.33%;
-}
-
-.aspect-ratio--6x4 {
-  padding-bottom: 66.6%;
-}
-
-.aspect-ratio--4x6 {
-  padding-bottom: 150%;
-}
-
-.aspect-ratio--8x5 {
-  padding-bottom: 62.5%;
-}
-
-.aspect-ratio--5x8 {
-  padding-bottom: 160%;
-}
-
-.aspect-ratio--7x5 {
-  padding-bottom: 71.42%;
-}
-
-.aspect-ratio--5x7 {
-  padding-bottom: 140%;
-}
-
-.aspect-ratio--1x1 {
-  padding-bottom: 100%;
-}
-
-.aspect-ratio--object {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-}
 
 /*
 
@@ -4534,6 +4856,87 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_z-index.
 
 /*
 
+ASPECT RATIOS
+=============
+
+This is for fluid media that is embedded from third party sites like YouTube, Vimeo etc.
+
+1. Add .aspect-ratio and the desired ratio class to the wrapping element
+2. Add .aspect-ratio--object to the wrapped element
+3. Make sure there are no height and width attributes on the wrapped element.
+
+Example:
+
+<div class="aspect-ratio aspect-ratio--16x9">
+  <iframe class="aspect-ratio--object"></iframe>
+</div>
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-ratios.css
+
+*/
+
+.aspect-ratio {
+  height: 0;
+  position: relative;
+}
+
+.aspect-ratio--16x9 {
+  padding-bottom: 56.25%;
+}
+
+.aspect-ratio--9x16 {
+  padding-bottom: 177.77%;
+}
+
+.aspect-ratio--4x3 {
+  padding-bottom: 75%;
+}
+
+.aspect-ratio--3x4 {
+  padding-bottom: 133.33%;
+}
+
+.aspect-ratio--6x4 {
+  padding-bottom: 66.6%;
+}
+
+.aspect-ratio--4x6 {
+  padding-bottom: 150%;
+}
+
+.aspect-ratio--8x5 {
+  padding-bottom: 62.5%;
+}
+
+.aspect-ratio--5x8 {
+  padding-bottom: 160%;
+}
+
+.aspect-ratio--7x5 {
+  padding-bottom: 71.42%;
+}
+
+.aspect-ratio--5x7 {
+  padding-bottom: 140%;
+}
+
+.aspect-ratio--1x1 {
+  padding-bottom: 100%;
+}
+
+.aspect-ratio--object {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+
 HEIGHTS
 =======
 
@@ -4910,8 +5313,32 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow
   overflow-y: auto;
 }
 
+/* Scrolling */
+
 .scrolling-touch {
   -webkit-overflow-scrolling: touch;
+}
+
+.hide-scrollbar {
+  /* For IE */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-face-color: transparent;
+  scrollbar-track-color: transparent;
+  scrollbar-3dlight-color: transparent;
+  scrollbar-darkshadow-color: transparent;
+  scrollbar-arrow-color: transparent;
+  /* For Chrome */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.hide-scrollbar {
+  /*
+ For Firefox...? (Nothing yet.)
+ */
 }
 
 /*
@@ -5879,8 +6306,9 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-left: 16rem;
 }
 
-// Vertical (top + bottom)
-  .pv0 {
+/* Vertical (top + bottom) */
+
+.pv0 {
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -6151,6 +6579,32 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotation
 .hover\:rotate-315:hover {
   -webkit-transform: rotate(315deg);
           transform: rotate(315deg);
+}
+
+/* 
+ *
+ * Transform origin
+ *
+ */
+
+.origin-top {
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.origin-right {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.origin-bottom {
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+.origin-left {
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 /* Typography */
@@ -6892,6 +7346,10 @@ code,
   font-family: 'helvetica neue', helvetica, sans-serif;
 }
 
+.raleway {
+  font-family: Raleway, sans-serif;
+}
+
 /*
  *
  * Serif
@@ -7561,6 +8019,12 @@ Adapted from:
   * White space
   *
   */
+
+/* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
 
 .ws-normal {
   white-space: normal;
@@ -10034,7 +10498,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:shadow-none {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .sm\:focus\:shadow:focus {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -10059,7 +10544,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:focus\:shadow-none:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .sm\:hover\:shadow:hover {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -10084,7 +10590,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:hover\:shadow-none:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .sm\:object-center {
     background-repeat: no-repeat;
@@ -10321,66 +10848,205 @@ Adapted from: http://tachyons.io/docs/debug-grid/
        -moz-user-select: text;
         -ms-user-select: text;
             user-select: text;
+  }/* Column count */
+
+  .sm\:olumns-2 {
+    -webkit-column-count: 2;
+            column-count: 2;
   }
 
-  .sm\:aspect-ratio {
-    height: 0;
-    position: relative;
+  .sm\:olumns-3 {
+    -webkit-column-count: 3;
+            column-count: 3;
   }
 
-  .sm\:aspect-ratio--16x9 {
-    padding-bottom: 56.25%;
+  .sm\:olumns-4 {
+    -webkit-column-count: 4;
+            column-count: 4;
+  }/* Column width */
+
+  .sm\:column-w1 {
+    width: 1rem;
   }
 
-  .sm\:aspect-ratio--9x16 {
-    padding-bottom: 177.77%;
+  .sm\:column-w2 {
+    width: 2rem;
   }
 
-  .sm\:aspect-ratio--4x3 {
-    padding-bottom: 75%;
+  .sm\:column-w3 {
+    width: 4rem;
   }
 
-  .sm\:aspect-ratio--3x4 {
-    padding-bottom: 133.33%;
+  .sm\:column-w4 {
+    width: 8rem;
   }
 
-  .sm\:aspect-ratio--6x4 {
-    padding-bottom: 66.6%;
+  .sm\:column-w5 {
+    width: 16rem;
   }
 
-  .sm\:aspect-ratio--4x6 {
-    padding-bottom: 150%;
+  .sm\:column-w6 {
+    width: 32rem;
   }
 
-  .sm\:aspect-ratio--8x5 {
-    padding-bottom: 62.5%;
+  .sm\:column-w7 {
+    width: 48rem;
   }
 
-  .sm\:aspect-ratio--5x8 {
-    padding-bottom: 160%;
+  .sm\:column-w8 {
+    width: 64rem;
   }
 
-  .sm\:aspect-ratio--7x5 {
-    padding-bottom: 71.42%;
+  .sm\:column-w9 {
+    width: 96rem;
   }
 
-  .sm\:aspect-ratio--5x7 {
-    padding-bottom: 140%;
+  .sm\:column-w-10 {
+    width: 10%;
   }
 
-  .sm\:aspect-ratio--1x1 {
-    padding-bottom: 100%;
+  .sm\:column-w-20 {
+    width: 20%;
   }
 
-  .sm\:aspect-ratio--object {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
+  .sm\:column-w-25 {
+    width: 25%;
+  }
+
+  .sm\:column-w-30 {
+    width: 30%;
+  }
+
+  .sm\:column-w-40 {
+    width: 40%;
+  }
+
+  .sm\:column-w-50 {
+    width: 50%;
+  }
+
+  .sm\:column-w-60 {
+    width: 60%;
+  }
+
+  .sm\:column-w-70 {
+    width: 70%;
+  }
+
+  .sm\:column-w-75 {
+    width: 75%;
+  }
+
+  .sm\:column-w-80 {
+    width: 80%;
+  }
+
+  .sm\:column-w-90 {
+    width: 90%;
+  }
+
+  .sm\:column-w-100 {
     width: 100%;
-    height: 100%;
+  }
+
+  .sm\:column-w-third {
+    width: calc(100% / 3);
+  }
+
+  .sm\:column-w-two-thirds {
+    width: calc(100% / 1.5);
+  }/* Column gap */
+
+  .sm\:column-gap1 {
+    width: 1rem;
+  }
+
+  .sm\:column-gap2 {
+    width: 2rem;
+  }
+
+  .sm\:column-gap3 {
+    width: 4rem;
+  }
+
+  .sm\:column-gap4 {
+    width: 8rem;
+  }
+
+  .sm\:column-gap5 {
+    width: 16rem;
+  }
+
+  .sm\:column-gap6 {
+    width: 32rem;
+  }
+
+  .sm\:column-gap7 {
+    width: 48rem;
+  }
+
+  .sm\:column-gap8 {
+    width: 64rem;
+  }
+
+  .sm\:column-gap9 {
+    width: 96rem;
+  }
+
+  .sm\:column-gap-10 {
+    width: 10%;
+  }
+
+  .sm\:column-gap-20 {
+    width: 20%;
+  }
+
+  .sm\:column-gap-25 {
+    width: 25%;
+  }
+
+  .sm\:column-gap-30 {
+    width: 30%;
+  }
+
+  .sm\:column-gap-40 {
+    width: 40%;
+  }
+
+  .sm\:column-gap-50 {
+    width: 50%;
+  }
+
+  .sm\:column-gap-60 {
+    width: 60%;
+  }
+
+  .sm\:column-gap-70 {
+    width: 70%;
+  }
+
+  .sm\:column-gap-75 {
+    width: 75%;
+  }
+
+  .sm\:column-gap-80 {
+    width: 80%;
+  }
+
+  .sm\:column-gap-90 {
+    width: 90%;
+  }
+
+  .sm\:column-gap-100 {
+    width: 100%;
+  }
+
+  .sm\:column-gap-third {
+    width: calc(100% / 3);
+  }
+
+  .sm\:column-gap-two-thirds {
+    width: calc(100% / 1.5);
   }
 
   .sm\:dn {
@@ -11076,6 +11742,66 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:z-unset {
     z-index: unset;
+  }
+
+  .sm\:aspect-ratio {
+    height: 0;
+    position: relative;
+  }
+
+  .sm\:aspect-ratio--16x9 {
+    padding-bottom: 56.25%;
+  }
+
+  .sm\:aspect-ratio--9x16 {
+    padding-bottom: 177.77%;
+  }
+
+  .sm\:aspect-ratio--4x3 {
+    padding-bottom: 75%;
+  }
+
+  .sm\:aspect-ratio--3x4 {
+    padding-bottom: 133.33%;
+  }
+
+  .sm\:aspect-ratio--6x4 {
+    padding-bottom: 66.6%;
+  }
+
+  .sm\:aspect-ratio--4x6 {
+    padding-bottom: 150%;
+  }
+
+  .sm\:aspect-ratio--8x5 {
+    padding-bottom: 62.5%;
+  }
+
+  .sm\:aspect-ratio--5x8 {
+    padding-bottom: 160%;
+  }
+
+  .sm\:aspect-ratio--7x5 {
+    padding-bottom: 71.42%;
+  }
+
+  .sm\:aspect-ratio--5x7 {
+    padding-bottom: 140%;
+  }
+
+  .sm\:aspect-ratio--1x1 {
+    padding-bottom: 100%;
+  }
+
+  .sm\:aspect-ratio--object {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
   }
 
   .sm\:h1 {
@@ -12257,10 +12983,9 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:pl7 {
     padding-left: 16rem;
-  }
+  }/* Vertical (top + bottom) */
 
-  .sm\:/ Vertical (top + bottom)
-  .pv0 {
+  .sm\:pv0 {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -12467,6 +13192,26 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:hover\:rotate-315:hover {
     -webkit-transform: rotate(315deg);
             transform: rotate(315deg);
+  }
+
+  .sm\:origin-top {
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+
+  .sm\:origin-right {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+  }
+
+  .sm\:origin-bottom {
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+
+  .sm\:origin-left {
+    -webkit-transform-origin: left;
+            transform-origin: left;
   }
 
   .sm\:black-90 {
@@ -13693,7 +14438,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *
   * White space
   *
-  */
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
 
   .sm\:ws-normal {
     white-space: normal;
@@ -16036,7 +16785,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .md\:shadow-none {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .md\:focus\:shadow:focus {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -16061,7 +16831,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .md\:focus\:shadow-none:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .md\:hover\:shadow:hover {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -16086,7 +16877,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .md\:hover\:shadow-none:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .md\:object-center {
     background-repeat: no-repeat;
@@ -16323,66 +17135,205 @@ Adapted from: http://tachyons.io/docs/debug-grid/
        -moz-user-select: text;
         -ms-user-select: text;
             user-select: text;
+  }/* Column count */
+
+  .md\:olumns-2 {
+    -webkit-column-count: 2;
+            column-count: 2;
   }
 
-  .md\:aspect-ratio {
-    height: 0;
-    position: relative;
+  .md\:olumns-3 {
+    -webkit-column-count: 3;
+            column-count: 3;
   }
 
-  .md\:aspect-ratio--16x9 {
-    padding-bottom: 56.25%;
+  .md\:olumns-4 {
+    -webkit-column-count: 4;
+            column-count: 4;
+  }/* Column width */
+
+  .md\:column-w1 {
+    width: 1rem;
   }
 
-  .md\:aspect-ratio--9x16 {
-    padding-bottom: 177.77%;
+  .md\:column-w2 {
+    width: 2rem;
   }
 
-  .md\:aspect-ratio--4x3 {
-    padding-bottom: 75%;
+  .md\:column-w3 {
+    width: 4rem;
   }
 
-  .md\:aspect-ratio--3x4 {
-    padding-bottom: 133.33%;
+  .md\:column-w4 {
+    width: 8rem;
   }
 
-  .md\:aspect-ratio--6x4 {
-    padding-bottom: 66.6%;
+  .md\:column-w5 {
+    width: 16rem;
   }
 
-  .md\:aspect-ratio--4x6 {
-    padding-bottom: 150%;
+  .md\:column-w6 {
+    width: 32rem;
   }
 
-  .md\:aspect-ratio--8x5 {
-    padding-bottom: 62.5%;
+  .md\:column-w7 {
+    width: 48rem;
   }
 
-  .md\:aspect-ratio--5x8 {
-    padding-bottom: 160%;
+  .md\:column-w8 {
+    width: 64rem;
   }
 
-  .md\:aspect-ratio--7x5 {
-    padding-bottom: 71.42%;
+  .md\:column-w9 {
+    width: 96rem;
   }
 
-  .md\:aspect-ratio--5x7 {
-    padding-bottom: 140%;
+  .md\:column-w-10 {
+    width: 10%;
   }
 
-  .md\:aspect-ratio--1x1 {
-    padding-bottom: 100%;
+  .md\:column-w-20 {
+    width: 20%;
   }
 
-  .md\:aspect-ratio--object {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
+  .md\:column-w-25 {
+    width: 25%;
+  }
+
+  .md\:column-w-30 {
+    width: 30%;
+  }
+
+  .md\:column-w-40 {
+    width: 40%;
+  }
+
+  .md\:column-w-50 {
+    width: 50%;
+  }
+
+  .md\:column-w-60 {
+    width: 60%;
+  }
+
+  .md\:column-w-70 {
+    width: 70%;
+  }
+
+  .md\:column-w-75 {
+    width: 75%;
+  }
+
+  .md\:column-w-80 {
+    width: 80%;
+  }
+
+  .md\:column-w-90 {
+    width: 90%;
+  }
+
+  .md\:column-w-100 {
     width: 100%;
-    height: 100%;
+  }
+
+  .md\:column-w-third {
+    width: calc(100% / 3);
+  }
+
+  .md\:column-w-two-thirds {
+    width: calc(100% / 1.5);
+  }/* Column gap */
+
+  .md\:column-gap1 {
+    width: 1rem;
+  }
+
+  .md\:column-gap2 {
+    width: 2rem;
+  }
+
+  .md\:column-gap3 {
+    width: 4rem;
+  }
+
+  .md\:column-gap4 {
+    width: 8rem;
+  }
+
+  .md\:column-gap5 {
+    width: 16rem;
+  }
+
+  .md\:column-gap6 {
+    width: 32rem;
+  }
+
+  .md\:column-gap7 {
+    width: 48rem;
+  }
+
+  .md\:column-gap8 {
+    width: 64rem;
+  }
+
+  .md\:column-gap9 {
+    width: 96rem;
+  }
+
+  .md\:column-gap-10 {
+    width: 10%;
+  }
+
+  .md\:column-gap-20 {
+    width: 20%;
+  }
+
+  .md\:column-gap-25 {
+    width: 25%;
+  }
+
+  .md\:column-gap-30 {
+    width: 30%;
+  }
+
+  .md\:column-gap-40 {
+    width: 40%;
+  }
+
+  .md\:column-gap-50 {
+    width: 50%;
+  }
+
+  .md\:column-gap-60 {
+    width: 60%;
+  }
+
+  .md\:column-gap-70 {
+    width: 70%;
+  }
+
+  .md\:column-gap-75 {
+    width: 75%;
+  }
+
+  .md\:column-gap-80 {
+    width: 80%;
+  }
+
+  .md\:column-gap-90 {
+    width: 90%;
+  }
+
+  .md\:column-gap-100 {
+    width: 100%;
+  }
+
+  .md\:column-gap-third {
+    width: calc(100% / 3);
+  }
+
+  .md\:column-gap-two-thirds {
+    width: calc(100% / 1.5);
   }
 
   .md\:dn {
@@ -17078,6 +18029,66 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .md\:z-unset {
     z-index: unset;
+  }
+
+  .md\:aspect-ratio {
+    height: 0;
+    position: relative;
+  }
+
+  .md\:aspect-ratio--16x9 {
+    padding-bottom: 56.25%;
+  }
+
+  .md\:aspect-ratio--9x16 {
+    padding-bottom: 177.77%;
+  }
+
+  .md\:aspect-ratio--4x3 {
+    padding-bottom: 75%;
+  }
+
+  .md\:aspect-ratio--3x4 {
+    padding-bottom: 133.33%;
+  }
+
+  .md\:aspect-ratio--6x4 {
+    padding-bottom: 66.6%;
+  }
+
+  .md\:aspect-ratio--4x6 {
+    padding-bottom: 150%;
+  }
+
+  .md\:aspect-ratio--8x5 {
+    padding-bottom: 62.5%;
+  }
+
+  .md\:aspect-ratio--5x8 {
+    padding-bottom: 160%;
+  }
+
+  .md\:aspect-ratio--7x5 {
+    padding-bottom: 71.42%;
+  }
+
+  .md\:aspect-ratio--5x7 {
+    padding-bottom: 140%;
+  }
+
+  .md\:aspect-ratio--1x1 {
+    padding-bottom: 100%;
+  }
+
+  .md\:aspect-ratio--object {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
   }
 
   .md\:h1 {
@@ -18259,10 +19270,9 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .md\:pl7 {
     padding-left: 16rem;
-  }
+  }/* Vertical (top + bottom) */
 
-  .md\:/ Vertical (top + bottom)
-  .pv0 {
+  .md\:pv0 {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -18469,6 +19479,26 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .md\:hover\:rotate-315:hover {
     -webkit-transform: rotate(315deg);
             transform: rotate(315deg);
+  }
+
+  .md\:origin-top {
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+
+  .md\:origin-right {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+  }
+
+  .md\:origin-bottom {
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+
+  .md\:origin-left {
+    -webkit-transform-origin: left;
+            transform-origin: left;
   }
 
   .md\:black-90 {
@@ -19695,7 +20725,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *
   * White space
   *
-  */
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
 
   .md\:ws-normal {
     white-space: normal;
@@ -22038,7 +23072,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .lg\:shadow-none {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .lg\:focus\:shadow:focus {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -22063,7 +23118,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .lg\:focus\:shadow-none:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .lg\:hover\:shadow:hover {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -22088,7 +23164,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .lg\:hover\:shadow-none:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .lg\:object-center {
     background-repeat: no-repeat;
@@ -22325,66 +23422,205 @@ Adapted from: http://tachyons.io/docs/debug-grid/
        -moz-user-select: text;
         -ms-user-select: text;
             user-select: text;
+  }/* Column count */
+
+  .lg\:olumns-2 {
+    -webkit-column-count: 2;
+            column-count: 2;
   }
 
-  .lg\:aspect-ratio {
-    height: 0;
-    position: relative;
+  .lg\:olumns-3 {
+    -webkit-column-count: 3;
+            column-count: 3;
   }
 
-  .lg\:aspect-ratio--16x9 {
-    padding-bottom: 56.25%;
+  .lg\:olumns-4 {
+    -webkit-column-count: 4;
+            column-count: 4;
+  }/* Column width */
+
+  .lg\:column-w1 {
+    width: 1rem;
   }
 
-  .lg\:aspect-ratio--9x16 {
-    padding-bottom: 177.77%;
+  .lg\:column-w2 {
+    width: 2rem;
   }
 
-  .lg\:aspect-ratio--4x3 {
-    padding-bottom: 75%;
+  .lg\:column-w3 {
+    width: 4rem;
   }
 
-  .lg\:aspect-ratio--3x4 {
-    padding-bottom: 133.33%;
+  .lg\:column-w4 {
+    width: 8rem;
   }
 
-  .lg\:aspect-ratio--6x4 {
-    padding-bottom: 66.6%;
+  .lg\:column-w5 {
+    width: 16rem;
   }
 
-  .lg\:aspect-ratio--4x6 {
-    padding-bottom: 150%;
+  .lg\:column-w6 {
+    width: 32rem;
   }
 
-  .lg\:aspect-ratio--8x5 {
-    padding-bottom: 62.5%;
+  .lg\:column-w7 {
+    width: 48rem;
   }
 
-  .lg\:aspect-ratio--5x8 {
-    padding-bottom: 160%;
+  .lg\:column-w8 {
+    width: 64rem;
   }
 
-  .lg\:aspect-ratio--7x5 {
-    padding-bottom: 71.42%;
+  .lg\:column-w9 {
+    width: 96rem;
   }
 
-  .lg\:aspect-ratio--5x7 {
-    padding-bottom: 140%;
+  .lg\:column-w-10 {
+    width: 10%;
   }
 
-  .lg\:aspect-ratio--1x1 {
-    padding-bottom: 100%;
+  .lg\:column-w-20 {
+    width: 20%;
   }
 
-  .lg\:aspect-ratio--object {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
+  .lg\:column-w-25 {
+    width: 25%;
+  }
+
+  .lg\:column-w-30 {
+    width: 30%;
+  }
+
+  .lg\:column-w-40 {
+    width: 40%;
+  }
+
+  .lg\:column-w-50 {
+    width: 50%;
+  }
+
+  .lg\:column-w-60 {
+    width: 60%;
+  }
+
+  .lg\:column-w-70 {
+    width: 70%;
+  }
+
+  .lg\:column-w-75 {
+    width: 75%;
+  }
+
+  .lg\:column-w-80 {
+    width: 80%;
+  }
+
+  .lg\:column-w-90 {
+    width: 90%;
+  }
+
+  .lg\:column-w-100 {
     width: 100%;
-    height: 100%;
+  }
+
+  .lg\:column-w-third {
+    width: calc(100% / 3);
+  }
+
+  .lg\:column-w-two-thirds {
+    width: calc(100% / 1.5);
+  }/* Column gap */
+
+  .lg\:column-gap1 {
+    width: 1rem;
+  }
+
+  .lg\:column-gap2 {
+    width: 2rem;
+  }
+
+  .lg\:column-gap3 {
+    width: 4rem;
+  }
+
+  .lg\:column-gap4 {
+    width: 8rem;
+  }
+
+  .lg\:column-gap5 {
+    width: 16rem;
+  }
+
+  .lg\:column-gap6 {
+    width: 32rem;
+  }
+
+  .lg\:column-gap7 {
+    width: 48rem;
+  }
+
+  .lg\:column-gap8 {
+    width: 64rem;
+  }
+
+  .lg\:column-gap9 {
+    width: 96rem;
+  }
+
+  .lg\:column-gap-10 {
+    width: 10%;
+  }
+
+  .lg\:column-gap-20 {
+    width: 20%;
+  }
+
+  .lg\:column-gap-25 {
+    width: 25%;
+  }
+
+  .lg\:column-gap-30 {
+    width: 30%;
+  }
+
+  .lg\:column-gap-40 {
+    width: 40%;
+  }
+
+  .lg\:column-gap-50 {
+    width: 50%;
+  }
+
+  .lg\:column-gap-60 {
+    width: 60%;
+  }
+
+  .lg\:column-gap-70 {
+    width: 70%;
+  }
+
+  .lg\:column-gap-75 {
+    width: 75%;
+  }
+
+  .lg\:column-gap-80 {
+    width: 80%;
+  }
+
+  .lg\:column-gap-90 {
+    width: 90%;
+  }
+
+  .lg\:column-gap-100 {
+    width: 100%;
+  }
+
+  .lg\:column-gap-third {
+    width: calc(100% / 3);
+  }
+
+  .lg\:column-gap-two-thirds {
+    width: calc(100% / 1.5);
   }
 
   .lg\:dn {
@@ -23080,6 +24316,66 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .lg\:z-unset {
     z-index: unset;
+  }
+
+  .lg\:aspect-ratio {
+    height: 0;
+    position: relative;
+  }
+
+  .lg\:aspect-ratio--16x9 {
+    padding-bottom: 56.25%;
+  }
+
+  .lg\:aspect-ratio--9x16 {
+    padding-bottom: 177.77%;
+  }
+
+  .lg\:aspect-ratio--4x3 {
+    padding-bottom: 75%;
+  }
+
+  .lg\:aspect-ratio--3x4 {
+    padding-bottom: 133.33%;
+  }
+
+  .lg\:aspect-ratio--6x4 {
+    padding-bottom: 66.6%;
+  }
+
+  .lg\:aspect-ratio--4x6 {
+    padding-bottom: 150%;
+  }
+
+  .lg\:aspect-ratio--8x5 {
+    padding-bottom: 62.5%;
+  }
+
+  .lg\:aspect-ratio--5x8 {
+    padding-bottom: 160%;
+  }
+
+  .lg\:aspect-ratio--7x5 {
+    padding-bottom: 71.42%;
+  }
+
+  .lg\:aspect-ratio--5x7 {
+    padding-bottom: 140%;
+  }
+
+  .lg\:aspect-ratio--1x1 {
+    padding-bottom: 100%;
+  }
+
+  .lg\:aspect-ratio--object {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
   }
 
   .lg\:h1 {
@@ -24261,10 +25557,9 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .lg\:pl7 {
     padding-left: 16rem;
-  }
+  }/* Vertical (top + bottom) */
 
-  .lg\:/ Vertical (top + bottom)
-  .pv0 {
+  .lg\:pv0 {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -24471,6 +25766,26 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .lg\:hover\:rotate-315:hover {
     -webkit-transform: rotate(315deg);
             transform: rotate(315deg);
+  }
+
+  .lg\:origin-top {
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+
+  .lg\:origin-right {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+  }
+
+  .lg\:origin-bottom {
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+
+  .lg\:origin-left {
+    -webkit-transform-origin: left;
+            transform-origin: left;
   }
 
   .lg\:black-90 {
@@ -25697,7 +27012,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *
   * White space
   *
-  */
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
 
   .lg\:ws-normal {
     white-space: normal;
@@ -28040,7 +29359,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .xl\:shadow-none {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .xl\:focus\:shadow:focus {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -28065,7 +29405,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .xl\:focus\:shadow-none:focus {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .xl\:hover\:shadow:hover {
     -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
@@ -28090,7 +29451,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .xl\:hover\:shadow-none:hover {
     -webkit-box-shadow: none;
             box-shadow: none;
-  }
+  }/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
   .xl\:object-center {
     background-repeat: no-repeat;
@@ -28327,66 +29709,205 @@ Adapted from: http://tachyons.io/docs/debug-grid/
        -moz-user-select: text;
         -ms-user-select: text;
             user-select: text;
+  }/* Column count */
+
+  .xl\:olumns-2 {
+    -webkit-column-count: 2;
+            column-count: 2;
   }
 
-  .xl\:aspect-ratio {
-    height: 0;
-    position: relative;
+  .xl\:olumns-3 {
+    -webkit-column-count: 3;
+            column-count: 3;
   }
 
-  .xl\:aspect-ratio--16x9 {
-    padding-bottom: 56.25%;
+  .xl\:olumns-4 {
+    -webkit-column-count: 4;
+            column-count: 4;
+  }/* Column width */
+
+  .xl\:column-w1 {
+    width: 1rem;
   }
 
-  .xl\:aspect-ratio--9x16 {
-    padding-bottom: 177.77%;
+  .xl\:column-w2 {
+    width: 2rem;
   }
 
-  .xl\:aspect-ratio--4x3 {
-    padding-bottom: 75%;
+  .xl\:column-w3 {
+    width: 4rem;
   }
 
-  .xl\:aspect-ratio--3x4 {
-    padding-bottom: 133.33%;
+  .xl\:column-w4 {
+    width: 8rem;
   }
 
-  .xl\:aspect-ratio--6x4 {
-    padding-bottom: 66.6%;
+  .xl\:column-w5 {
+    width: 16rem;
   }
 
-  .xl\:aspect-ratio--4x6 {
-    padding-bottom: 150%;
+  .xl\:column-w6 {
+    width: 32rem;
   }
 
-  .xl\:aspect-ratio--8x5 {
-    padding-bottom: 62.5%;
+  .xl\:column-w7 {
+    width: 48rem;
   }
 
-  .xl\:aspect-ratio--5x8 {
-    padding-bottom: 160%;
+  .xl\:column-w8 {
+    width: 64rem;
   }
 
-  .xl\:aspect-ratio--7x5 {
-    padding-bottom: 71.42%;
+  .xl\:column-w9 {
+    width: 96rem;
   }
 
-  .xl\:aspect-ratio--5x7 {
-    padding-bottom: 140%;
+  .xl\:column-w-10 {
+    width: 10%;
   }
 
-  .xl\:aspect-ratio--1x1 {
-    padding-bottom: 100%;
+  .xl\:column-w-20 {
+    width: 20%;
   }
 
-  .xl\:aspect-ratio--object {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
+  .xl\:column-w-25 {
+    width: 25%;
+  }
+
+  .xl\:column-w-30 {
+    width: 30%;
+  }
+
+  .xl\:column-w-40 {
+    width: 40%;
+  }
+
+  .xl\:column-w-50 {
+    width: 50%;
+  }
+
+  .xl\:column-w-60 {
+    width: 60%;
+  }
+
+  .xl\:column-w-70 {
+    width: 70%;
+  }
+
+  .xl\:column-w-75 {
+    width: 75%;
+  }
+
+  .xl\:column-w-80 {
+    width: 80%;
+  }
+
+  .xl\:column-w-90 {
+    width: 90%;
+  }
+
+  .xl\:column-w-100 {
     width: 100%;
-    height: 100%;
+  }
+
+  .xl\:column-w-third {
+    width: calc(100% / 3);
+  }
+
+  .xl\:column-w-two-thirds {
+    width: calc(100% / 1.5);
+  }/* Column gap */
+
+  .xl\:column-gap1 {
+    width: 1rem;
+  }
+
+  .xl\:column-gap2 {
+    width: 2rem;
+  }
+
+  .xl\:column-gap3 {
+    width: 4rem;
+  }
+
+  .xl\:column-gap4 {
+    width: 8rem;
+  }
+
+  .xl\:column-gap5 {
+    width: 16rem;
+  }
+
+  .xl\:column-gap6 {
+    width: 32rem;
+  }
+
+  .xl\:column-gap7 {
+    width: 48rem;
+  }
+
+  .xl\:column-gap8 {
+    width: 64rem;
+  }
+
+  .xl\:column-gap9 {
+    width: 96rem;
+  }
+
+  .xl\:column-gap-10 {
+    width: 10%;
+  }
+
+  .xl\:column-gap-20 {
+    width: 20%;
+  }
+
+  .xl\:column-gap-25 {
+    width: 25%;
+  }
+
+  .xl\:column-gap-30 {
+    width: 30%;
+  }
+
+  .xl\:column-gap-40 {
+    width: 40%;
+  }
+
+  .xl\:column-gap-50 {
+    width: 50%;
+  }
+
+  .xl\:column-gap-60 {
+    width: 60%;
+  }
+
+  .xl\:column-gap-70 {
+    width: 70%;
+  }
+
+  .xl\:column-gap-75 {
+    width: 75%;
+  }
+
+  .xl\:column-gap-80 {
+    width: 80%;
+  }
+
+  .xl\:column-gap-90 {
+    width: 90%;
+  }
+
+  .xl\:column-gap-100 {
+    width: 100%;
+  }
+
+  .xl\:column-gap-third {
+    width: calc(100% / 3);
+  }
+
+  .xl\:column-gap-two-thirds {
+    width: calc(100% / 1.5);
   }
 
   .xl\:dn {
@@ -29082,6 +30603,66 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .xl\:z-unset {
     z-index: unset;
+  }
+
+  .xl\:aspect-ratio {
+    height: 0;
+    position: relative;
+  }
+
+  .xl\:aspect-ratio--16x9 {
+    padding-bottom: 56.25%;
+  }
+
+  .xl\:aspect-ratio--9x16 {
+    padding-bottom: 177.77%;
+  }
+
+  .xl\:aspect-ratio--4x3 {
+    padding-bottom: 75%;
+  }
+
+  .xl\:aspect-ratio--3x4 {
+    padding-bottom: 133.33%;
+  }
+
+  .xl\:aspect-ratio--6x4 {
+    padding-bottom: 66.6%;
+  }
+
+  .xl\:aspect-ratio--4x6 {
+    padding-bottom: 150%;
+  }
+
+  .xl\:aspect-ratio--8x5 {
+    padding-bottom: 62.5%;
+  }
+
+  .xl\:aspect-ratio--5x8 {
+    padding-bottom: 160%;
+  }
+
+  .xl\:aspect-ratio--7x5 {
+    padding-bottom: 71.42%;
+  }
+
+  .xl\:aspect-ratio--5x7 {
+    padding-bottom: 140%;
+  }
+
+  .xl\:aspect-ratio--1x1 {
+    padding-bottom: 100%;
+  }
+
+  .xl\:aspect-ratio--object {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
   }
 
   .xl\:h1 {
@@ -30263,10 +31844,9 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .xl\:pl7 {
     padding-left: 16rem;
-  }
+  }/* Vertical (top + bottom) */
 
-  .xl\:/ Vertical (top + bottom)
-  .pv0 {
+  .xl\:pv0 {
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -30473,6 +32053,26 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .xl\:hover\:rotate-315:hover {
     -webkit-transform: rotate(315deg);
             transform: rotate(315deg);
+  }
+
+  .xl\:origin-top {
+    -webkit-transform-origin: top;
+            transform-origin: top;
+  }
+
+  .xl\:origin-right {
+    -webkit-transform-origin: right;
+            transform-origin: right;
+  }
+
+  .xl\:origin-bottom {
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+
+  .xl\:origin-left {
+    -webkit-transform-origin: left;
+            transform-origin: left;
   }
 
   .xl\:black-90 {
@@ -31699,7 +33299,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *
   * White space
   *
-  */
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
 
   .xl\:ws-normal {
     white-space: normal;

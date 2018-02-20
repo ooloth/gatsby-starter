@@ -21,7 +21,6 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       config.loader(`css`, {
         test: /\.css$/,
         exclude: [
-          /src\/styles\/builds\/after-purgecss/,
           /src\/styles\/components/,
           /src\/styles\/fonts/,
           /src\/styles\/plugins/,

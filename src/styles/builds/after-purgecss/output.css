@@ -1,0 +1,2393 @@
+/*
+ *
+ * Base
+ *
+ */
+
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+      -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+footer,
+header {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+
+main {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+/**
+ * Hide the overflow in IE.
+ */
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+
+html [type="button"],
+
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+/**
+ * Add the correct display in IE.
+ */
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}
+
+/**
+ * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
+ * A thin layer on top of normalize.css that provides a starting point more
+ * suitable for web applications.
+ */
+
+/**
+ * 1. Prevent padding and border from affecting element width
+ * https://goo.gl/pYtbK7
+ * 2. Change the default font family in all browsers (opinionated)
+ */
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; /* 1 */
+  font-family: sans-serif; /* 2 */
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+/**
+ * Removes the default spacing and border for appropriate elements.
+ */
+
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ */
+
+/**
+ * Suppress the focus outline on elements that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+/**
+ * Tailwind custom reset styles
+ */
+
+*,
+*::before,
+*::after {
+  border-width: 0;
+  border-style: solid;
+  border-color: #dae1e7;
+}
+
+/**
+ * Temporary reset for a change introduced in Chrome 62 but now reverted.
+ *
+ * We can remove this when the reversion is in a normal Chrome release.
+ */
+
+
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  border-radius: 0;
+}
+
+
+[role=button] {
+  cursor: pointer;
+}
+
+/* 
+ *
+ * Reset Styles 
+ *
+ * 1. Body
+ * 2. Images
+ * 3. Links
+ * 4. Buttons
+ * 5. Lists
+ * 6. Forms
+ * 7. Tables
+ * 8. iOS issues
+ *
+ */
+
+/* 
+ *
+ * 1. Body 
+ * 
+ */
+
+html,
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Font-size */
+}
+
+@media (min-width: 36em) {
+  html,
+  body {
+    font-size: 1.05rem;
+  }
+}
+
+html,
+body {
+  /*
+ Font-smoothing
+ */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: "liga" on;
+}
+
+/* 
+ *
+ * 2. Images 
+ *
+ */
+
+/* If a 'width' and/or 'height'' attribute have been explicitly defined, don't make the image fluid: */
+
+/*
+ *
+ * 3. Links
+ *
+ */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*
+ *
+ * 4. Buttons
+ *
+ */
+
+/* This is not accessible (need to replace with a hover/focus style or other outline if I activate) */
+
+/* 
+button { outline: 0 }
+*/
+
+/*
+ *
+ * 5. Lists
+ *
+ */
+
+/* Remove trailing margins from nested lists: */
+
+/*
+ *
+ * 6. Forms
+ *
+ */
+
+/* Reset Chrome and Firefox behaviour which sets a 'min-width: min-content;' on fieldsets: */
+
+/*
+ *
+ * 7. Tables
+ *
+ */
+
+/*
+ *
+ * 8. iOS issues
+ *
+ */
+
+/* Remove tap highlight on iOS */
+
+/*
+input,
+textarea,
+button,
+select,
+label,
+a,
+ul { -webkit-tap-highlight-color: rgba(0,0,0,0) }
+*/
+
+/*
+
+@font-face {
+	font-family: 'Avenir Pro 45 Book';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Avenir Pro 45 Book'),
+		url('../fonts/Avenir-Pro-45-Book.woff2') format('woff2'),
+		url('../fonts/Avenir-Pro-45-Book.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Avenir Pro 85 Heavy';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Avenir Pro 85 Heavy'),
+		url('../fonts/Avenir-Pro-85-Heavy.woff2') format('woff2'),
+		url('../fonts/Avenir-Pro-85-Heavy.woff') format('woff');
+}
+
+*/
+
+/*
+ *
+ * Plugins
+ *
+ */
+
+/* @import './plugins/react-slick.css'; */
+
+/*
+ *
+ * New styles (TODO: add to Gatsby starter for future projects)
+ *
+ */
+
+/*
+
+NEW STYLES
+==========
+
+Add all new styles here (reset, plugin, utility, component) so they are easy to add to the Gatsby Starter project.
+
+*/
+
+/*
+ *
+ * Components
+ *
+ */
+
+/* 
+
+See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patterns-with-apply
+
+*/
+
+/* 
+ *
+ * Buttons
+ *
+ */
+
+/* 
+ *
+ * Containers
+ *
+ */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 64rem;
+}
+
+@media (min-width: 48em) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 62em) {
+  .container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@supports (display: grid) {
+  .container {
+    max-width: 96rem;
+  }
+}
+
+/* 
+ *
+ * Headings
+ *
+ */
+
+/* 
+ *
+ * Icons
+ *
+ */
+
+/* 
+ *
+ * Links
+ *
+ */
+
+.link {
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  border-width: .125rem;
+  border-color: #000;
+  background-color: #000;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #fff;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  border-radius: 30px;
+}
+
+.link:hover,
+.link:focus {
+  border-color: #ff80cc;
+  background-color: #ff80cc;
+  color: #000;
+}
+
+/* 
+ *
+ * Sections
+ *
+ */
+
+/*
+ *
+ * Supports
+ *
+ */
+
+/* 
+ * 
+ * Grid component classes (only applied if grid is supported)
+ *
+ * NOTE: reset margins and widths here (not using utilities) so these resets
+ * only kick in if the grid layout is supported
+ * 
+ */
+
+/* 
+ * 
+ * Hero
+ *
+ */
+
+@supports (display: grid) {
+}
+
+/*
+ *
+ * Utilities
+ *
+ */
+
+/* Animations */
+
+/* 
+ *
+ * Transitions
+ *
+ */
+
+/* 
+ *
+ * Ball Animations
+ *
+ */
+
+/*
+.anim-vertical
+  animation: anim-vertical 7s ease-in-out infinite alternate
+
+.anim-horizontal
+  animation: anim-horizontal 11s ease-in-out infinite alternate
+
+.anim-diagonal-right
+  animation: anim-diagonal-right 9s ease-in-out infinite alternate
+
+.anim-diagonal-left
+  animation: anim-diagonal-left 8s ease-in-out infinite alternate
+*/
+
+/* 
+ *
+ * Ball Keyframes
+ *
+ */
+
+/*
+@keyframes anim-vertical
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, 0, -80)
+
+@keyframes anim-horizontal
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, -80, 0)
+
+@keyframes anim-diagonal-right
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, 80, -80)
+
+@keyframes anim-diagonal-left
+  0%
+    transform: matrix(1, 0, 0, 1, 0, 0)
+  100%
+    transform: matrix(-1, 0, 0, -1, -80, -80)
+*/
+
+/* 
+ *
+ * Animation Delay (needs to come after all compound animation declarations)
+ *
+ */
+
+/* Backgrounds */
+
+/*
+
+BACKGROUND ATTACHMENT
+=====================
+
+Adapted from: https://tailwindcss.com/docs/background-attachment
+
+*/
+
+/*
+
+BACKGROUND COLOR
+================
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.css
+
+*/
+
+.bg-black {
+  background-color: #000;
+}
+
+/*
+
+BACKGROUND POSITION
+===================
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_background-position.css
+
+*/
+
+/*
+
+BACKGROUND REPEAT
+=================
+
+Uses !important to override the styles set in background-position.css
+
+Adapted from: https://tailwindcss.com/docs/background-repeat
+
+*/
+
+/*
+
+BACKGROUND SIZE
+===============
+
+Often used in combination with background image set as an inline style on an html element.
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_background-size.css
+
+*/
+
+/* Borders & outlines */
+
+/*
+
+BORDERS
+=======
+
+Adapted from: http://tachyons.io/docs/themes/borders/
+
+*/
+
+/*
+
+BORDER COLORS
+=============
+
+If you haven't declared a border color, but set border on an element, it will be set to the current text color. 
+
+These classes are for the cases where you desire for the text and border colors to be different.
+
+Adapted from: http://tachyons.io/docs/themes/borders/
+
+*/
+
+/*
+
+BORDER RADIUS
+=============
+
+Set the border radius amount and locations using separate classes.
+
+Adapted from: http://tachyons.io/docs/themes/border-radius/
+
+*/
+
+/*
+
+BORDER STYLE
+============
+
+Depends on base border module in borders.css.
+
+Adapted from: http://tachyons.io/docs/themes/borders/
+
+*/
+
+/*
+
+BORDER WIDTH
+============
+
+Import after borders.css to override border-width of 1px.
+
+Adapted from: http://tachyons.io/docs/themes/borders/
+
+*/
+
+/* Resets */
+
+/* Resets */
+
+/* Resets */
+
+/*
+
+OUTLINE
+=======
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_outlines.css
+
+*/
+
+/* Box shadow */
+
+/*
+
+BOX-SHADOW
+==========
+
+Adapted from: https://tailwindcss.com/docs/shadows
+
+*/
+
+.shadow-lg {
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
+
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
+
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
+
+/* CMS */
+
+/*
+
+CMS
+===
+
+Tachyons module for styling nested elements that are generated by a CMS.
+
+*/
+
+/* Images */
+
+/*
+
+OBJECT FIT
+==========
+
+Used to adapt inline images to their dimensions.
+
+*/
+
+/*
+
+OBJECT FIT
+==========
+
+Used to adapt inline images to their dimensions.
+
+*/
+
+/* Interactivity */
+
+/*
+
+CURSOR
+======
+
+Adapted from: 
+- https://tailwindcss.com/docs/cursor,
+- https://tailwindcss.com/docs/pointer-events,
+- https://tailwindcss.com/docs/user-select
+
+*/
+
+/* Cursor */
+
+/* Pointer events */
+
+/* User select */
+
+/* Cursor */
+
+/* Pointer events */
+
+/* User select */
+
+/* Cursor */
+
+/* Pointer events */
+
+/* User select */
+
+/*
+
+HIDE CHILD
+==========
+
+Hide child & reveal on hover.
+
+Put the hide-child class on a parent element and any nested element with the child class will be hidden and displayed on hover or focus.
+
+<div class="hide-child">
+  <div class="child"> Hidden until hover or focus </div>
+  <div class="child"> Hidden until hover or focus </div>
+  <div class="child"> Hidden until hover or focus </div>
+  <div class="child"> Hidden until hover or focus </div>
+</div>
+
+Adapted from: http://tachyons.io/docs/themes/hovers/,
+
+*/
+
+/* Layout */
+
+/*
+ *
+ * Column Count
+ *
+ */
+
+/* Column count */
+
+/* Column width */
+
+/* Column gap */
+
+/*
+ *
+ * Column Break
+ *
+ */
+
+/* 
+
+For more column break properties, see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Columns/Using_multi-column_layouts
+
+*/
+
+/*
+
+DISPLAY
+=======
+
+Adapted from: http://tachyons.io/docs/layout/display
+
+*/
+
+.dib {
+  display: inline-block;
+}
+
+/* Set table to full width (all cells will be equal width) */
+
+/*
+
+FLEXBOX
+=======
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.css
+
+*/
+
+/* 
+  *
+  * Flex container
+  *
+  */
+
+/*
+  *
+  * Flex item
+  *
+  */
+
+/* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
+
+/*
+
+FLOATS & CLEARFIX
+=================
+
+Don't forget to clearfix your floats with .cf.
+
+Adapted from: 
+- http://tachyons.io/docs/layout/floats/, 
+- http://tachyons.io/docs/layout/clearfix/,
+- http://nicolasgallagher.com/micro-clearfix-hack/
+
+*/
+
+/*
+
+POSITION
+========
+
+Adapted from: http://tachyons.io/docs/layout/position/
+
+*/
+
+/* Positive spacing */
+
+/* Negative spacing */
+
+/*
+
+Z-INDEX
+=======
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_z-index.css
+
+*/
+
+/* Sizing */
+
+/*
+
+ASPECT RATIOS
+=============
+
+This is for fluid media that is embedded from third party sites like YouTube, Vimeo etc.
+
+1. Add .aspect-ratio and the desired ratio class to the wrapping element
+2. Add .aspect-ratio--object to the wrapped element
+3. Make sure there are no height and width attributes on the wrapped element.
+
+Example:
+
+<div class="aspect-ratio aspect-ratio--16x9">
+  <iframe class="aspect-ratio--object"></iframe>
+</div>
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-ratios.css
+
+*/
+
+/*
+
+HEIGHTS
+=======
+
+Adapted from: http://tachyons.io/docs/layout/heights/
+   
+*/
+
+.h1 {
+  height: 1rem;
+}
+
+.h2 {
+  height: 2rem;
+}
+
+.h3 {
+  height: 4rem;
+}
+
+/* 
+  * 
+  * Percentage of parent height
+  *
+  */
+
+/* 
+  * 
+  * Percentage of viewport height
+  *
+  */
+
+/* 
+  * 
+  * Percentage of parent height
+  *
+  */
+
+/* 
+  * 
+  * Percentage of viewport height
+  *
+  */
+
+/* 
+  * 
+  * Percentage of parent height
+  *
+  */
+
+/* 
+  * 
+  * Percentage of viewport height
+  *
+  */
+
+/*
+
+OVERFLOW
+========
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow.csshttps://tailwindcss.com/docs/overflow
+
+ */
+
+/* Scrolling */
+
+/*
+
+WIDTH
+=====
+
+Adapted from: 
+- http://tachyons.io/docs/layout/widths/,
+- http://tachyons.io/docs/layout/max-widths/
+
+*/
+
+/* 
+  * 
+  * Percentage of parent width
+  *
+  */
+
+/* 
+  * 
+  * Percentage of viewport width
+  *
+  */
+
+/* Spacing */
+
+/*
+
+MARGINS
+=======
+
+Adapted from: http://tachyons.io/docs/layout/spacing/
+
+*/
+
+/* All */
+
+/* Top */
+
+/* Right */
+
+.mr-auto {
+  margin-right: auto;
+}
+
+/* Bottom */
+
+.mb3 {
+  margin-bottom: 1rem;
+}
+
+.mb4 {
+  margin-bottom: 2rem;
+}
+
+.mb5 {
+  margin-bottom: 4rem;
+}
+
+/* Left */
+
+.ml-auto {
+  margin-left: auto;
+}
+
+/* Vertical (top + bottom) */
+
+/* Horizontal (left + right) */
+
+/*
+
+NEGATIVE MARGINS
+================
+
+Adapted from: 
+- http://tachyons.io/docs/layout/spacing/
+- https://github.com/tachyons-css/tachyons/blob/master/src/_negative-margins.css
+
+*/
+
+/* All */
+
+/* Top */
+
+/* Right */
+
+/* Bottom */
+
+/* Left */
+
+/* Vertical (top + bottom) */
+
+/* Horizontal (left + right) */
+
+/*
+
+PADDING
+=======
+
+Adapted from: http://tachyons.io/docs/layout/spacing/
+
+*/
+
+/* All */
+
+.pa3 {
+  padding: 1rem;
+}
+
+/* Top */
+
+.pt3 {
+  padding-top: 1rem;
+}
+
+/* Right */
+
+/* Bottom */
+
+/* Left */
+
+/* Vertical (top + bottom) */
+
+.pv3 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.pv4 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Horizontal (left + right) */
+
+.ph3 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* SVG */
+
+/*
+
+SVG
+===
+
+Adapted from: https://tailwindcss.com/docs/svg
+
+*/
+
+/* Tables */
+
+/*
+
+TABLES
+======
+
+Adapted from: http://tachyons.io/docs/elements/tables/
+
+*/
+
+/* Transforms */
+
+/*
+
+ROTATIONS
+=========
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotations.css
+
+*/
+
+/* 
+ *
+ * Transform origin
+ *
+ */
+
+/* Typography */
+
+/*
+
+COLORS
+======
+
+Adapted from: http://tachyons.io/docs/themes/skins/
+
+*/
+
+.white {
+  color: #fff;
+}
+
+/*
+
+FONT FAMILY GROUPS
+==================
+
+Adapted from: 
+- http://tachyons.io/docs/typography/font-family/
+- https://tailwindcss.com/docs/fonts
+
+*/
+
+/*
+ *
+ * Monospace (for code) 
+ *
+ */
+
+/*
+ *
+ * Sans-serif
+ *
+ */
+
+/*
+ *
+ * Serif
+ *
+ */
+
+/*
+
+TYPE SCALE
+==========
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-scale.css
+
+*/
+
+.f1 {
+  font-size: 3rem;
+}
+
+.f2 {
+  font-size: 2.25rem;
+}
+
+.f3 {
+  font-size: 1.5rem;
+}
+
+/*
+
+FONT STYLE & DECORATION
+=======================
+
+Adapted from: 
+- http://tachyons.io/docs/typography/font-style/,
+- http://tachyons.io/docs/typography/text-decoration/,
+- http://tachyons.io/docs/typography/text-transform/
+
+*/
+
+/*
+  *
+  * Font style
+  *
+  */
+
+/*
+  *
+  * Text decoration
+  *
+  */
+
+/*
+  *
+  * Text transform
+  *
+  */
+
+/*
+  *
+  * Font style
+  *
+  */
+
+/*
+  *
+  * Text decoration
+  *
+  */
+
+/*
+  *
+  * Text transform
+  *
+  */
+
+/*
+  *
+  * Font style
+  *
+  */
+
+/*
+  *
+  * Text decoration
+  *
+  */
+
+/*
+  *
+  * Text transform
+  *
+  */
+
+/*
+
+FONT WEIGHT
+===========
+
+Adapted from: http://tachyons.io/docs/typography/font-weight/
+
+*/
+
+/*
+
+LETTER SPACING
+==============
+
+Adapted from: http://tachyons.io/docs/typography/tracking/
+
+*/
+
+/*
+
+LINE HEIGHT
+===========
+
+Adapted from: http://tachyons.io/docs/typography/line-height
+
+*/
+
+.lh-tall {
+  line-height: 1.7;
+}
+
+/*
+
+FONT-WRAPPING
+=============
+
+Adapted from: 
+- http://tachyons.io/docs/typography/measure/,
+- http://tachyons.io/docs/typography/white-space/,
+- https://tailwindcss.com/docs/whitespace-and-wrapping
+
+*/
+
+/*
+  *
+  * Line length
+  *
+  */
+
+.measure {
+  max-width: 66ch;
+}
+
+/*
+  *
+  * White space
+  *
+  */
+
+/* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*/
+
+/*
+  *
+  * Word break
+  *
+  */
+
+/*
+  *
+  * Truncation
+  *
+  */
+
+/* Combine with a width to truncate text, or leave as is to truncate at width of containing element. */
+
+/*
+  *
+  * Indentation
+  *
+  */
+
+/*
+
+TEXT ALIGN
+==========
+
+Adapted from: http://tachyons.io/docs/typography/text-align/
+
+*/
+
+.tc {
+  text-align: center;
+}
+
+/*
+
+VERTICAL ALIGN
+==============
+
+Adapted from: 
+- http://tachyons.io/docs/typography/vertical-align/,
+- https://tailwindcss.com/docs/vertical-alignment
+
+*/
+
+/* Visibility */
+
+/*
+
+OPACITY
+=======
+
+Adapted from: http://tachyons.io/docs/themes/opacity/
+
+*/
+
+/*
+
+VISIBILITY
+==========
+
+Adapted from:
+- https://tailwindcss.com/docs/visibility,
+- https://github.com/tachyons-css/tachyons/blob/master/src/_visibility.css
+
+*/
+
+/*
+
+Text that is hidden but accessible - see: http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+*/
+
+/* Variables (import here to override any variables above) */
+
+/*
+
+BACKGROUND COLOR
+================
+
+Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.css
+
+*/
+
+/* Breakpoints (adjust to match tailwind.js) */
+
+:root {
+  /* Type scale *//* Spacing scale *//* Sizing scale *//* Borders *//* Colors */
+}
+
+/* Debug */
+
+/*
+
+DEBUG CHILDREN
+==============
+
+Just add the debug class to any element to see outlines on its children.
+
+Adapted from: http://tachyons.io/docs/debug/
+
+*/
+
+/*
+
+DEBUG GRID
+==========
+
+Can be useful for debugging layout issues or helping to make sure things line up perfectly. Just tack one of these classes onto a parent element.
+
+Adapted from: http://tachyons.io/docs/debug-grid/
+
+*/
+
+/* @import './utilities/_debug'; */
+
+@media (min-width: 36em) {/* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+}
+
+@media (min-width: 48em) {/* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+}
+
+@media (min-width: 62em) {/* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+}
+
+@media (min-width: 75em) {/* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+}
