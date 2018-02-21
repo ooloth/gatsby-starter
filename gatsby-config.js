@@ -15,6 +15,22 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-accessibilityjs`,
+      options: {
+        injectStyles: false,
+        errorClassName: false,
+        onError: error => console.log(error)
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+      options: {
+        defaultSizes: `gzip`,
+        disable: true,
+        production: true
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,

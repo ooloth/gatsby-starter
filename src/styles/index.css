@@ -6,6 +6,7 @@
 
 @import './base/tailwind-preflight';
 @import './base/reset';
+@import './base/a11y';
 @import './base/font-face';
 
 /*

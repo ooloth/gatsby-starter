@@ -36,10 +36,13 @@
     "scrollreveal": "^3.3.6",
     "shortid": "^2.2.8",
     "slick-carousel": "^1.8.1",
-    "tailwindcss": "^0.4.1"
+    "tailwindcss": "^0.4.1",
+    "what-input": "^5.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
+    "gatsby-plugin-accessibilityjs": "^1.0.2",
+    "gatsby-plugin-webpack-bundle-analyzer": "^0.1.1",
     "postcss-cli": "^5.0.0",
     "precss": "^3.1.0",
     "purgecss": "^0.20.0"

@@ -52,7 +52,6 @@
 }
 
 .slick-dots > li > button {
-  outline: none;
   /* border: 3px solid pink; */
   border-radius: 100%;
   background-color: grey;

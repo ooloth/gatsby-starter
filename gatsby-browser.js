@@ -45,3 +45,6 @@ exports.onClientEntry = () => {
     objectFitImages()
   }
 }
+
+// A11Y: Detect keyboard vs. mouse vs. touch input
+exports.onInitialClientRender = () => require('what-input')
