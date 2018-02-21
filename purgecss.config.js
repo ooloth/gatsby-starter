@@ -12,6 +12,6 @@ module.exports = {
       extensions: ['html', 'js']
     }
   ],
-  // Whitelist plugin styles
+  // Add plugin prefixes here
   whitelistPatterns: [/body/, /slick/]
 }

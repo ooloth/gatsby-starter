@@ -798,7 +798,9 @@ ul { -webkit-tap-highlight-color: rgba(0,0,0,0) }
  *
  */
 
-/* @import './plugins/react-slick.css'; */
+/* @import '../../node_modules/slick-carousel/slick/slick.css'; */
+
+/* @import './plugins/react-slick'; */
 
 /*
  *
@@ -4782,6 +4784,458 @@ Adapted from: http://tachyons.io/docs/layout/position/
   left: -16rem;
 }
 
+/* Percentage spacing */
+
+.top-0 {
+  top: 0;
+}
+
+.top-10 {
+  top: 10%;
+}
+
+.top-15 {
+  top: 15%;
+}
+
+.top-20 {
+  top: 20%;
+}
+
+.top-25 {
+  top: 25%;
+}
+
+.top-30 {
+  top: 30%;
+}
+
+.top-40 {
+  top: 40%;
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.top-60 {
+  top: 60%;
+}
+
+.top-70 {
+  top: 70%;
+}
+
+.top-75 {
+  top: 75%;
+}
+
+.top-80 {
+  top: 80%;
+}
+
+.top-90 {
+  top: 90%;
+}
+
+.top-100 {
+  top: 100%;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.right-10 {
+  right: 10%;
+}
+
+.right-15 {
+  right: 15%;
+}
+
+.right-20 {
+  right: 20%;
+}
+
+.right-25 {
+  right: 25%;
+}
+
+.right-30 {
+  right: 30%;
+}
+
+.right-40 {
+  right: 40%;
+}
+
+.right-50 {
+  right: 50%;
+}
+
+.right-60 {
+  right: 60%;
+}
+
+.right-70 {
+  right: 70%;
+}
+
+.right-75 {
+  right: 75%;
+}
+
+.right-80 {
+  right: 80%;
+}
+
+.right-90 {
+  right: 90%;
+}
+
+.right-100 {
+  right: 100%;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.bottom-10 {
+  bottom: 10%;
+}
+
+.bottom-15 {
+  bottom: 15%;
+}
+
+.bottom-20 {
+  bottom: 20%;
+}
+
+.bottom-25 {
+  bottom: 25%;
+}
+
+.bottom-30 {
+  bottom: 30%;
+}
+
+.bottom-40 {
+  bottom: 40%;
+}
+
+.bottom-50 {
+  bottom: 50%;
+}
+
+.bottom-60 {
+  bottom: 60%;
+}
+
+.bottom-70 {
+  bottom: 70%;
+}
+
+.bottom-75 {
+  bottom: 75%;
+}
+
+.bottom-80 {
+  bottom: 80%;
+}
+
+.bottom-90 {
+  bottom: 90%;
+}
+
+.bottom-100 {
+  bottom: 100%;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.left-10 {
+  left: 10%;
+}
+
+.left-15 {
+  left: 15%;
+}
+
+.left-20 {
+  left: 20%;
+}
+
+.left-25 {
+  left: 25%;
+}
+
+.left-30 {
+  left: 30%;
+}
+
+.left-40 {
+  left: 40%;
+}
+
+.left-50 {
+  left: 50%;
+}
+
+.left-60 {
+  left: 60%;
+}
+
+.left-70 {
+  left: 70%;
+}
+
+.left-75 {
+  left: 75%;
+}
+
+.left-80 {
+  left: 80%;
+}
+
+.left-90 {
+  left: 90%;
+}
+
+.left-100 {
+  left: 100%;
+}
+
+/* Negative percentage spacing */
+
+.top--0 {
+  top: -0;
+}
+
+.top--10 {
+  top: -10%;
+}
+
+.top--15 {
+  top: -15%;
+}
+
+.top--20 {
+  top: -20%;
+}
+
+.top--25 {
+  top: -25%;
+}
+
+.top--30 {
+  top: -30%;
+}
+
+.top--40 {
+  top: -40%;
+}
+
+.top--50 {
+  top: -50%;
+}
+
+.top--60 {
+  top: -60%;
+}
+
+.top--70 {
+  top: -70%;
+}
+
+.top--75 {
+  top: -75%;
+}
+
+.top--80 {
+  top: -80%;
+}
+
+.top--90 {
+  top: -90%;
+}
+
+.top--100 {
+  top: -100%;
+}
+
+.right--0 {
+  right: -0;
+}
+
+.right--10 {
+  right: -10%;
+}
+
+.right--15 {
+  right: -15%;
+}
+
+.right--20 {
+  right: -20%;
+}
+
+.right--25 {
+  right: -25%;
+}
+
+.right--30 {
+  right: -30%;
+}
+
+.right--40 {
+  right: -40%;
+}
+
+.right--50 {
+  right: -50%;
+}
+
+.right--60 {
+  right: -60%;
+}
+
+.right--70 {
+  right: -70%;
+}
+
+.right--75 {
+  right: -75%;
+}
+
+.right--80 {
+  right: -80%;
+}
+
+.right--90 {
+  right: -90%;
+}
+
+.right--100 {
+  right: -100%;
+}
+
+.bottom--0 {
+  bottom: -0;
+}
+
+.bottom--10 {
+  bottom: -10%;
+}
+
+.bottom--15 {
+  bottom: -15%;
+}
+
+.bottom--20 {
+  bottom: -20%;
+}
+
+.bottom--25 {
+  bottom: -25%;
+}
+
+.bottom--30 {
+  bottom: -30%;
+}
+
+.bottom--40 {
+  bottom: -40%;
+}
+
+.bottom--50 {
+  bottom: -50%;
+}
+
+.bottom--60 {
+  bottom: -60%;
+}
+
+.bottom--70 {
+  bottom: -70%;
+}
+
+.bottom--75 {
+  bottom: -75%;
+}
+
+.bottom--80 {
+  bottom: -80%;
+}
+
+.bottom--90 {
+  bottom: -90%;
+}
+
+.bottom--100 {
+  bottom: -100%;
+}
+
+.left--0 {
+  left: -0;
+}
+
+.left--10 {
+  left: -10%;
+}
+
+.left--15 {
+  left: -15%;
+}
+
+.left--20 {
+  left: -20%;
+}
+
+.left--25 {
+  left: -25%;
+}
+
+.left--30 {
+  left: -30%;
+}
+
+.left--40 {
+  left: -40%;
+}
+
+.left--50 {
+  left: -50%;
+}
+
+.left--60 {
+  left: -60%;
+}
+
+.left--70 {
+  left: -70%;
+}
+
+.left--75 {
+  left: -75%;
+}
+
+.left--80 {
+  left: -80%;
+}
+
+.left--90 {
+  left: -90%;
+}
+
+.left--100 {
+  left: -100%;
+}
+
 /*
 
 Z-INDEX
@@ -4878,6 +5332,14 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-r
 .aspect-ratio {
   height: 0;
   position: relative;
+}
+
+.aspect-ratio--2x1 {
+  padding-bottom: 50%;
+}
+
+.aspect-ratio--1x2 {
+  padding-bottom: 200%;
 }
 
 .aspect-ratio--16x9 {
@@ -5314,6 +5776,10 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow
 }
 
 /* Scrolling */
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
 
 .scrolling-touch {
   -webkit-overflow-scrolling: touch;
@@ -7441,6 +7907,10 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
   font-size: 5rem;
 }
 
+.f-lead {
+  font-size: 1.125rem;
+}
+
 .focus\:f1:focus {
   font-size: 3rem;
 }
@@ -7489,6 +7959,10 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
   font-size: 5rem;
 }
 
+.focus\:f-lead:focus {
+  font-size: 1.125rem;
+}
+
 .hover\:f1:hover {
   font-size: 3rem;
 }
@@ -7535,6 +8009,10 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
 
 .hover\:f-subheadline:hover {
   font-size: 5rem;
+}
+
+.hover\:f-lead:hover {
+  font-size: 1.125rem;
 }
 
 /*
@@ -8435,7 +8913,7 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   background: white url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7) repeat top left;
 }
 
-/* @import './utilities/_debug'; */
+/* @import './utilities/debug'; */
 
 @media (min-width: 36em) {
   .sm\:bg-fixed {
@@ -11681,6 +12159,454 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:left--7 {
     left: -16rem;
+  }/* Percentage spacing */
+
+  .sm\:top-0 {
+    top: 0;
+  }
+
+  .sm\:top-10 {
+    top: 10%;
+  }
+
+  .sm\:top-15 {
+    top: 15%;
+  }
+
+  .sm\:top-20 {
+    top: 20%;
+  }
+
+  .sm\:top-25 {
+    top: 25%;
+  }
+
+  .sm\:top-30 {
+    top: 30%;
+  }
+
+  .sm\:top-40 {
+    top: 40%;
+  }
+
+  .sm\:top-50 {
+    top: 50%;
+  }
+
+  .sm\:top-60 {
+    top: 60%;
+  }
+
+  .sm\:top-70 {
+    top: 70%;
+  }
+
+  .sm\:top-75 {
+    top: 75%;
+  }
+
+  .sm\:top-80 {
+    top: 80%;
+  }
+
+  .sm\:top-90 {
+    top: 90%;
+  }
+
+  .sm\:top-100 {
+    top: 100%;
+  }
+
+  .sm\:right-0 {
+    right: 0;
+  }
+
+  .sm\:right-10 {
+    right: 10%;
+  }
+
+  .sm\:right-15 {
+    right: 15%;
+  }
+
+  .sm\:right-20 {
+    right: 20%;
+  }
+
+  .sm\:right-25 {
+    right: 25%;
+  }
+
+  .sm\:right-30 {
+    right: 30%;
+  }
+
+  .sm\:right-40 {
+    right: 40%;
+  }
+
+  .sm\:right-50 {
+    right: 50%;
+  }
+
+  .sm\:right-60 {
+    right: 60%;
+  }
+
+  .sm\:right-70 {
+    right: 70%;
+  }
+
+  .sm\:right-75 {
+    right: 75%;
+  }
+
+  .sm\:right-80 {
+    right: 80%;
+  }
+
+  .sm\:right-90 {
+    right: 90%;
+  }
+
+  .sm\:right-100 {
+    right: 100%;
+  }
+
+  .sm\:bottom-0 {
+    bottom: 0;
+  }
+
+  .sm\:bottom-10 {
+    bottom: 10%;
+  }
+
+  .sm\:bottom-15 {
+    bottom: 15%;
+  }
+
+  .sm\:bottom-20 {
+    bottom: 20%;
+  }
+
+  .sm\:bottom-25 {
+    bottom: 25%;
+  }
+
+  .sm\:bottom-30 {
+    bottom: 30%;
+  }
+
+  .sm\:bottom-40 {
+    bottom: 40%;
+  }
+
+  .sm\:bottom-50 {
+    bottom: 50%;
+  }
+
+  .sm\:bottom-60 {
+    bottom: 60%;
+  }
+
+  .sm\:bottom-70 {
+    bottom: 70%;
+  }
+
+  .sm\:bottom-75 {
+    bottom: 75%;
+  }
+
+  .sm\:bottom-80 {
+    bottom: 80%;
+  }
+
+  .sm\:bottom-90 {
+    bottom: 90%;
+  }
+
+  .sm\:bottom-100 {
+    bottom: 100%;
+  }
+
+  .sm\:left-0 {
+    left: 0;
+  }
+
+  .sm\:left-10 {
+    left: 10%;
+  }
+
+  .sm\:left-15 {
+    left: 15%;
+  }
+
+  .sm\:left-20 {
+    left: 20%;
+  }
+
+  .sm\:left-25 {
+    left: 25%;
+  }
+
+  .sm\:left-30 {
+    left: 30%;
+  }
+
+  .sm\:left-40 {
+    left: 40%;
+  }
+
+  .sm\:left-50 {
+    left: 50%;
+  }
+
+  .sm\:left-60 {
+    left: 60%;
+  }
+
+  .sm\:left-70 {
+    left: 70%;
+  }
+
+  .sm\:left-75 {
+    left: 75%;
+  }
+
+  .sm\:left-80 {
+    left: 80%;
+  }
+
+  .sm\:left-90 {
+    left: 90%;
+  }
+
+  .sm\:left-100 {
+    left: 100%;
+  }/* Negative percentage spacing */
+
+  .sm\:top--0 {
+    top: -0;
+  }
+
+  .sm\:top--10 {
+    top: -10%;
+  }
+
+  .sm\:top--15 {
+    top: -15%;
+  }
+
+  .sm\:top--20 {
+    top: -20%;
+  }
+
+  .sm\:top--25 {
+    top: -25%;
+  }
+
+  .sm\:top--30 {
+    top: -30%;
+  }
+
+  .sm\:top--40 {
+    top: -40%;
+  }
+
+  .sm\:top--50 {
+    top: -50%;
+  }
+
+  .sm\:top--60 {
+    top: -60%;
+  }
+
+  .sm\:top--70 {
+    top: -70%;
+  }
+
+  .sm\:top--75 {
+    top: -75%;
+  }
+
+  .sm\:top--80 {
+    top: -80%;
+  }
+
+  .sm\:top--90 {
+    top: -90%;
+  }
+
+  .sm\:top--100 {
+    top: -100%;
+  }
+
+  .sm\:right--0 {
+    right: -0;
+  }
+
+  .sm\:right--10 {
+    right: -10%;
+  }
+
+  .sm\:right--15 {
+    right: -15%;
+  }
+
+  .sm\:right--20 {
+    right: -20%;
+  }
+
+  .sm\:right--25 {
+    right: -25%;
+  }
+
+  .sm\:right--30 {
+    right: -30%;
+  }
+
+  .sm\:right--40 {
+    right: -40%;
+  }
+
+  .sm\:right--50 {
+    right: -50%;
+  }
+
+  .sm\:right--60 {
+    right: -60%;
+  }
+
+  .sm\:right--70 {
+    right: -70%;
+  }
+
+  .sm\:right--75 {
+    right: -75%;
+  }
+
+  .sm\:right--80 {
+    right: -80%;
+  }
+
+  .sm\:right--90 {
+    right: -90%;
+  }
+
+  .sm\:right--100 {
+    right: -100%;
+  }
+
+  .sm\:bottom--0 {
+    bottom: -0;
+  }
+
+  .sm\:bottom--10 {
+    bottom: -10%;
+  }
+
+  .sm\:bottom--15 {
+    bottom: -15%;
+  }
+
+  .sm\:bottom--20 {
+    bottom: -20%;
+  }
+
+  .sm\:bottom--25 {
+    bottom: -25%;
+  }
+
+  .sm\:bottom--30 {
+    bottom: -30%;
+  }
+
+  .sm\:bottom--40 {
+    bottom: -40%;
+  }
+
+  .sm\:bottom--50 {
+    bottom: -50%;
+  }
+
+  .sm\:bottom--60 {
+    bottom: -60%;
+  }
+
+  .sm\:bottom--70 {
+    bottom: -70%;
+  }
+
+  .sm\:bottom--75 {
+    bottom: -75%;
+  }
+
+  .sm\:bottom--80 {
+    bottom: -80%;
+  }
+
+  .sm\:bottom--90 {
+    bottom: -90%;
+  }
+
+  .sm\:bottom--100 {
+    bottom: -100%;
+  }
+
+  .sm\:left--0 {
+    left: -0;
+  }
+
+  .sm\:left--10 {
+    left: -10%;
+  }
+
+  .sm\:left--15 {
+    left: -15%;
+  }
+
+  .sm\:left--20 {
+    left: -20%;
+  }
+
+  .sm\:left--25 {
+    left: -25%;
+  }
+
+  .sm\:left--30 {
+    left: -30%;
+  }
+
+  .sm\:left--40 {
+    left: -40%;
+  }
+
+  .sm\:left--50 {
+    left: -50%;
+  }
+
+  .sm\:left--60 {
+    left: -60%;
+  }
+
+  .sm\:left--70 {
+    left: -70%;
+  }
+
+  .sm\:left--75 {
+    left: -75%;
+  }
+
+  .sm\:left--80 {
+    left: -80%;
+  }
+
+  .sm\:left--90 {
+    left: -90%;
+  }
+
+  .sm\:left--100 {
+    left: -100%;
   }
 
   .sm\:z--1 {
@@ -11747,6 +12673,14 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:aspect-ratio {
     height: 0;
     position: relative;
+  }
+
+  .sm\:aspect-ratio--2x1 {
+    padding-bottom: 50%;
+  }
+
+  .sm\:aspect-ratio--1x2 {
+    padding-bottom: 200%;
   }
 
   .sm\:aspect-ratio--16x9 {
@@ -13934,6 +14868,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     font-size: 5rem;
   }
 
+  .sm\:f-lead {
+    font-size: 1.125rem;
+  }
+
   .sm\:focus\:f1:focus {
     font-size: 3rem;
   }
@@ -13982,6 +14920,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     font-size: 5rem;
   }
 
+  .sm\:focus\:f-lead:focus {
+    font-size: 1.125rem;
+  }
+
   .sm\:hover\:f1:hover {
     font-size: 3rem;
   }
@@ -14028,6 +14970,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:hover\:f-subheadline:hover {
     font-size: 5rem;
+  }
+
+  .sm\:hover\:f-lead:hover {
+    font-size: 1.125rem;
   }/*
   *
   * Font style
@@ -17968,6 +18914,454 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:left--7 {
     left: -16rem;
+  }/* Percentage spacing */
+
+  .md\:top-0 {
+    top: 0;
+  }
+
+  .md\:top-10 {
+    top: 10%;
+  }
+
+  .md\:top-15 {
+    top: 15%;
+  }
+
+  .md\:top-20 {
+    top: 20%;
+  }
+
+  .md\:top-25 {
+    top: 25%;
+  }
+
+  .md\:top-30 {
+    top: 30%;
+  }
+
+  .md\:top-40 {
+    top: 40%;
+  }
+
+  .md\:top-50 {
+    top: 50%;
+  }
+
+  .md\:top-60 {
+    top: 60%;
+  }
+
+  .md\:top-70 {
+    top: 70%;
+  }
+
+  .md\:top-75 {
+    top: 75%;
+  }
+
+  .md\:top-80 {
+    top: 80%;
+  }
+
+  .md\:top-90 {
+    top: 90%;
+  }
+
+  .md\:top-100 {
+    top: 100%;
+  }
+
+  .md\:right-0 {
+    right: 0;
+  }
+
+  .md\:right-10 {
+    right: 10%;
+  }
+
+  .md\:right-15 {
+    right: 15%;
+  }
+
+  .md\:right-20 {
+    right: 20%;
+  }
+
+  .md\:right-25 {
+    right: 25%;
+  }
+
+  .md\:right-30 {
+    right: 30%;
+  }
+
+  .md\:right-40 {
+    right: 40%;
+  }
+
+  .md\:right-50 {
+    right: 50%;
+  }
+
+  .md\:right-60 {
+    right: 60%;
+  }
+
+  .md\:right-70 {
+    right: 70%;
+  }
+
+  .md\:right-75 {
+    right: 75%;
+  }
+
+  .md\:right-80 {
+    right: 80%;
+  }
+
+  .md\:right-90 {
+    right: 90%;
+  }
+
+  .md\:right-100 {
+    right: 100%;
+  }
+
+  .md\:bottom-0 {
+    bottom: 0;
+  }
+
+  .md\:bottom-10 {
+    bottom: 10%;
+  }
+
+  .md\:bottom-15 {
+    bottom: 15%;
+  }
+
+  .md\:bottom-20 {
+    bottom: 20%;
+  }
+
+  .md\:bottom-25 {
+    bottom: 25%;
+  }
+
+  .md\:bottom-30 {
+    bottom: 30%;
+  }
+
+  .md\:bottom-40 {
+    bottom: 40%;
+  }
+
+  .md\:bottom-50 {
+    bottom: 50%;
+  }
+
+  .md\:bottom-60 {
+    bottom: 60%;
+  }
+
+  .md\:bottom-70 {
+    bottom: 70%;
+  }
+
+  .md\:bottom-75 {
+    bottom: 75%;
+  }
+
+  .md\:bottom-80 {
+    bottom: 80%;
+  }
+
+  .md\:bottom-90 {
+    bottom: 90%;
+  }
+
+  .md\:bottom-100 {
+    bottom: 100%;
+  }
+
+  .md\:left-0 {
+    left: 0;
+  }
+
+  .md\:left-10 {
+    left: 10%;
+  }
+
+  .md\:left-15 {
+    left: 15%;
+  }
+
+  .md\:left-20 {
+    left: 20%;
+  }
+
+  .md\:left-25 {
+    left: 25%;
+  }
+
+  .md\:left-30 {
+    left: 30%;
+  }
+
+  .md\:left-40 {
+    left: 40%;
+  }
+
+  .md\:left-50 {
+    left: 50%;
+  }
+
+  .md\:left-60 {
+    left: 60%;
+  }
+
+  .md\:left-70 {
+    left: 70%;
+  }
+
+  .md\:left-75 {
+    left: 75%;
+  }
+
+  .md\:left-80 {
+    left: 80%;
+  }
+
+  .md\:left-90 {
+    left: 90%;
+  }
+
+  .md\:left-100 {
+    left: 100%;
+  }/* Negative percentage spacing */
+
+  .md\:top--0 {
+    top: -0;
+  }
+
+  .md\:top--10 {
+    top: -10%;
+  }
+
+  .md\:top--15 {
+    top: -15%;
+  }
+
+  .md\:top--20 {
+    top: -20%;
+  }
+
+  .md\:top--25 {
+    top: -25%;
+  }
+
+  .md\:top--30 {
+    top: -30%;
+  }
+
+  .md\:top--40 {
+    top: -40%;
+  }
+
+  .md\:top--50 {
+    top: -50%;
+  }
+
+  .md\:top--60 {
+    top: -60%;
+  }
+
+  .md\:top--70 {
+    top: -70%;
+  }
+
+  .md\:top--75 {
+    top: -75%;
+  }
+
+  .md\:top--80 {
+    top: -80%;
+  }
+
+  .md\:top--90 {
+    top: -90%;
+  }
+
+  .md\:top--100 {
+    top: -100%;
+  }
+
+  .md\:right--0 {
+    right: -0;
+  }
+
+  .md\:right--10 {
+    right: -10%;
+  }
+
+  .md\:right--15 {
+    right: -15%;
+  }
+
+  .md\:right--20 {
+    right: -20%;
+  }
+
+  .md\:right--25 {
+    right: -25%;
+  }
+
+  .md\:right--30 {
+    right: -30%;
+  }
+
+  .md\:right--40 {
+    right: -40%;
+  }
+
+  .md\:right--50 {
+    right: -50%;
+  }
+
+  .md\:right--60 {
+    right: -60%;
+  }
+
+  .md\:right--70 {
+    right: -70%;
+  }
+
+  .md\:right--75 {
+    right: -75%;
+  }
+
+  .md\:right--80 {
+    right: -80%;
+  }
+
+  .md\:right--90 {
+    right: -90%;
+  }
+
+  .md\:right--100 {
+    right: -100%;
+  }
+
+  .md\:bottom--0 {
+    bottom: -0;
+  }
+
+  .md\:bottom--10 {
+    bottom: -10%;
+  }
+
+  .md\:bottom--15 {
+    bottom: -15%;
+  }
+
+  .md\:bottom--20 {
+    bottom: -20%;
+  }
+
+  .md\:bottom--25 {
+    bottom: -25%;
+  }
+
+  .md\:bottom--30 {
+    bottom: -30%;
+  }
+
+  .md\:bottom--40 {
+    bottom: -40%;
+  }
+
+  .md\:bottom--50 {
+    bottom: -50%;
+  }
+
+  .md\:bottom--60 {
+    bottom: -60%;
+  }
+
+  .md\:bottom--70 {
+    bottom: -70%;
+  }
+
+  .md\:bottom--75 {
+    bottom: -75%;
+  }
+
+  .md\:bottom--80 {
+    bottom: -80%;
+  }
+
+  .md\:bottom--90 {
+    bottom: -90%;
+  }
+
+  .md\:bottom--100 {
+    bottom: -100%;
+  }
+
+  .md\:left--0 {
+    left: -0;
+  }
+
+  .md\:left--10 {
+    left: -10%;
+  }
+
+  .md\:left--15 {
+    left: -15%;
+  }
+
+  .md\:left--20 {
+    left: -20%;
+  }
+
+  .md\:left--25 {
+    left: -25%;
+  }
+
+  .md\:left--30 {
+    left: -30%;
+  }
+
+  .md\:left--40 {
+    left: -40%;
+  }
+
+  .md\:left--50 {
+    left: -50%;
+  }
+
+  .md\:left--60 {
+    left: -60%;
+  }
+
+  .md\:left--70 {
+    left: -70%;
+  }
+
+  .md\:left--75 {
+    left: -75%;
+  }
+
+  .md\:left--80 {
+    left: -80%;
+  }
+
+  .md\:left--90 {
+    left: -90%;
+  }
+
+  .md\:left--100 {
+    left: -100%;
   }
 
   .md\:z--1 {
@@ -18034,6 +19428,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:aspect-ratio {
     height: 0;
     position: relative;
+  }
+
+  .md\:aspect-ratio--2x1 {
+    padding-bottom: 50%;
+  }
+
+  .md\:aspect-ratio--1x2 {
+    padding-bottom: 200%;
   }
 
   .md\:aspect-ratio--16x9 {
@@ -20221,6 +21623,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     font-size: 5rem;
   }
 
+  .md\:f-lead {
+    font-size: 1.125rem;
+  }
+
   .md\:focus\:f1:focus {
     font-size: 3rem;
   }
@@ -20269,6 +21675,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     font-size: 5rem;
   }
 
+  .md\:focus\:f-lead:focus {
+    font-size: 1.125rem;
+  }
+
   .md\:hover\:f1:hover {
     font-size: 3rem;
   }
@@ -20315,6 +21725,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:hover\:f-subheadline:hover {
     font-size: 5rem;
+  }
+
+  .md\:hover\:f-lead:hover {
+    font-size: 1.125rem;
   }/*
   *
   * Font style
@@ -24255,6 +25669,454 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:left--7 {
     left: -16rem;
+  }/* Percentage spacing */
+
+  .lg\:top-0 {
+    top: 0;
+  }
+
+  .lg\:top-10 {
+    top: 10%;
+  }
+
+  .lg\:top-15 {
+    top: 15%;
+  }
+
+  .lg\:top-20 {
+    top: 20%;
+  }
+
+  .lg\:top-25 {
+    top: 25%;
+  }
+
+  .lg\:top-30 {
+    top: 30%;
+  }
+
+  .lg\:top-40 {
+    top: 40%;
+  }
+
+  .lg\:top-50 {
+    top: 50%;
+  }
+
+  .lg\:top-60 {
+    top: 60%;
+  }
+
+  .lg\:top-70 {
+    top: 70%;
+  }
+
+  .lg\:top-75 {
+    top: 75%;
+  }
+
+  .lg\:top-80 {
+    top: 80%;
+  }
+
+  .lg\:top-90 {
+    top: 90%;
+  }
+
+  .lg\:top-100 {
+    top: 100%;
+  }
+
+  .lg\:right-0 {
+    right: 0;
+  }
+
+  .lg\:right-10 {
+    right: 10%;
+  }
+
+  .lg\:right-15 {
+    right: 15%;
+  }
+
+  .lg\:right-20 {
+    right: 20%;
+  }
+
+  .lg\:right-25 {
+    right: 25%;
+  }
+
+  .lg\:right-30 {
+    right: 30%;
+  }
+
+  .lg\:right-40 {
+    right: 40%;
+  }
+
+  .lg\:right-50 {
+    right: 50%;
+  }
+
+  .lg\:right-60 {
+    right: 60%;
+  }
+
+  .lg\:right-70 {
+    right: 70%;
+  }
+
+  .lg\:right-75 {
+    right: 75%;
+  }
+
+  .lg\:right-80 {
+    right: 80%;
+  }
+
+  .lg\:right-90 {
+    right: 90%;
+  }
+
+  .lg\:right-100 {
+    right: 100%;
+  }
+
+  .lg\:bottom-0 {
+    bottom: 0;
+  }
+
+  .lg\:bottom-10 {
+    bottom: 10%;
+  }
+
+  .lg\:bottom-15 {
+    bottom: 15%;
+  }
+
+  .lg\:bottom-20 {
+    bottom: 20%;
+  }
+
+  .lg\:bottom-25 {
+    bottom: 25%;
+  }
+
+  .lg\:bottom-30 {
+    bottom: 30%;
+  }
+
+  .lg\:bottom-40 {
+    bottom: 40%;
+  }
+
+  .lg\:bottom-50 {
+    bottom: 50%;
+  }
+
+  .lg\:bottom-60 {
+    bottom: 60%;
+  }
+
+  .lg\:bottom-70 {
+    bottom: 70%;
+  }
+
+  .lg\:bottom-75 {
+    bottom: 75%;
+  }
+
+  .lg\:bottom-80 {
+    bottom: 80%;
+  }
+
+  .lg\:bottom-90 {
+    bottom: 90%;
+  }
+
+  .lg\:bottom-100 {
+    bottom: 100%;
+  }
+
+  .lg\:left-0 {
+    left: 0;
+  }
+
+  .lg\:left-10 {
+    left: 10%;
+  }
+
+  .lg\:left-15 {
+    left: 15%;
+  }
+
+  .lg\:left-20 {
+    left: 20%;
+  }
+
+  .lg\:left-25 {
+    left: 25%;
+  }
+
+  .lg\:left-30 {
+    left: 30%;
+  }
+
+  .lg\:left-40 {
+    left: 40%;
+  }
+
+  .lg\:left-50 {
+    left: 50%;
+  }
+
+  .lg\:left-60 {
+    left: 60%;
+  }
+
+  .lg\:left-70 {
+    left: 70%;
+  }
+
+  .lg\:left-75 {
+    left: 75%;
+  }
+
+  .lg\:left-80 {
+    left: 80%;
+  }
+
+  .lg\:left-90 {
+    left: 90%;
+  }
+
+  .lg\:left-100 {
+    left: 100%;
+  }/* Negative percentage spacing */
+
+  .lg\:top--0 {
+    top: -0;
+  }
+
+  .lg\:top--10 {
+    top: -10%;
+  }
+
+  .lg\:top--15 {
+    top: -15%;
+  }
+
+  .lg\:top--20 {
+    top: -20%;
+  }
+
+  .lg\:top--25 {
+    top: -25%;
+  }
+
+  .lg\:top--30 {
+    top: -30%;
+  }
+
+  .lg\:top--40 {
+    top: -40%;
+  }
+
+  .lg\:top--50 {
+    top: -50%;
+  }
+
+  .lg\:top--60 {
+    top: -60%;
+  }
+
+  .lg\:top--70 {
+    top: -70%;
+  }
+
+  .lg\:top--75 {
+    top: -75%;
+  }
+
+  .lg\:top--80 {
+    top: -80%;
+  }
+
+  .lg\:top--90 {
+    top: -90%;
+  }
+
+  .lg\:top--100 {
+    top: -100%;
+  }
+
+  .lg\:right--0 {
+    right: -0;
+  }
+
+  .lg\:right--10 {
+    right: -10%;
+  }
+
+  .lg\:right--15 {
+    right: -15%;
+  }
+
+  .lg\:right--20 {
+    right: -20%;
+  }
+
+  .lg\:right--25 {
+    right: -25%;
+  }
+
+  .lg\:right--30 {
+    right: -30%;
+  }
+
+  .lg\:right--40 {
+    right: -40%;
+  }
+
+  .lg\:right--50 {
+    right: -50%;
+  }
+
+  .lg\:right--60 {
+    right: -60%;
+  }
+
+  .lg\:right--70 {
+    right: -70%;
+  }
+
+  .lg\:right--75 {
+    right: -75%;
+  }
+
+  .lg\:right--80 {
+    right: -80%;
+  }
+
+  .lg\:right--90 {
+    right: -90%;
+  }
+
+  .lg\:right--100 {
+    right: -100%;
+  }
+
+  .lg\:bottom--0 {
+    bottom: -0;
+  }
+
+  .lg\:bottom--10 {
+    bottom: -10%;
+  }
+
+  .lg\:bottom--15 {
+    bottom: -15%;
+  }
+
+  .lg\:bottom--20 {
+    bottom: -20%;
+  }
+
+  .lg\:bottom--25 {
+    bottom: -25%;
+  }
+
+  .lg\:bottom--30 {
+    bottom: -30%;
+  }
+
+  .lg\:bottom--40 {
+    bottom: -40%;
+  }
+
+  .lg\:bottom--50 {
+    bottom: -50%;
+  }
+
+  .lg\:bottom--60 {
+    bottom: -60%;
+  }
+
+  .lg\:bottom--70 {
+    bottom: -70%;
+  }
+
+  .lg\:bottom--75 {
+    bottom: -75%;
+  }
+
+  .lg\:bottom--80 {
+    bottom: -80%;
+  }
+
+  .lg\:bottom--90 {
+    bottom: -90%;
+  }
+
+  .lg\:bottom--100 {
+    bottom: -100%;
+  }
+
+  .lg\:left--0 {
+    left: -0;
+  }
+
+  .lg\:left--10 {
+    left: -10%;
+  }
+
+  .lg\:left--15 {
+    left: -15%;
+  }
+
+  .lg\:left--20 {
+    left: -20%;
+  }
+
+  .lg\:left--25 {
+    left: -25%;
+  }
+
+  .lg\:left--30 {
+    left: -30%;
+  }
+
+  .lg\:left--40 {
+    left: -40%;
+  }
+
+  .lg\:left--50 {
+    left: -50%;
+  }
+
+  .lg\:left--60 {
+    left: -60%;
+  }
+
+  .lg\:left--70 {
+    left: -70%;
+  }
+
+  .lg\:left--75 {
+    left: -75%;
+  }
+
+  .lg\:left--80 {
+    left: -80%;
+  }
+
+  .lg\:left--90 {
+    left: -90%;
+  }
+
+  .lg\:left--100 {
+    left: -100%;
   }
 
   .lg\:z--1 {
@@ -24321,6 +26183,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:aspect-ratio {
     height: 0;
     position: relative;
+  }
+
+  .lg\:aspect-ratio--2x1 {
+    padding-bottom: 50%;
+  }
+
+  .lg\:aspect-ratio--1x2 {
+    padding-bottom: 200%;
   }
 
   .lg\:aspect-ratio--16x9 {
@@ -26508,6 +28378,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     font-size: 5rem;
   }
 
+  .lg\:f-lead {
+    font-size: 1.125rem;
+  }
+
   .lg\:focus\:f1:focus {
     font-size: 3rem;
   }
@@ -26556,6 +28430,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     font-size: 5rem;
   }
 
+  .lg\:focus\:f-lead:focus {
+    font-size: 1.125rem;
+  }
+
   .lg\:hover\:f1:hover {
     font-size: 3rem;
   }
@@ -26602,6 +28480,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:hover\:f-subheadline:hover {
     font-size: 5rem;
+  }
+
+  .lg\:hover\:f-lead:hover {
+    font-size: 1.125rem;
   }/*
   *
   * Font style
@@ -30542,6 +32424,454 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:left--7 {
     left: -16rem;
+  }/* Percentage spacing */
+
+  .xl\:top-0 {
+    top: 0;
+  }
+
+  .xl\:top-10 {
+    top: 10%;
+  }
+
+  .xl\:top-15 {
+    top: 15%;
+  }
+
+  .xl\:top-20 {
+    top: 20%;
+  }
+
+  .xl\:top-25 {
+    top: 25%;
+  }
+
+  .xl\:top-30 {
+    top: 30%;
+  }
+
+  .xl\:top-40 {
+    top: 40%;
+  }
+
+  .xl\:top-50 {
+    top: 50%;
+  }
+
+  .xl\:top-60 {
+    top: 60%;
+  }
+
+  .xl\:top-70 {
+    top: 70%;
+  }
+
+  .xl\:top-75 {
+    top: 75%;
+  }
+
+  .xl\:top-80 {
+    top: 80%;
+  }
+
+  .xl\:top-90 {
+    top: 90%;
+  }
+
+  .xl\:top-100 {
+    top: 100%;
+  }
+
+  .xl\:right-0 {
+    right: 0;
+  }
+
+  .xl\:right-10 {
+    right: 10%;
+  }
+
+  .xl\:right-15 {
+    right: 15%;
+  }
+
+  .xl\:right-20 {
+    right: 20%;
+  }
+
+  .xl\:right-25 {
+    right: 25%;
+  }
+
+  .xl\:right-30 {
+    right: 30%;
+  }
+
+  .xl\:right-40 {
+    right: 40%;
+  }
+
+  .xl\:right-50 {
+    right: 50%;
+  }
+
+  .xl\:right-60 {
+    right: 60%;
+  }
+
+  .xl\:right-70 {
+    right: 70%;
+  }
+
+  .xl\:right-75 {
+    right: 75%;
+  }
+
+  .xl\:right-80 {
+    right: 80%;
+  }
+
+  .xl\:right-90 {
+    right: 90%;
+  }
+
+  .xl\:right-100 {
+    right: 100%;
+  }
+
+  .xl\:bottom-0 {
+    bottom: 0;
+  }
+
+  .xl\:bottom-10 {
+    bottom: 10%;
+  }
+
+  .xl\:bottom-15 {
+    bottom: 15%;
+  }
+
+  .xl\:bottom-20 {
+    bottom: 20%;
+  }
+
+  .xl\:bottom-25 {
+    bottom: 25%;
+  }
+
+  .xl\:bottom-30 {
+    bottom: 30%;
+  }
+
+  .xl\:bottom-40 {
+    bottom: 40%;
+  }
+
+  .xl\:bottom-50 {
+    bottom: 50%;
+  }
+
+  .xl\:bottom-60 {
+    bottom: 60%;
+  }
+
+  .xl\:bottom-70 {
+    bottom: 70%;
+  }
+
+  .xl\:bottom-75 {
+    bottom: 75%;
+  }
+
+  .xl\:bottom-80 {
+    bottom: 80%;
+  }
+
+  .xl\:bottom-90 {
+    bottom: 90%;
+  }
+
+  .xl\:bottom-100 {
+    bottom: 100%;
+  }
+
+  .xl\:left-0 {
+    left: 0;
+  }
+
+  .xl\:left-10 {
+    left: 10%;
+  }
+
+  .xl\:left-15 {
+    left: 15%;
+  }
+
+  .xl\:left-20 {
+    left: 20%;
+  }
+
+  .xl\:left-25 {
+    left: 25%;
+  }
+
+  .xl\:left-30 {
+    left: 30%;
+  }
+
+  .xl\:left-40 {
+    left: 40%;
+  }
+
+  .xl\:left-50 {
+    left: 50%;
+  }
+
+  .xl\:left-60 {
+    left: 60%;
+  }
+
+  .xl\:left-70 {
+    left: 70%;
+  }
+
+  .xl\:left-75 {
+    left: 75%;
+  }
+
+  .xl\:left-80 {
+    left: 80%;
+  }
+
+  .xl\:left-90 {
+    left: 90%;
+  }
+
+  .xl\:left-100 {
+    left: 100%;
+  }/* Negative percentage spacing */
+
+  .xl\:top--0 {
+    top: -0;
+  }
+
+  .xl\:top--10 {
+    top: -10%;
+  }
+
+  .xl\:top--15 {
+    top: -15%;
+  }
+
+  .xl\:top--20 {
+    top: -20%;
+  }
+
+  .xl\:top--25 {
+    top: -25%;
+  }
+
+  .xl\:top--30 {
+    top: -30%;
+  }
+
+  .xl\:top--40 {
+    top: -40%;
+  }
+
+  .xl\:top--50 {
+    top: -50%;
+  }
+
+  .xl\:top--60 {
+    top: -60%;
+  }
+
+  .xl\:top--70 {
+    top: -70%;
+  }
+
+  .xl\:top--75 {
+    top: -75%;
+  }
+
+  .xl\:top--80 {
+    top: -80%;
+  }
+
+  .xl\:top--90 {
+    top: -90%;
+  }
+
+  .xl\:top--100 {
+    top: -100%;
+  }
+
+  .xl\:right--0 {
+    right: -0;
+  }
+
+  .xl\:right--10 {
+    right: -10%;
+  }
+
+  .xl\:right--15 {
+    right: -15%;
+  }
+
+  .xl\:right--20 {
+    right: -20%;
+  }
+
+  .xl\:right--25 {
+    right: -25%;
+  }
+
+  .xl\:right--30 {
+    right: -30%;
+  }
+
+  .xl\:right--40 {
+    right: -40%;
+  }
+
+  .xl\:right--50 {
+    right: -50%;
+  }
+
+  .xl\:right--60 {
+    right: -60%;
+  }
+
+  .xl\:right--70 {
+    right: -70%;
+  }
+
+  .xl\:right--75 {
+    right: -75%;
+  }
+
+  .xl\:right--80 {
+    right: -80%;
+  }
+
+  .xl\:right--90 {
+    right: -90%;
+  }
+
+  .xl\:right--100 {
+    right: -100%;
+  }
+
+  .xl\:bottom--0 {
+    bottom: -0;
+  }
+
+  .xl\:bottom--10 {
+    bottom: -10%;
+  }
+
+  .xl\:bottom--15 {
+    bottom: -15%;
+  }
+
+  .xl\:bottom--20 {
+    bottom: -20%;
+  }
+
+  .xl\:bottom--25 {
+    bottom: -25%;
+  }
+
+  .xl\:bottom--30 {
+    bottom: -30%;
+  }
+
+  .xl\:bottom--40 {
+    bottom: -40%;
+  }
+
+  .xl\:bottom--50 {
+    bottom: -50%;
+  }
+
+  .xl\:bottom--60 {
+    bottom: -60%;
+  }
+
+  .xl\:bottom--70 {
+    bottom: -70%;
+  }
+
+  .xl\:bottom--75 {
+    bottom: -75%;
+  }
+
+  .xl\:bottom--80 {
+    bottom: -80%;
+  }
+
+  .xl\:bottom--90 {
+    bottom: -90%;
+  }
+
+  .xl\:bottom--100 {
+    bottom: -100%;
+  }
+
+  .xl\:left--0 {
+    left: -0;
+  }
+
+  .xl\:left--10 {
+    left: -10%;
+  }
+
+  .xl\:left--15 {
+    left: -15%;
+  }
+
+  .xl\:left--20 {
+    left: -20%;
+  }
+
+  .xl\:left--25 {
+    left: -25%;
+  }
+
+  .xl\:left--30 {
+    left: -30%;
+  }
+
+  .xl\:left--40 {
+    left: -40%;
+  }
+
+  .xl\:left--50 {
+    left: -50%;
+  }
+
+  .xl\:left--60 {
+    left: -60%;
+  }
+
+  .xl\:left--70 {
+    left: -70%;
+  }
+
+  .xl\:left--75 {
+    left: -75%;
+  }
+
+  .xl\:left--80 {
+    left: -80%;
+  }
+
+  .xl\:left--90 {
+    left: -90%;
+  }
+
+  .xl\:left--100 {
+    left: -100%;
   }
 
   .xl\:z--1 {
@@ -30608,6 +32938,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:aspect-ratio {
     height: 0;
     position: relative;
+  }
+
+  .xl\:aspect-ratio--2x1 {
+    padding-bottom: 50%;
+  }
+
+  .xl\:aspect-ratio--1x2 {
+    padding-bottom: 200%;
   }
 
   .xl\:aspect-ratio--16x9 {
@@ -32795,6 +35133,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     font-size: 5rem;
   }
 
+  .xl\:f-lead {
+    font-size: 1.125rem;
+  }
+
   .xl\:focus\:f1:focus {
     font-size: 3rem;
   }
@@ -32843,6 +35185,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     font-size: 5rem;
   }
 
+  .xl\:focus\:f-lead:focus {
+    font-size: 1.125rem;
+  }
+
   .xl\:hover\:f1:hover {
     font-size: 3rem;
   }
@@ -32889,6 +35235,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:hover\:f-subheadline:hover {
     font-size: 5rem;
+  }
+
+  .xl\:hover\:f-lead:hover {
+    font-size: 1.125rem;
   }/*
   *
   * Font style

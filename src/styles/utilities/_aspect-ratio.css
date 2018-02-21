@@ -26,6 +26,9 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-r
     position: relative;
   }
 
+  .aspect-ratio--2x1 { padding-bottom: 50% }
+  .aspect-ratio--1x2 { padding-bottom: 200% }
+
   .aspect-ratio--16x9 { padding-bottom: 56.25% }
   .aspect-ratio--9x16 { padding-bottom: 177.77% }
 

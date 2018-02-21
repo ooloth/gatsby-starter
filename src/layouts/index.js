@@ -46,6 +46,9 @@ switch (process.env.NODE_ENV) {
     break
 }
 
+// Import open-source fonts from Typefaces (@font-face automatically injected)
+// import 'typeface-raleway'
+
 /*
  *
  * Metadata

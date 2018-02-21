@@ -50,15 +50,6 @@ const Example = ({ example }) => (
 )
 
 /*
-
-TODO:
-
-1. In checklist, AC and MU, update package.json, postcss.config.js, purgecss.config.js, gatsby-node.js, gatsby-config
-2. In checklist, AC and MU, update style folder files: tailwind.js, index.css, and all partials
-
-*/
-
-/*
  *
  * Queries
  * 
