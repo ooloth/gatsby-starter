@@ -7,7 +7,7 @@ const IndexPage = ({ data }) => (
       Go to page 2
     </Link>
     <h2 className="mb3 f3">Here's some queried JSON content:</h2>
-    {data.exampleJsonData.edges.map(example => {
+    {data.allExampleJson.edges.map(example => {
       return <Example key={shortid()} example={example.node} />
     })}
   </main>
@@ -57,7 +57,7 @@ const Example = ({ example }) => (
 
 export const query = graphql`
   query IndexPageQuery {
-    exampleJsonData: allExampleJson {
+    allExampleJson {
       edges {
         node {
           image {

@@ -44,7 +44,5 @@ module.exports = {
     `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify` // must come last
-  ],
-  // I conditionally load my own Promise polyfill in gatsby-node.js
-  polyfill: false
+  ]
 }
