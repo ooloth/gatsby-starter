@@ -63,10 +63,10 @@ class GSAPTest extends React.Component {
   }
 
   waitForGsapToLoad = () => {
-    if (!window.TweenMax) {
+    if (!TweenMax) {
       const timer = setInterval(() => {
-        if (window.TweenMax) {
-          console.log('GSAP is loaded!', window.TweenMax)
+        if (TweenMax) {
+          console.log('GSAP is loaded!', TweenMax)
           clearInterval(timer)
           this.startAnimation()
         }
@@ -75,7 +75,7 @@ class GSAPTest extends React.Component {
   }
 
   animate = () => {
-    if (!window.TweenMax) {
+    if (!TweenMax) {
       this.waitForGsapToLoad()
     } else {
       this.startAnimation()
@@ -83,6 +83,7 @@ class GSAPTest extends React.Component {
   }
 
   startAnimation = () => {
+    console.log(`Start Animation: TweenMax`, TweenMax)
     TweenMax.to(this.box, 1.5, {
       scale: 0.75,
       ease: Power2.easeInOut,
@@ -92,7 +93,7 @@ class GSAPTest extends React.Component {
   }
 
   killAnimation = () => {
-    if (window.TweenMax) {
+    if (TweenMax) {
       TweenMax.killAll(this.box)
       console.log('Animation stopped.')
     }
