@@ -94,6 +94,22 @@ const SiteMetadata = ({ site }) => (
     <meta property="og:description" content={site.description} />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content={site.locale} />
+
+    {/* Lazyload GSAP library */}
+    <script
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"
+      onLoad="console.log('GSAP loaded!', new Date())"
+    />
+
+    {/* Lazyload AnimatePlus library */}
+    {/* See: https://cdnjs.com/libraries/animateplus */}
+    {/* Currently an "unexpected token" issue from both CDN and local import */}
+    {/* <script
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/animateplus/2.0.1/animateplus.min.js"
+      onLoad="console.log('AnimatePlus loaded!', new Date())"
+    /> */}
   </Helmet>
 )
 

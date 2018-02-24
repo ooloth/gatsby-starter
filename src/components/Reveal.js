@@ -1,35 +1,21 @@
-import Link from 'gatsby-link'
-
-const IndexPage = ({ data }) => (
-  <main className="container tc">
-    <h1 className="pv4 f1">Hi people</h1>
-    <Link to="/page-2/" className="link dib mb4">
-      Go to page 2
-    </Link>
-    <h2 className="mb3 f3">Here's some queried JSON content:</h2>
-    {data.allExampleJson.edges.map(example => {
-      return <Example key={shortid()} example={example.node} />
-    })}
-    <GSAPTest />
-  </main>
-)
-
-export default IndexPage
+// TODO: refactor this so that any child can be added inside it
 
 /*
  *
- * General
+ * Reveal component (using react-waypoint + gsap)
  * 
  */
 
-import React from 'react'
-import shortid from 'shortid'
+// DOCS: https://greensock.com/get-started-js
+// DOCS: https://greensock.com/docs/TweenMax
+// DOCS: https://greensock.com/docs/TimelineMax
 
-/*
- *
- * GSAP Test
- * 
- */
+// TODO: see https://greensock.com/forums/topic/15749-gsap-with-create-react-app/
+// TODO: see https://greensock.com/forums/topic/12093-react-and-gsap/?do=findComment&comment=66752
+
+// NOTE: Node with ref needs to be outside the Waypoint component
+
+// EXAMPLE: https://codepen.io/osublake/pen/0d4742d2200d028ed42297cb874af2b5?editors=0010
 
 // DOCS: https://greensock.com/get-started-js
 // DOCS: https://greensock.com/docs/TweenMax
@@ -40,9 +26,7 @@ import shortid from 'shortid'
 
 // EXAMPLE: https://codepen.io/osublake/pen/0d4742d2200d028ed42297cb874af2b5?editors=0010
 
-import Waypoint from 'react-waypoint'
-
-class GSAPTest extends React.Component {
+class Reveal extends React.Component {
   state = { revealed: false, repeat: true }
 
   logGsap = () => console.log(TweenMax)
@@ -66,7 +50,7 @@ class GSAPTest extends React.Component {
     if (!window.TweenMax) {
       const timer = setInterval(() => {
         if (window.TweenMax) {
-          console.log('GSAP is loaded!', window.TweenMax)
+          console.log('Ready!', window.TweenMax)
           clearInterval(timer)
           this.startAnimation()
         }
@@ -78,7 +62,7 @@ class GSAPTest extends React.Component {
     if (!window.TweenMax) {
       this.waitForGsapToLoad()
     } else {
-      this.startAnimation()
+      startAnimation()
     }
   }
 
@@ -127,80 +111,13 @@ class GSAPTest extends React.Component {
   }
 }
 
-/*
- *
- * AnimatePlus Test
- * 
- */
-
-// import animate from 'animateplus'
-
-class AnimatePlusTest extends React.Component {
-  logAnimatePlus = () => {
-    console.log(animate)
-  }
-  render() {
-    return (
-      <div class="pa6 bg-blue">
-        Hello!<button onClick={this.logAnimatePlus}>Log AnimatePlus</button>
-      </div>
-    )
-  }
-}
+export default Reveal
 
 /*
  *
- * Example
+ * Imports
  * 
  */
 
-import Image from 'gatsby-image'
-
-import HyperLink from '../components/HyperLink'
-
-const Example = ({ example }) => (
-  <article className="mb5 ph3">
-    <Image
-      sizes={example.image.childImageSharp.sizes}
-      alt={example.alt}
-      className="shadow-lg"
-    />
-    <h3 className="mb3 pt3 f2">{example.title}</h3>
-    {/* This paragraph will dispaly HTML in addition to plain text */}
-    <p
-      className="ml-auto mr-auto pv3 measure lh-tall"
-      dangerouslySetInnerHTML={{ __html: example.description }}
-    />
-    <HyperLink href={example.link} className="link dib">
-      Here's a link
-    </HyperLink>
-  </article>
-)
-
-/*
- *
- * Queries
- * 
- */
-
-export const query = graphql`
-  query IndexPageQuery {
-    allExampleJson {
-      edges {
-        node {
-          image {
-            childImageSharp {
-              sizes(maxWidth: 5184) {
-                ...GatsbyImageSharpSizes_withWebp
-              }
-            }
-          }
-          alt
-          title
-          description
-          link
-        }
-      }
-    }
-  }
-`
+import React from 'react'
+import Waypoint from 'react-waypoint'

@@ -3,7 +3,7 @@
     "image": "../images/placeholder.jpg",
     "alt": "I'm an alt tag!",
     "title": "I'm Title #1",
-    "description": "I'm a description. I go on and on and on...'",
+    "description": "<a href=\"https://www.google.ca\">Link</a>",
     "link": "https://www.google.ca"
   },
   {
