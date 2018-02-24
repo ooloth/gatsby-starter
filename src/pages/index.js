@@ -45,6 +45,12 @@ import Waypoint from 'react-waypoint'
 class GSAPTest extends React.Component {
   state = { revealed: false, repeat: true }
 
+  componentDidMount = () => {
+    if (this.state.revealed) {
+      this.animate()
+    }
+  }
+
   logGsap = () => console.log(TweenMax)
 
   handleWaypointEnter = () => {
@@ -52,6 +58,7 @@ class GSAPTest extends React.Component {
     if (!this.state.revealed) {
       this.setState({ revealed: true })
       console.log('Animation started.')
+      this.animate()
     }
   }
 
@@ -59,14 +66,15 @@ class GSAPTest extends React.Component {
     console.log(`Exited!`)
     if (this.state.revealed && this.state.repeat) {
       this.setState({ revealed: false })
+      this.killAnimation()
     }
   }
 
   waitForGsapToLoad = () => {
-    if (!TweenMax) {
+    if (!window.TweenMax) {
       const timer = setInterval(() => {
-        if (TweenMax) {
-          console.log('GSAP is loaded!', TweenMax)
+        if (window.TweenMax) {
+          console.log('GSAP is loaded!', window.TweenMax)
           clearInterval(timer)
           this.startAnimation()
         }
@@ -75,7 +83,7 @@ class GSAPTest extends React.Component {
   }
 
   animate = () => {
-    if (!TweenMax) {
+    if (!window.TweenMax) {
       this.waitForGsapToLoad()
     } else {
       this.startAnimation()
@@ -93,14 +101,13 @@ class GSAPTest extends React.Component {
   }
 
   killAnimation = () => {
-    if (TweenMax) {
+    if (window.TweenMax) {
       TweenMax.killAll(this.box)
       console.log('Animation stopped.')
     }
   }
 
   render() {
-    this.state.revealed ? this.animate() : this.killAnimation()
     return (
       <div ref={el => (this.box = el)}>
         <Waypoint
