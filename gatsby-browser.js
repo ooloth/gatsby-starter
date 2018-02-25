@@ -42,10 +42,10 @@ exports.onClientEntry = () => {
   if (!browserSupportsAllJsFeatures()) {
     console.log('About to load polyfills!')
     // See: https://polyfill.io/v2/docs/examples
-    const intersectionObserver = `Object.assign,IntersectionObserver,IntersectionObserverEntry,Object.keys`
+    const intersectionObserver = `IntersectionObserver,IntersectionObserverEntry`
 
     loadScript(
-      `https://cdn.polyfill.io/v2/polyfill.js?features=${intersectionObserver}&flags=gated&rum=1`
+      `https://cdn.polyfill.io/v2/polyfill.js?features=default,${intersectionObserver}&flags=gated&rum=1`
     )
     console.log('Loaded polyfills!')
   } else {

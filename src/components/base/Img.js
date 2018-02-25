@@ -2,8 +2,8 @@
 
 A wrapper around gatsby-image that includes:
 
-1. Lazy loading using IntersectionObserver
-2. Object-fit and object-position polyfill
+1. Lazy loading using IntersectionObserver (when image is within 100px of the viewport)
+2. Object-fit and object-position polyfill (enabled by adding a font-family declaration)
 
 Use like this:
 
