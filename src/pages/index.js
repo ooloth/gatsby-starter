@@ -137,22 +137,17 @@ class GSAPTest extends React.Component {
  * 
  */
 
-import Image from 'gatsby-image'
-import Observer from '@researchgate/react-intersection-observer'
-
-import HyperLink from '../components/HyperLink'
+import Img from '../components/base/Img'
+import HyperLink from '../components/base/HyperLink'
 
 const Example = ({ example }) => (
   <article className="mb5 ph3">
-    {console.log('example', example)}
-    {console.log('critical', example.critical)}
-    <ObserverWrapper critical={example.critical}>
-      <Image
-        sizes={example.image.childImageSharp.sizes}
-        alt={example.alt}
-        className="shadow-lg"
-      />
-    </ObserverWrapper>
+    <Img
+      sizes={example.image.childImageSharp.sizes}
+      alt={example.alt}
+      critical={example.critical}
+      className="shadow-lg"
+    />
     <h3 className="mb3 pt3 f2">{example.title}</h3>
     {/* This paragraph will dispaly HTML in addition to plain text */}
     <p
@@ -164,26 +159,6 @@ const Example = ({ example }) => (
     </HyperLink>
   </article>
 )
-
-class ObserverWrapper extends React.Component {
-  state = { isIntersecting: this.props.critical || false }
-
-  handleIntersection = event => {
-    console.log(`event.isIntersecting`, event.isIntersecting)
-    this.setState({ isIntersecting: event.isIntersecting })
-  }
-
-  render() {
-    console.log(`this.state.isIntersecting`, this.state.isIntersecting)
-    return (
-      <Observer rootMargin="25% 0%" onChange={this.handleIntersection} onlyOnce={true}>
-        <figure data-critical={this.props.critical}>
-          {this.state.isIntersecting && this.props.children}
-        </figure>
-      </Observer>
-    )
-  }
-}
 
 /*
  *

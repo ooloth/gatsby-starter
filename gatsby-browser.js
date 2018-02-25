@@ -26,26 +26,28 @@ exports.onClientEntry = () => {
   // Test required JS features:
   const browserSupportsAllJsFeatures = () => {
     // NOTE: Gatsby includes a Promise polyfill already (don't duplicate it here)
-    return window.fetch
+    return window.IntersectionObserver && window.IntersectionObserverEntry
   }
 
   // Add polyfills via a script tag appended to the document head:
   const loadScript = url => {
     let script = document.createElement('script')
     script.src = url
-    // script.onload = () => console.log(`Successfully loaded script ${url}`)
-    // script.onerror = () => console.log(`Failed to load script ${url}`)
+    script.onload = () => console.log(`Successfully loaded script ${url}`)
+    script.onerror = () => console.log(`Failed to load script ${url}`)
     document.head.appendChild(script)
   }
 
   // JS polyfills (TODO: update URL for specific features needed; don't include 'default')
   if (!browserSupportsAllJsFeatures()) {
-    // console.log('About to load polyfills!')
+    console.log('About to load polyfills!')
     // See: https://polyfill.io/v2/docs/examples
-    loadScript('https://cdn.polyfill.io/v2/polyfill.js?features=fetch&flags=gated&rum=1')
-    // console.log('Loaded polyfills!')
+    loadScript(
+      'https://cdn.polyfill.io/v2/polyfill.js?features=IntersectionObserver,IntersectionObserverEntry&flags=gated&rum=1'
+    )
+    console.log('Loaded polyfills!')
   } else {
-    // console.log(`Didn't load polyfills!`)
+    console.log(`Didn't load polyfills!`)
   }
 
   /*
