@@ -74,7 +74,7 @@ class GSAPTest extends React.Component {
     if (!window.TweenMax) {
       const timer = setInterval(() => {
         if (window.TweenMax) {
-          console.log('GSAP is loaded!', window.TweenMax)
+          console.log('GSAP is loaded!')
           clearInterval(timer)
           this.startAnimation()
         }
@@ -91,7 +91,7 @@ class GSAPTest extends React.Component {
   }
 
   startAnimation = () => {
-    console.log(`Start Animation: TweenMax`, TweenMax)
+    console.log(`Starting animation`)
     TweenMax.to(this.box, 1.5, {
       scale: 0.75,
       ease: Power2.easeInOut,
@@ -143,13 +143,10 @@ import Observer from '@researchgate/react-intersection-observer'
 import HyperLink from '../components/HyperLink'
 
 const Example = ({ example }) => (
-  <article id="example" className="mb5 ph3">
-    {/* <SmartImage /> */}
-    <ObserverWrapper
-      root="#scrolling-container"
-      rootMargin="0% 0% -25%"
-      onChange={event => console.log(event.isIntersecting)}
-    >
+  <article className="mb5 ph3">
+    {console.log('example', example)}
+    {console.log('critical', example.critical)}
+    <ObserverWrapper critical={example.critical}>
       <Image
         sizes={example.image.childImageSharp.sizes}
         alt={example.alt}
@@ -169,23 +166,20 @@ const Example = ({ example }) => (
 )
 
 class ObserverWrapper extends React.Component {
-  state = { isIntersecting: false }
+  state = { isIntersecting: this.props.critical || false }
 
   handleIntersection = event => {
-    console.log(event.isIntersecting)
+    console.log(`event.isIntersecting`, event.isIntersecting)
     this.setState({ isIntersecting: event.isIntersecting })
   }
 
   render() {
     console.log(`this.state.isIntersecting`, this.state.isIntersecting)
     return (
-      <Observer
-        root="#scrolling-container"
-        rootMargin="50% 0%"
-        onChange={this.handleIntersection}
-        onlyOnce={true}
-      >
-        <figure>{this.state.isIntersecting && this.props.children}</figure>
+      <Observer rootMargin="25% 0%" onChange={this.handleIntersection} onlyOnce={true}>
+        <figure data-critical={this.props.critical}>
+          {this.state.isIntersecting && this.props.children}
+        </figure>
       </Observer>
     )
   }
@@ -209,6 +203,7 @@ export const query = graphql`
               }
             }
           }
+          critical
           alt
           title
           description

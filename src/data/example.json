@@ -1,6 +1,7 @@
 [
   {
     "image": "../images/placeholder.jpg",
+    "critical": true,
     "alt": "I'm an alt tag!",
     "title": "I'm Title #1",
     "description": "<a href=\"https://www.google.ca\">Link</a>",
