@@ -26,7 +26,7 @@ exports.onClientEntry = () => {
   // Test required JS features:
   const browserSupportsAllJsFeatures = () => {
     // NOTE: Gatsby includes a Promise polyfill already (don't duplicate it here)
-    return window.IntersectionObserver && window.IntersectionObserverEntry
+    return fetch
   }
 
   // Add polyfills via a script tag appended to the document head:
@@ -43,9 +43,7 @@ exports.onClientEntry = () => {
     console.log('About to load polyfills!')
     // See: https://polyfill.io/v2/docs/examples
 
-    loadScript(
-      `https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver&flags=gated`
-    )
+    loadScript(`https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch&flags=gated`)
     // require('intersection-observer')
     console.log('Loaded polyfills!')
   } else {
@@ -69,14 +67,14 @@ exports.onClientEntry = () => {
 
   // CSS polyfills
   if (!browserSupportsAllCssFeatures()) {
-    // console.log('About to load objectFitImages!')
+    console.log('About to load objectFitImages!')
     // If the browser doesn't support the features above, load these polyfills
     // TODO: confirm this way of loading it still works...
     require('object-fit-images')()
     // objectFitImages()
-    // console.log('Loaded objectFitImages!')
+    console.log('Loaded objectFitImages!')
   } else {
-    // console.log(`Didn't load objectFitImages!`)
+    console.log(`Didn't load objectFitImages!`)
   }
 }
 

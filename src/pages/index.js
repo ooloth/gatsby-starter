@@ -140,7 +140,7 @@ import HyperLink from '../components/base/HyperLink'
 
 const Example = ({ example }) => (
   <article className="mb5 ph3">
-    <Img
+    <ImgWaypoint
       sizes={example.image.childImageSharp.sizes}
       alt={example.alt}
       critical={example.critical}
