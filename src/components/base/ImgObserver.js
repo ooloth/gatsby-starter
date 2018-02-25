@@ -1,5 +1,7 @@
 /*
 
+FIXME: Can't figure out how to polyfill Intersection Observer for IE without running into Object.assign and Object.keys errors (which I can't seem to polyfill properly in conjunction...using react-waypoint  instead)
+
 A wrapper around gatsby-image that includes:
 
 1. Lazy loading using IntersectionObserver (when image is within 100px of the viewport)
@@ -27,32 +29,26 @@ DOCS: https://github.com/bfred-it/object-fit-images/#usage
 
 */
 
-class ImgWaypoint extends React.Component {
-  state = { revealed: this.props.critical || false, repeat: true }
+class ImgObserver extends React.Component {
+  state = { isIntersecting: this.props.critical || false }
 
-  handleWaypointEnter = () => {
-    console.log(`Entered waypoint!`)
-    if (!this.state.revealed) {
-      this.setState({ revealed: true })
-      console.log('Image revealed.')
-    }
+  handleChange = event => {
+    event.isIntersecting
+      ? console.log(`Image in viewport`)
+      : console.log(`Image not in viewport`)
+    this.setState({ isIntersecting: event.isIntersecting })
   }
 
   render() {
-    // Construction font-family declaration for object-fit-images
     const fit = this.props.fit ? this.props.fit : `cover`
     const position = this.props.position ? this.props.position : `50% 50%`
     const imgStyle = `font-family: 'object-fit: ${fit}; object-position: ${position}';`
+    console.log(`imgStyle`, imgStyle)
 
     return (
-      <Waypoint
-        ref={el => (this.box = el)}
-        onEnter={this.handleWaypointEnter}
-        topOffset="200%"
-        bottomOffset="200%"
-      >
+      <Observer rootMargin="100px 0px" onChange={this.handleChange} onlyOnce={true}>
         <figure data-critical={this.props.critical}>
-          {this.state.revealed && (
+          {this.state.isIntersecting && (
             <Image
               sizes={this.props.sizes}
               alt={this.props.alt}
@@ -66,12 +62,12 @@ class ImgWaypoint extends React.Component {
             />
           )}
         </figure>
-      </Waypoint>
+      </Observer>
     )
   }
 }
 
-export default ImgWaypoint
+export default ImgObserver
 
 /*
  *
@@ -81,4 +77,4 @@ export default ImgWaypoint
 
 import React from 'react'
 import Image from 'gatsby-image'
-import Waypoint from 'react-waypoint'
+import Observer from '@researchgate/react-intersection-observer'

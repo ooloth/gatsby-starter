@@ -40,71 +40,48 @@ import shortid from 'shortid'
 
 // EXAMPLE: https://codepen.io/osublake/pen/0d4742d2200d028ed42297cb874af2b5?editors=0010
 
+// DOCS: https://github.com/muicss/loadjs#documentation
+
 import Waypoint from 'react-waypoint'
+import loadjs from 'loadjs'
+
+// Load GSAP asynchronously from CDN
+loadjs('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js', 'gsap', {
+  success: () => console.log('GSAP is loaded!', new Date())
+})
 
 class GSAPTest extends React.Component {
   state = { revealed: false, repeat: true }
 
-  componentDidMount = () => {
-    if (this.state.revealed) {
-      this.animate()
-    }
-  }
-
-  logGsap = () => console.log(TweenMax)
-
   handleWaypointEnter = () => {
-    console.log(`Entered!`)
+    // Only animate if it hasn't been revealed yet (or has been reset to animate again)
     if (!this.state.revealed) {
       this.setState({ revealed: true })
-      console.log('Animation started.')
       this.animate()
     }
   }
 
   handleWaypointLeave = () => {
-    console.log(`Exited!`)
+    // If animation should repeat on next reveal, reset it when leaves viewport
     if (this.state.revealed && this.state.repeat) {
       this.setState({ revealed: false })
       this.killAnimation()
     }
   }
 
-  waitForGsapToLoad = () => {
-    if (!window.TweenMax) {
-      const timer = setInterval(() => {
-        if (window.TweenMax) {
-          console.log('GSAP is loaded!')
-          clearInterval(timer)
-          this.startAnimation()
-        }
-      }, 1000)
-    }
-  }
-
   animate = () => {
-    if (!window.TweenMax) {
-      this.waitForGsapToLoad()
-    } else {
-      this.startAnimation()
-    }
-  }
-
-  startAnimation = () => {
-    console.log(`Starting animation`)
-    TweenMax.to(this.box, 1.5, {
-      scale: 0.75,
-      ease: Power2.easeInOut,
-      repeat: -1,
-      yoyo: true
+    loadjs.ready('gsap', () => {
+      TweenMax.to(this.box, 1.5, {
+        scale: 0.9,
+        ease: Power2.easeInOut,
+        repeat: -1,
+        yoyo: true
+      })
     })
   }
 
   killAnimation = () => {
-    if (window.TweenMax) {
-      TweenMax.killAll(this.box)
-      console.log('Animation stopped.')
-    }
+    loadjs.ready('gsap', () => TweenMax.killAll(this.box))
   }
 
   render() {
@@ -114,13 +91,12 @@ class GSAPTest extends React.Component {
           <div class="mv6 bg-red pa5 shadow-lg">
             <h2>I'm an animated component</h2>
             <p class="mv4 ml-auto mr-auto measure-narrow lh-copy">
-              I load GSAP asychronously from a CDN to keep the bundle size small and the
-              loading time quick.) I animate on scroll or by clicking the buttons below.
+              I animate on scroll or by clicking the buttons below.
             </p>
             <button onClick={this.animate} class="pr4">
-              Shrink!
+              Breathe!
             </button>
-            <button onClick={this.killAnimation}>Stop shrinking!</button>
+            <button onClick={this.killAnimation}>Stop breathing!</button>
           </div>
         </Waypoint>
       </div>
@@ -135,12 +111,11 @@ class GSAPTest extends React.Component {
  */
 
 import Img from '../components/base/Img'
-import ImgWaypoint from '../components/base/ImgWaypoint'
 import HyperLink from '../components/base/HyperLink'
 
 const Example = ({ example }) => (
   <article className="mb5 ph3">
-    <ImgWaypoint
+    <Img
       sizes={example.image.childImageSharp.sizes}
       alt={example.alt}
       critical={example.critical}

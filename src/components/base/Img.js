@@ -2,7 +2,7 @@
 
 A wrapper around gatsby-image that includes:
 
-1. Lazy loading using IntersectionObserver (when image is within 100px of the viewport)
+1. Lazy loading using react-waypoint (when image is within 200% of it's height of the viewport)
 2. Object-fit and object-position polyfill (enabled by adding a font-family declaration)
 
 Use like this:
@@ -28,25 +28,31 @@ DOCS: https://github.com/bfred-it/object-fit-images/#usage
 */
 
 class Img extends React.Component {
-  state = { isIntersecting: this.props.critical || false }
+  state = { revealed: this.props.critical || false, repeat: true }
 
-  handleChange = event => {
-    event.isIntersecting
-      ? console.log(`Image in viewport`)
-      : console.log(`Image not in viewport`)
-    this.setState({ isIntersecting: event.isIntersecting })
+  handleWaypointEnter = () => {
+    console.log(`Entered waypoint!`)
+    if (!this.state.revealed) {
+      this.setState({ revealed: true })
+      console.log('Image revealed.')
+    }
   }
 
   render() {
+    // Construction font-family declaration for object-fit-images
     const fit = this.props.fit ? this.props.fit : `cover`
     const position = this.props.position ? this.props.position : `50% 50%`
     const imgStyle = `font-family: 'object-fit: ${fit}; object-position: ${position}';`
-    console.log(`imgStyle`, imgStyle)
 
     return (
-      <Observer rootMargin="100px 0px" onChange={this.handleChange} onlyOnce={true}>
+      <Waypoint
+        ref={el => (this.box = el)}
+        onEnter={this.handleWaypointEnter}
+        topOffset="200%"
+        bottomOffset="200%"
+      >
         <figure data-critical={this.props.critical}>
-          {this.state.isIntersecting && (
+          {this.state.revealed && (
             <Image
               sizes={this.props.sizes}
               alt={this.props.alt}
@@ -60,7 +66,7 @@ class Img extends React.Component {
             />
           )}
         </figure>
-      </Observer>
+      </Waypoint>
     )
   }
 }
@@ -75,4 +81,4 @@ export default Img
 
 import React from 'react'
 import Image from 'gatsby-image'
-import Observer from '@researchgate/react-intersection-observer'
+import Waypoint from 'react-waypoint'

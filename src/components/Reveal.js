@@ -26,69 +26,53 @@
 
 // EXAMPLE: https://codepen.io/osublake/pen/0d4742d2200d028ed42297cb874af2b5?editors=0010
 
+// DOCS: https://github.com/muicss/loadjs#documentation
+
+import Waypoint from 'react-waypoint'
+import loadjs from 'loadjs'
+
+// Load GSAP asynchronously from CDN
+loadjs('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js', 'gsap', {
+  success: () => console.log('GSAP is loaded!', new Date())
+})
+
 class Reveal extends React.Component {
   state = { revealed: false, repeat: true }
 
   handleWaypointEnter = () => {
-    console.log(`Entered!`)
+    // Only animate if it hasn't been revealed yet (or has been reset to animate again)
     if (!this.state.revealed) {
       this.setState({ revealed: true })
-      console.log('Animation started.')
+      this.animate()
     }
   }
 
   handleWaypointLeave = () => {
-    console.log(`Exited!`)
     if (this.state.revealed && this.state.repeat) {
       this.setState({ revealed: false })
-    }
-  }
-
-  waitForGsapToLoad = () => {
-    if (!window.TweenMax) {
-      const timer = setInterval(() => {
-        if (window.TweenMax) {
-          console.log('Ready!', window.TweenMax)
-          clearInterval(timer)
-          this.startAnimation()
-        }
-      }, 1000)
+      this.killAnimation()
     }
   }
 
   animate = () => {
-    if (!window.TweenMax) {
-      this.waitForGsapToLoad()
-    } else {
-      startAnimation()
-    }
-  }
-
-  startAnimation = () => {
-    TweenMax.to(this.box, 1.5, {
-      scale: 0.75,
-      ease: Power2.easeInOut,
-      repeat: -1,
-      yoyo: true
+    loadjs.ready('gsap', () => {
+      TweenMax.to(this.box, 1.5, {
+        scale: 0.75,
+        ease: Power2.easeInOut,
+        repeat: -1,
+        yoyo: true
+      })
     })
   }
 
   killAnimation = () => {
-    if (window.TweenMax) {
-      TweenMax.killAll(this.box)
-      console.log('Animation stopped.')
-    }
+    loadjs.ready('gsap', () => TweenMax.killAll(this.box))
   }
 
   render() {
-    this.state.revealed ? this.animate() : this.killAnimation()
     return (
       <div ref={el => (this.box = el)}>
-        <Waypoint
-          ref={el => (this.box = el)}
-          onEnter={this.handleWaypointEnter}
-          onLeave={this.handleWaypointLeave}
-        >
+        <Waypoint onEnter={this.handleWaypointEnter} onLeave={this.handleWaypointLeave}>
           <div class="mv6 bg-red pa5 shadow-lg">
             <h2>I'm an animated component</h2>
             <p class="mv4 ml-auto mr-auto measure-narrow lh-copy">
