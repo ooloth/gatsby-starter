@@ -26,7 +26,10 @@ exports.onClientEntry = () => {
   // Test required JS features:
   const browserSupportsAllJsFeatures = () => {
     // NOTE: Gatsby includes a Promise polyfill already (don't duplicate it here)
-    return window.IntersectionObserver && window.IntersectionObserverEntry
+    const intersectionObserver =
+      window.IntersectionObserver && window.IntersectionObserverEntry && Object.assign
+
+    return intersectionObserver
   }
 
   // Add polyfills via a script tag appended to the document head:
@@ -42,8 +45,9 @@ exports.onClientEntry = () => {
   if (!browserSupportsAllJsFeatures()) {
     console.log('About to load polyfills!')
     // See: https://polyfill.io/v2/docs/examples
+    const intersectionObserver = `IntersectionObserver,IntersectionObserverEntry,Object.assign`
     loadScript(
-      'https://cdn.polyfill.io/v2/polyfill.js?features=IntersectionObserver,IntersectionObserverEntry&flags=gated&rum=1'
+      `https://cdn.polyfill.io/v2/polyfill.js?features=${intersectionObserver}&flags=gated&rum=1`
     )
     console.log('Loaded polyfills!')
   } else {

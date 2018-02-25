@@ -29,8 +29,6 @@
 class Reveal extends React.Component {
   state = { revealed: false, repeat: true }
 
-  logGsap = () => console.log(TweenMax)
-
   handleWaypointEnter = () => {
     console.log(`Entered!`)
     if (!this.state.revealed) {
@@ -97,9 +95,6 @@ class Reveal extends React.Component {
               I load GSAP asychronously from a CDN to keep the bundle size small and the
               loading time quick.) I animate on scroll or by clicking the buttons below.
             </p>
-            <button onClick={this.logGsap} class="pr4">
-              Log GSAP
-            </button>
             <button onClick={this.animate} class="pr4">
               Shrink!
             </button>

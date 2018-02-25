@@ -44,7 +44,7 @@ class Img extends React.Component {
     console.log(`imgStyle`, imgStyle)
 
     return (
-      <Observer rootMargin="50px 0px" onChange={this.handleChange} onlyOnce={true}>
+      <Observer rootMargin="100px 0px" onChange={this.handleChange} onlyOnce={true}>
         <figure data-critical={this.props.critical}>
           {this.state.isIntersecting && (
             <Image
