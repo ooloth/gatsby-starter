@@ -135,11 +135,12 @@ class GSAPTest extends React.Component {
  */
 
 import Img from '../components/base/Img'
+import ImgWaypoint from '../components/base/ImgWaypoint'
 import HyperLink from '../components/base/HyperLink'
 
 const Example = ({ example }) => (
   <article className="mb5 ph3">
-    <Img
+    <ImgWaypoint
       sizes={example.image.childImageSharp.sizes}
       alt={example.alt}
       critical={example.critical}
