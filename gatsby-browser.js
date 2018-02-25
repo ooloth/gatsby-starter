@@ -43,8 +43,10 @@ exports.onClientEntry = () => {
     console.log('About to load polyfills!')
     // See: https://polyfill.io/v2/docs/examples
 
-    // loadScript(`https://cdn.polyfill.io/v2/polyfill.js?features=fetch&flags=gated&rum=1`)
-    require('intersection-observer')
+    loadScript(
+      `https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver&flags=gated`
+    )
+    // require('intersection-observer')
     console.log('Loaded polyfills!')
   } else {
     console.log(`Didn't load polyfills!`)
