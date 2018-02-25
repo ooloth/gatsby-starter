@@ -110,11 +110,7 @@ class GSAPTest extends React.Component {
   render() {
     return (
       <div ref={el => (this.box = el)}>
-        <Waypoint
-          ref={el => (this.box = el)}
-          onEnter={this.handleWaypointEnter}
-          onLeave={this.handleWaypointLeave}
-        >
+        <Waypoint onEnter={this.handleWaypointEnter} onLeave={this.handleWaypointLeave}>
           <div class="mv6 bg-red pa5 shadow-lg">
             <h2>I'm an animated component</h2>
             <p class="mv4 ml-auto mr-auto measure-narrow lh-copy">
@@ -137,42 +133,29 @@ class GSAPTest extends React.Component {
 
 /*
  *
- * AnimatePlus Test
- * 
- */
-
-// import animate from 'animateplus'
-
-class AnimatePlusTest extends React.Component {
-  logAnimatePlus = () => {
-    console.log(animate)
-  }
-  render() {
-    return (
-      <div class="pa6 bg-blue">
-        Hello!<button onClick={this.logAnimatePlus}>Log AnimatePlus</button>
-      </div>
-    )
-  }
-}
-
-/*
- *
  * Example
  * 
  */
 
 import Image from 'gatsby-image'
+import Observer from '@researchgate/react-intersection-observer'
 
 import HyperLink from '../components/HyperLink'
 
 const Example = ({ example }) => (
-  <article className="mb5 ph3">
-    <Image
-      sizes={example.image.childImageSharp.sizes}
-      alt={example.alt}
-      className="shadow-lg"
-    />
+  <article id="example" className="mb5 ph3">
+    {/* <SmartImage /> */}
+    <ObserverWrapper
+      root="#scrolling-container"
+      rootMargin="0% 0% -25%"
+      onChange={event => console.log(event.isIntersecting)}
+    >
+      <Image
+        sizes={example.image.childImageSharp.sizes}
+        alt={example.alt}
+        className="shadow-lg"
+      />
+    </ObserverWrapper>
     <h3 className="mb3 pt3 f2">{example.title}</h3>
     {/* This paragraph will dispaly HTML in addition to plain text */}
     <p
@@ -184,6 +167,29 @@ const Example = ({ example }) => (
     </HyperLink>
   </article>
 )
+
+class ObserverWrapper extends React.Component {
+  state = { isIntersecting: false }
+
+  handleIntersection = event => {
+    console.log(event.isIntersecting)
+    this.setState({ isIntersecting: event.isIntersecting })
+  }
+
+  render() {
+    console.log(`this.state.isIntersecting`, this.state.isIntersecting)
+    return (
+      <Observer
+        root="#scrolling-container"
+        rootMargin="50% 0%"
+        onChange={this.handleIntersection}
+        onlyOnce={true}
+      >
+        <figure>{this.state.isIntersecting && this.props.children}</figure>
+      </Observer>
+    )
+  }
+}
 
 /*
  *
