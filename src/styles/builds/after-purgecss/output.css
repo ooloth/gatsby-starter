@@ -61,6 +61,7 @@ h1 {
  */
 
 
+figure,
 main {
   /* 1 */
   display: block;
@@ -69,6 +70,10 @@ main {
 /**
  * Add the correct margin in IE 8.
  */
+
+figure {
+  margin: 1em 40px;
+}
 
 /**
  * 1. Add the correct box sizing in Firefox.
@@ -123,6 +128,10 @@ a {
  * Add the correct font size in all browsers.
  */
 
+small {
+  font-size: 80%;
+}
+
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
@@ -143,6 +152,10 @@ a {
  * Remove the border on images inside links in IE 10-.
  */
 
+img {
+  border-style: none;
+}
+
 /**
  * Hide the overflow in IE.
  */
@@ -155,15 +168,32 @@ a {
  * 2. Remove the margin in Firefox and Safari.
  */
 
+button {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
 /**
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
 
+button {
+  /* 1 */
+  overflow: visible;
+}
+
 /**
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
+
+button {
+  /* 1 */
+  text-transform: none;
+}
 
 /**
  * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
@@ -171,9 +201,9 @@ a {
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 
-
+button,
 html [type="button"],
-
+/* 1 */
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; /* 2 */
@@ -183,7 +213,7 @@ html [type="button"],
  * Remove the inner border and padding in Firefox.
  */
 
-
+button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
@@ -195,7 +225,7 @@ html [type="button"],
  * Restore the focus styles unset by the previous rule.
  */
 
-
+button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
@@ -343,14 +373,25 @@ html {
 h1,
 h2,
 h3,
+figure,
 p {
   margin: 0;
+}
+
+button {
+  background: transparent;
+  padding: 0;
 }
 
 /**
  * Work around a Firefox/IE bug where the transparent `button` background
  * results in a loss of the default `button` focus styles.
  */
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
 
 /**
  * Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -380,14 +421,22 @@ p {
  * We can remove this when the reversion is in a normal Chrome release.
  */
 
-
+button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
   border-radius: 0;
 }
 
+img {
+  max-width: 100%;
+}
 
+button {
+  font-family: inherit;
+}
+
+button,
 [role=button] {
   cursor: pointer;
 }
@@ -444,7 +493,19 @@ body {
  *
  */
 
+img {
+  /* Prevent IE10/11 from miscalculating the image’s height: */
+  height: auto;
+  /* Setting `vertical-align` removes the whitespace that appears under 'img' elements when they are dropped into a page as-is. Safer alternative to using 'display: block': */
+  vertical-align: middle;
+}
+
 /* If a 'width' and/or 'height'' attribute have been explicitly defined, don't make the image fluid: */
+
+img[width],
+img[height] {
+  max-width: none;
+}
 
 /*
  *
@@ -783,6 +844,14 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  * Transitions
  *
  */
+
+.animate,
+.animate:hover,
+.animate:focus {
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
 
 /* 
  *
@@ -1228,6 +1297,14 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 */
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 /* Positive spacing */
 
 /* Negative spacing */
@@ -1402,7 +1479,22 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* Vertical (top + bottom) */
 
+.mv4 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mv6 {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
 /* Horizontal (left + right) */
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /*
 
@@ -1444,8 +1536,8 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding: 1rem;
 }
 
-.pa6 {
-  padding: 8rem;
+.pa5 {
+  padding: 4rem;
 }
 
 /* Top */
@@ -1455,6 +1547,10 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 }
 
 /* Right */
+
+.pr4 {
+  padding-right: 2rem;
+}
 
 /* Bottom */
 
@@ -1533,6 +1629,10 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: #fff;
 }
 
+.pink {
+  color: #ff80cc;
+}
+
 /*
 
 FONT FAMILY GROUPS
@@ -1600,6 +1700,10 @@ Adapted from:
   * Font style
   *
   */
+
+.i {
+  font-style: italic;
+}
 
 /*
   *
@@ -1676,6 +1780,10 @@ Adapted from: http://tachyons.io/docs/typography/line-height
 
 */
 
+.lh-copy {
+  line-height: 1.5;
+}
+
 .lh-tall {
   line-height: 1.7;
 }
@@ -1700,6 +1808,10 @@ Adapted from:
 
 .measure {
   max-width: 66ch;
+}
+
+.measure-narrow {
+  max-width: 45ch;
 }
 
 /*

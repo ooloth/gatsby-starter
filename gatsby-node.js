@@ -60,8 +60,8 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       break
 
     case 'build-html':
-      // Ignore packages that causes errors during build:
-      config.loader('null', { test: /scrollreveal/, loader: 'null-loader' })
+      // Ignore packages that causes errors during build (make test an array if > 1):
+      config.loader('null', { test: /twitter-fetcher/, loader: 'null-loader' })
 
       break
 

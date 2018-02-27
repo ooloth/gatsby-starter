@@ -1,5 +1,5 @@
 const Header = () => (
-  <header class="bg-black pa3 tc white">
+  <header id="top" class="bg-black pa3 tc white">
     <h1>I'm a header</h1>
   </header>
 )

@@ -41,14 +41,13 @@ exports.onClientEntry = () => {
 
   // JS polyfills (TODO: update URL for specific features needed; don't include 'default')
   if (!browserSupportsAllJsFeatures()) {
-    console.log('About to load polyfills!')
     // See: https://polyfill.io/v2/docs/examples
 
     // loadScript(`https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch&flags=gated`)
     // require('intersection-observer')
-    console.log('Loaded polyfills!')
+    console.log('👍 Loaded polyfills!')
   } else {
-    console.log(`Didn't load polyfills!`)
+    // console.log(`Didn't load polyfills!`)
   }
 
   /*
@@ -68,14 +67,13 @@ exports.onClientEntry = () => {
 
   // CSS polyfills
   if (!browserSupportsAllCssFeatures()) {
-    console.log('About to load objectFitImages!')
     // If the browser doesn't support the features above, load these polyfills
     // TODO: confirm this way of loading it still works...
     require('object-fit-images')()
     // objectFitImages()
-    console.log('Loaded objectFitImages!')
+    console.log('👍 Loaded objectFitImages!')
   } else {
-    console.log(`Didn't load objectFitImages!`)
+    // console.log(`Didn't load objectFitImages!`)
   }
 }
 

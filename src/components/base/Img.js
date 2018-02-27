@@ -10,6 +10,7 @@ Use like this:
 <Img
   sizes={sizes}
   alt={alt}
+  critical={true} (optional; default: false; set to true if in hero or wrapped by Reveal)
   fit="cover" (optional; default: cover)
   position="50% 0%" (optional; default: 50% 50%)
   className="..." (optional; goes to .gatsby-image-wrapper)
@@ -31,7 +32,6 @@ class Img extends React.Component {
   state = { revealed: this.props.critical || false, repeat: true }
 
   handleWaypointEnter = () => {
-    console.log(`Entered waypoint!`)
     if (!this.state.revealed) {
       this.setState({ revealed: true })
       console.log('Image revealed.')

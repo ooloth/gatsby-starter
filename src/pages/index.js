@@ -11,6 +11,10 @@ const IndexPage = ({ data }) => (
       return <Example key={shortid()} example={example.node} />
     })}
     <GSAPTest />
+    <RevealTest data={data.allExampleJson.edges} />
+    <ScrollTo href="#top" class="link dib mb5">
+      Back to top
+    </ScrollTo>
   </main>
 )
 
@@ -24,6 +28,36 @@ export default IndexPage
 
 import React from 'react'
 import shortid from 'shortid'
+
+import ScrollTo from '../components/library/ScrollTo'
+
+/* 
+ *
+ * Example
+ * 
+ */
+
+import Img from '../components/base/Img'
+import HyperLink from '../components/base/HyperLink'
+
+const Example = ({ example }) => (
+  <article className="mb5 ph3">
+    <Img
+      sizes={example.image.childImageSharp.sizes}
+      alt={example.alt}
+      critical={example.critical}
+      className="shadow-lg"
+    />
+    <h3 className="mb3 pt3 f2">{example.title}</h3>
+    <p
+      className="ml-auto mr-auto pv3 measure lh-tall"
+      dangerouslySetInnerHTML={{ __html: example.description }}
+    />
+    <HyperLink href={example.link} className="link dib">
+      Here's a link
+    </HyperLink>
+  </article>
+)
 
 /*
  *
@@ -45,13 +79,17 @@ import shortid from 'shortid'
 import Waypoint from 'react-waypoint'
 import loadjs from 'loadjs'
 
-// Load GSAP asynchronously from CDN
-loadjs('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js', 'gsap', {
-  success: () => console.log('GSAP is loaded!', new Date())
-})
-
 class GSAPTest extends React.Component {
   state = { revealed: false, repeat: true }
+
+  componentDidMount = () => {
+    // Load GSAP asynchronously from CDN
+    if (!loadjs.isDefined('gsap')) {
+      loadjs('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js', 'gsap', {
+        success: () => console.log('👍 GSAP is loaded')
+      })
+    }
+  }
 
   handleWaypointEnter = () => {
     // Only animate if it hasn't been revealed yet (or has been reset to animate again)
@@ -71,7 +109,7 @@ class GSAPTest extends React.Component {
 
   animate = () => {
     loadjs.ready('gsap', () => {
-      TweenMax.to(this.box, 1.5, {
+      var breathe = TweenMax.to(this.box, 1.5, {
         scale: 0.9,
         ease: Power2.easeInOut,
         repeat: -1,
@@ -81,7 +119,7 @@ class GSAPTest extends React.Component {
   }
 
   killAnimation = () => {
-    loadjs.ready('gsap', () => TweenMax.killAll(this.box))
+    loadjs.ready('gsap', () => TweenMax.killTweensOf(this.box))
   }
 
   render() {
@@ -106,31 +144,50 @@ class GSAPTest extends React.Component {
 
 /*
  *
- * Example
+ * Reveal Test
  * 
  */
 
-import Img from '../components/base/Img'
-import HyperLink from '../components/base/HyperLink'
+const RevealTest = ({ data }) => (
+  <section class="pb5">
+    <h2 class="mb3">These use Reveal to appear magically on scroll</h2>
+    <div
+      style={{
+        display: `grid`,
+        gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr)`,
+        gridGap: `1rem`
+      }}
+    >
+      {data.map((example, index) => {
+        return <RevealExample key={shortid()} example={example.node} index={index} />
+      })}
+    </div>
+  </section>
+)
 
-const Example = ({ example }) => (
-  <article className="mb5 ph3">
-    <Img
+/*
+ *
+ * Reveal Example
+ * 
+ */
+
+import Image from 'gatsby-image'
+
+import Reveal from '../components/library/Reveal'
+
+const RevealExample = ({ example, index }) => (
+  <Reveal
+    css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
+    delay={index * 0.3 + 0.1}
+    duration={1}
+    offsetTop={-100}
+  >
+    <Image
       sizes={example.image.childImageSharp.sizes}
       alt={example.alt}
-      critical={example.critical}
       className="shadow-lg"
     />
-    <h3 className="mb3 pt3 f2">{example.title}</h3>
-    {/* This paragraph will dispaly HTML in addition to plain text */}
-    <p
-      className="ml-auto mr-auto pv3 measure lh-tall"
-      dangerouslySetInnerHTML={{ __html: example.description }}
-    />
-    <HyperLink href={example.link} className="link dib">
-      Here's a link
-    </HyperLink>
-  </article>
+  </Reveal>
 )
 
 /*
@@ -146,7 +203,7 @@ export const query = graphql`
         node {
           image {
             childImageSharp {
-              sizes(maxWidth: 5184) {
+              sizes(maxWidth: 1000) {
                 ...GatsbyImageSharpSizes_withWebp
               }
             }

@@ -1,4 +1,4 @@
-const TemplateWrapper = ({ children, data }) => {
+const BaseLayout = ({ children, data }) => {
   const site = data.site.siteMetadata
 
   return (
@@ -11,11 +11,11 @@ const TemplateWrapper = ({ children, data }) => {
   )
 }
 
-TemplateWrapper.propTypes = {
+BaseLayout.propTypes = {
   children: PropTypes.func
 }
 
-export default TemplateWrapper
+export default BaseLayout
 
 /*
  *
@@ -27,8 +27,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import Header from '../sections/Header'
+import Footer from '../sections/Footer'
 
 /*
  *
