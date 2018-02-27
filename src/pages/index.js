@@ -44,6 +44,7 @@ const Example = ({ example }) => (
   <article className="mb5 ph3">
     <Img
       sizes={example.image.childImageSharp.sizes}
+      position="0% 0%"
       alt={example.alt}
       critical={example.critical}
       className="shadow-lg"
@@ -182,9 +183,10 @@ const RevealExample = ({ example, index }) => (
     duration={1}
     offsetTop={-100}
   >
-    <Image
+    <Img
       sizes={example.image.childImageSharp.sizes}
       alt={example.alt}
+      critical={true}
       className="shadow-lg"
     />
   </Reveal>

@@ -61,7 +61,7 @@ class Reveal extends React.Component {
       console.log('this.state.duration', this.state.duration)
 
       // Run the reveal animation
-      TweenMax.from(this.box, this.state.duration, {
+      const tween = TweenMax.from(this.box, this.state.duration, {
         css: { ...this.state.css },
         ease: this.state.ease,
         delay: this.state.delay,

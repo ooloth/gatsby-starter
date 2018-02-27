@@ -11,8 +11,8 @@ Use like this:
   sizes={sizes}
   alt={alt}
   critical={true} (optional; default: false; set to true if in hero or wrapped by Reveal)
-  fit="cover" (optional; default: cover)
-  position="50% 0%" (optional; default: 50% 50%)
+  objFit="cover" (optional; default: cover)
+  objPosition="50% 0%" (optional; default: 50% 50%)
   className="..." (optional; goes to .gatsby-image-wrapper)
   style="..." (optional; goes to .gatsby-image-wrapper)
   outerWrapperClassName="..." (optional; goes to .gatsby-image-outer-wrapper)
@@ -29,44 +29,61 @@ DOCS: https://github.com/bfred-it/object-fit-images/#usage
 */
 
 class Img extends React.Component {
-  state = { revealed: this.props.critical || false, repeat: true }
+  state = { revealed: false, critical: this.props.critical || false }
 
   handleWaypointEnter = () => {
     if (!this.state.revealed) {
       this.setState({ revealed: true })
-      console.log('Image revealed.')
+      console.log('Entered!')
     }
   }
 
-  render() {
-    // Construction font-family declaration for object-fit-images
-    const fit = this.props.fit ? this.props.fit : `cover`
-    const position = this.props.position ? this.props.position : `50% 50%`
-    const imgStyle = `font-family: 'object-fit: ${fit}; object-position: ${position}';`
+  // If the image needs to be shown right away, skip react-waypoints (which causes a page jump)
+  renderStaticImage = () => {
+    // Construct font-family declaration for object-fit-images
+    const objFit = this.props.fit ? this.props.fit : `cover`
+    const objPosition = this.props.position ? this.props.position : `50% 50%`
+    const fontFamily = `"object-fit: ${objFit}; object-position: ${objPosition}"`
 
+    const imgStyle = {
+      objectFit: objFit,
+      objectPosition: objPosition,
+      fontFamily: fontFamily
+    }
+
+    return (
+      <Image
+        sizes={this.props.sizes}
+        alt={this.props.alt}
+        className={this.props.className}
+        style={this.props.style}
+        outerWrapperClassName={this.props.outerWrapperClassName}
+        imgStyle={{ ...imgStyle }}
+        position={this.props.position}
+        backgroundColor={this.props.backgroundColor}
+        Tag={this.props.Tag}
+      />
+    )
+  }
+
+  renderWaypointImage = () => {
     return (
       <Waypoint
         ref={el => (this.box = el)}
         onEnter={this.handleWaypointEnter}
-        topOffset="200%"
-        bottomOffset="200%"
+        topOffset="150%"
+        bottomOffset="150%"
       >
-        <figure data-critical={this.props.critical}>
-          {this.state.revealed && (
-            <Image
-              sizes={this.props.sizes}
-              alt={this.props.alt}
-              className={this.props.className}
-              style={this.props.style}
-              outerWrapperClassName={this.props.outerWrapperClassName}
-              imgStyle={this.props.imgStyle}
-              position={this.props.position}
-              backgroundColor={this.props.backgroundColor}
-              Tag={this.props.Tag}
-            />
-          )}
-        </figure>
+        <figure>{this.state.revealed && this.renderStaticImage()}</figure>
       </Waypoint>
+    )
+  }
+
+  render() {
+    return (
+      <div data-critical={this.state.critical || `false`}>
+        {this.state.critical ? this.renderStaticImage() : this.renderWaypointImage()}
+      </div>
     )
   }
 }
