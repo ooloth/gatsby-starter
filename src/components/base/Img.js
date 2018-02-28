@@ -34,7 +34,7 @@ class Img extends React.Component {
   handleWaypointEnter = () => {
     if (!this.state.revealed) {
       this.setState({ revealed: true })
-      console.log('Entered!')
+      // console.log('Image in viewport!')
     }
   }
 

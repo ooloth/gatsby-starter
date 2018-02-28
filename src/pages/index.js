@@ -81,7 +81,7 @@ import Waypoint from 'react-waypoint'
 import loadjs from 'loadjs'
 
 class GSAPTest extends React.Component {
-  state = { revealed: false, repeat: true }
+  state = { revealed: false, repeat: true, animation: null }
 
   componentDidMount = () => {
     // Load GSAP asynchronously from CDN
@@ -110,7 +110,7 @@ class GSAPTest extends React.Component {
 
   animate = () => {
     loadjs.ready('gsap', () => {
-      var breathe = TweenMax.to(this.box, 1.5, {
+      TweenMax.to(this.box, 1.5, {
         scale: 0.9,
         ease: Power2.easeInOut,
         repeat: -1,
@@ -120,7 +120,7 @@ class GSAPTest extends React.Component {
   }
 
   killAnimation = () => {
-    loadjs.ready('gsap', () => TweenMax.killTweensOf(this.box))
+    loadjs.ready('gsap', () => TweenMax.killAll(this.box))
   }
 
   render() {
@@ -142,6 +142,18 @@ class GSAPTest extends React.Component {
     )
   }
 }
+
+// TODO: abstract the TweenMax.to() component above into a separate <Animate /> component? Or adapt <Reveal /> to be either .from() or .to()...?
+// const GSAPTest2 = () => {
+//   <Reveal
+//   css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
+//     delay={index * 0.3 + 0.1}
+//     duration={1}
+//     offsetTop={-100}
+//   >
+
+//   </Reveal>
+// }
 
 /*
  *

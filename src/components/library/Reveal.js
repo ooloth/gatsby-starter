@@ -58,10 +58,9 @@ class Reveal extends React.Component {
     loadjs.ready('gsap', () => {
       // Invalidate the temporary inline styles (which match the starting state for the animation and are added to prevent a flash of content in the ending position)
       this.box.style = null
-      console.log('this.state.duration', this.state.duration)
 
       // Run the reveal animation
-      const tween = TweenMax.from(this.box, this.state.duration, {
+      TweenMax.from(this.box, this.state.duration, {
         css: { ...this.state.css },
         ease: this.state.ease,
         delay: this.state.delay,
@@ -71,9 +70,7 @@ class Reveal extends React.Component {
     })
   }
 
-  reset = () => {
-    loadjs.ready('gsap', () => TweenMax.killAll(this.box))
-  }
+  reset = () => loadjs.ready('gsap', () => TweenMax.killTweensOf(this.box))
 
   render() {
     return (
