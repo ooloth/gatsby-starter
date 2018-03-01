@@ -1,5 +1,5 @@
 const SecondPage = ({ data }) => (
-  <main>
+  <main id="main-content">
     <PageMetadata page={data.metadata.siteMetadata.secondPage} />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>

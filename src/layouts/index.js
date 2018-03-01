@@ -4,9 +4,11 @@ const BaseLayout = ({ children, data }) => {
   return (
     <div>
       <SiteMetadata site={data.site.siteMetadata} />
+
       <Header />
       {children()}
       <Footer />
+      <BasicStructuredData />
     </div>
   )
 }
@@ -62,7 +64,7 @@ import siteImage from '../images/placeholder.jpg'
 const SiteMetadata = ({ site }) => (
   <Helmet>
     {/* HTML language */}
-    <html lang={site.language} />
+    <html itemscope itemtype="http://schema.org/WebPage" lang={site.language} />
 
     {/* Title comes first (meta charset and viewport are automatically included) */}
     <title itemProp="name" lang={site.language}>
@@ -86,16 +88,54 @@ const SiteMetadata = ({ site }) => (
     {site.twitterHandle && <meta name="twitter:site" content={site.twitterHandle} />}
     <meta name="twitter:image:src" content={siteImage} />
 
-    {/* Open Graph general (Facebook, Pinterest & Google+) */}
+    {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
     <meta property="og:title" content={site.title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={site.url} />
     <meta property="og:image" content={siteImage} />
     <meta property="og:description" content={site.description} />
-    <meta property="og:site_name" content={site.name} />
+    <meta property="og:site_name" content={site.title} />
     <meta property="og:locale" content={site.locale} />
   </Helmet>
 )
+
+const BasicStructuredData = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: structuredData }}
+    async
+    defer
+  />
+)
+
+const structuredData = `{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Colorado Springs",
+    addressRegion: "CO",
+    postalCode: "80840",
+    streetAddress: "100 Main Street"
+  },
+  email: "mailto:info@example.com",
+  image: "janedoe.jpg",
+  jobTitle: "Research Assistant",
+  name: "Jane Doe",
+  alumniOf: "Dartmouth",
+  birthPlace: "Philadelphia, PA",
+  birthDate: "1979.10.12",
+  height: "72 inches",
+  memberOf: "Republican Party",
+  telephone: "(123) 456-6789",
+  url: "http://www.example.com",
+  sameAs: [
+    "https://www.facebook.com/name",
+    "https://www.linkedin.com/name",
+    "http://twitter.com/name",
+    "http://instagram.com/name"
+  ]
+}`
 
 /*
  *
@@ -112,7 +152,7 @@ export const query = graphql`
         locale
         title
         twitterHandle
-        url
+        siteUrl
       }
     }
   }

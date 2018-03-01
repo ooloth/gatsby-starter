@@ -1,7 +1,7 @@
 import Link from 'gatsby-link'
 
 const IndexPage = ({ data }) => (
-  <main className="container tc">
+  <main id="main-content" className="container tc">
     <h1 className="pv4 f1">Hi people</h1>
     <Link to="/page-2/" className="link dib mb4">
       Go to page 2
