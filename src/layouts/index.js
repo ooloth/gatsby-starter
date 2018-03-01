@@ -1,17 +1,12 @@
-const BaseLayout = ({ children, data }) => {
-  const site = data.site.siteMetadata
-
-  return (
-    <div>
-      <SiteMetadata site={data.site.siteMetadata} />
-
-      <Header />
-      {children()}
-      <Footer />
-      <BasicStructuredData />
-    </div>
-  )
-}
+const BaseLayout = ({ children, data }) => (
+  <div>
+    <SiteMetadata site={data.site.siteMetadata} />
+    <Header />
+    {children()}
+    <Footer />
+    <BasicStructuredData />
+  </div>
+)
 
 BaseLayout.propTypes = {
   children: PropTypes.func
@@ -98,6 +93,12 @@ const SiteMetadata = ({ site }) => (
     <meta property="og:locale" content={site.locale} />
   </Helmet>
 )
+
+/*
+ *
+ * Basic Structured Data
+ * 
+ */
 
 const BasicStructuredData = () => (
   <script

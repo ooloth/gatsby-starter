@@ -4,9 +4,7 @@
  *
  */
 
-.animate,
-.animate:hover,
-.animate:focus { transition: all .2s ease-in-out }
+.animate { transition: all .2s ease-in-out }
 
 /* 
  *

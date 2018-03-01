@@ -38,7 +38,9 @@ body {
 
 article,
 footer,
-header {
+header,
+nav,
+section {
   display: block;
 }
 
@@ -127,10 +129,6 @@ a {
 /**
  * Add the correct font size in all browsers.
  */
-
-small {
-  font-size: 80%;
-}
 
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
@@ -407,12 +405,42 @@ button:focus {
  * Tailwind custom reset styles
  */
 
+/**
+ * Allow adding a border to an element by just adding a border-width.
+ *
+ * By default, the way the browser specifies that an element should have no
+ * border is by setting it's border-style to `none` in the user-agent
+ * stylesheet.
+ *
+ * In order to easily add borders to elements by just setting the `border-width`
+ * property, we change the default border-style for all elements to `solid`, and
+ * use border-width to hide them instead. This way our `border` utilities only
+ * need to set the `border-width` property instead of the entire `border`
+ * shorthand, making our border utilities much more straightforward to compose.
+ *
+ * https://github.com/tailwindcss/tailwindcss/pull/116
+ */
+
 *,
 *::before,
 *::after {
   border-width: 0;
   border-style: solid;
   border-color: #dae1e7;
+}
+
+/**
+ * Undo the `border-style: none` reset that Normalize applies to images so that
+ * our `border-{width}` utilities have the expected effect.
+ *
+ * The Normalize reset is unnecessary for us since we default the border-width
+ * to 0 on all elements.
+ *
+ * https://github.com/tailwindcss/tailwindcss/issues/362
+ */
+
+img {
+  border-style: solid;
 }
 
 /**
@@ -633,17 +661,17 @@ textarea:focus {
 
 /* See: https://css-tricks.com/small-tweaks-can-make-huge-impact-websites-accessibility/#article-header-id-5 */
 
-.visually-hidden {
+.sr-only {
   display: block;
-  height: 1px;
-  width: 1px;
+  position: absolute;
   overflow: hidden;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(1px);
           clip-path: inset(1px);
+  height: 1px;
+  width: 1px;
   white-space: nowrap;
-  position: absolute;
 }
 
 /*
@@ -721,27 +749,35 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
+  padding-left: var(--spacing-3);
   padding-right: 1rem;
+  padding-right: var(--spacing-3);
   max-width: 64rem;
+  max-width: var(--sizing-8);
 }
 
 @media (min-width: 48em) {
   .container {
     padding-left: 2rem;
+    padding-left: var(--spacing-4);
     padding-right: 2rem;
+    padding-right: var(--spacing-4);
   }
 }
 
 @media (min-width: 62em) {
   .container {
     padding-left: 4rem;
+    padding-left: var(--spacing-5);
     padding-right: 4rem;
+    padding-right: var(--spacing-5);
   }
 }
 
 @supports (display: grid) {
   .container {
     max-width: 96rem;
+    max-width: var(--sizing-9);
   }
 }
 
@@ -766,6 +802,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 .icon:hover,
 .icon:focus {
   color: #19a974;
+  color: var(--green);
 }
 
 /* 
@@ -778,16 +815,24 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
           box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   border-width: .125rem;
+  border-width: var(--border-width-1);
   border-color: #000;
+  border-color: var(--black);
   background-color: #000;
+  background-color: var(--black);
   padding-top: .5rem;
+  padding-top: var(--spacing-2);
   padding-bottom: .5rem;
+  padding-bottom: var(--spacing-2);
   padding-left: 1rem;
+  padding-left: var(--spacing-3);
   padding-right: 1rem;
+  padding-right: var(--spacing-3);
   line-height: 1.7;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: #fff;
+  color: var(--white);
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -797,8 +842,11 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 .link:hover,
 .link:focus {
   border-color: #ff80cc;
+  border-color: var(--pink);
   background-color: #ff80cc;
+  background-color: var(--pink);
   color: #000;
+  color: var(--black);
 }
 
 /* 
@@ -845,9 +893,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
-.animate,
-.animate:hover,
-.animate:focus {
+.animate {
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
@@ -933,10 +979,12 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 
 .bg-black {
   background-color: #000;
+  background-color: var(--black);
 }
 
 .bg-red {
   background-color: #ff4136;
+  background-color: var(--red);
 }
 
 /*
@@ -1356,14 +1404,17 @@ Adapted from: http://tachyons.io/docs/layout/heights/
 
 .h1 {
   height: 1rem;
+  height: var(--sizing-1);
 }
 
 .h2 {
   height: 2rem;
+  height: var(--sizing-2);
 }
 
 .h3 {
   height: 4rem;
+  height: var(--sizing-3);
 }
 
 /* 
@@ -1461,14 +1512,17 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 .mb3 {
   margin-bottom: 1rem;
+  margin-bottom: var(--spacing-3);
 }
 
 .mb4 {
   margin-bottom: 2rem;
+  margin-bottom: var(--spacing-4);
 }
 
 .mb5 {
   margin-bottom: 4rem;
+  margin-bottom: var(--spacing-5);
 }
 
 /* Left */
@@ -1481,20 +1535,19 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 .mv4 {
   margin-top: 2rem;
+  margin-top: var(--spacing-4);
   margin-bottom: 2rem;
+  margin-bottom: var(--spacing-4);
 }
 
 .mv6 {
   margin-top: 8rem;
+  margin-top: var(--spacing-6);
   margin-bottom: 8rem;
+  margin-bottom: var(--spacing-6);
 }
 
 /* Horizontal (left + right) */
-
-.center {
-  margin-right: auto;
-  margin-left: auto;
-}
 
 /*
 
@@ -1534,25 +1587,34 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 .pa3 {
   padding: 1rem;
+  padding: var(--spacing-3);
 }
 
 .pa5 {
   padding: 4rem;
+  padding: var(--spacing-5);
 }
 
 /* Top */
 
 .pt3 {
   padding-top: 1rem;
+  padding-top: var(--spacing-3);
 }
 
 /* Right */
 
 .pr4 {
   padding-right: 2rem;
+  padding-right: var(--spacing-4);
 }
 
 /* Bottom */
+
+.pb5 {
+  padding-bottom: 4rem;
+  padding-bottom: var(--spacing-5);
+}
 
 /* Left */
 
@@ -1560,19 +1622,25 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 .pv3 {
   padding-top: 1rem;
+  padding-top: var(--spacing-3);
   padding-bottom: 1rem;
+  padding-bottom: var(--spacing-3);
 }
 
 .pv4 {
   padding-top: 2rem;
+  padding-top: var(--spacing-4);
   padding-bottom: 2rem;
+  padding-bottom: var(--spacing-4);
 }
 
 /* Horizontal (left + right) */
 
 .ph3 {
   padding-left: 1rem;
+  padding-left: var(--spacing-3);
   padding-right: 1rem;
+  padding-right: var(--spacing-3);
 }
 
 /* SVG */
@@ -1627,10 +1695,12 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 
 .white {
   color: #fff;
+  color: var(--white);
 }
 
 .pink {
   color: #ff80cc;
+  color: var(--pink);
 }
 
 /*
@@ -1673,14 +1743,17 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
 
 .f1 {
   font-size: 3rem;
+  font-size: var(--font-size-1);
 }
 
 .f2 {
   font-size: 2.25rem;
+  font-size: var(--font-size-2);
 }
 
 .f3 {
   font-size: 1.5rem;
+  font-size: var(--font-size-3);
 }
 
 /*
@@ -1700,10 +1773,6 @@ Adapted from:
   * Font style
   *
   */
-
-.i {
-  font-style: italic;
-}
 
 /*
   *
@@ -1916,7 +1985,110 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 /* Breakpoints (adjust to match tailwind.js) */
 
 :root {
-  /* Type scale *//* Spacing scale *//* Sizing scale *//* Borders *//* Colors */
+  /* Type scale */
+  --font-size-headline: 6rem;
+  --font-size-subheadline: 5rem;
+  --font-size-1: 3rem;
+  --font-size-2: 2.25rem;
+  --font-size-3: 1.5rem;
+  --font-size-4: 1.25rem;
+  --font-size-5: 1rem;
+  --font-size-6: .875rem;
+  --font-size-7: .75rem;
+  /* Spacing scale */
+  --spacing-1: .25rem;
+  --spacing-2: .5rem;
+  --spacing-3: 1rem;
+  --spacing-4: 2rem;
+  --spacing-5: 4rem;
+  --spacing-6: 8rem;
+  --spacing-7: 16rem;
+  /* Sizing scale */
+  --sizing-1: 1rem;
+  --sizing-2: 2rem;
+  --sizing-3: 4rem;
+  --sizing-4: 8rem;
+  --sizing-5: 16rem;
+  --sizing-6: 32rem;
+  --sizing-7: 48rem;
+  --sizing-8: 64rem;
+  --sizing-9: 96rem;
+  /* Borders */
+  --border-radius-none: 0;
+  --border-radius-1: .125rem;
+  --border-radius-2: .25rem;
+  --border-radius-3: .5rem;
+  --border-radius-4: 1rem;
+  --border-radius-circle: 100%;
+  --border-radius-pill: 9999px;
+  --border-width-none: 0;
+  --border-width-1: .125rem;
+  --border-width-2: .25rem;
+  --border-width-3: .5rem;
+  --border-width-4: 1rem;
+  --border-width-5: 2rem;
+  /* Colors */
+  --black: #000;
+  --near-black: #111;
+  --dark-gray: #333;
+  --mid-gray: #555;
+  --gray: #777;
+  --silver: #999;
+  --light-silver: #aaa;
+  --moon-gray: #ccc;
+  --light-gray: #eee;
+  --near-white: #f4f4f4;
+  --white: #fff;
+  --transparent: transparent;
+  --black-90: rgba(0, 0, 0, .9);
+  --black-80: rgba(0, 0, 0, .8);
+  --black-70: rgba(0, 0, 0, .7);
+  --black-60: rgba(0, 0, 0, .6);
+  --black-50: rgba(0, 0, 0, .5);
+  --black-40: rgba(0, 0, 0, .4);
+  --black-30: rgba(0, 0, 0, .3);
+  --black-20: rgba(0, 0, 0, .2);
+  --black-10: rgba(0, 0, 0, .1);
+  --black-05: rgba(0, 0, 0, .05);
+  --black-025: rgba(0, 0, 0, .025);
+  --black-0125: rgba(0, 0, 0, .0125);
+  --white-90: rgba(255, 255, 255, .9);
+  --white-80: rgba(255, 255, 255, .8);
+  --white-70: rgba(255, 255, 255, .7);
+  --white-60: rgba(255, 255, 255, .6);
+  --white-50: rgba(255, 255, 255, .5);
+  --white-40: rgba(255, 255, 255, .4);
+  --white-30: rgba(255, 255, 255, .3);
+  --white-20: rgba(255, 255, 255, .2);
+  --white-10: rgba(255, 255, 255, .1);
+  --white-05: rgba(255, 255, 255, .05);
+  --white-025: rgba(255, 255, 255, .025);
+  --white-0125: rgba(255, 255, 255, .0125);
+  --dark-red: #e7040f;
+  --red: #ff4136;
+  --light-red: #ff725c;
+  --orange: #ff6300;
+  --gold: #ffb700;
+  --yellow: #ffd700;
+  --light-yellow: #fbf1a9;
+  --purple: #5e2ca5;
+  --light-purple: #a463f2;
+  --dark-pink: #d5008f;
+  --hot-pink: #ff41b4;
+  --pink: #ff80cc;
+  --light-pink: #ffa3d7;
+  --dark-green: #137752;
+  --green: #19a974;
+  --light-green: #9eebcf;
+  --navy: #001b44;
+  --dark-blue: #00449e;
+  --blue: #357edd;
+  --light-blue: #96ccff;
+  --lightest-blue: #cdecff;
+  --washed-blue: #f6fffe;
+  --washed-green: #e8fdf5;
+  --washed-yellow: #fffceb;
+  --washed-red: #ffdfdf;
 }
 
 /* Debug */
