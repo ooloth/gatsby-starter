@@ -26,7 +26,7 @@ module.exports = {
       resolve: 'gatsby-plugin-webpack-bundle-analyzer',
       options: {
         defaultSizes: `gzip`,
-        // disable: true,
+        disable: true,
         production: true
       }
     },
