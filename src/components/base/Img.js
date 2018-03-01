@@ -59,9 +59,9 @@ class Img extends React.Component {
         style={this.props.style}
         outerWrapperClassName={this.props.outerWrapperClassName}
         imgStyle={{ ...imgStyle }}
-        position={this.props.position}
-        backgroundColor={this.props.backgroundColor}
-        Tag={this.props.Tag}
+        position={this.props.position || `relative`}
+        backgroundColor={this.props.backgroundColor || false}
+        Tag={this.props.Tag || `div`}
       />
     )
   }

@@ -69,7 +69,7 @@ const SiteMetadata = ({ site }) => (
     {/* Search engine */}
     <meta name="description" content={site.description} />
     <meta name="image" content={siteImage} />
-    <link rel="canonical" href={site.url} />
+    <link rel="canonical" href={site.siteUrl} />
 
     {/* Schema.org for Google */}
     <meta itemprop="name" content={site.title} />
@@ -86,7 +86,7 @@ const SiteMetadata = ({ site }) => (
     {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
     <meta property="og:title" content={site.title} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={site.url} />
+    <meta property="og:url" content={site.siteUrl} />
     <meta property="og:image" content={siteImage} />
     <meta property="og:description" content={site.description} />
     <meta property="og:site_name" content={site.title} />
@@ -101,12 +101,7 @@ const SiteMetadata = ({ site }) => (
  */
 
 const BasicStructuredData = () => (
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: structuredData }}
-    async
-    defer
-  />
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
 )
 
 const structuredData = `{
