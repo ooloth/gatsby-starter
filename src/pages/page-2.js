@@ -1,9 +1,10 @@
 const SecondPage = ({ data }) => (
-  <main id="main-content">
+  <main id="main-content" class="container tc">
     <PageMetadata page={data.metadata.siteMetadata.secondPage} />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
+    <h1 class="pv4 f1">Hi from page 2</h1>
+    <Link to="/" className="link dib mb4">
+      Go back home
+    </Link>
   </main>
 )
 

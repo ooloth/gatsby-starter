@@ -7,7 +7,7 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
 
 */
 
-@variants responsive, hover, focus {
+@variants responsive, hover, focus, group-hover, group-hover {
 
   .f1            { font-size: var(--font-size-1) }
   .f2            { font-size: var(--font-size-2) }
