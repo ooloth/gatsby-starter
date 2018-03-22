@@ -723,11 +723,7 @@ a {
  *
  */
 
-/* This is not accessible (need to replace with a hover/focus style or other outline if I activate) */
-
-/* 
-button { outline: 0 }
-*/
+/* ... */
 
 /*
  *
@@ -759,7 +755,7 @@ textarea {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  /* outline: 0; *//* Not accessible, so need to replace with custom hover/focus styling *//* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
+  /* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
   line-height: normal;
 }
 
@@ -966,8 +962,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   transition: all .2s ease-in-out;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
   background-color: #ff80cc;
   background-color: var(--pink);
   color: #000;
@@ -1055,8 +1050,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   transition: all .2s ease-in-out;
 }
 
-.icon:hover,
-.icon:focus {
+.icon:hover {
   color: #19a974;
   color: var(--green);
 }
@@ -1067,8 +1061,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   transition: all .2s ease-in-out;
 }
 
-.icon-on-green:hover,
-.icon-on-green:focus {
+.icon-on-green:hover {
   color: #fff;
   color: var(--white);
   -webkit-filter: drop-shadow(0 15px 5px rgba(0, 0, 0, .11));
@@ -1109,8 +1102,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   border-radius: 30px;
 }
 
-.link:hover,
-.link:focus {
+.link:hover {
   border-color: #ff80cc;
   border-color: var(--pink);
   background-color: #ff80cc;
@@ -1119,8 +1111,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   color: var(--black);
 }
 
-.link-white:hover,
-.link-white:focus {
+.link-white:hover {
   border-color: #fff;
   border-color: var(--white);
   background-color: #fff;
@@ -1141,19 +1132,12 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
           box-shadow: inset 0 -2px 0 0 var(--pink);
 }
 
-.link-inline:hover,
-.link-inline:focus {
+.link-inline:hover {
   -webkit-box-shadow: inset 0 -12px 0 0 #ff80cc;
           box-shadow: inset 0 -12px 0 0 #ff80cc;
   -webkit-box-shadow: inset 0 -12px 0 0 var(--pink);
           box-shadow: inset 0 -12px 0 0 var(--pink);
 }
-
-/* 
- *
- * Sections
- *
- */
 
 /*
  *
@@ -7806,6 +7790,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin: var(--spacing-7);
 }
 
+.ma8 {
+  margin: 32rem;
+  margin: var(--spacing-8);
+}
+
 /* Top */
 
 .mt0 {
@@ -7847,6 +7836,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-top: var(--spacing-7);
 }
 
+.mt8 {
+  margin-top: 32rem;
+  margin-top: var(--spacing-8);
+}
+
 /* Right */
 
 .mr0 {
@@ -7886,6 +7880,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 .mr7 {
   margin-right: 16rem;
   margin-right: var(--spacing-7);
+}
+
+.mr8 {
+  margin-right: 32rem;
+  margin-right: var(--spacing-8);
 }
 
 .mr-auto {
@@ -7933,6 +7932,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-bottom: var(--spacing-7);
 }
 
+.mb8 {
+  margin-bottom: 32rem;
+  margin-bottom: var(--spacing-8);
+}
+
 /* Left */
 
 .ml0 {
@@ -7972,6 +7976,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 .ml7 {
   margin-left: 16rem;
   margin-left: var(--spacing-7);
+}
+
+.ml8 {
+  margin-left: 32rem;
+  margin-left: var(--spacing-8);
 }
 
 .ml-auto {
@@ -8034,6 +8043,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-bottom: var(--spacing-7);
 }
 
+.mv8 {
+  margin-top: 32rem;
+  margin-top: var(--spacing-8);
+  margin-bottom: 32rem;
+  margin-bottom: var(--spacing-8);
+}
+
 /* Horizontal (left + right) */
 
 .center {
@@ -8093,6 +8109,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-left: var(--spacing-7);
   margin-right: 16rem;
   margin-right: var(--spacing-7);
+}
+
+.mh8 {
+  margin-left: 32rem;
+  margin-left: var(--spacing-8);
+  margin-right: 32rem;
+  margin-right: var(--spacing-8);
 }
 
 /*
@@ -8473,6 +8496,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding: var(--spacing-7);
 }
 
+.pa8 {
+  padding: 32rem;
+  padding: var(--spacing-8);
+}
+
 /* Top */
 
 .pt0 {
@@ -8512,6 +8540,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 .pt7 {
   padding-top: 16rem;
   padding-top: var(--spacing-7);
+}
+
+.pt8 {
+  padding-top: 32rem;
+  padding-top: var(--spacing-8);
 }
 
 /* Right */
@@ -8555,6 +8588,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-right: var(--spacing-7);
 }
 
+.pr8 {
+  padding-right: 32rem;
+  padding-right: var(--spacing-8);
+}
+
 /* Bottom */
 
 .pb0 {
@@ -8596,6 +8634,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-bottom: var(--spacing-7);
 }
 
+.pb8 {
+  padding-bottom: 32rem;
+  padding-bottom: var(--spacing-8);
+}
+
 /* Left */
 
 .pl0 {
@@ -8635,6 +8678,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 .pl7 {
   padding-left: 16rem;
   padding-left: var(--spacing-7);
+}
+
+.pl8 {
+  padding-left: 32rem;
+  padding-left: var(--spacing-8);
 }
 
 /* Vertical (top + bottom) */
@@ -8693,6 +8741,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-bottom: var(--spacing-7);
 }
 
+.pv8 {
+  padding-top: 32rem;
+  padding-top: var(--spacing-8);
+  padding-bottom: 32rem;
+  padding-bottom: var(--spacing-8);
+}
+
 /* Horizontal (left + right) */
 
 .ph0 {
@@ -8747,6 +8802,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-left: var(--spacing-7);
   padding-right: 16rem;
   padding-right: var(--spacing-7);
+}
+
+.ph8 {
+  padding-left: 32rem;
+  padding-left: var(--spacing-8);
+  padding-right: 32rem;
+  padding-right: var(--spacing-8);
 }
 
 /* SVG */
@@ -10190,12 +10252,20 @@ code,
  *
  */
 
+.abeezee {
+  font-family: ABeeZee, sans-serif;
+}
+
 .avenir {
   font-family: 'avenir next', avenir, sans-serif;
 }
 
 .helvetica {
   font-family: 'helvetica neue', helvetica, sans-serif;
+}
+
+.josefin-sans {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .raleway {
@@ -10234,6 +10304,16 @@ code,
 
 .times {
   font-family: times, serif;
+}
+
+/*
+ *
+ * Cursive
+ *
+ */
+
+.lobster {
+  font-family: 'Lobster', cursive;
 }
 
 /*
@@ -11098,6 +11178,10 @@ Adapted from:
   max-width: 45ch;
 }
 
+.measure-tight {
+  max-width: 28ch;
+}
+
 .measure-wide {
   max-width: 80ch;
 }
@@ -11546,6 +11630,7 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   --spacing-5: 4rem;
   --spacing-6: 8rem;
   --spacing-7: 16rem;
+  --spacing-8: 32rem;
   /* Sizing scale */
   --sizing-1: 1rem;
   --sizing-2: 2rem;
@@ -17617,6 +17702,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:ma7 {
     margin: 16rem;
     margin: var(--spacing-7);
+  }
+
+  .sm\:ma8 {
+    margin: 32rem;
+    margin: var(--spacing-8);
   }/* Top */
 
   .sm\:mt0 {
@@ -17656,6 +17746,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:mt7 {
     margin-top: 16rem;
     margin-top: var(--spacing-7);
+  }
+
+  .sm\:mt8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
   }/* Right */
 
   .sm\:mr0 {
@@ -17695,6 +17790,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:mr7 {
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .sm\:mr8 {
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }
 
   .sm\:mr-auto {
@@ -17738,6 +17838,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:mb7 {
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .sm\:mb8 {
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Left */
 
   .sm\:ml0 {
@@ -17777,6 +17882,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:ml7 {
     margin-left: 16rem;
     margin-left: var(--spacing-7);
+  }
+
+  .sm\:ml8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
   }
 
   .sm\:ml-auto {
@@ -17835,6 +17945,13 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     margin-top: var(--spacing-7);
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .sm\:mv8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .sm\:center {
@@ -17894,6 +18011,13 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     margin-left: var(--spacing-7);
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .sm\:mh8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }/* All */
 
   .sm\:na0 {
@@ -18236,6 +18360,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:pa7 {
     padding: 16rem;
     padding: var(--spacing-7);
+  }
+
+  .sm\:pa8 {
+    padding: 32rem;
+    padding: var(--spacing-8);
   }/* Top */
 
   .sm\:pt0 {
@@ -18275,6 +18404,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:pt7 {
     padding-top: 16rem;
     padding-top: var(--spacing-7);
+  }
+
+  .sm\:pt8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
   }/* Right */
 
   .sm\:pr0 {
@@ -18314,6 +18448,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:pr7 {
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .sm\:pr8 {
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }/* Bottom */
 
   .sm\:pb0 {
@@ -18353,6 +18492,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:pb7 {
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .sm\:pb8 {
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Left */
 
   .sm\:pl0 {
@@ -18392,6 +18536,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:pl7 {
     padding-left: 16rem;
     padding-left: var(--spacing-7);
+  }
+
+  .sm\:pl8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
   }/* Vertical (top + bottom) */
 
   .sm\:pv0 {
@@ -18446,6 +18595,13 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     padding-top: var(--spacing-7);
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .sm\:pv8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .sm\:ph0 {
@@ -18500,6 +18656,13 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     padding-left: var(--spacing-7);
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .sm\:ph8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }
 
   .sm\:fill-current {
@@ -20584,6 +20747,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:measure-narrow {
     max-width: 45ch;
+  }
+
+  .sm\:measure-tight {
+    max-width: 28ch;
   }
 
   .sm\:measure-wide {
@@ -26866,6 +27033,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:ma7 {
     margin: 16rem;
     margin: var(--spacing-7);
+  }
+
+  .md\:ma8 {
+    margin: 32rem;
+    margin: var(--spacing-8);
   }/* Top */
 
   .md\:mt0 {
@@ -26905,6 +27077,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:mt7 {
     margin-top: 16rem;
     margin-top: var(--spacing-7);
+  }
+
+  .md\:mt8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
   }/* Right */
 
   .md\:mr0 {
@@ -26944,6 +27121,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:mr7 {
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .md\:mr8 {
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }
 
   .md\:mr-auto {
@@ -26987,6 +27169,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:mb7 {
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .md\:mb8 {
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Left */
 
   .md\:ml0 {
@@ -27026,6 +27213,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:ml7 {
     margin-left: 16rem;
     margin-left: var(--spacing-7);
+  }
+
+  .md\:ml8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
   }
 
   .md\:ml-auto {
@@ -27084,6 +27276,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     margin-top: var(--spacing-7);
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .md\:mv8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .md\:center {
@@ -27143,6 +27342,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     margin-left: var(--spacing-7);
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .md\:mh8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }/* All */
 
   .md\:na0 {
@@ -27485,6 +27691,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:pa7 {
     padding: 16rem;
     padding: var(--spacing-7);
+  }
+
+  .md\:pa8 {
+    padding: 32rem;
+    padding: var(--spacing-8);
   }/* Top */
 
   .md\:pt0 {
@@ -27524,6 +27735,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:pt7 {
     padding-top: 16rem;
     padding-top: var(--spacing-7);
+  }
+
+  .md\:pt8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
   }/* Right */
 
   .md\:pr0 {
@@ -27563,6 +27779,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:pr7 {
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .md\:pr8 {
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }/* Bottom */
 
   .md\:pb0 {
@@ -27602,6 +27823,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:pb7 {
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .md\:pb8 {
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Left */
 
   .md\:pl0 {
@@ -27641,6 +27867,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:pl7 {
     padding-left: 16rem;
     padding-left: var(--spacing-7);
+  }
+
+  .md\:pl8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
   }/* Vertical (top + bottom) */
 
   .md\:pv0 {
@@ -27695,6 +27926,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     padding-top: var(--spacing-7);
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .md\:pv8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .md\:ph0 {
@@ -27749,6 +27987,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     padding-left: var(--spacing-7);
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .md\:ph8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }
 
   .md\:fill-current {
@@ -29833,6 +30078,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:measure-narrow {
     max-width: 45ch;
+  }
+
+  .md\:measure-tight {
+    max-width: 28ch;
   }
 
   .md\:measure-wide {
@@ -36115,6 +36364,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:ma7 {
     margin: 16rem;
     margin: var(--spacing-7);
+  }
+
+  .lg\:ma8 {
+    margin: 32rem;
+    margin: var(--spacing-8);
   }/* Top */
 
   .lg\:mt0 {
@@ -36154,6 +36408,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:mt7 {
     margin-top: 16rem;
     margin-top: var(--spacing-7);
+  }
+
+  .lg\:mt8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
   }/* Right */
 
   .lg\:mr0 {
@@ -36193,6 +36452,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:mr7 {
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .lg\:mr8 {
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }
 
   .lg\:mr-auto {
@@ -36236,6 +36500,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:mb7 {
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .lg\:mb8 {
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Left */
 
   .lg\:ml0 {
@@ -36275,6 +36544,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:ml7 {
     margin-left: 16rem;
     margin-left: var(--spacing-7);
+  }
+
+  .lg\:ml8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
   }
 
   .lg\:ml-auto {
@@ -36333,6 +36607,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     margin-top: var(--spacing-7);
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .lg\:mv8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .lg\:center {
@@ -36392,6 +36673,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     margin-left: var(--spacing-7);
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .lg\:mh8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }/* All */
 
   .lg\:na0 {
@@ -36734,6 +37022,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:pa7 {
     padding: 16rem;
     padding: var(--spacing-7);
+  }
+
+  .lg\:pa8 {
+    padding: 32rem;
+    padding: var(--spacing-8);
   }/* Top */
 
   .lg\:pt0 {
@@ -36773,6 +37066,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:pt7 {
     padding-top: 16rem;
     padding-top: var(--spacing-7);
+  }
+
+  .lg\:pt8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
   }/* Right */
 
   .lg\:pr0 {
@@ -36812,6 +37110,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:pr7 {
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .lg\:pr8 {
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }/* Bottom */
 
   .lg\:pb0 {
@@ -36851,6 +37154,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:pb7 {
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .lg\:pb8 {
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Left */
 
   .lg\:pl0 {
@@ -36890,6 +37198,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:pl7 {
     padding-left: 16rem;
     padding-left: var(--spacing-7);
+  }
+
+  .lg\:pl8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
   }/* Vertical (top + bottom) */
 
   .lg\:pv0 {
@@ -36944,6 +37257,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     padding-top: var(--spacing-7);
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .lg\:pv8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .lg\:ph0 {
@@ -36998,6 +37318,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     padding-left: var(--spacing-7);
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .lg\:ph8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }
 
   .lg\:fill-current {
@@ -39082,6 +39409,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:measure-narrow {
     max-width: 45ch;
+  }
+
+  .lg\:measure-tight {
+    max-width: 28ch;
   }
 
   .lg\:measure-wide {
@@ -45364,6 +45695,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:ma7 {
     margin: 16rem;
     margin: var(--spacing-7);
+  }
+
+  .xl\:ma8 {
+    margin: 32rem;
+    margin: var(--spacing-8);
   }/* Top */
 
   .xl\:mt0 {
@@ -45403,6 +45739,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:mt7 {
     margin-top: 16rem;
     margin-top: var(--spacing-7);
+  }
+
+  .xl\:mt8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
   }/* Right */
 
   .xl\:mr0 {
@@ -45442,6 +45783,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:mr7 {
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .xl\:mr8 {
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }
 
   .xl\:mr-auto {
@@ -45485,6 +45831,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:mb7 {
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .xl\:mb8 {
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Left */
 
   .xl\:ml0 {
@@ -45524,6 +45875,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:ml7 {
     margin-left: 16rem;
     margin-left: var(--spacing-7);
+  }
+
+  .xl\:ml8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
   }
 
   .xl\:ml-auto {
@@ -45582,6 +45938,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     margin-top: var(--spacing-7);
     margin-bottom: 16rem;
     margin-bottom: var(--spacing-7);
+  }
+
+  .xl\:mv8 {
+    margin-top: 32rem;
+    margin-top: var(--spacing-8);
+    margin-bottom: 32rem;
+    margin-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .xl\:center {
@@ -45641,6 +46004,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     margin-left: var(--spacing-7);
     margin-right: 16rem;
     margin-right: var(--spacing-7);
+  }
+
+  .xl\:mh8 {
+    margin-left: 32rem;
+    margin-left: var(--spacing-8);
+    margin-right: 32rem;
+    margin-right: var(--spacing-8);
   }/* All */
 
   .xl\:na0 {
@@ -45983,6 +46353,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:pa7 {
     padding: 16rem;
     padding: var(--spacing-7);
+  }
+
+  .xl\:pa8 {
+    padding: 32rem;
+    padding: var(--spacing-8);
   }/* Top */
 
   .xl\:pt0 {
@@ -46022,6 +46397,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:pt7 {
     padding-top: 16rem;
     padding-top: var(--spacing-7);
+  }
+
+  .xl\:pt8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
   }/* Right */
 
   .xl\:pr0 {
@@ -46061,6 +46441,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:pr7 {
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .xl\:pr8 {
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }/* Bottom */
 
   .xl\:pb0 {
@@ -46100,6 +46485,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:pb7 {
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .xl\:pb8 {
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Left */
 
   .xl\:pl0 {
@@ -46139,6 +46529,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:pl7 {
     padding-left: 16rem;
     padding-left: var(--spacing-7);
+  }
+
+  .xl\:pl8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
   }/* Vertical (top + bottom) */
 
   .xl\:pv0 {
@@ -46193,6 +46588,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     padding-top: var(--spacing-7);
     padding-bottom: 16rem;
     padding-bottom: var(--spacing-7);
+  }
+
+  .xl\:pv8 {
+    padding-top: 32rem;
+    padding-top: var(--spacing-8);
+    padding-bottom: 32rem;
+    padding-bottom: var(--spacing-8);
   }/* Horizontal (left + right) */
 
   .xl\:ph0 {
@@ -46247,6 +46649,13 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     padding-left: var(--spacing-7);
     padding-right: 16rem;
     padding-right: var(--spacing-7);
+  }
+
+  .xl\:ph8 {
+    padding-left: 32rem;
+    padding-left: var(--spacing-8);
+    padding-right: 32rem;
+    padding-right: var(--spacing-8);
   }
 
   .xl\:fill-current {
@@ -48331,6 +48740,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:measure-narrow {
     max-width: 45ch;
+  }
+
+  .xl\:measure-tight {
+    max-width: 28ch;
   }
 
   .xl\:measure-wide {

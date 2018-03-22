@@ -14,14 +14,25 @@ const HyperLink = ({ href, srText, className, children }) => {
   return (
     <a
       href={href}
-      target={isExternal ? '_blank' : null}
-      rel={isExternal ? 'noopener nofollow' : null}
+      target={isExternal ? `_blank` : null}
+      rel={isExternal ? `noopener nofollow` : null}
       className={className}
     >
-      {srText && <span class="sr-only">{srText}</span>}
+      {srText && <span className="sr-only">{srText}</span>}
       {children}
     </a>
   )
+}
+
+HyperLink.propTypes = {
+  href: PropTypes.string,
+  srText: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.string
+  ])
 }
 
 export default HyperLink
@@ -33,3 +44,4 @@ export default HyperLink
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'

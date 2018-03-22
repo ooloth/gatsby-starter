@@ -1,12 +1,16 @@
 const SecondPage = ({ data }) => (
-  <main id="main-content" class="container tc">
+  <main id="main-content" className="container tc">
     <PageMetadata page={data.metadata.siteMetadata.secondPage} />
-    <h1 class="pv4 f1">Hi from page 2</h1>
+    <h1 className="pv4 f1">Hi from page 2</h1>
     <Link to="/" className="link dib mb4">
       Go back home
     </Link>
   </main>
 )
+
+SecondPage.propTypes = {
+  data: PropTypes.object
+}
 
 export default SecondPage
 
@@ -17,6 +21,7 @@ export default SecondPage
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
 import PageMetadata from '../components/PageMetadata'

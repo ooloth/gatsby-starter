@@ -26,8 +26,8 @@ import shortid from 'shortid'
  * 
  */
 
-import Img from '../../components/base/Img'
-import HyperLink from '../../components/base/HyperLink'
+import Img from '../../components/Img'
+import HyperLink from '../../components/HyperLink'
 
 const Example = ({ example }) => (
   <li className="mb5 ph3">

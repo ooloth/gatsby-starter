@@ -1,18 +1,19 @@
-const BaseLayout = ({ children, data }) => (
-  <div>
+const Layout = ({ children, data }) => (
+  <Fragment>
     <SiteMetadata site={data.site.siteMetadata} />
     <Header />
     {children()}
     <Footer />
     <BasicStructuredData />
-  </div>
+  </Fragment>
 )
 
-BaseLayout.propTypes = {
-  children: PropTypes.func
+Layout.propTypes = {
+  children: PropTypes.func,
+  data: PropTypes.object
 }
 
-export default BaseLayout
+export default Layout
 
 /*
  *
@@ -20,7 +21,7 @@ export default BaseLayout
  * 
  */
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
@@ -35,12 +36,12 @@ import Footer from '../sections/Footer'
 
 // Use PostCSS stylesheet in development and PostCSS/PurgeCSS stylesheet in production:
 switch (process.env.NODE_ENV) {
-  case `development`:
-    require('../styles/builds/after-postcss/output.css')
-    break
-  case `production`:
-    require('../styles/builds/after-purgecss/output.css')
-    break
+case `development`:
+  require(`../styles/builds/after-postcss/output.css`)
+  break
+case `production`:
+  require(`../styles/builds/after-purgecss/output.css`)
+  break
 }
 
 // Import open-source fonts from Typefaces (@font-face automatically injected)
@@ -59,7 +60,7 @@ import siteImage from '../images/placeholder.jpg'
 const SiteMetadata = ({ site }) => (
   <Helmet>
     {/* HTML language */}
-    <html itemscope itemtype="http://schema.org/WebPage" lang={site.language} />
+    <html itemScope itemType="http://schema.org/WebPage" lang={site.language} />
 
     {/* Title comes first (meta charset and viewport are automatically included) */}
     <title itemProp="name" lang={site.language}>
@@ -68,26 +69,26 @@ const SiteMetadata = ({ site }) => (
 
     {/* Search engine */}
     <meta name="description" content={site.description} />
-    <meta name="image" content={siteImage} />
+    <meta name="image" content={site.siteUrl + siteImage} />
     <link rel="canonical" href={site.siteUrl} />
 
     {/* Schema.org for Google */}
-    <meta itemprop="name" content={site.title} />
-    <meta itemprop="description" content={site.description} />
-    <meta itemprop="image" content={siteImage} />
+    <meta itemProp="name" content={site.title} />
+    <meta itemProp="description" content={site.description} />
+    <meta itemProp="image" content={site.siteUrl + siteImage} />
 
     {/* Twitter */}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={site.title} />
     <meta name="twitter:description" content={site.description} />
     {site.twitterHandle && <meta name="twitter:site" content={site.twitterHandle} />}
-    <meta name="twitter:image:src" content={siteImage} />
+    <meta name="twitter:image:src" content={site.siteUrl + siteImage} />
 
     {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
     <meta property="og:title" content={site.title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={site.siteUrl} />
-    <meta property="og:image" content={siteImage} />
+    <meta property="og:image" content={site.siteUrl + siteImage} />
     <meta property="og:description" content={site.description} />
     <meta property="og:site_name" content={site.title} />
     <meta property="og:locale" content={site.locale} />

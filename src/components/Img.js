@@ -29,20 +29,18 @@ DOCS: https://github.com/bfred-it/object-fit-images/#usage
 */
 
 class Img extends React.Component {
-  state = { revealed: false, critical: this.props.critical || false }
+  state = { revealed: false }
 
   handleWaypointEnter = () => {
     if (!this.state.revealed) {
       this.setState({ revealed: true })
-      // console.log('Image in viewport!')
     }
   }
 
-  // If the image needs to be shown right away, skip react-waypoints (which causes a page jump)
-  renderStaticImage = () => {
+  render() {
     // Construct font-family declaration for object-fit-images
-    const objFit = this.props.fit ? this.props.fit : `cover`
-    const objPosition = this.props.position ? this.props.position : `50% 50%`
+    const objFit = this.props.objFit ? this.props.objFit : `cover`
+    const objPosition = this.props.objPosition ? this.props.objPosition : `50% 50%`
     const fontFamily = `"object-fit: ${objFit}; object-position: ${objPosition}"`
 
     const imgStyle = {
@@ -51,40 +49,45 @@ class Img extends React.Component {
       fontFamily: fontFamily
     }
 
-    return (
-      <Image
-        sizes={this.props.sizes}
-        alt={this.props.alt}
-        className={this.props.className}
-        style={this.props.style}
-        outerWrapperClassName={this.props.outerWrapperClassName}
-        imgStyle={{ ...imgStyle }}
-        position={this.props.position || `relative`}
-        backgroundColor={this.props.backgroundColor || false}
-        Tag={this.props.Tag || `div`}
-      />
-    )
-  }
-
-  renderWaypointImage = () => {
-    return (
-      <Waypoint
-        ref={el => (this.box = el)}
-        onEnter={this.handleWaypointEnter}
-        topOffset="150%"
-        bottomOffset="150%"
-      >
-        <figure>{this.state.revealed && this.renderStaticImage()}</figure>
-      </Waypoint>
-    )
-  }
-
-  render() {
-    return (
-      <div data-critical={this.state.critical || `false`}>
-        {this.state.critical ? this.renderStaticImage() : this.renderWaypointImage()}
-      </div>
-    )
+    // If the image needs to be shown right away, skip react-waypoints (which causes a page jump)
+    if (this.props.critical) {
+      return (
+        <Image
+          sizes={this.props.sizes}
+          alt={this.props.alt}
+          className={this.props.className}
+          style={this.props.style}
+          outerWrapperClassName={this.props.outerWrapperClassName}
+          imgStyle={{ ...imgStyle }}
+          position={this.props.position || `relative`}
+          backgroundColor={this.props.backgroundColor || `transparent`}
+          Tag={this.props.Tag || `div`}
+        />
+      )
+    } else {
+      return (
+        <Waypoint
+          ref={el => (this.box = el)}
+          onEnter={this.handleWaypointEnter}
+          topOffset="150%"
+          bottomOffset="150%"
+        >
+          <figure>
+            <Image
+              sizes={this.props.sizes}
+              alt={this.props.alt}
+              className={this.props.className}
+              style={this.props.style}
+              outerWrapperClassName={this.props.outerWrapperClassName}
+              imgStyle={{ ...imgStyle }}
+              position={this.props.position || `relative`}
+              backgroundColor={this.props.backgroundColor || `transparent`}
+              Tag={this.props.Tag || `div`}
+            />
+          </figure>
+        </Waypoint>
+      )
+    }
   }
 }
 

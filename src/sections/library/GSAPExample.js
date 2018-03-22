@@ -62,12 +62,12 @@ class GSAPExample extends React.Component {
     return (
       <div ref={el => (this.box = el)}>
         <Waypoint onEnter={this.handleWaypointEnter} onLeave={this.handleWaypointLeave}>
-          <div class="mv6 bg-red pa5 shadow-lg">
+          <div className="mv6 bg-red pa5 shadow-lg">
             <h2>I'm an animated component</h2>
-            <p class="mv4 ml-auto mr-auto measure-narrow lh-copy">
+            <p className="mv4 ml-auto mr-auto measure-narrow lh-copy">
               I animate on scroll or by clicking the buttons below.
             </p>
-            <button onClick={this.animate} class="pr4">
+            <button onClick={this.animate} className="pr4">
               Breathe!
             </button>
             <button onClick={this.killAnimation}>Stop breathing!</button>

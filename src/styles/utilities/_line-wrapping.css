@@ -20,6 +20,7 @@ Adapted from:
 
   .measure        { max-width: 66ch }
   .measure-narrow { max-width: 45ch }
+  .measure-tight  { max-width: 28ch }
   .measure-wide   { max-width: 80ch }
 
   /*

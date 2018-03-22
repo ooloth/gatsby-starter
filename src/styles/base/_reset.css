@@ -65,10 +65,7 @@ a { text-decoration: none; color: inherit }
  *
  */
 
-/* This is not accessible (need to replace with a hover/focus style or other outline if I activate) */
-/* 
-button { outline: 0 }
-*/
+/* ... */
 
 /*
  *
@@ -90,7 +87,6 @@ li > ol, li > ul { margin-bottom: 0 }
 input,
 textarea {
   appearance: none;
-  /* outline: 0; */ /* Not accessible, so need to replace with custom hover/focus styling */
   /* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
   line-height: normal
 }

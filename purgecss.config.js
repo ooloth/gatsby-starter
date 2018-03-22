@@ -9,9 +9,10 @@ module.exports = {
           return content.match(/[A-z0-9-:\/]+/g) || []
         }
       },
-      extensions: ['html', 'js']
+      extensions: [`html`, `js`]
     }
   ],
-  // Add plugin prefixes here
-  whitelistPatterns: [/body/, /slick/]
+  whitelist: [`cursor-not-allowed`, `cursor-pointer`, `filter-btn`, `o-50`],
+  // Add plugin prefixes here:
+  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /slick/]
 }

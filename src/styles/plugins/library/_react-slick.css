@@ -1,5 +1,43 @@
 /* 
  *
+ *   Slick Slider 
+ *   ============
+ *
+ *   1. Display/hiding
+ *   2. Dimensions
+ *   3. Vertical alignment
+ *   4. Dots
+ *   5. Arrows
+ *   6. Other styling
+ *
+ */
+
+
+/*
+ *
+ * 3. Vertical alignment
+ *
+ */
+
+.slick-initialized .slick-slide {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*
+ *
+ * 6. Other styling
+ *
+ */
+
+.slick-track { background-color: rgba(255, 255, 255, .7)}
+
+
+
+
+/* 
+ *
  * General 
  *
  */

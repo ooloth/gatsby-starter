@@ -34,9 +34,11 @@ code,
  *
  */
 
-.avenir    { font-family: 'avenir next', avenir, sans-serif }
-.helvetica { font-family: 'helvetica neue', helvetica, sans-serif }
-.raleway   { font-family: Raleway, sans-serif }
+.abeezee      { font-family: ABeeZee, sans-serif }
+.avenir       { font-family: 'avenir next', avenir, sans-serif }
+.helvetica    { font-family: 'helvetica neue', helvetica, sans-serif }
+.josefin-sans { font-family: 'Josefin Sans', sans-serif }
+.raleway      { font-family: Raleway, sans-serif }
 
 /*
  *
@@ -51,3 +53,11 @@ code,
 .garamond    { font-family: garamond, serif }
 .georgia     { font-family: georgia, serif }
 .times       { font-family: times, serif }
+
+/*
+ *
+ * Cursive
+ *
+ */
+
+.lobster { font-family: 'Lobster', cursive }

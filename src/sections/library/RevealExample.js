@@ -1,6 +1,6 @@
 const RevealExample = ({ data }) => (
-  <section class="pb5">
-    <h2 class="mb3">These use Reveal to appear magically on scroll</h2>
+  <section className="pb5">
+    <h2 className="mb3">These use Reveal to appear magically on scroll</h2>
     <div
       style={{
         display: `grid`,
@@ -32,7 +32,7 @@ import shortid from 'shortid'
  * 
  */
 
-import Img from '../../components/base/Img'
+import Img from '../../components/Img'
 import Reveal from '../../components/library/Reveal'
 
 const RevealedImage = ({ example, index }) => (

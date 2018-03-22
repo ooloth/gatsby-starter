@@ -21,7 +21,7 @@ class Reveal extends React.Component {
   state = {
     revealed: false,
     css: this.props.css,
-    ease: this.props.ease || 'Power4.easeInOut',
+    ease: this.props.ease || `Power4.easeInOut`,
     duration: this.props.duration > 50 ? this.props.duration / 1000 : this.props.duration || 1,
     delay: this.props.delay > 1 ? this.props.delay / 1000 : this.props.delay || 0.3,
     repeat: this.props.repeat === true ? -1 : this.props.repeat || 0,
@@ -30,9 +30,9 @@ class Reveal extends React.Component {
 
   componentDidMount = () => {
     // Load GSAP asynchronously from CDN
-    if (!loadjs.isDefined('gsap')) {
-      loadjs('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js', 'gsap', {
-        success: () => console.log('👍 GSAP is loaded')
+    if (!loadjs.isDefined(`gsap`)) {
+      loadjs(`https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js`, `gsap`, {
+        // success: () => console.log(`👍 GSAP is loaded`)
       })
     }
   }
@@ -55,12 +55,12 @@ class Reveal extends React.Component {
   }
 
   reveal = () => {
-    loadjs.ready('gsap', () => {
+    loadjs.ready(`gsap`, () => {
       // Invalidate the temporary inline styles (which match the starting state for the animation and are added to prevent a flash of content in the ending position)
-      this.box.style = null
+      this.box.removeAttribute(`style`)
 
       // Run the reveal animation
-      TweenMax.from(this.box, this.state.duration, {
+      const reveal = TweenMax.from(this.box, this.state.duration, {
         css: { ...this.state.css },
         ease: this.state.ease,
         delay: this.state.delay,
@@ -70,7 +70,9 @@ class Reveal extends React.Component {
     })
   }
 
-  reset = () => loadjs.ready('gsap', () => TweenMax.killTweensOf(this.box))
+  reset = () => {
+    loadjs.ready(`gsap`, () => TweenMax.killTweensOf(this.box))
+  }
 
   render() {
     return (

@@ -1,0 +1,48 @@
+/* 
+ * 
+ *  React Headroom
+ *  ==============
+ *
+ *  Docs: https://kyleamathews.github.io/react-headroom/ 
+ *
+ */
+
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+}
+
+.headroom--scrolled {
+  background-color: var(--purple);
+  transition: all 200ms ease-in-out;
+
+  /* Disable on large screens (for this site only) */
+  @media (--lg) { background-color: transparent }
+}
+
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+
+  /* Disable on large screens (for this site only) */
+  @media (--lg) { position: relative }
+}
+
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+  
+  /* Disable on large screens (for this site only) */
+  @media (--lg) { position: relative }
+}
+
+.headroom-wrapper { 
+  @media (--lg) { margin-bottom: 1rem }
+}
