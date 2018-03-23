@@ -65,7 +65,7 @@ module.exports = {
         theme_color: `#cd9d2c`,
         display: `browser`, // use browser to enable share sheet, address bar
         icons: [
-          // these file names shouldn't need to be changed
+          // these file names don't need to be changed
           {
             src: `/favicons/android-chrome-192x192.png`,
             sizes: `192x192`,
