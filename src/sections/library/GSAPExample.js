@@ -18,15 +18,6 @@
 class GSAPExample extends React.Component {
   state = { revealed: false, repeat: true, animation: null }
 
-  componentDidMount = () => {
-    // Load GSAP asynchronously from CDN
-    if (!loadjs.isDefined('gsap')) {
-      loadjs('https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js', 'gsap', {
-        success: () => console.log('👍 GSAP is loaded')
-      })
-    }
-  }
-
   handleWaypointEnter = () => {
     // Only animate if it hasn't been revealed yet (or has been reset to animate again)
     if (!this.state.revealed) {
@@ -44,7 +35,7 @@ class GSAPExample extends React.Component {
   }
 
   animate = () => {
-    loadjs.ready('gsap', () => {
+    loadjs.ready(`gsap`, () => {
       TweenMax.to(this.box, 1.5, {
         scale: 0.9,
         ease: Power2.easeInOut,
@@ -55,7 +46,7 @@ class GSAPExample extends React.Component {
   }
 
   killAnimation = () => {
-    loadjs.ready('gsap', () => TweenMax.killAll(this.box))
+    loadjs.ready(`gsap`, () => TweenMax.killAll(this.box))
   }
 
   render() {

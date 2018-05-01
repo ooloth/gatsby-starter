@@ -28,23 +28,12 @@ class Reveal extends React.Component {
     yoyo: this.props.yoyo || false
   }
 
-  componentDidMount = () => {
-    // Load GSAP asynchronously from CDN
-    if (!loadjs.isDefined(`gsap`)) {
-      loadjs(`https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js`, `gsap`, {
-        // success: () => console.log(`👍 GSAP is loaded`)
-      })
-    }
-  }
-
   handleWaypointEnter = () => {
-    // Only animate when GSAP is ready and if it hasn't been revealed yet (or has been reset to animate again)
-    // loadjs.ready('gsap', () => {
+    // Only animate if it hasn't been revealed yet (or has been reset to animate again)
     if (!this.state.revealed) {
       this.setState({ revealed: true })
       this.reveal()
     }
-    // })
   }
 
   handleWaypointLeave = () => {

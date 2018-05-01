@@ -29,13 +29,13 @@ DOCS: https://github.com/bfred-it/object-fit-images/#usage
 */
 
 class Img extends React.Component {
-  state = { revealed: false }
+  // state = { revealed: false }
 
-  handleWaypointEnter = () => {
-    if (!this.state.revealed) {
-      this.setState({ revealed: true })
-    }
-  }
+  // handleWaypointEnter = () => {
+  //   if (!this.state.revealed) {
+  //     this.setState({ revealed: true })
+  //   }
+  // }
 
   render() {
     // Construct font-family declaration for object-fit-images
@@ -49,45 +49,59 @@ class Img extends React.Component {
       fontFamily: fontFamily
     }
 
+    return (
+      <Image
+        sizes={this.props.sizes}
+        alt={this.props.alt}
+        className={this.props.className}
+        style={this.props.style}
+        outerWrapperClassName={this.props.outerWrapperClassName}
+        imgStyle={{ ...imgStyle }}
+        position={this.props.position || `relative`}
+        backgroundColor={this.props.backgroundColor || `transparent`}
+        Tag={this.props.Tag || `div`}
+      />
+    )
+
     // If the image needs to be shown right away, skip react-waypoints (which causes a page jump)
-    if (this.props.critical) {
-      return (
-        <Image
-          sizes={this.props.sizes}
-          alt={this.props.alt}
-          className={this.props.className}
-          style={this.props.style}
-          outerWrapperClassName={this.props.outerWrapperClassName}
-          imgStyle={{ ...imgStyle }}
-          position={this.props.position || `relative`}
-          backgroundColor={this.props.backgroundColor || `transparent`}
-          Tag={this.props.Tag || `div`}
-        />
-      )
-    } else {
-      return (
-        <Waypoint
-          ref={el => (this.box = el)}
-          onEnter={this.handleWaypointEnter}
-          topOffset="150%"
-          bottomOffset="150%"
-        >
-          <figure>
-            <Image
-              sizes={this.props.sizes}
-              alt={this.props.alt}
-              className={this.props.className}
-              style={this.props.style}
-              outerWrapperClassName={this.props.outerWrapperClassName}
-              imgStyle={{ ...imgStyle }}
-              position={this.props.position || `relative`}
-              backgroundColor={this.props.backgroundColor || `transparent`}
-              Tag={this.props.Tag || `div`}
-            />
-          </figure>
-        </Waypoint>
-      )
-    }
+    // if (this.props.critical) {
+    //   return (
+    //     <Image
+    //       sizes={this.props.sizes}
+    //       alt={this.props.alt}
+    //       className={this.props.className}
+    //       style={this.props.style}
+    //       outerWrapperClassName={this.props.outerWrapperClassName}
+    //       imgStyle={{ ...imgStyle }}
+    //       position={this.props.position || `relative`}
+    //       backgroundColor={this.props.backgroundColor || `transparent`}
+    //       Tag={this.props.Tag || `div`}
+    //     />
+    //   )
+    // } else {
+    //   return (
+    //     <Waypoint
+    //       ref={el => (this.box = el)}
+    //       onEnter={this.handleWaypointEnter}
+    //       topOffset="150%"
+    //       bottomOffset="150%"
+    //     >
+    //       <figure>
+    //         <Image
+    //           sizes={this.props.sizes}
+    //           alt={this.props.alt}
+    //           className={this.props.className}
+    //           style={this.props.style}
+    //           outerWrapperClassName={this.props.outerWrapperClassName}
+    //           imgStyle={{ ...imgStyle }}
+    //           position={this.props.position || `relative`}
+    //           backgroundColor={this.props.backgroundColor || `transparent`}
+    //           Tag={this.props.Tag || `div`}
+    //         />
+    //       </figure>
+    //     </Waypoint>
+    //   )
+    // }
   }
 }
 

@@ -7,7 +7,7 @@
  *    
  */
 
-const HyperLink = ({ href, srText, className, children }) => {
+const HyperLink = ({ href, srText, className, style, children }) => {
   // If link is external, add target and rel attributes
   const isExternal = href.indexOf(`http`) === -1 ? false : true
 
@@ -17,22 +17,12 @@ const HyperLink = ({ href, srText, className, children }) => {
       target={isExternal ? `_blank` : null}
       rel={isExternal ? `noopener nofollow` : null}
       className={className}
+      style={style}
     >
       {srText && <span className="sr-only">{srText}</span>}
       {children}
     </a>
   )
-}
-
-HyperLink.propTypes = {
-  href: PropTypes.string,
-  srText: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-    PropTypes.string
-  ])
 }
 
 export default HyperLink

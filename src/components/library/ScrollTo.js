@@ -6,18 +6,11 @@ class ScrollTo extends React.Component {
   }
 
   componentDidMount = () => {
-    // Load GSAP's TweenMax asynchronously from CDN
-    if (!loadjs.isDefined(`gsap`)) {
-      loadjs(`https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js`, `gsap`)
-    }
-
     // Load GSAP's ScrollToPlugin asynchronously from CDN
-    if (!loadjs.isDefined(`scrollToPlugin`)) {
-      loadjs(
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/ScrollToPlugin.min.js`,
-        `scrollToPlugin`
-      )
-    }
+    loadjs(
+      `https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/ScrollToPlugin.min.js`,
+      `scrollToPlugin`
+    )
   }
 
   scrollToId = e => {
@@ -44,7 +37,9 @@ class ScrollTo extends React.Component {
         className={`${
           this.props.class
             ? this.props.class
-            : this.props.className ? this.props.className : ``
+            : this.props.className
+              ? this.props.className
+              : ``
         }`}
       >
         {this.props.children}
