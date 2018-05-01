@@ -4,11 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require(`extract-text-webpack-plugin`)
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
   switch (stage) {
-    case 'develop':
+    case `develop`:
       // Remove default loaders
       config.removeLoader(`css`)
       config.removeLoader(`less`)
@@ -33,7 +33,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
       break
 
-    case 'build-css':
+    case `build-css`:
       // Remove default loaders
       config.removeLoader(`css`)
       config.removeLoader(`less`)
@@ -59,13 +59,16 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
       break
 
-    case 'build-html':
+    case `build-html`:
       // Ignore packages that causes errors during build (make test an array if > 1):
-      config.loader('null', { test: /twitter-fetcher/, loader: 'null-loader' })
+      config.loader(`null`, {
+        test: [/intersection-observer/, /object-fit-images/],
+        loader: `null-loader`
+      })
 
       break
 
-    case 'build-javascript':
+    case `build-javascript`:
       // ...
       break
   }
