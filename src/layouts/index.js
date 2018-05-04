@@ -8,20 +8,6 @@ const Layout = ({ children, data }) => (
   </Fragment>
 )
 
-export default Layout
-
-/*
- *
- * Imports
- * 
- */
-
-import React, { Fragment } from 'react'
-import Helmet from 'react-helmet'
-
-import Header from '../sections/Header'
-import Footer from '../sections/Footer'
-
 /*
  *
  * Global styles
@@ -30,12 +16,12 @@ import Footer from '../sections/Footer'
 
 // Use PostCSS stylesheet in development and PostCSS/PurgeCSS stylesheet in production:
 switch (process.env.NODE_ENV) {
-case `development`:
-  require(`../styles/builds/after-postcss/output.css`)
-  break
-case `production`:
-  require(`../styles/builds/after-purgecss/output.css`)
-  break
+  case `development`:
+    require(`../styles/builds/after-postcss/output.css`)
+    break
+  case `production`:
+    require(`../styles/builds/after-purgecss/output.css`)
+    break
 }
 
 // Import open-source fonts from Typefaces (@font-face automatically injected)
@@ -148,3 +134,17 @@ export const query = graphql`
     }
   }
 `
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React, { Fragment } from 'react'
+import Helmet from 'react-helmet'
+
+import Header from '../sections/Header'
+import Footer from '../sections/Footer'
+
+export default Layout

@@ -15,25 +15,11 @@ const RevealExample = ({ data }) => (
   </section>
 )
 
-export default RevealExample
-
-/*
- *
- * Imports
- * 
- */
-
-import React from 'react'
-import shortid from 'shortid'
-
 /*
  *
  * Revealed Image
  * 
  */
-
-import Img from '../../components/Img'
-import Reveal from '../../components/examples/Reveal'
 
 const RevealedImage = ({ example, index }) => (
   <Reveal
@@ -50,3 +36,17 @@ const RevealedImage = ({ example, index }) => (
     />
   </Reveal>
 )
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
+import shortid from 'shortid'
+
+import Img from '../../components/Img'
+import Reveal from '../../components/examples/Reveal'
+
+export default RevealExample

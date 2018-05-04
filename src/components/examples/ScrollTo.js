@@ -40,13 +40,13 @@ class ScrollTo extends React.Component {
   }
 }
 
-export default ScrollTo
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React from 'react'
 import loadjs from 'loadjs'
+
+export default ScrollTo

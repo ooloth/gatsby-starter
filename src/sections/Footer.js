@@ -5,23 +5,11 @@ const Footer = () => (
   </footer>
 )
 
-export default Footer
-
-/*
- *
- * Imports
- * 
- */
-
-import React from 'react'
-
 /*
  *
  * Copyright
  * 
  */
-
-import HyperLink from '../components/HyperLink'
 
 const Copyright = () => (
   <p className="container pv4 ph3 lh-copy f6">
@@ -32,3 +20,15 @@ const Copyright = () => (
     </HyperLink>.
   </p>
 )
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
+
+import HyperLink from '../components/HyperLink'
+
+export default Footer

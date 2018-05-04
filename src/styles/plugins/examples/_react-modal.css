@@ -19,10 +19,8 @@ NOTEs:
  * Overlay: in/out transitions 
  */
 
-/*
-.ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0) !important;
-}
+
+.ReactModal__Overlay { @apply .z-max .bg-transparent !important }
 
 .ReactModal__Overlay--after-open {
   background-color: rgba(0, 0, 0, 0.75) !important;
@@ -30,16 +28,16 @@ NOTEs:
 }
 
 .ReactModal__Overlay--before-close {
-  background-color: rgba(0, 0, 0, 0) !important;
+  @apply .bg-transparent !important;
   transition: background-color 0.3s ease-in-out 0.4s;
 }
-*/
+
 
 /* 
  * Content: in/out transitions 
  */
 
-/*
+
 .ReactModal__Content {
   opacity: 0;
   transform: scale(0);
@@ -55,4 +53,3 @@ NOTEs:
   opacity: 0;
   transform: scale(0);
 }
-*/

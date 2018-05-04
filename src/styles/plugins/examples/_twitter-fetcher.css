@@ -1,0 +1,19 @@
+/* 
+
+Twitter Fetcher 
+
+{All layout and styling happens here.}
+
+*/
+
+/* Hide user */
+.user { @apply .dn }
+
+/* Hide interaction */
+.interact { @apply .dn }
+
+/* Style tweet */
+.tweet {
+  @apply .ml-auto .mr-auto .measure .lh-title .courier .fw6;
+  font-size: 1.1rem;
+ }

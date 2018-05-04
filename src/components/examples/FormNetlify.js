@@ -117,11 +117,9 @@ class FormNetlify extends React.Component {
   }
 }
 
-export default FormNetlify
-
 /* 
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
@@ -130,3 +128,5 @@ export default FormNetlify
 import React from 'react'
 import loadjs from 'loadjs'
 import Textarea from 'react-textarea-autosize'
+
+export default FormNetlify

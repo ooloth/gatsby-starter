@@ -8,19 +8,6 @@ const SecondPage = ({ data }) => (
   </main>
 )
 
-export default SecondPage
-
-/*
- *
- * General
- * 
- */
-
-import React from 'react'
-import Link from 'gatsby-link'
-
-import PageMetadata from '../components/PageMetadata'
-
 /*
  *
  * Queries
@@ -40,3 +27,16 @@ export const query = graphql`
     }
   }
 `
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
+import Link from 'gatsby-link'
+
+import PageMetadata from '../components/PageMetadata'
+
+export default SecondPage

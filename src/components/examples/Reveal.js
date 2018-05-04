@@ -74,14 +74,14 @@ class Reveal extends React.Component {
   }
 }
 
-export default Reveal
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React from 'react'
 import loadjs from 'loadjs'
 import Waypoint from 'react-waypoint'
+
+export default Reveal

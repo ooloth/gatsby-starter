@@ -27,25 +27,11 @@ const Slider = ({
   </Slick>
 )
 
-export default Slider
-
-/*
- *
- * Imports
- * 
- */
-
-import React from 'react'
-import shortid from 'shortid'
-import Slick from 'react-slick'
-
 /*
  *
  * Default Layout
  * 
  */
-
-import FaChevronRight from 'react-icons/lib/fa/chevron-right'
 
 const DefaultLayout = ({ slide }) => (
   <div>
@@ -83,3 +69,16 @@ const defaultSettings = {
   slidesToShow: 1,
   slidesToScroll: 1
 }
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
+import shortid from 'shortid'
+import Slick from 'react-slick'
+import FaChevronRight from 'react-icons/lib/fa/chevron-right'
+
+export default Slider

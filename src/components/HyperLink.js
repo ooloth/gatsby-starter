@@ -25,13 +25,12 @@ const HyperLink = ({ href, srText, className, style, children }) => {
   )
 }
 
-export default HyperLink
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
+
+export default HyperLink

@@ -1,5 +1,3 @@
-import Link from 'gatsby-link'
-
 const IndexPage = ({ data }) => (
   <main id="main-content" className="container tc">
     <h1 className="pv4 f1">Hi people</h1>
@@ -9,27 +7,13 @@ const IndexPage = ({ data }) => (
     <DataExample data={data.allExampleJson.edges} />
     <GSAPExample />
     <RevealExample data={data.allExampleJson.edges} />
+    <TwitterExample />
+    <InstagramExample />
     <ScrollTo href="#top" className="link dib mb5">
       Back to top
     </ScrollTo>
   </main>
 )
-
-export default IndexPage
-
-/*
- *
- * General
- * 
- */
-
-import React from 'react'
-
-import DataExample from '../sections/examples/DataExample'
-import GSAPExample from '../sections/examples/GSAPExample'
-import RevealExample from '../sections/examples/RevealExample'
-
-import ScrollTo from '../components/examples/ScrollTo'
 
 /*
  *
@@ -59,3 +43,22 @@ export const query = graphql`
     }
   }
 `
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
+import Link from 'gatsby-link'
+
+import DataExample from '../sections/examples/DataExample'
+import GSAPExample from '../sections/examples/GSAPExample'
+import RevealExample from '../sections/examples/RevealExample'
+import TwitterExample from '../sections/examples/TwitterExample'
+import InstagramExample from '../sections/examples/InstagramExample'
+
+import ScrollTo from '../components/examples/ScrollTo'
+
+export default IndexPage

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Ball = ({ className, style }) => (
   <aside
     role="presentation"
@@ -8,5 +6,13 @@ const Ball = ({ className, style }) => (
     style={style}
   />
 )
+
+/* 
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
 
 export default Ball

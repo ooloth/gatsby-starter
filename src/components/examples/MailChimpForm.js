@@ -199,13 +199,13 @@ class MailChimpForm extends React.Component {
   }
 }
 
-export default MailChimpForm
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React, { Fragment } from 'react'
 import jsonp from 'jsonp'
+
+export default MailChimpForm

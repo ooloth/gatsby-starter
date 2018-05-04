@@ -8,12 +8,12 @@ const Header = () => (
   </header>
 )
 
-export default Header
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React from 'react'
+
+export default Header

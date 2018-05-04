@@ -9,25 +9,11 @@ const DataExample = ({ data }) => (
   </section>
 )
 
-export default DataExample
-
-/*
- *
- * General
- * 
- */
-
-import React from 'react'
-import shortid from 'shortid'
-
 /* 
  *
  * Example
  * 
  */
-
-import Img from '../../components/Img'
-import HyperLink from '../../components/HyperLink'
 
 const Example = ({ example }) => (
   <li className="mb5 ph3">
@@ -48,3 +34,17 @@ const Example = ({ example }) => (
     </HyperLink>
   </li>
 )
+
+/*
+ *
+ * Imports & Exports
+ * 
+ */
+
+import React from 'react'
+import shortid from 'shortid'
+
+import Img from '../../components/Img'
+import HyperLink from '../../components/HyperLink'
+
+export default DataExample

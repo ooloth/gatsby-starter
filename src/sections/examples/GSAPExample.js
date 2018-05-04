@@ -69,17 +69,17 @@ class GSAPExample extends React.Component {
   }
 }
 
-export default GSAPExample
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React from 'react'
 import Waypoint from 'react-waypoint'
 import loadjs from 'loadjs'
+
+export default GSAPExample
 
 // TODO: abstract the TweenMax.to() component above into a separate <Animate /> component? Or adapt <Reveal /> to be either .from() or .to()...?
 // const GSAPTest2 = () => {
@@ -92,9 +92,3 @@ import loadjs from 'loadjs'
 
 //   </Reveal>
 // }
-
-/*
- *
- * Reveal Test
- * 
- */

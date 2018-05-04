@@ -8,8 +8,8 @@ const PageMetadata = ({ page }) => (
     <link rel="canonical" href={page.url} />
 
     {/* Schema.org for Google */}
-    <meta itemprop="name" content={page.title} />
-    <meta itemprop="description" content={page.description} />
+    <meta itemProp="name" content={page.title} />
+    <meta itemProp="description" content={page.description} />
 
     {/* Twitter */}
     <meta name="twitter:title" content={page.title} />
@@ -21,13 +21,13 @@ const PageMetadata = ({ page }) => (
   </Helmet>
 )
 
-export default PageMetadata
-
 /*
  *
- * Imports
+ * Imports & Exports
  * 
  */
 
 import React from 'react'
 import Helmet from 'react-helmet'
+
+export default PageMetadata
