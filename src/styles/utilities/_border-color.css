@@ -78,6 +78,7 @@ Adapted from: http://tachyons.io/docs/themes/borders/
   .b--washed-red    { border-color: var(--washed-red) }
 
   .b--transparent   { border-color: var(--transparent) }
+  .b--current       { border-color: currentColor }
   .b--inherit       { border-color: inherit }
 
 }

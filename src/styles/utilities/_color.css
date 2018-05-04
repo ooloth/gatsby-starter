@@ -9,6 +9,18 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 
 @variants responsive, hover, focus, group-hover {
 
+  .black         { color: var(--black) }
+  .near-black    { color: var(--near-black) }
+  .dark-gray     { color: var(--dark-gray) }
+  .mid-gray      { color: var(--mid-gray) }
+  .gray          { color: var(--gray) }
+  .silver        { color: var(--silver) }
+  .light-silver  { color: var(--light-silver) }
+  .moon-gray     { color: var(--moon-gray) }
+  .light-gray    { color: var(--light-gray) }
+  .near-white    { color: var(--near-white) }
+  .white         { color: var(--white) }
+  
   .black-90      { color: var(--black-90) }
   .black-80      { color: var(--black-80) }
   .black-70      { color: var(--black-70) }
@@ -29,18 +41,6 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   .white-30      { color: var(--white-30) }
   .white-20      { color: var(--white-20) }
   .white-10      { color: var(--white-10) }
-
-  .black         { color: var(--black) }
-  .near-black    { color: var(--near-black) }
-  .dark-gray     { color: var(--dark-gray) }
-  .mid-gray      { color: var(--mid-gray) }
-  .gray          { color: var(--gray) }
-  .silver        { color: var(--silver) }
-  .light-silver  { color: var(--light-silver) }
-  .moon-gray     { color: var(--moon-gray) }
-  .light-gray    { color: var(--light-gray) }
-  .near-white    { color: var(--near-white) }
-  .white         { color: var(--white) }
 
   .dark-red      { color: var(--dark-red) }
   .red           { color: var(--red) }
@@ -67,6 +67,9 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   .washed-green  { color: var(--washed-green) }
   .washed-yellow { color: var(--washed-yellow) }
   .washed-red    { color: var(--washed-red) }
+
+  .transparent   { color: transparent }
+  .current-color { color: currentColor }
   .color-inherit { color: inherit }
 
 }

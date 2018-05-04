@@ -18,10 +18,11 @@ Adapted from:
   *
   */
 
+  .measure-wide   { max-width: 80ch }
   .measure        { max-width: 66ch }
+  .measure-medium { max-width: 55ch }
   .measure-narrow { max-width: 45ch }
   .measure-tight  { max-width: 28ch }
-  .measure-wide   { max-width: 80ch }
 
   /*
   *

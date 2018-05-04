@@ -5,12 +5,11 @@
   "version": "1.0.0",
   "author": "Michael Uloth <hello@michaeluloth.com>",
   "browserslist": [
-    "last 4 versions",
-    "> 1%",
-    "not ie < 11"
+    ">0.25%",
+    "not ie < 11",
+    "not op_mini all"
   ],
   "dependencies": {
-    "@researchgate/react-intersection-observer": "^0.6.0",
     "gatsby": "^1.9.239",
     "gatsby-cli": "^1.1.47",
     "gatsby-image": "^1.0.42",
@@ -28,6 +27,7 @@
     "gatsby-transformer-sharp": "^1.6.22",
     "intersection-observer": "^0.5.0",
     "jsonp": "^0.2.1",
+    "lightbox-react": "^0.1.5",
     "loadjs": "^3.5.3",
     "no-scroll": "^2.1.0",
     "object-fit-images": "^3.2.3",
@@ -35,13 +35,19 @@
     "react-icons": "^2.2.7",
     "react-image-lightbox": "^4.6.0",
     "react-inlinesvg": "^0.8.0",
+    "react-instafeed": "^0.4.0",
+    "react-media": "^1.8.0",
     "react-modal": "^3.3.2",
+    "react-player": "^1.5.0",
+    "react-shapes": "^0.1.0",
     "react-slick": "^0.21.0",
     "react-stickynode": "^1.4.1",
+    "react-textarea-autosize": "^6.1.0",
     "react-waypoint": "^8.0.1",
     "shortid": "^2.2.8",
     "slick-carousel": "^1.8.1",
     "tailwindcss": "^0.5.1",
+    "twitter-fetcher": "^18.0.2",
     "what-input": "^5.0.5"
   },
   "devDependencies": {

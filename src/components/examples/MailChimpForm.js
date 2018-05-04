@@ -164,7 +164,7 @@ class MailChimpForm extends React.Component {
               </label>
             )}
 
-            {/* Disable submit button until email is valid */}
+            {/* Submit button (disable until email is valid) */}
             <button
               type="submit"
               disabled={isValid ? null : true}
@@ -179,11 +179,15 @@ class MailChimpForm extends React.Component {
             </button>
           </form>
         )}
+
+        {/* Success message */}
         {status === `success` && (
           <p className="ml-auto mr-auto mt4 br3 bg-purple pa2 measure-narrow tc white">
             Thanks for subscribing! We'll be in touch soon.
           </p>
         )}
+
+        {/* Error message */}
         {status === `error` && (
           <p className="ml-auto mr-auto mt4 br3 bg-hot-pink pa2 measure-narrow tc white">
             Oops, please make sure you've entered a valid email address (which isn't already

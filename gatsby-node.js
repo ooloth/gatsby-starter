@@ -62,7 +62,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
   case `build-html`:
     // Ignore packages that causes errors during build because they refer to the document/window (make test an array if > 1):
     config.loader(`null`, {
-      test: /intersection-observer/,
+      test: [/intersection-observer/, /twitter-fetcher/, /lightbox-react/],
       loader: `null-loader`
     })
 

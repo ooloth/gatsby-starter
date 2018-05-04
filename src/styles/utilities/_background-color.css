@@ -9,6 +9,18 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 
 @variants responsive, hover, focus, group-hover {
 
+  .bg-black         { background-color: var(--black) }
+  .bg-near-black    { background-color: var(--near-black) }
+  .bg-dark-gray     { background-color: var(--dark-gray) }
+  .bg-mid-gray      { background-color: var(--mid-gray) }
+  .bg-gray          { background-color: var(--gray) }
+  .bg-silver        { background-color: var(--silver) }
+  .bg-light-silver  { background-color: var(--light-silver) }
+  .bg-moon-gray     { background-color: var(--moon-gray) }
+  .bg-light-gray    { background-color: var(--light-gray) }
+  .bg-near-white    { background-color: var(--near-white) }
+  .bg-white         { background-color: var(--white) }
+
   .bg-black-90      { background-color: var(--black-90) }
   .bg-black-80      { background-color: var(--black-80) }
   .bg-black-70      { background-color: var(--black-70) }
@@ -29,19 +41,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   .bg-white-30      { background-color: var(--white-30) }
   .bg-white-20      { background-color: var(--white-20) }
   .bg-white-10      { background-color: var(--white-10) }
-
-  .bg-black         { background-color: var(--black) }
-  .bg-near-black    { background-color: var(--near-black) }
-  .bg-dark-gray     { background-color: var(--dark-gray) }
-  .bg-mid-gray      { background-color: var(--mid-gray) }
-  .bg-gray          { background-color: var(--gray) }
-  .bg-silver        { background-color: var(--silver) }
-  .bg-light-silver  { background-color: var(--light-silver) }
-  .bg-moon-gray     { background-color: var(--moon-gray) }
-  .bg-light-gray    { background-color: var(--light-gray) }
-  .bg-near-white    { background-color: var(--near-white) }
-  .bg-white         { background-color: var(--white) }
-  .bg-transparent   { background-color: var(--transparent) }
 
   .bg-dark-red      { background-color: var(--dark-red) }
   .bg-red           { background-color: var(--red) }
@@ -68,6 +67,9 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   .bg-washed-green  { background-color: var(--washed-green) }
   .bg-washed-yellow { background-color: var(--washed-yellow) }
   .bg-washed-red    { background-color: var(--washed-red) }
+
+  .bg-transparent   { background-color: transparent }
+  .bg-current       { background-color: currentColor }
   .bg-inherit       { background-color: inherit }
 
 }

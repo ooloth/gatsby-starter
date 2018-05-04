@@ -5,14 +5,6 @@ class ScrollTo extends React.Component {
     easing: this.props.easing || `Power3.easeInOut`
   }
 
-  componentDidMount = () => {
-    // Load GSAP's ScrollToPlugin asynchronously from CDN
-    loadjs(
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/ScrollToPlugin.min.js`,
-      `scrollToPlugin`
-    )
-  }
-
   scrollToId = e => {
     const { href, offset = 0 } = this.props
     const { duration, easing } = this.state

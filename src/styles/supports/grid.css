@@ -7,35 +7,34 @@
  * 
  */
 
-/* 
- * 
- * Hero
- *
- */
-
-
 @supports (display: grid) {
-  @media (--md) {
-    
-    .hero-grid {
-      /* Grid styles */
+
+ /* 
+  * 
+  * Utilities
+  *
+  */
+
+  .span-2 { grid-column: span 2 }
+  .span-3 { grid-column: span 3 }
+  
+ /* 
+  * 
+  * Home > Hero
+  *
+  */
+
+  .home-hero-grid {
+    @media (--lg) {
+
+      /* Grid layout */
       display: grid;
-      grid-template-columns: 3fr 2fr;
-      align-items: center;
-    
-      /* Resets for margins/widths */
-      max-width: 96rem;
+      grid-template-columns: 4fr 6fr;
+      align-items: end;
 
-      & > figure {
-        margin: 0;
-        padding-top: 0;
-        max-width: 100%;
-      }
-
-      & > figure > div > div {
-        width: auto;
-        margin: 0;
-      }
+      /* Reset margins & widths */
+      & > div > div { @apply .mb0 }
     }
   }
+
 }

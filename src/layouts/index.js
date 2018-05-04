@@ -8,11 +8,6 @@ const Layout = ({ children, data }) => (
   </Fragment>
 )
 
-Layout.propTypes = {
-  children: PropTypes.func,
-  data: PropTypes.object
-}
-
 export default Layout
 
 /*

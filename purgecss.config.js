@@ -12,7 +12,7 @@ module.exports = {
       extensions: [`html`, `js`]
     }
   ],
-  whitelist: [`cursor-not-allowed`, `cursor-pointer`, `filter-btn`, `o-50`],
+  whitelist: [`cursor-not-allowed`, `o-50`],
   // Add plugin prefixes here:
-  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /slick/]
+  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /slick/, /textarea/]
 }

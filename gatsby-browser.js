@@ -6,7 +6,7 @@
 
 /*
  *
- * Polyfills (before first render)
+ * Urgent polyfills (before first render)
  * 
  */
 
@@ -32,13 +32,12 @@ exports.onClientEntry = () => {
 
 /*
  *
- * Polyfills and global scripts (after first render)
+ * Non-urgent polyfills and global scripts (after first render)
  * 
  */
 
 import loadjs from 'loadjs'
 
-// A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
 exports.onInitialClientRender = () => {
   // GSAP for site-wide animations
   loadjs(`https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js`, `gsap`, () =>
@@ -49,6 +48,23 @@ exports.onInitialClientRender = () => {
   loadjs(`https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`, () =>
     console.log(`👍 What-input is loaded`)
   )
+
+  // GSAP's scrollToPlugin for sitewide smooth-scrolling
+  loadjs(
+    `https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/plugins/ScrollToPlugin.min.js`,
+    `scrollToPlugin`,
+    () => console.log(`👍 scrollToPlugin is loaded`)
+  )
+
+  // Symbol polyfill for lightbox-react (IE)
+  if (typeof window.Symbol === `undefined`) {
+    // NOTE: Just loading babel-polyfill after other solutions didn't quite work.
+    // NOTE: Babel-polyfill does not include fetch, which is why it is separate below.
+    loadjs(
+      `https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js`,
+      () => console.log(`👍 Babel-polyfill is loaded`)
+    )
+  }
 
   // Fetch polyfill for FormNetlify (IE)
   if (typeof window.fetch === `undefined`) {
