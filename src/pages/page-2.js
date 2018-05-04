@@ -8,10 +8,6 @@ const SecondPage = ({ data }) => (
   </main>
 )
 
-SecondPage.propTypes = {
-  data: PropTypes.object
-}
-
 export default SecondPage
 
 /*
@@ -21,7 +17,6 @@ export default SecondPage
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
 import PageMetadata from '../components/PageMetadata'

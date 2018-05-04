@@ -15,10 +15,6 @@ const IndexPage = ({ data }) => (
   </main>
 )
 
-IndexPage.propTypes = {
-  data: PropTypes.object
-}
-
 export default IndexPage
 
 /*
@@ -28,13 +24,12 @@ export default IndexPage
  */
 
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import DataExample from '../sections/library/DataExample'
-import GSAPExample from '../sections/library/GSAPExample'
-import RevealExample from '../sections/library/RevealExample'
+import DataExample from '../sections/examples/DataExample'
+import GSAPExample from '../sections/examples/GSAPExample'
+import RevealExample from '../sections/examples/RevealExample'
 
-import ScrollTo from '../components/library/ScrollTo'
+import ScrollTo from '../components/examples/ScrollTo'
 
 /*
  *

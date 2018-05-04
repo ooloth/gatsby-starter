@@ -33,7 +33,7 @@ import shortid from 'shortid'
  */
 
 import Img from '../../components/Img'
-import Reveal from '../../components/library/Reveal'
+import Reveal from '../../components/examples/Reveal'
 
 const RevealedImage = ({ example, index }) => (
   <Reveal

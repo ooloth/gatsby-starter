@@ -84,8 +84,7 @@ figure {
  */
 
 hr {
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box; /* 1 */
+  box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
 }
@@ -332,8 +331,7 @@ fieldset {
  */
 
 legend {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   color: inherit; /* 2 */
   display: table; /* 1 */
   max-width: 100%; /* 1 */
@@ -366,8 +364,7 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
 
@@ -474,16 +471,14 @@ template {
  */
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   font-family: sans-serif; /* 2 */
 }
 
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 /**
@@ -719,14 +714,6 @@ a {
 
 /*
  *
- * 4. Buttons
- *
- */
-
-/* ... */
-
-/*
- *
  * 5. Lists
  *
  */
@@ -752,11 +739,47 @@ li > ul {
 
 input,
 textarea {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   /* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
   line-height: normal;
+  font-size: inherit;
+  /*font-size: 100%;*/
+}
+
+/* Solves placeholder's being invisible in some browsers bc of Tailwind's preflight styles */
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
 }
 
 /* Reset Chrome and Firefox behaviour which sets a 'min-width: min-content;' on fieldsets: */
@@ -764,6 +787,27 @@ textarea {
 fieldset {
   min-width: 0;
   border: 0;
+}
+
+/* 
+
+Override Firefox's premature red box-shadow styling for invalid form inputs
+
+- see: https://stackoverflow.com/questions/5939341/firefox-4-is-there-a-way-to-remove-the-red-border-in-a-required-form-input 
+- see: https://stackoverflow.com/questions/3809146/firefox-4-required-input-form-red-border-outline
+
+*/
+
+input:-moz-placeholder,
+input:focus,
+input:invalid {
+  box-shadow: none !important;
+}
+
+textarea:-moz-placeholder,
+textarea:focus,
+textarea:invalid {
+  box-shadow: none !important;
 }
 
 /*
@@ -786,15 +830,15 @@ table {
 
 /* Remove tap highlight on iOS */
 
-/*
 input,
 textarea,
 button,
 select,
 label,
 a,
-ul { -webkit-tap-highlight-color: rgba(0,0,0,0) }
-*/
+ul {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
 /* 
 
@@ -957,8 +1001,6 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   line-height: 1;
   text-transform: uppercase;
   letter-spacing: .1em;
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
@@ -1045,8 +1087,6 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  */
 
 .icon {
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
@@ -1056,8 +1096,6 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 }
 
 .icon-on-green {
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
@@ -1075,8 +1113,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  */
 
 .link {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   border-width: .125rem;
   border-width: var(--border-width-1);
   border-color: #000;
@@ -1096,8 +1133,6 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   letter-spacing: .1em;
   color: #fff;
   color: var(--white);
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   border-radius: 30px;
 }
@@ -1121,22 +1156,16 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 }
 
 .link-inline {
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   border-bottom: 1px solid #ff80cc;
   border-bottom: 1px solid var(--pink);
-  -webkit-box-shadow: inset 0 -2px 0 0 #ff80cc;
-          box-shadow: inset 0 -2px 0 0 #ff80cc;
-  -webkit-box-shadow: inset 0 -2px 0 0 var(--pink);
-          box-shadow: inset 0 -2px 0 0 var(--pink);
+  box-shadow: inset 0 -2px 0 0 #ff80cc;
+  box-shadow: inset 0 -2px 0 0 var(--pink);
 }
 
 .link-inline:hover {
-  -webkit-box-shadow: inset 0 -12px 0 0 #ff80cc;
-          box-shadow: inset 0 -12px 0 0 #ff80cc;
-  -webkit-box-shadow: inset 0 -12px 0 0 var(--pink);
-          box-shadow: inset 0 -12px 0 0 var(--pink);
+  box-shadow: inset 0 -12px 0 0 #ff80cc;
+  box-shadow: inset 0 -12px 0 0 var(--pink);
 }
 
 /*
@@ -1154,34 +1183,40 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  * 
  */
 
-/* 
- * 
- * Hero
- *
- */
-
 @supports (display: grid) {
-  @media (min-width: 48em) {
-    .hero-grid {
-      /* Grid styles */
+  /* 
+  * 
+  * Utilities
+  *
+  */
+
+  .span-2 {
+    grid-column: span 2;
+  }
+
+  .span-3 {
+    grid-column: span 3;
+  }/* 
+  * 
+  * Home > Hero
+  *
+  */
+
+  @media (min-width: 62em) {
+    .home-hero-grid {
+      /*
+ Grid layout
+ */
       display: grid;
-      grid-template-columns: 3fr 2fr;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      /* Resets for margins/widths */
-      max-width: 96rem;
+      grid-template-columns: 4fr 6fr;
+      align-items: end;
+      /*
+ Reset margins & widths
+ */
     }
 
-    .hero-grid > figure {
-      margin: 0;
-      padding-top: 0;
-      max-width: 100%;
-    }
-
-    .hero-grid > figure > div > div {
-      width: auto;
-      margin: 0;
+    .home-hero-grid > div > div {
+      margin-bottom: 0;
     }
   }
 }
@@ -1201,8 +1236,6 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  */
 
 .animate {
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
@@ -1321,6 +1354,61 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 
 */
 
+.bg-black {
+  background-color: #000;
+  background-color: var(--black);
+}
+
+.bg-near-black {
+  background-color: #111;
+  background-color: var(--near-black);
+}
+
+.bg-dark-gray {
+  background-color: #333;
+  background-color: var(--dark-gray);
+}
+
+.bg-mid-gray {
+  background-color: #555;
+  background-color: var(--mid-gray);
+}
+
+.bg-gray {
+  background-color: #777;
+  background-color: var(--gray);
+}
+
+.bg-silver {
+  background-color: #999;
+  background-color: var(--silver);
+}
+
+.bg-light-silver {
+  background-color: #aaa;
+  background-color: var(--light-silver);
+}
+
+.bg-moon-gray {
+  background-color: #ccc;
+  background-color: var(--moon-gray);
+}
+
+.bg-light-gray {
+  background-color: #eee;
+  background-color: var(--light-gray);
+}
+
+.bg-near-white {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+}
+
+.bg-white {
+  background-color: #fff;
+  background-color: var(--white);
+}
+
 .bg-black-90 {
   background-color: rgba(0, 0, 0, .9);
   background-color: var(--black-90);
@@ -1414,66 +1502,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 .bg-white-10 {
   background-color: rgba(255, 255, 255, .1);
   background-color: var(--white-10);
-}
-
-.bg-black {
-  background-color: #000;
-  background-color: var(--black);
-}
-
-.bg-near-black {
-  background-color: #111;
-  background-color: var(--near-black);
-}
-
-.bg-dark-gray {
-  background-color: #333;
-  background-color: var(--dark-gray);
-}
-
-.bg-mid-gray {
-  background-color: #555;
-  background-color: var(--mid-gray);
-}
-
-.bg-gray {
-  background-color: #777;
-  background-color: var(--gray);
-}
-
-.bg-silver {
-  background-color: #999;
-  background-color: var(--silver);
-}
-
-.bg-light-silver {
-  background-color: #aaa;
-  background-color: var(--light-silver);
-}
-
-.bg-moon-gray {
-  background-color: #ccc;
-  background-color: var(--moon-gray);
-}
-
-.bg-light-gray {
-  background-color: #eee;
-  background-color: var(--light-gray);
-}
-
-.bg-near-white {
-  background-color: #f4f4f4;
-  background-color: var(--near-white);
-}
-
-.bg-white {
-  background-color: #fff;
-  background-color: var(--white);
-}
-
-.bg-transparent {
-  background-color: transparent;
-  background-color: var(--transparent);
 }
 
 .bg-dark-red {
@@ -1601,8 +1629,71 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--washed-red);
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-current {
+  background-color: currentColor;
+}
+
 .bg-inherit {
   background-color: inherit;
+}
+
+.group:hover .group-hover\:bg-black {
+  background-color: #000;
+  background-color: var(--black);
+}
+
+.group:hover .group-hover\:bg-near-black {
+  background-color: #111;
+  background-color: var(--near-black);
+}
+
+.group:hover .group-hover\:bg-dark-gray {
+  background-color: #333;
+  background-color: var(--dark-gray);
+}
+
+.group:hover .group-hover\:bg-mid-gray {
+  background-color: #555;
+  background-color: var(--mid-gray);
+}
+
+.group:hover .group-hover\:bg-gray {
+  background-color: #777;
+  background-color: var(--gray);
+}
+
+.group:hover .group-hover\:bg-silver {
+  background-color: #999;
+  background-color: var(--silver);
+}
+
+.group:hover .group-hover\:bg-light-silver {
+  background-color: #aaa;
+  background-color: var(--light-silver);
+}
+
+.group:hover .group-hover\:bg-moon-gray {
+  background-color: #ccc;
+  background-color: var(--moon-gray);
+}
+
+.group:hover .group-hover\:bg-light-gray {
+  background-color: #eee;
+  background-color: var(--light-gray);
+}
+
+.group:hover .group-hover\:bg-near-white {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+}
+
+.group:hover .group-hover\:bg-white {
+  background-color: #fff;
+  background-color: var(--white);
 }
 
 .group:hover .group-hover\:bg-black-90 {
@@ -1698,66 +1789,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 .group:hover .group-hover\:bg-white-10 {
   background-color: rgba(255, 255, 255, .1);
   background-color: var(--white-10);
-}
-
-.group:hover .group-hover\:bg-black {
-  background-color: #000;
-  background-color: var(--black);
-}
-
-.group:hover .group-hover\:bg-near-black {
-  background-color: #111;
-  background-color: var(--near-black);
-}
-
-.group:hover .group-hover\:bg-dark-gray {
-  background-color: #333;
-  background-color: var(--dark-gray);
-}
-
-.group:hover .group-hover\:bg-mid-gray {
-  background-color: #555;
-  background-color: var(--mid-gray);
-}
-
-.group:hover .group-hover\:bg-gray {
-  background-color: #777;
-  background-color: var(--gray);
-}
-
-.group:hover .group-hover\:bg-silver {
-  background-color: #999;
-  background-color: var(--silver);
-}
-
-.group:hover .group-hover\:bg-light-silver {
-  background-color: #aaa;
-  background-color: var(--light-silver);
-}
-
-.group:hover .group-hover\:bg-moon-gray {
-  background-color: #ccc;
-  background-color: var(--moon-gray);
-}
-
-.group:hover .group-hover\:bg-light-gray {
-  background-color: #eee;
-  background-color: var(--light-gray);
-}
-
-.group:hover .group-hover\:bg-near-white {
-  background-color: #f4f4f4;
-  background-color: var(--near-white);
-}
-
-.group:hover .group-hover\:bg-white {
-  background-color: #fff;
-  background-color: var(--white);
-}
-
-.group:hover .group-hover\:bg-transparent {
-  background-color: transparent;
-  background-color: var(--transparent);
 }
 
 .group:hover .group-hover\:bg-dark-red {
@@ -1885,8 +1916,71 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--washed-red);
 }
 
+.group:hover .group-hover\:bg-transparent {
+  background-color: transparent;
+}
+
+.group:hover .group-hover\:bg-current {
+  background-color: currentColor;
+}
+
 .group:hover .group-hover\:bg-inherit {
   background-color: inherit;
+}
+
+.hover\:bg-black:hover {
+  background-color: #000;
+  background-color: var(--black);
+}
+
+.hover\:bg-near-black:hover {
+  background-color: #111;
+  background-color: var(--near-black);
+}
+
+.hover\:bg-dark-gray:hover {
+  background-color: #333;
+  background-color: var(--dark-gray);
+}
+
+.hover\:bg-mid-gray:hover {
+  background-color: #555;
+  background-color: var(--mid-gray);
+}
+
+.hover\:bg-gray:hover {
+  background-color: #777;
+  background-color: var(--gray);
+}
+
+.hover\:bg-silver:hover {
+  background-color: #999;
+  background-color: var(--silver);
+}
+
+.hover\:bg-light-silver:hover {
+  background-color: #aaa;
+  background-color: var(--light-silver);
+}
+
+.hover\:bg-moon-gray:hover {
+  background-color: #ccc;
+  background-color: var(--moon-gray);
+}
+
+.hover\:bg-light-gray:hover {
+  background-color: #eee;
+  background-color: var(--light-gray);
+}
+
+.hover\:bg-near-white:hover {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+}
+
+.hover\:bg-white:hover {
+  background-color: #fff;
+  background-color: var(--white);
 }
 
 .hover\:bg-black-90:hover {
@@ -1982,66 +2076,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 .hover\:bg-white-10:hover {
   background-color: rgba(255, 255, 255, .1);
   background-color: var(--white-10);
-}
-
-.hover\:bg-black:hover {
-  background-color: #000;
-  background-color: var(--black);
-}
-
-.hover\:bg-near-black:hover {
-  background-color: #111;
-  background-color: var(--near-black);
-}
-
-.hover\:bg-dark-gray:hover {
-  background-color: #333;
-  background-color: var(--dark-gray);
-}
-
-.hover\:bg-mid-gray:hover {
-  background-color: #555;
-  background-color: var(--mid-gray);
-}
-
-.hover\:bg-gray:hover {
-  background-color: #777;
-  background-color: var(--gray);
-}
-
-.hover\:bg-silver:hover {
-  background-color: #999;
-  background-color: var(--silver);
-}
-
-.hover\:bg-light-silver:hover {
-  background-color: #aaa;
-  background-color: var(--light-silver);
-}
-
-.hover\:bg-moon-gray:hover {
-  background-color: #ccc;
-  background-color: var(--moon-gray);
-}
-
-.hover\:bg-light-gray:hover {
-  background-color: #eee;
-  background-color: var(--light-gray);
-}
-
-.hover\:bg-near-white:hover {
-  background-color: #f4f4f4;
-  background-color: var(--near-white);
-}
-
-.hover\:bg-white:hover {
-  background-color: #fff;
-  background-color: var(--white);
-}
-
-.hover\:bg-transparent:hover {
-  background-color: transparent;
-  background-color: var(--transparent);
 }
 
 .hover\:bg-dark-red:hover {
@@ -2169,8 +2203,71 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--washed-red);
 }
 
+.hover\:bg-transparent:hover {
+  background-color: transparent;
+}
+
+.hover\:bg-current:hover {
+  background-color: currentColor;
+}
+
 .hover\:bg-inherit:hover {
   background-color: inherit;
+}
+
+.focus\:bg-black:focus {
+  background-color: #000;
+  background-color: var(--black);
+}
+
+.focus\:bg-near-black:focus {
+  background-color: #111;
+  background-color: var(--near-black);
+}
+
+.focus\:bg-dark-gray:focus {
+  background-color: #333;
+  background-color: var(--dark-gray);
+}
+
+.focus\:bg-mid-gray:focus {
+  background-color: #555;
+  background-color: var(--mid-gray);
+}
+
+.focus\:bg-gray:focus {
+  background-color: #777;
+  background-color: var(--gray);
+}
+
+.focus\:bg-silver:focus {
+  background-color: #999;
+  background-color: var(--silver);
+}
+
+.focus\:bg-light-silver:focus {
+  background-color: #aaa;
+  background-color: var(--light-silver);
+}
+
+.focus\:bg-moon-gray:focus {
+  background-color: #ccc;
+  background-color: var(--moon-gray);
+}
+
+.focus\:bg-light-gray:focus {
+  background-color: #eee;
+  background-color: var(--light-gray);
+}
+
+.focus\:bg-near-white:focus {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+}
+
+.focus\:bg-white:focus {
+  background-color: #fff;
+  background-color: var(--white);
 }
 
 .focus\:bg-black-90:focus {
@@ -2266,66 +2363,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 .focus\:bg-white-10:focus {
   background-color: rgba(255, 255, 255, .1);
   background-color: var(--white-10);
-}
-
-.focus\:bg-black:focus {
-  background-color: #000;
-  background-color: var(--black);
-}
-
-.focus\:bg-near-black:focus {
-  background-color: #111;
-  background-color: var(--near-black);
-}
-
-.focus\:bg-dark-gray:focus {
-  background-color: #333;
-  background-color: var(--dark-gray);
-}
-
-.focus\:bg-mid-gray:focus {
-  background-color: #555;
-  background-color: var(--mid-gray);
-}
-
-.focus\:bg-gray:focus {
-  background-color: #777;
-  background-color: var(--gray);
-}
-
-.focus\:bg-silver:focus {
-  background-color: #999;
-  background-color: var(--silver);
-}
-
-.focus\:bg-light-silver:focus {
-  background-color: #aaa;
-  background-color: var(--light-silver);
-}
-
-.focus\:bg-moon-gray:focus {
-  background-color: #ccc;
-  background-color: var(--moon-gray);
-}
-
-.focus\:bg-light-gray:focus {
-  background-color: #eee;
-  background-color: var(--light-gray);
-}
-
-.focus\:bg-near-white:focus {
-  background-color: #f4f4f4;
-  background-color: var(--near-white);
-}
-
-.focus\:bg-white:focus {
-  background-color: #fff;
-  background-color: var(--white);
-}
-
-.focus\:bg-transparent:focus {
-  background-color: transparent;
-  background-color: var(--transparent);
 }
 
 .focus\:bg-dark-red:focus {
@@ -2451,6 +2488,14 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 .focus\:bg-washed-red:focus {
   background-color: #ffdfdf;
   background-color: var(--washed-red);
+}
+
+.focus\:bg-transparent:focus {
+  background-color: transparent;
+}
+
+.focus\:bg-current:focus {
+  background-color: currentColor;
 }
 
 .focus\:bg-inherit:focus {
@@ -3141,6 +3186,10 @@ Adapted from: http://tachyons.io/docs/themes/borders/
   border-color: var(--transparent);
 }
 
+.b--current {
+  border-color: currentColor;
+}
+
 .b--inherit {
   border-color: inherit;
 }
@@ -3448,6 +3497,10 @@ Adapted from: http://tachyons.io/docs/themes/borders/
 .group:hover .group-hover\:b--transparent {
   border-color: transparent;
   border-color: var(--transparent);
+}
+
+.group:hover .group-hover\:b--current {
+  border-color: currentColor;
 }
 
 .group:hover .group-hover\:b--inherit {
@@ -3759,6 +3812,10 @@ Adapted from: http://tachyons.io/docs/themes/borders/
   border-color: var(--transparent);
 }
 
+.hover\:b--current:hover {
+  border-color: currentColor;
+}
+
 .hover\:b--inherit:hover {
   border-color: inherit;
 }
@@ -4066,6 +4123,10 @@ Adapted from: http://tachyons.io/docs/themes/borders/
 .focus\:b--transparent:focus {
   border-color: transparent;
   border-color: var(--transparent);
+}
+
+.focus\:b--current:focus {
+  border-color: currentColor;
 }
 
 .focus\:b--inherit:focus {
@@ -4650,28 +4711,23 @@ Adapted from: https://tailwindcss.com/docs/shadows
 */
 
 .shadow {
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
 }
 
 .shadow-md {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
 }
 
 .shadow-lg {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
 }
 
 .shadow-inner {
-  -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
 }
 
 .shadow-none {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*
@@ -4698,28 +4754,23 @@ Adapted from: https://tailwindcss.com/docs/shadows
   */
 
 .group:hover .group-hover\:shadow {
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
 }
 
 .group:hover .group-hover\:shadow-md {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
 }
 
 .group:hover .group-hover\:shadow-lg {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
 }
 
 .group:hover .group-hover\:shadow-inner {
-  -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
 }
 
 .group:hover .group-hover\:shadow-none {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*
@@ -4746,28 +4797,23 @@ Adapted from: https://tailwindcss.com/docs/shadows
   */
 
 .hover\:shadow:hover {
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
 }
 
 .hover\:shadow-md:hover {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
 }
 
 .hover\:shadow-lg:hover {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
 }
 
 .hover\:shadow-inner:hover {
-  -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
 }
 
 .hover\:shadow-none:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*
@@ -4794,28 +4840,23 @@ Adapted from: https://tailwindcss.com/docs/shadows
   */
 
 .focus\:shadow:focus {
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
 }
 
 .focus\:shadow-md:focus {
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
 }
 
 .focus\:shadow-lg:focus {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
 }
 
 .focus\:shadow-inner:focus {
-  -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-          box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
 }
 
 .focus\:shadow-none:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*
@@ -4893,8 +4934,6 @@ Tachyons module for styling nested elements that are generated by a CMS.
 .nested-links a {
   color: #357edd;
   color: var(--blue);
-  -webkit-transition: color .15s ease-in;
-  -o-transition: color .15s ease-in;
   transition: color .15s ease-in;
 }
 
@@ -4902,8 +4941,6 @@ Tachyons module for styling nested elements that are generated by a CMS.
 .nested-links a:focus {
   color: #96ccff;
   color: var(--light-blue);
-  -webkit-transition: color .15s ease-in;
-  -o-transition: color .15s ease-in;
   transition: color .15s ease-in;
 }
 
@@ -4919,13 +4956,11 @@ Used to adapt inline images to their dimensions.
 */
 
 .object-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .object-contain {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 /*
@@ -5597,14 +5632,10 @@ Adapted from: http://tachyons.io/docs/layout/display
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .inline-flex {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
@@ -5659,135 +5690,95 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
   */
 
 .flex-row {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .flex-row-reverse {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .flex-column {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-column-reverse {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
+  flex-direction: column-reverse;
 }
 
 .flex-wrap {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .flex-nowrap {
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
 }
 
 .flex-wrap-reverse {
-  -ms-flex-wrap: wrap-reverse;
-      flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
 }
 
 .justify-start {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .justify-center {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .justify-end {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .justify-between {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .justify-around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .items-stretch {
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  align-items: stretch;
 }
 
 .items-start {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
 }
 
 .items-end {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
 }
 
 .items-center {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .items-baseline {
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  align-items: baseline;
 }
 
 .content-stretch {
-  -ms-flex-line-pack: stretch;
-      align-content: stretch;
+  align-content: stretch;
 }
 
 .content-start {
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
+  align-content: flex-start;
 }
 
 .content-center {
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
 }
 
 .content-end {
-  -ms-flex-line-pack: end;
-      align-content: flex-end;
+  align-content: flex-end;
 }
 
 .content-between {
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
+  align-content: space-between;
 }
 
 .content-around {
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
+  align-content: space-around;
 }
 
 /*
@@ -5799,135 +5790,97 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
 /* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
 
 .flex-auto {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   min-width: 0; /* 1 */
   min-height: 0; /* 1 */
 }
 
 .flex-1 {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 
 .flex-grow-0 {
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
+  flex-grow: 0;
 }
 
 .flex-grow-1 {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
 
 .flex-shrink-0 {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .flex-shrink-1 {
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
+  flex-shrink: 1;
 }
 
 .flex-none {
-  -webkit-box-flex: 0;
-      -ms-flex: none;
-          flex: none;
+  flex: none;
 }
 
 .self-auto {
-  -ms-flex-item-align: auto;
-      align-self: auto;
+  align-self: auto;
 }
 
 .self-start {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 
 .self-center {
-  -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 .self-end {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 .self-baseline {
-  -ms-flex-item-align: baseline;
-      align-self: baseline;
+  align-self: baseline;
 }
 
 .self-stretch {
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
+  align-self: stretch;
 }
 
 .order-0 {
-  -webkit-box-ordinal-group: 1;
-      -ms-flex-order: 0;
-          order: 0;
+  order: 0;
 }
 
 .order-1 {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  order: 1;
 }
 
 .order-2 {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
+  order: 2;
 }
 
 .order-3 {
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
+  order: 3;
 }
 
 .order-4 {
-  -webkit-box-ordinal-group: 5;
-      -ms-flex-order: 4;
-          order: 4;
+  order: 4;
 }
 
 .order-5 {
-  -webkit-box-ordinal-group: 6;
-      -ms-flex-order: 5;
-          order: 5;
+  order: 5;
 }
 
 .order-6 {
-  -webkit-box-ordinal-group: 7;
-      -ms-flex-order: 6;
-          order: 6;
+  order: 6;
 }
 
 .order-7 {
-  -webkit-box-ordinal-group: 8;
-      -ms-flex-order: 7;
-          order: 7;
+  order: 7;
 }
 
 .order-8 {
-  -webkit-box-ordinal-group: 9;
-      -ms-flex-order: 8;
-          order: 8;
+  order: 8;
 }
 
 .order-last {
-  -webkit-box-ordinal-group: 100000;
-      -ms-flex-order: 99999;
-          order: 99999;
+  order: 99999;
 }
 
 /*
@@ -9088,6 +9041,61 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 
 */
 
+.black {
+  color: #000;
+  color: var(--black);
+}
+
+.near-black {
+  color: #111;
+  color: var(--near-black);
+}
+
+.dark-gray {
+  color: #333;
+  color: var(--dark-gray);
+}
+
+.mid-gray {
+  color: #555;
+  color: var(--mid-gray);
+}
+
+.gray {
+  color: #777;
+  color: var(--gray);
+}
+
+.silver {
+  color: #999;
+  color: var(--silver);
+}
+
+.light-silver {
+  color: #aaa;
+  color: var(--light-silver);
+}
+
+.moon-gray {
+  color: #ccc;
+  color: var(--moon-gray);
+}
+
+.light-gray {
+  color: #eee;
+  color: var(--light-gray);
+}
+
+.near-white {
+  color: #f4f4f4;
+  color: var(--near-white);
+}
+
+.white {
+  color: #fff;
+  color: var(--white);
+}
+
 .black-90 {
   color: rgba(0, 0, 0, .9);
   color: var(--black-90);
@@ -9181,61 +9189,6 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 .white-10 {
   color: rgba(255, 255, 255, .1);
   color: var(--white-10);
-}
-
-.black {
-  color: #000;
-  color: var(--black);
-}
-
-.near-black {
-  color: #111;
-  color: var(--near-black);
-}
-
-.dark-gray {
-  color: #333;
-  color: var(--dark-gray);
-}
-
-.mid-gray {
-  color: #555;
-  color: var(--mid-gray);
-}
-
-.gray {
-  color: #777;
-  color: var(--gray);
-}
-
-.silver {
-  color: #999;
-  color: var(--silver);
-}
-
-.light-silver {
-  color: #aaa;
-  color: var(--light-silver);
-}
-
-.moon-gray {
-  color: #ccc;
-  color: var(--moon-gray);
-}
-
-.light-gray {
-  color: #eee;
-  color: var(--light-gray);
-}
-
-.near-white {
-  color: #f4f4f4;
-  color: var(--near-white);
-}
-
-.white {
-  color: #fff;
-  color: var(--white);
 }
 
 .dark-red {
@@ -9363,8 +9316,71 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--washed-red);
 }
 
+.transparent {
+  color: transparent;
+}
+
+.current-color {
+  color: currentColor;
+}
+
 .color-inherit {
   color: inherit;
+}
+
+.group:hover .group-hover\:black {
+  color: #000;
+  color: var(--black);
+}
+
+.group:hover .group-hover\:near-black {
+  color: #111;
+  color: var(--near-black);
+}
+
+.group:hover .group-hover\:dark-gray {
+  color: #333;
+  color: var(--dark-gray);
+}
+
+.group:hover .group-hover\:mid-gray {
+  color: #555;
+  color: var(--mid-gray);
+}
+
+.group:hover .group-hover\:gray {
+  color: #777;
+  color: var(--gray);
+}
+
+.group:hover .group-hover\:silver {
+  color: #999;
+  color: var(--silver);
+}
+
+.group:hover .group-hover\:light-silver {
+  color: #aaa;
+  color: var(--light-silver);
+}
+
+.group:hover .group-hover\:moon-gray {
+  color: #ccc;
+  color: var(--moon-gray);
+}
+
+.group:hover .group-hover\:light-gray {
+  color: #eee;
+  color: var(--light-gray);
+}
+
+.group:hover .group-hover\:near-white {
+  color: #f4f4f4;
+  color: var(--near-white);
+}
+
+.group:hover .group-hover\:white {
+  color: #fff;
+  color: var(--white);
 }
 
 .group:hover .group-hover\:black-90 {
@@ -9460,61 +9476,6 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 .group:hover .group-hover\:white-10 {
   color: rgba(255, 255, 255, .1);
   color: var(--white-10);
-}
-
-.group:hover .group-hover\:black {
-  color: #000;
-  color: var(--black);
-}
-
-.group:hover .group-hover\:near-black {
-  color: #111;
-  color: var(--near-black);
-}
-
-.group:hover .group-hover\:dark-gray {
-  color: #333;
-  color: var(--dark-gray);
-}
-
-.group:hover .group-hover\:mid-gray {
-  color: #555;
-  color: var(--mid-gray);
-}
-
-.group:hover .group-hover\:gray {
-  color: #777;
-  color: var(--gray);
-}
-
-.group:hover .group-hover\:silver {
-  color: #999;
-  color: var(--silver);
-}
-
-.group:hover .group-hover\:light-silver {
-  color: #aaa;
-  color: var(--light-silver);
-}
-
-.group:hover .group-hover\:moon-gray {
-  color: #ccc;
-  color: var(--moon-gray);
-}
-
-.group:hover .group-hover\:light-gray {
-  color: #eee;
-  color: var(--light-gray);
-}
-
-.group:hover .group-hover\:near-white {
-  color: #f4f4f4;
-  color: var(--near-white);
-}
-
-.group:hover .group-hover\:white {
-  color: #fff;
-  color: var(--white);
 }
 
 .group:hover .group-hover\:dark-red {
@@ -9642,8 +9603,71 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--washed-red);
 }
 
+.group:hover .group-hover\:transparent {
+  color: transparent;
+}
+
+.group:hover .group-hover\:current-color {
+  color: currentColor;
+}
+
 .group:hover .group-hover\:color-inherit {
   color: inherit;
+}
+
+.hover\:black:hover {
+  color: #000;
+  color: var(--black);
+}
+
+.hover\:near-black:hover {
+  color: #111;
+  color: var(--near-black);
+}
+
+.hover\:dark-gray:hover {
+  color: #333;
+  color: var(--dark-gray);
+}
+
+.hover\:mid-gray:hover {
+  color: #555;
+  color: var(--mid-gray);
+}
+
+.hover\:gray:hover {
+  color: #777;
+  color: var(--gray);
+}
+
+.hover\:silver:hover {
+  color: #999;
+  color: var(--silver);
+}
+
+.hover\:light-silver:hover {
+  color: #aaa;
+  color: var(--light-silver);
+}
+
+.hover\:moon-gray:hover {
+  color: #ccc;
+  color: var(--moon-gray);
+}
+
+.hover\:light-gray:hover {
+  color: #eee;
+  color: var(--light-gray);
+}
+
+.hover\:near-white:hover {
+  color: #f4f4f4;
+  color: var(--near-white);
+}
+
+.hover\:white:hover {
+  color: #fff;
+  color: var(--white);
 }
 
 .hover\:black-90:hover {
@@ -9739,61 +9763,6 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 .hover\:white-10:hover {
   color: rgba(255, 255, 255, .1);
   color: var(--white-10);
-}
-
-.hover\:black:hover {
-  color: #000;
-  color: var(--black);
-}
-
-.hover\:near-black:hover {
-  color: #111;
-  color: var(--near-black);
-}
-
-.hover\:dark-gray:hover {
-  color: #333;
-  color: var(--dark-gray);
-}
-
-.hover\:mid-gray:hover {
-  color: #555;
-  color: var(--mid-gray);
-}
-
-.hover\:gray:hover {
-  color: #777;
-  color: var(--gray);
-}
-
-.hover\:silver:hover {
-  color: #999;
-  color: var(--silver);
-}
-
-.hover\:light-silver:hover {
-  color: #aaa;
-  color: var(--light-silver);
-}
-
-.hover\:moon-gray:hover {
-  color: #ccc;
-  color: var(--moon-gray);
-}
-
-.hover\:light-gray:hover {
-  color: #eee;
-  color: var(--light-gray);
-}
-
-.hover\:near-white:hover {
-  color: #f4f4f4;
-  color: var(--near-white);
-}
-
-.hover\:white:hover {
-  color: #fff;
-  color: var(--white);
 }
 
 .hover\:dark-red:hover {
@@ -9921,8 +9890,71 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--washed-red);
 }
 
+.hover\:transparent:hover {
+  color: transparent;
+}
+
+.hover\:current-color:hover {
+  color: currentColor;
+}
+
 .hover\:color-inherit:hover {
   color: inherit;
+}
+
+.focus\:black:focus {
+  color: #000;
+  color: var(--black);
+}
+
+.focus\:near-black:focus {
+  color: #111;
+  color: var(--near-black);
+}
+
+.focus\:dark-gray:focus {
+  color: #333;
+  color: var(--dark-gray);
+}
+
+.focus\:mid-gray:focus {
+  color: #555;
+  color: var(--mid-gray);
+}
+
+.focus\:gray:focus {
+  color: #777;
+  color: var(--gray);
+}
+
+.focus\:silver:focus {
+  color: #999;
+  color: var(--silver);
+}
+
+.focus\:light-silver:focus {
+  color: #aaa;
+  color: var(--light-silver);
+}
+
+.focus\:moon-gray:focus {
+  color: #ccc;
+  color: var(--moon-gray);
+}
+
+.focus\:light-gray:focus {
+  color: #eee;
+  color: var(--light-gray);
+}
+
+.focus\:near-white:focus {
+  color: #f4f4f4;
+  color: var(--near-white);
+}
+
+.focus\:white:focus {
+  color: #fff;
+  color: var(--white);
 }
 
 .focus\:black-90:focus {
@@ -10018,61 +10050,6 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 .focus\:white-10:focus {
   color: rgba(255, 255, 255, .1);
   color: var(--white-10);
-}
-
-.focus\:black:focus {
-  color: #000;
-  color: var(--black);
-}
-
-.focus\:near-black:focus {
-  color: #111;
-  color: var(--near-black);
-}
-
-.focus\:dark-gray:focus {
-  color: #333;
-  color: var(--dark-gray);
-}
-
-.focus\:mid-gray:focus {
-  color: #555;
-  color: var(--mid-gray);
-}
-
-.focus\:gray:focus {
-  color: #777;
-  color: var(--gray);
-}
-
-.focus\:silver:focus {
-  color: #999;
-  color: var(--silver);
-}
-
-.focus\:light-silver:focus {
-  color: #aaa;
-  color: var(--light-silver);
-}
-
-.focus\:moon-gray:focus {
-  color: #ccc;
-  color: var(--moon-gray);
-}
-
-.focus\:light-gray:focus {
-  color: #eee;
-  color: var(--light-gray);
-}
-
-.focus\:near-white:focus {
-  color: #f4f4f4;
-  color: var(--near-white);
-}
-
-.focus\:white:focus {
-  color: #fff;
-  color: var(--white);
 }
 
 .focus\:dark-red:focus {
@@ -10198,6 +10175,14 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 .focus\:washed-red:focus {
   color: #ffdfdf;
   color: var(--washed-red);
+}
+
+.focus\:transparent:focus {
+  color: transparent;
+}
+
+.focus\:current-color:focus {
+  color: currentColor;
 }
 
 .focus\:color-inherit:focus {
@@ -11170,8 +11155,16 @@ Adapted from:
   *
   */
 
+.measure-wide {
+  max-width: 80ch;
+}
+
 .measure {
   max-width: 66ch;
+}
+
+.measure-medium {
+  max-width: 55ch;
 }
 
 .measure-narrow {
@@ -11180,10 +11173,6 @@ Adapted from:
 
 .measure-tight {
   max-width: 28ch;
-}
-
-.measure-wide {
-  max-width: 80ch;
 }
 
 /*
@@ -11251,8 +11240,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 .truncate {
   overflow: hidden;
   white-space: nowrap;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
 /*
@@ -11787,6 +11775,61 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     background-attachment: scroll;
   }
 
+  .sm\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .sm\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .sm\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .sm\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .sm\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .sm\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .sm\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .sm\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .sm\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .sm\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .sm\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
+  }
+
   .sm\:bg-black-90 {
     background-color: rgba(0, 0, 0, .9);
     background-color: var(--black-90);
@@ -11880,66 +11923,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .sm\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .sm\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .sm\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .sm\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .sm\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .sm\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .sm\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .sm\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .sm\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .sm\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .sm\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .sm\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .sm\:bg-dark-red {
@@ -12067,8 +12050,71 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     background-color: var(--washed-red);
   }
 
+  .sm\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .sm\:bg-current {
+    background-color: currentColor;
+  }
+
   .sm\:bg-inherit {
     background-color: inherit;
+  }
+
+  .sm\:group:hover .group-hover\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .sm\:group:hover .group-hover\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .sm\:group:hover .group-hover\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .sm\:group:hover .group-hover\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .sm\:group:hover .group-hover\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .sm\:group:hover .group-hover\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .sm\:group:hover .group-hover\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .sm\:group:hover .group-hover\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .sm\:group:hover .group-hover\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .sm\:group:hover .group-hover\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .sm\:group:hover .group-hover\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .sm\:group:hover .group-hover\:bg-black-90 {
@@ -12164,66 +12210,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:group:hover .group-hover\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .sm\:group:hover .group-hover\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .sm\:group:hover .group-hover\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .sm\:group:hover .group-hover\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .sm\:group:hover .group-hover\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .sm\:group:hover .group-hover\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .sm\:group:hover .group-hover\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .sm\:group:hover .group-hover\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .sm\:group:hover .group-hover\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .sm\:group:hover .group-hover\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .sm\:group:hover .group-hover\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .sm\:group:hover .group-hover\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .sm\:group:hover .group-hover\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .sm\:group:hover .group-hover\:bg-dark-red {
@@ -12351,8 +12337,71 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     background-color: var(--washed-red);
   }
 
+  .sm\:group:hover .group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .sm\:group:hover .group-hover\:bg-current {
+    background-color: currentColor;
+  }
+
   .sm\:group:hover .group-hover\:bg-inherit {
     background-color: inherit;
+  }
+
+  .sm\:hover\:bg-black:hover {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .sm\:hover\:bg-near-black:hover {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .sm\:hover\:bg-dark-gray:hover {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .sm\:hover\:bg-mid-gray:hover {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .sm\:hover\:bg-gray:hover {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .sm\:hover\:bg-silver:hover {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .sm\:hover\:bg-light-silver:hover {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .sm\:hover\:bg-moon-gray:hover {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .sm\:hover\:bg-light-gray:hover {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .sm\:hover\:bg-near-white:hover {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .sm\:hover\:bg-white:hover {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .sm\:hover\:bg-black-90:hover {
@@ -12448,66 +12497,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:hover\:bg-white-10:hover {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .sm\:hover\:bg-black:hover {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .sm\:hover\:bg-near-black:hover {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .sm\:hover\:bg-dark-gray:hover {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .sm\:hover\:bg-mid-gray:hover {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .sm\:hover\:bg-gray:hover {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .sm\:hover\:bg-silver:hover {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .sm\:hover\:bg-light-silver:hover {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .sm\:hover\:bg-moon-gray:hover {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .sm\:hover\:bg-light-gray:hover {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .sm\:hover\:bg-near-white:hover {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .sm\:hover\:bg-white:hover {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .sm\:hover\:bg-transparent:hover {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .sm\:hover\:bg-dark-red:hover {
@@ -12635,8 +12624,71 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     background-color: var(--washed-red);
   }
 
+  .sm\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
+  .sm\:hover\:bg-current:hover {
+    background-color: currentColor;
+  }
+
   .sm\:hover\:bg-inherit:hover {
     background-color: inherit;
+  }
+
+  .sm\:focus\:bg-black:focus {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .sm\:focus\:bg-near-black:focus {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .sm\:focus\:bg-dark-gray:focus {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .sm\:focus\:bg-mid-gray:focus {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .sm\:focus\:bg-gray:focus {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .sm\:focus\:bg-silver:focus {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .sm\:focus\:bg-light-silver:focus {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .sm\:focus\:bg-moon-gray:focus {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .sm\:focus\:bg-light-gray:focus {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .sm\:focus\:bg-near-white:focus {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .sm\:focus\:bg-white:focus {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .sm\:focus\:bg-black-90:focus {
@@ -12732,66 +12784,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:focus\:bg-white-10:focus {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .sm\:focus\:bg-black:focus {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .sm\:focus\:bg-near-black:focus {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .sm\:focus\:bg-dark-gray:focus {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .sm\:focus\:bg-mid-gray:focus {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .sm\:focus\:bg-gray:focus {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .sm\:focus\:bg-silver:focus {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .sm\:focus\:bg-light-silver:focus {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .sm\:focus\:bg-moon-gray:focus {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .sm\:focus\:bg-light-gray:focus {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .sm\:focus\:bg-near-white:focus {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .sm\:focus\:bg-white:focus {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .sm\:focus\:bg-transparent:focus {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .sm\:focus\:bg-dark-red:focus {
@@ -12917,6 +12909,14 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:focus\:bg-washed-red:focus {
     background-color: #ffdfdf;
     background-color: var(--washed-red);
+  }
+
+  .sm\:focus\:bg-transparent:focus {
+    background-color: transparent;
+  }
+
+  .sm\:focus\:bg-current:focus {
+    background-color: currentColor;
   }
 
   .sm\:focus\:bg-inherit:focus {
@@ -13552,6 +13552,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     border-color: var(--transparent);
   }
 
+  .sm\:b--current {
+    border-color: currentColor;
+  }
+
   .sm\:b--inherit {
     border-color: inherit;
   }
@@ -13859,6 +13863,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:group:hover .group-hover\:b--transparent {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .sm\:group:hover .group-hover\:b--current {
+    border-color: currentColor;
   }
 
   .sm\:group:hover .group-hover\:b--inherit {
@@ -14170,6 +14178,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     border-color: var(--transparent);
   }
 
+  .sm\:hover\:b--current:hover {
+    border-color: currentColor;
+  }
+
   .sm\:hover\:b--inherit:hover {
     border-color: inherit;
   }
@@ -14477,6 +14489,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:focus\:b--transparent:focus {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .sm\:focus\:b--current:focus {
+    border-color: currentColor;
   }
 
   .sm\:focus\:b--inherit:focus {
@@ -15000,28 +15016,23 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   }
 
   .sm\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .sm\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .sm\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -15046,28 +15057,23 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   */
 
   .sm\:group:hover .group-hover\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .sm\:group:hover .group-hover\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:group:hover .group-hover\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:group:hover .group-hover\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .sm\:group:hover .group-hover\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -15092,28 +15098,23 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   */
 
   .sm\:hover\:shadow:hover {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .sm\:hover\:shadow-md:hover {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:hover\:shadow-lg:hover {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:hover\:shadow-inner:hover {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .sm\:hover\:shadow-none:hover {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -15138,28 +15139,23 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   */
 
   .sm\:focus\:shadow:focus {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .sm\:focus\:shadow-md:focus {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:focus\:shadow-lg:focus {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .sm\:focus\:shadow-inner:focus {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .sm\:focus\:shadow-none:focus {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -15733,14 +15729,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   }
 
   .sm\:flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 
   .sm\:inline-flex {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
   }
 
@@ -15782,135 +15774,95 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   */
 
   .sm\:flex-row {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 
   .sm\:flex-row-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   .sm\:flex-column {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 
   .sm\:flex-column-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 
   .sm\:flex-wrap {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   .sm\:flex-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
   .sm\:flex-wrap-reverse {
-    -ms-flex-wrap: wrap-reverse;
-        flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
   }
 
   .sm\:justify-start {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
   }
 
   .sm\:justify-center {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
 
   .sm\:justify-end {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    justify-content: flex-end;
   }
 
   .sm\:justify-between {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 
   .sm\:justify-around {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 
   .sm\:items-stretch {
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    align-items: stretch;
   }
 
   .sm\:items-start {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    align-items: flex-start;
   }
 
   .sm\:items-end {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    align-items: flex-end;
   }
 
   .sm\:items-center {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 
   .sm\:items-baseline {
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    align-items: baseline;
   }
 
   .sm\:content-stretch {
-    -ms-flex-line-pack: stretch;
-        align-content: stretch;
+    align-content: stretch;
   }
 
   .sm\:content-start {
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+    align-content: flex-start;
   }
 
   .sm\:content-center {
-    -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
   }
 
   .sm\:content-end {
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+    align-content: flex-end;
   }
 
   .sm\:content-between {
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+    align-content: space-between;
   }
 
   .sm\:content-around {
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+    align-content: space-around;
   }/*
   *
   * Flex item
@@ -15918,135 +15870,97 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
 
   .sm\:flex-auto {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+    flex: 1 1 auto;
     min-width: 0; /* 1 */
     min-height: 0; /* 1 */
   }
 
   .sm\:flex-1 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 
   .sm\:flex-grow-0 {
-    -webkit-box-flex: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
+    flex-grow: 0;
   }
 
   .sm\:flex-grow-1 {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
   }
 
   .sm\:flex-shrink-0 {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
 
   .sm\:flex-shrink-1 {
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-shrink: 1;
   }
 
   .sm\:flex-none {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
+    flex: none;
   }
 
   .sm\:self-auto {
-    -ms-flex-item-align: auto;
-        align-self: auto;
+    align-self: auto;
   }
 
   .sm\:self-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    align-self: flex-start;
   }
 
   .sm\:self-center {
-    -ms-flex-item-align: center;
-        align-self: center;
+    align-self: center;
   }
 
   .sm\:self-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    align-self: flex-end;
   }
 
   .sm\:self-baseline {
-    -ms-flex-item-align: baseline;
-        align-self: baseline;
+    align-self: baseline;
   }
 
   .sm\:self-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch;
+    align-self: stretch;
   }
 
   .sm\:order-0 {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
+    order: 0;
   }
 
   .sm\:order-1 {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
   }
 
   .sm\:order-2 {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
   }
 
   .sm\:order-3 {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
+    order: 3;
   }
 
   .sm\:order-4 {
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4;
+    order: 4;
   }
 
   .sm\:order-5 {
-    -webkit-box-ordinal-group: 6;
-        -ms-flex-order: 5;
-            order: 5;
+    order: 5;
   }
 
   .sm\:order-6 {
-    -webkit-box-ordinal-group: 7;
-        -ms-flex-order: 6;
-            order: 6;
+    order: 6;
   }
 
   .sm\:order-7 {
-    -webkit-box-ordinal-group: 8;
-        -ms-flex-order: 7;
-            order: 7;
+    order: 7;
   }
 
   .sm\:order-8 {
-    -webkit-box-ordinal-group: 9;
-        -ms-flex-order: 8;
-            order: 8;
+    order: 8;
   }
 
   .sm\:order-last {
-    -webkit-box-ordinal-group: 100000;
-        -ms-flex-order: 99999;
-            order: 99999;
+    order: 99999;
   }
 
   .sm\:cf:before,
@@ -18857,6 +18771,61 @@ Adapted from: http://tachyons.io/docs/debug-grid/
             transform-origin: left;
   }
 
+  .sm\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .sm\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .sm\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .sm\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .sm\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .sm\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .sm\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .sm\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .sm\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .sm\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .sm\:white {
+    color: #fff;
+    color: var(--white);
+  }
+
   .sm\:black-90 {
     color: rgba(0, 0, 0, .9);
     color: var(--black-90);
@@ -18950,61 +18919,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .sm\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .sm\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .sm\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .sm\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .sm\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .sm\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .sm\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .sm\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .sm\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .sm\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .sm\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .sm\:dark-red {
@@ -19132,8 +19046,71 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     color: var(--washed-red);
   }
 
+  .sm\:transparent {
+    color: transparent;
+  }
+
+  .sm\:current-color {
+    color: currentColor;
+  }
+
   .sm\:color-inherit {
     color: inherit;
+  }
+
+  .sm\:group:hover .group-hover\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .sm\:group:hover .group-hover\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .sm\:group:hover .group-hover\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .sm\:group:hover .group-hover\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .sm\:group:hover .group-hover\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .sm\:group:hover .group-hover\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .sm\:group:hover .group-hover\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .sm\:group:hover .group-hover\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .sm\:group:hover .group-hover\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .sm\:group:hover .group-hover\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .sm\:group:hover .group-hover\:white {
+    color: #fff;
+    color: var(--white);
   }
 
   .sm\:group:hover .group-hover\:black-90 {
@@ -19229,61 +19206,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:group:hover .group-hover\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .sm\:group:hover .group-hover\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .sm\:group:hover .group-hover\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .sm\:group:hover .group-hover\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .sm\:group:hover .group-hover\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .sm\:group:hover .group-hover\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .sm\:group:hover .group-hover\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .sm\:group:hover .group-hover\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .sm\:group:hover .group-hover\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .sm\:group:hover .group-hover\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .sm\:group:hover .group-hover\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .sm\:group:hover .group-hover\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .sm\:group:hover .group-hover\:dark-red {
@@ -19411,8 +19333,71 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     color: var(--washed-red);
   }
 
+  .sm\:group:hover .group-hover\:transparent {
+    color: transparent;
+  }
+
+  .sm\:group:hover .group-hover\:current-color {
+    color: currentColor;
+  }
+
   .sm\:group:hover .group-hover\:color-inherit {
     color: inherit;
+  }
+
+  .sm\:hover\:black:hover {
+    color: #000;
+    color: var(--black);
+  }
+
+  .sm\:hover\:near-black:hover {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .sm\:hover\:dark-gray:hover {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .sm\:hover\:mid-gray:hover {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .sm\:hover\:gray:hover {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .sm\:hover\:silver:hover {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .sm\:hover\:light-silver:hover {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .sm\:hover\:moon-gray:hover {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .sm\:hover\:light-gray:hover {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .sm\:hover\:near-white:hover {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .sm\:hover\:white:hover {
+    color: #fff;
+    color: var(--white);
   }
 
   .sm\:hover\:black-90:hover {
@@ -19508,61 +19493,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:hover\:white-10:hover {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .sm\:hover\:black:hover {
-    color: #000;
-    color: var(--black);
-  }
-
-  .sm\:hover\:near-black:hover {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .sm\:hover\:dark-gray:hover {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .sm\:hover\:mid-gray:hover {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .sm\:hover\:gray:hover {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .sm\:hover\:silver:hover {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .sm\:hover\:light-silver:hover {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .sm\:hover\:moon-gray:hover {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .sm\:hover\:light-gray:hover {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .sm\:hover\:near-white:hover {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .sm\:hover\:white:hover {
-    color: #fff;
-    color: var(--white);
   }
 
   .sm\:hover\:dark-red:hover {
@@ -19690,8 +19620,71 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     color: var(--washed-red);
   }
 
+  .sm\:hover\:transparent:hover {
+    color: transparent;
+  }
+
+  .sm\:hover\:current-color:hover {
+    color: currentColor;
+  }
+
   .sm\:hover\:color-inherit:hover {
     color: inherit;
+  }
+
+  .sm\:focus\:black:focus {
+    color: #000;
+    color: var(--black);
+  }
+
+  .sm\:focus\:near-black:focus {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .sm\:focus\:dark-gray:focus {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .sm\:focus\:mid-gray:focus {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .sm\:focus\:gray:focus {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .sm\:focus\:silver:focus {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .sm\:focus\:light-silver:focus {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .sm\:focus\:moon-gray:focus {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .sm\:focus\:light-gray:focus {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .sm\:focus\:near-white:focus {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .sm\:focus\:white:focus {
+    color: #fff;
+    color: var(--white);
   }
 
   .sm\:focus\:black-90:focus {
@@ -19787,61 +19780,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:focus\:white-10:focus {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .sm\:focus\:black:focus {
-    color: #000;
-    color: var(--black);
-  }
-
-  .sm\:focus\:near-black:focus {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .sm\:focus\:dark-gray:focus {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .sm\:focus\:mid-gray:focus {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .sm\:focus\:gray:focus {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .sm\:focus\:silver:focus {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .sm\:focus\:light-silver:focus {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .sm\:focus\:moon-gray:focus {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .sm\:focus\:light-gray:focus {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .sm\:focus\:near-white:focus {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .sm\:focus\:white:focus {
-    color: #fff;
-    color: var(--white);
   }
 
   .sm\:focus\:dark-red:focus {
@@ -19967,6 +19905,14 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:focus\:washed-red:focus {
     color: #ffdfdf;
     color: var(--washed-red);
+  }
+
+  .sm\:focus\:transparent:focus {
+    color: transparent;
+  }
+
+  .sm\:focus\:current-color:focus {
+    color: currentColor;
   }
 
   .sm\:focus\:color-inherit:focus {
@@ -20741,8 +20687,16 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *
   */
 
+  .sm\:measure-wide {
+    max-width: 80ch;
+  }
+
   .sm\:measure {
     max-width: 66ch;
+  }
+
+  .sm\:measure-medium {
+    max-width: 55ch;
   }
 
   .sm\:measure-narrow {
@@ -20751,10 +20705,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:measure-tight {
     max-width: 28ch;
-  }
-
-  .sm\:measure-wide {
-    max-width: 80ch;
   }/*
   *
   * White space
@@ -20812,8 +20762,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .sm\:truncate {
     overflow: hidden;
     white-space: nowrap;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }/*
   *
   * Indentation
@@ -21118,6 +21067,61 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-attachment: scroll;
   }
 
+  .md\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .md\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .md\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .md\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .md\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .md\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .md\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .md\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .md\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .md\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .md\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
+  }
+
   .md\:bg-black-90 {
     background-color: rgba(0, 0, 0, .9);
     background-color: var(--black-90);
@@ -21211,66 +21215,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .md\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .md\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .md\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .md\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .md\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .md\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .md\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .md\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .md\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .md\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .md\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .md\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .md\:bg-dark-red {
@@ -21398,8 +21342,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .md\:bg-current {
+    background-color: currentColor;
+  }
+
   .md\:bg-inherit {
     background-color: inherit;
+  }
+
+  .md\:group:hover .group-hover\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .md\:group:hover .group-hover\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .md\:group:hover .group-hover\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .md\:group:hover .group-hover\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .md\:group:hover .group-hover\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .md\:group:hover .group-hover\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .md\:group:hover .group-hover\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .md\:group:hover .group-hover\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .md\:group:hover .group-hover\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .md\:group:hover .group-hover\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .md\:group:hover .group-hover\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .md\:group:hover .group-hover\:bg-black-90 {
@@ -21495,66 +21502,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:group:hover .group-hover\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .md\:group:hover .group-hover\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .md\:group:hover .group-hover\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .md\:group:hover .group-hover\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .md\:group:hover .group-hover\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .md\:group:hover .group-hover\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .md\:group:hover .group-hover\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .md\:group:hover .group-hover\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .md\:group:hover .group-hover\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .md\:group:hover .group-hover\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .md\:group:hover .group-hover\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .md\:group:hover .group-hover\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .md\:group:hover .group-hover\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .md\:group:hover .group-hover\:bg-dark-red {
@@ -21682,8 +21629,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .md\:group:hover .group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .md\:group:hover .group-hover\:bg-current {
+    background-color: currentColor;
+  }
+
   .md\:group:hover .group-hover\:bg-inherit {
     background-color: inherit;
+  }
+
+  .md\:hover\:bg-black:hover {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .md\:hover\:bg-near-black:hover {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .md\:hover\:bg-dark-gray:hover {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .md\:hover\:bg-mid-gray:hover {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .md\:hover\:bg-gray:hover {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .md\:hover\:bg-silver:hover {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .md\:hover\:bg-light-silver:hover {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .md\:hover\:bg-moon-gray:hover {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .md\:hover\:bg-light-gray:hover {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .md\:hover\:bg-near-white:hover {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .md\:hover\:bg-white:hover {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .md\:hover\:bg-black-90:hover {
@@ -21779,66 +21789,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:hover\:bg-white-10:hover {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .md\:hover\:bg-black:hover {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .md\:hover\:bg-near-black:hover {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .md\:hover\:bg-dark-gray:hover {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .md\:hover\:bg-mid-gray:hover {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .md\:hover\:bg-gray:hover {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .md\:hover\:bg-silver:hover {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .md\:hover\:bg-light-silver:hover {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .md\:hover\:bg-moon-gray:hover {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .md\:hover\:bg-light-gray:hover {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .md\:hover\:bg-near-white:hover {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .md\:hover\:bg-white:hover {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .md\:hover\:bg-transparent:hover {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .md\:hover\:bg-dark-red:hover {
@@ -21966,8 +21916,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .md\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
+  .md\:hover\:bg-current:hover {
+    background-color: currentColor;
+  }
+
   .md\:hover\:bg-inherit:hover {
     background-color: inherit;
+  }
+
+  .md\:focus\:bg-black:focus {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .md\:focus\:bg-near-black:focus {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .md\:focus\:bg-dark-gray:focus {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .md\:focus\:bg-mid-gray:focus {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .md\:focus\:bg-gray:focus {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .md\:focus\:bg-silver:focus {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .md\:focus\:bg-light-silver:focus {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .md\:focus\:bg-moon-gray:focus {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .md\:focus\:bg-light-gray:focus {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .md\:focus\:bg-near-white:focus {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .md\:focus\:bg-white:focus {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .md\:focus\:bg-black-90:focus {
@@ -22063,66 +22076,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:focus\:bg-white-10:focus {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .md\:focus\:bg-black:focus {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .md\:focus\:bg-near-black:focus {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .md\:focus\:bg-dark-gray:focus {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .md\:focus\:bg-mid-gray:focus {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .md\:focus\:bg-gray:focus {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .md\:focus\:bg-silver:focus {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .md\:focus\:bg-light-silver:focus {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .md\:focus\:bg-moon-gray:focus {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .md\:focus\:bg-light-gray:focus {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .md\:focus\:bg-near-white:focus {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .md\:focus\:bg-white:focus {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .md\:focus\:bg-transparent:focus {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .md\:focus\:bg-dark-red:focus {
@@ -22248,6 +22201,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:focus\:bg-washed-red:focus {
     background-color: #ffdfdf;
     background-color: var(--washed-red);
+  }
+
+  .md\:focus\:bg-transparent:focus {
+    background-color: transparent;
+  }
+
+  .md\:focus\:bg-current:focus {
+    background-color: currentColor;
   }
 
   .md\:focus\:bg-inherit:focus {
@@ -22883,6 +22844,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     border-color: var(--transparent);
   }
 
+  .md\:b--current {
+    border-color: currentColor;
+  }
+
   .md\:b--inherit {
     border-color: inherit;
   }
@@ -23190,6 +23155,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:group:hover .group-hover\:b--transparent {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .md\:group:hover .group-hover\:b--current {
+    border-color: currentColor;
   }
 
   .md\:group:hover .group-hover\:b--inherit {
@@ -23501,6 +23470,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     border-color: var(--transparent);
   }
 
+  .md\:hover\:b--current:hover {
+    border-color: currentColor;
+  }
+
   .md\:hover\:b--inherit:hover {
     border-color: inherit;
   }
@@ -23808,6 +23781,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:focus\:b--transparent:focus {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .md\:focus\:b--current:focus {
+    border-color: currentColor;
   }
 
   .md\:focus\:b--inherit:focus {
@@ -24331,28 +24308,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   }
 
   .md\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .md\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .md\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -24377,28 +24349,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .md\:group:hover .group-hover\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .md\:group:hover .group-hover\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:group:hover .group-hover\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:group:hover .group-hover\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .md\:group:hover .group-hover\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -24423,28 +24390,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .md\:hover\:shadow:hover {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .md\:hover\:shadow-md:hover {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:hover\:shadow-lg:hover {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:hover\:shadow-inner:hover {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .md\:hover\:shadow-none:hover {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -24469,28 +24431,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .md\:focus\:shadow:focus {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .md\:focus\:shadow-md:focus {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:focus\:shadow-lg:focus {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .md\:focus\:shadow-inner:focus {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .md\:focus\:shadow-none:focus {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -25064,14 +25021,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   }
 
   .md\:flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 
   .md\:inline-flex {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
   }
 
@@ -25113,135 +25066,95 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .md\:flex-row {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 
   .md\:flex-row-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   .md\:flex-column {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 
   .md\:flex-column-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 
   .md\:flex-wrap {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   .md\:flex-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
   .md\:flex-wrap-reverse {
-    -ms-flex-wrap: wrap-reverse;
-        flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
   }
 
   .md\:justify-start {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
   }
 
   .md\:justify-center {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
 
   .md\:justify-end {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    justify-content: flex-end;
   }
 
   .md\:justify-between {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 
   .md\:justify-around {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 
   .md\:items-stretch {
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    align-items: stretch;
   }
 
   .md\:items-start {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    align-items: flex-start;
   }
 
   .md\:items-end {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    align-items: flex-end;
   }
 
   .md\:items-center {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 
   .md\:items-baseline {
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    align-items: baseline;
   }
 
   .md\:content-stretch {
-    -ms-flex-line-pack: stretch;
-        align-content: stretch;
+    align-content: stretch;
   }
 
   .md\:content-start {
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+    align-content: flex-start;
   }
 
   .md\:content-center {
-    -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
   }
 
   .md\:content-end {
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+    align-content: flex-end;
   }
 
   .md\:content-between {
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+    align-content: space-between;
   }
 
   .md\:content-around {
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+    align-content: space-around;
   }/*
   *
   * Flex item
@@ -25249,135 +25162,97 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
 
   .md\:flex-auto {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+    flex: 1 1 auto;
     min-width: 0; /* 1 */
     min-height: 0; /* 1 */
   }
 
   .md\:flex-1 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 
   .md\:flex-grow-0 {
-    -webkit-box-flex: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
+    flex-grow: 0;
   }
 
   .md\:flex-grow-1 {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
   }
 
   .md\:flex-shrink-0 {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
 
   .md\:flex-shrink-1 {
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-shrink: 1;
   }
 
   .md\:flex-none {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
+    flex: none;
   }
 
   .md\:self-auto {
-    -ms-flex-item-align: auto;
-        align-self: auto;
+    align-self: auto;
   }
 
   .md\:self-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    align-self: flex-start;
   }
 
   .md\:self-center {
-    -ms-flex-item-align: center;
-        align-self: center;
+    align-self: center;
   }
 
   .md\:self-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    align-self: flex-end;
   }
 
   .md\:self-baseline {
-    -ms-flex-item-align: baseline;
-        align-self: baseline;
+    align-self: baseline;
   }
 
   .md\:self-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch;
+    align-self: stretch;
   }
 
   .md\:order-0 {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
+    order: 0;
   }
 
   .md\:order-1 {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
   }
 
   .md\:order-2 {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
   }
 
   .md\:order-3 {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
+    order: 3;
   }
 
   .md\:order-4 {
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4;
+    order: 4;
   }
 
   .md\:order-5 {
-    -webkit-box-ordinal-group: 6;
-        -ms-flex-order: 5;
-            order: 5;
+    order: 5;
   }
 
   .md\:order-6 {
-    -webkit-box-ordinal-group: 7;
-        -ms-flex-order: 6;
-            order: 6;
+    order: 6;
   }
 
   .md\:order-7 {
-    -webkit-box-ordinal-group: 8;
-        -ms-flex-order: 7;
-            order: 7;
+    order: 7;
   }
 
   .md\:order-8 {
-    -webkit-box-ordinal-group: 9;
-        -ms-flex-order: 8;
-            order: 8;
+    order: 8;
   }
 
   .md\:order-last {
-    -webkit-box-ordinal-group: 100000;
-        -ms-flex-order: 99999;
-            order: 99999;
+    order: 99999;
   }
 
   .md\:cf:before,
@@ -28188,6 +28063,61 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
             transform-origin: left;
   }
 
+  .md\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .md\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .md\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .md\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .md\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .md\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .md\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .md\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .md\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .md\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .md\:white {
+    color: #fff;
+    color: var(--white);
+  }
+
   .md\:black-90 {
     color: rgba(0, 0, 0, .9);
     color: var(--black-90);
@@ -28281,61 +28211,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .md\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .md\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .md\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .md\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .md\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .md\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .md\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .md\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .md\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .md\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .md\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .md\:dark-red {
@@ -28463,8 +28338,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .md\:transparent {
+    color: transparent;
+  }
+
+  .md\:current-color {
+    color: currentColor;
+  }
+
   .md\:color-inherit {
     color: inherit;
+  }
+
+  .md\:group:hover .group-hover\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .md\:group:hover .group-hover\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .md\:group:hover .group-hover\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .md\:group:hover .group-hover\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .md\:group:hover .group-hover\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .md\:group:hover .group-hover\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .md\:group:hover .group-hover\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .md\:group:hover .group-hover\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .md\:group:hover .group-hover\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .md\:group:hover .group-hover\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .md\:group:hover .group-hover\:white {
+    color: #fff;
+    color: var(--white);
   }
 
   .md\:group:hover .group-hover\:black-90 {
@@ -28560,61 +28498,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:group:hover .group-hover\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .md\:group:hover .group-hover\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .md\:group:hover .group-hover\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .md\:group:hover .group-hover\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .md\:group:hover .group-hover\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .md\:group:hover .group-hover\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .md\:group:hover .group-hover\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .md\:group:hover .group-hover\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .md\:group:hover .group-hover\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .md\:group:hover .group-hover\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .md\:group:hover .group-hover\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .md\:group:hover .group-hover\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .md\:group:hover .group-hover\:dark-red {
@@ -28742,8 +28625,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .md\:group:hover .group-hover\:transparent {
+    color: transparent;
+  }
+
+  .md\:group:hover .group-hover\:current-color {
+    color: currentColor;
+  }
+
   .md\:group:hover .group-hover\:color-inherit {
     color: inherit;
+  }
+
+  .md\:hover\:black:hover {
+    color: #000;
+    color: var(--black);
+  }
+
+  .md\:hover\:near-black:hover {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .md\:hover\:dark-gray:hover {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .md\:hover\:mid-gray:hover {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .md\:hover\:gray:hover {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .md\:hover\:silver:hover {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .md\:hover\:light-silver:hover {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .md\:hover\:moon-gray:hover {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .md\:hover\:light-gray:hover {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .md\:hover\:near-white:hover {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .md\:hover\:white:hover {
+    color: #fff;
+    color: var(--white);
   }
 
   .md\:hover\:black-90:hover {
@@ -28839,61 +28785,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:hover\:white-10:hover {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .md\:hover\:black:hover {
-    color: #000;
-    color: var(--black);
-  }
-
-  .md\:hover\:near-black:hover {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .md\:hover\:dark-gray:hover {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .md\:hover\:mid-gray:hover {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .md\:hover\:gray:hover {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .md\:hover\:silver:hover {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .md\:hover\:light-silver:hover {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .md\:hover\:moon-gray:hover {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .md\:hover\:light-gray:hover {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .md\:hover\:near-white:hover {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .md\:hover\:white:hover {
-    color: #fff;
-    color: var(--white);
   }
 
   .md\:hover\:dark-red:hover {
@@ -29021,8 +28912,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .md\:hover\:transparent:hover {
+    color: transparent;
+  }
+
+  .md\:hover\:current-color:hover {
+    color: currentColor;
+  }
+
   .md\:hover\:color-inherit:hover {
     color: inherit;
+  }
+
+  .md\:focus\:black:focus {
+    color: #000;
+    color: var(--black);
+  }
+
+  .md\:focus\:near-black:focus {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .md\:focus\:dark-gray:focus {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .md\:focus\:mid-gray:focus {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .md\:focus\:gray:focus {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .md\:focus\:silver:focus {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .md\:focus\:light-silver:focus {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .md\:focus\:moon-gray:focus {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .md\:focus\:light-gray:focus {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .md\:focus\:near-white:focus {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .md\:focus\:white:focus {
+    color: #fff;
+    color: var(--white);
   }
 
   .md\:focus\:black-90:focus {
@@ -29118,61 +29072,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:focus\:white-10:focus {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .md\:focus\:black:focus {
-    color: #000;
-    color: var(--black);
-  }
-
-  .md\:focus\:near-black:focus {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .md\:focus\:dark-gray:focus {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .md\:focus\:mid-gray:focus {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .md\:focus\:gray:focus {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .md\:focus\:silver:focus {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .md\:focus\:light-silver:focus {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .md\:focus\:moon-gray:focus {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .md\:focus\:light-gray:focus {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .md\:focus\:near-white:focus {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .md\:focus\:white:focus {
-    color: #fff;
-    color: var(--white);
   }
 
   .md\:focus\:dark-red:focus {
@@ -29298,6 +29197,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:focus\:washed-red:focus {
     color: #ffdfdf;
     color: var(--washed-red);
+  }
+
+  .md\:focus\:transparent:focus {
+    color: transparent;
+  }
+
+  .md\:focus\:current-color:focus {
+    color: currentColor;
   }
 
   .md\:focus\:color-inherit:focus {
@@ -30072,8 +29979,16 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *
   */
 
+  .md\:measure-wide {
+    max-width: 80ch;
+  }
+
   .md\:measure {
     max-width: 66ch;
+  }
+
+  .md\:measure-medium {
+    max-width: 55ch;
   }
 
   .md\:measure-narrow {
@@ -30082,10 +29997,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:measure-tight {
     max-width: 28ch;
-  }
-
-  .md\:measure-wide {
-    max-width: 80ch;
   }/*
   *
   * White space
@@ -30143,8 +30054,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:truncate {
     overflow: hidden;
     white-space: nowrap;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }/*
   *
   * Indentation
@@ -30449,6 +30359,61 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-attachment: scroll;
   }
 
+  .lg\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .lg\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .lg\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .lg\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .lg\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .lg\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .lg\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .lg\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .lg\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .lg\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .lg\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
+  }
+
   .lg\:bg-black-90 {
     background-color: rgba(0, 0, 0, .9);
     background-color: var(--black-90);
@@ -30542,66 +30507,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .lg\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .lg\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .lg\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .lg\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .lg\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .lg\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .lg\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .lg\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .lg\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .lg\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .lg\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .lg\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .lg\:bg-dark-red {
@@ -30729,8 +30634,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .lg\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .lg\:bg-current {
+    background-color: currentColor;
+  }
+
   .lg\:bg-inherit {
     background-color: inherit;
+  }
+
+  .lg\:group:hover .group-hover\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .lg\:group:hover .group-hover\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .lg\:group:hover .group-hover\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .lg\:group:hover .group-hover\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .lg\:group:hover .group-hover\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .lg\:group:hover .group-hover\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .lg\:group:hover .group-hover\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .lg\:group:hover .group-hover\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .lg\:group:hover .group-hover\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .lg\:group:hover .group-hover\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .lg\:group:hover .group-hover\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .lg\:group:hover .group-hover\:bg-black-90 {
@@ -30826,66 +30794,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:group:hover .group-hover\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .lg\:group:hover .group-hover\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .lg\:group:hover .group-hover\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .lg\:group:hover .group-hover\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .lg\:group:hover .group-hover\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .lg\:group:hover .group-hover\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .lg\:group:hover .group-hover\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .lg\:group:hover .group-hover\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .lg\:group:hover .group-hover\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .lg\:group:hover .group-hover\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .lg\:group:hover .group-hover\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .lg\:group:hover .group-hover\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .lg\:group:hover .group-hover\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .lg\:group:hover .group-hover\:bg-dark-red {
@@ -31013,8 +30921,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .lg\:group:hover .group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .lg\:group:hover .group-hover\:bg-current {
+    background-color: currentColor;
+  }
+
   .lg\:group:hover .group-hover\:bg-inherit {
     background-color: inherit;
+  }
+
+  .lg\:hover\:bg-black:hover {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .lg\:hover\:bg-near-black:hover {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .lg\:hover\:bg-dark-gray:hover {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .lg\:hover\:bg-mid-gray:hover {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .lg\:hover\:bg-gray:hover {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .lg\:hover\:bg-silver:hover {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .lg\:hover\:bg-light-silver:hover {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .lg\:hover\:bg-moon-gray:hover {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .lg\:hover\:bg-light-gray:hover {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .lg\:hover\:bg-near-white:hover {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .lg\:hover\:bg-white:hover {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .lg\:hover\:bg-black-90:hover {
@@ -31110,66 +31081,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:hover\:bg-white-10:hover {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .lg\:hover\:bg-black:hover {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .lg\:hover\:bg-near-black:hover {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .lg\:hover\:bg-dark-gray:hover {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .lg\:hover\:bg-mid-gray:hover {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .lg\:hover\:bg-gray:hover {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .lg\:hover\:bg-silver:hover {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .lg\:hover\:bg-light-silver:hover {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .lg\:hover\:bg-moon-gray:hover {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .lg\:hover\:bg-light-gray:hover {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .lg\:hover\:bg-near-white:hover {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .lg\:hover\:bg-white:hover {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .lg\:hover\:bg-transparent:hover {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .lg\:hover\:bg-dark-red:hover {
@@ -31297,8 +31208,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .lg\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
+  .lg\:hover\:bg-current:hover {
+    background-color: currentColor;
+  }
+
   .lg\:hover\:bg-inherit:hover {
     background-color: inherit;
+  }
+
+  .lg\:focus\:bg-black:focus {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .lg\:focus\:bg-near-black:focus {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .lg\:focus\:bg-dark-gray:focus {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .lg\:focus\:bg-mid-gray:focus {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .lg\:focus\:bg-gray:focus {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .lg\:focus\:bg-silver:focus {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .lg\:focus\:bg-light-silver:focus {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .lg\:focus\:bg-moon-gray:focus {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .lg\:focus\:bg-light-gray:focus {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .lg\:focus\:bg-near-white:focus {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .lg\:focus\:bg-white:focus {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .lg\:focus\:bg-black-90:focus {
@@ -31394,66 +31368,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:focus\:bg-white-10:focus {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .lg\:focus\:bg-black:focus {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .lg\:focus\:bg-near-black:focus {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .lg\:focus\:bg-dark-gray:focus {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .lg\:focus\:bg-mid-gray:focus {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .lg\:focus\:bg-gray:focus {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .lg\:focus\:bg-silver:focus {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .lg\:focus\:bg-light-silver:focus {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .lg\:focus\:bg-moon-gray:focus {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .lg\:focus\:bg-light-gray:focus {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .lg\:focus\:bg-near-white:focus {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .lg\:focus\:bg-white:focus {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .lg\:focus\:bg-transparent:focus {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .lg\:focus\:bg-dark-red:focus {
@@ -31579,6 +31493,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:focus\:bg-washed-red:focus {
     background-color: #ffdfdf;
     background-color: var(--washed-red);
+  }
+
+  .lg\:focus\:bg-transparent:focus {
+    background-color: transparent;
+  }
+
+  .lg\:focus\:bg-current:focus {
+    background-color: currentColor;
   }
 
   .lg\:focus\:bg-inherit:focus {
@@ -32214,6 +32136,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     border-color: var(--transparent);
   }
 
+  .lg\:b--current {
+    border-color: currentColor;
+  }
+
   .lg\:b--inherit {
     border-color: inherit;
   }
@@ -32521,6 +32447,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:group:hover .group-hover\:b--transparent {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .lg\:group:hover .group-hover\:b--current {
+    border-color: currentColor;
   }
 
   .lg\:group:hover .group-hover\:b--inherit {
@@ -32832,6 +32762,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     border-color: var(--transparent);
   }
 
+  .lg\:hover\:b--current:hover {
+    border-color: currentColor;
+  }
+
   .lg\:hover\:b--inherit:hover {
     border-color: inherit;
   }
@@ -33139,6 +33073,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:focus\:b--transparent:focus {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .lg\:focus\:b--current:focus {
+    border-color: currentColor;
   }
 
   .lg\:focus\:b--inherit:focus {
@@ -33662,28 +33600,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   }
 
   .lg\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .lg\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .lg\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -33708,28 +33641,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .lg\:group:hover .group-hover\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .lg\:group:hover .group-hover\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:group:hover .group-hover\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:group:hover .group-hover\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .lg\:group:hover .group-hover\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -33754,28 +33682,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .lg\:hover\:shadow:hover {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .lg\:hover\:shadow-md:hover {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:hover\:shadow-lg:hover {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:hover\:shadow-inner:hover {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .lg\:hover\:shadow-none:hover {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -33800,28 +33723,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .lg\:focus\:shadow:focus {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .lg\:focus\:shadow-md:focus {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:focus\:shadow-lg:focus {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .lg\:focus\:shadow-inner:focus {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .lg\:focus\:shadow-none:focus {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -34395,14 +34313,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   }
 
   .lg\:flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 
   .lg\:inline-flex {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
   }
 
@@ -34444,135 +34358,95 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .lg\:flex-row {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 
   .lg\:flex-row-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   .lg\:flex-column {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 
   .lg\:flex-column-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 
   .lg\:flex-wrap {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   .lg\:flex-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
   .lg\:flex-wrap-reverse {
-    -ms-flex-wrap: wrap-reverse;
-        flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
   }
 
   .lg\:justify-start {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
   }
 
   .lg\:justify-center {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
 
   .lg\:justify-end {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    justify-content: flex-end;
   }
 
   .lg\:justify-between {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 
   .lg\:justify-around {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 
   .lg\:items-stretch {
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    align-items: stretch;
   }
 
   .lg\:items-start {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    align-items: flex-start;
   }
 
   .lg\:items-end {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    align-items: flex-end;
   }
 
   .lg\:items-center {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 
   .lg\:items-baseline {
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    align-items: baseline;
   }
 
   .lg\:content-stretch {
-    -ms-flex-line-pack: stretch;
-        align-content: stretch;
+    align-content: stretch;
   }
 
   .lg\:content-start {
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+    align-content: flex-start;
   }
 
   .lg\:content-center {
-    -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
   }
 
   .lg\:content-end {
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+    align-content: flex-end;
   }
 
   .lg\:content-between {
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+    align-content: space-between;
   }
 
   .lg\:content-around {
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+    align-content: space-around;
   }/*
   *
   * Flex item
@@ -34580,135 +34454,97 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
 
   .lg\:flex-auto {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+    flex: 1 1 auto;
     min-width: 0; /* 1 */
     min-height: 0; /* 1 */
   }
 
   .lg\:flex-1 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 
   .lg\:flex-grow-0 {
-    -webkit-box-flex: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
+    flex-grow: 0;
   }
 
   .lg\:flex-grow-1 {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
   }
 
   .lg\:flex-shrink-0 {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
 
   .lg\:flex-shrink-1 {
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-shrink: 1;
   }
 
   .lg\:flex-none {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
+    flex: none;
   }
 
   .lg\:self-auto {
-    -ms-flex-item-align: auto;
-        align-self: auto;
+    align-self: auto;
   }
 
   .lg\:self-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    align-self: flex-start;
   }
 
   .lg\:self-center {
-    -ms-flex-item-align: center;
-        align-self: center;
+    align-self: center;
   }
 
   .lg\:self-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    align-self: flex-end;
   }
 
   .lg\:self-baseline {
-    -ms-flex-item-align: baseline;
-        align-self: baseline;
+    align-self: baseline;
   }
 
   .lg\:self-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch;
+    align-self: stretch;
   }
 
   .lg\:order-0 {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
+    order: 0;
   }
 
   .lg\:order-1 {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
   }
 
   .lg\:order-2 {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
   }
 
   .lg\:order-3 {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
+    order: 3;
   }
 
   .lg\:order-4 {
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4;
+    order: 4;
   }
 
   .lg\:order-5 {
-    -webkit-box-ordinal-group: 6;
-        -ms-flex-order: 5;
-            order: 5;
+    order: 5;
   }
 
   .lg\:order-6 {
-    -webkit-box-ordinal-group: 7;
-        -ms-flex-order: 6;
-            order: 6;
+    order: 6;
   }
 
   .lg\:order-7 {
-    -webkit-box-ordinal-group: 8;
-        -ms-flex-order: 7;
-            order: 7;
+    order: 7;
   }
 
   .lg\:order-8 {
-    -webkit-box-ordinal-group: 9;
-        -ms-flex-order: 8;
-            order: 8;
+    order: 8;
   }
 
   .lg\:order-last {
-    -webkit-box-ordinal-group: 100000;
-        -ms-flex-order: 99999;
-            order: 99999;
+    order: 99999;
   }
 
   .lg\:cf:before,
@@ -37519,6 +37355,61 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
             transform-origin: left;
   }
 
+  .lg\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .lg\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .lg\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .lg\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .lg\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .lg\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .lg\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .lg\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .lg\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .lg\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .lg\:white {
+    color: #fff;
+    color: var(--white);
+  }
+
   .lg\:black-90 {
     color: rgba(0, 0, 0, .9);
     color: var(--black-90);
@@ -37612,61 +37503,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .lg\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .lg\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .lg\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .lg\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .lg\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .lg\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .lg\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .lg\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .lg\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .lg\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .lg\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .lg\:dark-red {
@@ -37794,8 +37630,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .lg\:transparent {
+    color: transparent;
+  }
+
+  .lg\:current-color {
+    color: currentColor;
+  }
+
   .lg\:color-inherit {
     color: inherit;
+  }
+
+  .lg\:group:hover .group-hover\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .lg\:group:hover .group-hover\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .lg\:group:hover .group-hover\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .lg\:group:hover .group-hover\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .lg\:group:hover .group-hover\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .lg\:group:hover .group-hover\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .lg\:group:hover .group-hover\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .lg\:group:hover .group-hover\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .lg\:group:hover .group-hover\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .lg\:group:hover .group-hover\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .lg\:group:hover .group-hover\:white {
+    color: #fff;
+    color: var(--white);
   }
 
   .lg\:group:hover .group-hover\:black-90 {
@@ -37891,61 +37790,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:group:hover .group-hover\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .lg\:group:hover .group-hover\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .lg\:group:hover .group-hover\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .lg\:group:hover .group-hover\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .lg\:group:hover .group-hover\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .lg\:group:hover .group-hover\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .lg\:group:hover .group-hover\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .lg\:group:hover .group-hover\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .lg\:group:hover .group-hover\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .lg\:group:hover .group-hover\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .lg\:group:hover .group-hover\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .lg\:group:hover .group-hover\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .lg\:group:hover .group-hover\:dark-red {
@@ -38073,8 +37917,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .lg\:group:hover .group-hover\:transparent {
+    color: transparent;
+  }
+
+  .lg\:group:hover .group-hover\:current-color {
+    color: currentColor;
+  }
+
   .lg\:group:hover .group-hover\:color-inherit {
     color: inherit;
+  }
+
+  .lg\:hover\:black:hover {
+    color: #000;
+    color: var(--black);
+  }
+
+  .lg\:hover\:near-black:hover {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .lg\:hover\:dark-gray:hover {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .lg\:hover\:mid-gray:hover {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .lg\:hover\:gray:hover {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .lg\:hover\:silver:hover {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .lg\:hover\:light-silver:hover {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .lg\:hover\:moon-gray:hover {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .lg\:hover\:light-gray:hover {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .lg\:hover\:near-white:hover {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .lg\:hover\:white:hover {
+    color: #fff;
+    color: var(--white);
   }
 
   .lg\:hover\:black-90:hover {
@@ -38170,61 +38077,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:hover\:white-10:hover {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .lg\:hover\:black:hover {
-    color: #000;
-    color: var(--black);
-  }
-
-  .lg\:hover\:near-black:hover {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .lg\:hover\:dark-gray:hover {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .lg\:hover\:mid-gray:hover {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .lg\:hover\:gray:hover {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .lg\:hover\:silver:hover {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .lg\:hover\:light-silver:hover {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .lg\:hover\:moon-gray:hover {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .lg\:hover\:light-gray:hover {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .lg\:hover\:near-white:hover {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .lg\:hover\:white:hover {
-    color: #fff;
-    color: var(--white);
   }
 
   .lg\:hover\:dark-red:hover {
@@ -38352,8 +38204,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .lg\:hover\:transparent:hover {
+    color: transparent;
+  }
+
+  .lg\:hover\:current-color:hover {
+    color: currentColor;
+  }
+
   .lg\:hover\:color-inherit:hover {
     color: inherit;
+  }
+
+  .lg\:focus\:black:focus {
+    color: #000;
+    color: var(--black);
+  }
+
+  .lg\:focus\:near-black:focus {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .lg\:focus\:dark-gray:focus {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .lg\:focus\:mid-gray:focus {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .lg\:focus\:gray:focus {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .lg\:focus\:silver:focus {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .lg\:focus\:light-silver:focus {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .lg\:focus\:moon-gray:focus {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .lg\:focus\:light-gray:focus {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .lg\:focus\:near-white:focus {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .lg\:focus\:white:focus {
+    color: #fff;
+    color: var(--white);
   }
 
   .lg\:focus\:black-90:focus {
@@ -38449,61 +38364,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:focus\:white-10:focus {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .lg\:focus\:black:focus {
-    color: #000;
-    color: var(--black);
-  }
-
-  .lg\:focus\:near-black:focus {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .lg\:focus\:dark-gray:focus {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .lg\:focus\:mid-gray:focus {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .lg\:focus\:gray:focus {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .lg\:focus\:silver:focus {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .lg\:focus\:light-silver:focus {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .lg\:focus\:moon-gray:focus {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .lg\:focus\:light-gray:focus {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .lg\:focus\:near-white:focus {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .lg\:focus\:white:focus {
-    color: #fff;
-    color: var(--white);
   }
 
   .lg\:focus\:dark-red:focus {
@@ -38629,6 +38489,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:focus\:washed-red:focus {
     color: #ffdfdf;
     color: var(--washed-red);
+  }
+
+  .lg\:focus\:transparent:focus {
+    color: transparent;
+  }
+
+  .lg\:focus\:current-color:focus {
+    color: currentColor;
   }
 
   .lg\:focus\:color-inherit:focus {
@@ -39403,8 +39271,16 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *
   */
 
+  .lg\:measure-wide {
+    max-width: 80ch;
+  }
+
   .lg\:measure {
     max-width: 66ch;
+  }
+
+  .lg\:measure-medium {
+    max-width: 55ch;
   }
 
   .lg\:measure-narrow {
@@ -39413,10 +39289,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:measure-tight {
     max-width: 28ch;
-  }
-
-  .lg\:measure-wide {
-    max-width: 80ch;
   }/*
   *
   * White space
@@ -39474,8 +39346,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:truncate {
     overflow: hidden;
     white-space: nowrap;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }/*
   *
   * Indentation
@@ -39780,6 +39651,61 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-attachment: scroll;
   }
 
+  .xl\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .xl\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .xl\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .xl\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .xl\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .xl\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .xl\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .xl\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .xl\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .xl\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .xl\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
+  }
+
   .xl\:bg-black-90 {
     background-color: rgba(0, 0, 0, .9);
     background-color: var(--black-90);
@@ -39873,66 +39799,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .xl\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .xl\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .xl\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .xl\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .xl\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .xl\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .xl\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .xl\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .xl\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .xl\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .xl\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .xl\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .xl\:bg-dark-red {
@@ -40060,8 +39926,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .xl\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .xl\:bg-current {
+    background-color: currentColor;
+  }
+
   .xl\:bg-inherit {
     background-color: inherit;
+  }
+
+  .xl\:group:hover .group-hover\:bg-black {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .xl\:group:hover .group-hover\:bg-near-black {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .xl\:group:hover .group-hover\:bg-dark-gray {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .xl\:group:hover .group-hover\:bg-mid-gray {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .xl\:group:hover .group-hover\:bg-gray {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .xl\:group:hover .group-hover\:bg-silver {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .xl\:group:hover .group-hover\:bg-light-silver {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .xl\:group:hover .group-hover\:bg-moon-gray {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .xl\:group:hover .group-hover\:bg-light-gray {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .xl\:group:hover .group-hover\:bg-near-white {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .xl\:group:hover .group-hover\:bg-white {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .xl\:group:hover .group-hover\:bg-black-90 {
@@ -40157,66 +40086,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:group:hover .group-hover\:bg-white-10 {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .xl\:group:hover .group-hover\:bg-black {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .xl\:group:hover .group-hover\:bg-near-black {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .xl\:group:hover .group-hover\:bg-dark-gray {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .xl\:group:hover .group-hover\:bg-mid-gray {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .xl\:group:hover .group-hover\:bg-gray {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .xl\:group:hover .group-hover\:bg-silver {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .xl\:group:hover .group-hover\:bg-light-silver {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .xl\:group:hover .group-hover\:bg-moon-gray {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .xl\:group:hover .group-hover\:bg-light-gray {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .xl\:group:hover .group-hover\:bg-near-white {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .xl\:group:hover .group-hover\:bg-white {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .xl\:group:hover .group-hover\:bg-transparent {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .xl\:group:hover .group-hover\:bg-dark-red {
@@ -40344,8 +40213,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .xl\:group:hover .group-hover\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .xl\:group:hover .group-hover\:bg-current {
+    background-color: currentColor;
+  }
+
   .xl\:group:hover .group-hover\:bg-inherit {
     background-color: inherit;
+  }
+
+  .xl\:hover\:bg-black:hover {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .xl\:hover\:bg-near-black:hover {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .xl\:hover\:bg-dark-gray:hover {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .xl\:hover\:bg-mid-gray:hover {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .xl\:hover\:bg-gray:hover {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .xl\:hover\:bg-silver:hover {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .xl\:hover\:bg-light-silver:hover {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .xl\:hover\:bg-moon-gray:hover {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .xl\:hover\:bg-light-gray:hover {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .xl\:hover\:bg-near-white:hover {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .xl\:hover\:bg-white:hover {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .xl\:hover\:bg-black-90:hover {
@@ -40441,66 +40373,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:hover\:bg-white-10:hover {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .xl\:hover\:bg-black:hover {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .xl\:hover\:bg-near-black:hover {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .xl\:hover\:bg-dark-gray:hover {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .xl\:hover\:bg-mid-gray:hover {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .xl\:hover\:bg-gray:hover {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .xl\:hover\:bg-silver:hover {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .xl\:hover\:bg-light-silver:hover {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .xl\:hover\:bg-moon-gray:hover {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .xl\:hover\:bg-light-gray:hover {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .xl\:hover\:bg-near-white:hover {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .xl\:hover\:bg-white:hover {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .xl\:hover\:bg-transparent:hover {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .xl\:hover\:bg-dark-red:hover {
@@ -40628,8 +40500,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     background-color: var(--washed-red);
   }
 
+  .xl\:hover\:bg-transparent:hover {
+    background-color: transparent;
+  }
+
+  .xl\:hover\:bg-current:hover {
+    background-color: currentColor;
+  }
+
   .xl\:hover\:bg-inherit:hover {
     background-color: inherit;
+  }
+
+  .xl\:focus\:bg-black:focus {
+    background-color: #000;
+    background-color: var(--black);
+  }
+
+  .xl\:focus\:bg-near-black:focus {
+    background-color: #111;
+    background-color: var(--near-black);
+  }
+
+  .xl\:focus\:bg-dark-gray:focus {
+    background-color: #333;
+    background-color: var(--dark-gray);
+  }
+
+  .xl\:focus\:bg-mid-gray:focus {
+    background-color: #555;
+    background-color: var(--mid-gray);
+  }
+
+  .xl\:focus\:bg-gray:focus {
+    background-color: #777;
+    background-color: var(--gray);
+  }
+
+  .xl\:focus\:bg-silver:focus {
+    background-color: #999;
+    background-color: var(--silver);
+  }
+
+  .xl\:focus\:bg-light-silver:focus {
+    background-color: #aaa;
+    background-color: var(--light-silver);
+  }
+
+  .xl\:focus\:bg-moon-gray:focus {
+    background-color: #ccc;
+    background-color: var(--moon-gray);
+  }
+
+  .xl\:focus\:bg-light-gray:focus {
+    background-color: #eee;
+    background-color: var(--light-gray);
+  }
+
+  .xl\:focus\:bg-near-white:focus {
+    background-color: #f4f4f4;
+    background-color: var(--near-white);
+  }
+
+  .xl\:focus\:bg-white:focus {
+    background-color: #fff;
+    background-color: var(--white);
   }
 
   .xl\:focus\:bg-black-90:focus {
@@ -40725,66 +40660,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:focus\:bg-white-10:focus {
     background-color: rgba(255, 255, 255, .1);
     background-color: var(--white-10);
-  }
-
-  .xl\:focus\:bg-black:focus {
-    background-color: #000;
-    background-color: var(--black);
-  }
-
-  .xl\:focus\:bg-near-black:focus {
-    background-color: #111;
-    background-color: var(--near-black);
-  }
-
-  .xl\:focus\:bg-dark-gray:focus {
-    background-color: #333;
-    background-color: var(--dark-gray);
-  }
-
-  .xl\:focus\:bg-mid-gray:focus {
-    background-color: #555;
-    background-color: var(--mid-gray);
-  }
-
-  .xl\:focus\:bg-gray:focus {
-    background-color: #777;
-    background-color: var(--gray);
-  }
-
-  .xl\:focus\:bg-silver:focus {
-    background-color: #999;
-    background-color: var(--silver);
-  }
-
-  .xl\:focus\:bg-light-silver:focus {
-    background-color: #aaa;
-    background-color: var(--light-silver);
-  }
-
-  .xl\:focus\:bg-moon-gray:focus {
-    background-color: #ccc;
-    background-color: var(--moon-gray);
-  }
-
-  .xl\:focus\:bg-light-gray:focus {
-    background-color: #eee;
-    background-color: var(--light-gray);
-  }
-
-  .xl\:focus\:bg-near-white:focus {
-    background-color: #f4f4f4;
-    background-color: var(--near-white);
-  }
-
-  .xl\:focus\:bg-white:focus {
-    background-color: #fff;
-    background-color: var(--white);
-  }
-
-  .xl\:focus\:bg-transparent:focus {
-    background-color: transparent;
-    background-color: var(--transparent);
   }
 
   .xl\:focus\:bg-dark-red:focus {
@@ -40910,6 +40785,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:focus\:bg-washed-red:focus {
     background-color: #ffdfdf;
     background-color: var(--washed-red);
+  }
+
+  .xl\:focus\:bg-transparent:focus {
+    background-color: transparent;
+  }
+
+  .xl\:focus\:bg-current:focus {
+    background-color: currentColor;
   }
 
   .xl\:focus\:bg-inherit:focus {
@@ -41545,6 +41428,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     border-color: var(--transparent);
   }
 
+  .xl\:b--current {
+    border-color: currentColor;
+  }
+
   .xl\:b--inherit {
     border-color: inherit;
   }
@@ -41852,6 +41739,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:group:hover .group-hover\:b--transparent {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .xl\:group:hover .group-hover\:b--current {
+    border-color: currentColor;
   }
 
   .xl\:group:hover .group-hover\:b--inherit {
@@ -42163,6 +42054,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     border-color: var(--transparent);
   }
 
+  .xl\:hover\:b--current:hover {
+    border-color: currentColor;
+  }
+
   .xl\:hover\:b--inherit:hover {
     border-color: inherit;
   }
@@ -42470,6 +42365,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:focus\:b--transparent:focus {
     border-color: transparent;
     border-color: var(--transparent);
+  }
+
+  .xl\:focus\:b--current:focus {
+    border-color: currentColor;
   }
 
   .xl\:focus\:b--inherit:focus {
@@ -42993,28 +42892,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   }
 
   .xl\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .xl\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .xl\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -43039,28 +42933,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .xl\:group:hover .group-hover\:shadow {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .xl\:group:hover .group-hover\:shadow-md {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:group:hover .group-hover\:shadow-lg {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:group:hover .group-hover\:shadow-inner {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .xl\:group:hover .group-hover\:shadow-none {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -43085,28 +42974,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .xl\:hover\:shadow:hover {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .xl\:hover\:shadow-md:hover {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:hover\:shadow-lg:hover {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:hover\:shadow-inner:hover {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .xl\:hover\:shadow-none:hover {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -43131,28 +43015,23 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .xl\:focus\:shadow:focus {
-    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   }
 
   .xl\:focus\:shadow-md:focus {
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:focus\:shadow-lg:focus {
-    -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-            box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   }
 
   .xl\:focus\:shadow-inner:focus {
-    -webkit-box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
   }
 
   .xl\:focus\:shadow-none:focus {
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }/*
   .hover-shadow:focus,
   .hover-shadow:hover
@@ -43726,14 +43605,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   }
 
   .xl\:flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 
   .xl\:inline-flex {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
     display: inline-flex;
   }
 
@@ -43775,135 +43650,95 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .xl\:flex-row {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 
   .xl\:flex-row-reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
   .xl\:flex-column {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 
   .xl\:flex-column-reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 
   .xl\:flex-wrap {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   .xl\:flex-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    flex-wrap: nowrap;
   }
 
   .xl\:flex-wrap-reverse {
-    -ms-flex-wrap: wrap-reverse;
-        flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
   }
 
   .xl\:justify-start {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
   }
 
   .xl\:justify-center {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
   }
 
   .xl\:justify-end {
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    justify-content: flex-end;
   }
 
   .xl\:justify-between {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
   }
 
   .xl\:justify-around {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
   }
 
   .xl\:items-stretch {
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    align-items: stretch;
   }
 
   .xl\:items-start {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    align-items: flex-start;
   }
 
   .xl\:items-end {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    align-items: flex-end;
   }
 
   .xl\:items-center {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 
   .xl\:items-baseline {
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    align-items: baseline;
   }
 
   .xl\:content-stretch {
-    -ms-flex-line-pack: stretch;
-        align-content: stretch;
+    align-content: stretch;
   }
 
   .xl\:content-start {
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+    align-content: flex-start;
   }
 
   .xl\:content-center {
-    -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
   }
 
   .xl\:content-end {
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+    align-content: flex-end;
   }
 
   .xl\:content-between {
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+    align-content: space-between;
   }
 
   .xl\:content-around {
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+    align-content: space-around;
   }/*
   *
   * Flex item
@@ -43911,135 +43746,97 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
 
   .xl\:flex-auto {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
+    flex: 1 1 auto;
     min-width: 0; /* 1 */
     min-height: 0; /* 1 */
   }
 
   .xl\:flex-1 {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 
   .xl\:flex-grow-0 {
-    -webkit-box-flex: 0;
-        -ms-flex-positive: 0;
-            flex-grow: 0;
+    flex-grow: 0;
   }
 
   .xl\:flex-grow-1 {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
   }
 
   .xl\:flex-shrink-0 {
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
+    flex-shrink: 0;
   }
 
   .xl\:flex-shrink-1 {
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-shrink: 1;
   }
 
   .xl\:flex-none {
-    -webkit-box-flex: 0;
-        -ms-flex: none;
-            flex: none;
+    flex: none;
   }
 
   .xl\:self-auto {
-    -ms-flex-item-align: auto;
-        align-self: auto;
+    align-self: auto;
   }
 
   .xl\:self-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    align-self: flex-start;
   }
 
   .xl\:self-center {
-    -ms-flex-item-align: center;
-        align-self: center;
+    align-self: center;
   }
 
   .xl\:self-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    align-self: flex-end;
   }
 
   .xl\:self-baseline {
-    -ms-flex-item-align: baseline;
-        align-self: baseline;
+    align-self: baseline;
   }
 
   .xl\:self-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch;
+    align-self: stretch;
   }
 
   .xl\:order-0 {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
+    order: 0;
   }
 
   .xl\:order-1 {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    order: 1;
   }
 
   .xl\:order-2 {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    order: 2;
   }
 
   .xl\:order-3 {
-    -webkit-box-ordinal-group: 4;
-        -ms-flex-order: 3;
-            order: 3;
+    order: 3;
   }
 
   .xl\:order-4 {
-    -webkit-box-ordinal-group: 5;
-        -ms-flex-order: 4;
-            order: 4;
+    order: 4;
   }
 
   .xl\:order-5 {
-    -webkit-box-ordinal-group: 6;
-        -ms-flex-order: 5;
-            order: 5;
+    order: 5;
   }
 
   .xl\:order-6 {
-    -webkit-box-ordinal-group: 7;
-        -ms-flex-order: 6;
-            order: 6;
+    order: 6;
   }
 
   .xl\:order-7 {
-    -webkit-box-ordinal-group: 8;
-        -ms-flex-order: 7;
-            order: 7;
+    order: 7;
   }
 
   .xl\:order-8 {
-    -webkit-box-ordinal-group: 9;
-        -ms-flex-order: 8;
-            order: 8;
+    order: 8;
   }
 
   .xl\:order-last {
-    -webkit-box-ordinal-group: 100000;
-        -ms-flex-order: 99999;
-            order: 99999;
+    order: 99999;
   }
 
   .xl\:cf:before,
@@ -46850,6 +46647,61 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
             transform-origin: left;
   }
 
+  .xl\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .xl\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .xl\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .xl\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .xl\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .xl\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .xl\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .xl\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .xl\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .xl\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .xl\:white {
+    color: #fff;
+    color: var(--white);
+  }
+
   .xl\:black-90 {
     color: rgba(0, 0, 0, .9);
     color: var(--black-90);
@@ -46943,61 +46795,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .xl\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .xl\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .xl\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .xl\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .xl\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .xl\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .xl\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .xl\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .xl\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .xl\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .xl\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .xl\:dark-red {
@@ -47125,8 +46922,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .xl\:transparent {
+    color: transparent;
+  }
+
+  .xl\:current-color {
+    color: currentColor;
+  }
+
   .xl\:color-inherit {
     color: inherit;
+  }
+
+  .xl\:group:hover .group-hover\:black {
+    color: #000;
+    color: var(--black);
+  }
+
+  .xl\:group:hover .group-hover\:near-black {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .xl\:group:hover .group-hover\:dark-gray {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .xl\:group:hover .group-hover\:mid-gray {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .xl\:group:hover .group-hover\:gray {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .xl\:group:hover .group-hover\:silver {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .xl\:group:hover .group-hover\:light-silver {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .xl\:group:hover .group-hover\:moon-gray {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .xl\:group:hover .group-hover\:light-gray {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .xl\:group:hover .group-hover\:near-white {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .xl\:group:hover .group-hover\:white {
+    color: #fff;
+    color: var(--white);
   }
 
   .xl\:group:hover .group-hover\:black-90 {
@@ -47222,61 +47082,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:group:hover .group-hover\:white-10 {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .xl\:group:hover .group-hover\:black {
-    color: #000;
-    color: var(--black);
-  }
-
-  .xl\:group:hover .group-hover\:near-black {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .xl\:group:hover .group-hover\:dark-gray {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .xl\:group:hover .group-hover\:mid-gray {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .xl\:group:hover .group-hover\:gray {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .xl\:group:hover .group-hover\:silver {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .xl\:group:hover .group-hover\:light-silver {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .xl\:group:hover .group-hover\:moon-gray {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .xl\:group:hover .group-hover\:light-gray {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .xl\:group:hover .group-hover\:near-white {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .xl\:group:hover .group-hover\:white {
-    color: #fff;
-    color: var(--white);
   }
 
   .xl\:group:hover .group-hover\:dark-red {
@@ -47404,8 +47209,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .xl\:group:hover .group-hover\:transparent {
+    color: transparent;
+  }
+
+  .xl\:group:hover .group-hover\:current-color {
+    color: currentColor;
+  }
+
   .xl\:group:hover .group-hover\:color-inherit {
     color: inherit;
+  }
+
+  .xl\:hover\:black:hover {
+    color: #000;
+    color: var(--black);
+  }
+
+  .xl\:hover\:near-black:hover {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .xl\:hover\:dark-gray:hover {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .xl\:hover\:mid-gray:hover {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .xl\:hover\:gray:hover {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .xl\:hover\:silver:hover {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .xl\:hover\:light-silver:hover {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .xl\:hover\:moon-gray:hover {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .xl\:hover\:light-gray:hover {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .xl\:hover\:near-white:hover {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .xl\:hover\:white:hover {
+    color: #fff;
+    color: var(--white);
   }
 
   .xl\:hover\:black-90:hover {
@@ -47501,61 +47369,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:hover\:white-10:hover {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .xl\:hover\:black:hover {
-    color: #000;
-    color: var(--black);
-  }
-
-  .xl\:hover\:near-black:hover {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .xl\:hover\:dark-gray:hover {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .xl\:hover\:mid-gray:hover {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .xl\:hover\:gray:hover {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .xl\:hover\:silver:hover {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .xl\:hover\:light-silver:hover {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .xl\:hover\:moon-gray:hover {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .xl\:hover\:light-gray:hover {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .xl\:hover\:near-white:hover {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .xl\:hover\:white:hover {
-    color: #fff;
-    color: var(--white);
   }
 
   .xl\:hover\:dark-red:hover {
@@ -47683,8 +47496,71 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     color: var(--washed-red);
   }
 
+  .xl\:hover\:transparent:hover {
+    color: transparent;
+  }
+
+  .xl\:hover\:current-color:hover {
+    color: currentColor;
+  }
+
   .xl\:hover\:color-inherit:hover {
     color: inherit;
+  }
+
+  .xl\:focus\:black:focus {
+    color: #000;
+    color: var(--black);
+  }
+
+  .xl\:focus\:near-black:focus {
+    color: #111;
+    color: var(--near-black);
+  }
+
+  .xl\:focus\:dark-gray:focus {
+    color: #333;
+    color: var(--dark-gray);
+  }
+
+  .xl\:focus\:mid-gray:focus {
+    color: #555;
+    color: var(--mid-gray);
+  }
+
+  .xl\:focus\:gray:focus {
+    color: #777;
+    color: var(--gray);
+  }
+
+  .xl\:focus\:silver:focus {
+    color: #999;
+    color: var(--silver);
+  }
+
+  .xl\:focus\:light-silver:focus {
+    color: #aaa;
+    color: var(--light-silver);
+  }
+
+  .xl\:focus\:moon-gray:focus {
+    color: #ccc;
+    color: var(--moon-gray);
+  }
+
+  .xl\:focus\:light-gray:focus {
+    color: #eee;
+    color: var(--light-gray);
+  }
+
+  .xl\:focus\:near-white:focus {
+    color: #f4f4f4;
+    color: var(--near-white);
+  }
+
+  .xl\:focus\:white:focus {
+    color: #fff;
+    color: var(--white);
   }
 
   .xl\:focus\:black-90:focus {
@@ -47780,61 +47656,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:focus\:white-10:focus {
     color: rgba(255, 255, 255, .1);
     color: var(--white-10);
-  }
-
-  .xl\:focus\:black:focus {
-    color: #000;
-    color: var(--black);
-  }
-
-  .xl\:focus\:near-black:focus {
-    color: #111;
-    color: var(--near-black);
-  }
-
-  .xl\:focus\:dark-gray:focus {
-    color: #333;
-    color: var(--dark-gray);
-  }
-
-  .xl\:focus\:mid-gray:focus {
-    color: #555;
-    color: var(--mid-gray);
-  }
-
-  .xl\:focus\:gray:focus {
-    color: #777;
-    color: var(--gray);
-  }
-
-  .xl\:focus\:silver:focus {
-    color: #999;
-    color: var(--silver);
-  }
-
-  .xl\:focus\:light-silver:focus {
-    color: #aaa;
-    color: var(--light-silver);
-  }
-
-  .xl\:focus\:moon-gray:focus {
-    color: #ccc;
-    color: var(--moon-gray);
-  }
-
-  .xl\:focus\:light-gray:focus {
-    color: #eee;
-    color: var(--light-gray);
-  }
-
-  .xl\:focus\:near-white:focus {
-    color: #f4f4f4;
-    color: var(--near-white);
-  }
-
-  .xl\:focus\:white:focus {
-    color: #fff;
-    color: var(--white);
   }
 
   .xl\:focus\:dark-red:focus {
@@ -47960,6 +47781,14 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:focus\:washed-red:focus {
     color: #ffdfdf;
     color: var(--washed-red);
+  }
+
+  .xl\:focus\:transparent:focus {
+    color: transparent;
+  }
+
+  .xl\:focus\:current-color:focus {
+    color: currentColor;
   }
 
   .xl\:focus\:color-inherit:focus {
@@ -48734,8 +48563,16 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *
   */
 
+  .xl\:measure-wide {
+    max-width: 80ch;
+  }
+
   .xl\:measure {
     max-width: 66ch;
+  }
+
+  .xl\:measure-medium {
+    max-width: 55ch;
   }
 
   .xl\:measure-narrow {
@@ -48744,10 +48581,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:measure-tight {
     max-width: 28ch;
-  }
-
-  .xl\:measure-wide {
-    max-width: 80ch;
   }/*
   *
   * White space
@@ -48805,8 +48638,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:truncate {
     overflow: hidden;
     white-space: nowrap;
-    -o-text-overflow: ellipsis;
-       text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }/*
   *
   * Indentation

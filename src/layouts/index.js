@@ -17,7 +17,6 @@ export default Layout
  */
 
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Header from '../sections/Header'
