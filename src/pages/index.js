@@ -5,8 +5,10 @@ const IndexPage = ({ data }) => (
       Go to page 2
     </Link>
     <DataExample data={data.allExampleJson.edges} />
+    <MountTransitionExample />
     <GSAPExample />
     <RevealExample data={data.allExampleJson.edges} />
+    <ParallaxExample />
     <TwitterExample />
     <InstagramExample />
     <ScrollTo href="#top" className="link dib mb5">
@@ -54,8 +56,10 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import DataExample from '../sections/examples/DataExample'
+import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
+import ParallaxExample from '../sections/examples/ParallaxExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'
 
