@@ -8,7 +8,8 @@ const IndexPage = ({ data }) => (
     <MountTransitionExample />
     <GSAPExample />
     <RevealExample data={data.allExampleJson.edges} />
-    <ParallaxExample />
+    <ReadMoreExample />
+    {/* <ParallaxExample /> */}
     <TwitterExample />
     <InstagramExample />
     <ScrollTo href="#top" className="link dib mb5">
@@ -59,6 +60,7 @@ import DataExample from '../sections/examples/DataExample'
 import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
+import ReadMoreExample from '../sections/examples/ReadMoreExample'
 import ParallaxExample from '../sections/examples/ParallaxExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'
