@@ -27,11 +27,11 @@ class TwitterExample extends Component {
         <h2 className="mb3">Here's a Twitter Feed</h2>
         {tweets.length > 0 ? (
           <Fragment>
-            {tweets.map(tweet => {
+            {tweets.map((tweet, index) => {
               return (
                 // NOTE: all the styling occurs in CSS
                 <article
-                  key={shortid.generate()}
+                  key={`tweet-${index}`}
                   dangerouslySetInnerHTML={{ __html: tweet }}
                   className="container pv3"
                 />
@@ -53,7 +53,6 @@ class TwitterExample extends Component {
  */
 
 import React, { Component, Fragment } from 'react'
-import shortid from 'shortid'
 import twitterFetcher from 'twitter-fetcher'
 
 export default TwitterExample

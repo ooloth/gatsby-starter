@@ -17,9 +17,9 @@ const Slider = ({
   ...slickProps
 }) => (
   <Slick {...settings}>
-    {data.map(slide => {
+    {data.map((slide, index) => {
       return (
-        <div key={shortid.generate()} {...slickProps}>
+        <div key={`slide-${index}`} {...slickProps}>
           {layout({ slide })}
         </div>
       )
@@ -41,8 +41,8 @@ const DefaultLayout = ({ slide }) => (
     </h3>
     <p className="mb4 measure lh-copy f-lead">{slide.paragraph}</p>
     <ul className="pb3">
-      {slide.features.map(feature => (
-        <li key={shortid.generate()} className="flex items-center mb3 lh-copy">
+      {slide.features.map((feature, index) => (
+        <li key={`feature-${index}`} className="flex items-center mb3 lh-copy">
           <FaChevronRight className="flex-none mr2 f-lead gold" />
           {feature}
         </li>
@@ -77,7 +77,6 @@ const defaultSettings = {
  */
 
 import React from 'react'
-import shortid from 'shortid'
 import Slick from 'react-slick'
 import FaChevronRight from 'react-icons/lib/fa/chevron-right'
 

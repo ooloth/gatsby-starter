@@ -2,8 +2,8 @@ const DataExample = ({ data }) => (
   <section>
     <h2 className="mb3 f3">Here's some queried JSON content:</h2>
     <ul>
-      {data.map(example => {
-        return <Example key={shortid.generate()} example={example.node} />
+      {data.map((example, index) => {
+        return <Example key={`example-${index}`} example={example.node} />
       })}
     </ul>
   </section>
@@ -42,7 +42,6 @@ const Example = ({ example }) => (
  */
 
 import React from 'react'
-import shortid from 'shortid'
 
 import Img from '../../components/Img'
 import HyperLink from '../../components/HyperLink'

@@ -44,10 +44,10 @@ class ReadMore extends Component {
     return (
       <Fragment>
         {/* Visible paragraphs */}
-        {paragraphs.slice(0, visibleItems).map(paragraph => {
+        {paragraphs.slice(0, visibleItems).map((paragraph, index) => {
           return (
             <p
-              key={shortid.generate()}
+              key={`paragraph-${index}`}
               dangerouslySetInnerHTML={{ __html: paragraph }}
               className="mb3 lh-copy"
             />
@@ -56,10 +56,10 @@ class ReadMore extends Component {
 
         {/* Hidden paragraphs */}
         <div ref={el => (this.item = el)} className="overflow-hidden" style={{ height: 0 }}>
-          {paragraphs.slice(visibleItems).map(paragraph => {
+          {paragraphs.slice(visibleItems).map((paragraph, index) => {
             return (
               <p
-                key={shortid.generate()}
+                key={`paragraph-${index}`}
                 dangerouslySetInnerHTML={{ __html: paragraph }}
                 className="mb3 lh-copy"
               />
@@ -103,6 +103,5 @@ const paragraphs = [
 
 import React, { Component, Fragment } from 'react'
 import loadjs from 'loadjs'
-import shortid from 'shortid'
 
 export default ReadMoreExample

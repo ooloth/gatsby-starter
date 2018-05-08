@@ -9,7 +9,13 @@ const RevealExample = ({ data }) => (
       }}
     >
       {data.map((example, index) => {
-        return <RevealedImage key={shortid.generate()} example={example.node} index={index} />
+        return (
+          <RevealedImage
+            key={`reveal-example-${index}`}
+            example={example.node}
+            index={index}
+          />
+        )
       })}
     </div>
   </section>
@@ -44,7 +50,6 @@ const RevealedImage = ({ example, index }) => (
  */
 
 import React from 'react'
-import shortid from 'shortid'
 
 import Img from '../../components/Img'
 import Reveal from '../../components/examples/Reveal'

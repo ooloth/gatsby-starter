@@ -103,9 +103,9 @@ class BurgerAndOverlay extends Component {
 const MenuContent = ({ closeMenu }) => (
   <nav onClick={closeMenu} onKeyPress={closeMenu} className="pr3 md:pr4 lg:pr5">
     <ul aria-label="Main navigation" className="pt6 pb4 pl6 sm:ml4 lg:ml5">
-      {nav.map(link => {
+      {nav.map((link, index) => {
         return (
-          <li key={shortid.generate()}>
+          <li key={`link-${index}`}>
             <Link
               to={link.url}
               exact={true} // Prevents the home link from appearing active on every page
@@ -134,6 +134,5 @@ import Link from 'gatsby-link'
 import loadjs from 'loadjs'
 import Modal from 'react-modal'
 import noScroll from 'no-scroll'
-import shortid from 'shortid'
 
 export default BurgerAndOverlay

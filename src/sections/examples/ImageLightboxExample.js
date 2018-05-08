@@ -85,7 +85,6 @@ const Images = ({ images, handleImageClick, handleEnter }) => (
 
 import React, { Component } from 'react'
 import Lightbox from 'react-image-lightbox'
-import shortid from 'shortid'
 
 import Img from '../../components/Img'
 
