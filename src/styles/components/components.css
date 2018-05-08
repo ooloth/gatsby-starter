@@ -30,7 +30,35 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   @media (--md) { @apply .ph4 }
   @media (--lg) { @apply .ph5 }
 
+  /* @supports (display: grid) { @apply .mw9 } */
+}
+
+.container-not-centered { 
+  @apply .ph3 .mw8;
+
+  @media (--md) { @apply .ph4 }
+  @media (--lg) { @apply .ph5 }
+
   @supports (display: grid) { @apply .mw9 }
+}
+
+.container-full { 
+  @apply .ph3;
+
+  @media (--md) { @apply .ph4 }
+  @media (--lg) { @apply .ph5 }
+}
+
+/* 
+ *
+ * Filter Buttons
+ *
+ */
+
+.filter-btn {
+  @apply .mh2 .f3 .white .animate;
+  
+  &:hover { @apply .yellow }
 }
 
 /* 
@@ -63,6 +91,14 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   }
 
 }
+
+/* 
+ *
+ * Inputs
+ *
+ */
+
+.input { @apply .bb .b--light-gray .pb1 .w-100 .courier }
 
 /* 
  *

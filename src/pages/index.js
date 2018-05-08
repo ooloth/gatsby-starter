@@ -9,6 +9,7 @@ const IndexPage = ({ data }) => (
     <GSAPExample />
     <RevealExample data={data.allExampleJson.edges} />
     <ReadMoreExample />
+    <ImageLightboxExample images={data.allLightboxImagesJson.edges[0].node.images} />
     {/* <ParallaxExample /> */}
     <TwitterExample />
     <InstagramExample />
@@ -44,6 +45,22 @@ export const query = graphql`
         }
       }
     }
+    allLightboxImagesJson {
+      edges {
+        node {
+          images {
+            childImageSharp {
+              thumbnail: sizes(maxWidth: 925) {
+                ...GatsbyImageSharpSizes_withWebp
+              }
+              lightbox: resolutions(width: 1500) {
+                ...GatsbyImageSharpResolutions_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `
 
@@ -61,6 +78,7 @@ import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
 import ReadMoreExample from '../sections/examples/ReadMoreExample'
+import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import ParallaxExample from '../sections/examples/ParallaxExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'

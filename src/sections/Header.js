@@ -5,6 +5,7 @@ const Header = () => (
       Skip Navigation
     </a>
     {/* <nav>Add nav links...</nav> */}
+    <BurgerAndOverlay />
   </header>
 )
 
@@ -15,5 +16,7 @@ const Header = () => (
  */
 
 import React from 'react'
+
+import BurgerAndOverlay from '../components/examples/BurgerAndOverlay'
 
 export default Header

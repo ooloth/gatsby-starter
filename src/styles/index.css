@@ -15,8 +15,16 @@
  *
  */
 
-/* @import '../../node_modules/slick-carousel/slick/slick.css'; */
-/* @import './plugins/react-slick'; */
+/*
+@import '../../node_modules/slick-carousel/slick/slick.css';
+@import './plugins/react-slick';
+*/
+@import './plugins/examples/react-image-lightbox'; 
+@import './plugins/examples/react-modal';
+/*
+@import './plugins/lightbox-react';
+@import './plugins/twitter-fetcher';
+*/
 
 /*
  *
@@ -32,7 +40,9 @@
  *
  */
 
-@import './components/components.css';
+@import './components/components';
+@import './components/examples/arrows';
+@import './components/examples/burger';
 
 /*
  *

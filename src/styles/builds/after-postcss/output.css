@@ -944,9 +944,189 @@ textarea:focus {
  *
  */
 
-/* @import '../../node_modules/slick-carousel/slick/slick.css'; */
+/*
+@import '../../node_modules/slick-carousel/slick/slick.css';
+@import './plugins/react-slick';
+*/
 
-/* @import './plugins/react-slick'; */
+/* .ril__outer.ril__outer {
+  background-color: rgba(255, 255, 255, 0.85);
+} */
+
+.ril__navButtons.ril__navButtons {
+  border: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  height: 34px;
+  padding: 40px 30px;
+  margin: auto;
+  cursor: pointer;
+  opacity: .7;
+}
+
+.ril__navButtonPrev.ril__navButtonPrev {
+  display: none;
+  outline: 0;
+  background-color: rgba(0, 0, 0, .5);
+  /* left: 0;
+background: rgba(0, 0, 0, 0.2)
+  url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjM0Ij48cGF0aCBkPSJtIDE5LDMgLTIsLTIgLTE2LDE2IDE2LDE2IDEsLTEgLTE1LC0xNSAxNSwtMTUgeiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==)
+  no-repeat center; */
+}
+
+@media (min-width: 48em) {
+  .ril__navButtonPrev.ril__navButtonPrev {
+    display: block;
+  }
+}
+
+.ril__navButtonNext.ril__navButtonNext {
+  display: none;
+  outline: 0;
+  background-color: rgba(0, 0, 0, .6);
+  /* right: 0;
+background: rgba(0, 0, 0, 0.2)
+  url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjM0Ij48cGF0aCBkPSJtIDEsMyAyLC0yIDE2LDE2IC0xNiwxNiAtMSwtMSAxNSwtMTUgLTE1LC0xNSB6IiBmaWxsPSIjRkZGIi8+PC9zdmc+)
+  no-repeat center; */
+}
+
+@media (min-width: 48em) {
+  .ril__navButtonNext.ril__navButtonNext {
+    display: block;
+  }
+}
+
+.ril__toolbar.ril__toolbar {
+  background-color: transparent;
+  /* position: absolute;
+left: 0;
+right: 0;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between; */
+}
+
+.ril__toolbarRightSide {
+  padding-top: .1rem !important;
+  padding-right: .55rem !important;
+}
+
+/* .ril__builtinButton {
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  opacity: 0.7;
+} */
+
+/* .ril__closeButton {
+  background-size: contain;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIj48cGF0aCBkPSJtIDEsMyAxLjI1LC0xLjI1IDcuNSw3LjUgNy41LC03LjUgMS4yNSwxLjI1IC03LjUsNy41IDcuNSw3LjUgLTEuMjUsMS4yNSAtNy41LC03LjUgLTcuNSw3LjUgLTEuMjUsLTEuMjUgNy41LC03LjUgLTcuNSwtNy41IHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=)
+    no-repeat center; 
+} */
+
+/* .ril__caption.ril__caption {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: hsl(0, 0%, 0%, 0.8); 
+} */
+
+.ril__captionContent {
+  margin: 0 auto;
+}
+
+/*
+ *
+ * React Modal
+ *
+ */
+
+/* 
+
+See: https://github.com/reactjs/react-modal/issues/125#issuecomment-187084415
+
+NOTEs: 
+
+1. Set closeTimeoutMS prop to the total MS needed to complete exit animations 
+2. Scope classes below (by adding a label class to the className and overlayClassName props) to avoid clashing with other libraries that use react-modal (like react-image-lightbox)
+
+TODO: Make sure to scope all style to avoid conflicting with react-image-lightbox (which uses react-modal).
+
+*/
+
+/* 
+ * Overlay: in/out transitions 
+ */
+
+/*
+.ReactModal__Overlay { @apply .z-max .bg-transparent !important }
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  transition: background-color 0.8s ease-in-out 0.4s;
+}
+
+.ReactModal__Overlay--before-close {
+  @apply .bg-transparent !important;
+  transition: background-color 0.3s ease-in-out 0.4s;
+}
+*/
+
+/* 
+ * Content: in/out transitions 
+ */
+
+/*
+.ReactModal__Content {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.ReactModal__Content--after-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ReactModal__Content--before-close {
+  opacity: 0;
+  transform: scale(0);
+}
+*/
+
+/* 
+ * Menu Modal (for BurgerAndOverlay)
+ */
+
+.menu-modal-overlay.ReactModal__Overlay {
+  z-index: 10000 !important;
+}
+
+.menu-modal-content.ReactModal__Content {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  /* See: http://easings.net/*/
+  transition: all .5s cubic-bezier(.645, .045, .355, 1);
+}
+
+.menu-modal-content.ReactModal__Content--after-open {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.menu-modal-content.ReactModal__Content--before-close {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+/*
+@import './plugins/lightbox-react';
+@import './plugins/twitter-fetcher';
+*/
 
 /*
  *
@@ -1053,11 +1233,92 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   }
 }
 
+.container {
+  /*
+ @supports (display: grid) { @apply .mw9 }
+ */
+}
+
+.container-not-centered {
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
+  max-width: 64rem;
+  max-width: var(--sizing-8);
+}
+
+@media (min-width: 48em) {
+  .container-not-centered {
+    padding-left: 2rem;
+    padding-left: var(--spacing-4);
+    padding-right: 2rem;
+    padding-right: var(--spacing-4);
+  }
+}
+
+@media (min-width: 62em) {
+  .container-not-centered {
+    padding-left: 4rem;
+    padding-left: var(--spacing-5);
+    padding-right: 4rem;
+    padding-right: var(--spacing-5);
+  }
+}
+
 @supports (display: grid) {
-  .container {
+  .container-not-centered {
     max-width: 96rem;
     max-width: var(--sizing-9);
   }
+}
+
+.container-full {
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
+}
+
+@media (min-width: 48em) {
+  .container-full {
+    padding-left: 2rem;
+    padding-left: var(--spacing-4);
+    padding-right: 2rem;
+    padding-right: var(--spacing-4);
+  }
+}
+
+@media (min-width: 62em) {
+  .container-full {
+    padding-left: 4rem;
+    padding-left: var(--spacing-5);
+    padding-right: 4rem;
+    padding-right: var(--spacing-5);
+  }
+}
+
+/* 
+ *
+ * Filter Buttons
+ *
+ */
+
+.filter-btn {
+  margin-left: .5rem;
+  margin-left: var(--spacing-2);
+  margin-right: .5rem;
+  margin-right: var(--spacing-2);
+  font-size: 1.5rem;
+  font-size: var(--font-size-3);
+  color: #fff;
+  color: var(--white);
+  transition: all .2s ease-in-out;
+}
+
+.filter-btn:hover {
+  color: #ffd700;
+  color: var(--yellow);
 }
 
 /* 
@@ -1104,6 +1365,23 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   color: var(--white);
   -webkit-filter: drop-shadow(0 15px 5px rgba(0, 0, 0, .11));
           filter: drop-shadow(0 15px 5px rgba(0, 0, 0, .11));
+}
+
+/* 
+ *
+ * Inputs
+ *
+ */
+
+.input {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #eee;
+  border-color: var(--light-gray);
+  padding-bottom: .25rem;
+  padding-bottom: var(--spacing-1);
+  width: 100%;
+  font-family: 'Courier New', courier, monospace;
 }
 
 /* 
@@ -1166,6 +1444,228 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 .link-inline:hover {
   box-shadow: inset 0 -12px 0 0 #ff80cc;
   box-shadow: inset 0 -12px 0 0 var(--pink);
+}
+
+/* These go with the arrows in components/examples/Arrows */
+
+/* 
+ *
+ * Arrow down
+ *
+ */
+
+.button-scroll-down {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  z-index: 40;
+  bottom: -24px;
+  left: 50%;
+  margin: 0 0 0 -24px;
+  cursor: pointer;
+  display: block;
+}
+
+.button-scroll-down .arrow-line {
+  width: 2px;
+  height: 18px;
+  top: 14px;
+  left: 50%;
+  position: absolute;
+  display: block;
+  margin: 0 0 0 -1px;
+  background: #30393b;
+  z-index: 1;
+}
+
+.button-scroll-down:hover .arrow-line {
+  transition-delay: 200ms;
+  height: 49px;
+}
+
+.button-scroll-down .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 6px 0 6px;
+  border-color: #30393b transparent transparent transparent;
+  display: block;
+  position: absolute;
+  z-index: 4;
+  bottom: -4px;
+  left: -5px;
+}
+
+/* 
+ *
+ * Arrow left
+ *
+ */
+
+.arrow-left {
+  width: 70px;
+  height: 60px;
+  display: block;
+  float: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+}
+
+.arrow-left .arrow-line {
+  width: 54px;
+  height: 2px;
+  top: 50%;
+  right: -28px;
+  position: absolute;
+  display: block;
+  margin: -1px 0 0 0;
+  background: #282828;
+  z-index: 1;
+}
+
+.arrow-left .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 7px 6px 0;
+  border-color: transparent #282828 transparent transparent;
+  position: absolute;
+  z-index: 4;
+  display: block;
+  left: -4px;
+  top: -5px;
+}
+
+.arrow-left:hover .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(-23px);
+          transform: translateX(-23px);
+}
+
+.group:hover .arrow-left .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(-23px);
+          transform: translateX(-23px);
+}
+
+/* 
+ *
+ * Arrow right
+ *
+ */
+
+.arrow-right {
+  width: 70px;
+  height: 60px;
+  display: block;
+  float: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+}
+
+.arrow-right .arrow-line {
+  width: 54px;
+  height: 2px;
+  top: 50%;
+  left: -28px;
+  position: absolute;
+  display: block;
+  margin: -1px 0 0 0;
+  background: #282828;
+  z-index: 1;
+}
+
+.arrow-right .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 7px;
+  border-color: transparent transparent transparent #282828;
+  position: absolute;
+  z-index: 4;
+  display: block;
+  right: -4px;
+  top: -5px;
+}
+
+.arrow-right:hover .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(23px);
+          transform: translateX(23px);
+}
+
+.group:hover .arrow-right .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(23px);
+          transform: translateX(23px);
+}
+
+/* These go with the burger in components/examples/BurgerAndOverlay */
+
+.burger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-right: .25rem;
+  margin-right: var(--spacing-1);
+  background-color: #fff;
+  background-color: var(--white);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  width: 70px;
+  height: 50px;
+  z-index: 10001;
+}
+
+@media (min-width: 48em) {
+  .burger {
+    margin-right: 2rem;
+    margin-right: var(--spacing-4);
+  }
+}
+
+@media (min-width: 62em) {
+  .burger {
+    margin-right: 4rem;
+    margin-right: var(--spacing-5);
+  }
+}
+
+.burger-layer {
+  display: block;
+  position: absolute;
+  left: 50%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  width: 31px;
+  height: 4px;
+  background: #282828;
+  z-index: 5;
+  top: 23px;
+  margin: 0 0 0 -15px;
+}
+
+.burger-layer.top {
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.burger-layer.bottom {
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
+}
+
+.burger:hover .burger-layer {
+  background-color: #ff41b4;
+  background-color: var(--hot-pink);
 }
 
 /*
@@ -6269,10 +6769,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 /* Percentage spacing */
 
-.top-0 {
-  top: 0;
-}
-
 .top-10 {
   top: 10%;
 }
@@ -6323,10 +6819,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 .top-100 {
   top: 100%;
-}
-
-.right-0 {
-  right: 0;
 }
 
 .right-10 {
@@ -6381,10 +6873,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   right: 100%;
 }
 
-.bottom-0 {
-  bottom: 0;
-}
-
 .bottom-10 {
   bottom: 10%;
 }
@@ -6435,10 +6923,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 .bottom-100 {
   bottom: 100%;
-}
-
-.left-0 {
-  left: 0;
 }
 
 .left-10 {
@@ -6495,10 +6979,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 /* Negative percentage spacing */
 
-.top--0 {
-  top: -0;
-}
-
 .top--10 {
   top: -10%;
 }
@@ -6549,10 +7029,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 .top--100 {
   top: -100%;
-}
-
-.right--0 {
-  right: -0;
 }
 
 .right--10 {
@@ -6607,10 +7083,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   right: -100%;
 }
 
-.bottom--0 {
-  bottom: -0;
-}
-
 .bottom--10 {
   bottom: -10%;
 }
@@ -6661,10 +7133,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 .bottom--100 {
   bottom: -100%;
-}
-
-.left--0 {
-  left: -0;
 }
 
 .left--10 {
@@ -9028,6 +9496,11 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotation
 .origin-left {
   -webkit-transform-origin: left;
           transform-origin: left;
+}
+
+.origin-center {
+  -webkit-transform-origin: center;
+          transform-origin: center;
 }
 
 /* Typography */
@@ -16320,10 +16793,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     left: -var(--spacing-7);
   }/* Percentage spacing */
 
-  .sm\:top-0 {
-    top: 0;
-  }
-
   .sm\:top-10 {
     top: 10%;
   }
@@ -16374,10 +16843,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:top-100 {
     top: 100%;
-  }
-
-  .sm\:right-0 {
-    right: 0;
   }
 
   .sm\:right-10 {
@@ -16432,10 +16897,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     right: 100%;
   }
 
-  .sm\:bottom-0 {
-    bottom: 0;
-  }
-
   .sm\:bottom-10 {
     bottom: 10%;
   }
@@ -16486,10 +16947,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:bottom-100 {
     bottom: 100%;
-  }
-
-  .sm\:left-0 {
-    left: 0;
   }
 
   .sm\:left-10 {
@@ -16544,10 +17001,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     left: 100%;
   }/* Negative percentage spacing */
 
-  .sm\:top--0 {
-    top: -0;
-  }
-
   .sm\:top--10 {
     top: -10%;
   }
@@ -16598,10 +17051,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:top--100 {
     top: -100%;
-  }
-
-  .sm\:right--0 {
-    right: -0;
   }
 
   .sm\:right--10 {
@@ -16656,10 +17105,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     right: -100%;
   }
 
-  .sm\:bottom--0 {
-    bottom: -0;
-  }
-
   .sm\:bottom--10 {
     bottom: -10%;
   }
@@ -16710,10 +17155,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:bottom--100 {
     bottom: -100%;
-  }
-
-  .sm\:left--0 {
-    left: -0;
   }
 
   .sm\:left--10 {
@@ -18769,6 +19210,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   .sm\:origin-left {
     -webkit-transform-origin: left;
             transform-origin: left;
+  }
+
+  .sm\:origin-center {
+    -webkit-transform-origin: center;
+            transform-origin: center;
   }
 
   .sm\:black {
@@ -25612,10 +26058,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     left: -var(--spacing-7);
   }/* Percentage spacing */
 
-  .md\:top-0 {
-    top: 0;
-  }
-
   .md\:top-10 {
     top: 10%;
   }
@@ -25666,10 +26108,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:top-100 {
     top: 100%;
-  }
-
-  .md\:right-0 {
-    right: 0;
   }
 
   .md\:right-10 {
@@ -25724,10 +26162,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     right: 100%;
   }
 
-  .md\:bottom-0 {
-    bottom: 0;
-  }
-
   .md\:bottom-10 {
     bottom: 10%;
   }
@@ -25778,10 +26212,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:bottom-100 {
     bottom: 100%;
-  }
-
-  .md\:left-0 {
-    left: 0;
   }
 
   .md\:left-10 {
@@ -25836,10 +26266,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     left: 100%;
   }/* Negative percentage spacing */
 
-  .md\:top--0 {
-    top: -0;
-  }
-
   .md\:top--10 {
     top: -10%;
   }
@@ -25890,10 +26316,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:top--100 {
     top: -100%;
-  }
-
-  .md\:right--0 {
-    right: -0;
   }
 
   .md\:right--10 {
@@ -25948,10 +26370,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     right: -100%;
   }
 
-  .md\:bottom--0 {
-    bottom: -0;
-  }
-
   .md\:bottom--10 {
     bottom: -10%;
   }
@@ -26002,10 +26420,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:bottom--100 {
     bottom: -100%;
-  }
-
-  .md\:left--0 {
-    left: -0;
   }
 
   .md\:left--10 {
@@ -28061,6 +28475,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:origin-left {
     -webkit-transform-origin: left;
             transform-origin: left;
+  }
+
+  .md\:origin-center {
+    -webkit-transform-origin: center;
+            transform-origin: center;
   }
 
   .md\:black {
@@ -34904,10 +35323,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     left: -var(--spacing-7);
   }/* Percentage spacing */
 
-  .lg\:top-0 {
-    top: 0;
-  }
-
   .lg\:top-10 {
     top: 10%;
   }
@@ -34958,10 +35373,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:top-100 {
     top: 100%;
-  }
-
-  .lg\:right-0 {
-    right: 0;
   }
 
   .lg\:right-10 {
@@ -35016,10 +35427,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     right: 100%;
   }
 
-  .lg\:bottom-0 {
-    bottom: 0;
-  }
-
   .lg\:bottom-10 {
     bottom: 10%;
   }
@@ -35070,10 +35477,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:bottom-100 {
     bottom: 100%;
-  }
-
-  .lg\:left-0 {
-    left: 0;
   }
 
   .lg\:left-10 {
@@ -35128,10 +35531,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     left: 100%;
   }/* Negative percentage spacing */
 
-  .lg\:top--0 {
-    top: -0;
-  }
-
   .lg\:top--10 {
     top: -10%;
   }
@@ -35182,10 +35581,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:top--100 {
     top: -100%;
-  }
-
-  .lg\:right--0 {
-    right: -0;
   }
 
   .lg\:right--10 {
@@ -35240,10 +35635,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     right: -100%;
   }
 
-  .lg\:bottom--0 {
-    bottom: -0;
-  }
-
   .lg\:bottom--10 {
     bottom: -10%;
   }
@@ -35294,10 +35685,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:bottom--100 {
     bottom: -100%;
-  }
-
-  .lg\:left--0 {
-    left: -0;
   }
 
   .lg\:left--10 {
@@ -37353,6 +37740,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .lg\:origin-left {
     -webkit-transform-origin: left;
             transform-origin: left;
+  }
+
+  .lg\:origin-center {
+    -webkit-transform-origin: center;
+            transform-origin: center;
   }
 
   .lg\:black {
@@ -44196,10 +44588,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     left: -var(--spacing-7);
   }/* Percentage spacing */
 
-  .xl\:top-0 {
-    top: 0;
-  }
-
   .xl\:top-10 {
     top: 10%;
   }
@@ -44250,10 +44638,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:top-100 {
     top: 100%;
-  }
-
-  .xl\:right-0 {
-    right: 0;
   }
 
   .xl\:right-10 {
@@ -44308,10 +44692,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     right: 100%;
   }
 
-  .xl\:bottom-0 {
-    bottom: 0;
-  }
-
   .xl\:bottom-10 {
     bottom: 10%;
   }
@@ -44362,10 +44742,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:bottom-100 {
     bottom: 100%;
-  }
-
-  .xl\:left-0 {
-    left: 0;
   }
 
   .xl\:left-10 {
@@ -44420,10 +44796,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     left: 100%;
   }/* Negative percentage spacing */
 
-  .xl\:top--0 {
-    top: -0;
-  }
-
   .xl\:top--10 {
     top: -10%;
   }
@@ -44474,10 +44846,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:top--100 {
     top: -100%;
-  }
-
-  .xl\:right--0 {
-    right: -0;
   }
 
   .xl\:right--10 {
@@ -44532,10 +44900,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     right: -100%;
   }
 
-  .xl\:bottom--0 {
-    bottom: -0;
-  }
-
   .xl\:bottom--10 {
     bottom: -10%;
   }
@@ -44586,10 +44950,6 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:bottom--100 {
     bottom: -100%;
-  }
-
-  .xl\:left--0 {
-    left: -0;
   }
 
   .xl\:left--10 {
@@ -46645,6 +47005,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:origin-left {
     -webkit-transform-origin: left;
             transform-origin: left;
+  }
+
+  .xl\:origin-center {
+    -webkit-transform-origin: center;
+            transform-origin: center;
   }
 
   .xl\:black {

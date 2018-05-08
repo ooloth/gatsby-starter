@@ -1,3 +1,8 @@
+// TODO: I'm partway through trying to use refs and scaleY (and reverse scale the text content so it doesn't look weird. If I go back to height, go back to just using transitionChild)
+
+// TODO: see this for more ideas: https://github.com/reactjs/react-transition-group/issues/136
+// TODO: the above may show how to use this for page transitions as well...
+
 const MountTransitionExample = () => (
   <section className="mv6 pv5 bg-near-white">
     <h2 className="mb4">Mount Transition Example</h2>
@@ -12,11 +17,12 @@ const MountTransitionExample = () => (
  * 
  */
 
-// TODO: see this for more ideas: https://github.com/reactjs/react-transition-group/issues/136
-// TODO: the above may show how to use this for page transitions as well...
-
 class AnimatingBox extends Component {
   state = { in: false }
+
+  // Refs
+  animContainer = React.createRef()
+  animChild = React.createRef()
 
   componentDidMount = () => {
     loadjs.ready(`gsap`, () => {
@@ -25,15 +31,33 @@ class AnimatingBox extends Component {
   }
 
   expand = transitionChild => {
+    console.log(`transitionChild`, transitionChild)
+    console.log(`this.animContainer`, this.animContainer.current)
     loadjs.ready(`gsap`, () => {
       TweenMax.fromTo(
-        transitionChild,
+        this.animContainer.current,
         1,
         {
-          height: `auto`
+          // height: `auto`
+          scaleY: 0
         },
         {
-          height: `8rem`,
+          // height: `8rem`,
+          scaleY: 1,
+          ease: `Power3.easeInOut`
+        }
+      )
+      // Invert the expanding animation so the text won't be distorted
+      TweenMax.fromTo(
+        this.animChild.current,
+        1,
+        {
+          // height: `auto`
+          scaleY: 2
+        },
+        {
+          // height: `8rem`,
+          scaleY: 1,
           ease: `Power3.easeInOut`
         }
       )
@@ -49,7 +73,12 @@ class AnimatingBox extends Component {
         mountOnEnter={true}
         unmountOnExit={true}
       >
-        <div className="flex justify-center items-center ml-auto mr-auto bg-pink w4">Hi</div>
+        <div
+          ref={this.animContainer}
+          className="flex justify-center items-center ml-auto mr-auto bg-pink w4 h4"
+        >
+          <p ref={this.animChild}>Hi</p>
+        </div>
       </Transition>
     )
   }

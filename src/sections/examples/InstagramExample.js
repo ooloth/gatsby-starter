@@ -1,3 +1,5 @@
+// TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint.
+
 class InstagramExample extends Component {
   // Prevent Instafeed from rendering posts multiple times
   // See: https://github.com/JeromeFitz/react-instafeed/issues/24#issuecomment-345556639
@@ -48,5 +50,3 @@ import React, { Component } from 'react'
 import Instafeed from 'react-instafeed'
 
 export default InstagramExample
-
-// TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint.

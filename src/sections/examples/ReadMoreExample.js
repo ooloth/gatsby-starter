@@ -1,3 +1,5 @@
+// TODO: replace style attribute approach with an RTG approach?
+
 const ReadMoreExample = () => (
   <section className="mv6 pv5 bg-light-green">
     <h2 className="mb4">Read More Example</h2>
@@ -16,7 +18,6 @@ class ReadMore extends Component {
 
         // Invalidate the temporary inline styles (which match the starting state for the animation and are added to prevent a flash of content in the ending position)
         this.item.removeAttribute(`style`)
-        // TODO: replace this with an RTG approach?
 
         // Expand the section to its natural height
         TweenMax.fromTo(

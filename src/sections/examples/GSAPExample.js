@@ -1,9 +1,3 @@
-/*
- *
- * GSAP Test
- * 
- */
-
 // DOCS: https://greensock.com/get-started-js
 // DOCS: https://greensock.com/docs/TweenMax
 // DOCS: https://greensock.com/docs/TimelineMax
@@ -14,6 +8,18 @@
 // EXAMPLE: https://codepen.io/osublake/pen/0d4742d2200d028ed42297cb874af2b5?editors=0010
 
 // DOCS: https://github.com/muicss/loadjs#documentation
+
+// TODO: abstract the TweenMax.to() component above into a separate <Animate /> component? Or adapt <Reveal /> to be either .from() or .to()...?
+// const GSAPTest2 = () => {
+//   <Reveal
+//   css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
+//     delay={index * 0.3 + 0.1}
+//     duration={1}
+//     offsetTop={-100}
+//   >
+
+//   </Reveal>
+// }
 
 class GSAPExample extends React.Component {
   state = { revealed: false, repeat: true, animation: null }
@@ -80,15 +86,3 @@ import Waypoint from 'react-waypoint'
 import loadjs from 'loadjs'
 
 export default GSAPExample
-
-// TODO: abstract the TweenMax.to() component above into a separate <Animate /> component? Or adapt <Reveal /> to be either .from() or .to()...?
-// const GSAPTest2 = () => {
-//   <Reveal
-//   css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
-//     delay={index * 0.3 + 0.1}
-//     duration={1}
-//     offsetTop={-100}
-//   >
-
-//   </Reveal>
-// }

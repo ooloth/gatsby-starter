@@ -94,7 +94,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .left--7   { left: -var(--spacing-7) }
 
   /* Percentage spacing */
-  .top-0   { top: 0 } 
   .top-10  { top: 10% }
   .top-15  { top: 15% }
   .top-20  { top: 20% }
@@ -109,7 +108,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .top-90  { top: 90% }
   .top-100 { top: 100% }
 
-  .right-0   { right: 0 }
   .right-10  { right: 10% }
   .right-15  { right: 15% }
   .right-20  { right: 20% }
@@ -124,7 +122,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .right-90  { right: 90% }
   .right-100 { right: 100% }
 
-  .bottom-0   { bottom: 0 }
   .bottom-10  { bottom: 10% }
   .bottom-15  { bottom: 15% }
   .bottom-20  { bottom: 20% }
@@ -139,7 +136,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .bottom-90  { bottom: 90% }
   .bottom-100 { bottom: 100% }
 
-  .left-0   { left: 0 }
   .left-10  { left: 10% }
   .left-15  { left: 15% }
   .left-20  { left: 20% }
@@ -155,7 +151,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .left-100 { left: 100% }
 
   /* Negative percentage spacing */
-  .top--0   { top: -0 } 
   .top--10  { top: -10% }
   .top--15  { top: -15% }
   .top--20  { top: -20% }
@@ -170,7 +165,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .top--90  { top: -90% }
   .top--100 { top: -100% }
 
-  .right--0   { right: -0 }
   .right--10  { right: -10% }
   .right--15  { right: -15% }
   .right--20  { right: -20% }
@@ -185,7 +179,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .right--90  { right: -90% }
   .right--100 { right: -100% }
 
-  .bottom--0   { bottom: -0 }
   .bottom--10  { bottom: -10% }
   .bottom--15  { bottom: -15% }
   .bottom--20  { bottom: -20% }
@@ -200,7 +193,6 @@ Adapted from: http://tachyons.io/docs/layout/position/
   .bottom--90  { bottom: -90% }
   .bottom--100 { bottom: -100% }
 
-  .left--0   { left: -0 }
   .left--10  { left: -10% }
   .left--15  { left: -15% }
   .left--20  { left: -20% }
