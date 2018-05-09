@@ -121,6 +121,7 @@
 /* Transforms */
 @import './utilities/rotation';
 @import './utilities/transform-origin';
+@import './utilities/translate';
 
 /* Typography */
 @import './utilities/color';

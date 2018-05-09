@@ -2,7 +2,7 @@
 
 const ReadMoreExample = () => (
   <section className="mv6 pv5 bg-light-green">
-    <h2 className="mb4">Read More Example</h2>
+    <h2 className="pb3">Read More Example</h2>
     <ReadMore />
   </section>
 )
@@ -49,40 +49,52 @@ class ReadMore extends Component {
             <p
               key={`paragraph-${index}`}
               dangerouslySetInnerHTML={{ __html: paragraph }}
-              className="mb3 lh-copy"
+              className="container mt3 lh-copy"
             />
           )
         })}
 
         {/* Hidden paragraphs */}
-        <div ref={el => (this.item = el)} className="overflow-hidden" style={{ height: 0 }}>
+        <div
+          ref={el => (this.item = el)}
+          className="overflow-hidden container"
+          style={{ height: 0 }}
+        >
           {paragraphs.slice(visibleItems).map((paragraph, index) => {
             return (
               <p
                 key={`paragraph-${index + visibleItems}`} // index restarts at 0 after slice
                 dangerouslySetInnerHTML={{ __html: paragraph }}
-                className="mb3 lh-copy"
+                className="mt3 lh-copy"
               />
             )
           })}
         </div>
 
         {/* Read More button */}
-        {!expanded && (
-          <div className="pt4 tc">
-            <button
-              onClick={this.handleReadMore}
-              onKeyUp={e => e.key === `Enter` && this.handleReadMore()}
-              className="btn"
-            >
-              Read More
-            </button>
-          </div>
-        )}
+        {!expanded && <ReadMoreButton handleReadMore={this.handleReadMore} />}
       </Fragment>
     )
   }
 }
+
+/*
+ *
+ * Read More Button
+ * 
+ */
+
+const ReadMoreButton = ({ handleReadMore }) => (
+  <button
+    onClick={handleReadMore}
+    onKeyUp={e => e.key === `Enter` && handleReadMore}
+    className="btn mt4"
+    // TODO: If the context is .tl, use this to center the button:
+    // className="relative left-50 transX--50"
+  >
+    Read More
+  </button>
+)
 
 /*
  *

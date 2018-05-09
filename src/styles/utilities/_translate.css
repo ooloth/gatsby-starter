@@ -4,6 +4,17 @@
  *
  */
 
+@responsive {
+
+  .transX--50 { transform: translateX(-50%) }
+  .transY--50 { transform: translateY(-50%) }
+
+  .transX-0   { transform: translateX(0) }
+  .transY-0   { transform: translateY(0) }
+
+}
+
+
 /*
 .transY--50
   transform: translateY(-50%)

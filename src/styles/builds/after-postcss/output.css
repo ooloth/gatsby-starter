@@ -9918,6 +9918,83 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotation
           transform-origin: center;
 }
 
+/* 
+ *
+ * Translate
+ *
+ */
+
+.transX--50 {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.transY--50 {
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.transX-0 {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.transY-0 {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+/*
+.transY--50
+  transform: translateY(-50%)
+
+.transY--100-l
+  @media (--breakpoint-large)
+    transform: translateY(-100%)
+
+.transXY-50-and-1px
+  transform: translate(50%, -1px)
+
+.transXY--1px-and-50
+  transform: translate(-1px, 50%)
+
+.transY-9px
+  transform: translateY(9px)
+
+.transY--1px
+  transform: translateY(-1px)
+
+.transY--3px
+  transform: translateY(-3px)
+
+.transY--11px
+  transform: translateY(-11px)
+
+.transX--1px
+  transform: translateX(-1px)
+
+.transX--100
+  transform: translateX(-100%)
+
+.arrow-position-on-floating-slider
+  transform: translate(-4rem, -99%)
+
+.transY--99
+  transform: translateY(-99%)
+
+.transY--100
+  transform: translateY(-100%)
+
+.transX-50
+  transform: translateX(50%)
+
+.transX--50
+  transform: translateX(-50%)
+
+.transY--50
+  transform: translateY(-50%)
+*/
+
 /* Typography */
 
 /*
@@ -19632,6 +19709,26 @@ Adapted from: http://tachyons.io/docs/debug-grid/
             transform-origin: center;
   }
 
+  .sm\:transX--50 {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .sm\:transY--50 {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+  .sm\:transX-0 {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  .sm\:transY-0 {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
   .sm\:black {
     color: #000;
     color: var(--black);
@@ -28895,6 +28992,26 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .md\:origin-center {
     -webkit-transform-origin: center;
             transform-origin: center;
+  }
+
+  .md\:transX--50 {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .md\:transY--50 {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+  .md\:transX-0 {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  .md\:transY-0 {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 
   .md\:black {
@@ -38162,6 +38279,26 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
             transform-origin: center;
   }
 
+  .lg\:transX--50 {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .lg\:transY--50 {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+  .lg\:transX-0 {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  .lg\:transY-0 {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+
   .lg\:black {
     color: #000;
     color: var(--black);
@@ -47425,6 +47562,26 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   .xl\:origin-center {
     -webkit-transform-origin: center;
             transform-origin: center;
+  }
+
+  .xl\:transX--50 {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .xl\:transY--50 {
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+  .xl\:transX-0 {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  .xl\:transY-0 {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 
   .xl\:black {
