@@ -32,5 +32,8 @@
     "react/no-unescaped-entities": ["error", { "forbid": [">", "}"] }],
     "react/prop-types": 0,
     "semi": ["error", "never"]
+  },
+  "settings": {
+    "polyfills": ["fetch", "promises"]
   }
 }
