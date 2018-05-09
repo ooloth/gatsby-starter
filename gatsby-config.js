@@ -6,6 +6,7 @@ module.exports = {
     language: `en`,
     locale: `en_CA`,
     twitterHandle: `@handle`,
+    facebookAppId: ``,
     // image: update siteImage variable in layouts/index.js
     secondPage: {
       title: `Add Second Page Title`,

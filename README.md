@@ -48,7 +48,7 @@ In general, add new images to `src/images` and update all text and image info in
 ### How to update text
 
 - Update the text in the relevant `JSON` file in `src/data/`.
-- To include a line-break, add `\n` in the JSON string and make sure the class `.pre-line` is included in the markup that outputs that string.
+- To include a line-break (or any other special formatting), add inline HTML tags directly to the JSON string and then make sure the markup that outputs the string uses `dangerouslySetInnerHTML={{ __html: variable }}`.
 
 ### How to update images
 

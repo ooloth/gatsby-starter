@@ -19,7 +19,10 @@
 @import '../../node_modules/slick-carousel/slick/slick.css';
 @import './plugins/react-slick';
 */
+
+@import '../../node_modules/react-image-lightbox/style.css';
 @import './plugins/examples/react-image-lightbox'; 
+
 @import './plugins/examples/react-modal';
 /*
 @import './plugins/lightbox-react';

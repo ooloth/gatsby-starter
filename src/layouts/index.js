@@ -16,12 +16,12 @@ const Layout = ({ children, data }) => (
 
 // Use PostCSS stylesheet in development and PostCSS/PurgeCSS stylesheet in production:
 switch (process.env.NODE_ENV) {
-  case `development`:
-    require(`../styles/builds/after-postcss/output.css`)
-    break
-  case `production`:
-    require(`../styles/builds/after-purgecss/output.css`)
-    break
+case `development`:
+  require(`../styles/builds/after-postcss/output.css`)
+  break
+case `production`:
+  require(`../styles/builds/after-purgecss/output.css`)
+  break
 }
 
 // Import open-source fonts from Typefaces (@font-face automatically injected)
@@ -61,7 +61,6 @@ const SiteMetadata = ({ site }) => (
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={site.title} />
     <meta name="twitter:description" content={site.description} />
-    {site.twitterHandle && <meta name="twitter:site" content={site.twitterHandle} />}
     <meta name="twitter:image:src" content={site.siteUrl + siteImage} />
 
     {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
@@ -72,6 +71,10 @@ const SiteMetadata = ({ site }) => (
     <meta property="og:description" content={site.description} />
     <meta property="og:site_name" content={site.title} />
     <meta property="og:locale" content={site.locale} />
+
+    {/* Non-essential, but required for analytics */}
+    {site.facebookAppId && <meta property="fb:app_id" content={site.facebookAppId} />}
+    {site.twitterHandle && <meta name="twitter:site" content={site.twitterHandle} />}
   </Helmet>
 )
 

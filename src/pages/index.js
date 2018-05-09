@@ -14,9 +14,10 @@ const IndexPage = ({ data }) => (
     <ReadMoreExample />
     <ImageLightboxExample images={data.allLightboxImagesJson.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosJson.edges} />
-    {/* <ParallaxExample /> */}
     <TwitterExample />
     <InstagramExample />
+    {/* <ParallaxExample /> */}
+    {/* <ReactSpringExample /> */}
 
     <ScrollTo href="#top" className="link dib mb5">
       Back to top
@@ -108,9 +109,10 @@ import RevealExample from '../sections/examples/RevealExample'
 import ReadMoreExample from '../sections/examples/ReadMoreExample'
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
-// import ParallaxExample from '../sections/examples/ParallaxExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'
+// import ParallaxExample from '../sections/examples/ParallaxExample'
+// import ReactSpringExample from '../sections/examples/ReactSpringExample'
 
 import ScrollTo from '../components/examples/ScrollTo'
 

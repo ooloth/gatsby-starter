@@ -6,6 +6,7 @@
   },
   "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended"],
   "globals": {
+    "__dirname": false,
     "graphql": false,
     "process": false,
     "TimelineMax": false,
