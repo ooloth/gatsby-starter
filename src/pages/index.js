@@ -65,7 +65,7 @@ export const query = graphql`
           url
           image {
             childImageSharp {
-              sizes(maxWidth: 500) {
+              sizes(maxWidth: 500, duotone: { highlight: "#9eebcf", shadow: "#192550" }) {
                 ...GatsbyImageSharpSizes_withWebp
               }
             }

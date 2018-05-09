@@ -8,7 +8,7 @@ const TemplateExample = ({ data }) => (
         return (
           <li key={`template-${index}`}>
             <Link to={`/${page.node.slug}/`} className="link dib mh3 ">
-              Go to {page.node.title}
+              {page.node.title}
             </Link>
           </li>
         )

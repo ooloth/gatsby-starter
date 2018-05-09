@@ -44,7 +44,7 @@ class GSAPExample extends React.Component {
     loadjs.ready(`gsap`, () => {
       TweenMax.to(this.box, 1.5, {
         scale: 0.9,
-        ease: Power2.easeInOut,
+        ease: `Power2.easeInOut`,
         repeat: -1,
         yoyo: true
       })
@@ -52,7 +52,7 @@ class GSAPExample extends React.Component {
   }
 
   killAnimation = () => {
-    loadjs.ready(`gsap`, () => TweenMax.killAll(this.box))
+    loadjs.ready(`gsap`, () => TweenMax.killTweensOf(this.box))
   }
 
   render() {
