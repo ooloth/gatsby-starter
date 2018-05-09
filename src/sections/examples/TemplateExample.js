@@ -6,9 +6,11 @@ const TemplateExample = ({ data }) => (
     <ul className="flex justify-between">
       {data.map((page, index) => {
         return (
-          <Link key={`page-${index}`} to={`/${page.node.slug}/`} className="link dib mh3 ">
-            Go to {page.node.title}
-          </Link>
+          <li key={`template-${index}`}>
+            <Link to={`/${page.node.slug}/`} className="link dib mh3 ">
+              Go to {page.node.title}
+            </Link>
+          </li>
         )
       })}
     </ul>
