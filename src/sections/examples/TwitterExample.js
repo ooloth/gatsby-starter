@@ -23,7 +23,7 @@ class TwitterExample extends Component {
     const { tweets } = this.state
 
     return (
-      <div className="mv6 bg-lightest-blue pa5 shadow-lg">
+      <section className="mv6 bg-lightest-blue pa5 shadow-lg">
         <h2 className="mb3">Here's a Twitter Feed</h2>
         {tweets.length > 0 ? (
           <Fragment>
@@ -41,7 +41,7 @@ class TwitterExample extends Component {
         ) : (
           <div />
         )}
-      </div>
+      </section>
     )
   }
 }

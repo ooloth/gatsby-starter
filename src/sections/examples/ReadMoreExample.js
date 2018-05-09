@@ -59,7 +59,7 @@ class ReadMore extends Component {
           {paragraphs.slice(visibleItems).map((paragraph, index) => {
             return (
               <p
-                key={`paragraph-${index}`}
+                key={`paragraph-${index + visibleItems}`} // index restarts at 0 after slice
                 dangerouslySetInnerHTML={{ __html: paragraph }}
                 className="mb3 lh-copy"
               />

@@ -4,21 +4,21 @@
     "critical": true,
     "alt": "I'm an alt tag!",
     "title": "I'm Title #1",
-    "description": "<a href=\"https://www.google.ca\">Link</a>",
+    "description": "I'm an inline <a href=\"https://www.google.ca\">Link</a>",
     "link": "https://www.google.ca"
   },
   {
     "image": "../images/placeholder.jpg",
     "alt": "I'm an alt tag!",
     "title": "I'm Title #2",
-    "description": "I'm a description. I go on and on and on...'",
+    "description": "I'm a description...'",
     "link": "https://www.google.ca"
   },
   {
     "image": "../images/placeholder.jpg",
     "alt": "I'm an alt tag!",
     "title": "I'm Title #3",
-    "description": "I'm a description. I go on and on and on...'",
+    "description": "I'm a description...'",
     "link": "https://www.google.ca"
   }
 ]

@@ -1,7 +1,7 @@
 const DataExample = ({ data }) => (
-  <section>
-    <h2 className="mb3 f3">Here's some queried JSON content:</h2>
-    <ul>
+  <section className="mv6">
+    <h2 className="mb3">Here's some queried JSON content:</h2>
+    <ul className="flex justify-between">
       {data.map((example, index) => {
         return <Example key={`example-${index}`} example={example.node} />
       })}
@@ -16,7 +16,7 @@ const DataExample = ({ data }) => (
  */
 
 const Example = ({ example }) => (
-  <li className="mb5 ph3">
+  <li className="mb5 ph3 w-third">
     <Img
       sizes={example.image.childImageSharp.sizes}
       position="0% 0%"
@@ -24,13 +24,13 @@ const Example = ({ example }) => (
       critical={example.critical}
       className="shadow-lg"
     />
-    <h3 className="mb3 pt3 f2">{example.title}</h3>
+    <h3 className="mb3 pt3 f3">{example.title}</h3>
     <p
-      className="ml-auto mr-auto pv3 measure lh-tall"
+      className="ml-auto mr-auto mb3 measure lh-tall"
       dangerouslySetInnerHTML={{ __html: example.description }}
     />
     <HyperLink href={example.link} className="link dib">
-      Here's a link
+      I'm a link
     </HyperLink>
   </li>
 )
