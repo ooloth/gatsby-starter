@@ -66,7 +66,6 @@
     "purgecss": "^0.21.0",
     "stylelint": "^9.2.0",
     "stylelint-config-recommended": "^2.1.0",
-    "stylelint-config-standard": "^18.2.0",
     "stylelint-no-unsupported-browser-features": "^3.0.0"
   },
   "scripts": {

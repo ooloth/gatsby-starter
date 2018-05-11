@@ -1,6 +1,6 @@
 [
   {
-    "image": "../images/placeholder.jpg",
+    "image": "../img/placeholder.jpg",
     "critical": true,
     "alt": "I'm an alt tag!",
     "title": "I'm Title #1",
@@ -8,14 +8,14 @@
     "link": "https://www.google.ca"
   },
   {
-    "image": "../images/placeholder.jpg",
+    "image": "../img/placeholder.jpg",
     "alt": "I'm an alt tag!",
     "title": "I'm Title #2",
     "description": "I'm a description...",
     "link": "https://www.google.ca"
   },
   {
-    "image": "../images/placeholder.jpg",
+    "image": "../img/placeholder.jpg",
     "alt": "I'm an alt tag!",
     "title": "I'm Title #3",
     "description": "I'm also a description...",

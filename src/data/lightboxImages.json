@@ -1,23 +1,11 @@
 [
   {
-    "images": [
-      "../images/placeholder.jpg",
-      "../images/placeholder.jpg",
-      "../images/placeholder.jpg"
-    ]
+    "images": ["../img/placeholder.jpg", "../img/placeholder.jpg", "../img/placeholder.jpg"]
   },
   {
-    "images": [
-      "../images/placeholder.jpg",
-      "../images/placeholder.jpg",
-      "../images/placeholder.jpg"
-    ]
+    "images": ["../img/placeholder.jpg", "../img/placeholder.jpg", "../img/placeholder.jpg"]
   },
   {
-    "images": [
-      "../images/placeholder.jpg",
-      "../images/placeholder.jpg",
-      "../images/placeholder.jpg"
-    ]
+    "images": ["../img/placeholder.jpg", "../img/placeholder.jpg", "../img/placeholder.jpg"]
   }
 ]

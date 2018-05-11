@@ -35,7 +35,7 @@ case `production`:
 
 // See: https://github.com/nfl/react-helmet + https://megatags.co + https://gethead.info
 
-import siteImage from '../images/placeholder.jpg'
+import siteImage from '../img/placeholder.jpg'
 
 const SiteMetadata = ({ site }) => (
   <Helmet>
