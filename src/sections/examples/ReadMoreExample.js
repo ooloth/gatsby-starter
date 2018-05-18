@@ -1,5 +1,7 @@
 // TODO: replace style attribute approach with an RTG approach?
 
+// TODO: create a reusable Expand.js (like my Reveal.js)?
+
 const ReadMoreExample = () => (
   <section className="mv6 pv5 bg-light-green">
     <h2 className="pb3">Read More Example</h2>
@@ -13,26 +15,20 @@ class ReadMore extends Component {
   handleReadMore = () => {
     if (!this.state.expanded) {
       loadjs.ready(`gsap`, () => {
-        // When expanding, set this immediately
-        this.setState({ expanded: true })
-
-        // Invalidate the temporary inline styles (which match the starting state for the animation and are added to prevent a flash of content in the ending position)
-        this.item.removeAttribute(`style`)
-
         // Expand the section to its natural height
-        TweenMax.fromTo(
-          this.item,
-          1,
-          {
-            height: 0,
-            autoAlpha: 0
-          },
-          {
-            height: this.item.offsetHeight,
-            autoAlpha: 1,
-            ease: `Power3.easeInOut`
-          }
-        )
+        TweenMax.set(this.item, {
+          height: `auto`,
+          autoAlpha: 1
+        })
+
+        // ...from a starting height of 0
+        TweenMax.from(this.item, 2, {
+          height: 0,
+          autoAlpha: 0,
+          ease: `Elastic.easeOut`
+        })
+
+        this.setState({ expanded: true })
       })
     }
   }
