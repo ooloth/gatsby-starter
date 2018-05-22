@@ -6,7 +6,8 @@ const IndexPage = ({ data }) => (
       Go to page 2
     </Link>
 
-    <DataExample data={data.allExampleJson.edges} />
+    <JsonExample data={data.allExampleJson.edges} />
+    <YamlExample data={data.allExampleYaml.edges} />
     <TemplateExample data={data.allTemplateJson.edges} />
     <MountTransitionExample />
     <GSAPExample />
@@ -44,7 +45,23 @@ export const query = graphql`
               }
             }
           }
-          critical
+          alt
+          title
+          description
+          link
+        }
+      }
+    }
+    allExampleYaml {
+      edges {
+        node {
+          image {
+            childImageSharp {
+              sizes(maxWidth: 1000) {
+                ...GatsbyImageSharpSizes_withWebp
+              }
+            }
+          }
           alt
           title
           description
@@ -105,7 +122,8 @@ export const query = graphql`
 import React from 'react'
 import Link from 'gatsby-link'
 
-import DataExample from '../sections/examples/DataExample'
+import JsonExample from '../sections/examples/JsonExample'
+import YamlExample from '../sections/examples/YamlExample'
 import TemplateExample from '../sections/examples/TemplateExample'
 import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'

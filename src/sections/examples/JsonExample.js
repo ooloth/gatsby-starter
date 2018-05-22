@@ -1,4 +1,4 @@
-const DataExample = ({ data }) => (
+const JsonExample = ({ data }) => (
   <section className="mv6">
     <h2 className="mb3">Here's some queried JSON content:</h2>
     <ul className="flex justify-between">
@@ -21,7 +21,6 @@ const Example = ({ example }) => (
       sizes={example.image.childImageSharp.sizes}
       position="0% 0%"
       alt={example.alt}
-      critical={example.critical}
       className="shadow-lg"
     />
     <h3 className="mb3 pt3 f3">{example.title}</h3>
@@ -46,4 +45,4 @@ import React from 'react'
 import Img from '../../components/Img'
 import HyperLink from '../../components/HyperLink'
 
-export default DataExample
+export default JsonExample

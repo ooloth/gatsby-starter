@@ -37,7 +37,8 @@ module.exports = {
     `gatsby-plugin-react-next`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-json`,
-    `gatsby-transformer-sharp`
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`
     // {
     //   resolve: `gatsby-plugin-favicon`,
     //   options: {

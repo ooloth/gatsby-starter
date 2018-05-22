@@ -1,8 +1,7 @@
-articles:
 - image: ../img/placeholder.jpg
   alt: I'm an alt tag!
   title: I'm Title 1
-  description: I'm an inline <a href=\https://www.google.ca\>Link</a>,
+  description: I'm an inline <a href=\https://www.google.ca\>Link</a>
   link: https://www.google.ca
 
 - image: ../img/placeholder.jpg
