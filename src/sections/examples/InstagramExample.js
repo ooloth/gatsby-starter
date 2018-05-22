@@ -9,12 +9,14 @@ class InstagramExample extends Component {
     const instafeedTarget = `instafeed`
     const instafeedTemplate = `
       <a href="{{link}}" target="_blank" rel="noopener nofollow" class="group relative w-third">
-        <img src="{{image}}" />
-        <p class="flex justify-center items-center absolute fill bg-transparent group-hover:bg-black-50 courier f4 md:f3 transparent group-hover:white animate">
+      <div class="aspect-ratio aspect-ratio--1x1">
+        <img src="{{image}}" class="aspect-ratio--object object-cover object-center" />
+        <p class="flex justify-center items-center absolute fill z-999 bg-transparent group-hover:bg-black-50 courier f4 md:f3 transparent group-hover:white animate">
           View Post
         </p>
-      </a>
-    `
+      </div>
+    </a>
+  `
 
     return (
       <div className="mv6 bg-light-yellow pa5 shadow-lg">
