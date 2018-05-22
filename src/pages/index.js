@@ -6,12 +6,11 @@ const IndexPage = ({ data }) => (
       Go to page 2
     </Link>
 
-    <JsonExample data={data.allExampleJson.edges} />
     <YamlExample data={data.allExampleYaml.edges} />
-    <TemplateExample data={data.allTemplateJson.edges} />
+    <TemplateExample data={data.allTemplateYaml.edges} />
     <MountTransitionExample />
     <GSAPExample />
-    <RevealExample data={data.allExampleJson.edges} />
+    <RevealExample data={data.allExampleYaml.edges} />
     <ReadMoreExample />
     <CollapseExample />
     <ImageLightboxExample images={data.allLightboxImagesJson.edges[0].node.images} />
@@ -35,23 +34,6 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
   query IndexPageQuery {
-    allExampleJson {
-      edges {
-        node {
-          image {
-            childImageSharp {
-              sizes(maxWidth: 1000) {
-                ...GatsbyImageSharpSizes_withWebp
-              }
-            }
-          }
-          alt
-          title
-          description
-          link
-        }
-      }
-    }
     allExampleYaml {
       edges {
         node {
@@ -69,7 +51,7 @@ export const query = graphql`
         }
       }
     }
-    allTemplateJson {
+    allTemplateYaml {
       edges {
         node {
           title
@@ -122,7 +104,6 @@ export const query = graphql`
 import React from 'react'
 import Link from 'gatsby-link'
 
-import JsonExample from '../sections/examples/JsonExample'
 import YamlExample from '../sections/examples/YamlExample'
 import TemplateExample from '../sections/examples/TemplateExample'
 import MountTransitionExample from '../sections/examples/MountTransitionExample'

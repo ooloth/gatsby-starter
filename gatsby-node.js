@@ -78,7 +78,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
 /*
  *
- * Generate Template pages programmatically from template.json
+ * Generate Template pages programmatically from template.yaml
  * 
  */
 
@@ -91,10 +91,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
   return new Promise((resolve, reject) => {
-    // TODO: update `allTemplateJson` to correct file name
+    // TODO: update `allTemplateYaml` to correct file name
     graphql(`
       {
-        allTemplateJson {
+        allTemplateYaml {
           edges {
             node {
               slug
@@ -103,14 +103,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       }
     `).then(result => {
-      // TODO: update `allTemplateJson` to correct file name
-      result.data.allTemplateJson.edges.forEach(({ node }) => {
+      // TODO: update `allTemplateYaml` to correct file name
+      result.data.allTemplateYaml.edges.forEach(({ node }) => {
         createPage({
           path: node.slug,
           // TODO: update `template.js` to correct file name
           component: path.resolve(`src/templates/template.js`),
 
-          // Send additional data to page from JSON (or query inside template)
+          // Send additional data to page from YAML (or query inside template)
           context: {
             slug: node.slug
           }
