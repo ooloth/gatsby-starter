@@ -12,6 +12,7 @@ const IndexPage = ({ data }) => (
     <GSAPExample />
     <RevealExample data={data.allExampleJson.edges} />
     <ReadMoreExample />
+    <CollapseExample />
     <ImageLightboxExample images={data.allLightboxImagesJson.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosJson.edges} />
     <TwitterExample />
@@ -110,6 +111,7 @@ import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
 import ReadMoreExample from '../sections/examples/ReadMoreExample'
+import CollapseExample from '../sections/examples/CollapseExample'
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 import TwitterExample from '../sections/examples/TwitterExample'
