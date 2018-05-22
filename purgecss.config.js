@@ -14,5 +14,5 @@ module.exports = {
   ],
   whitelist: [`cursor-not-allowed`, `o-50`],
   // Add plugin prefixes here:
-  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /slick/, /textarea/]
+  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /ril/, /slick/, /textarea/]
 }

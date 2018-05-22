@@ -13,8 +13,8 @@ const IndexPage = ({ data }) => (
     <RevealExample data={data.allExampleYaml.edges} />
     <ReadMoreExample />
     <CollapseExample />
-    <ImageLightboxExample images={data.allLightboxImagesJson.edges[0].node.images} />
-    <VideoLightboxExample videos={data.allLightboxVideosJson.edges} />
+    <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
+    <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
     <TwitterExample />
     <InstagramExample />
     {/* <ParallaxExample /> */}
@@ -59,7 +59,7 @@ export const query = graphql`
         }
       }
     }
-    allLightboxVideosJson {
+    allLightboxVideosYaml {
       edges {
         node {
           url
@@ -76,7 +76,7 @@ export const query = graphql`
         }
       }
     }
-    allLightboxImagesJson {
+    allLightboxImagesYaml {
       edges {
         node {
           images {
