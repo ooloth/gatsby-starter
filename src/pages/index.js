@@ -8,17 +8,22 @@ const IndexPage = ({ data }) => (
 
     <YamlExample data={data.allExampleYaml.edges} />
     <TemplateExample data={data.allTemplateYaml.edges} />
+
     <MountTransitionExample />
     <GSAPExample />
     <RevealExample data={data.allExampleYaml.edges} />
+
     <ReadMoreExample />
     <CollapseExample />
+
     <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
+
+    {/* <ReactSpringExample /> */}
+
     <TwitterExample />
     <InstagramExample />
     {/* <ParallaxExample /> */}
-    {/* <ReactSpringExample /> */}
 
     <ScrollTo href="#top" className="link dib mb5">
       Back to top

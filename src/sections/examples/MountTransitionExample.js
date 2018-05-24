@@ -4,52 +4,89 @@
 
 const MountTransitionExample = () => (
   <section className="mv6 pv5 bg-near-white">
-    <h2 className="mb4">Mount Transition Example</h2>
-    <p className="mb5">I trigger a GSAP animation once I'm loaded</p>
-    <AnimatingBox />
+    <h2 className="mb4">Mount & Unmount Transitions Example</h2>
+    <p className="mb5">I trigger GSAP animations when I enter and exit</p>
+    <AnimatingBoxes />
   </section>
 )
 
 /* 
  *
- * Animating Box
+ * Animating Boxes
  * 
  */
 
-class AnimatingBox extends Component {
-  state = { in: false }
+class AnimatingBoxes extends Component {
+  state = { in: false, boxes: [`box`] }
 
-  // Refs
-  // animContainer = React.createRef()
-  // animChild = React.createRef()
+  addBox = () => this.setState({ boxes: this.state.boxes.concat(`box`) })
 
-  componentDidMount = () => {
+  removeBox = () =>
+    this.setState({ boxes: this.state.boxes.slice(0, this.state.boxes.length - 1) })
+
+  enterAnim = rtgChild => {
     loadjs.ready(`gsap`, () => {
-      !this.state.in && this.setState({ in: true })
-    })
-  }
-
-  expand = transitionChild => {
-    loadjs.ready(`gsap`, () => {
-      TweenMax.to(transitionChild, 3, {
-        rotationY: `360deg`,
+      TweenMax.from(rtgChild, 0.7, {
+        scale: 0,
         ease: `Power3.easeInOut`
       })
     })
   }
 
+  exitAnim = rtgChild => {
+    loadjs.ready(`gsap`, () => {
+      let tl = new TimelineMax()
+      tl
+        // Transition the exiting element out
+        .to(rtgChild, 0.5, {
+          scale: 0,
+          ease: `Power3.easeInOut`
+        })
+        // Collapse the remaining space gradually
+        .to(
+          rtgChild,
+          0.5,
+          {
+            margin: 0,
+            borderWidth: 0,
+            padding: 0,
+            lineHeight: 0,
+            fontSize: 0,
+            ease: `Power3.easeInOut`
+          },
+          `-=0.2`
+        )
+    })
+  }
+
   render() {
+    const { boxes } = this.state
+
     return (
-      <Transition
-        in={this.state.in}
-        onEnter={this.expand}
-        timeout={1000}
-        // By default the child component is mounted immediately along with the parent Transition component. If you want to "lazy mount" the component on the first in={true} you can set mountOnEnter.
-        mountOnEnter={true}
-        unmountOnExit={true}
-      >
-        <p className="dib bg-pink pv4 ph5">Hi</p>
-      </Transition>
+      <Fragment>
+        <TransitionGroup component={null}>
+          {boxes.map((box, index) => (
+            <Transition
+              key={index} // "in" prop is passed automatically by TransitionGroup
+              appear={true}
+              onEnter={this.enterAnim}
+              onExit={this.exitAnim}
+              timeout={{ enter: 700, exit: 800 }} // required unless addEndListener is used
+            >
+              <p className="mv2 ml-auto mr-auto w5 b--black bw2 bg-pink pa4">box</p>
+            </Transition>
+          ))}
+        </TransitionGroup>
+
+        <div>
+          <button onClick={this.addBox} className="btn mt4 mr2">
+            +
+          </button>
+          <button onClick={this.removeBox} className="btn ml2">
+            -
+          </button>
+        </div>
+      </Fragment>
     )
   }
 }
@@ -60,8 +97,9 @@ class AnimatingBox extends Component {
  * 
  */
 
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import loadjs from 'loadjs'
 import Transition from 'react-transition-group/Transition'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 export default MountTransitionExample
