@@ -12,7 +12,10 @@ class FormNetlifyWithStateChart extends Component {
   }
 
   // Input change event handler (save input values to state)
-  handleChange = e => this.setState({ [e.target.name]: e.target.value })
+  handleChange = e => {
+    console.log(`this.state`, this.state)
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   // Form submission event handler (check for fetch support before submitting)
   handleSubmit = e => {
