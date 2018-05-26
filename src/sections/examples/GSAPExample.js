@@ -1,7 +1,7 @@
 class GSAPExample extends React.Component {
   // Waypoint handlers
   handleWaypointEnter = () => this.props.transition(`ANIMATE`)
-  handleWaypointLeave = () => this.props.transition(`PAUSE`)
+  handleWaypointLeave = () => this.props.transition(`PAUSE`) // pauses when out of view
 
   // Button handlers
   handleStartAnimation = () => this.props.transition(`ANIMATE`)
@@ -11,7 +11,7 @@ class GSAPExample extends React.Component {
   // Imperative GSAP methods
   startAnimation = () => {
     loadjs.ready(`gsap`, () => {
-      this.box.animation = TweenMax.to(this.box, 1.5, {
+      this.node.animation = TweenMax.to(this.node, 1.5, {
         scale: 0.9,
         ease: `Power2.easeInOut`,
         repeat: -1,
@@ -19,32 +19,31 @@ class GSAPExample extends React.Component {
       })
     })
   }
-
-  pauseAnimation = () => loadjs.ready(`gsap`, () => this.box.animation.pause())
-
-  resumeAnimation = () => loadjs.ready(`gsap`, () => this.box.animation.resume())
-
+  pauseAnimation = () => this.node.animation.pause()
+  resumeAnimation = () => this.node.animation.resume()
   killAnimation = () => {
-    loadjs.ready(`gsap`, () => this.box.animation.kill())
-    TweenMax.set(this.box, { clearProps: `all` })
-    this.box.animation = null
+    this.node.animation.kill()
+    TweenMax.set(this.node, { clearProps: `all` })
+    this.node.animation = null
   }
 
   render() {
     console.log(`🗺`, this.props.machineState.value)
 
     return (
-      <section ref={el => (this.box = el)}>
+      <section ref={el => (this.node = el)}>
         <Waypoint
           onEnter={this.handleWaypointEnter}
           onLeave={this.handleWaypointLeave}
         >
           <div className="mv6 bg-red pa5 shadow-lg">
+            {/* Intro */}
             <h2>I'm an animated component</h2>
             <p className="mv4 ml-auto mr-auto measure-narrow lh-copy">
               I animate on scroll or by clicking the buttons below.
             </p>
 
+            {/* Start Button */}
             <Action
               show={[`pauseAnimation`, `killAnimation`]}
               hide={[`startAnimation`, `resumeAnimation`]}
@@ -54,6 +53,7 @@ class GSAPExample extends React.Component {
               </button>
             </Action>
 
+            {/* Pause Button */}
             <Action
               show={[`startAnimation`, `resumeAnimation`]}
               hide={[`pauseAnimation`, `killAnimation`]}
@@ -63,6 +63,7 @@ class GSAPExample extends React.Component {
               </button>
             </Action>
 
+            {/* End Button */}
             <Action
               show={[`startAnimation`, `resumeAnimation`, `pauseAnimation`]}
               hide={[`killAnimation`]}
