@@ -63,7 +63,7 @@ class FormNetlifyWithStateChart extends Component {
             onSubmit={this.handleSubmit}
           >
             {/* This hidden input is required by Netlify */}
-            <input type="hidden" name="form-name" value={name} />
+            <input type="hidden" name="form-name" value={this.props.name} />
 
             {this.props.renderFormFields(this.handleChange)}
           </form>
