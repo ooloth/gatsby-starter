@@ -3,7 +3,7 @@ const FormNetlifyExample = () => (
     <h2 className="mb4">Here's an example form:</h2>
 
     <FormNetlifyWithStateChart
-      name="Example Contact"
+      name="Example Contact #2"
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
       renderError={() => <Error />}
       renderSuccess={() => <Success />}
