@@ -16,7 +16,7 @@ class FormNetlify extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    // Check for fetch support before submitting form (polyfill loads in gatsby-browser if needed)
+    // Check fetch support before submitting (polyfill loads in gatsby-browser if needed)
     if (typeof window.fetch !== `undefined` || loadjs.ready(`fetch`)) {
       this.submitForm()
     }
@@ -29,7 +29,7 @@ class FormNetlify extends React.Component {
       body: encode({ 'form-name': `Aria Umezawa`, ...this.state })
     })
       .then(response => {
-        // console.log(`success: ${response}`)
+        console.log(`success: ${response}`)
         this.setState({ notSent: false, sentSuccessfully: true })
       })
       .catch(error => console.log(`error: ${error}`))
@@ -108,8 +108,8 @@ class FormNetlify extends React.Component {
         {/* Hide form and show success message after form has submitted successfully */}
         {this.state.sentSuccessfully && (
           <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
-            Success! Thanks for getting in touch. <br className="dn lg:di" />Aria will get back
-            to you soon!
+            Success! Thanks for getting in touch. <br className="dn lg:di" />Aria
+            will get back to you soon!
           </div>
         )}
       </div>

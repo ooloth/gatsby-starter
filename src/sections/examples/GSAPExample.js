@@ -8,7 +8,7 @@ class GSAPExample extends React.Component {
   handlePauseAnimation = () => this.props.transition(`PAUSE`)
   handleKillAnimation = () => this.props.transition(`KILL`)
 
-  // Imperative GSAP methods
+  // Imperative GSAP actions
   startAnimation = () => {
     loadjs.ready(`gsap`, () => {
       this.node.animation = TweenMax.to(this.node, 1.5, {
@@ -28,7 +28,7 @@ class GSAPExample extends React.Component {
   }
 
   render() {
-    console.log(`🗺`, this.props.machineState.value)
+    console.log(`🗺 GSAPExample state:`, this.props.machineState.value)
 
     return (
       <section ref={el => (this.node = el)}>

@@ -4,7 +4,9 @@ class Collapse extends Component {
   static propTypes = {
     duration: PropTypes.number,
     ease: PropTypes.string,
-    expanded: PropTypes.bool
+    expanded: PropTypes.bool,
+    renderContent: PropTypes.func.isRequired,
+    renderToggle: PropTypes.func.isRequired
   }
 
   static defaultProps = {

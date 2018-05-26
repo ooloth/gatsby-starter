@@ -25,6 +25,8 @@ const IndexPage = ({ data }) => (
     <InstagramExample />
     {/* <ParallaxExample /> */}
 
+    <FormNetlifyExample />
+
     <ScrollTo href="#top" className="link dib mb5">
       Back to top
     </ScrollTo>
@@ -111,17 +113,22 @@ import Link from 'gatsby-link'
 
 import YamlExample from '../sections/examples/YamlExample'
 import TemplateExample from '../sections/examples/TemplateExample'
+
 import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
 import ReadMoreExample from '../sections/examples/ReadMoreExample'
 import CollapseExample from '../sections/examples/CollapseExample'
-import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
-import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
-import TwitterExample from '../sections/examples/TwitterExample'
-import InstagramExample from '../sections/examples/InstagramExample'
 // import ParallaxExample from '../sections/examples/ParallaxExample'
 // import ReactSpringExample from '../sections/examples/ReactSpringExample'
+
+import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
+import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
+
+import TwitterExample from '../sections/examples/TwitterExample'
+import InstagramExample from '../sections/examples/InstagramExample'
+
+import FormNetlifyExample from '../sections/examples/FormNetlifyExample'
 
 import ScrollTo from '../components/examples/ScrollTo'
 
