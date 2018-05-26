@@ -5,8 +5,7 @@ const FormNetlifyExample = () => (
     <FormNetlifyWithStateChart
       name="Example Contact"
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
-      renderFetchError={() => <FetchError />}
-      renderSendError={() => <SendError />}
+      renderError={() => <Error />}
       renderSuccess={() => <Success />}
     />
   </section>
@@ -99,26 +98,12 @@ Input.propTypes = {
 
 /* 
  *
- * Fetch Error
- * 
- */
-
-// TODO: Extract common classes into a Tailwinds component class
-const FetchError = () => (
-  <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
-    Success! Thanks for getting in touch. <br className="dn lg:di" />Aria will get
-    back to you soon!
-  </div>
-)
-
-/* 
- *
  * Send Error
  * 
  */
 
 // TODO: Extract common classes into a Tailwinds component class
-const SendError = () => (
+const Error = () => (
   <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
     Success! Thanks for getting in touch. <br className="dn lg:di" />Aria will get
     back to you soon!
@@ -134,8 +119,7 @@ const SendError = () => (
 // TODO: Extract common classes into a Tailwinds component class
 const Success = () => (
   <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
-    Success! Thanks for getting in touch. <br className="dn lg:di" />Aria will get
-    back to you soon!
+    Success! Thanks for getting in touch. We'll get back to you soon!
   </div>
 )
 

@@ -14,18 +14,14 @@ class FormNetlifyWithStateChart extends Component {
   // Input change event handler (save input values to state)
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
-  // Form submission event handler
+  // Form submission event handler (check for fetch support before submitting)
   handleSubmit = e => {
     e.preventDefault()
-    this.props.transition(`SUBMIT`)
-  }
 
-  // Confirm fetch support
-  verifyFetchSupport = () => {
     if (typeof window.fetch !== `undefined` || loadjs.ready(`fetch`)) {
-      this.props.transition(`FETCH_SUPPORTED`)
+      this.props.transition(`SUBMIT`)
     } else {
-      this.props.transition(`FETCH_NOT_SUPPORTED`)
+      console.log(`🚧 Fetch is not supported in this browser.`)
     }
   }
 
@@ -44,17 +40,17 @@ class FormNetlifyWithStateChart extends Component {
     })
       .then(() => this.props.transition(`SUCCESS`))
       .catch(error => {
-        console.log(`Form submission error:`, error)
+        console.log(`🚧 Form submission error:`, error)
         this.props.transition(`ERROR`)
       })
   }
 
   render() {
-    console.log(`🗺 FormNetlifyWithStateChart state:`, this.props.machineState.value)
+    console.log(`🗺 Form state:`, this.props.machineState.value)
 
     return (
       <Fragment>
-        <State value={`!sent`}>
+        <State value={`!success`}>
           <form
             name={this.props.name}
             method="post"
@@ -69,9 +65,8 @@ class FormNetlifyWithStateChart extends Component {
           </form>
         </State>
 
-        <State value="fetchError">{this.props.renderFetchError()}</State>
-        <State value="sendError">{this.props.renderSendError()}</State>
-        <State value="sent">{this.props.renderSuccess()}</State>
+        <State value="error">{this.props.renderError()}</State>
+        <State value="success">{this.props.renderSuccess()}</State>
       </Fragment>
     )
   }
@@ -87,34 +82,22 @@ const formChart = {
   initial: `start`,
   states: {
     start: {
-      on: { SUBMIT: `verifyingFetchSupport` }
-    },
-
-    verifyingFetchSupport: {
-      onEntry: `verifyFetchSupport`,
-      on: {
-        FETCH_SUPPORTED: `sending`,
-        FETCH_NOT_SUPPORTED: `fetchError`
-      }
-    },
-
-    fetchError: {
-      on: { SUBMIT: `verifyingFetchSupport` }
+      on: { SUBMIT: `sending` }
     },
 
     sending: {
       onEntry: `sendForm`,
       on: {
-        SUCCESS: `sent`,
-        ERROR: `sendError`
+        ERROR: `error`,
+        SUCCESS: `success`
       }
     },
 
-    sendError: {
+    error: {
       on: { SUBMIT: `sending` }
     },
 
-    sent: {}
+    success: {}
   }
 }
 
