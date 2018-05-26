@@ -2,7 +2,6 @@ class Collapse extends Component {
   state = { expanded: this.props.expanded || false }
 
   static propTypes = {
-    // ...
     duration: PropTypes.number,
     ease: PropTypes.string,
     expanded: PropTypes.bool
@@ -14,15 +13,9 @@ class Collapse extends Component {
     expanded: false
   }
 
-  handleToggle = () => {
-    this.state.expanded ? this.collapse() : this.expand()
+  handleToggle = () => (this.state.expanded ? this.collapse() : this.expand())
 
-    // this.props.transition(`TOGGLE`)
-  }
-  handleKeyUp = e => {
-    e.key === `Enter` && this.handleToggle()
-    // e.key === `Enter` && this.props.transition(`TOGGLE`)
-  }
+  handleKeyUp = e => e.key === `Enter` && this.handleToggle()
 
   expand = () => {
     loadjs.ready(`gsap`, () => {
@@ -72,29 +65,6 @@ class Collapse extends Component {
         {renderToggle(expanded, this.handleToggle, this.handleKeyUp)}
       </Fragment>
     )
-  }
-}
-
-/*
- *
- * Collapse State Chart
- * 
- */
-
-const collapseChart = {
-  initial: `collapsed`,
-  states: {
-    collapsed: {
-      on: {
-        TOGGLE: `expanded`
-      }
-    },
-
-    expanded: {
-      on: {
-        TOGGLE: `collapsed`
-      }
-    }
   }
 }
 
