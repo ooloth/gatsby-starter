@@ -6,7 +6,7 @@ const FormNetlifyExample = () => (
     <h2 className="mb4">State Chart Form:</h2>
 
     <FormNetlifyWithStateChart
-      name="Example Contact 2"
+      name="Example Contact"
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
       renderError={() => <Error />}
       renderSuccess={() => <Success />}
