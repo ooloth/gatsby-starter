@@ -27,7 +27,7 @@ class FormNetlify2 extends React.Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': this.props.name, ...this.state })
+      body: encode({ 'form-name': `Renamed`, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
@@ -42,14 +42,14 @@ class FormNetlify2 extends React.Component {
         {/* Show the form until it has been submitted successfully */}
         {this.state.notSent && (
           <form
-            name={this.props.name}
+            name="Renamed"
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
             {/* This hidden input is required by Netlify */}
-            <input type="hidden" name="form-name" value={this.props.name} />
+            <input type="hidden" name="form-name" value="Renamed" />
 
             {this.props.renderFormFields(this.handleChange)}
           </form>
