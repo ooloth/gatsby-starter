@@ -10,7 +10,7 @@ const FormNetlifyExample = () => (
     />
 
     <h2 className="mb4">Here's the old form:</h2>
-    <FormNetlify />
+    <FormNetlify2 />
   </section>
 )
 
@@ -133,7 +133,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Textarea from 'react-textarea-autosize'
 
-import FormNetlify from '../../components/examples/FormNetlify'
+import FormNetlify2 from '../../components/examples/FormNetlify2'
 import FormNetlifyWithStateChart from '../../components/examples/FormNetlifyWithStateChart'
 
 export default FormNetlifyExample
