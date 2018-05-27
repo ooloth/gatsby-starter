@@ -1,6 +1,9 @@
 const FormNetlifyExample = () => (
   <section className="mv6 bg-light-green pa5 shadow-lg">
-    <h2 className="mb4">Here's an example form:</h2>
+    <h2 className="mb4">Original Form:</h2>
+    <FormNetlify />
+
+    <h2 className="mb4">State Chart Form:</h2>
 
     <FormNetlifyWithStateChart
       name="Example Contact 2"
@@ -9,7 +12,7 @@ const FormNetlifyExample = () => (
       renderSuccess={() => <Success />}
     />
 
-    <h2 className="mb4">Here's the old form:</h2>
+    <h2 className="mb4">Experimental form:</h2>
     <FormNetlify2
       name="Basic 2"
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
@@ -45,7 +48,7 @@ const FormFields = ({ handleChange }) => (
       className="input mb4"
     />
 
-    <textarea
+    {/* <textarea
       name="message1"
       placeholder="Message 1:"
       required
@@ -53,7 +56,7 @@ const FormFields = ({ handleChange }) => (
       className="input mb4"
       style={{ resize: `none` }}
       rows="5"
-    />
+    /> */}
 
     <Textarea
       aria-label="Enter your message"
@@ -145,6 +148,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Textarea from 'react-textarea-autosize'
 
+import FormNetlify from '../../components/examples/FormNetlify'
 import FormNetlify2 from '../../components/examples/FormNetlify2'
 import FormNetlifyWithStateChart from '../../components/examples/FormNetlifyWithStateChart'
 
