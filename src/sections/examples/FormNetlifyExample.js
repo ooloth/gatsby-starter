@@ -11,7 +11,7 @@ const FormNetlifyExample = () => (
 
     <h2 className="mb4">Here's the old form:</h2>
     <FormNetlify2
-      name="Basic 3"
+      name="Basic 2"
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
       // renderError={() => <Error />}
       renderSuccess={() => <Success />}
