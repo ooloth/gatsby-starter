@@ -4,7 +4,7 @@ const FormNetlifyExample = () => (
     <FormNetlify />
 
     <h2 className="mb4">Copy of Original Form:</h2>
-    <FormNetlifyCopy />
+    <FormNetlifyCopy name="Basic Copy" />
 
     <h2 className="mb4">State Chart Form:</h2>
 
