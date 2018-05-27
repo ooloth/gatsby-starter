@@ -21,11 +21,8 @@ class FormNetlifyWithStateChart extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    if (typeof window.fetch !== `undefined` || loadjs.ready(`fetch`)) {
-      this.props.transition(`SUBMIT`)
-    } else {
-      console.log(`🚧 Fetch is not supported in this browser.`)
-    }
+    if (typeof window.fetch !== `undefined`) this.props.transition(`SUBMIT`)
+    else console.log(`🚧 Fetch is not supported in this browser.`)
   }
 
   // Create the URL encoding for the form submission
@@ -49,7 +46,7 @@ class FormNetlifyWithStateChart extends Component {
   }
 
   render() {
-    console.log(`🗺 Form state:`, this.props.machineState.value)
+    console.log(this.props.machineState.value)
 
     return (
       <Fragment>
