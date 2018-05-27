@@ -8,6 +8,9 @@ const FormNetlifyExample = () => (
       renderError={() => <Error />}
       renderSuccess={() => <Success />}
     />
+
+    <h2 className="mb4">Here's the old form:</h2>
+    <FormNetlify />
   </section>
 )
 
@@ -19,38 +22,34 @@ const FormNetlifyExample = () => (
 
 const FormFields = ({ handleChange }) => (
   <Fragment>
-    <div className="contact-form-grid">
-      <div className="span-2">
-        <Input
-          type="text"
-          name="name"
-          label="Enter your full name"
-          placeholder="Full Name:"
-          handleChange={handleChange}
-          className="mb4"
-        />
+    <Input
+      type="text"
+      name="name"
+      label="Enter your full name"
+      placeholder="Full Name:"
+      handleChange={handleChange}
+      className="mb4"
+    />
 
-        <Input
-          type="email"
-          name="email"
-          label="Enter your email address"
-          placeholder="Email:"
-          handleChange={handleChange}
-          className="mb4"
-        />
-      </div>
+    <Input
+      type="email"
+      name="email"
+      label="Enter your email address"
+      placeholder="Email:"
+      handleChange={handleChange}
+      className="mb4"
+    />
 
-      <Textarea
-        aria-label="Enter your message"
-        minRows={5}
-        name="message"
-        placeholder="Message:"
-        required
-        onChange={handleChange}
-        className="input span-3 mb4"
-        style={{ resize: `none` }}
-      />
-    </div>
+    <Textarea
+      aria-label="Enter your message"
+      minRows={5}
+      name="message"
+      placeholder="Message:"
+      required
+      onChange={handleChange}
+      className="input span-3 mb4"
+      style={{ resize: `none` }}
+    />
 
     <button type="submit" className="btn">
       Send message
@@ -134,6 +133,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Textarea from 'react-textarea-autosize'
 
+import FormNetlify from '../../components/examples/FormNetlify'
 import FormNetlifyWithStateChart from '../../components/examples/FormNetlifyWithStateChart'
 
 export default FormNetlifyExample

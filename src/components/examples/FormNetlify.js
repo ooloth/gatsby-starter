@@ -26,7 +26,7 @@ class FormNetlify extends React.Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': `Aria Umezawa`, ...this.state })
+      body: encode({ 'form-name': `Basic`, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
@@ -41,18 +41,13 @@ class FormNetlify extends React.Component {
         {/* Show the form until it has been submitted successfully */}
         {this.state.notSent && (
           <form
-            name="Aria Umezawa"
+            name="Basic"
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
-            <input
-              type="hidden"
-              name="form-name"
-              value="Aria Umezawa contact"
-              className="dn"
-            />
+            <input type="hidden" name="form-name" value="Basic" className="dn" />
 
             {/* TODO: extract the inputs below into an Input component I can just pass props to (worth it?)...? */}
 
