@@ -61,7 +61,7 @@ class FormNetlifyWithStateChart extends Component {
             {this.props.renderFormFields(this.handleChange)}
 
             {/* Needed so Netlify will recognize the Textarea component */}
-            <textarea type="hidden" name="message" />
+            {/* <textarea type="hidden" name="message" className="dn" /> */}
           </form>
         </State>
 

@@ -1,7 +1,7 @@
 const FormNetlifyExample = () => (
   <section className="mv6 bg-light-green pa5 shadow-lg">
-    <h2 className="mb4">Original Form:</h2>
-    <FormNetlify />
+    {/* <h2 className="mb4">Original Form:</h2>
+    <FormNetlify /> */}
 
     <h2 className="mb4">Copy of Original Form:</h2>
     <FormNetlifyCopy
@@ -20,13 +20,13 @@ const FormNetlifyExample = () => (
       renderSuccess={() => <Success />}
     />
 
-    <h2 className="mb4">Experimental form:</h2>
+    {/* <h2 className="mb4">Experimental form:</h2>
     <FormNetlify2
       name="Basic 2"
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
       // renderError={() => <Error />}
       renderSuccess={() => <Success />}
-    />
+    /> */}
   </section>
 )
 
