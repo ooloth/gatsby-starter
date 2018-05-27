@@ -45,10 +45,10 @@ class FormNetlifyCopy extends React.Component {
           >
             <input type="hidden" name="form-name" value={this.props.name} />
 
-            {this.props.renderFormFields(this.handleChange)}
-
             {/* Will this prime Netlify to notice the Textarea component? */}
             <textarea type="hidden" name="message" className="dn" />
+
+            {this.props.renderFormFields(this.handleChange)}
           </form>
         </State>
 

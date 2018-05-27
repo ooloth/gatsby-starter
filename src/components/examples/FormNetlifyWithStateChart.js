@@ -57,11 +57,13 @@ class FormNetlifyWithStateChart extends Component {
             {/* This hidden input is required by Netlify */}
             <input type="hidden" name="form-name" value={this.props.name} />
 
+            {/* Needed so Netlify will recognize the Textarea component */}
+            <input type="hidden" name="name" className="dn" />
+            <input type="hidden" name="email" className="dn" />
+            <textarea type="hidden" name="message" className="dn" />
+
             {/* Render input fields (created separately for UI flexibility) */}
             {this.props.renderFormFields(this.handleChange)}
-
-            {/* Needed so Netlify will recognize the Textarea component */}
-            <textarea type="hidden" name="message" className="dn" />
           </form>
         </State>
 
