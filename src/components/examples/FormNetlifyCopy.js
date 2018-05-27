@@ -45,7 +45,11 @@ class FormNetlifyCopy extends React.Component {
           >
             <input type="hidden" name="form-name" value={this.props.name} />
 
-            <input
+            {/* Will this prime Netlify to notice the Textarea component? */}
+            <textarea type="hidden" name="message" />
+
+            {this.props.renderFormFields(this.handleChange)}
+            {/* <input
               aria-label="Enter your full name"
               type="text"
               name="name"
@@ -85,7 +89,7 @@ class FormNetlifyCopy extends React.Component {
               >
                 Send message
               </span>
-            </button>
+            </button> */}
           </form>
         </State>
 
