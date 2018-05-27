@@ -1,21 +1,15 @@
 class FormNetlifyCopy extends React.Component {
-  state = {
-    notSent: true,
-    sentSuccessfully: false
-  }
-
   // Input change event handler (save input values to state)
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   // Form submission event handler (check for fetch support before submitting)
   handleSubmit = e => {
     e.preventDefault()
-
     if (typeof window.fetch !== `undefined`) this.props.transition(`SUBMIT`)
     else console.log(`🚧 Fetch is not supported in this browser.`)
   }
 
-  // Create the URL encoding for the form submission
+  // Create the encoded URL for the form submission
   createURL = data =>
     Object.keys(data)
       .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
@@ -36,20 +30,20 @@ class FormNetlifyCopy extends React.Component {
   }
 
   render() {
-    console.log(this.props.machineState.value)
+    console.log(`FormNetlifyCopy:`, this.props.machineState.value)
 
     return (
       <div>
-        {/* Show the form until it has been submitted successfully */}
+        {/* Show the form until it submits successfully */}
         <State value={`!success`}>
           <form
-            name="Basic Copy"
+            name={this.props.name}
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
-            <input type="hidden" name="form-name" value="Basic Copy" />
+            <input type="hidden" name="form-name" value={this.props.name} />
 
             <input
               aria-label="Enter your full name"
