@@ -1,10 +1,3 @@
-// Create the URL encoding for the form submission
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-    .join(`&`)
-}
-
 class FormNetlifyCopy extends React.Component {
   state = {
     notSent: true,
@@ -22,11 +15,18 @@ class FormNetlifyCopy extends React.Component {
     }
   }
 
+  // Create the URL encoding for the form submission
+  encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+      .join(`&`)
+  }
+
   submitForm = () => {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': `Basic Copy`, ...this.state })
+      body: this.encode({ 'form-name': `Basic Copy`, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
@@ -47,52 +47,40 @@ class FormNetlifyCopy extends React.Component {
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
+            <input type="hidden" name="form-name" value="Basic Copy" />
+
             <input
-              type="hidden"
-              name="form-name"
-              value="Basic Copy"
-              className="dn"
+              aria-label="Enter your full name"
+              type="text"
+              name="name"
+              placeholder="Full Name:"
+              required
+              onChange={this.handleChange}
+              className="input mb4"
             />
 
-            {/* TODO: extract the inputs below into an Input component I can just pass props to (worth it?)...? */}
+            <input
+              aria-label="Enter your email address"
+              type="email"
+              name="email"
+              placeholder="Email:"
+              required
+              title="The domain portion of the email address is invalid (the portion after the @)."
+              pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+              onChange={this.handleChange}
+              className="input mb4"
+            />
 
-            <div className="contact-form-grid">
-              <div className="span-2">
-                <input
-                  aria-label="Enter your full name"
-                  type="text"
-                  name="name"
-                  placeholder="Full Name:"
-                  required
-                  onChange={this.handleChange}
-                  className="input mb4"
-                />
-
-                {/* Includes validation for the domain portion of the email address */}
-                <input
-                  aria-label="Enter your email address"
-                  type="email"
-                  name="email"
-                  placeholder="Email:"
-                  required
-                  title="The domain portion of the email address is invalid (the portion after the @)."
-                  pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
-                  onChange={this.handleChange}
-                  className="input mb4"
-                />
-              </div>
-
-              <Textarea
-                aria-label="Enter your message"
-                minRows={5}
-                name="message"
-                placeholder="Message:"
-                required
-                onChange={this.handleChange}
-                className="input span-3 mb4"
-                style={{ resize: `none` }}
-              />
-            </div>
+            <Textarea
+              aria-label="Enter your message"
+              minRows={5}
+              name="message"
+              placeholder="Message:"
+              required
+              onChange={this.handleChange}
+              className="input span-3 mb4"
+              style={{ resize: `none` }}
+            />
 
             <button type="submit" className="group relative bg-near-white">
               <span

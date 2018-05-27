@@ -52,10 +52,10 @@ class FormNetlifyWithStateChart extends Component {
       <Fragment>
         <State value={`!success`}>
           <form
-            // name={this.props.name}
-            // method="post"
-            // data-netlify="true"
-            // data-netlify-honeypot="bot-field"
+            name={this.props.name}
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
             {/* This hidden input is required by Netlify */}

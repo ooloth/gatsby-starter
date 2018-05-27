@@ -47,10 +47,10 @@ class FormNetlify2 extends React.Component {
         {/* Show the form until it has been submitted successfully */}
         {this.state.notSent && (
           <form
-            // name={this.props.name}
-            // method="post"
-            // data-netlify="true"
-            // data-netlify-honeypot="bot-field"
+            name={this.props.name}
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
             {/* This hidden input is required by Netlify */}
