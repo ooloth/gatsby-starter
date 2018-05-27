@@ -45,9 +45,7 @@ class FormNetlifyCopy extends React.Component {
           >
             <input type="hidden" name="form-name" value={this.props.name} />
 
-            {this.props.renderFormFields(this.handleChange)}
-
-            {/* <input
+            <input
               aria-label="Enter your full name"
               type="text"
               name="name"
@@ -87,7 +85,7 @@ class FormNetlifyCopy extends React.Component {
               >
                 Send message
               </span>
-            </button> */}
+            </button>
           </form>
         </State>
 
