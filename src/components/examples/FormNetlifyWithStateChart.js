@@ -1,3 +1,10 @@
+// Create the URL encoding for the form submission
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .join(`&`)
+}
+
 class FormNetlifyWithStateChart extends Component {
   static propTypes = {
     name: PropTypes.string,
@@ -29,17 +36,17 @@ class FormNetlifyWithStateChart extends Component {
   }
 
   // Create the URL encoding for the form submission
-  encode = data =>
-    Object.keys(data)
-      .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-      .join(`&`)
+  // encode = data =>
+  //   Object.keys(data)
+  //     .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+  //     .join(`&`)
 
   // Send the form
   sendForm = () => {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: this.encode({ 'form-name': this.props.name, ...this.state })
+      body: encode({ 'form-name': this.props.name, ...this.state })
     })
       .then(() => this.props.transition(`SUCCESS`))
       .catch(error => {
