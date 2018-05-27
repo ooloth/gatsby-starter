@@ -45,6 +45,16 @@ const FormFields = ({ handleChange }) => (
       className="input mb4"
     />
 
+    <textarea
+      name="message1"
+      placeholder="Message 1:"
+      required
+      onChange={handleChange}
+      className="input mb4"
+      style={{ resize: `none` }}
+      rows="5"
+    />
+
     <Textarea
       aria-label="Enter your message"
       minRows={5}

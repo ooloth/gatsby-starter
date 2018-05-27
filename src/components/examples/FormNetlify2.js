@@ -1,9 +1,13 @@
 // Create the URL encoding for the form submission
 const encode = data => {
   console.log(`data`, data)
-  return Object.keys(data)
+  const url = Object.keys(data)
     .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
     .join(`&`)
+
+  console.log(`url`, url)
+
+  return url
 }
 
 class FormNetlify2 extends React.Component {
@@ -19,11 +23,12 @@ class FormNetlify2 extends React.Component {
 
     // Check fetch support before submitting (polyfill loads in gatsby-browser if needed)
     if (typeof window.fetch !== `undefined` || loadjs.ready(`fetch`)) {
-      this.submitForm()
+      this.submitForm(e)
     }
   }
 
-  submitForm = () => {
+  submitForm = e => {
+    console.log(`target`, e.target.getAttribute(`name`))
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
