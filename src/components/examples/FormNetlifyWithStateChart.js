@@ -2,8 +2,7 @@ class FormNetlifyWithStateChart extends Component {
   static propTypes = {
     name: PropTypes.string,
     renderFormFields: PropTypes.func.isRequired,
-    renderFetchError: PropTypes.func,
-    renderSendError: PropTypes.func,
+    renderError: PropTypes.func,
     renderSuccess: PropTypes.func
   }
 
