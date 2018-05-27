@@ -1,5 +1,6 @@
 // Create the URL encoding for the form submission
 const encode = data => {
+  console.log(`data`, data)
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
     .join(`&`)
@@ -26,7 +27,7 @@ class FormNetlify2 extends React.Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': `Basic 3`, ...this.state })
+      body: encode({ 'form-name': `Basic 2`, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
