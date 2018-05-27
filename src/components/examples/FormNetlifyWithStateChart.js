@@ -36,7 +36,7 @@ class FormNetlifyWithStateChart extends Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: this.createURL({ 'form-name': this.props.name, ...this.state })
+      body: this.createURL({ 'form-name': `Example Contact`, ...this.state })
     })
       .then(() => this.props.transition(`SUCCESS`))
       .catch(error => {

@@ -32,7 +32,7 @@ class FormNetlify2 extends React.Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': this.props.name, ...this.state })
+      body: encode({ 'form-name': `Basic 2`, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
