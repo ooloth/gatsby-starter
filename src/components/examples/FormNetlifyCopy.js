@@ -4,42 +4,44 @@ class FormNetlifyCopy extends React.Component {
     sentSuccessfully: false
   }
 
+  // Input change event handler (save input values to state)
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
+  // Form submission event handler (check for fetch support before submitting)
   handleSubmit = e => {
     e.preventDefault()
 
-    // Check fetch support before submitting (polyfill loads in gatsby-browser if needed)
-    if (typeof window.fetch !== `undefined` || loadjs.ready(`fetch`)) {
-      this.submitForm()
-    }
+    if (typeof window.fetch !== `undefined`) this.props.transition(`SUBMIT`)
+    else console.log(`🚧 Fetch is not supported in this browser.`)
   }
 
   // Create the URL encoding for the form submission
-  encode = data => {
-    return Object.keys(data)
+  createURL = data =>
+    Object.keys(data)
       .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
       .join(`&`)
-  }
 
-  submitForm = () => {
+  // Send the form
+  sendForm = () => {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: this.encode({ 'form-name': `Basic Copy`, ...this.state })
+      body: this.createURL({ 'form-name': this.props.name, ...this.state })
     })
-      .then(response => {
-        console.log(`success: ${response}`)
-        this.setState({ notSent: false, sentSuccessfully: true })
+      .then(() => this.props.transition(`SUCCESS`))
+      .catch(error => {
+        console.log(`🚧 Form submission error:`, error)
+        this.props.transition(`ERROR`)
       })
-      .catch(error => console.log(`error: ${error}`))
   }
 
   render() {
+    console.log(this.props.machineState.value)
+
     return (
       <div>
         {/* Show the form until it has been submitted successfully */}
-        {this.state.notSent && (
+        <State value={`!success`}>
           <form
             name="Basic Copy"
             method="post"
@@ -91,17 +93,46 @@ class FormNetlifyCopy extends React.Component {
               </span>
             </button>
           </form>
-        )}
+        </State>
 
         {/* Hide form and show success message after form has submitted successfully */}
-        {this.state.sentSuccessfully && (
+        <State value="success">
           <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
             Success! Thanks for getting in touch. <br className="dn lg:di" />Aria
             will get back to you soon!
           </div>
-        )}
+        </State>
       </div>
     )
+  }
+}
+
+/* 
+ *
+ * Form State Chart
+ * 
+ */
+
+const formChart = {
+  initial: `start`,
+  states: {
+    start: {
+      on: { SUBMIT: `sending` }
+    },
+
+    sending: {
+      onEntry: `sendForm`,
+      on: {
+        ERROR: `error`,
+        SUCCESS: `success`
+      }
+    },
+
+    error: {
+      on: { SUBMIT: `sending` }
+    },
+
+    success: {}
   }
 }
 
@@ -114,7 +145,8 @@ class FormNetlifyCopy extends React.Component {
 // NOTE: code adapted from this: https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/contact.js
 
 import React from 'react'
-import loadjs from 'loadjs'
+// import loadjs from 'loadjs'
 import Textarea from 'react-textarea-autosize'
+import { State, withStatechart } from 'react-automata'
 
-export default FormNetlifyCopy
+export default withStatechart(formChart)(FormNetlifyCopy)

@@ -12,10 +12,7 @@ class FormNetlifyWithStateChart extends Component {
   }
 
   // Input change event handler (save input values to state)
-  handleChange = e => {
-    console.log(`this.state`, this.state)
-    this.setState({ [e.target.name]: e.target.value })
-  }
+  handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   // Form submission event handler (check for fetch support before submitting)
   handleSubmit = e => {
@@ -112,7 +109,7 @@ const formChart = {
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import loadjs from 'loadjs'
+// import loadjs from 'loadjs'
 import { State, withStatechart } from 'react-automata'
 
 export default withStatechart(formChart)(FormNetlifyWithStateChart)
