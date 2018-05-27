@@ -36,7 +36,7 @@ class FormNetlifyWithStateChart extends Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: this.createURL({ 'form-name': `Example Contact`, ...this.state })
+      body: this.createURL({ 'form-name': this.props.name, ...this.state })
     })
       .then(() => this.props.transition(`SUCCESS`))
       .catch(error => {
@@ -52,10 +52,10 @@ class FormNetlifyWithStateChart extends Component {
       <Fragment>
         <State value={`!success`}>
           <form
-            name={this.props.name}
-            method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
+            // name={this.props.name}
+            // method="post"
+            // data-netlify="true"
+            // data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
             {/* This hidden input is required by Netlify */}

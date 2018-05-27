@@ -3,6 +3,9 @@ const FormNetlifyExample = () => (
     <h2 className="mb4">Original Form:</h2>
     <FormNetlify />
 
+    <h2 className="mb4">Copy of Original Form:</h2>
+    <FormNetlifyCopy />
+
     <h2 className="mb4">State Chart Form:</h2>
 
     <FormNetlifyWithStateChart
@@ -149,6 +152,7 @@ import PropTypes from 'prop-types'
 import Textarea from 'react-textarea-autosize'
 
 import FormNetlify from '../../components/examples/FormNetlify'
+import FormNetlifyCopy from '../../components/examples/FormNetlifyCopy'
 import FormNetlify2 from '../../components/examples/FormNetlify2'
 import FormNetlifyWithStateChart from '../../components/examples/FormNetlifyWithStateChart'
 
