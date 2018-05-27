@@ -5,7 +5,7 @@ const encode = data => {
     .join(`&`)
 }
 
-class FormNetlify extends React.Component {
+class FormNetlify2 extends React.Component {
   state = {
     notSent: true,
     sentSuccessfully: false
@@ -26,7 +26,7 @@ class FormNetlify extends React.Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': `Basic 2`, ...this.state })
+      body: encode({ 'form-name': this.props.name, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
@@ -71,6 +71,6 @@ class FormNetlify extends React.Component {
 
 import React from 'react'
 import loadjs from 'loadjs'
-import Textarea from 'react-textarea-autosize'
+// import Textarea from 'react-textarea-autosize'
 
-export default FormNetlify
+export default FormNetlify2

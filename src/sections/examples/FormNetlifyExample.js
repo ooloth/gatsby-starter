@@ -33,7 +33,7 @@ const FormFields = ({ handleChange }) => (
       label="Enter your full name"
       placeholder="Full Name:"
       handleChange={handleChange}
-      className="mb4"
+      className="input mb4"
     />
 
     <Input
@@ -42,7 +42,7 @@ const FormFields = ({ handleChange }) => (
       label="Enter your email address"
       placeholder="Email:"
       handleChange={handleChange}
-      className="mb4"
+      className="input mb4"
     />
 
     <Textarea
@@ -52,7 +52,7 @@ const FormFields = ({ handleChange }) => (
       placeholder="Message:"
       required
       onChange={handleChange}
-      className="input span-3 mb4"
+      className="input mb4"
       style={{ resize: `none` }}
     />
 
@@ -82,7 +82,7 @@ const Input = ({ type, name, label, placeholder, handleChange, className = `` })
         : undefined
     }
     pattern={type === `email` ? emailRegex : undefined}
-    className={`input ${className}`}
+    className={className}
     required
   />
 )
