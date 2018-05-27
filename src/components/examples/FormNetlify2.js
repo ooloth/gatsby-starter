@@ -41,72 +41,21 @@ class FormNetlify extends React.Component {
         {/* Show the form until it has been submitted successfully */}
         {this.state.notSent && (
           <form
-            name="Basic 2"
+            name={this.props.name}
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
-            <input type="hidden" name="form-name" value="Basic 2" className="dn" />
+            {/* This hidden input is required by Netlify */}
+            <input type="hidden" name="form-name" value={this.props.name} />
 
-            {/* TODO: extract the inputs below into an Input component I can just pass props to (worth it?)...? */}
-
-            <div className="contact-form-grid">
-              <div className="span-2">
-                <input
-                  aria-label="Enter your full name"
-                  type="text"
-                  name="name"
-                  placeholder="Full Name:"
-                  required
-                  onChange={this.handleChange}
-                  className="input mb4"
-                />
-
-                {/* Includes validation for the domain portion of the email address */}
-                <input
-                  aria-label="Enter your email address"
-                  type="email"
-                  name="email"
-                  placeholder="Email:"
-                  required
-                  title="The domain portion of the email address is invalid (the portion after the @)."
-                  pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
-                  onChange={this.handleChange}
-                  className="input mb4"
-                />
-              </div>
-
-              <Textarea
-                aria-label="Enter your message"
-                minRows={5}
-                name="message"
-                placeholder="Message:"
-                required
-                onChange={this.handleChange}
-                className="input span-3 mb4"
-                style={{ resize: `none` }}
-              />
-            </div>
-
-            <button type="submit" className="group relative bg-near-white">
-              <span
-                className="flex-auto flex justify-center items-center pl3 courier f5 near-black"
-                style={{ paddingRight: `6.5rem`, height: `60px` }}
-              >
-                Send message
-              </span>
-            </button>
+            {this.props.renderFormFields(this.handleChange)}
           </form>
         )}
 
         {/* Hide form and show success message after form has submitted successfully */}
-        {this.state.sentSuccessfully && (
-          <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
-            Success! Thanks for getting in touch. <br className="dn lg:di" />Aria
-            will get back to you soon!
-          </div>
-        )}
+        {this.state.sentSuccessfully && this.props.renderSuccess()}
       </div>
     )
   }

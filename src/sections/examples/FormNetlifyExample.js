@@ -10,7 +10,12 @@ const FormNetlifyExample = () => (
     />
 
     <h2 className="mb4">Here's the old form:</h2>
-    <FormNetlify2 />
+    <FormNetlify2
+      name="Basic #3"
+      renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
+      // renderError={() => <Error />}
+      renderSuccess={() => <Success />}
+    />
   </section>
 )
 
@@ -73,19 +78,16 @@ const Input = ({ type, name, label, placeholder, handleChange, className = `` })
     onChange={handleChange}
     title={
       type === `email`
-        ? `The domain portion of the email address is invalid (the portion after the @).`
+        ? `The portion of the email address after the @ is invalid.`
         : undefined
     }
-    // TODO: Fix this regex? Chrome is showing an error. Does it work on my other sites?
-    pattern={
-      type === `email`
-        ? `^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(.w{2,})+$`
-        : undefined
-    }
+    pattern={type === `email` ? emailRegex : undefined}
     className={`input ${className}`}
     required
   />
 )
+
+const emailRegex = `^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(.w{2,})+$`
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
