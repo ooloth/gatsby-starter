@@ -1,10 +1,3 @@
-// Create the URL encoding for the form submission
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
-    .join(`&`)
-}
-
 class FormNetlify2 extends React.Component {
   state = {
     notSent: true,
@@ -22,11 +15,17 @@ class FormNetlify2 extends React.Component {
     }
   }
 
+  // Create the URL encoding for the form submission
+  createURL = data =>
+    Object.keys(data)
+      .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+      .join(`&`)
+
   submitForm = () => {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: encode({ 'form-name': this.props.name, ...this.state })
+      body: this.createURL({ 'form-name': `Basic #3`, ...this.state })
     })
       .then(response => {
         console.log(`success: ${response}`)
@@ -36,6 +35,8 @@ class FormNetlify2 extends React.Component {
   }
 
   render() {
+    console.log(`name`, this.props.name)
+    console.log(`typof name`, typeof this.props.name)
     return (
       <div>
         {/* Show the form until it has been submitted successfully */}
