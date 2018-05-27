@@ -29,7 +29,7 @@ class FormNetlifyWithStateChart extends Component {
   }
 
   // Create the URL encoding for the form submission
-  encode = data =>
+  createURL = data =>
     Object.keys(data)
       .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
       .join(`&`)
@@ -39,7 +39,7 @@ class FormNetlifyWithStateChart extends Component {
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-      body: this.encode({ 'form-name': this.props.name, ...this.state })
+      body: this.createURL({ 'form-name': this.props.name, ...this.state })
     })
       .then(() => this.props.transition(`SUCCESS`))
       .catch(error => {
