@@ -43,7 +43,7 @@ class FormNetlifyWithStateChart extends Component {
   }
 
   render() {
-    console.log(this.props.machineState.value)
+    console.log(`Form:`, this.props.machineState.value)
 
     return (
       <Fragment>
@@ -58,10 +58,10 @@ class FormNetlifyWithStateChart extends Component {
             {/* This hidden input is required by Netlify */}
             <input type="hidden" name="form-name" value={this.props.name} />
 
-            {/* Will this prime Netlify to notice the Textarea component? */}
-            <textarea type="hidden" name="message" />
-
             {this.props.renderFormFields(this.handleChange)}
+
+            {/* Needed so Netlify will recognize the Textarea component */}
+            <textarea type="hidden" name="message" />
           </form>
         </State>
 

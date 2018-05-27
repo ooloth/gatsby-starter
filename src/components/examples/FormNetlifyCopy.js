@@ -45,10 +45,11 @@ class FormNetlifyCopy extends React.Component {
           >
             <input type="hidden" name="form-name" value={this.props.name} />
 
+            {this.props.renderFormFields(this.handleChange)}
+
             {/* Will this prime Netlify to notice the Textarea component? */}
             <textarea type="hidden" name="message" />
 
-            {this.props.renderFormFields(this.handleChange)}
             {/* <input
               aria-label="Enter your full name"
               type="text"
@@ -93,13 +94,8 @@ class FormNetlifyCopy extends React.Component {
           </form>
         </State>
 
-        {/* Hide form and show success message after form submits */}
-        <State value="success">
-          <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
-            Success! Thanks for getting in touch. <br className="dn lg:di" />Aria
-            will get back to you soon!
-          </div>
-        </State>
+        <State value="error">{this.props.renderError()}</State>
+        <State value="success">{this.props.renderSuccess()}</State>
       </Fragment>
     )
   }
