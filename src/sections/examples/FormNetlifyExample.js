@@ -4,7 +4,10 @@ const FormNetlifyExample = () => (
     <FormNetlify />
 
     <h2 className="mb4">Copy of Original Form:</h2>
-    <FormNetlifyCopy name="Basic Copy" />
+    <FormNetlifyCopy
+      name="Basic Copy"
+      renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
+    />
 
     <h2 className="mb4">State Chart Form:</h2>
 

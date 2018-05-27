@@ -33,7 +33,7 @@ class FormNetlifyCopy extends React.Component {
     console.log(`FormNetlifyCopy:`, this.props.machineState.value)
 
     return (
-      <div>
+      <Fragment>
         {/* Show the form until it submits successfully */}
         <State value={`!success`}>
           <form
@@ -45,7 +45,9 @@ class FormNetlifyCopy extends React.Component {
           >
             <input type="hidden" name="form-name" value={this.props.name} />
 
-            <input
+            {this.props.renderFormFields(this.handleChange)}
+
+            {/* <input
               aria-label="Enter your full name"
               type="text"
               name="name"
@@ -85,18 +87,18 @@ class FormNetlifyCopy extends React.Component {
               >
                 Send message
               </span>
-            </button>
+            </button> */}
           </form>
         </State>
 
-        {/* Hide form and show success message after form has submitted successfully */}
+        {/* Hide form and show success message after form submits */}
         <State value="success">
           <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
             Success! Thanks for getting in touch. <br className="dn lg:di" />Aria
             will get back to you soon!
           </div>
         </State>
-      </div>
+      </Fragment>
     )
   }
 }
@@ -136,10 +138,7 @@ const formChart = {
  * 
  */
 
-// NOTE: code adapted from this: https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/contact.js
-
-import React from 'react'
-// import loadjs from 'loadjs'
+import React, { Fragment } from 'react'
 import Textarea from 'react-textarea-autosize'
 import { State, withStatechart } from 'react-automata'
 
