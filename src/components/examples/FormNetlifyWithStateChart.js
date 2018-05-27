@@ -1,4 +1,6 @@
 class FormNetlifyWithStateChart extends Component {
+  state = { name: null, email: null, message: null, firstName: null, lastName: null }
+
   static propTypes = {
     name: PropTypes.string,
     renderFormFields: PropTypes.func.isRequired,
@@ -58,8 +60,8 @@ class FormNetlifyWithStateChart extends Component {
             <input type="hidden" name="form-name" value={this.props.name} />
 
             {/* Needed so Netlify will recognize the Textarea component */}
-            <input type="hidden" name="name" className="dn" />
-            <input type="hidden" name="email" className="dn" />
+            {/* <input type="hidden" name="name" className="dn" />
+            <input type="hidden" name="email" className="dn" /> */}
             <textarea type="hidden" name="message" className="dn" />
 
             {/* Render input fields (created separately for UI flexibility) */}
