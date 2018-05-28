@@ -38,6 +38,9 @@ const FormFields = ({ handleChange }) => (
       className="input mb4"
     />
 
+    {/* Needed so Netlify will register the Textarea component */}
+    <textarea type="hidden" name="message" className="dn" />
+
     <Textarea
       aria-label="Enter your message"
       minRows={5}
