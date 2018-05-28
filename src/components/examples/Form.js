@@ -59,12 +59,12 @@ class Form extends Component {
             <input type="hidden" name="form-name" value={this.props.name} />
 
             {/* Generate hidden inputs in the order I want them to appear on Netlify */}
-            {/* {this.props.fieldOrder.map(name => {
+            {this.props.fieldOrder.map(name => {
               return <input key={name} type="hidden" name={name} className="dn" />
-            })} */}
+            })}
 
             {/* Needed so Netlify will register the Textarea component */}
-            {/* <textarea type="hidden" name="message" className="dn" /> */}
+            <textarea type="hidden" name="message" className="dn" />
 
             {/* Render input fields (created separately for UI flexibility) */}
             {this.props.renderFormFields(this.handleChange)}
