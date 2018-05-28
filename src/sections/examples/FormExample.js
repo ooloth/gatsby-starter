@@ -1,4 +1,4 @@
-const FormNetlifyExample = () => (
+const FormExample = () => (
   <section className="mv6 bg-light-green pa5 shadow-lg">
     <h2 className="mb4">Here's a form:</h2>
 
@@ -94,4 +94,4 @@ import Textarea from 'react-textarea-autosize'
 import Form from '../../components/examples/Form'
 import Input from '../../components/examples/Input'
 
-export default FormNetlifyExample
+export default FormExample

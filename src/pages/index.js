@@ -16,6 +16,16 @@ const IndexPage = ({ data }) => (
     <ReadMoreExample />
     <CollapseExample />
 
+    <FilterExample
+      category1={data.allCategory1Yaml.edges}
+      category2={data.allCategory2Yaml.edges}
+    />
+
+    <FilterAndLimitExample
+      category1={data.allCategory1Yaml.edges}
+      category2={data.allCategory2Yaml.edges}
+    />
+
     <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
@@ -25,7 +35,7 @@ const IndexPage = ({ data }) => (
     <InstagramExample />
     {/* <ParallaxExample /> */}
 
-    <FormNetlifyExample />
+    <FormExample />
 
     <ScrollTo href="#top" className="link dib mb5">
       Back to top
@@ -63,6 +73,20 @@ export const query = graphql`
         node {
           title
           slug
+        }
+      }
+    }
+    allCategory1Yaml {
+      edges {
+        node {
+          text
+        }
+      }
+    }
+    allCategory2Yaml {
+      edges {
+        node {
+          text
         }
       }
     }
@@ -117,10 +141,14 @@ import TemplateExample from '../sections/examples/TemplateExample'
 import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
+
 import ReadMoreExample from '../sections/examples/ReadMoreExample'
 import CollapseExample from '../sections/examples/CollapseExample'
 // import ParallaxExample from '../sections/examples/ParallaxExample'
 // import ReactSpringExample from '../sections/examples/ReactSpringExample'
+
+import FilterExample from '../sections/examples/FilterExample'
+import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
@@ -128,7 +156,7 @@ import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'
 
-import FormNetlifyExample from '../sections/examples/FormNetlifyExample'
+import FormExample from '../sections/examples/FormExample'
 
 import ScrollTo from '../components/examples/ScrollTo'
 

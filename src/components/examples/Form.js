@@ -43,7 +43,7 @@ class Form extends Component {
   }
 
   render() {
-    console.log(`Form:`, this.props.machineState.value)
+    // console.log(`Form:`, this.props.machineState.value)
 
     return (
       <Fragment>
@@ -113,12 +113,10 @@ const formChart = {
  * 
  */
 
-// Article: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
-// Example: https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/contact.js
+// See: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-// import loadjs from 'loadjs'
 import { State, withStatechart } from 'react-automata'
 
 export default withStatechart(formChart)(Form)
