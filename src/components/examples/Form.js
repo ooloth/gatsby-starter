@@ -1,15 +1,28 @@
-class FormNetlifyCopy extends React.Component {
+class Form extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    fieldOrder: PropTypes.array.isRequired,
+    renderFormFields: PropTypes.func.isRequired,
+    renderError: PropTypes.func,
+    renderSuccess: PropTypes.func
+  }
+
+  static defaultProps = {
+    name: `Contact`
+  }
+
   // Input change event handler (save input values to state)
   handleChange = e => this.setState({ [e.target.name]: e.target.value })
 
   // Form submission event handler (check for fetch support before submitting)
   handleSubmit = e => {
     e.preventDefault()
+
     if (typeof window.fetch !== `undefined`) this.props.transition(`SUBMIT`)
     else console.log(`🚧 Fetch is not supported in this browser.`)
   }
 
-  // Create the encoded URL for the form submission
+  // Create the URL encoding for the form submission
   createURL = data =>
     Object.keys(data)
       .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
@@ -30,11 +43,10 @@ class FormNetlifyCopy extends React.Component {
   }
 
   render() {
-    console.log(`FormNetlifyCopy:`, this.props.machineState.value)
+    console.log(`Form:`, this.props.machineState.value)
 
     return (
       <Fragment>
-        {/* Show the form until it submits successfully */}
         <State value={`!success`}>
           <form
             name={this.props.name}
@@ -43,11 +55,18 @@ class FormNetlifyCopy extends React.Component {
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
+            {/* This hidden input is required by Netlify */}
             <input type="hidden" name="form-name" value={this.props.name} />
 
-            {/* Will this prime Netlify to notice the Textarea component? */}
+            {/* Generate hidden inputs in the order I want them to appear on Netlify */}
+            {this.props.fieldOrder.map(name => {
+              return <input key={name} type="hidden" name={name} className="dn" />
+            })}
+
+            {/* Needed so Netlify will register the Textarea component */}
             <textarea type="hidden" name="message" className="dn" />
 
+            {/* Render input fields (created separately for UI flexibility) */}
             {this.props.renderFormFields(this.handleChange)}
           </form>
         </State>
@@ -94,8 +113,12 @@ const formChart = {
  * 
  */
 
-import React, { Fragment } from 'react'
-import Textarea from 'react-textarea-autosize'
+// Article: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
+// Example: https://github.com/imorente/gatsby-netlify-form-example/blob/master/src/pages/contact.js
+
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+// import loadjs from 'loadjs'
 import { State, withStatechart } from 'react-automata'
 
-export default withStatechart(formChart)(FormNetlifyCopy)
+export default withStatechart(formChart)(Form)

@@ -1,17 +1,10 @@
 const FormNetlifyExample = () => (
   <section className="mv6 bg-light-green pa5 shadow-lg">
-    <h2 className="mb4">Copy of Original Form:</h2>
-    <FormNetlifyCopy
-      name="Basic Copy"
-      renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
-      renderError={() => <Error />}
-      renderSuccess={() => <Success />}
-    />
+    <h2 className="mb4">Here's a form:</h2>
 
-    <h2 className="mb4">State Chart Form:</h2>
-    <FormNetlifyWithStateChart
+    <Form
       name="Example Contact"
-      fields={[`name`, `email`]}
+      fieldOrder={[`name`, `email`]}
       renderFormFields={handleChange => <FormFields handleChange={handleChange} />}
       renderError={() => <Error />}
       renderSuccess={() => <Success />}
@@ -98,9 +91,7 @@ const Success = () => (
 import React, { Fragment } from 'react'
 import Textarea from 'react-textarea-autosize'
 
-import FormNetlifyCopy from '../../components/examples/FormNetlifyCopy'
-import FormNetlifyWithStateChart from '../../components/examples/FormNetlifyWithStateChart'
-
+import Form from '../../components/examples/Form'
 import Input from '../../components/examples/Input'
 
 export default FormNetlifyExample
