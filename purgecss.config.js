@@ -6,13 +6,13 @@ module.exports = {
       // custom extractor to allow special characters in class names (see: https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css-with-purgecss)
       extractor: class {
         static extract(content) {
-          return content.match(/[A-z0-9-:\/]+/g) || []
+          return content.match(/[A-z0-9-:/]+/g) || []
         }
       },
       extensions: [`html`, `js`]
     }
   ],
-  whitelist: [`cursor-not-allowed`, `o-50`],
+  whitelist: [`carousel-cell`, `cursor-not-allowed`, `o-50`],
   // Add plugin prefixes here:
   whitelistPatterns: [
     /body/,
