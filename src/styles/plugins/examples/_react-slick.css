@@ -34,10 +34,13 @@
 .slick-track { display: flex !important }
 
 
-.slick-slide {
+.slick-slide,
+.slick-slide > div {
   display: flex !important;
   height: auto !important;
 }
+
+.slick-slide > div { width: 100% }
 
 
 /* .slick-list

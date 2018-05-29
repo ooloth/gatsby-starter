@@ -944,10 +944,221 @@ textarea:focus {
  *
  */
 
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+   -khtml-user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: '';
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+  float: right;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* 
+ *
+ *   Slick Slider 
+ *   ============
+ *
+ *   1. Display/hiding
+ *   2. Dimensions
+ *   3. Vertical alignment
+ *   4. Dots
+ *   5. Arrows
+ *   6. Other styling
+ *
+ */
+
 /*
-@import '../../node_modules/slick-carousel/slick/slick.css';
-@import './plugins/react-slick';
-*/
+ *
+ * 3. Vertical alignment
+ *
+ */
+
+.slick-initialized .slick-slide {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 
+ *
+ * General 
+ *
+ */
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide,
+.slick-slide > div {
+  display: flex !important;
+  height: auto !important;
+}
+
+.slick-slide > div {
+  width: 100%;
+}
+
+/* .slick-list
+  overflow-x: hidden */
+
+/* 
+ *
+ * Arrows 
+ *
+ */
+
+/* .slick-slider
+  position: relative */
+
+/* 
+ *
+ * Dots 
+ *
+ */
+
+.slick-dots {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  margin: 0 1rem 1.25rem 0;
+  text-align: center;
+  list-style: none;
+}
+
+@media (-lg) {
+  .slick-dots {
+    top: 0;
+  }
+}
+
+.slick-dots > li {
+  display: inline-block;
+  margin-left: .75rem;
+  cursor: pointer;
+}
+
+@media (min-width: 62em) {
+  .slick-dots > li {
+    display: block;
+    margin: .5rem 0 0 0;
+  }
+}
+
+.slick-dots > li > button {
+  /* border: 3px solid pink; */
+  border-radius: 100%;
+  background-color: grey;
+  padding: 0;
+  height: .75rem;
+  width: .75rem;
+  color: transparent;
+  opacity: .5;
+  /* TODO: match the slider speed: */
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+
+.slick-dots > li.slick-active > button {
+  opacity: 1;
+  /* border: 3px solid pink; */
+  background-color: #9d1e2d;
+  /* height: 1.15rem; *//* width: 1.15rem; */
+}
 
 /*! Flickity v2.1.1
 https://flickity.metafizzy.co

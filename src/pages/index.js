@@ -27,6 +27,7 @@ const IndexPage = ({ data }) => (
     />
 
     <FlickityExample data={data.allExampleYaml.edges} />
+    <SlickExample data={data.allExampleYaml.edges} />
 
     <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
@@ -153,6 +154,7 @@ import FilterExample from '../sections/examples/FilterExample'
 import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
 import FlickityExample from '../sections/examples/FlickityExample'
+import SlickExample from '../sections/examples/SlickExample'
 
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'

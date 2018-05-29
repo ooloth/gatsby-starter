@@ -1,12 +1,8 @@
 class FlickitySlider extends Component {
   static propTypes = {
-    slideData: PropTypes.array.isRequired,
-    slideLayout: PropTypes.func.isRequired,
-    flickityOptions: PropTypes.object
-  }
-
-  static defaultProps = {
-    flickityOptions: defaultOptions
+    data: PropTypes.array.isRequired,
+    layout: PropTypes.func.isRequired,
+    options: PropTypes.object
   }
 
   state = { Flickity: null }
@@ -36,18 +32,20 @@ class FlickitySlider extends Component {
   }
 
   render() {
-    const { slideData, slideLayout, flickityOptions } = this.props
+    const { data, layout, options = defaultOptions } = this.props
     const { Flickity } = this.state
+
+    console.log(`options`, options)
 
     return (
       Flickity && (
         <Flickity
           flickityRef={c => (this.flkty = c)}
-          options={flickityOptions}
-          reloadOnUpdate={true}
+          options={options}
+          reloadOnUpdate={true} // run reloadCells and resize on componentDidUpdate
         >
-          {slideData.map(slide => {
-            return <Fragment key={shortid.generate()}>{slideLayout(slide)}</Fragment>
+          {data.map(slide => {
+            return <Fragment key={shortid.generate()}>{layout({ slide })}</Fragment>
           })}
         </Flickity>
       )
@@ -55,8 +53,15 @@ class FlickitySlider extends Component {
   }
 }
 
+/*
+ *
+ * Default Options
+ *
+ */
+
 const defaultOptions = {
   draggable: true,
+  speed: 700,
   wrapAround: true
 }
 
@@ -68,7 +73,6 @@ const defaultOptions = {
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-// import Flickity from 'react-flickity-component'
 import shortid from 'shortid'
 
 export default FlickitySlider
@@ -87,5 +91,9 @@ const Slide = ({ slide }) => (
     <h3 dangerouslySetInnerHTML={{ __html: slide.node.title }} />
   </FlickitySlide>
 )
+
+DOCS:
+
+- GitHub: https://github.com/theolampert/react-flickity-component
 
 */

@@ -60,12 +60,12 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
     break
 
   case `build-html`:
+    // TODO: handle some of these by requiring in CDM (like FlickitySlider)?
     // Ignore packages that causes errors during build because they refer to the document/window (make test an array if > 1):
     config.loader(`null`, {
       test: [
         /intersection-observer/,
         /lightbox-react/,
-        // /react-flickity-component/,
         /react-image-lightbox/,
         /twitter-fetcher/
       ],
