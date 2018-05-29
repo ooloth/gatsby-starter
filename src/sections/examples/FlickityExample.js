@@ -10,11 +10,18 @@ const FlickityExample = ({ data }) => (
 )
 
 const Slide = ({ slide }) => (
-  <FlickitySlide className="flex flex-column justify-center bg-pink w-100">
+  <div className="carousel-cell flex flex-column justify-center bg-pink w-100">
     <Img sizes={slide.node.image.childImageSharp.sizes} alt={slide.node.alt} />
     <h3 dangerouslySetInnerHTML={{ __html: slide.node.title }} className="ph5" />
-  </FlickitySlide>
+  </div>
 )
+
+// const Slide = ({ slide }) => (
+//   <FlickitySlide className="flex flex-column justify-center bg-pink w-100">
+//     <Img sizes={slide.node.image.childImageSharp.sizes} alt={slide.node.alt} />
+//     <h3 dangerouslySetInnerHTML={{ __html: slide.node.title }} className="ph5" />
+//   </FlickitySlide>
+// )
 
 const flickityOptions = {
   draggable: true,
