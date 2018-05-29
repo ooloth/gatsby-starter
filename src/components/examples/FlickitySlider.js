@@ -1,16 +1,29 @@
 class FlickitySlider extends Component {
   static propTypes = {
-    data: PropTypes.array.isRequired,
-    layout: PropTypes.func.isRequired,
-    options: PropTypes.object
+    slideData: PropTypes.array.isRequired,
+    slideLayout: PropTypes.func.isRequired,
+    flickityOptions: PropTypes.object
   }
 
   static defaultProps = {
-    options: defaultOptions
+    flickityOptions: defaultOptions
   }
 
-  componentDidMount = () => this.makeCellsEqualHeight()
+  state = { Flickity: null }
 
+  // TODO: replace this with loadjs call? test before/after for loading speed and bundle size... would that cause a flash of content change (e.g. if the slider is in the hero)?
+  // To prevent build/SSR errors, don't import Flickity until the window exists
+  componentDidMount = () => {
+    if (typeof window !== `undefined`) {
+      const Flickity = require(`react-flickity-component`)
+      this.setState({ Flickity })
+    }
+  }
+
+  // Call the equal height hack after Flickity exists (after being loaded in CDM)
+  componentDidUpdate = () => this.makeCellsEqualHeight()
+
+  // Make all cells equal height (can't be done with flex when using Flickity)
   // See: https://github.com/metafizzy/flickity/issues/534
   // See: https://codepen.io/desandro/pen/ZXEGVq
   makeCellsEqualHeight = () => {
@@ -23,18 +36,21 @@ class FlickitySlider extends Component {
   }
 
   render() {
-    const { data, layout, options } = this.props
+    const { slideData, slideLayout, flickityOptions } = this.props
+    const { Flickity } = this.state
 
     return (
-      <Flickity
-        flickityRef={c => (this.flkty = c)}
-        options={options}
-        reloadOnUpdate={true}
-      >
-        {data.map(slide => {
-          return <Fragment key={shortid.generate()}>{layout({ slide })}</Fragment>
-        })}
-      </Flickity>
+      Flickity && (
+        <Flickity
+          flickityRef={c => (this.flkty = c)}
+          options={flickityOptions}
+          reloadOnUpdate={true}
+        >
+          {slideData.map(slide => {
+            return <Fragment key={shortid.generate()}>{slideLayout(slide)}</Fragment>
+          })}
+        </Flickity>
+      )
     )
   }
 }
@@ -52,7 +68,7 @@ const defaultOptions = {
 
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Flickity from 'react-flickity-component'
+// import Flickity from 'react-flickity-component'
 import shortid from 'shortid'
 
 export default FlickitySlider

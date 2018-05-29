@@ -37,6 +37,7 @@ body {
  */
 
 article,
+aside,
 footer,
 header,
 nav,
@@ -109,14 +110,27 @@ a {
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 
+b {
+  font-weight: inherit;
+}
+
 /**
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
+
+b {
+  font-weight: bolder;
+}
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
+
+code {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
 
 /**
  * Add the correct font style in Android 4.3-.
@@ -142,6 +156,11 @@ a {
  * Add the correct display in IE 9-.
  */
 
+
+video {
+  display: inline-block;
+}
+
 /**
  * Add the correct display in iOS 4-7.
  */
@@ -166,7 +185,9 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-button {
+button,
+input,
+textarea {
   font-family: sans-serif; /* 1 */
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
@@ -178,7 +199,8 @@ button {
  * 1. Show the overflow in Edge.
  */
 
-button {
+button,
+input {
   /* 1 */
   overflow: visible;
 }
@@ -250,6 +272,10 @@ button:-moz-focusring,
  * Remove the default vertical scrollbar in IE.
  */
 
+textarea {
+  overflow: auto;
+}
+
 /**
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
@@ -257,8 +283,7 @@ button:-moz-focusring,
 
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
 
@@ -308,6 +333,12 @@ button:-moz-focusring,
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
+
+
+menu {
+  display: block;
+}
+
 /*
  * Add the correct display in all browsers.
  */
@@ -326,6 +357,10 @@ summary {
 /**
  * Add the correct display in IE.
  */
+
+template {
+  display: none;
+}
 
 /* Hidden
    ========================================================================== */
@@ -351,16 +386,14 @@ summary {
  */
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; /* 1 */
+  box-sizing: border-box; /* 1 */
   font-family: sans-serif; /* 2 */
 }
 
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 /**
@@ -371,6 +404,8 @@ html {
 h1,
 h2,
 h3,
+h4,
+h5,
 figure,
 p {
   margin: 0;
@@ -389,6 +424,11 @@ button {
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
+}
+
+
+ul {
+  margin: 0;
 }
 
 /**
@@ -456,12 +496,42 @@ button,
   border-radius: 0;
 }
 
+textarea {
+  resize: vertical;
+}
+
 img {
   max-width: 100%;
 }
 
-button {
+button,
+input,
+textarea {
   font-family: inherit;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: inherit;
+  opacity: .5;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: inherit;
+  opacity: .5;
 }
 
 button,
@@ -548,23 +618,22 @@ a {
 
 /*
  *
- * 4. Buttons
- *
- */
-
-/* This is not accessible (need to replace with a hover/focus style or other outline if I activate) */
-
-/* 
-button { outline: 0 }
-*/
-
-/*
- *
  * 5. Lists
  *
  */
 
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 /* Remove trailing margins from nested lists: */
+
+
+li > ul {
+  margin-bottom: 0;
+}
 
 /*
  *
@@ -572,7 +641,73 @@ button { outline: 0 }
  *
  */
 
+input,
+textarea {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  /* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
+  line-height: normal;
+  font-size: inherit;
+  /*font-size: 100%;*/
+}
+
+/* Solves placeholder's being invisible in some browsers bc of Tailwind's preflight styles */
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: rgba(0, 0, 0, .5);
+  color: var(--black-50);
+}
+
 /* Reset Chrome and Firefox behaviour which sets a 'min-width: min-content;' on fieldsets: */
+
+/* 
+
+Override Firefox's premature red box-shadow styling for invalid form inputs
+
+- see: https://stackoverflow.com/questions/5939341/firefox-4-is-there-a-way-to-remove-the-red-border-in-a-required-form-input 
+- see: https://stackoverflow.com/questions/3809146/firefox-4-required-input-form-red-border-outline
+
+*/
+
+input:-moz-placeholder,
+input:focus,
+input:invalid {
+  box-shadow: none !important;
+}
+
+textarea:-moz-placeholder,
+textarea:focus,
+textarea:invalid {
+  box-shadow: none !important;
+}
 
 /*
  *
@@ -588,15 +723,14 @@ button { outline: 0 }
 
 /* Remove tap highlight on iOS */
 
-/*
 input,
 textarea,
 button,
-select,
 label,
 a,
-ul { -webkit-tap-highlight-color: rgba(0,0,0,0) }
-*/
+ul {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
 /* 
 
@@ -702,9 +836,715 @@ textarea:focus {
  *
  */
 
-/* @import '../../node_modules/slick-carousel/slick/slick.css'; */
+/*
+@import '../../node_modules/slick-carousel/slick/slick.css';
+@import './plugins/react-slick';
+*/
 
-/* @import './plugins/react-slick'; */
+/*! Flickity v2.1.1
+https://flickity.metafizzy.co
+---------------------------------------------- */
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus {
+  outline: 0;
+}
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.flickity-button {
+  position: absolute;
+  background: hsla(0, 0%, 100%, .75);
+  border: none;
+  color: #333;
+}
+
+.flickity-button:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+.flickity-button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 5px #19f;
+}
+
+.flickity-button:active {
+  opacity: .6;
+}
+
+.flickity-button:disabled {
+  opacity: .3;
+  cursor: auto;
+  pointer-events: none;
+}
+
+.flickity-button-icon {
+  fill: #333;
+}
+
+.flickity-prev-next-button {
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.flickity-prev-next-button.previous {
+  left: 10px;
+}
+
+.flickity-prev-next-button.next {
+  right: 10px;
+}
+
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots {
+  direction: rtl;
+}
+
+/*
+ * 
+ * Equal height cells hack: https://codepen.io/desandro/pen/ZXEGVq 
+ *
+ */
+
+@-webkit-keyframes closeWindow {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes closeWindow {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.ril__outer {
+  background-color: rgba(0, 0, 0, .85);
+  outline: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  -ms-content-zooming: none;
+  -ms-user-select: none;
+  -ms-touch-select: none;
+  touch-action: none;
+}
+
+.ril__outerClosing {
+  opacity: 0;
+}
+
+.ril__inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.ril__image,
+.ril__imagePrev,
+.ril__imageNext {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-width: none;
+  -ms-content-zooming: none;
+  -ms-user-select: none;
+  -ms-touch-select: none;
+  touch-action: none;
+}
+
+.ril__imageDiscourager {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.ril__navButtons {
+  border: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  height: 34px;
+  padding: 40px 30px;
+  margin: auto;
+  cursor: pointer;
+  opacity: .7;
+}
+
+.ril__navButtons:hover {
+  opacity: 1;
+}
+
+.ril__navButtons:active {
+  opacity: .7;
+}
+
+.ril__navButtonPrev {
+  left: 0;
+  background: rgba(0, 0, 0, .2) url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjM0Ij48cGF0aCBkPSJtIDE5LDMgLTIsLTIgLTE2LDE2IDE2LDE2IDEsLTEgLTE1LC0xNSAxNSwtMTUgeiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==') no-repeat center;
+}
+
+.ril__navButtonNext {
+  right: 0;
+  background: rgba(0, 0, 0, .2) url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjM0Ij48cGF0aCBkPSJtIDEsMyAyLC0yIDE2LDE2IC0xNiwxNiAtMSwtMSAxNSwtMTUgLTE1LC0xNSB6IiBmaWxsPSIjRkZGIi8+PC9zdmc+') no-repeat center;
+}
+
+.ril__downloadBlocker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+  background-size: cover;
+}
+
+.ril__caption,
+.ril__toolbar {
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ril__caption {
+  bottom: 0;
+  max-height: 150px;
+  overflow: auto;
+}
+
+.ril__captionContent {
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.ril__toolbar {
+  top: 0;
+  height: 50px;
+}
+
+.ril__toolbarSide {
+  height: 50px;
+  margin: 0;
+}
+
+.ril__toolbarLeftSide {
+  padding-left: 20px;
+  padding-right: 0;
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ril__toolbarRightSide {
+  padding-left: 0;
+  padding-right: 20px;
+  flex: 0 0 auto;
+}
+
+.ril__toolbarItem {
+  display: inline-block;
+  line-height: 50px;
+  padding: 0;
+  color: #fff;
+  font-size: 120%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ril__toolbarItemChild {
+  vertical-align: middle;
+}
+
+.ril__builtinButton {
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  opacity: .7;
+}
+
+.ril__builtinButton:hover {
+  opacity: 1;
+}
+
+.ril__builtinButton:active {
+  outline: none;
+}
+
+.ril__builtinButtonDisabled {
+  cursor: default;
+  opacity: .5;
+}
+
+.ril__builtinButtonDisabled:hover {
+  opacity: .5;
+}
+
+.ril__closeButton {
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIj48cGF0aCBkPSJtIDEsMyAxLjI1LC0xLjI1IDcuNSw3LjUgNy41LC03LjUgMS4yNSwxLjI1IC03LjUsNy41IDcuNSw3LjUgLTEuMjUsMS4yNSAtNy41LC03LjUgLTcuNSw3LjUgLTEuMjUsLTEuMjUgNy41LC03LjUgLTcuNSwtNy41IHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=') no-repeat center;
+}
+
+.ril__zoomInButton {
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGcgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTEgMTlsNi02Ii8+PHBhdGggZD0iTTkgOGg2Ii8+PHBhdGggZD0iTTEyIDV2NiIvPjwvZz48Y2lyY2xlIGN4PSIxMiIgY3k9IjgiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+') no-repeat center;
+}
+
+.ril__zoomOutButton {
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGcgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTEgMTlsNi02Ii8+PHBhdGggZD0iTTkgOGg2Ii8+PC9nPjxjaXJjbGUgY3g9IjEyIiBjeT0iOCIgcj0iNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=') no-repeat center;
+}
+
+.ril__outerAnimating {
+  -webkit-animation-name: closeWindow;
+          animation-name: closeWindow;
+}
+
+@-webkit-keyframes pointFade {
+  0%,
+  19.999%,
+  100% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+}
+
+@keyframes pointFade {
+  0%,
+  19.999%,
+  100% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+}
+
+.ril__loadingCircle {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.ril__loadingCirclePoint {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.ril__loadingCirclePoint::before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 11%;
+  height: 30%;
+  background-color: #fff;
+  border-radius: 30%;
+  -webkit-animation: pointFade 800ms infinite ease-in-out both;
+          animation: pointFade 800ms infinite ease-in-out both;
+}
+
+.ril__loadingCirclePoint:nth-of-type(1) {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(7) {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(1)::before,
+.ril__loadingCirclePoint:nth-of-type(7)::before {
+  -webkit-animation-delay: -800ms;
+          animation-delay: -800ms;
+}
+
+.ril__loadingCirclePoint:nth-of-type(2) {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(8) {
+  -webkit-transform: rotate(210deg);
+          transform: rotate(210deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(2)::before,
+.ril__loadingCirclePoint:nth-of-type(8)::before {
+  -webkit-animation-delay: -666ms;
+          animation-delay: -666ms;
+}
+
+.ril__loadingCirclePoint:nth-of-type(3) {
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(9) {
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(3)::before,
+.ril__loadingCirclePoint:nth-of-type(9)::before {
+  -webkit-animation-delay: -533ms;
+          animation-delay: -533ms;
+}
+
+.ril__loadingCirclePoint:nth-of-type(4) {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(10) {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(4)::before,
+.ril__loadingCirclePoint:nth-of-type(10)::before {
+  -webkit-animation-delay: -400ms;
+          animation-delay: -400ms;
+}
+
+.ril__loadingCirclePoint:nth-of-type(5) {
+  -webkit-transform: rotate(120deg);
+          transform: rotate(120deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(11) {
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(5)::before,
+.ril__loadingCirclePoint:nth-of-type(11)::before {
+  -webkit-animation-delay: -266ms;
+          animation-delay: -266ms;
+}
+
+.ril__loadingCirclePoint:nth-of-type(6) {
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(12) {
+  -webkit-transform: rotate(330deg);
+          transform: rotate(330deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(6)::before,
+.ril__loadingCirclePoint:nth-of-type(12)::before {
+  -webkit-animation-delay: -133ms;
+          animation-delay: -133ms;
+}
+
+.ril__loadingCirclePoint:nth-of-type(7) {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(13) {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.ril__loadingCirclePoint:nth-of-type(7)::before,
+.ril__loadingCirclePoint:nth-of-type(13)::before {
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
+}
+
+.ril__loadingContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.ril__imagePrev .ril__loadingContainer,
+.ril__imageNext .ril__loadingContainer {
+  display: none;
+}
+
+.ril__errorContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.ril__imagePrev .ril__errorContainer,
+.ril__imageNext .ril__errorContainer {
+  display: none;
+}
+
+.ril__loadingContainer__icon {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+/* .ril__outer.ril__outer {
+  background-color: rgba(255, 255, 255, 0.85);
+} */
+
+.ril__navButtons.ril__navButtons {
+  border: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  height: 34px;
+  padding: 40px 30px;
+  margin: auto;
+  cursor: pointer;
+  opacity: .7;
+}
+
+.ril__navButtonPrev.ril__navButtonPrev {
+  display: none;
+  outline: 0;
+  background-color: rgba(0, 0, 0, .5);
+  /* left: 0;
+background: rgba(0, 0, 0, 0.2)
+  url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjM0Ij48cGF0aCBkPSJtIDE5LDMgLTIsLTIgLTE2LDE2IDE2LDE2IDEsLTEgLTE1LC0xNSAxNSwtMTUgeiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==)
+  no-repeat center; */
+}
+
+@media (min-width: 48em) {
+  .ril__navButtonPrev.ril__navButtonPrev {
+    display: block;
+  }
+}
+
+.ril__navButtonNext.ril__navButtonNext {
+  display: none;
+  outline: 0;
+  background-color: rgba(0, 0, 0, .6);
+  /* right: 0;
+background: rgba(0, 0, 0, 0.2)
+  url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjM0Ij48cGF0aCBkPSJtIDEsMyAyLC0yIDE2LDE2IC0xNiwxNiAtMSwtMSAxNSwtMTUgLTE1LC0xNSB6IiBmaWxsPSIjRkZGIi8+PC9zdmc+)
+  no-repeat center; */
+}
+
+@media (min-width: 48em) {
+  .ril__navButtonNext.ril__navButtonNext {
+    display: block;
+  }
+}
+
+.ril__toolbar.ril__toolbar {
+  background-color: transparent;
+  /* position: absolute;
+left: 0;
+right: 0;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: justify;
+-ms-flex-pack: justify;
+justify-content: space-between; */
+}
+
+.ril__toolbarRightSide {
+  padding-top: .1rem !important;
+  padding-right: .55rem !important;
+}
+
+/* .ril__builtinButton {
+  width: 40px;
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  opacity: 0.7;
+} */
+
+/* .ril__closeButton {
+  background-size: contain;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIj48cGF0aCBkPSJtIDEsMyAxLjI1LC0xLjI1IDcuNSw3LjUgNy41LC03LjUgMS4yNSwxLjI1IC03LjUsNy41IDcuNSw3LjUgLTEuMjUsMS4yNSAtNy41LC03LjUgLTcuNSw3LjUgLTEuMjUsLTEuMjUgNy41LC03LjUgLTcuNSwtNy41IHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=)
+    no-repeat center; 
+} */
+
+/* .ril__caption.ril__caption {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: hsl(0, 0%, 0%, 0.8); 
+} */
+
+.ril__captionContent {
+  margin: 0 auto;
+}
+
+/*
+ *
+ * React Modal
+ *
+ */
+
+/* 
+
+See: https://github.com/reactjs/react-modal/issues/125#issuecomment-187084415
+
+NOTEs: 
+
+1. Set closeTimeoutMS prop to the total MS needed to complete exit animations 
+2. Scope classes below (by adding a label class to the className and overlayClassName props) to avoid clashing with other libraries that use react-modal (like react-image-lightbox)
+
+TODO: Make sure to scope all style to avoid conflicting with react-image-lightbox (which uses react-modal).
+
+*/
+
+/* 
+ * Overlay: in/out transitions 
+ */
+
+/*
+.ReactModal__Overlay { @apply .z-max .bg-transparent !important }
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  transition: background-color 0.8s ease-in-out 0.4s;
+}
+
+.ReactModal__Overlay--before-close {
+  @apply .bg-transparent !important;
+  transition: background-color 0.3s ease-in-out 0.4s;
+}
+*/
+
+/* 
+ * Content: in/out transitions 
+ */
+
+/*
+.ReactModal__Content {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.ReactModal__Content--after-open {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ReactModal__Content--before-close {
+  opacity: 0;
+  transform: scale(0);
+}
+*/
+
+/* 
+ * Menu Modal (for BurgerAndOverlay)
+ */
+
+.menu-modal-overlay.ReactModal__Overlay {
+  z-index: 10000 !important;
+}
+
+.menu-modal-content.ReactModal__Content {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  /* See: http://easings.net/*/
+  transition: all .5s cubic-bezier(.645, .045, .355, 1);
+}
+
+.menu-modal-content.ReactModal__Content--after-open {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.menu-modal-content.ReactModal__Content--before-close {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+/*
+@import './plugins/lightbox-react';
+@import './plugins/twitter-fetcher';
+*/
 
 /*
  *
@@ -738,6 +1578,43 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  * Buttons
  *
  */
+
+.btn {
+  border-width: .125rem;
+  border-width: var(--border-width-1);
+  border-color: #000;
+  border-color: var(--black);
+  background-color: #000;
+  background-color: var(--black);
+  color: #ff80cc;
+  color: var(--pink);
+  padding-top: .5rem;
+  padding-top: var(--spacing-2);
+  padding-bottom: .5rem;
+  padding-bottom: var(--spacing-2);
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #ff80cc;
+  background-color: var(--pink);
+  color: #000;
+  color: var(--black);
+}
+
+@media (min-width: 36em) {
+  .btn {
+    font-size: 1.25rem;
+    font-size: var(--font-size-4);
+  }
+}
 
 /* 
  *
@@ -774,18 +1651,30 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   }
 }
 
-@supports (display: grid) {
-  .container {
-    max-width: 96rem;
-    max-width: var(--sizing-9);
-  }
+.container {
+  /*
+ @supports (display: grid) { @apply .mw9 }
+ */
 }
+
+/* 
+ *
+ * Filter Buttons
+ *
+ */
 
 /* 
  *
  * Headings
  *
  */
+
+.heading {
+  font-size: 2.25rem;
+  font-size: var(--font-size-2);
+  color: #000;
+  color: var(--black);
+}
 
 /* 
  *
@@ -794,15 +1683,29 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  */
 
 .icon {
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
-.icon:hover,
-.icon:focus {
+.icon:hover {
   color: #19a974;
   color: var(--green);
+}
+
+/* 
+ *
+ * Inputs
+ *
+ */
+
+.input {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #eee;
+  border-color: var(--light-gray);
+  padding-bottom: .25rem;
+  padding-bottom: var(--spacing-1);
+  width: 100%;
+  font-family: 'Courier New', courier, monospace;
 }
 
 /* 
@@ -812,8 +1715,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  */
 
 .link {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   border-width: .125rem;
   border-width: var(--border-width-1);
   border-color: #000;
@@ -833,14 +1735,11 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   letter-spacing: .1em;
   color: #fff;
   color: var(--white);
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
   border-radius: 30px;
 }
 
-.link:hover,
-.link:focus {
+.link:hover {
   border-color: #ff80cc;
   border-color: var(--pink);
   background-color: #ff80cc;
@@ -849,11 +1748,185 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   color: var(--black);
 }
 
+/* These go with the arrows in components/examples/Arrows */
+
 /* 
  *
- * Sections
+ * Arrow down
  *
  */
+
+/* 
+ *
+ * Arrow left
+ *
+ */
+
+.arrow-left {
+  width: 70px;
+  height: 60px;
+  display: block;
+  float: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+}
+
+.arrow-left .arrow-line {
+  width: 54px;
+  height: 2px;
+  top: 50%;
+  right: -28px;
+  position: absolute;
+  display: block;
+  margin: -1px 0 0 0;
+  background: #282828;
+  z-index: 1;
+}
+
+.arrow-left .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 7px 6px 0;
+  border-color: transparent #282828 transparent transparent;
+  position: absolute;
+  z-index: 4;
+  display: block;
+  left: -4px;
+  top: -5px;
+}
+
+.arrow-left:hover .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(-23px);
+          transform: translateX(-23px);
+}
+
+.group:hover .arrow-left .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(-23px);
+          transform: translateX(-23px);
+}
+
+/* 
+ *
+ * Arrow right
+ *
+ */
+
+.arrow-right {
+  width: 70px;
+  height: 60px;
+  display: block;
+  float: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: 0;
+}
+
+.arrow-right .arrow-line {
+  width: 54px;
+  height: 2px;
+  top: 50%;
+  left: -28px;
+  position: absolute;
+  display: block;
+  margin: -1px 0 0 0;
+  background: #282828;
+  z-index: 1;
+}
+
+.arrow-right .arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 0 6px 7px;
+  border-color: transparent transparent transparent #282828;
+  position: absolute;
+  z-index: 4;
+  display: block;
+  right: -4px;
+  top: -5px;
+}
+
+.arrow-right:hover .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(23px);
+          transform: translateX(23px);
+}
+
+.group:hover .arrow-right .arrow-line {
+  transition-delay: 200ms;
+  -webkit-transform: translateX(23px);
+          transform: translateX(23px);
+}
+
+/* These go with the burger in components/examples/BurgerAndOverlay */
+
+.burger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin-right: .25rem;
+  margin-right: var(--spacing-1);
+  background-color: #fff;
+  background-color: var(--white);
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  width: 70px;
+  height: 50px;
+  z-index: 10001;
+}
+
+@media (min-width: 48em) {
+  .burger {
+    margin-right: 2rem;
+    margin-right: var(--spacing-4);
+  }
+}
+
+@media (min-width: 62em) {
+  .burger {
+    margin-right: 4rem;
+    margin-right: var(--spacing-5);
+  }
+}
+
+.burger-layer {
+  display: block;
+  position: absolute;
+  left: 50%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  width: 31px;
+  height: 4px;
+  background: #282828;
+  z-index: 5;
+  top: 23px;
+  margin: 0 0 0 -15px;
+}
+
+.burger-layer.top {
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+.burger-layer.bottom {
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
+}
+
+.burger:hover .burger-layer {
+  background-color: #ff41b4;
+  background-color: var(--hot-pink);
+}
 
 /*
  *
@@ -870,13 +1943,24 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  * 
  */
 
-/* 
- * 
- * Hero
- *
- */
-
 @supports (display: grid) {
+  /* 
+  * 
+  * Utilities
+  *
+  */
+
+  .span-2 {
+    grid-column: span 2;
+  }
+
+  .span-3 {
+    grid-column: span 3;
+  }/* 
+  * 
+  * Home > Hero
+  *
+  */
 }
 
 /*
@@ -894,8 +1978,6 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  */
 
 .animate {
-  -webkit-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
@@ -957,6 +2039,21 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
  *
  */
 
+.anim-delay-1 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.anim-delay-2 {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.anim-delay-3 {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
 /* Backgrounds */
 
 /*
@@ -982,9 +2079,83 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--black);
 }
 
+.bg-near-white {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+}
+
+.bg-dark-red {
+  background-color: #e7040f;
+  background-color: var(--dark-red);
+}
+
 .bg-red {
   background-color: #ff4136;
   background-color: var(--red);
+}
+
+.bg-light-red {
+  background-color: #ff725c;
+  background-color: var(--light-red);
+}
+
+.bg-yellow {
+  background-color: #ffd700;
+  background-color: var(--yellow);
+}
+
+.bg-light-yellow {
+  background-color: #fbf1a9;
+  background-color: var(--light-yellow);
+}
+
+.bg-purple {
+  background-color: #5e2ca5;
+  background-color: var(--purple);
+}
+
+.bg-hot-pink {
+  background-color: #ff41b4;
+  background-color: var(--hot-pink);
+}
+
+.bg-pink {
+  background-color: #ff80cc;
+  background-color: var(--pink);
+}
+
+.bg-light-pink {
+  background-color: #ffa3d7;
+  background-color: var(--light-pink);
+}
+
+.bg-light-green {
+  background-color: #9eebcf;
+  background-color: var(--light-green);
+}
+
+.bg-blue {
+  background-color: #357edd;
+  background-color: var(--blue);
+}
+
+.bg-lightest-blue {
+  background-color: #cdecff;
+  background-color: var(--lightest-blue);
+}
+
+.bg-washed-red {
+  background-color: #ffdfdf;
+  background-color: var(--washed-red);
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.group:hover .group-hover\:bg-black-50 {
+  background-color: rgba(0, 0, 0, .5);
+  background-color: var(--black-50);
 }
 
 /*
@@ -1029,6 +2200,11 @@ Adapted from: http://tachyons.io/docs/themes/borders/
 
 */
 
+.br {
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
 /*
 
 BORDER COLORS
@@ -1042,6 +2218,11 @@ Adapted from: http://tachyons.io/docs/themes/borders/
 
 */
 
+.b--black {
+  border-color: #000;
+  border-color: var(--black);
+}
+
 /*
 
 BORDER RADIUS
@@ -1052,6 +2233,11 @@ Set the border radius amount and locations using separate classes.
 Adapted from: http://tachyons.io/docs/themes/border-radius/
 
 */
+
+.br3 {
+  border-radius: .5rem;
+  border-radius: var(--border-radius-3);
+}
 
 /*
 
@@ -1074,6 +2260,13 @@ Import after borders.css to override border-width of 1px.
 Adapted from: http://tachyons.io/docs/themes/borders/
 
 */
+
+.bw2 {
+  border-width: .25rem;
+  border-width: var(--border-width-2);
+}
+
+/* Resets */
 
 /* Resets */
 
@@ -1101,10 +2294,36 @@ Adapted from: https://tailwindcss.com/docs/shadows
 
 */
 
-.shadow-lg {
-  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+.shadow-md {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
 }
+
+.shadow-lg {
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+}
+
+/*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  */
 
 /*
   .hover-shadow:focus,
@@ -1197,6 +2416,10 @@ Used to adapt inline images to their dimensions.
 
 */
 
+.object-cover {
+  object-fit: cover;
+}
+
 /*
 
 OBJECT FIT
@@ -1205,6 +2428,11 @@ OBJECT FIT
 Used to adapt inline images to their dimensions.
 
 */
+
+.object-center {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 
 /* Interactivity */
 
@@ -1219,6 +2447,16 @@ Adapted from:
 - https://tailwindcss.com/docs/user-select
 
 */
+
+/* Cursor */
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+/* Pointer events */
+
+/* User select */
 
 /* Cursor */
 
@@ -1293,8 +2531,20 @@ Adapted from: http://tachyons.io/docs/layout/display
 
 */
 
+.dn {
+  display: none;
+}
+
+.db {
+  display: block;
+}
+
 .dib {
   display: inline-block;
+}
+
+.flex {
+  display: flex;
 }
 
 /* Set table to full width (all cells will be equal width) */
@@ -1314,6 +2564,22 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
   *
   */
 
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
 /*
   *
   * Flex item
@@ -1321,6 +2587,16 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
   */
 
 /* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 */
+
+.flex-auto {
+  flex: 1 1 auto;
+  min-width: 0; /* 1 */
+  min-height: 0; /* 1 */
+}
+
+.flex-none {
+  flex: none;
+}
 
 /*
 
@@ -1345,6 +2621,10 @@ Adapted from: http://tachyons.io/docs/layout/position/
 
 */
 
+.static {
+  position: static;
+}
+
 .relative {
   position: relative;
 }
@@ -1353,11 +2633,74 @@ Adapted from: http://tachyons.io/docs/layout/position/
   position: absolute;
 }
 
+.fixed {
+  position: fixed;
+}
+
 /* Positive spacing */
+
+.fill {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
 
 /* Negative spacing */
 
 /* Percentage spacing */
+
+.top-20 {
+  top: 20%;
+}
+
+.top-25 {
+  top: 25%;
+}
+
+.top-30 {
+  top: 30%;
+}
+
+.top-50 {
+  top: 50%;
+}
+
+.top-90 {
+  top: 90%;
+}
+
+.left-10 {
+  left: 10%;
+}
+
+.left-25 {
+  left: 25%;
+}
+
+.left-50 {
+  left: 50%;
+}
+
+.left-70 {
+  left: 70%;
+}
+
+.left-80 {
+  left: 80%;
+}
 
 /* Negative percentage spacing */
 
@@ -1369,6 +2712,10 @@ Z-INDEX
 Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_z-index.css
 
 */
+
+.z-999 {
+  z-index: 999;
+}
 
 /* Sizing */
 
@@ -1393,6 +2740,26 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-r
 
 */
 
+.aspect-ratio {
+  height: 0;
+  position: relative;
+}
+
+.aspect-ratio--1x1 {
+  padding-bottom: 100%;
+}
+
+.aspect-ratio--object {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+}
+
 /*
 
 HEIGHTS
@@ -1416,6 +2783,41 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: 4rem;
   height: var(--sizing-3);
 }
+
+.h4 {
+  height: 8rem;
+  height: var(--sizing-4);
+}
+
+.h5 {
+  height: 16rem;
+  height: var(--sizing-5);
+}
+
+.h7 {
+  height: 48rem;
+  height: var(--sizing-7);
+}
+
+/* 
+  * 
+  * Percentage of parent height
+  *
+  */
+
+.h-50 {
+  height: 50%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+/* 
+  * 
+  * Percentage of viewport height
+  *
+  */
 
 /* 
   * 
@@ -1462,6 +2864,10 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow
 
  */
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 /* Scrolling */
 
 /*
@@ -1475,11 +2881,28 @@ Adapted from:
 
 */
 
+.w5 {
+  width: 16rem;
+  width: var(--sizing-5);
+}
+
 /* 
   * 
   * Percentage of parent width
   *
   */
+
+.w-30 {
+  width: 30%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-third {
+  width: calc(100% / 3);
+}
 
 /* 
   * 
@@ -1502,13 +2925,38 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* Top */
 
+.mt3 {
+  margin-top: 1rem;
+  margin-top: var(--spacing-3);
+}
+
+.mt4 {
+  margin-top: 2rem;
+  margin-top: var(--spacing-4);
+}
+
 /* Right */
+
+.mr2 {
+  margin-right: .5rem;
+  margin-right: var(--spacing-2);
+}
 
 .mr-auto {
   margin-right: auto;
 }
 
 /* Bottom */
+
+.mb1 {
+  margin-bottom: .25rem;
+  margin-bottom: var(--spacing-1);
+}
+
+.mb2 {
+  margin-bottom: .5rem;
+  margin-bottom: var(--spacing-2);
+}
 
 .mb3 {
   margin-bottom: 1rem;
@@ -1527,11 +2975,23 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* Left */
 
+.ml2 {
+  margin-left: .5rem;
+  margin-left: var(--spacing-2);
+}
+
 .ml-auto {
   margin-left: auto;
 }
 
 /* Vertical (top + bottom) */
+
+.mv2 {
+  margin-top: .5rem;
+  margin-top: var(--spacing-2);
+  margin-bottom: .5rem;
+  margin-bottom: var(--spacing-2);
+}
 
 .mv4 {
   margin-top: 2rem;
@@ -1549,6 +3009,25 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* Horizontal (left + right) */
 
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mh2 {
+  margin-left: .5rem;
+  margin-left: var(--spacing-2);
+  margin-right: .5rem;
+  margin-right: var(--spacing-2);
+}
+
+.mh3 {
+  margin-left: 1rem;
+  margin-left: var(--spacing-3);
+  margin-right: 1rem;
+  margin-right: var(--spacing-3);
+}
+
 /*
 
 NEGATIVE MARGINS
@@ -1563,6 +3042,11 @@ Adapted from:
 /* All */
 
 /* Top */
+
+.nt2 {
+  margin-top: calc(.5rem * -1);
+  margin-top: calc(var(--spacing-2) * -1);
+}
 
 /* Right */
 
@@ -1585,9 +3069,19 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* All */
 
+.pa2 {
+  padding: .5rem;
+  padding: var(--spacing-2);
+}
+
 .pa3 {
   padding: 1rem;
   padding: var(--spacing-3);
+}
+
+.pa4 {
+  padding: 2rem;
+  padding: var(--spacing-4);
 }
 
 .pa5 {
@@ -1602,14 +3096,29 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-top: var(--spacing-3);
 }
 
+.pt6 {
+  padding-top: 8rem;
+  padding-top: var(--spacing-6);
+}
+
 /* Right */
 
-.pr4 {
-  padding-right: 2rem;
-  padding-right: var(--spacing-4);
+.pr3 {
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
 }
 
 /* Bottom */
+
+.pb3 {
+  padding-bottom: 1rem;
+  padding-bottom: var(--spacing-3);
+}
+
+.pb4 {
+  padding-bottom: 2rem;
+  padding-bottom: var(--spacing-4);
+}
 
 .pb5 {
   padding-bottom: 4rem;
@@ -1618,7 +3127,24 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* Left */
 
+.pl3 {
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+}
+
+.pl6 {
+  padding-left: 8rem;
+  padding-left: var(--spacing-6);
+}
+
 /* Vertical (top + bottom) */
+
+.pv2 {
+  padding-top: .5rem;
+  padding-top: var(--spacing-2);
+  padding-bottom: .5rem;
+  padding-bottom: var(--spacing-2);
+}
 
 .pv3 {
   padding-top: 1rem;
@@ -1634,6 +3160,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-bottom: var(--spacing-4);
 }
 
+.pv5 {
+  padding-top: 4rem;
+  padding-top: var(--spacing-5);
+  padding-bottom: 4rem;
+  padding-bottom: var(--spacing-5);
+}
+
 /* Horizontal (left + right) */
 
 .ph3 {
@@ -1641,6 +3174,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-left: var(--spacing-3);
   padding-right: 1rem;
   padding-right: var(--spacing-3);
+}
+
+.ph5 {
+  padding-left: 4rem;
+  padding-left: var(--spacing-5);
+  padding-right: 4rem;
+  padding-right: var(--spacing-5);
 }
 
 /* SVG */
@@ -1665,6 +3205,11 @@ Adapted from: http://tachyons.io/docs/elements/tables/
 
 */
 
+.collapse {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 /* Transforms */
 
 /*
@@ -1682,6 +3227,78 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotation
  *
  */
 
+.origin-right {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+.origin-left {
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+/* 
+ *
+ * Translate
+ *
+ */
+
+.transX--50 {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/*
+.transY--50
+  transform: translateY(-50%)
+
+.transY--100-l
+  @media (--breakpoint-large)
+    transform: translateY(-100%)
+
+.transXY-50-and-1px
+  transform: translate(50%, -1px)
+
+.transXY--1px-and-50
+  transform: translate(-1px, 50%)
+
+.transY-9px
+  transform: translateY(9px)
+
+.transY--1px
+  transform: translateY(-1px)
+
+.transY--3px
+  transform: translateY(-3px)
+
+.transY--11px
+  transform: translateY(-11px)
+
+.transX--1px
+  transform: translateX(-1px)
+
+.transX--100
+  transform: translateX(-100%)
+
+.arrow-position-on-floating-slider
+  transform: translate(-4rem, -99%)
+
+.transY--99
+  transform: translateY(-99%)
+
+.transY--100
+  transform: translateY(-100%)
+
+.transX-50
+  transform: translateX(50%)
+
+.transX--50
+  transform: translateX(-50%)
+
+.transY--50
+  transform: translateY(-50%)
+*/
+
 /* Typography */
 
 /*
@@ -1693,14 +3310,53 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 
 */
 
+.near-black {
+  color: #111;
+  color: var(--near-black);
+}
+
+.gray {
+  color: #777;
+  color: var(--gray);
+}
+
+.light-gray {
+  color: #eee;
+  color: var(--light-gray);
+}
+
 .white {
   color: #fff;
   color: var(--white);
 }
 
+.gold {
+  color: #ffb700;
+  color: var(--gold);
+}
+
 .pink {
   color: #ff80cc;
   color: var(--pink);
+}
+
+.blue {
+  color: #357edd;
+  color: var(--blue);
+}
+
+.transparent {
+  color: transparent;
+}
+
+.group:hover .group-hover\:white {
+  color: #fff;
+  color: var(--white);
+}
+
+.hover\:hot-pink:hover {
+  color: #ff41b4;
+  color: var(--hot-pink);
 }
 
 /*
@@ -1720,6 +3376,14 @@ Adapted from:
  *
  */
 
+code {
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.courier {
+  font-family: 'Courier New', courier, monospace;
+}
+
 /*
  *
  * Sans-serif
@@ -1729,6 +3393,16 @@ Adapted from:
 /*
  *
  * Serif
+ *
+ */
+
+.times {
+  font-family: times, serif;
+}
+
+/*
+ *
+ * Cursive
  *
  */
 
@@ -1746,14 +3420,28 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
   font-size: var(--font-size-1);
 }
 
-.f2 {
-  font-size: 2.25rem;
-  font-size: var(--font-size-2);
-}
-
 .f3 {
   font-size: 1.5rem;
   font-size: var(--font-size-3);
+}
+
+.f4 {
+  font-size: 1.25rem;
+  font-size: var(--font-size-4);
+}
+
+.f5 {
+  font-size: 1rem;
+  font-size: var(--font-size-5);
+}
+
+.f6 {
+  font-size: .875rem;
+  font-size: var(--font-size-6);
+}
+
+.f-lead {
+  font-size: 1.125rem;
 }
 
 /*
@@ -1767,6 +3455,32 @@ Adapted from:
 - http://tachyons.io/docs/typography/text-transform/
 
 */
+
+/*
+  *
+  * Font style
+  *
+  */
+
+.i {
+  font-style: italic;
+}
+
+/*
+  *
+  * Text decoration
+  *
+  */
+
+/*
+  *
+  * Text transform
+  *
+  */
+
+.ttu {
+  text-transform: uppercase;
+}
 
 /*
   *
@@ -1830,6 +3544,14 @@ FONT WEIGHT
 Adapted from: http://tachyons.io/docs/typography/font-weight/
 
 */
+
+.b {
+  font-weight: bold;
+}
+
+.normal {
+  font-weight: normal;
+}
 
 /*
 
@@ -1924,6 +3646,14 @@ Adapted from: http://tachyons.io/docs/typography/text-align/
 
 */
 
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+
 .tc {
   text-align: center;
 }
@@ -1949,6 +3679,10 @@ OPACITY
 Adapted from: http://tachyons.io/docs/themes/opacity/
 
 */
+
+.o-50 {
+  opacity: .5;
+}
 
 /*
 
@@ -2003,6 +3737,7 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   --spacing-5: 4rem;
   --spacing-6: 8rem;
   --spacing-7: 16rem;
+  --spacing-8: 32rem;
   /* Sizing scale */
   --sizing-1: 1rem;
   --sizing-2: 2rem;
@@ -2117,7 +3852,7 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
 /* @import './utilities/debug'; */
 
-@media (min-width: 36em) {/* Resets *//* Resets *//* Resets *//*
+@media (min-width: 36em) {/* Resets *//* Resets *//* Resets *//* Resets *//*
   .hover-shadow:focus,
   .hover-shadow:hover
     box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
@@ -2180,7 +3915,28 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .deep-shadow--reverse
     box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
   *
   * Flex container
   *
@@ -2189,6 +3945,721 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   * Flex item
   *
   *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top */
+
+  .sm\:mt0 {
+    margin-top: 0;
+  }/* Right *//* Bottom *//* Left */
+
+  .sm\:ml4 {
+    margin-left: 2rem;
+    margin-left: var(--spacing-4);
+  }/* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+}
+
+@media (min-width: 48em) {/* Resets *//* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing */
+
+  .md\:left-0 {
+    left: 0;
+  }/* Negative spacing *//* Percentage spacing */
+
+  .md\:top-30 {
+    top: 30%;
+  }
+
+  .md\:top-40 {
+    top: 40%;
+  }
+
+  .md\:top-80 {
+    top: 80%;
+  }
+
+  .md\:left-75 {
+    left: 75%;
+  }/* Negative percentage spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top *//* Right */
+
+  .md\:mr3 {
+    margin-right: 1rem;
+    margin-right: var(--spacing-3);
+  }/* Bottom */
+
+  .md\:mb5 {
+    margin-bottom: 4rem;
+    margin-bottom: var(--spacing-5);
+  }/* Left */
+
+  .md\:ml3 {
+    margin-left: 1rem;
+    margin-left: var(--spacing-3);
+  }/* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right */
+
+  .md\:pr4 {
+    padding-right: 2rem;
+    padding-right: var(--spacing-4);
+  }/* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) */
+
+  .md\:f3 {
+    font-size: 1.5rem;
+    font-size: var(--font-size-3);
+  }/*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+}
+
+@media (min-width: 62em) {/* Resets *//* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap */
+
+  .lg\:di {
+    display: inline;
+  }/* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
+  * 
+  * Percentage of parent width
+  *
+  *//* 
+  * 
+  * Percentage of viewport width
+  *
+  *//* All *//* Top *//* Right */
+
+  .lg\:mr4 {
+    margin-right: 2rem;
+    margin-right: var(--spacing-4);
+  }/* Bottom *//* Left */
+
+  .lg\:ml0 {
+    margin-left: 0;
+  }
+
+  .lg\:ml4 {
+    margin-left: 2rem;
+    margin-left: var(--spacing-4);
+  }
+
+  .lg\:ml5 {
+    margin-left: 4rem;
+    margin-left: var(--spacing-5);
+  }/* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right */
+
+  .lg\:pr5 {
+    padding-right: 4rem;
+    padding-right: var(--spacing-5);
+  }/* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Font style
+  *
+  *//*
+  *
+  * Text decoration
+  *
+  *//*
+  *
+  * Text transform
+  *
+  *//*
+  *
+  * Line length
+  *
+  *//*
+  *
+  * White space
+  *
+  *//* 
+
+.pre-line is useful when adding line breaks to JSON with '\n'
+See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
+*//*
+  *
+  * Word break
+  *
+  *//*
+  *
+  * Truncation
+  *
+  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
+  *
+  * Indentation
+  *
+  */
+
+  .lg\:tl {
+    text-align: left;
+  }
+}
+
+@media (min-width: 75em) {/* Resets *//* Resets *//* Resets *//* Resets *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//*
+  .hover-shadow:focus,
+  .hover-shadow:hover
+    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
+
+  .medium-shadow
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
+
+  .hover-larger-shadow:focus
+  .hover-larger-shadow:hover
+    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
+
+  .deep-shadow
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .hover-deep-shadow:focus,
+  .hover-deep-shadow:hover
+    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
+
+  .deep-shadow--reverse
+    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
+  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
+  *
+  * Flex container
+  *
+  *//*
+  *
+  * Flex item
+  *
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
+  * 
+  * Percentage of parent height
+  *
+  *//* 
+  * 
+  * Percentage of viewport height
+  *
+  *//* 
   * 
   * Percentage of parent height
   *
@@ -2258,160 +4729,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   *
   *//*
   *
-  * Line length
-  *
-  *//*
-  *
-  * White space
-  *
-  *//* 
-
-.pre-line is useful when adding line breaks to JSON with '\n'
-See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
-*//*
-  *
-  * Word break
-  *
-  *//*
-  *
-  * Truncation
-  *
-  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
-  *
-  * Indentation
-  *
-  */
-}
-
-@media (min-width: 48em) {/* Resets *//* Resets *//* Resets *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
-  *
-  * Flex container
-  *
-  *//*
-  *
-  * Flex item
-  *
-  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent width
-  *
-  *//* 
-  * 
-  * Percentage of viewport width
-  *
-  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
   * Font style
   *
   *//*
@@ -2449,334 +4766,4 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 }
 
-@media (min-width: 62em) {/* Resets *//* Resets *//* Resets *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
-  *
-  * Flex container
-  *
-  *//*
-  *
-  * Flex item
-  *
-  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent width
-  *
-  *//* 
-  * 
-  * Percentage of viewport width
-  *
-  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Line length
-  *
-  *//*
-  *
-  * White space
-  *
-  *//* 
-
-.pre-line is useful when adding line breaks to JSON with '\n'
-See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
-*//*
-  *
-  * Word break
-  *
-  *//*
-  *
-  * Truncation
-  *
-  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
-  *
-  * Indentation
-  *
-  */
-}
-
-@media (min-width: 75em) {/* Resets *//* Resets *//* Resets *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//*
-  .hover-shadow:focus,
-  .hover-shadow:hover
-    box-shadow: 10px 10px 8px 0px rgba(0, 0, 0, .2)
-
-  .medium-shadow
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,.1)
-
-  .hover-larger-shadow:focus
-  .hover-larger-shadow:hover
-    box-shadow: 0 16px 24px 0 rgba(0,0,0,.3)
-
-  .deep-shadow
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .hover-deep-shadow:focus,
-  .hover-deep-shadow:hover
-    box-shadow: 25px 32px 85px 0 rgba(0,0,0,.4)
-
-  .deep-shadow--reverse
-    box-shadow: 0px 32px 85px 0 rgba(0,0,0,.4)
-  *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Cursor *//* Pointer events *//* User select *//* Column count *//* Column width *//* Column gap *//* Set table to full width (all cells will be equal width) *//* 
-  *
-  * Flex container
-  *
-  *//*
-  *
-  * Flex item
-  *
-  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent height
-  *
-  *//* 
-  * 
-  * Percentage of viewport height
-  *
-  *//* 
-  * 
-  * Percentage of parent width
-  *
-  *//* 
-  * 
-  * Percentage of viewport width
-  *
-  *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//* All *//* Top *//* Right *//* Bottom *//* Left *//* Vertical (top + bottom) *//* Horizontal (left + right) *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Font style
-  *
-  *//*
-  *
-  * Text decoration
-  *
-  *//*
-  *
-  * Text transform
-  *
-  *//*
-  *
-  * Line length
-  *
-  *//*
-  *
-  * White space
-  *
-  *//* 
-
-.pre-line is useful when adding line breaks to JSON with '\n'
-See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
-*//*
-  *
-  * Word break
-  *
-  *//*
-  *
-  * Truncation
-  *
-  *//* Combine with a width to truncate text, or leave as is to truncate at width of containing element. *//*
-  *
-  * Indentation
-  *
-  */
-}
+/*# sourceMappingURL=output.css.map */

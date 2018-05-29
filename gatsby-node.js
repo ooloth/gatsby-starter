@@ -65,7 +65,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
       test: [
         /intersection-observer/,
         /lightbox-react/,
-        /react-flickity-component/,
+        // /react-flickity-component/,
         /react-image-lightbox/,
         /twitter-fetcher/
       ],
