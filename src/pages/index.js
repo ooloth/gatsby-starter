@@ -26,6 +26,8 @@ const IndexPage = ({ data }) => (
       category2={data.allCategory2Yaml.edges}
     />
 
+    <FlickityExample data={data.allExampleYaml.edges} />
+
     <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
@@ -149,6 +151,8 @@ import CollapseExample from '../sections/examples/CollapseExample'
 
 import FilterExample from '../sections/examples/FilterExample'
 import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
+
+import FlickityExample from '../sections/examples/FlickityExample'
 
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'

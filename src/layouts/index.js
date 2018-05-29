@@ -73,7 +73,9 @@ const SiteMetadata = ({ site }) => (
     <meta property="og:locale" content={site.locale} />
 
     {/* Non-essential, but required for analytics */}
-    {site.facebookAppId && <meta property="fb:app_id" content={site.facebookAppId} />}
+    {site.facebookAppId && (
+      <meta property="fb:app_id" content={site.facebookAppId} />
+    )}
     {site.twitterHandle && <meta name="twitter:site" content={site.twitterHandle} />}
   </Helmet>
 )
@@ -85,7 +87,10 @@ const SiteMetadata = ({ site }) => (
  */
 
 const BasicStructuredData = () => (
-  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{ __html: structuredData }}
+  />
 )
 
 const structuredData = `{

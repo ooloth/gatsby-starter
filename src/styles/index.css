@@ -20,6 +20,9 @@
 @import './plugins/react-slick';
 */
 
+@import '../../node_modules/flickity/dist/flickity.min.css';
+@import './plugins/examples/react-flickity-component';
+
 @import '../../node_modules/react-image-lightbox/style.css';
 @import './plugins/examples/react-image-lightbox'; 
 

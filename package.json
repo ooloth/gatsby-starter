@@ -33,6 +33,7 @@
     "no-scroll": "^2.1.1",
     "object-fit-images": "^3.2.3",
     "react-automata": "^3.0.0",
+    "react-flickity-component": "^3.0.2",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
     "react-image-lightbox": "^5.0.0",
