@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => (
       category2={data.allCategory2Yaml.edges}
     />
 
-    {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
+    <FlickityExample data={data.allExampleYaml.edges} />
 
     <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
