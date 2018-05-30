@@ -9,7 +9,7 @@ const Icon = ({ svg, ariaLabel, className = ``, style }) => {
     <Tag
       src={Tag === SVG ? svg : undefined}
       aria-label={ariaLabel}
-      className={`inline-flex lh-none fill-current ${className}`}
+      className={`inline-flex fill-current ${className}`}
       style={style}
     />
   )

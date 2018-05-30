@@ -1,5 +1,5 @@
 const SecondPage = ({ data }) => (
-  <main id="main-content" className="container tc">
+  <main id="main-content" tabIndex="-1" className="container tc">
     <PageMetadata page={data.metadata.siteMetadata.secondPage} />
     <h1 className="pv4 f1">Hi from page 2</h1>
     <Link to="/" className="link dib mb4">

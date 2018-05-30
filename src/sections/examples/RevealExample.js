@@ -31,13 +31,11 @@ const RevealedImage = ({ example, index }) => (
   <Reveal
     css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
     delay={index * 0.3 + 0.1}
-    duration={1}
-    offsetTop={-100}
+    reset={true}
   >
     <Img
       sizes={example.image.childImageSharp.sizes}
       alt={example.alt}
-      critical={true}
       className="shadow-lg"
     />
   </Reveal>

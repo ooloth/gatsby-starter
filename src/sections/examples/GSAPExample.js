@@ -28,7 +28,7 @@ class GSAPExample extends React.Component {
   }
 
   render() {
-    console.log(`🗺 GSAPExample state:`, this.props.machineState.value)
+    // console.log(`🗺 GSAPExample state:`, this.props.machineState.value)
 
     return (
       <section ref={el => (this.node = el)}>

@@ -1,6 +1,11 @@
 class ScrollTo extends React.Component {
   scrollToId = e => {
-    const { href, offset = 0, duration = 1.5, easing = `Power3.easeInOut` } = this.props
+    const {
+      href,
+      offset = 0,
+      duration = 1.5,
+      easing = `Power3.easeInOut`
+    } = this.props
     const durationInSeconds = duration > 50 ? duration / 1000 : duration
 
     e.preventDefault()
@@ -17,7 +22,7 @@ class ScrollTo extends React.Component {
   }
 
   render() {
-    const { href, className = ``, children } = this.props
+    const { href, className, children } = this.props
 
     return (
       <a href={href} onClick={this.scrollToId} className={className}>

@@ -15087,25 +15087,6 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
 /* @import './utilities/debug'; */
 
-/*
- *
- * Base
- *
- */
-
-/*
-@import './base/tailwind-preflight';
-@import './base/reset';
-@import './base/a11y';
-@import './base/font-face';
-*/
-
-/*
- *
- * Plugins (vendor + custom styles)
- *
- */
-
 @media (min-width: 36em) {
   .sm\:bg-fixed {
     background-attachment: fixed;
