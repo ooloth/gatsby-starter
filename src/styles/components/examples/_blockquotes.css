@@ -1,0 +1,9 @@
+/*
+ *
+ * Blockquotes (classes to style the <Quote /> component)
+ *
+ */
+
+.quote        { @apply .measure .lh-copy }
+.quote-source { @apply .inline-flex .pt2 .fs-normal }
+.quote-link   { @apply .blue }

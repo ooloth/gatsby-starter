@@ -1,0 +1,25 @@
+/* 
+ *
+ * Links
+ *
+ */
+
+.link {
+  @apply .shadow-lg .bw1 .b--black .bg-black .pv2 .ph3 .lh-tall .ttu .tracked .white .animate;
+  border-radius: 30px;
+
+  &:hover { @apply .b--pink .bg-pink .black }
+}
+
+.link-white {
+  &:hover { @apply .b--white .bg-white .black }
+}
+
+.link-inline { 
+  @apply .animate;
+
+  border-bottom: 1px solid var(--pink);
+  box-shadow: inset 0 -2px 0px 0px var(--pink);
+
+  &:hover { box-shadow: inset 0 -12px 0px 0px var(--pink) }
+}

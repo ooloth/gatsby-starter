@@ -1,0 +1,8 @@
+/* 
+
+Headings
+
+*/
+
+.heading    { @apply .f2 .black }
+.subheading { @apply .f5 .ttu .tracked }

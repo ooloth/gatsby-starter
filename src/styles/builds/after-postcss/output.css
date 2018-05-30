@@ -1936,11 +1936,11 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 
 */
 
-/* 
- *
- * Blockquotes
- *
- */
+/*
+
+Classes to style the <Quote /> component
+
+*/
 
 .quote {
   max-width: 66ch;

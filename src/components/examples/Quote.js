@@ -38,18 +38,18 @@ export default Quote
 /*
 
 INSTRUCTIONS:
-TODO: update this...
-<Emoji 
-  emoji={emoji, required}
-  ariaLabel={string, required}
+
+<Quote 
+  quote={string, required}
+  source={string, optional}
+  href={string, optional}
   className={string, optional}
   style={string || object, optional}
 />
 
-DOCS:
-
-- React Icons: http://gorangajic.github.io/react-icons/fa.html
-- React Icons (github): https://github.com/gorangajic/react-icons
-- React Inline SVG (github): https://github.com/gilbarbara/react-inlinesvg
+1. Style the container (the blockquote element) via the className and style props
+2. Style the quote (the p element) via the .quote component class
+3. Style the link (the a element) via the .quote-link component class
+4. Style the source (the cite element) via the .quote-source component class
 
 */

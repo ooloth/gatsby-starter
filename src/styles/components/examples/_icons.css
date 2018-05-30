@@ -1,0 +1,20 @@
+/* 
+
+Icons
+
+*/
+
+.icon { 
+  @apply .animate;
+
+  &:hover { @apply .green }
+}
+
+.icon-on-green { 
+  @apply .animate;
+
+  &:hover {
+    @apply .white;
+    filter: drop-shadow( 0px 15px 5px rgba(0, 0, 0, 0.11) )
+  }
+}
