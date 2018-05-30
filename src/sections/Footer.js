@@ -13,11 +13,11 @@ const Footer = () => (
 
 const Copyright = () => (
   <p className="container pv4 ph3 lh-copy f6">
-    &copy; {new Date().getFullYear()} Insert Site Name. All&nbsp;rights&nbsp;reserved.
-    Brewed&nbsp;by&nbsp;
-    <HyperLink href="http://coffeeshopcreative.ca" className="">
+    &copy; {new Date().getFullYear()} Insert Site Name.
+    All&nbsp;rights&nbsp;reserved. Brewed&nbsp;by&nbsp;
+    <Anchor href="http://coffeeshopcreative.ca" className="">
       Coffeeshop&nbsp;Creative
-    </HyperLink>.
+    </Anchor>.
   </p>
 )
 
@@ -29,6 +29,6 @@ const Copyright = () => (
 
 import React from 'react'
 
-import HyperLink from '../components/HyperLink'
+import Anchor from '../components/Anchor'
 
 export default Footer

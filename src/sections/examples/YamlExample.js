@@ -28,9 +28,9 @@ const Example = ({ example }) => (
       className="ml-auto mr-auto mb3 measure lh-tall"
       dangerouslySetInnerHTML={{ __html: example.description }}
     />
-    <HyperLink href={example.link} className="link dib">
+    <Anchor href={example.link} className="link dib">
       I'm a link
-    </HyperLink>
+    </Anchor>
   </li>
 )
 
@@ -43,6 +43,6 @@ const Example = ({ example }) => (
 import React from 'react'
 
 import Img from '../../components/Img'
-import HyperLink from '../../components/HyperLink'
+import Anchor from '../../components/Anchor'
 
 export default YamlExample
