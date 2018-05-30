@@ -1,6 +1,6 @@
 const IndexPage = ({ data }) => (
   <main id="main-content" tabIndex="-1" className="container tc">
-    <h1 className="pv4 f1">Gatsby Starter</h1>
+    <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
 
     <Link to="/page-2/" className="link dib">
       Go to page 2

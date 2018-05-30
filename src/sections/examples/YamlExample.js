@@ -1,5 +1,5 @@
 const YamlExample = ({ data }) => (
-  <section className="mv6">
+  <section className="mt5 pt4 mb6">
     <h2 className="mb3">Here's some queried YAML content:</h2>
     <ul className="flex justify-between">
       {data.map((example, index) => {
@@ -16,7 +16,7 @@ const YamlExample = ({ data }) => (
  */
 
 const Example = ({ example }) => (
-  <li className="mb5 ph3 w-third">
+  <li className="ph3 w-third">
     <Img
       sizes={example.image.childImageSharp.sizes}
       position="0% 0%"
