@@ -4,9 +4,30 @@
  *
  */
 
+
 @import './base/index';
 @import './plugins/index';
 @import './components/index';
 @import './supports/index';
 @import './utilities/index';
-@import './new';
+
+
+/*
+ *
+ * Base
+ *
+ */
+
+/*
+@import './base/tailwind-preflight';
+@import './base/reset';
+@import './base/a11y';
+@import './base/font-face';
+*/
+
+/*
+ *
+ * Plugins (vendor + custom styles)
+ *
+ */
+ 

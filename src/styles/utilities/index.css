@@ -5,87 +5,87 @@ Utility classes
 */
 
 /* Animations */
-@import './utilities/animation';
+@import './animation';
 
 /* Backgrounds */
-@import './utilities/background-attachment';
-@import './utilities/background-color';
-@import './utilities/background-position';
-@import './utilities/background-repeat';
-@import './utilities/background-size';
+@import './background-attachment';
+@import './background-color';
+@import './background-position';
+@import './background-repeat';
+@import './background-size';
 
 /* Borders & outlines */
-@import './utilities/border';
-@import './utilities/border-color';
-@import './utilities/border-radius';
-@import './utilities/border-style';
-@import './utilities/border-width';
-@import './utilities/outline';
+@import './border';
+@import './border-color';
+@import './border-radius';
+@import './border-style';
+@import './border-width';
+@import './outline';
 
 /* Box shadow */
-@import './utilities/box-shadow';
+@import './box-shadow';
 
 /* CMS */
-@import './utilities/cms';
+@import './cms';
 
 /* Images */
-@import './utilities/object-fit';
-@import './utilities/object-position';
+@import './object-fit';
+@import './object-position';
 
 /* Interactivity */
-@import './utilities/cursor';
-@import './utilities/hide-child';
+@import './cursor';
+@import './hide-child';
 
 /* Layout */
-@import './utilities/columns';
-@import './utilities/display';
-@import './utilities/flexbox';
-@import './utilities/floats';
-@import './utilities/position';
-@import './utilities/z-index';
+@import './columns';
+@import './display';
+@import './flexbox';
+@import './floats';
+@import './position';
+@import './z-index';
 
 /* Sizing */
-@import './utilities/aspect-ratio';
-@import './utilities/height';
-@import './utilities/overflow';
-@import './utilities/width';
+@import './aspect-ratio';
+@import './height';
+@import './overflow';
+@import './width';
 
 /* Spacing */
-@import './utilities/margins';
-@import './utilities/negative-margins';
-@import './utilities/padding';
+@import './margins';
+@import './negative-margins';
+@import './padding';
 
 /* SVG */
-@import './utilities/svg';
+@import './svg';
 
 /* Tables */
-@import './utilities/tables';
+@import './tables';
 
 /* Transforms */
-@import './utilities/rotation';
-@import './utilities/transform-origin';
-@import './utilities/translate';
+@import './rotation';
+@import './transform-origin';
+@import './translate';
 
 /* Typography */
-@import './utilities/color';
-@import './utilities/font-family';
-@import './utilities/font-size';
-@import './utilities/font-style';
-@import './utilities/font-weight';
-@import './utilities/letter-spacing';
-@import './utilities/line-height';
-@import './utilities/line-wrapping';
-@import './utilities/text-align';
-@import './utilities/vertical-align';
+@import './color';
+@import './font-family';
+@import './font-size';
+@import './font-style';
+@import './font-weight';
+@import './letter-spacing';
+@import './line-height';
+@import './line-wrapping';
+@import './text-align';
+@import './vertical-align';
 
 /* Visibility */
-@import './utilities/opacity';
-@import './utilities/visibility';
+@import './opacity';
+@import './visibility';
 
 /* Variables (import here to override any variables above) */
-@import './base/variables';
+@import '../base/variables';
 
 /* Debug */
-@import './utilities/debug-children';
-@import './utilities/debug-grid';
+@import './debug-children';
+@import './debug-grid';
 /* @import './utilities/debug'; */
