@@ -1,16 +1,8 @@
 class FilterAndLimit extends Component {
-  static propTypes = {
-    defaultCategory: PropTypes.string.isRequired,
-    renderFilters: PropTypes.func.isRequired,
-    renderItems: PropTypes.func.isRequired,
-    limit: PropTypes.number.isRequired
-  }
-
   state = {
     category: this.props.defaultCategory,
     items: this.props[this.props.defaultCategory],
     limit: this.props.limit,
-    increment: this.props.increment || this.props.limit,
     limited: true
   }
 
@@ -23,7 +15,8 @@ class FilterAndLimit extends Component {
     })
 
   handleSeeMore = () => {
-    const { items, limit, increment } = this.state
+    const { items, limit } = this.state
+    const increment = this.props.increment || this.props.limit
     const remaining = items.length - limit
 
     if (remaining > increment) {
@@ -45,6 +38,17 @@ class FilterAndLimit extends Component {
       </Fragment>
     )
   }
+}
+
+FilterAndLimit.propTypes = {
+  defaultCategory: PropTypes.string.isRequired,
+  renderFilters: PropTypes.func.isRequired,
+  renderItems: PropTypes.func.isRequired,
+  limit: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
+  increment: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 /*

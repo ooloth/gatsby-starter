@@ -28,8 +28,8 @@ Anchor.propTypes = {
   href: PropTypes.string.isRequired,
   srText: PropTypes.string, // if anchor has no visible text
   className: PropTypes.string,
-  style: PropTypes.string,
-  children: PropTypes.func
+  style: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 }
 
 /*

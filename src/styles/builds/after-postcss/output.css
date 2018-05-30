@@ -674,11 +674,16 @@ html,
 body {
   /*
  Font-smoothing
- */
-  -webkit-font-smoothing: antialiased;
+ *//*
+ See: https://css-tricks.com/understanding-web-fonts-getting
+ *//*
+ -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -moz-font-feature-settings: "liga" on;
+ *//*
+ text-rendering: optimizeLegibility;
+ *//*
+ -moz-font-feature-settings: "liga" on;
+ */
 }
 
 /* 
@@ -739,13 +744,13 @@ li > ul {
 
 input,
 textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0;
   border-radius: 0;
   background-color: transparent;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   /* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
   line-height: normal;
   font-size: inherit;
@@ -2157,7 +2162,7 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
   padding-bottom: .25rem;
   padding-bottom: var(--spacing-1);
   width: 100%;
-  font-family: 'Courier New', courier, monospace;
+  font-family: 'Courier New', courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /* 
@@ -8000,8 +8005,24 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_z-index.
   z-index: 5;
 }
 
+.z-6 {
+  z-index: 6;
+}
+
+.z-7 {
+  z-index: 7;
+}
+
+.z-8 {
+  z-index: 8;
+}
+
 .z-9 {
   z-index: 9;
+}
+
+.z-10 {
+  z-index: 10;
 }
 
 .z-99 {
@@ -8178,6 +8199,10 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: var(--sizing-9);
 }
 
+.h-0 {
+  height: 0;
+}
+
 .h-auto {
   height: auto;
 }
@@ -8186,34 +8211,276 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: inherit;
 }
 
+.max-h1 {
+  max-height: 1rem;
+  max-height: var(--sizing-1);
+}
+
+.max-h2 {
+  max-height: 2rem;
+  max-height: var(--sizing-2);
+}
+
+.max-h3 {
+  max-height: 4rem;
+  max-height: var(--sizing-3);
+}
+
+.max-h4 {
+  max-height: 8rem;
+  max-height: var(--sizing-4);
+}
+
+.max-h5 {
+  max-height: 16rem;
+  max-height: var(--sizing-5);
+}
+
+.max-h6 {
+  max-height: 32rem;
+  max-height: var(--sizing-6);
+}
+
+.max-h7 {
+  max-height: 48rem;
+  max-height: var(--sizing-7);
+}
+
+.max-h8 {
+  max-height: 64rem;
+  max-height: var(--sizing-8);
+}
+
+.max-h9 {
+  max-height: 96rem;
+  max-height: var(--sizing-9);
+}
+
+.max-h-none {
+  max-height: none;
+}
+
+.min-h1 {
+  min-height: 1rem;
+  min-height: var(--sizing-1);
+}
+
+.min-h2 {
+  min-height: 2rem;
+  min-height: var(--sizing-2);
+}
+
+.min-h3 {
+  min-height: 4rem;
+  min-height: var(--sizing-3);
+}
+
+.min-h4 {
+  min-height: 8rem;
+  min-height: var(--sizing-4);
+}
+
+.min-h5 {
+  min-height: 16rem;
+  min-height: var(--sizing-5);
+}
+
+.min-h6 {
+  min-height: 32rem;
+  min-height: var(--sizing-6);
+}
+
+.min-h7 {
+  min-height: 48rem;
+  min-height: var(--sizing-7);
+}
+
+.min-h8 {
+  min-height: 64rem;
+  min-height: var(--sizing-8);
+}
+
+.min-h9 {
+  min-height: 96rem;
+  min-height: var(--sizing-9);
+}
+
+.min-h-none {
+  min-height: none;
+}
+
 /* 
   * 
   * Percentage of parent height
   *
   */
 
+.h-10 {
+  height: 10%;
+}
+
+.h-20 {
+  height: 20%;
+}
+
 .h-25 {
   height: 25%;
+}
+
+.h-30 {
+  height: 30%;
+}
+
+.h-40 {
+  height: 40%;
 }
 
 .h-50 {
   height: 50%;
 }
 
+.h-60 {
+  height: 60%;
+}
+
+.h-70 {
+  height: 70%;
+}
+
 .h-75 {
   height: 75%;
+}
+
+.h-80 {
+  height: 80%;
+}
+
+.h-90 {
+  height: 90%;
 }
 
 .h-100 {
   height: 100%;
 }
 
-.min-h-100 {
-  min-height: 100%;
+.h-third {
+  height: calc(100% / 3);
+}
+
+.h-two-thirds {
+  height: calc(100% / 1.5);
+}
+
+.max-h-10 {
+  max-height: 10%;
+}
+
+.max-h-20 {
+  max-height: 20%;
+}
+
+.max-h-25 {
+  max-height: 25%;
+}
+
+.max-h-30 {
+  max-height: 30%;
+}
+
+.max-h-40 {
+  max-height: 40%;
+}
+
+.max-h-50 {
+  max-height: 50%;
+}
+
+.max-h-60 {
+  max-height: 60%;
+}
+
+.max-h-70 {
+  max-height: 70%;
+}
+
+.max-h-75 {
+  max-height: 75%;
+}
+
+.max-h-80 {
+  max-height: 80%;
+}
+
+.max-h-90 {
+  max-height: 90%;
 }
 
 .max-h-100 {
   max-height: 100%;
+}
+
+.max-h-third {
+  max-height: calc(100% / 3);
+}
+
+.max-h-two-thirds {
+  max-height: calc(100% / 1.5);
+}
+
+.min-h-10 {
+  min-height: 10%;
+}
+
+.min-h-20 {
+  min-height: 20%;
+}
+
+.min-h-25 {
+  min-height: 25%;
+}
+
+.min-h-30 {
+  min-height: 30%;
+}
+
+.min-h-40 {
+  min-height: 40%;
+}
+
+.min-h-50 {
+  min-height: 50%;
+}
+
+.min-h-60 {
+  min-height: 60%;
+}
+
+.min-h-70 {
+  min-height: 70%;
+}
+
+.min-h-75 {
+  min-height: 75%;
+}
+
+.min-h-80 {
+  min-height: 80%;
+}
+
+.min-h-90 {
+  min-height: 90%;
+}
+
+.min-h-100 {
+  min-height: 100%;
+}
+
+.min-h-third {
+  min-height: calc(100% / 3);
+}
+
+.min-h-two-thirds {
+  min-height: calc(100% / 1.5);
 }
 
 /* 
@@ -8222,28 +8489,172 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   *
   */
 
+.vh-10 {
+  height: 10vh;
+}
+
+.vh-20 {
+  height: 20vh;
+}
+
 .vh-25 {
   height: 25vh;
+}
+
+.vh-30 {
+  height: 30vh;
+}
+
+.vh-40 {
+  height: 40vh;
 }
 
 .vh-50 {
   height: 50vh;
 }
 
+.vh-60 {
+  height: 60vh;
+}
+
+.vh-70 {
+  height: 70vh;
+}
+
 .vh-75 {
   height: 75vh;
+}
+
+.vh-80 {
+  height: 80vh;
+}
+
+.vh-90 {
+  height: 90vh;
 }
 
 .vh-100 {
   height: 100vh;
 }
 
-.min-vh-100 {
-  min-height: 100vh;
+.vh-third {
+  height: calc(100vh / 3);
+}
+
+.vh-two-thirds {
+  height: calc(100vh / 1.5);
+}
+
+.max-vh-10 {
+  max-height: 10vh;
+}
+
+.max-vh-20 {
+  max-height: 20vh;
+}
+
+.max-vh-25 {
+  max-height: 25vh;
+}
+
+.max-vh-30 {
+  max-height: 30vh;
+}
+
+.max-vh-40 {
+  max-height: 40vh;
+}
+
+.max-vh-50 {
+  max-height: 50vh;
+}
+
+.max-vh-60 {
+  max-height: 60vh;
+}
+
+.max-vh-70 {
+  max-height: 70vh;
+}
+
+.max-vh-75 {
+  max-height: 75vh;
+}
+
+.max-vh-80 {
+  max-height: 80vh;
+}
+
+.max-vh-90 {
+  max-height: 90vh;
 }
 
 .max-vh-100 {
   max-height: 100vh;
+}
+
+.max-vh-third {
+  max-height: calc(100vh / 3);
+}
+
+.max-vh-two-thirds {
+  max-height: calc(100vh / 1.5);
+}
+
+.min-vh-10 {
+  min-height: 10vh;
+}
+
+.min-vh-20 {
+  min-height: 20vh;
+}
+
+.min-vh-25 {
+  min-height: 25vh;
+}
+
+.min-vh-30 {
+  min-height: 30vh;
+}
+
+.min-vh-40 {
+  min-height: 40vh;
+}
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+.min-vh-60 {
+  min-height: 60vh;
+}
+
+.min-vh-70 {
+  min-height: 70vh;
+}
+
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+.min-vh-80 {
+  min-height: 80vh;
+}
+
+.min-vh-90 {
+  min-height: 90vh;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.min-vh-third {
+  min-height: calc(100vh / 3);
+}
+
+.min-vh-two-thirds {
+  min-height: calc(100vh / 1.5);
 }
 
 .group:hover .group-hover\:h1 {
@@ -8291,6 +8702,10 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: var(--sizing-9);
 }
 
+.group:hover .group-hover\:h-0 {
+  height: 0;
+}
+
 .group:hover .group-hover\:h-auto {
   height: auto;
 }
@@ -8299,34 +8714,276 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: inherit;
 }
 
+.group:hover .group-hover\:max-h1 {
+  max-height: 1rem;
+  max-height: var(--sizing-1);
+}
+
+.group:hover .group-hover\:max-h2 {
+  max-height: 2rem;
+  max-height: var(--sizing-2);
+}
+
+.group:hover .group-hover\:max-h3 {
+  max-height: 4rem;
+  max-height: var(--sizing-3);
+}
+
+.group:hover .group-hover\:max-h4 {
+  max-height: 8rem;
+  max-height: var(--sizing-4);
+}
+
+.group:hover .group-hover\:max-h5 {
+  max-height: 16rem;
+  max-height: var(--sizing-5);
+}
+
+.group:hover .group-hover\:max-h6 {
+  max-height: 32rem;
+  max-height: var(--sizing-6);
+}
+
+.group:hover .group-hover\:max-h7 {
+  max-height: 48rem;
+  max-height: var(--sizing-7);
+}
+
+.group:hover .group-hover\:max-h8 {
+  max-height: 64rem;
+  max-height: var(--sizing-8);
+}
+
+.group:hover .group-hover\:max-h9 {
+  max-height: 96rem;
+  max-height: var(--sizing-9);
+}
+
+.group:hover .group-hover\:max-h-none {
+  max-height: none;
+}
+
+.group:hover .group-hover\:min-h1 {
+  min-height: 1rem;
+  min-height: var(--sizing-1);
+}
+
+.group:hover .group-hover\:min-h2 {
+  min-height: 2rem;
+  min-height: var(--sizing-2);
+}
+
+.group:hover .group-hover\:min-h3 {
+  min-height: 4rem;
+  min-height: var(--sizing-3);
+}
+
+.group:hover .group-hover\:min-h4 {
+  min-height: 8rem;
+  min-height: var(--sizing-4);
+}
+
+.group:hover .group-hover\:min-h5 {
+  min-height: 16rem;
+  min-height: var(--sizing-5);
+}
+
+.group:hover .group-hover\:min-h6 {
+  min-height: 32rem;
+  min-height: var(--sizing-6);
+}
+
+.group:hover .group-hover\:min-h7 {
+  min-height: 48rem;
+  min-height: var(--sizing-7);
+}
+
+.group:hover .group-hover\:min-h8 {
+  min-height: 64rem;
+  min-height: var(--sizing-8);
+}
+
+.group:hover .group-hover\:min-h9 {
+  min-height: 96rem;
+  min-height: var(--sizing-9);
+}
+
+.group:hover .group-hover\:min-h-none {
+  min-height: none;
+}
+
 /* 
   * 
   * Percentage of parent height
   *
   */
 
+.group:hover .group-hover\:h-10 {
+  height: 10%;
+}
+
+.group:hover .group-hover\:h-20 {
+  height: 20%;
+}
+
 .group:hover .group-hover\:h-25 {
   height: 25%;
+}
+
+.group:hover .group-hover\:h-30 {
+  height: 30%;
+}
+
+.group:hover .group-hover\:h-40 {
+  height: 40%;
 }
 
 .group:hover .group-hover\:h-50 {
   height: 50%;
 }
 
+.group:hover .group-hover\:h-60 {
+  height: 60%;
+}
+
+.group:hover .group-hover\:h-70 {
+  height: 70%;
+}
+
 .group:hover .group-hover\:h-75 {
   height: 75%;
+}
+
+.group:hover .group-hover\:h-80 {
+  height: 80%;
+}
+
+.group:hover .group-hover\:h-90 {
+  height: 90%;
 }
 
 .group:hover .group-hover\:h-100 {
   height: 100%;
 }
 
-.group:hover .group-hover\:min-h-100 {
-  min-height: 100%;
+.group:hover .group-hover\:h-third {
+  height: calc(100% / 3);
+}
+
+.group:hover .group-hover\:h-two-thirds {
+  height: calc(100% / 1.5);
+}
+
+.group:hover .group-hover\:max-h-10 {
+  max-height: 10%;
+}
+
+.group:hover .group-hover\:max-h-20 {
+  max-height: 20%;
+}
+
+.group:hover .group-hover\:max-h-25 {
+  max-height: 25%;
+}
+
+.group:hover .group-hover\:max-h-30 {
+  max-height: 30%;
+}
+
+.group:hover .group-hover\:max-h-40 {
+  max-height: 40%;
+}
+
+.group:hover .group-hover\:max-h-50 {
+  max-height: 50%;
+}
+
+.group:hover .group-hover\:max-h-60 {
+  max-height: 60%;
+}
+
+.group:hover .group-hover\:max-h-70 {
+  max-height: 70%;
+}
+
+.group:hover .group-hover\:max-h-75 {
+  max-height: 75%;
+}
+
+.group:hover .group-hover\:max-h-80 {
+  max-height: 80%;
+}
+
+.group:hover .group-hover\:max-h-90 {
+  max-height: 90%;
 }
 
 .group:hover .group-hover\:max-h-100 {
   max-height: 100%;
+}
+
+.group:hover .group-hover\:max-h-third {
+  max-height: calc(100% / 3);
+}
+
+.group:hover .group-hover\:max-h-two-thirds {
+  max-height: calc(100% / 1.5);
+}
+
+.group:hover .group-hover\:min-h-10 {
+  min-height: 10%;
+}
+
+.group:hover .group-hover\:min-h-20 {
+  min-height: 20%;
+}
+
+.group:hover .group-hover\:min-h-25 {
+  min-height: 25%;
+}
+
+.group:hover .group-hover\:min-h-30 {
+  min-height: 30%;
+}
+
+.group:hover .group-hover\:min-h-40 {
+  min-height: 40%;
+}
+
+.group:hover .group-hover\:min-h-50 {
+  min-height: 50%;
+}
+
+.group:hover .group-hover\:min-h-60 {
+  min-height: 60%;
+}
+
+.group:hover .group-hover\:min-h-70 {
+  min-height: 70%;
+}
+
+.group:hover .group-hover\:min-h-75 {
+  min-height: 75%;
+}
+
+.group:hover .group-hover\:min-h-80 {
+  min-height: 80%;
+}
+
+.group:hover .group-hover\:min-h-90 {
+  min-height: 90%;
+}
+
+.group:hover .group-hover\:min-h-100 {
+  min-height: 100%;
+}
+
+.group:hover .group-hover\:min-h-third {
+  min-height: calc(100% / 3);
+}
+
+.group:hover .group-hover\:min-h-two-thirds {
+  min-height: calc(100% / 1.5);
 }
 
 /* 
@@ -8335,28 +8992,172 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   *
   */
 
+.group:hover .group-hover\:vh-10 {
+  height: 10vh;
+}
+
+.group:hover .group-hover\:vh-20 {
+  height: 20vh;
+}
+
 .group:hover .group-hover\:vh-25 {
   height: 25vh;
+}
+
+.group:hover .group-hover\:vh-30 {
+  height: 30vh;
+}
+
+.group:hover .group-hover\:vh-40 {
+  height: 40vh;
 }
 
 .group:hover .group-hover\:vh-50 {
   height: 50vh;
 }
 
+.group:hover .group-hover\:vh-60 {
+  height: 60vh;
+}
+
+.group:hover .group-hover\:vh-70 {
+  height: 70vh;
+}
+
 .group:hover .group-hover\:vh-75 {
   height: 75vh;
+}
+
+.group:hover .group-hover\:vh-80 {
+  height: 80vh;
+}
+
+.group:hover .group-hover\:vh-90 {
+  height: 90vh;
 }
 
 .group:hover .group-hover\:vh-100 {
   height: 100vh;
 }
 
-.group:hover .group-hover\:min-vh-100 {
-  min-height: 100vh;
+.group:hover .group-hover\:vh-third {
+  height: calc(100vh / 3);
+}
+
+.group:hover .group-hover\:vh-two-thirds {
+  height: calc(100vh / 1.5);
+}
+
+.group:hover .group-hover\:max-vh-10 {
+  max-height: 10vh;
+}
+
+.group:hover .group-hover\:max-vh-20 {
+  max-height: 20vh;
+}
+
+.group:hover .group-hover\:max-vh-25 {
+  max-height: 25vh;
+}
+
+.group:hover .group-hover\:max-vh-30 {
+  max-height: 30vh;
+}
+
+.group:hover .group-hover\:max-vh-40 {
+  max-height: 40vh;
+}
+
+.group:hover .group-hover\:max-vh-50 {
+  max-height: 50vh;
+}
+
+.group:hover .group-hover\:max-vh-60 {
+  max-height: 60vh;
+}
+
+.group:hover .group-hover\:max-vh-70 {
+  max-height: 70vh;
+}
+
+.group:hover .group-hover\:max-vh-75 {
+  max-height: 75vh;
+}
+
+.group:hover .group-hover\:max-vh-80 {
+  max-height: 80vh;
+}
+
+.group:hover .group-hover\:max-vh-90 {
+  max-height: 90vh;
 }
 
 .group:hover .group-hover\:max-vh-100 {
   max-height: 100vh;
+}
+
+.group:hover .group-hover\:max-vh-third {
+  max-height: calc(100vh / 3);
+}
+
+.group:hover .group-hover\:max-vh-two-thirds {
+  max-height: calc(100vh / 1.5);
+}
+
+.group:hover .group-hover\:min-vh-10 {
+  min-height: 10vh;
+}
+
+.group:hover .group-hover\:min-vh-20 {
+  min-height: 20vh;
+}
+
+.group:hover .group-hover\:min-vh-25 {
+  min-height: 25vh;
+}
+
+.group:hover .group-hover\:min-vh-30 {
+  min-height: 30vh;
+}
+
+.group:hover .group-hover\:min-vh-40 {
+  min-height: 40vh;
+}
+
+.group:hover .group-hover\:min-vh-50 {
+  min-height: 50vh;
+}
+
+.group:hover .group-hover\:min-vh-60 {
+  min-height: 60vh;
+}
+
+.group:hover .group-hover\:min-vh-70 {
+  min-height: 70vh;
+}
+
+.group:hover .group-hover\:min-vh-75 {
+  min-height: 75vh;
+}
+
+.group:hover .group-hover\:min-vh-80 {
+  min-height: 80vh;
+}
+
+.group:hover .group-hover\:min-vh-90 {
+  min-height: 90vh;
+}
+
+.group:hover .group-hover\:min-vh-100 {
+  min-height: 100vh;
+}
+
+.group:hover .group-hover\:min-vh-third {
+  min-height: calc(100vh / 3);
+}
+
+.group:hover .group-hover\:min-vh-two-thirds {
+  min-height: calc(100vh / 1.5);
 }
 
 .hover\:h1:hover {
@@ -8404,6 +9205,10 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: var(--sizing-9);
 }
 
+.hover\:h-0:hover {
+  height: 0;
+}
+
 .hover\:h-auto:hover {
   height: auto;
 }
@@ -8412,34 +9217,276 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: inherit;
 }
 
+.hover\:max-h1:hover {
+  max-height: 1rem;
+  max-height: var(--sizing-1);
+}
+
+.hover\:max-h2:hover {
+  max-height: 2rem;
+  max-height: var(--sizing-2);
+}
+
+.hover\:max-h3:hover {
+  max-height: 4rem;
+  max-height: var(--sizing-3);
+}
+
+.hover\:max-h4:hover {
+  max-height: 8rem;
+  max-height: var(--sizing-4);
+}
+
+.hover\:max-h5:hover {
+  max-height: 16rem;
+  max-height: var(--sizing-5);
+}
+
+.hover\:max-h6:hover {
+  max-height: 32rem;
+  max-height: var(--sizing-6);
+}
+
+.hover\:max-h7:hover {
+  max-height: 48rem;
+  max-height: var(--sizing-7);
+}
+
+.hover\:max-h8:hover {
+  max-height: 64rem;
+  max-height: var(--sizing-8);
+}
+
+.hover\:max-h9:hover {
+  max-height: 96rem;
+  max-height: var(--sizing-9);
+}
+
+.hover\:max-h-none:hover {
+  max-height: none;
+}
+
+.hover\:min-h1:hover {
+  min-height: 1rem;
+  min-height: var(--sizing-1);
+}
+
+.hover\:min-h2:hover {
+  min-height: 2rem;
+  min-height: var(--sizing-2);
+}
+
+.hover\:min-h3:hover {
+  min-height: 4rem;
+  min-height: var(--sizing-3);
+}
+
+.hover\:min-h4:hover {
+  min-height: 8rem;
+  min-height: var(--sizing-4);
+}
+
+.hover\:min-h5:hover {
+  min-height: 16rem;
+  min-height: var(--sizing-5);
+}
+
+.hover\:min-h6:hover {
+  min-height: 32rem;
+  min-height: var(--sizing-6);
+}
+
+.hover\:min-h7:hover {
+  min-height: 48rem;
+  min-height: var(--sizing-7);
+}
+
+.hover\:min-h8:hover {
+  min-height: 64rem;
+  min-height: var(--sizing-8);
+}
+
+.hover\:min-h9:hover {
+  min-height: 96rem;
+  min-height: var(--sizing-9);
+}
+
+.hover\:min-h-none:hover {
+  min-height: none;
+}
+
 /* 
   * 
   * Percentage of parent height
   *
   */
 
+.hover\:h-10:hover {
+  height: 10%;
+}
+
+.hover\:h-20:hover {
+  height: 20%;
+}
+
 .hover\:h-25:hover {
   height: 25%;
+}
+
+.hover\:h-30:hover {
+  height: 30%;
+}
+
+.hover\:h-40:hover {
+  height: 40%;
 }
 
 .hover\:h-50:hover {
   height: 50%;
 }
 
+.hover\:h-60:hover {
+  height: 60%;
+}
+
+.hover\:h-70:hover {
+  height: 70%;
+}
+
 .hover\:h-75:hover {
   height: 75%;
+}
+
+.hover\:h-80:hover {
+  height: 80%;
+}
+
+.hover\:h-90:hover {
+  height: 90%;
 }
 
 .hover\:h-100:hover {
   height: 100%;
 }
 
-.hover\:min-h-100:hover {
-  min-height: 100%;
+.hover\:h-third:hover {
+  height: calc(100% / 3);
+}
+
+.hover\:h-two-thirds:hover {
+  height: calc(100% / 1.5);
+}
+
+.hover\:max-h-10:hover {
+  max-height: 10%;
+}
+
+.hover\:max-h-20:hover {
+  max-height: 20%;
+}
+
+.hover\:max-h-25:hover {
+  max-height: 25%;
+}
+
+.hover\:max-h-30:hover {
+  max-height: 30%;
+}
+
+.hover\:max-h-40:hover {
+  max-height: 40%;
+}
+
+.hover\:max-h-50:hover {
+  max-height: 50%;
+}
+
+.hover\:max-h-60:hover {
+  max-height: 60%;
+}
+
+.hover\:max-h-70:hover {
+  max-height: 70%;
+}
+
+.hover\:max-h-75:hover {
+  max-height: 75%;
+}
+
+.hover\:max-h-80:hover {
+  max-height: 80%;
+}
+
+.hover\:max-h-90:hover {
+  max-height: 90%;
 }
 
 .hover\:max-h-100:hover {
   max-height: 100%;
+}
+
+.hover\:max-h-third:hover {
+  max-height: calc(100% / 3);
+}
+
+.hover\:max-h-two-thirds:hover {
+  max-height: calc(100% / 1.5);
+}
+
+.hover\:min-h-10:hover {
+  min-height: 10%;
+}
+
+.hover\:min-h-20:hover {
+  min-height: 20%;
+}
+
+.hover\:min-h-25:hover {
+  min-height: 25%;
+}
+
+.hover\:min-h-30:hover {
+  min-height: 30%;
+}
+
+.hover\:min-h-40:hover {
+  min-height: 40%;
+}
+
+.hover\:min-h-50:hover {
+  min-height: 50%;
+}
+
+.hover\:min-h-60:hover {
+  min-height: 60%;
+}
+
+.hover\:min-h-70:hover {
+  min-height: 70%;
+}
+
+.hover\:min-h-75:hover {
+  min-height: 75%;
+}
+
+.hover\:min-h-80:hover {
+  min-height: 80%;
+}
+
+.hover\:min-h-90:hover {
+  min-height: 90%;
+}
+
+.hover\:min-h-100:hover {
+  min-height: 100%;
+}
+
+.hover\:min-h-third:hover {
+  min-height: calc(100% / 3);
+}
+
+.hover\:min-h-two-thirds:hover {
+  min-height: calc(100% / 1.5);
 }
 
 /* 
@@ -8448,28 +9495,172 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   *
   */
 
+.hover\:vh-10:hover {
+  height: 10vh;
+}
+
+.hover\:vh-20:hover {
+  height: 20vh;
+}
+
 .hover\:vh-25:hover {
   height: 25vh;
+}
+
+.hover\:vh-30:hover {
+  height: 30vh;
+}
+
+.hover\:vh-40:hover {
+  height: 40vh;
 }
 
 .hover\:vh-50:hover {
   height: 50vh;
 }
 
+.hover\:vh-60:hover {
+  height: 60vh;
+}
+
+.hover\:vh-70:hover {
+  height: 70vh;
+}
+
 .hover\:vh-75:hover {
   height: 75vh;
+}
+
+.hover\:vh-80:hover {
+  height: 80vh;
+}
+
+.hover\:vh-90:hover {
+  height: 90vh;
 }
 
 .hover\:vh-100:hover {
   height: 100vh;
 }
 
-.hover\:min-vh-100:hover {
-  min-height: 100vh;
+.hover\:vh-third:hover {
+  height: calc(100vh / 3);
+}
+
+.hover\:vh-two-thirds:hover {
+  height: calc(100vh / 1.5);
+}
+
+.hover\:max-vh-10:hover {
+  max-height: 10vh;
+}
+
+.hover\:max-vh-20:hover {
+  max-height: 20vh;
+}
+
+.hover\:max-vh-25:hover {
+  max-height: 25vh;
+}
+
+.hover\:max-vh-30:hover {
+  max-height: 30vh;
+}
+
+.hover\:max-vh-40:hover {
+  max-height: 40vh;
+}
+
+.hover\:max-vh-50:hover {
+  max-height: 50vh;
+}
+
+.hover\:max-vh-60:hover {
+  max-height: 60vh;
+}
+
+.hover\:max-vh-70:hover {
+  max-height: 70vh;
+}
+
+.hover\:max-vh-75:hover {
+  max-height: 75vh;
+}
+
+.hover\:max-vh-80:hover {
+  max-height: 80vh;
+}
+
+.hover\:max-vh-90:hover {
+  max-height: 90vh;
 }
 
 .hover\:max-vh-100:hover {
   max-height: 100vh;
+}
+
+.hover\:max-vh-third:hover {
+  max-height: calc(100vh / 3);
+}
+
+.hover\:max-vh-two-thirds:hover {
+  max-height: calc(100vh / 1.5);
+}
+
+.hover\:min-vh-10:hover {
+  min-height: 10vh;
+}
+
+.hover\:min-vh-20:hover {
+  min-height: 20vh;
+}
+
+.hover\:min-vh-25:hover {
+  min-height: 25vh;
+}
+
+.hover\:min-vh-30:hover {
+  min-height: 30vh;
+}
+
+.hover\:min-vh-40:hover {
+  min-height: 40vh;
+}
+
+.hover\:min-vh-50:hover {
+  min-height: 50vh;
+}
+
+.hover\:min-vh-60:hover {
+  min-height: 60vh;
+}
+
+.hover\:min-vh-70:hover {
+  min-height: 70vh;
+}
+
+.hover\:min-vh-75:hover {
+  min-height: 75vh;
+}
+
+.hover\:min-vh-80:hover {
+  min-height: 80vh;
+}
+
+.hover\:min-vh-90:hover {
+  min-height: 90vh;
+}
+
+.hover\:min-vh-100:hover {
+  min-height: 100vh;
+}
+
+.hover\:min-vh-third:hover {
+  min-height: calc(100vh / 3);
+}
+
+.hover\:min-vh-two-thirds:hover {
+  min-height: calc(100vh / 1.5);
 }
 
 .focus\:h1:focus {
@@ -8517,6 +9708,10 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: var(--sizing-9);
 }
 
+.focus\:h-0:focus {
+  height: 0;
+}
+
 .focus\:h-auto:focus {
   height: auto;
 }
@@ -8525,34 +9720,276 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: inherit;
 }
 
+.focus\:max-h1:focus {
+  max-height: 1rem;
+  max-height: var(--sizing-1);
+}
+
+.focus\:max-h2:focus {
+  max-height: 2rem;
+  max-height: var(--sizing-2);
+}
+
+.focus\:max-h3:focus {
+  max-height: 4rem;
+  max-height: var(--sizing-3);
+}
+
+.focus\:max-h4:focus {
+  max-height: 8rem;
+  max-height: var(--sizing-4);
+}
+
+.focus\:max-h5:focus {
+  max-height: 16rem;
+  max-height: var(--sizing-5);
+}
+
+.focus\:max-h6:focus {
+  max-height: 32rem;
+  max-height: var(--sizing-6);
+}
+
+.focus\:max-h7:focus {
+  max-height: 48rem;
+  max-height: var(--sizing-7);
+}
+
+.focus\:max-h8:focus {
+  max-height: 64rem;
+  max-height: var(--sizing-8);
+}
+
+.focus\:max-h9:focus {
+  max-height: 96rem;
+  max-height: var(--sizing-9);
+}
+
+.focus\:max-h-none:focus {
+  max-height: none;
+}
+
+.focus\:min-h1:focus {
+  min-height: 1rem;
+  min-height: var(--sizing-1);
+}
+
+.focus\:min-h2:focus {
+  min-height: 2rem;
+  min-height: var(--sizing-2);
+}
+
+.focus\:min-h3:focus {
+  min-height: 4rem;
+  min-height: var(--sizing-3);
+}
+
+.focus\:min-h4:focus {
+  min-height: 8rem;
+  min-height: var(--sizing-4);
+}
+
+.focus\:min-h5:focus {
+  min-height: 16rem;
+  min-height: var(--sizing-5);
+}
+
+.focus\:min-h6:focus {
+  min-height: 32rem;
+  min-height: var(--sizing-6);
+}
+
+.focus\:min-h7:focus {
+  min-height: 48rem;
+  min-height: var(--sizing-7);
+}
+
+.focus\:min-h8:focus {
+  min-height: 64rem;
+  min-height: var(--sizing-8);
+}
+
+.focus\:min-h9:focus {
+  min-height: 96rem;
+  min-height: var(--sizing-9);
+}
+
+.focus\:min-h-none:focus {
+  min-height: none;
+}
+
 /* 
   * 
   * Percentage of parent height
   *
   */
 
+.focus\:h-10:focus {
+  height: 10%;
+}
+
+.focus\:h-20:focus {
+  height: 20%;
+}
+
 .focus\:h-25:focus {
   height: 25%;
+}
+
+.focus\:h-30:focus {
+  height: 30%;
+}
+
+.focus\:h-40:focus {
+  height: 40%;
 }
 
 .focus\:h-50:focus {
   height: 50%;
 }
 
+.focus\:h-60:focus {
+  height: 60%;
+}
+
+.focus\:h-70:focus {
+  height: 70%;
+}
+
 .focus\:h-75:focus {
   height: 75%;
+}
+
+.focus\:h-80:focus {
+  height: 80%;
+}
+
+.focus\:h-90:focus {
+  height: 90%;
 }
 
 .focus\:h-100:focus {
   height: 100%;
 }
 
-.focus\:min-h-100:focus {
-  min-height: 100%;
+.focus\:h-third:focus {
+  height: calc(100% / 3);
+}
+
+.focus\:h-two-thirds:focus {
+  height: calc(100% / 1.5);
+}
+
+.focus\:max-h-10:focus {
+  max-height: 10%;
+}
+
+.focus\:max-h-20:focus {
+  max-height: 20%;
+}
+
+.focus\:max-h-25:focus {
+  max-height: 25%;
+}
+
+.focus\:max-h-30:focus {
+  max-height: 30%;
+}
+
+.focus\:max-h-40:focus {
+  max-height: 40%;
+}
+
+.focus\:max-h-50:focus {
+  max-height: 50%;
+}
+
+.focus\:max-h-60:focus {
+  max-height: 60%;
+}
+
+.focus\:max-h-70:focus {
+  max-height: 70%;
+}
+
+.focus\:max-h-75:focus {
+  max-height: 75%;
+}
+
+.focus\:max-h-80:focus {
+  max-height: 80%;
+}
+
+.focus\:max-h-90:focus {
+  max-height: 90%;
 }
 
 .focus\:max-h-100:focus {
   max-height: 100%;
+}
+
+.focus\:max-h-third:focus {
+  max-height: calc(100% / 3);
+}
+
+.focus\:max-h-two-thirds:focus {
+  max-height: calc(100% / 1.5);
+}
+
+.focus\:min-h-10:focus {
+  min-height: 10%;
+}
+
+.focus\:min-h-20:focus {
+  min-height: 20%;
+}
+
+.focus\:min-h-25:focus {
+  min-height: 25%;
+}
+
+.focus\:min-h-30:focus {
+  min-height: 30%;
+}
+
+.focus\:min-h-40:focus {
+  min-height: 40%;
+}
+
+.focus\:min-h-50:focus {
+  min-height: 50%;
+}
+
+.focus\:min-h-60:focus {
+  min-height: 60%;
+}
+
+.focus\:min-h-70:focus {
+  min-height: 70%;
+}
+
+.focus\:min-h-75:focus {
+  min-height: 75%;
+}
+
+.focus\:min-h-80:focus {
+  min-height: 80%;
+}
+
+.focus\:min-h-90:focus {
+  min-height: 90%;
+}
+
+.focus\:min-h-100:focus {
+  min-height: 100%;
+}
+
+.focus\:min-h-third:focus {
+  min-height: calc(100% / 3);
+}
+
+.focus\:min-h-two-thirds:focus {
+  min-height: calc(100% / 1.5);
 }
 
 /* 
@@ -8561,28 +9998,172 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   *
   */
 
+.focus\:vh-10:focus {
+  height: 10vh;
+}
+
+.focus\:vh-20:focus {
+  height: 20vh;
+}
+
 .focus\:vh-25:focus {
   height: 25vh;
+}
+
+.focus\:vh-30:focus {
+  height: 30vh;
+}
+
+.focus\:vh-40:focus {
+  height: 40vh;
 }
 
 .focus\:vh-50:focus {
   height: 50vh;
 }
 
+.focus\:vh-60:focus {
+  height: 60vh;
+}
+
+.focus\:vh-70:focus {
+  height: 70vh;
+}
+
 .focus\:vh-75:focus {
   height: 75vh;
+}
+
+.focus\:vh-80:focus {
+  height: 80vh;
+}
+
+.focus\:vh-90:focus {
+  height: 90vh;
 }
 
 .focus\:vh-100:focus {
   height: 100vh;
 }
 
-.focus\:min-vh-100:focus {
-  min-height: 100vh;
+.focus\:vh-third:focus {
+  height: calc(100vh / 3);
+}
+
+.focus\:vh-two-thirds:focus {
+  height: calc(100vh / 1.5);
+}
+
+.focus\:max-vh-10:focus {
+  max-height: 10vh;
+}
+
+.focus\:max-vh-20:focus {
+  max-height: 20vh;
+}
+
+.focus\:max-vh-25:focus {
+  max-height: 25vh;
+}
+
+.focus\:max-vh-30:focus {
+  max-height: 30vh;
+}
+
+.focus\:max-vh-40:focus {
+  max-height: 40vh;
+}
+
+.focus\:max-vh-50:focus {
+  max-height: 50vh;
+}
+
+.focus\:max-vh-60:focus {
+  max-height: 60vh;
+}
+
+.focus\:max-vh-70:focus {
+  max-height: 70vh;
+}
+
+.focus\:max-vh-75:focus {
+  max-height: 75vh;
+}
+
+.focus\:max-vh-80:focus {
+  max-height: 80vh;
+}
+
+.focus\:max-vh-90:focus {
+  max-height: 90vh;
 }
 
 .focus\:max-vh-100:focus {
   max-height: 100vh;
+}
+
+.focus\:max-vh-third:focus {
+  max-height: calc(100vh / 3);
+}
+
+.focus\:max-vh-two-thirds:focus {
+  max-height: calc(100vh / 1.5);
+}
+
+.focus\:min-vh-10:focus {
+  min-height: 10vh;
+}
+
+.focus\:min-vh-20:focus {
+  min-height: 20vh;
+}
+
+.focus\:min-vh-25:focus {
+  min-height: 25vh;
+}
+
+.focus\:min-vh-30:focus {
+  min-height: 30vh;
+}
+
+.focus\:min-vh-40:focus {
+  min-height: 40vh;
+}
+
+.focus\:min-vh-50:focus {
+  min-height: 50vh;
+}
+
+.focus\:min-vh-60:focus {
+  min-height: 60vh;
+}
+
+.focus\:min-vh-70:focus {
+  min-height: 70vh;
+}
+
+.focus\:min-vh-75:focus {
+  min-height: 75vh;
+}
+
+.focus\:min-vh-80:focus {
+  min-height: 80vh;
+}
+
+.focus\:min-vh-90:focus {
+  min-height: 90vh;
+}
+
+.focus\:min-vh-100:focus {
+  min-height: 100vh;
+}
+
+.focus\:min-vh-third:focus {
+  min-height: calc(100vh / 3);
+}
+
+.focus\:min-vh-two-thirds:focus {
+  min-height: calc(100vh / 1.5);
 }
 
 /*
@@ -8734,6 +10315,10 @@ Adapted from:
   width: auto;
 }
 
+.w-0 {
+  width: 0;
+}
+
 .mw1 {
   max-width: 1rem;
   max-width: var(--sizing-1);
@@ -8781,6 +10366,55 @@ Adapted from:
 
 .mw-none {
   max-width: none;
+}
+
+.min-w1 {
+  min-width: 1rem;
+  min-width: var(--sizing-1);
+}
+
+.min-w2 {
+  min-width: 2rem;
+  min-width: var(--sizing-2);
+}
+
+.min-w3 {
+  min-width: 4rem;
+  min-width: var(--sizing-3);
+}
+
+.min-w4 {
+  min-width: 8rem;
+  min-width: var(--sizing-4);
+}
+
+.min-w5 {
+  min-width: 16rem;
+  min-width: var(--sizing-5);
+}
+
+.min-w6 {
+  min-width: 32rem;
+  min-width: var(--sizing-6);
+}
+
+.min-w7 {
+  min-width: 48rem;
+  min-width: var(--sizing-7);
+}
+
+.min-w8 {
+  min-width: 64rem;
+  min-width: var(--sizing-8);
+}
+
+.min-w9 {
+  min-width: 96rem;
+  min-width: var(--sizing-9);
+}
+
+.min-w-none {
+  min-width: none;
 }
 
 /* 
@@ -8901,8 +10535,60 @@ Adapted from:
   max-width: calc(100% / 1.5);
 }
 
+.min-w-10 {
+  min-width: 10%;
+}
+
+.min-w-20 {
+  min-width: 20%;
+}
+
+.min-w-25 {
+  min-width: 25%;
+}
+
+.min-w-30 {
+  min-width: 30%;
+}
+
+.min-w-40 {
+  min-width: 40%;
+}
+
+.min-w-50 {
+  min-width: 50%;
+}
+
+.min-w-60 {
+  min-width: 60%;
+}
+
+.min-w-70 {
+  min-width: 70%;
+}
+
+.min-w-75 {
+  min-width: 75%;
+}
+
+.min-w-80 {
+  min-width: 80%;
+}
+
+.min-w-90 {
+  min-width: 90%;
+}
+
 .min-w-100 {
   min-width: 100%;
+}
+
+.min-w-third {
+  min-width: calc(100% / 3);
+}
+
+.min-w-two-thirds {
+  min-width: calc(100% / 1.5);
 }
 
 /* 
@@ -8911,28 +10597,172 @@ Adapted from:
   *
   */
 
+.vw-10 {
+  width: 10vw;
+}
+
+.vw-20 {
+  width: 20vw;
+}
+
 .vw-25 {
   width: 25vw;
+}
+
+.vw-30 {
+  width: 30vw;
+}
+
+.vw-40 {
+  width: 40vw;
 }
 
 .vw-50 {
   width: 50vw;
 }
 
+.vw-60 {
+  width: 60vw;
+}
+
+.vw-70 {
+  width: 70vw;
+}
+
 .vw-75 {
   width: 75vw;
+}
+
+.vw-80 {
+  width: 80vw;
+}
+
+.vw-90 {
+  width: 90vw;
 }
 
 .vw-100 {
   width: 100vw;
 }
 
-.min-vw-100 {
-  min-width: 100vw;
+.vw-third {
+  width: calc(100vw / 3);
+}
+
+.vw-two-thirds {
+  width: calc(100vw / 1.5);
+}
+
+.max-vw-10 {
+  max-width: 10vw;
+}
+
+.max-vw-20 {
+  max-width: 20vw;
+}
+
+.max-vw-25 {
+  max-width: 25vw;
+}
+
+.max-vw-30 {
+  max-width: 30vw;
+}
+
+.max-vw-40 {
+  max-width: 40vw;
+}
+
+.max-vw-50 {
+  max-width: 50vw;
+}
+
+.max-vw-60 {
+  max-width: 60vw;
+}
+
+.max-vw-70 {
+  max-width: 70vw;
+}
+
+.max-vw-75 {
+  max-width: 75vw;
+}
+
+.max-vw-80 {
+  max-width: 80vw;
+}
+
+.max-vw-90 {
+  max-width: 90vw;
 }
 
 .max-vw-100 {
   max-width: 100vw;
+}
+
+.max-vw-third {
+  max-width: calc(100vw / 3);
+}
+
+.max-vw-two-thirds {
+  max-width: calc(100vw / 1.5);
+}
+
+.min-vw-10 {
+  min-width: 10vw;
+}
+
+.min-vw-20 {
+  min-width: 20vw;
+}
+
+.min-vw-25 {
+  min-width: 25vw;
+}
+
+.min-vw-30 {
+  min-width: 30vw;
+}
+
+.min-vw-40 {
+  min-width: 40vw;
+}
+
+.min-vw-50 {
+  min-width: 50vw;
+}
+
+.min-vw-60 {
+  min-width: 60vw;
+}
+
+.min-vw-70 {
+  min-width: 70vw;
+}
+
+.min-vw-75 {
+  min-width: 75vw;
+}
+
+.min-vw-80 {
+  min-width: 80vw;
+}
+
+.min-vw-90 {
+  min-width: 90vw;
+}
+
+.min-vw-100 {
+  min-width: 100vw;
+}
+
+.min-vw-third {
+  min-width: calc(100vw / 3);
+}
+
+.min-vw-two-thirds {
+  min-width: calc(100vw / 1.5);
 }
 
 /* Spacing */
@@ -11526,20 +13356,22 @@ Adapted from:
 
 */
 
+/* See: http://markdotto.com/2018/02/07/github-system-fonts/ */
+
 .sans-serif {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .serif {
-  font-family: Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;
+  font-family: Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .system-sans-serif {
-  font-family: sans-serif;
+  font-family: sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .system-serif {
-  font-family: serif;
+  font-family: serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /*
@@ -11550,11 +13382,11 @@ Adapted from:
 
 code,
 .mono {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .courier {
-  font-family: 'Courier New', courier, monospace;
+  font-family: 'Courier New', courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /*
@@ -11564,23 +13396,23 @@ code,
  */
 
 .abeezee {
-  font-family: ABeeZee, sans-serif;
+  font-family: ABeeZee, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .avenir {
-  font-family: 'avenir next', avenir, sans-serif;
+  font-family: 'avenir next', avenir, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .helvetica {
-  font-family: 'helvetica neue', helvetica, sans-serif;
+  font-family: 'helvetica neue', helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .josefin-sans {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .raleway {
-  font-family: Raleway, sans-serif;
+  font-family: Raleway, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /*
@@ -11590,31 +13422,31 @@ code,
  */
 
 .athelas {
-  font-family: athelas, georgia, serif;
+  font-family: athelas, georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .baskerville {
-  font-family: baskerville, serif;
+  font-family: baskerville, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .bodoni {
-  font-family: 'Bodoni MT', serif;
+  font-family: 'Bodoni MT', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .calisto {
-  font-family: 'Calisto MT', serif;
+  font-family: 'Calisto MT', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .garamond {
-  font-family: garamond, serif;
+  font-family: garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .georgia {
-  font-family: georgia, serif;
+  font-family: georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .times {
-  font-family: times, serif;
+  font-family: times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /*
@@ -11624,7 +13456,7 @@ code,
  */
 
 .lobster {
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster', cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /*
@@ -12399,6 +14231,10 @@ Adapted from: http://tachyons.io/docs/typography/line-height
 
 */
 
+.lh-none {
+  line-height: 0;
+}
+
 .lh-solid {
   line-height: 1;
 }
@@ -12413,6 +14249,10 @@ Adapted from: http://tachyons.io/docs/typography/line-height
 
 .lh-tall {
   line-height: 1.7;
+}
+
+.group:hover .group-hover\:lh-none {
+  line-height: 0;
 }
 
 .group:hover .group-hover\:lh-solid {
@@ -12431,6 +14271,10 @@ Adapted from: http://tachyons.io/docs/typography/line-height
   line-height: 1.7;
 }
 
+.hover\:lh-none:hover {
+  line-height: 0;
+}
+
 .hover\:lh-solid:hover {
   line-height: 1;
 }
@@ -12445,6 +14289,10 @@ Adapted from: http://tachyons.io/docs/typography/line-height
 
 .hover\:lh-tall:hover {
   line-height: 1.7;
+}
+
+.focus\:lh-none:focus {
+  line-height: 0;
 }
 
 .focus\:lh-solid:focus {
@@ -12482,7 +14330,7 @@ Adapted from:
   */
 
 .measure-wide {
-  max-width: 80ch;
+  max-width: 75ch;
 }
 
 .measure {
@@ -18090,8 +19938,24 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     z-index: 5;
   }
 
+  .sm\:z-6 {
+    z-index: 6;
+  }
+
+  .sm\:z-7 {
+    z-index: 7;
+  }
+
+  .sm\:z-8 {
+    z-index: 8;
+  }
+
   .sm\:z-9 {
     z-index: 9;
+  }
+
+  .sm\:z-10 {
+    z-index: 10;
   }
 
   .sm\:z-99 {
@@ -18236,68 +20100,458 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     height: var(--sizing-9);
   }
 
+  .sm\:h-0 {
+    height: 0;
+  }
+
   .sm\:h-auto {
     height: auto;
   }
 
   .sm\:h-inherit {
     height: inherit;
+  }
+
+  .sm\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .sm\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .sm\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .sm\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .sm\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .sm\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .sm\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .sm\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .sm\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .sm\:max-h-none {
+    max-height: none;
+  }
+
+  .sm\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .sm\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .sm\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .sm\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .sm\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .sm\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .sm\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .sm\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .sm\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .sm\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .sm\:h-10 {
+    height: 10%;
+  }
+
+  .sm\:h-20 {
+    height: 20%;
+  }
+
   .sm\:h-25 {
     height: 25%;
+  }
+
+  .sm\:h-30 {
+    height: 30%;
+  }
+
+  .sm\:h-40 {
+    height: 40%;
   }
 
   .sm\:h-50 {
     height: 50%;
   }
 
+  .sm\:h-60 {
+    height: 60%;
+  }
+
+  .sm\:h-70 {
+    height: 70%;
+  }
+
   .sm\:h-75 {
     height: 75%;
+  }
+
+  .sm\:h-80 {
+    height: 80%;
+  }
+
+  .sm\:h-90 {
+    height: 90%;
   }
 
   .sm\:h-100 {
     height: 100%;
   }
 
-  .sm\:min-h-100 {
-    min-height: 100%;
+  .sm\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .sm\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .sm\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .sm\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .sm\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .sm\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .sm\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .sm\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .sm\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .sm\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .sm\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .sm\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .sm\:max-h-90 {
+    max-height: 90%;
   }
 
   .sm\:max-h-100 {
     max-height: 100%;
+  }
+
+  .sm\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .sm\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .sm\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .sm\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .sm\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .sm\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .sm\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .sm\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .sm\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .sm\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .sm\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .sm\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .sm\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .sm\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .sm\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .sm\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .sm\:vh-10 {
+    height: 10vh;
+  }
+
+  .sm\:vh-20 {
+    height: 20vh;
+  }
+
   .sm\:vh-25 {
     height: 25vh;
+  }
+
+  .sm\:vh-30 {
+    height: 30vh;
+  }
+
+  .sm\:vh-40 {
+    height: 40vh;
   }
 
   .sm\:vh-50 {
     height: 50vh;
   }
 
+  .sm\:vh-60 {
+    height: 60vh;
+  }
+
+  .sm\:vh-70 {
+    height: 70vh;
+  }
+
   .sm\:vh-75 {
     height: 75vh;
+  }
+
+  .sm\:vh-80 {
+    height: 80vh;
+  }
+
+  .sm\:vh-90 {
+    height: 90vh;
   }
 
   .sm\:vh-100 {
     height: 100vh;
   }
 
-  .sm\:min-vh-100 {
-    min-height: 100vh;
+  .sm\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .sm\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .sm\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .sm\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .sm\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .sm\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .sm\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .sm\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .sm\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .sm\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .sm\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .sm\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .sm\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .sm\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .sm\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .sm\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .sm\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .sm\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .sm\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .sm\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .sm\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .sm\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .sm\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .sm\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .sm\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .sm\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .sm\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .sm\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .sm\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .sm\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .sm\:group:hover .group-hover\:h1 {
@@ -18345,68 +20599,458 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     height: var(--sizing-9);
   }
 
+  .sm\:group:hover .group-hover\:h-0 {
+    height: 0;
+  }
+
   .sm\:group:hover .group-hover\:h-auto {
     height: auto;
   }
 
   .sm\:group:hover .group-hover\:h-inherit {
     height: inherit;
+  }
+
+  .sm\:group:hover .group-hover\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .sm\:group:hover .group-hover\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .sm\:group:hover .group-hover\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .sm\:group:hover .group-hover\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .sm\:group:hover .group-hover\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .sm\:group:hover .group-hover\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .sm\:group:hover .group-hover\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .sm\:group:hover .group-hover\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .sm\:group:hover .group-hover\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .sm\:group:hover .group-hover\:max-h-none {
+    max-height: none;
+  }
+
+  .sm\:group:hover .group-hover\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .sm\:group:hover .group-hover\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .sm\:group:hover .group-hover\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .sm\:group:hover .group-hover\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .sm\:group:hover .group-hover\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .sm\:group:hover .group-hover\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .sm\:group:hover .group-hover\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .sm\:group:hover .group-hover\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .sm\:group:hover .group-hover\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .sm\:group:hover .group-hover\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .sm\:group:hover .group-hover\:h-10 {
+    height: 10%;
+  }
+
+  .sm\:group:hover .group-hover\:h-20 {
+    height: 20%;
+  }
+
   .sm\:group:hover .group-hover\:h-25 {
     height: 25%;
+  }
+
+  .sm\:group:hover .group-hover\:h-30 {
+    height: 30%;
+  }
+
+  .sm\:group:hover .group-hover\:h-40 {
+    height: 40%;
   }
 
   .sm\:group:hover .group-hover\:h-50 {
     height: 50%;
   }
 
+  .sm\:group:hover .group-hover\:h-60 {
+    height: 60%;
+  }
+
+  .sm\:group:hover .group-hover\:h-70 {
+    height: 70%;
+  }
+
   .sm\:group:hover .group-hover\:h-75 {
     height: 75%;
+  }
+
+  .sm\:group:hover .group-hover\:h-80 {
+    height: 80%;
+  }
+
+  .sm\:group:hover .group-hover\:h-90 {
+    height: 90%;
   }
 
   .sm\:group:hover .group-hover\:h-100 {
     height: 100%;
   }
 
-  .sm\:group:hover .group-hover\:min-h-100 {
-    min-height: 100%;
+  .sm\:group:hover .group-hover\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .sm\:group:hover .group-hover\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .sm\:group:hover .group-hover\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-90 {
+    max-height: 90%;
   }
 
   .sm\:group:hover .group-hover\:max-h-100 {
     max-height: 100%;
+  }
+
+  .sm\:group:hover .group-hover\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .sm\:group:hover .group-hover\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .sm\:group:hover .group-hover\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .sm\:group:hover .group-hover\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .sm\:group:hover .group-hover\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .sm\:group:hover .group-hover\:vh-10 {
+    height: 10vh;
+  }
+
+  .sm\:group:hover .group-hover\:vh-20 {
+    height: 20vh;
+  }
+
   .sm\:group:hover .group-hover\:vh-25 {
     height: 25vh;
+  }
+
+  .sm\:group:hover .group-hover\:vh-30 {
+    height: 30vh;
+  }
+
+  .sm\:group:hover .group-hover\:vh-40 {
+    height: 40vh;
   }
 
   .sm\:group:hover .group-hover\:vh-50 {
     height: 50vh;
   }
 
+  .sm\:group:hover .group-hover\:vh-60 {
+    height: 60vh;
+  }
+
+  .sm\:group:hover .group-hover\:vh-70 {
+    height: 70vh;
+  }
+
   .sm\:group:hover .group-hover\:vh-75 {
     height: 75vh;
+  }
+
+  .sm\:group:hover .group-hover\:vh-80 {
+    height: 80vh;
+  }
+
+  .sm\:group:hover .group-hover\:vh-90 {
+    height: 90vh;
   }
 
   .sm\:group:hover .group-hover\:vh-100 {
     height: 100vh;
   }
 
-  .sm\:group:hover .group-hover\:min-vh-100 {
-    min-height: 100vh;
+  .sm\:group:hover .group-hover\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .sm\:group:hover .group-hover\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .sm\:group:hover .group-hover\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .sm\:group:hover .group-hover\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .sm\:group:hover .group-hover\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .sm\:hover\:h1:hover {
@@ -18454,68 +21098,458 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     height: var(--sizing-9);
   }
 
+  .sm\:hover\:h-0:hover {
+    height: 0;
+  }
+
   .sm\:hover\:h-auto:hover {
     height: auto;
   }
 
   .sm\:hover\:h-inherit:hover {
     height: inherit;
+  }
+
+  .sm\:hover\:max-h1:hover {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .sm\:hover\:max-h2:hover {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .sm\:hover\:max-h3:hover {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .sm\:hover\:max-h4:hover {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .sm\:hover\:max-h5:hover {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .sm\:hover\:max-h6:hover {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .sm\:hover\:max-h7:hover {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .sm\:hover\:max-h8:hover {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .sm\:hover\:max-h9:hover {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .sm\:hover\:max-h-none:hover {
+    max-height: none;
+  }
+
+  .sm\:hover\:min-h1:hover {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .sm\:hover\:min-h2:hover {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .sm\:hover\:min-h3:hover {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .sm\:hover\:min-h4:hover {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .sm\:hover\:min-h5:hover {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .sm\:hover\:min-h6:hover {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .sm\:hover\:min-h7:hover {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .sm\:hover\:min-h8:hover {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .sm\:hover\:min-h9:hover {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .sm\:hover\:min-h-none:hover {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .sm\:hover\:h-10:hover {
+    height: 10%;
+  }
+
+  .sm\:hover\:h-20:hover {
+    height: 20%;
+  }
+
   .sm\:hover\:h-25:hover {
     height: 25%;
+  }
+
+  .sm\:hover\:h-30:hover {
+    height: 30%;
+  }
+
+  .sm\:hover\:h-40:hover {
+    height: 40%;
   }
 
   .sm\:hover\:h-50:hover {
     height: 50%;
   }
 
+  .sm\:hover\:h-60:hover {
+    height: 60%;
+  }
+
+  .sm\:hover\:h-70:hover {
+    height: 70%;
+  }
+
   .sm\:hover\:h-75:hover {
     height: 75%;
+  }
+
+  .sm\:hover\:h-80:hover {
+    height: 80%;
+  }
+
+  .sm\:hover\:h-90:hover {
+    height: 90%;
   }
 
   .sm\:hover\:h-100:hover {
     height: 100%;
   }
 
-  .sm\:hover\:min-h-100:hover {
-    min-height: 100%;
+  .sm\:hover\:h-third:hover {
+    height: calc(100% / 3);
+  }
+
+  .sm\:hover\:h-two-thirds:hover {
+    height: calc(100% / 1.5);
+  }
+
+  .sm\:hover\:max-h-10:hover {
+    max-height: 10%;
+  }
+
+  .sm\:hover\:max-h-20:hover {
+    max-height: 20%;
+  }
+
+  .sm\:hover\:max-h-25:hover {
+    max-height: 25%;
+  }
+
+  .sm\:hover\:max-h-30:hover {
+    max-height: 30%;
+  }
+
+  .sm\:hover\:max-h-40:hover {
+    max-height: 40%;
+  }
+
+  .sm\:hover\:max-h-50:hover {
+    max-height: 50%;
+  }
+
+  .sm\:hover\:max-h-60:hover {
+    max-height: 60%;
+  }
+
+  .sm\:hover\:max-h-70:hover {
+    max-height: 70%;
+  }
+
+  .sm\:hover\:max-h-75:hover {
+    max-height: 75%;
+  }
+
+  .sm\:hover\:max-h-80:hover {
+    max-height: 80%;
+  }
+
+  .sm\:hover\:max-h-90:hover {
+    max-height: 90%;
   }
 
   .sm\:hover\:max-h-100:hover {
     max-height: 100%;
+  }
+
+  .sm\:hover\:max-h-third:hover {
+    max-height: calc(100% / 3);
+  }
+
+  .sm\:hover\:max-h-two-thirds:hover {
+    max-height: calc(100% / 1.5);
+  }
+
+  .sm\:hover\:min-h-10:hover {
+    min-height: 10%;
+  }
+
+  .sm\:hover\:min-h-20:hover {
+    min-height: 20%;
+  }
+
+  .sm\:hover\:min-h-25:hover {
+    min-height: 25%;
+  }
+
+  .sm\:hover\:min-h-30:hover {
+    min-height: 30%;
+  }
+
+  .sm\:hover\:min-h-40:hover {
+    min-height: 40%;
+  }
+
+  .sm\:hover\:min-h-50:hover {
+    min-height: 50%;
+  }
+
+  .sm\:hover\:min-h-60:hover {
+    min-height: 60%;
+  }
+
+  .sm\:hover\:min-h-70:hover {
+    min-height: 70%;
+  }
+
+  .sm\:hover\:min-h-75:hover {
+    min-height: 75%;
+  }
+
+  .sm\:hover\:min-h-80:hover {
+    min-height: 80%;
+  }
+
+  .sm\:hover\:min-h-90:hover {
+    min-height: 90%;
+  }
+
+  .sm\:hover\:min-h-100:hover {
+    min-height: 100%;
+  }
+
+  .sm\:hover\:min-h-third:hover {
+    min-height: calc(100% / 3);
+  }
+
+  .sm\:hover\:min-h-two-thirds:hover {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .sm\:hover\:vh-10:hover {
+    height: 10vh;
+  }
+
+  .sm\:hover\:vh-20:hover {
+    height: 20vh;
+  }
+
   .sm\:hover\:vh-25:hover {
     height: 25vh;
+  }
+
+  .sm\:hover\:vh-30:hover {
+    height: 30vh;
+  }
+
+  .sm\:hover\:vh-40:hover {
+    height: 40vh;
   }
 
   .sm\:hover\:vh-50:hover {
     height: 50vh;
   }
 
+  .sm\:hover\:vh-60:hover {
+    height: 60vh;
+  }
+
+  .sm\:hover\:vh-70:hover {
+    height: 70vh;
+  }
+
   .sm\:hover\:vh-75:hover {
     height: 75vh;
+  }
+
+  .sm\:hover\:vh-80:hover {
+    height: 80vh;
+  }
+
+  .sm\:hover\:vh-90:hover {
+    height: 90vh;
   }
 
   .sm\:hover\:vh-100:hover {
     height: 100vh;
   }
 
-  .sm\:hover\:min-vh-100:hover {
-    min-height: 100vh;
+  .sm\:hover\:vh-third:hover {
+    height: calc(100vh / 3);
+  }
+
+  .sm\:hover\:vh-two-thirds:hover {
+    height: calc(100vh / 1.5);
+  }
+
+  .sm\:hover\:max-vh-10:hover {
+    max-height: 10vh;
+  }
+
+  .sm\:hover\:max-vh-20:hover {
+    max-height: 20vh;
+  }
+
+  .sm\:hover\:max-vh-25:hover {
+    max-height: 25vh;
+  }
+
+  .sm\:hover\:max-vh-30:hover {
+    max-height: 30vh;
+  }
+
+  .sm\:hover\:max-vh-40:hover {
+    max-height: 40vh;
+  }
+
+  .sm\:hover\:max-vh-50:hover {
+    max-height: 50vh;
+  }
+
+  .sm\:hover\:max-vh-60:hover {
+    max-height: 60vh;
+  }
+
+  .sm\:hover\:max-vh-70:hover {
+    max-height: 70vh;
+  }
+
+  .sm\:hover\:max-vh-75:hover {
+    max-height: 75vh;
+  }
+
+  .sm\:hover\:max-vh-80:hover {
+    max-height: 80vh;
+  }
+
+  .sm\:hover\:max-vh-90:hover {
+    max-height: 90vh;
   }
 
   .sm\:hover\:max-vh-100:hover {
     max-height: 100vh;
+  }
+
+  .sm\:hover\:max-vh-third:hover {
+    max-height: calc(100vh / 3);
+  }
+
+  .sm\:hover\:max-vh-two-thirds:hover {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .sm\:hover\:min-vh-10:hover {
+    min-height: 10vh;
+  }
+
+  .sm\:hover\:min-vh-20:hover {
+    min-height: 20vh;
+  }
+
+  .sm\:hover\:min-vh-25:hover {
+    min-height: 25vh;
+  }
+
+  .sm\:hover\:min-vh-30:hover {
+    min-height: 30vh;
+  }
+
+  .sm\:hover\:min-vh-40:hover {
+    min-height: 40vh;
+  }
+
+  .sm\:hover\:min-vh-50:hover {
+    min-height: 50vh;
+  }
+
+  .sm\:hover\:min-vh-60:hover {
+    min-height: 60vh;
+  }
+
+  .sm\:hover\:min-vh-70:hover {
+    min-height: 70vh;
+  }
+
+  .sm\:hover\:min-vh-75:hover {
+    min-height: 75vh;
+  }
+
+  .sm\:hover\:min-vh-80:hover {
+    min-height: 80vh;
+  }
+
+  .sm\:hover\:min-vh-90:hover {
+    min-height: 90vh;
+  }
+
+  .sm\:hover\:min-vh-100:hover {
+    min-height: 100vh;
+  }
+
+  .sm\:hover\:min-vh-third:hover {
+    min-height: calc(100vh / 3);
+  }
+
+  .sm\:hover\:min-vh-two-thirds:hover {
+    min-height: calc(100vh / 1.5);
   }
 
   .sm\:focus\:h1:focus {
@@ -18563,68 +21597,458 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     height: var(--sizing-9);
   }
 
+  .sm\:focus\:h-0:focus {
+    height: 0;
+  }
+
   .sm\:focus\:h-auto:focus {
     height: auto;
   }
 
   .sm\:focus\:h-inherit:focus {
     height: inherit;
+  }
+
+  .sm\:focus\:max-h1:focus {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .sm\:focus\:max-h2:focus {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .sm\:focus\:max-h3:focus {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .sm\:focus\:max-h4:focus {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .sm\:focus\:max-h5:focus {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .sm\:focus\:max-h6:focus {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .sm\:focus\:max-h7:focus {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .sm\:focus\:max-h8:focus {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .sm\:focus\:max-h9:focus {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .sm\:focus\:max-h-none:focus {
+    max-height: none;
+  }
+
+  .sm\:focus\:min-h1:focus {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .sm\:focus\:min-h2:focus {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .sm\:focus\:min-h3:focus {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .sm\:focus\:min-h4:focus {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .sm\:focus\:min-h5:focus {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .sm\:focus\:min-h6:focus {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .sm\:focus\:min-h7:focus {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .sm\:focus\:min-h8:focus {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .sm\:focus\:min-h9:focus {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .sm\:focus\:min-h-none:focus {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .sm\:focus\:h-10:focus {
+    height: 10%;
+  }
+
+  .sm\:focus\:h-20:focus {
+    height: 20%;
+  }
+
   .sm\:focus\:h-25:focus {
     height: 25%;
+  }
+
+  .sm\:focus\:h-30:focus {
+    height: 30%;
+  }
+
+  .sm\:focus\:h-40:focus {
+    height: 40%;
   }
 
   .sm\:focus\:h-50:focus {
     height: 50%;
   }
 
+  .sm\:focus\:h-60:focus {
+    height: 60%;
+  }
+
+  .sm\:focus\:h-70:focus {
+    height: 70%;
+  }
+
   .sm\:focus\:h-75:focus {
     height: 75%;
+  }
+
+  .sm\:focus\:h-80:focus {
+    height: 80%;
+  }
+
+  .sm\:focus\:h-90:focus {
+    height: 90%;
   }
 
   .sm\:focus\:h-100:focus {
     height: 100%;
   }
 
-  .sm\:focus\:min-h-100:focus {
-    min-height: 100%;
+  .sm\:focus\:h-third:focus {
+    height: calc(100% / 3);
+  }
+
+  .sm\:focus\:h-two-thirds:focus {
+    height: calc(100% / 1.5);
+  }
+
+  .sm\:focus\:max-h-10:focus {
+    max-height: 10%;
+  }
+
+  .sm\:focus\:max-h-20:focus {
+    max-height: 20%;
+  }
+
+  .sm\:focus\:max-h-25:focus {
+    max-height: 25%;
+  }
+
+  .sm\:focus\:max-h-30:focus {
+    max-height: 30%;
+  }
+
+  .sm\:focus\:max-h-40:focus {
+    max-height: 40%;
+  }
+
+  .sm\:focus\:max-h-50:focus {
+    max-height: 50%;
+  }
+
+  .sm\:focus\:max-h-60:focus {
+    max-height: 60%;
+  }
+
+  .sm\:focus\:max-h-70:focus {
+    max-height: 70%;
+  }
+
+  .sm\:focus\:max-h-75:focus {
+    max-height: 75%;
+  }
+
+  .sm\:focus\:max-h-80:focus {
+    max-height: 80%;
+  }
+
+  .sm\:focus\:max-h-90:focus {
+    max-height: 90%;
   }
 
   .sm\:focus\:max-h-100:focus {
     max-height: 100%;
+  }
+
+  .sm\:focus\:max-h-third:focus {
+    max-height: calc(100% / 3);
+  }
+
+  .sm\:focus\:max-h-two-thirds:focus {
+    max-height: calc(100% / 1.5);
+  }
+
+  .sm\:focus\:min-h-10:focus {
+    min-height: 10%;
+  }
+
+  .sm\:focus\:min-h-20:focus {
+    min-height: 20%;
+  }
+
+  .sm\:focus\:min-h-25:focus {
+    min-height: 25%;
+  }
+
+  .sm\:focus\:min-h-30:focus {
+    min-height: 30%;
+  }
+
+  .sm\:focus\:min-h-40:focus {
+    min-height: 40%;
+  }
+
+  .sm\:focus\:min-h-50:focus {
+    min-height: 50%;
+  }
+
+  .sm\:focus\:min-h-60:focus {
+    min-height: 60%;
+  }
+
+  .sm\:focus\:min-h-70:focus {
+    min-height: 70%;
+  }
+
+  .sm\:focus\:min-h-75:focus {
+    min-height: 75%;
+  }
+
+  .sm\:focus\:min-h-80:focus {
+    min-height: 80%;
+  }
+
+  .sm\:focus\:min-h-90:focus {
+    min-height: 90%;
+  }
+
+  .sm\:focus\:min-h-100:focus {
+    min-height: 100%;
+  }
+
+  .sm\:focus\:min-h-third:focus {
+    min-height: calc(100% / 3);
+  }
+
+  .sm\:focus\:min-h-two-thirds:focus {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .sm\:focus\:vh-10:focus {
+    height: 10vh;
+  }
+
+  .sm\:focus\:vh-20:focus {
+    height: 20vh;
+  }
+
   .sm\:focus\:vh-25:focus {
     height: 25vh;
+  }
+
+  .sm\:focus\:vh-30:focus {
+    height: 30vh;
+  }
+
+  .sm\:focus\:vh-40:focus {
+    height: 40vh;
   }
 
   .sm\:focus\:vh-50:focus {
     height: 50vh;
   }
 
+  .sm\:focus\:vh-60:focus {
+    height: 60vh;
+  }
+
+  .sm\:focus\:vh-70:focus {
+    height: 70vh;
+  }
+
   .sm\:focus\:vh-75:focus {
     height: 75vh;
+  }
+
+  .sm\:focus\:vh-80:focus {
+    height: 80vh;
+  }
+
+  .sm\:focus\:vh-90:focus {
+    height: 90vh;
   }
 
   .sm\:focus\:vh-100:focus {
     height: 100vh;
   }
 
-  .sm\:focus\:min-vh-100:focus {
-    min-height: 100vh;
+  .sm\:focus\:vh-third:focus {
+    height: calc(100vh / 3);
+  }
+
+  .sm\:focus\:vh-two-thirds:focus {
+    height: calc(100vh / 1.5);
+  }
+
+  .sm\:focus\:max-vh-10:focus {
+    max-height: 10vh;
+  }
+
+  .sm\:focus\:max-vh-20:focus {
+    max-height: 20vh;
+  }
+
+  .sm\:focus\:max-vh-25:focus {
+    max-height: 25vh;
+  }
+
+  .sm\:focus\:max-vh-30:focus {
+    max-height: 30vh;
+  }
+
+  .sm\:focus\:max-vh-40:focus {
+    max-height: 40vh;
+  }
+
+  .sm\:focus\:max-vh-50:focus {
+    max-height: 50vh;
+  }
+
+  .sm\:focus\:max-vh-60:focus {
+    max-height: 60vh;
+  }
+
+  .sm\:focus\:max-vh-70:focus {
+    max-height: 70vh;
+  }
+
+  .sm\:focus\:max-vh-75:focus {
+    max-height: 75vh;
+  }
+
+  .sm\:focus\:max-vh-80:focus {
+    max-height: 80vh;
+  }
+
+  .sm\:focus\:max-vh-90:focus {
+    max-height: 90vh;
   }
 
   .sm\:focus\:max-vh-100:focus {
     max-height: 100vh;
+  }
+
+  .sm\:focus\:max-vh-third:focus {
+    max-height: calc(100vh / 3);
+  }
+
+  .sm\:focus\:max-vh-two-thirds:focus {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .sm\:focus\:min-vh-10:focus {
+    min-height: 10vh;
+  }
+
+  .sm\:focus\:min-vh-20:focus {
+    min-height: 20vh;
+  }
+
+  .sm\:focus\:min-vh-25:focus {
+    min-height: 25vh;
+  }
+
+  .sm\:focus\:min-vh-30:focus {
+    min-height: 30vh;
+  }
+
+  .sm\:focus\:min-vh-40:focus {
+    min-height: 40vh;
+  }
+
+  .sm\:focus\:min-vh-50:focus {
+    min-height: 50vh;
+  }
+
+  .sm\:focus\:min-vh-60:focus {
+    min-height: 60vh;
+  }
+
+  .sm\:focus\:min-vh-70:focus {
+    min-height: 70vh;
+  }
+
+  .sm\:focus\:min-vh-75:focus {
+    min-height: 75vh;
+  }
+
+  .sm\:focus\:min-vh-80:focus {
+    min-height: 80vh;
+  }
+
+  .sm\:focus\:min-vh-90:focus {
+    min-height: 90vh;
+  }
+
+  .sm\:focus\:min-vh-100:focus {
+    min-height: 100vh;
+  }
+
+  .sm\:focus\:min-vh-third:focus {
+    min-height: calc(100vh / 3);
+  }
+
+  .sm\:focus\:min-vh-two-thirds:focus {
+    min-height: calc(100vh / 1.5);
   }
 
   .sm\:w1 {
@@ -18676,6 +22100,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     width: auto;
   }
 
+  .sm\:w-0 {
+    width: 0;
+  }
+
   .sm\:mw1 {
     max-width: 1rem;
     max-width: var(--sizing-1);
@@ -18723,6 +22151,55 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:mw-none {
     max-width: none;
+  }
+
+  .sm\:min-w1 {
+    min-width: 1rem;
+    min-width: var(--sizing-1);
+  }
+
+  .sm\:min-w2 {
+    min-width: 2rem;
+    min-width: var(--sizing-2);
+  }
+
+  .sm\:min-w3 {
+    min-width: 4rem;
+    min-width: var(--sizing-3);
+  }
+
+  .sm\:min-w4 {
+    min-width: 8rem;
+    min-width: var(--sizing-4);
+  }
+
+  .sm\:min-w5 {
+    min-width: 16rem;
+    min-width: var(--sizing-5);
+  }
+
+  .sm\:min-w6 {
+    min-width: 32rem;
+    min-width: var(--sizing-6);
+  }
+
+  .sm\:min-w7 {
+    min-width: 48rem;
+    min-width: var(--sizing-7);
+  }
+
+  .sm\:min-w8 {
+    min-width: 64rem;
+    min-width: var(--sizing-8);
+  }
+
+  .sm\:min-w9 {
+    min-width: 96rem;
+    min-width: var(--sizing-9);
+  }
+
+  .sm\:min-w-none {
+    min-width: none;
   }/* 
   * 
   * Percentage of parent width
@@ -18841,36 +22318,232 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     max-width: calc(100% / 1.5);
   }
 
+  .sm\:min-w-10 {
+    min-width: 10%;
+  }
+
+  .sm\:min-w-20 {
+    min-width: 20%;
+  }
+
+  .sm\:min-w-25 {
+    min-width: 25%;
+  }
+
+  .sm\:min-w-30 {
+    min-width: 30%;
+  }
+
+  .sm\:min-w-40 {
+    min-width: 40%;
+  }
+
+  .sm\:min-w-50 {
+    min-width: 50%;
+  }
+
+  .sm\:min-w-60 {
+    min-width: 60%;
+  }
+
+  .sm\:min-w-70 {
+    min-width: 70%;
+  }
+
+  .sm\:min-w-75 {
+    min-width: 75%;
+  }
+
+  .sm\:min-w-80 {
+    min-width: 80%;
+  }
+
+  .sm\:min-w-90 {
+    min-width: 90%;
+  }
+
   .sm\:min-w-100 {
     min-width: 100%;
+  }
+
+  .sm\:min-w-third {
+    min-width: calc(100% / 3);
+  }
+
+  .sm\:min-w-two-thirds {
+    min-width: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport width
   *
   */
 
+  .sm\:vw-10 {
+    width: 10vw;
+  }
+
+  .sm\:vw-20 {
+    width: 20vw;
+  }
+
   .sm\:vw-25 {
     width: 25vw;
+  }
+
+  .sm\:vw-30 {
+    width: 30vw;
+  }
+
+  .sm\:vw-40 {
+    width: 40vw;
   }
 
   .sm\:vw-50 {
     width: 50vw;
   }
 
+  .sm\:vw-60 {
+    width: 60vw;
+  }
+
+  .sm\:vw-70 {
+    width: 70vw;
+  }
+
   .sm\:vw-75 {
     width: 75vw;
+  }
+
+  .sm\:vw-80 {
+    width: 80vw;
+  }
+
+  .sm\:vw-90 {
+    width: 90vw;
   }
 
   .sm\:vw-100 {
     width: 100vw;
   }
 
-  .sm\:min-vw-100 {
-    min-width: 100vw;
+  .sm\:vw-third {
+    width: calc(100vw / 3);
+  }
+
+  .sm\:vw-two-thirds {
+    width: calc(100vw / 1.5);
+  }
+
+  .sm\:max-vw-10 {
+    max-width: 10vw;
+  }
+
+  .sm\:max-vw-20 {
+    max-width: 20vw;
+  }
+
+  .sm\:max-vw-25 {
+    max-width: 25vw;
+  }
+
+  .sm\:max-vw-30 {
+    max-width: 30vw;
+  }
+
+  .sm\:max-vw-40 {
+    max-width: 40vw;
+  }
+
+  .sm\:max-vw-50 {
+    max-width: 50vw;
+  }
+
+  .sm\:max-vw-60 {
+    max-width: 60vw;
+  }
+
+  .sm\:max-vw-70 {
+    max-width: 70vw;
+  }
+
+  .sm\:max-vw-75 {
+    max-width: 75vw;
+  }
+
+  .sm\:max-vw-80 {
+    max-width: 80vw;
+  }
+
+  .sm\:max-vw-90 {
+    max-width: 90vw;
   }
 
   .sm\:max-vw-100 {
     max-width: 100vw;
+  }
+
+  .sm\:max-vw-third {
+    max-width: calc(100vw / 3);
+  }
+
+  .sm\:max-vw-two-thirds {
+    max-width: calc(100vw / 1.5);
+  }
+
+  .sm\:min-vw-10 {
+    min-width: 10vw;
+  }
+
+  .sm\:min-vw-20 {
+    min-width: 20vw;
+  }
+
+  .sm\:min-vw-25 {
+    min-width: 25vw;
+  }
+
+  .sm\:min-vw-30 {
+    min-width: 30vw;
+  }
+
+  .sm\:min-vw-40 {
+    min-width: 40vw;
+  }
+
+  .sm\:min-vw-50 {
+    min-width: 50vw;
+  }
+
+  .sm\:min-vw-60 {
+    min-width: 60vw;
+  }
+
+  .sm\:min-vw-70 {
+    min-width: 70vw;
+  }
+
+  .sm\:min-vw-75 {
+    min-width: 75vw;
+  }
+
+  .sm\:min-vw-80 {
+    min-width: 80vw;
+  }
+
+  .sm\:min-vw-90 {
+    min-width: 90vw;
+  }
+
+  .sm\:min-vw-100 {
+    min-width: 100vw;
+  }
+
+  .sm\:min-vw-third {
+    min-width: calc(100vw / 3);
+  }
+
+  .sm\:min-vw-two-thirds {
+    min-width: calc(100vw / 1.5);
   }/* All */
 
   .sm\:ma0 {
@@ -21938,6 +25611,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     letter-spacing: -.05em;
   }
 
+  .sm\:lh-none {
+    line-height: 0;
+  }
+
   .sm\:lh-solid {
     line-height: 1;
   }
@@ -21952,6 +25629,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:lh-tall {
     line-height: 1.7;
+  }
+
+  .sm\:group:hover .group-hover\:lh-none {
+    line-height: 0;
   }
 
   .sm\:group:hover .group-hover\:lh-solid {
@@ -21970,6 +25651,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
     line-height: 1.7;
   }
 
+  .sm\:hover\:lh-none:hover {
+    line-height: 0;
+  }
+
   .sm\:hover\:lh-solid:hover {
     line-height: 1;
   }
@@ -21984,6 +25669,10 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:hover\:lh-tall:hover {
     line-height: 1.7;
+  }
+
+  .sm\:focus\:lh-none:focus {
+    line-height: 0;
   }
 
   .sm\:focus\:lh-solid:focus {
@@ -22007,7 +25696,7 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   */
 
   .sm\:measure-wide {
-    max-width: 80ch;
+    max-width: 75ch;
   }
 
   .sm\:measure {
@@ -27375,8 +31064,24 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     z-index: 5;
   }
 
+  .md\:z-6 {
+    z-index: 6;
+  }
+
+  .md\:z-7 {
+    z-index: 7;
+  }
+
+  .md\:z-8 {
+    z-index: 8;
+  }
+
   .md\:z-9 {
     z-index: 9;
+  }
+
+  .md\:z-10 {
+    z-index: 10;
   }
 
   .md\:z-99 {
@@ -27521,68 +31226,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .md\:h-0 {
+    height: 0;
+  }
+
   .md\:h-auto {
     height: auto;
   }
 
   .md\:h-inherit {
     height: inherit;
+  }
+
+  .md\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .md\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .md\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .md\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .md\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .md\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .md\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .md\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .md\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .md\:max-h-none {
+    max-height: none;
+  }
+
+  .md\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .md\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .md\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .md\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .md\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .md\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .md\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .md\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .md\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .md\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .md\:h-10 {
+    height: 10%;
+  }
+
+  .md\:h-20 {
+    height: 20%;
+  }
+
   .md\:h-25 {
     height: 25%;
+  }
+
+  .md\:h-30 {
+    height: 30%;
+  }
+
+  .md\:h-40 {
+    height: 40%;
   }
 
   .md\:h-50 {
     height: 50%;
   }
 
+  .md\:h-60 {
+    height: 60%;
+  }
+
+  .md\:h-70 {
+    height: 70%;
+  }
+
   .md\:h-75 {
     height: 75%;
+  }
+
+  .md\:h-80 {
+    height: 80%;
+  }
+
+  .md\:h-90 {
+    height: 90%;
   }
 
   .md\:h-100 {
     height: 100%;
   }
 
-  .md\:min-h-100 {
-    min-height: 100%;
+  .md\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .md\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .md\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .md\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .md\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .md\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .md\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .md\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .md\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .md\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .md\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .md\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .md\:max-h-90 {
+    max-height: 90%;
   }
 
   .md\:max-h-100 {
     max-height: 100%;
+  }
+
+  .md\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .md\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .md\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .md\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .md\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .md\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .md\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .md\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .md\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .md\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .md\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .md\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .md\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .md\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .md\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .md\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .md\:vh-10 {
+    height: 10vh;
+  }
+
+  .md\:vh-20 {
+    height: 20vh;
+  }
+
   .md\:vh-25 {
     height: 25vh;
+  }
+
+  .md\:vh-30 {
+    height: 30vh;
+  }
+
+  .md\:vh-40 {
+    height: 40vh;
   }
 
   .md\:vh-50 {
     height: 50vh;
   }
 
+  .md\:vh-60 {
+    height: 60vh;
+  }
+
+  .md\:vh-70 {
+    height: 70vh;
+  }
+
   .md\:vh-75 {
     height: 75vh;
+  }
+
+  .md\:vh-80 {
+    height: 80vh;
+  }
+
+  .md\:vh-90 {
+    height: 90vh;
   }
 
   .md\:vh-100 {
     height: 100vh;
   }
 
-  .md\:min-vh-100 {
-    min-height: 100vh;
+  .md\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .md\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .md\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .md\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .md\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .md\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .md\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .md\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .md\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .md\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .md\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .md\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .md\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .md\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .md\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .md\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .md\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .md\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .md\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .md\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .md\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .md\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .md\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .md\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .md\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .md\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .md\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .md\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .md\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .md\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .md\:group:hover .group-hover\:h1 {
@@ -27630,68 +31725,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .md\:group:hover .group-hover\:h-0 {
+    height: 0;
+  }
+
   .md\:group:hover .group-hover\:h-auto {
     height: auto;
   }
 
   .md\:group:hover .group-hover\:h-inherit {
     height: inherit;
+  }
+
+  .md\:group:hover .group-hover\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .md\:group:hover .group-hover\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .md\:group:hover .group-hover\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .md\:group:hover .group-hover\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .md\:group:hover .group-hover\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .md\:group:hover .group-hover\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .md\:group:hover .group-hover\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .md\:group:hover .group-hover\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .md\:group:hover .group-hover\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .md\:group:hover .group-hover\:max-h-none {
+    max-height: none;
+  }
+
+  .md\:group:hover .group-hover\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .md\:group:hover .group-hover\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .md\:group:hover .group-hover\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .md\:group:hover .group-hover\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .md\:group:hover .group-hover\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .md\:group:hover .group-hover\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .md\:group:hover .group-hover\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .md\:group:hover .group-hover\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .md\:group:hover .group-hover\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .md\:group:hover .group-hover\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .md\:group:hover .group-hover\:h-10 {
+    height: 10%;
+  }
+
+  .md\:group:hover .group-hover\:h-20 {
+    height: 20%;
+  }
+
   .md\:group:hover .group-hover\:h-25 {
     height: 25%;
+  }
+
+  .md\:group:hover .group-hover\:h-30 {
+    height: 30%;
+  }
+
+  .md\:group:hover .group-hover\:h-40 {
+    height: 40%;
   }
 
   .md\:group:hover .group-hover\:h-50 {
     height: 50%;
   }
 
+  .md\:group:hover .group-hover\:h-60 {
+    height: 60%;
+  }
+
+  .md\:group:hover .group-hover\:h-70 {
+    height: 70%;
+  }
+
   .md\:group:hover .group-hover\:h-75 {
     height: 75%;
+  }
+
+  .md\:group:hover .group-hover\:h-80 {
+    height: 80%;
+  }
+
+  .md\:group:hover .group-hover\:h-90 {
+    height: 90%;
   }
 
   .md\:group:hover .group-hover\:h-100 {
     height: 100%;
   }
 
-  .md\:group:hover .group-hover\:min-h-100 {
-    min-height: 100%;
+  .md\:group:hover .group-hover\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .md\:group:hover .group-hover\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .md\:group:hover .group-hover\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-90 {
+    max-height: 90%;
   }
 
   .md\:group:hover .group-hover\:max-h-100 {
     max-height: 100%;
+  }
+
+  .md\:group:hover .group-hover\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .md\:group:hover .group-hover\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .md\:group:hover .group-hover\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .md\:group:hover .group-hover\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .md\:group:hover .group-hover\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .md\:group:hover .group-hover\:vh-10 {
+    height: 10vh;
+  }
+
+  .md\:group:hover .group-hover\:vh-20 {
+    height: 20vh;
+  }
+
   .md\:group:hover .group-hover\:vh-25 {
     height: 25vh;
+  }
+
+  .md\:group:hover .group-hover\:vh-30 {
+    height: 30vh;
+  }
+
+  .md\:group:hover .group-hover\:vh-40 {
+    height: 40vh;
   }
 
   .md\:group:hover .group-hover\:vh-50 {
     height: 50vh;
   }
 
+  .md\:group:hover .group-hover\:vh-60 {
+    height: 60vh;
+  }
+
+  .md\:group:hover .group-hover\:vh-70 {
+    height: 70vh;
+  }
+
   .md\:group:hover .group-hover\:vh-75 {
     height: 75vh;
+  }
+
+  .md\:group:hover .group-hover\:vh-80 {
+    height: 80vh;
+  }
+
+  .md\:group:hover .group-hover\:vh-90 {
+    height: 90vh;
   }
 
   .md\:group:hover .group-hover\:vh-100 {
     height: 100vh;
   }
 
-  .md\:group:hover .group-hover\:min-vh-100 {
-    min-height: 100vh;
+  .md\:group:hover .group-hover\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .md\:group:hover .group-hover\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .md\:group:hover .group-hover\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .md\:group:hover .group-hover\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .md\:group:hover .group-hover\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .md\:group:hover .group-hover\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .md\:group:hover .group-hover\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .md\:group:hover .group-hover\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .md\:group:hover .group-hover\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .md\:hover\:h1:hover {
@@ -27739,68 +32224,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .md\:hover\:h-0:hover {
+    height: 0;
+  }
+
   .md\:hover\:h-auto:hover {
     height: auto;
   }
 
   .md\:hover\:h-inherit:hover {
     height: inherit;
+  }
+
+  .md\:hover\:max-h1:hover {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .md\:hover\:max-h2:hover {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .md\:hover\:max-h3:hover {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .md\:hover\:max-h4:hover {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .md\:hover\:max-h5:hover {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .md\:hover\:max-h6:hover {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .md\:hover\:max-h7:hover {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .md\:hover\:max-h8:hover {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .md\:hover\:max-h9:hover {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .md\:hover\:max-h-none:hover {
+    max-height: none;
+  }
+
+  .md\:hover\:min-h1:hover {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .md\:hover\:min-h2:hover {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .md\:hover\:min-h3:hover {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .md\:hover\:min-h4:hover {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .md\:hover\:min-h5:hover {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .md\:hover\:min-h6:hover {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .md\:hover\:min-h7:hover {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .md\:hover\:min-h8:hover {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .md\:hover\:min-h9:hover {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .md\:hover\:min-h-none:hover {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .md\:hover\:h-10:hover {
+    height: 10%;
+  }
+
+  .md\:hover\:h-20:hover {
+    height: 20%;
+  }
+
   .md\:hover\:h-25:hover {
     height: 25%;
+  }
+
+  .md\:hover\:h-30:hover {
+    height: 30%;
+  }
+
+  .md\:hover\:h-40:hover {
+    height: 40%;
   }
 
   .md\:hover\:h-50:hover {
     height: 50%;
   }
 
+  .md\:hover\:h-60:hover {
+    height: 60%;
+  }
+
+  .md\:hover\:h-70:hover {
+    height: 70%;
+  }
+
   .md\:hover\:h-75:hover {
     height: 75%;
+  }
+
+  .md\:hover\:h-80:hover {
+    height: 80%;
+  }
+
+  .md\:hover\:h-90:hover {
+    height: 90%;
   }
 
   .md\:hover\:h-100:hover {
     height: 100%;
   }
 
-  .md\:hover\:min-h-100:hover {
-    min-height: 100%;
+  .md\:hover\:h-third:hover {
+    height: calc(100% / 3);
+  }
+
+  .md\:hover\:h-two-thirds:hover {
+    height: calc(100% / 1.5);
+  }
+
+  .md\:hover\:max-h-10:hover {
+    max-height: 10%;
+  }
+
+  .md\:hover\:max-h-20:hover {
+    max-height: 20%;
+  }
+
+  .md\:hover\:max-h-25:hover {
+    max-height: 25%;
+  }
+
+  .md\:hover\:max-h-30:hover {
+    max-height: 30%;
+  }
+
+  .md\:hover\:max-h-40:hover {
+    max-height: 40%;
+  }
+
+  .md\:hover\:max-h-50:hover {
+    max-height: 50%;
+  }
+
+  .md\:hover\:max-h-60:hover {
+    max-height: 60%;
+  }
+
+  .md\:hover\:max-h-70:hover {
+    max-height: 70%;
+  }
+
+  .md\:hover\:max-h-75:hover {
+    max-height: 75%;
+  }
+
+  .md\:hover\:max-h-80:hover {
+    max-height: 80%;
+  }
+
+  .md\:hover\:max-h-90:hover {
+    max-height: 90%;
   }
 
   .md\:hover\:max-h-100:hover {
     max-height: 100%;
+  }
+
+  .md\:hover\:max-h-third:hover {
+    max-height: calc(100% / 3);
+  }
+
+  .md\:hover\:max-h-two-thirds:hover {
+    max-height: calc(100% / 1.5);
+  }
+
+  .md\:hover\:min-h-10:hover {
+    min-height: 10%;
+  }
+
+  .md\:hover\:min-h-20:hover {
+    min-height: 20%;
+  }
+
+  .md\:hover\:min-h-25:hover {
+    min-height: 25%;
+  }
+
+  .md\:hover\:min-h-30:hover {
+    min-height: 30%;
+  }
+
+  .md\:hover\:min-h-40:hover {
+    min-height: 40%;
+  }
+
+  .md\:hover\:min-h-50:hover {
+    min-height: 50%;
+  }
+
+  .md\:hover\:min-h-60:hover {
+    min-height: 60%;
+  }
+
+  .md\:hover\:min-h-70:hover {
+    min-height: 70%;
+  }
+
+  .md\:hover\:min-h-75:hover {
+    min-height: 75%;
+  }
+
+  .md\:hover\:min-h-80:hover {
+    min-height: 80%;
+  }
+
+  .md\:hover\:min-h-90:hover {
+    min-height: 90%;
+  }
+
+  .md\:hover\:min-h-100:hover {
+    min-height: 100%;
+  }
+
+  .md\:hover\:min-h-third:hover {
+    min-height: calc(100% / 3);
+  }
+
+  .md\:hover\:min-h-two-thirds:hover {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .md\:hover\:vh-10:hover {
+    height: 10vh;
+  }
+
+  .md\:hover\:vh-20:hover {
+    height: 20vh;
+  }
+
   .md\:hover\:vh-25:hover {
     height: 25vh;
+  }
+
+  .md\:hover\:vh-30:hover {
+    height: 30vh;
+  }
+
+  .md\:hover\:vh-40:hover {
+    height: 40vh;
   }
 
   .md\:hover\:vh-50:hover {
     height: 50vh;
   }
 
+  .md\:hover\:vh-60:hover {
+    height: 60vh;
+  }
+
+  .md\:hover\:vh-70:hover {
+    height: 70vh;
+  }
+
   .md\:hover\:vh-75:hover {
     height: 75vh;
+  }
+
+  .md\:hover\:vh-80:hover {
+    height: 80vh;
+  }
+
+  .md\:hover\:vh-90:hover {
+    height: 90vh;
   }
 
   .md\:hover\:vh-100:hover {
     height: 100vh;
   }
 
-  .md\:hover\:min-vh-100:hover {
-    min-height: 100vh;
+  .md\:hover\:vh-third:hover {
+    height: calc(100vh / 3);
+  }
+
+  .md\:hover\:vh-two-thirds:hover {
+    height: calc(100vh / 1.5);
+  }
+
+  .md\:hover\:max-vh-10:hover {
+    max-height: 10vh;
+  }
+
+  .md\:hover\:max-vh-20:hover {
+    max-height: 20vh;
+  }
+
+  .md\:hover\:max-vh-25:hover {
+    max-height: 25vh;
+  }
+
+  .md\:hover\:max-vh-30:hover {
+    max-height: 30vh;
+  }
+
+  .md\:hover\:max-vh-40:hover {
+    max-height: 40vh;
+  }
+
+  .md\:hover\:max-vh-50:hover {
+    max-height: 50vh;
+  }
+
+  .md\:hover\:max-vh-60:hover {
+    max-height: 60vh;
+  }
+
+  .md\:hover\:max-vh-70:hover {
+    max-height: 70vh;
+  }
+
+  .md\:hover\:max-vh-75:hover {
+    max-height: 75vh;
+  }
+
+  .md\:hover\:max-vh-80:hover {
+    max-height: 80vh;
+  }
+
+  .md\:hover\:max-vh-90:hover {
+    max-height: 90vh;
   }
 
   .md\:hover\:max-vh-100:hover {
     max-height: 100vh;
+  }
+
+  .md\:hover\:max-vh-third:hover {
+    max-height: calc(100vh / 3);
+  }
+
+  .md\:hover\:max-vh-two-thirds:hover {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .md\:hover\:min-vh-10:hover {
+    min-height: 10vh;
+  }
+
+  .md\:hover\:min-vh-20:hover {
+    min-height: 20vh;
+  }
+
+  .md\:hover\:min-vh-25:hover {
+    min-height: 25vh;
+  }
+
+  .md\:hover\:min-vh-30:hover {
+    min-height: 30vh;
+  }
+
+  .md\:hover\:min-vh-40:hover {
+    min-height: 40vh;
+  }
+
+  .md\:hover\:min-vh-50:hover {
+    min-height: 50vh;
+  }
+
+  .md\:hover\:min-vh-60:hover {
+    min-height: 60vh;
+  }
+
+  .md\:hover\:min-vh-70:hover {
+    min-height: 70vh;
+  }
+
+  .md\:hover\:min-vh-75:hover {
+    min-height: 75vh;
+  }
+
+  .md\:hover\:min-vh-80:hover {
+    min-height: 80vh;
+  }
+
+  .md\:hover\:min-vh-90:hover {
+    min-height: 90vh;
+  }
+
+  .md\:hover\:min-vh-100:hover {
+    min-height: 100vh;
+  }
+
+  .md\:hover\:min-vh-third:hover {
+    min-height: calc(100vh / 3);
+  }
+
+  .md\:hover\:min-vh-two-thirds:hover {
+    min-height: calc(100vh / 1.5);
   }
 
   .md\:focus\:h1:focus {
@@ -27848,68 +32723,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .md\:focus\:h-0:focus {
+    height: 0;
+  }
+
   .md\:focus\:h-auto:focus {
     height: auto;
   }
 
   .md\:focus\:h-inherit:focus {
     height: inherit;
+  }
+
+  .md\:focus\:max-h1:focus {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .md\:focus\:max-h2:focus {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .md\:focus\:max-h3:focus {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .md\:focus\:max-h4:focus {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .md\:focus\:max-h5:focus {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .md\:focus\:max-h6:focus {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .md\:focus\:max-h7:focus {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .md\:focus\:max-h8:focus {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .md\:focus\:max-h9:focus {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .md\:focus\:max-h-none:focus {
+    max-height: none;
+  }
+
+  .md\:focus\:min-h1:focus {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .md\:focus\:min-h2:focus {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .md\:focus\:min-h3:focus {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .md\:focus\:min-h4:focus {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .md\:focus\:min-h5:focus {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .md\:focus\:min-h6:focus {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .md\:focus\:min-h7:focus {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .md\:focus\:min-h8:focus {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .md\:focus\:min-h9:focus {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .md\:focus\:min-h-none:focus {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .md\:focus\:h-10:focus {
+    height: 10%;
+  }
+
+  .md\:focus\:h-20:focus {
+    height: 20%;
+  }
+
   .md\:focus\:h-25:focus {
     height: 25%;
+  }
+
+  .md\:focus\:h-30:focus {
+    height: 30%;
+  }
+
+  .md\:focus\:h-40:focus {
+    height: 40%;
   }
 
   .md\:focus\:h-50:focus {
     height: 50%;
   }
 
+  .md\:focus\:h-60:focus {
+    height: 60%;
+  }
+
+  .md\:focus\:h-70:focus {
+    height: 70%;
+  }
+
   .md\:focus\:h-75:focus {
     height: 75%;
+  }
+
+  .md\:focus\:h-80:focus {
+    height: 80%;
+  }
+
+  .md\:focus\:h-90:focus {
+    height: 90%;
   }
 
   .md\:focus\:h-100:focus {
     height: 100%;
   }
 
-  .md\:focus\:min-h-100:focus {
-    min-height: 100%;
+  .md\:focus\:h-third:focus {
+    height: calc(100% / 3);
+  }
+
+  .md\:focus\:h-two-thirds:focus {
+    height: calc(100% / 1.5);
+  }
+
+  .md\:focus\:max-h-10:focus {
+    max-height: 10%;
+  }
+
+  .md\:focus\:max-h-20:focus {
+    max-height: 20%;
+  }
+
+  .md\:focus\:max-h-25:focus {
+    max-height: 25%;
+  }
+
+  .md\:focus\:max-h-30:focus {
+    max-height: 30%;
+  }
+
+  .md\:focus\:max-h-40:focus {
+    max-height: 40%;
+  }
+
+  .md\:focus\:max-h-50:focus {
+    max-height: 50%;
+  }
+
+  .md\:focus\:max-h-60:focus {
+    max-height: 60%;
+  }
+
+  .md\:focus\:max-h-70:focus {
+    max-height: 70%;
+  }
+
+  .md\:focus\:max-h-75:focus {
+    max-height: 75%;
+  }
+
+  .md\:focus\:max-h-80:focus {
+    max-height: 80%;
+  }
+
+  .md\:focus\:max-h-90:focus {
+    max-height: 90%;
   }
 
   .md\:focus\:max-h-100:focus {
     max-height: 100%;
+  }
+
+  .md\:focus\:max-h-third:focus {
+    max-height: calc(100% / 3);
+  }
+
+  .md\:focus\:max-h-two-thirds:focus {
+    max-height: calc(100% / 1.5);
+  }
+
+  .md\:focus\:min-h-10:focus {
+    min-height: 10%;
+  }
+
+  .md\:focus\:min-h-20:focus {
+    min-height: 20%;
+  }
+
+  .md\:focus\:min-h-25:focus {
+    min-height: 25%;
+  }
+
+  .md\:focus\:min-h-30:focus {
+    min-height: 30%;
+  }
+
+  .md\:focus\:min-h-40:focus {
+    min-height: 40%;
+  }
+
+  .md\:focus\:min-h-50:focus {
+    min-height: 50%;
+  }
+
+  .md\:focus\:min-h-60:focus {
+    min-height: 60%;
+  }
+
+  .md\:focus\:min-h-70:focus {
+    min-height: 70%;
+  }
+
+  .md\:focus\:min-h-75:focus {
+    min-height: 75%;
+  }
+
+  .md\:focus\:min-h-80:focus {
+    min-height: 80%;
+  }
+
+  .md\:focus\:min-h-90:focus {
+    min-height: 90%;
+  }
+
+  .md\:focus\:min-h-100:focus {
+    min-height: 100%;
+  }
+
+  .md\:focus\:min-h-third:focus {
+    min-height: calc(100% / 3);
+  }
+
+  .md\:focus\:min-h-two-thirds:focus {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .md\:focus\:vh-10:focus {
+    height: 10vh;
+  }
+
+  .md\:focus\:vh-20:focus {
+    height: 20vh;
+  }
+
   .md\:focus\:vh-25:focus {
     height: 25vh;
+  }
+
+  .md\:focus\:vh-30:focus {
+    height: 30vh;
+  }
+
+  .md\:focus\:vh-40:focus {
+    height: 40vh;
   }
 
   .md\:focus\:vh-50:focus {
     height: 50vh;
   }
 
+  .md\:focus\:vh-60:focus {
+    height: 60vh;
+  }
+
+  .md\:focus\:vh-70:focus {
+    height: 70vh;
+  }
+
   .md\:focus\:vh-75:focus {
     height: 75vh;
+  }
+
+  .md\:focus\:vh-80:focus {
+    height: 80vh;
+  }
+
+  .md\:focus\:vh-90:focus {
+    height: 90vh;
   }
 
   .md\:focus\:vh-100:focus {
     height: 100vh;
   }
 
-  .md\:focus\:min-vh-100:focus {
-    min-height: 100vh;
+  .md\:focus\:vh-third:focus {
+    height: calc(100vh / 3);
+  }
+
+  .md\:focus\:vh-two-thirds:focus {
+    height: calc(100vh / 1.5);
+  }
+
+  .md\:focus\:max-vh-10:focus {
+    max-height: 10vh;
+  }
+
+  .md\:focus\:max-vh-20:focus {
+    max-height: 20vh;
+  }
+
+  .md\:focus\:max-vh-25:focus {
+    max-height: 25vh;
+  }
+
+  .md\:focus\:max-vh-30:focus {
+    max-height: 30vh;
+  }
+
+  .md\:focus\:max-vh-40:focus {
+    max-height: 40vh;
+  }
+
+  .md\:focus\:max-vh-50:focus {
+    max-height: 50vh;
+  }
+
+  .md\:focus\:max-vh-60:focus {
+    max-height: 60vh;
+  }
+
+  .md\:focus\:max-vh-70:focus {
+    max-height: 70vh;
+  }
+
+  .md\:focus\:max-vh-75:focus {
+    max-height: 75vh;
+  }
+
+  .md\:focus\:max-vh-80:focus {
+    max-height: 80vh;
+  }
+
+  .md\:focus\:max-vh-90:focus {
+    max-height: 90vh;
   }
 
   .md\:focus\:max-vh-100:focus {
     max-height: 100vh;
+  }
+
+  .md\:focus\:max-vh-third:focus {
+    max-height: calc(100vh / 3);
+  }
+
+  .md\:focus\:max-vh-two-thirds:focus {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .md\:focus\:min-vh-10:focus {
+    min-height: 10vh;
+  }
+
+  .md\:focus\:min-vh-20:focus {
+    min-height: 20vh;
+  }
+
+  .md\:focus\:min-vh-25:focus {
+    min-height: 25vh;
+  }
+
+  .md\:focus\:min-vh-30:focus {
+    min-height: 30vh;
+  }
+
+  .md\:focus\:min-vh-40:focus {
+    min-height: 40vh;
+  }
+
+  .md\:focus\:min-vh-50:focus {
+    min-height: 50vh;
+  }
+
+  .md\:focus\:min-vh-60:focus {
+    min-height: 60vh;
+  }
+
+  .md\:focus\:min-vh-70:focus {
+    min-height: 70vh;
+  }
+
+  .md\:focus\:min-vh-75:focus {
+    min-height: 75vh;
+  }
+
+  .md\:focus\:min-vh-80:focus {
+    min-height: 80vh;
+  }
+
+  .md\:focus\:min-vh-90:focus {
+    min-height: 90vh;
+  }
+
+  .md\:focus\:min-vh-100:focus {
+    min-height: 100vh;
+  }
+
+  .md\:focus\:min-vh-third:focus {
+    min-height: calc(100vh / 3);
+  }
+
+  .md\:focus\:min-vh-two-thirds:focus {
+    min-height: calc(100vh / 1.5);
   }
 
   .md\:w1 {
@@ -27961,6 +33226,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     width: auto;
   }
 
+  .md\:w-0 {
+    width: 0;
+  }
+
   .md\:mw1 {
     max-width: 1rem;
     max-width: var(--sizing-1);
@@ -28008,6 +33277,55 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:mw-none {
     max-width: none;
+  }
+
+  .md\:min-w1 {
+    min-width: 1rem;
+    min-width: var(--sizing-1);
+  }
+
+  .md\:min-w2 {
+    min-width: 2rem;
+    min-width: var(--sizing-2);
+  }
+
+  .md\:min-w3 {
+    min-width: 4rem;
+    min-width: var(--sizing-3);
+  }
+
+  .md\:min-w4 {
+    min-width: 8rem;
+    min-width: var(--sizing-4);
+  }
+
+  .md\:min-w5 {
+    min-width: 16rem;
+    min-width: var(--sizing-5);
+  }
+
+  .md\:min-w6 {
+    min-width: 32rem;
+    min-width: var(--sizing-6);
+  }
+
+  .md\:min-w7 {
+    min-width: 48rem;
+    min-width: var(--sizing-7);
+  }
+
+  .md\:min-w8 {
+    min-width: 64rem;
+    min-width: var(--sizing-8);
+  }
+
+  .md\:min-w9 {
+    min-width: 96rem;
+    min-width: var(--sizing-9);
+  }
+
+  .md\:min-w-none {
+    min-width: none;
   }/* 
   * 
   * Percentage of parent width
@@ -28126,36 +33444,232 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     max-width: calc(100% / 1.5);
   }
 
+  .md\:min-w-10 {
+    min-width: 10%;
+  }
+
+  .md\:min-w-20 {
+    min-width: 20%;
+  }
+
+  .md\:min-w-25 {
+    min-width: 25%;
+  }
+
+  .md\:min-w-30 {
+    min-width: 30%;
+  }
+
+  .md\:min-w-40 {
+    min-width: 40%;
+  }
+
+  .md\:min-w-50 {
+    min-width: 50%;
+  }
+
+  .md\:min-w-60 {
+    min-width: 60%;
+  }
+
+  .md\:min-w-70 {
+    min-width: 70%;
+  }
+
+  .md\:min-w-75 {
+    min-width: 75%;
+  }
+
+  .md\:min-w-80 {
+    min-width: 80%;
+  }
+
+  .md\:min-w-90 {
+    min-width: 90%;
+  }
+
   .md\:min-w-100 {
     min-width: 100%;
+  }
+
+  .md\:min-w-third {
+    min-width: calc(100% / 3);
+  }
+
+  .md\:min-w-two-thirds {
+    min-width: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport width
   *
   */
 
+  .md\:vw-10 {
+    width: 10vw;
+  }
+
+  .md\:vw-20 {
+    width: 20vw;
+  }
+
   .md\:vw-25 {
     width: 25vw;
+  }
+
+  .md\:vw-30 {
+    width: 30vw;
+  }
+
+  .md\:vw-40 {
+    width: 40vw;
   }
 
   .md\:vw-50 {
     width: 50vw;
   }
 
+  .md\:vw-60 {
+    width: 60vw;
+  }
+
+  .md\:vw-70 {
+    width: 70vw;
+  }
+
   .md\:vw-75 {
     width: 75vw;
+  }
+
+  .md\:vw-80 {
+    width: 80vw;
+  }
+
+  .md\:vw-90 {
+    width: 90vw;
   }
 
   .md\:vw-100 {
     width: 100vw;
   }
 
-  .md\:min-vw-100 {
-    min-width: 100vw;
+  .md\:vw-third {
+    width: calc(100vw / 3);
+  }
+
+  .md\:vw-two-thirds {
+    width: calc(100vw / 1.5);
+  }
+
+  .md\:max-vw-10 {
+    max-width: 10vw;
+  }
+
+  .md\:max-vw-20 {
+    max-width: 20vw;
+  }
+
+  .md\:max-vw-25 {
+    max-width: 25vw;
+  }
+
+  .md\:max-vw-30 {
+    max-width: 30vw;
+  }
+
+  .md\:max-vw-40 {
+    max-width: 40vw;
+  }
+
+  .md\:max-vw-50 {
+    max-width: 50vw;
+  }
+
+  .md\:max-vw-60 {
+    max-width: 60vw;
+  }
+
+  .md\:max-vw-70 {
+    max-width: 70vw;
+  }
+
+  .md\:max-vw-75 {
+    max-width: 75vw;
+  }
+
+  .md\:max-vw-80 {
+    max-width: 80vw;
+  }
+
+  .md\:max-vw-90 {
+    max-width: 90vw;
   }
 
   .md\:max-vw-100 {
     max-width: 100vw;
+  }
+
+  .md\:max-vw-third {
+    max-width: calc(100vw / 3);
+  }
+
+  .md\:max-vw-two-thirds {
+    max-width: calc(100vw / 1.5);
+  }
+
+  .md\:min-vw-10 {
+    min-width: 10vw;
+  }
+
+  .md\:min-vw-20 {
+    min-width: 20vw;
+  }
+
+  .md\:min-vw-25 {
+    min-width: 25vw;
+  }
+
+  .md\:min-vw-30 {
+    min-width: 30vw;
+  }
+
+  .md\:min-vw-40 {
+    min-width: 40vw;
+  }
+
+  .md\:min-vw-50 {
+    min-width: 50vw;
+  }
+
+  .md\:min-vw-60 {
+    min-width: 60vw;
+  }
+
+  .md\:min-vw-70 {
+    min-width: 70vw;
+  }
+
+  .md\:min-vw-75 {
+    min-width: 75vw;
+  }
+
+  .md\:min-vw-80 {
+    min-width: 80vw;
+  }
+
+  .md\:min-vw-90 {
+    min-width: 90vw;
+  }
+
+  .md\:min-vw-100 {
+    min-width: 100vw;
+  }
+
+  .md\:min-vw-third {
+    min-width: calc(100vw / 3);
+  }
+
+  .md\:min-vw-two-thirds {
+    min-width: calc(100vw / 1.5);
   }/* All */
 
   .md\:ma0 {
@@ -31223,6 +36737,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     letter-spacing: -.05em;
   }
 
+  .md\:lh-none {
+    line-height: 0;
+  }
+
   .md\:lh-solid {
     line-height: 1;
   }
@@ -31237,6 +36755,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:lh-tall {
     line-height: 1.7;
+  }
+
+  .md\:group:hover .group-hover\:lh-none {
+    line-height: 0;
   }
 
   .md\:group:hover .group-hover\:lh-solid {
@@ -31255,6 +36777,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     line-height: 1.7;
   }
 
+  .md\:hover\:lh-none:hover {
+    line-height: 0;
+  }
+
   .md\:hover\:lh-solid:hover {
     line-height: 1;
   }
@@ -31269,6 +36795,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .md\:hover\:lh-tall:hover {
     line-height: 1.7;
+  }
+
+  .md\:focus\:lh-none:focus {
+    line-height: 0;
   }
 
   .md\:focus\:lh-solid:focus {
@@ -31292,7 +36822,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .md\:measure-wide {
-    max-width: 80ch;
+    max-width: 75ch;
   }
 
   .md\:measure {
@@ -36660,8 +42190,24 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     z-index: 5;
   }
 
+  .lg\:z-6 {
+    z-index: 6;
+  }
+
+  .lg\:z-7 {
+    z-index: 7;
+  }
+
+  .lg\:z-8 {
+    z-index: 8;
+  }
+
   .lg\:z-9 {
     z-index: 9;
+  }
+
+  .lg\:z-10 {
+    z-index: 10;
   }
 
   .lg\:z-99 {
@@ -36806,68 +42352,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .lg\:h-0 {
+    height: 0;
+  }
+
   .lg\:h-auto {
     height: auto;
   }
 
   .lg\:h-inherit {
     height: inherit;
+  }
+
+  .lg\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .lg\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .lg\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .lg\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .lg\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .lg\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .lg\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .lg\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .lg\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .lg\:max-h-none {
+    max-height: none;
+  }
+
+  .lg\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .lg\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .lg\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .lg\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .lg\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .lg\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .lg\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .lg\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .lg\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .lg\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .lg\:h-10 {
+    height: 10%;
+  }
+
+  .lg\:h-20 {
+    height: 20%;
+  }
+
   .lg\:h-25 {
     height: 25%;
+  }
+
+  .lg\:h-30 {
+    height: 30%;
+  }
+
+  .lg\:h-40 {
+    height: 40%;
   }
 
   .lg\:h-50 {
     height: 50%;
   }
 
+  .lg\:h-60 {
+    height: 60%;
+  }
+
+  .lg\:h-70 {
+    height: 70%;
+  }
+
   .lg\:h-75 {
     height: 75%;
+  }
+
+  .lg\:h-80 {
+    height: 80%;
+  }
+
+  .lg\:h-90 {
+    height: 90%;
   }
 
   .lg\:h-100 {
     height: 100%;
   }
 
-  .lg\:min-h-100 {
-    min-height: 100%;
+  .lg\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .lg\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .lg\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .lg\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .lg\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .lg\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .lg\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .lg\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .lg\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .lg\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .lg\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .lg\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .lg\:max-h-90 {
+    max-height: 90%;
   }
 
   .lg\:max-h-100 {
     max-height: 100%;
+  }
+
+  .lg\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .lg\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .lg\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .lg\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .lg\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .lg\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .lg\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .lg\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .lg\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .lg\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .lg\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .lg\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .lg\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .lg\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .lg\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .lg\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .lg\:vh-10 {
+    height: 10vh;
+  }
+
+  .lg\:vh-20 {
+    height: 20vh;
+  }
+
   .lg\:vh-25 {
     height: 25vh;
+  }
+
+  .lg\:vh-30 {
+    height: 30vh;
+  }
+
+  .lg\:vh-40 {
+    height: 40vh;
   }
 
   .lg\:vh-50 {
     height: 50vh;
   }
 
+  .lg\:vh-60 {
+    height: 60vh;
+  }
+
+  .lg\:vh-70 {
+    height: 70vh;
+  }
+
   .lg\:vh-75 {
     height: 75vh;
+  }
+
+  .lg\:vh-80 {
+    height: 80vh;
+  }
+
+  .lg\:vh-90 {
+    height: 90vh;
   }
 
   .lg\:vh-100 {
     height: 100vh;
   }
 
-  .lg\:min-vh-100 {
-    min-height: 100vh;
+  .lg\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .lg\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .lg\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .lg\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .lg\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .lg\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .lg\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .lg\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .lg\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .lg\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .lg\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .lg\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .lg\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .lg\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .lg\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .lg\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .lg\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .lg\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .lg\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .lg\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .lg\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .lg\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .lg\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .lg\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .lg\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .lg\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .lg\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .lg\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .lg\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .lg\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .lg\:group:hover .group-hover\:h1 {
@@ -36915,68 +42851,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .lg\:group:hover .group-hover\:h-0 {
+    height: 0;
+  }
+
   .lg\:group:hover .group-hover\:h-auto {
     height: auto;
   }
 
   .lg\:group:hover .group-hover\:h-inherit {
     height: inherit;
+  }
+
+  .lg\:group:hover .group-hover\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .lg\:group:hover .group-hover\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .lg\:group:hover .group-hover\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .lg\:group:hover .group-hover\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .lg\:group:hover .group-hover\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .lg\:group:hover .group-hover\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .lg\:group:hover .group-hover\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .lg\:group:hover .group-hover\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .lg\:group:hover .group-hover\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .lg\:group:hover .group-hover\:max-h-none {
+    max-height: none;
+  }
+
+  .lg\:group:hover .group-hover\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .lg\:group:hover .group-hover\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .lg\:group:hover .group-hover\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .lg\:group:hover .group-hover\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .lg\:group:hover .group-hover\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .lg\:group:hover .group-hover\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .lg\:group:hover .group-hover\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .lg\:group:hover .group-hover\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .lg\:group:hover .group-hover\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .lg\:group:hover .group-hover\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .lg\:group:hover .group-hover\:h-10 {
+    height: 10%;
+  }
+
+  .lg\:group:hover .group-hover\:h-20 {
+    height: 20%;
+  }
+
   .lg\:group:hover .group-hover\:h-25 {
     height: 25%;
+  }
+
+  .lg\:group:hover .group-hover\:h-30 {
+    height: 30%;
+  }
+
+  .lg\:group:hover .group-hover\:h-40 {
+    height: 40%;
   }
 
   .lg\:group:hover .group-hover\:h-50 {
     height: 50%;
   }
 
+  .lg\:group:hover .group-hover\:h-60 {
+    height: 60%;
+  }
+
+  .lg\:group:hover .group-hover\:h-70 {
+    height: 70%;
+  }
+
   .lg\:group:hover .group-hover\:h-75 {
     height: 75%;
+  }
+
+  .lg\:group:hover .group-hover\:h-80 {
+    height: 80%;
+  }
+
+  .lg\:group:hover .group-hover\:h-90 {
+    height: 90%;
   }
 
   .lg\:group:hover .group-hover\:h-100 {
     height: 100%;
   }
 
-  .lg\:group:hover .group-hover\:min-h-100 {
-    min-height: 100%;
+  .lg\:group:hover .group-hover\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .lg\:group:hover .group-hover\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .lg\:group:hover .group-hover\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-90 {
+    max-height: 90%;
   }
 
   .lg\:group:hover .group-hover\:max-h-100 {
     max-height: 100%;
+  }
+
+  .lg\:group:hover .group-hover\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .lg\:group:hover .group-hover\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .lg\:group:hover .group-hover\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .lg\:group:hover .group-hover\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .lg\:group:hover .group-hover\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .lg\:group:hover .group-hover\:vh-10 {
+    height: 10vh;
+  }
+
+  .lg\:group:hover .group-hover\:vh-20 {
+    height: 20vh;
+  }
+
   .lg\:group:hover .group-hover\:vh-25 {
     height: 25vh;
+  }
+
+  .lg\:group:hover .group-hover\:vh-30 {
+    height: 30vh;
+  }
+
+  .lg\:group:hover .group-hover\:vh-40 {
+    height: 40vh;
   }
 
   .lg\:group:hover .group-hover\:vh-50 {
     height: 50vh;
   }
 
+  .lg\:group:hover .group-hover\:vh-60 {
+    height: 60vh;
+  }
+
+  .lg\:group:hover .group-hover\:vh-70 {
+    height: 70vh;
+  }
+
   .lg\:group:hover .group-hover\:vh-75 {
     height: 75vh;
+  }
+
+  .lg\:group:hover .group-hover\:vh-80 {
+    height: 80vh;
+  }
+
+  .lg\:group:hover .group-hover\:vh-90 {
+    height: 90vh;
   }
 
   .lg\:group:hover .group-hover\:vh-100 {
     height: 100vh;
   }
 
-  .lg\:group:hover .group-hover\:min-vh-100 {
-    min-height: 100vh;
+  .lg\:group:hover .group-hover\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .lg\:group:hover .group-hover\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .lg\:group:hover .group-hover\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .lg\:group:hover .group-hover\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .lg\:group:hover .group-hover\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .lg\:hover\:h1:hover {
@@ -37024,68 +43350,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .lg\:hover\:h-0:hover {
+    height: 0;
+  }
+
   .lg\:hover\:h-auto:hover {
     height: auto;
   }
 
   .lg\:hover\:h-inherit:hover {
     height: inherit;
+  }
+
+  .lg\:hover\:max-h1:hover {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .lg\:hover\:max-h2:hover {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .lg\:hover\:max-h3:hover {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .lg\:hover\:max-h4:hover {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .lg\:hover\:max-h5:hover {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .lg\:hover\:max-h6:hover {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .lg\:hover\:max-h7:hover {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .lg\:hover\:max-h8:hover {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .lg\:hover\:max-h9:hover {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .lg\:hover\:max-h-none:hover {
+    max-height: none;
+  }
+
+  .lg\:hover\:min-h1:hover {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .lg\:hover\:min-h2:hover {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .lg\:hover\:min-h3:hover {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .lg\:hover\:min-h4:hover {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .lg\:hover\:min-h5:hover {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .lg\:hover\:min-h6:hover {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .lg\:hover\:min-h7:hover {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .lg\:hover\:min-h8:hover {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .lg\:hover\:min-h9:hover {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .lg\:hover\:min-h-none:hover {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .lg\:hover\:h-10:hover {
+    height: 10%;
+  }
+
+  .lg\:hover\:h-20:hover {
+    height: 20%;
+  }
+
   .lg\:hover\:h-25:hover {
     height: 25%;
+  }
+
+  .lg\:hover\:h-30:hover {
+    height: 30%;
+  }
+
+  .lg\:hover\:h-40:hover {
+    height: 40%;
   }
 
   .lg\:hover\:h-50:hover {
     height: 50%;
   }
 
+  .lg\:hover\:h-60:hover {
+    height: 60%;
+  }
+
+  .lg\:hover\:h-70:hover {
+    height: 70%;
+  }
+
   .lg\:hover\:h-75:hover {
     height: 75%;
+  }
+
+  .lg\:hover\:h-80:hover {
+    height: 80%;
+  }
+
+  .lg\:hover\:h-90:hover {
+    height: 90%;
   }
 
   .lg\:hover\:h-100:hover {
     height: 100%;
   }
 
-  .lg\:hover\:min-h-100:hover {
-    min-height: 100%;
+  .lg\:hover\:h-third:hover {
+    height: calc(100% / 3);
+  }
+
+  .lg\:hover\:h-two-thirds:hover {
+    height: calc(100% / 1.5);
+  }
+
+  .lg\:hover\:max-h-10:hover {
+    max-height: 10%;
+  }
+
+  .lg\:hover\:max-h-20:hover {
+    max-height: 20%;
+  }
+
+  .lg\:hover\:max-h-25:hover {
+    max-height: 25%;
+  }
+
+  .lg\:hover\:max-h-30:hover {
+    max-height: 30%;
+  }
+
+  .lg\:hover\:max-h-40:hover {
+    max-height: 40%;
+  }
+
+  .lg\:hover\:max-h-50:hover {
+    max-height: 50%;
+  }
+
+  .lg\:hover\:max-h-60:hover {
+    max-height: 60%;
+  }
+
+  .lg\:hover\:max-h-70:hover {
+    max-height: 70%;
+  }
+
+  .lg\:hover\:max-h-75:hover {
+    max-height: 75%;
+  }
+
+  .lg\:hover\:max-h-80:hover {
+    max-height: 80%;
+  }
+
+  .lg\:hover\:max-h-90:hover {
+    max-height: 90%;
   }
 
   .lg\:hover\:max-h-100:hover {
     max-height: 100%;
+  }
+
+  .lg\:hover\:max-h-third:hover {
+    max-height: calc(100% / 3);
+  }
+
+  .lg\:hover\:max-h-two-thirds:hover {
+    max-height: calc(100% / 1.5);
+  }
+
+  .lg\:hover\:min-h-10:hover {
+    min-height: 10%;
+  }
+
+  .lg\:hover\:min-h-20:hover {
+    min-height: 20%;
+  }
+
+  .lg\:hover\:min-h-25:hover {
+    min-height: 25%;
+  }
+
+  .lg\:hover\:min-h-30:hover {
+    min-height: 30%;
+  }
+
+  .lg\:hover\:min-h-40:hover {
+    min-height: 40%;
+  }
+
+  .lg\:hover\:min-h-50:hover {
+    min-height: 50%;
+  }
+
+  .lg\:hover\:min-h-60:hover {
+    min-height: 60%;
+  }
+
+  .lg\:hover\:min-h-70:hover {
+    min-height: 70%;
+  }
+
+  .lg\:hover\:min-h-75:hover {
+    min-height: 75%;
+  }
+
+  .lg\:hover\:min-h-80:hover {
+    min-height: 80%;
+  }
+
+  .lg\:hover\:min-h-90:hover {
+    min-height: 90%;
+  }
+
+  .lg\:hover\:min-h-100:hover {
+    min-height: 100%;
+  }
+
+  .lg\:hover\:min-h-third:hover {
+    min-height: calc(100% / 3);
+  }
+
+  .lg\:hover\:min-h-two-thirds:hover {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .lg\:hover\:vh-10:hover {
+    height: 10vh;
+  }
+
+  .lg\:hover\:vh-20:hover {
+    height: 20vh;
+  }
+
   .lg\:hover\:vh-25:hover {
     height: 25vh;
+  }
+
+  .lg\:hover\:vh-30:hover {
+    height: 30vh;
+  }
+
+  .lg\:hover\:vh-40:hover {
+    height: 40vh;
   }
 
   .lg\:hover\:vh-50:hover {
     height: 50vh;
   }
 
+  .lg\:hover\:vh-60:hover {
+    height: 60vh;
+  }
+
+  .lg\:hover\:vh-70:hover {
+    height: 70vh;
+  }
+
   .lg\:hover\:vh-75:hover {
     height: 75vh;
+  }
+
+  .lg\:hover\:vh-80:hover {
+    height: 80vh;
+  }
+
+  .lg\:hover\:vh-90:hover {
+    height: 90vh;
   }
 
   .lg\:hover\:vh-100:hover {
     height: 100vh;
   }
 
-  .lg\:hover\:min-vh-100:hover {
-    min-height: 100vh;
+  .lg\:hover\:vh-third:hover {
+    height: calc(100vh / 3);
+  }
+
+  .lg\:hover\:vh-two-thirds:hover {
+    height: calc(100vh / 1.5);
+  }
+
+  .lg\:hover\:max-vh-10:hover {
+    max-height: 10vh;
+  }
+
+  .lg\:hover\:max-vh-20:hover {
+    max-height: 20vh;
+  }
+
+  .lg\:hover\:max-vh-25:hover {
+    max-height: 25vh;
+  }
+
+  .lg\:hover\:max-vh-30:hover {
+    max-height: 30vh;
+  }
+
+  .lg\:hover\:max-vh-40:hover {
+    max-height: 40vh;
+  }
+
+  .lg\:hover\:max-vh-50:hover {
+    max-height: 50vh;
+  }
+
+  .lg\:hover\:max-vh-60:hover {
+    max-height: 60vh;
+  }
+
+  .lg\:hover\:max-vh-70:hover {
+    max-height: 70vh;
+  }
+
+  .lg\:hover\:max-vh-75:hover {
+    max-height: 75vh;
+  }
+
+  .lg\:hover\:max-vh-80:hover {
+    max-height: 80vh;
+  }
+
+  .lg\:hover\:max-vh-90:hover {
+    max-height: 90vh;
   }
 
   .lg\:hover\:max-vh-100:hover {
     max-height: 100vh;
+  }
+
+  .lg\:hover\:max-vh-third:hover {
+    max-height: calc(100vh / 3);
+  }
+
+  .lg\:hover\:max-vh-two-thirds:hover {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .lg\:hover\:min-vh-10:hover {
+    min-height: 10vh;
+  }
+
+  .lg\:hover\:min-vh-20:hover {
+    min-height: 20vh;
+  }
+
+  .lg\:hover\:min-vh-25:hover {
+    min-height: 25vh;
+  }
+
+  .lg\:hover\:min-vh-30:hover {
+    min-height: 30vh;
+  }
+
+  .lg\:hover\:min-vh-40:hover {
+    min-height: 40vh;
+  }
+
+  .lg\:hover\:min-vh-50:hover {
+    min-height: 50vh;
+  }
+
+  .lg\:hover\:min-vh-60:hover {
+    min-height: 60vh;
+  }
+
+  .lg\:hover\:min-vh-70:hover {
+    min-height: 70vh;
+  }
+
+  .lg\:hover\:min-vh-75:hover {
+    min-height: 75vh;
+  }
+
+  .lg\:hover\:min-vh-80:hover {
+    min-height: 80vh;
+  }
+
+  .lg\:hover\:min-vh-90:hover {
+    min-height: 90vh;
+  }
+
+  .lg\:hover\:min-vh-100:hover {
+    min-height: 100vh;
+  }
+
+  .lg\:hover\:min-vh-third:hover {
+    min-height: calc(100vh / 3);
+  }
+
+  .lg\:hover\:min-vh-two-thirds:hover {
+    min-height: calc(100vh / 1.5);
   }
 
   .lg\:focus\:h1:focus {
@@ -37133,68 +43849,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .lg\:focus\:h-0:focus {
+    height: 0;
+  }
+
   .lg\:focus\:h-auto:focus {
     height: auto;
   }
 
   .lg\:focus\:h-inherit:focus {
     height: inherit;
+  }
+
+  .lg\:focus\:max-h1:focus {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .lg\:focus\:max-h2:focus {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .lg\:focus\:max-h3:focus {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .lg\:focus\:max-h4:focus {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .lg\:focus\:max-h5:focus {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .lg\:focus\:max-h6:focus {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .lg\:focus\:max-h7:focus {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .lg\:focus\:max-h8:focus {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .lg\:focus\:max-h9:focus {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .lg\:focus\:max-h-none:focus {
+    max-height: none;
+  }
+
+  .lg\:focus\:min-h1:focus {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .lg\:focus\:min-h2:focus {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .lg\:focus\:min-h3:focus {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .lg\:focus\:min-h4:focus {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .lg\:focus\:min-h5:focus {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .lg\:focus\:min-h6:focus {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .lg\:focus\:min-h7:focus {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .lg\:focus\:min-h8:focus {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .lg\:focus\:min-h9:focus {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .lg\:focus\:min-h-none:focus {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .lg\:focus\:h-10:focus {
+    height: 10%;
+  }
+
+  .lg\:focus\:h-20:focus {
+    height: 20%;
+  }
+
   .lg\:focus\:h-25:focus {
     height: 25%;
+  }
+
+  .lg\:focus\:h-30:focus {
+    height: 30%;
+  }
+
+  .lg\:focus\:h-40:focus {
+    height: 40%;
   }
 
   .lg\:focus\:h-50:focus {
     height: 50%;
   }
 
+  .lg\:focus\:h-60:focus {
+    height: 60%;
+  }
+
+  .lg\:focus\:h-70:focus {
+    height: 70%;
+  }
+
   .lg\:focus\:h-75:focus {
     height: 75%;
+  }
+
+  .lg\:focus\:h-80:focus {
+    height: 80%;
+  }
+
+  .lg\:focus\:h-90:focus {
+    height: 90%;
   }
 
   .lg\:focus\:h-100:focus {
     height: 100%;
   }
 
-  .lg\:focus\:min-h-100:focus {
-    min-height: 100%;
+  .lg\:focus\:h-third:focus {
+    height: calc(100% / 3);
+  }
+
+  .lg\:focus\:h-two-thirds:focus {
+    height: calc(100% / 1.5);
+  }
+
+  .lg\:focus\:max-h-10:focus {
+    max-height: 10%;
+  }
+
+  .lg\:focus\:max-h-20:focus {
+    max-height: 20%;
+  }
+
+  .lg\:focus\:max-h-25:focus {
+    max-height: 25%;
+  }
+
+  .lg\:focus\:max-h-30:focus {
+    max-height: 30%;
+  }
+
+  .lg\:focus\:max-h-40:focus {
+    max-height: 40%;
+  }
+
+  .lg\:focus\:max-h-50:focus {
+    max-height: 50%;
+  }
+
+  .lg\:focus\:max-h-60:focus {
+    max-height: 60%;
+  }
+
+  .lg\:focus\:max-h-70:focus {
+    max-height: 70%;
+  }
+
+  .lg\:focus\:max-h-75:focus {
+    max-height: 75%;
+  }
+
+  .lg\:focus\:max-h-80:focus {
+    max-height: 80%;
+  }
+
+  .lg\:focus\:max-h-90:focus {
+    max-height: 90%;
   }
 
   .lg\:focus\:max-h-100:focus {
     max-height: 100%;
+  }
+
+  .lg\:focus\:max-h-third:focus {
+    max-height: calc(100% / 3);
+  }
+
+  .lg\:focus\:max-h-two-thirds:focus {
+    max-height: calc(100% / 1.5);
+  }
+
+  .lg\:focus\:min-h-10:focus {
+    min-height: 10%;
+  }
+
+  .lg\:focus\:min-h-20:focus {
+    min-height: 20%;
+  }
+
+  .lg\:focus\:min-h-25:focus {
+    min-height: 25%;
+  }
+
+  .lg\:focus\:min-h-30:focus {
+    min-height: 30%;
+  }
+
+  .lg\:focus\:min-h-40:focus {
+    min-height: 40%;
+  }
+
+  .lg\:focus\:min-h-50:focus {
+    min-height: 50%;
+  }
+
+  .lg\:focus\:min-h-60:focus {
+    min-height: 60%;
+  }
+
+  .lg\:focus\:min-h-70:focus {
+    min-height: 70%;
+  }
+
+  .lg\:focus\:min-h-75:focus {
+    min-height: 75%;
+  }
+
+  .lg\:focus\:min-h-80:focus {
+    min-height: 80%;
+  }
+
+  .lg\:focus\:min-h-90:focus {
+    min-height: 90%;
+  }
+
+  .lg\:focus\:min-h-100:focus {
+    min-height: 100%;
+  }
+
+  .lg\:focus\:min-h-third:focus {
+    min-height: calc(100% / 3);
+  }
+
+  .lg\:focus\:min-h-two-thirds:focus {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .lg\:focus\:vh-10:focus {
+    height: 10vh;
+  }
+
+  .lg\:focus\:vh-20:focus {
+    height: 20vh;
+  }
+
   .lg\:focus\:vh-25:focus {
     height: 25vh;
+  }
+
+  .lg\:focus\:vh-30:focus {
+    height: 30vh;
+  }
+
+  .lg\:focus\:vh-40:focus {
+    height: 40vh;
   }
 
   .lg\:focus\:vh-50:focus {
     height: 50vh;
   }
 
+  .lg\:focus\:vh-60:focus {
+    height: 60vh;
+  }
+
+  .lg\:focus\:vh-70:focus {
+    height: 70vh;
+  }
+
   .lg\:focus\:vh-75:focus {
     height: 75vh;
+  }
+
+  .lg\:focus\:vh-80:focus {
+    height: 80vh;
+  }
+
+  .lg\:focus\:vh-90:focus {
+    height: 90vh;
   }
 
   .lg\:focus\:vh-100:focus {
     height: 100vh;
   }
 
-  .lg\:focus\:min-vh-100:focus {
-    min-height: 100vh;
+  .lg\:focus\:vh-third:focus {
+    height: calc(100vh / 3);
+  }
+
+  .lg\:focus\:vh-two-thirds:focus {
+    height: calc(100vh / 1.5);
+  }
+
+  .lg\:focus\:max-vh-10:focus {
+    max-height: 10vh;
+  }
+
+  .lg\:focus\:max-vh-20:focus {
+    max-height: 20vh;
+  }
+
+  .lg\:focus\:max-vh-25:focus {
+    max-height: 25vh;
+  }
+
+  .lg\:focus\:max-vh-30:focus {
+    max-height: 30vh;
+  }
+
+  .lg\:focus\:max-vh-40:focus {
+    max-height: 40vh;
+  }
+
+  .lg\:focus\:max-vh-50:focus {
+    max-height: 50vh;
+  }
+
+  .lg\:focus\:max-vh-60:focus {
+    max-height: 60vh;
+  }
+
+  .lg\:focus\:max-vh-70:focus {
+    max-height: 70vh;
+  }
+
+  .lg\:focus\:max-vh-75:focus {
+    max-height: 75vh;
+  }
+
+  .lg\:focus\:max-vh-80:focus {
+    max-height: 80vh;
+  }
+
+  .lg\:focus\:max-vh-90:focus {
+    max-height: 90vh;
   }
 
   .lg\:focus\:max-vh-100:focus {
     max-height: 100vh;
+  }
+
+  .lg\:focus\:max-vh-third:focus {
+    max-height: calc(100vh / 3);
+  }
+
+  .lg\:focus\:max-vh-two-thirds:focus {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .lg\:focus\:min-vh-10:focus {
+    min-height: 10vh;
+  }
+
+  .lg\:focus\:min-vh-20:focus {
+    min-height: 20vh;
+  }
+
+  .lg\:focus\:min-vh-25:focus {
+    min-height: 25vh;
+  }
+
+  .lg\:focus\:min-vh-30:focus {
+    min-height: 30vh;
+  }
+
+  .lg\:focus\:min-vh-40:focus {
+    min-height: 40vh;
+  }
+
+  .lg\:focus\:min-vh-50:focus {
+    min-height: 50vh;
+  }
+
+  .lg\:focus\:min-vh-60:focus {
+    min-height: 60vh;
+  }
+
+  .lg\:focus\:min-vh-70:focus {
+    min-height: 70vh;
+  }
+
+  .lg\:focus\:min-vh-75:focus {
+    min-height: 75vh;
+  }
+
+  .lg\:focus\:min-vh-80:focus {
+    min-height: 80vh;
+  }
+
+  .lg\:focus\:min-vh-90:focus {
+    min-height: 90vh;
+  }
+
+  .lg\:focus\:min-vh-100:focus {
+    min-height: 100vh;
+  }
+
+  .lg\:focus\:min-vh-third:focus {
+    min-height: calc(100vh / 3);
+  }
+
+  .lg\:focus\:min-vh-two-thirds:focus {
+    min-height: calc(100vh / 1.5);
   }
 
   .lg\:w1 {
@@ -37246,6 +44352,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     width: auto;
   }
 
+  .lg\:w-0 {
+    width: 0;
+  }
+
   .lg\:mw1 {
     max-width: 1rem;
     max-width: var(--sizing-1);
@@ -37293,6 +44403,55 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:mw-none {
     max-width: none;
+  }
+
+  .lg\:min-w1 {
+    min-width: 1rem;
+    min-width: var(--sizing-1);
+  }
+
+  .lg\:min-w2 {
+    min-width: 2rem;
+    min-width: var(--sizing-2);
+  }
+
+  .lg\:min-w3 {
+    min-width: 4rem;
+    min-width: var(--sizing-3);
+  }
+
+  .lg\:min-w4 {
+    min-width: 8rem;
+    min-width: var(--sizing-4);
+  }
+
+  .lg\:min-w5 {
+    min-width: 16rem;
+    min-width: var(--sizing-5);
+  }
+
+  .lg\:min-w6 {
+    min-width: 32rem;
+    min-width: var(--sizing-6);
+  }
+
+  .lg\:min-w7 {
+    min-width: 48rem;
+    min-width: var(--sizing-7);
+  }
+
+  .lg\:min-w8 {
+    min-width: 64rem;
+    min-width: var(--sizing-8);
+  }
+
+  .lg\:min-w9 {
+    min-width: 96rem;
+    min-width: var(--sizing-9);
+  }
+
+  .lg\:min-w-none {
+    min-width: none;
   }/* 
   * 
   * Percentage of parent width
@@ -37411,36 +44570,232 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     max-width: calc(100% / 1.5);
   }
 
+  .lg\:min-w-10 {
+    min-width: 10%;
+  }
+
+  .lg\:min-w-20 {
+    min-width: 20%;
+  }
+
+  .lg\:min-w-25 {
+    min-width: 25%;
+  }
+
+  .lg\:min-w-30 {
+    min-width: 30%;
+  }
+
+  .lg\:min-w-40 {
+    min-width: 40%;
+  }
+
+  .lg\:min-w-50 {
+    min-width: 50%;
+  }
+
+  .lg\:min-w-60 {
+    min-width: 60%;
+  }
+
+  .lg\:min-w-70 {
+    min-width: 70%;
+  }
+
+  .lg\:min-w-75 {
+    min-width: 75%;
+  }
+
+  .lg\:min-w-80 {
+    min-width: 80%;
+  }
+
+  .lg\:min-w-90 {
+    min-width: 90%;
+  }
+
   .lg\:min-w-100 {
     min-width: 100%;
+  }
+
+  .lg\:min-w-third {
+    min-width: calc(100% / 3);
+  }
+
+  .lg\:min-w-two-thirds {
+    min-width: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport width
   *
   */
 
+  .lg\:vw-10 {
+    width: 10vw;
+  }
+
+  .lg\:vw-20 {
+    width: 20vw;
+  }
+
   .lg\:vw-25 {
     width: 25vw;
+  }
+
+  .lg\:vw-30 {
+    width: 30vw;
+  }
+
+  .lg\:vw-40 {
+    width: 40vw;
   }
 
   .lg\:vw-50 {
     width: 50vw;
   }
 
+  .lg\:vw-60 {
+    width: 60vw;
+  }
+
+  .lg\:vw-70 {
+    width: 70vw;
+  }
+
   .lg\:vw-75 {
     width: 75vw;
+  }
+
+  .lg\:vw-80 {
+    width: 80vw;
+  }
+
+  .lg\:vw-90 {
+    width: 90vw;
   }
 
   .lg\:vw-100 {
     width: 100vw;
   }
 
-  .lg\:min-vw-100 {
-    min-width: 100vw;
+  .lg\:vw-third {
+    width: calc(100vw / 3);
+  }
+
+  .lg\:vw-two-thirds {
+    width: calc(100vw / 1.5);
+  }
+
+  .lg\:max-vw-10 {
+    max-width: 10vw;
+  }
+
+  .lg\:max-vw-20 {
+    max-width: 20vw;
+  }
+
+  .lg\:max-vw-25 {
+    max-width: 25vw;
+  }
+
+  .lg\:max-vw-30 {
+    max-width: 30vw;
+  }
+
+  .lg\:max-vw-40 {
+    max-width: 40vw;
+  }
+
+  .lg\:max-vw-50 {
+    max-width: 50vw;
+  }
+
+  .lg\:max-vw-60 {
+    max-width: 60vw;
+  }
+
+  .lg\:max-vw-70 {
+    max-width: 70vw;
+  }
+
+  .lg\:max-vw-75 {
+    max-width: 75vw;
+  }
+
+  .lg\:max-vw-80 {
+    max-width: 80vw;
+  }
+
+  .lg\:max-vw-90 {
+    max-width: 90vw;
   }
 
   .lg\:max-vw-100 {
     max-width: 100vw;
+  }
+
+  .lg\:max-vw-third {
+    max-width: calc(100vw / 3);
+  }
+
+  .lg\:max-vw-two-thirds {
+    max-width: calc(100vw / 1.5);
+  }
+
+  .lg\:min-vw-10 {
+    min-width: 10vw;
+  }
+
+  .lg\:min-vw-20 {
+    min-width: 20vw;
+  }
+
+  .lg\:min-vw-25 {
+    min-width: 25vw;
+  }
+
+  .lg\:min-vw-30 {
+    min-width: 30vw;
+  }
+
+  .lg\:min-vw-40 {
+    min-width: 40vw;
+  }
+
+  .lg\:min-vw-50 {
+    min-width: 50vw;
+  }
+
+  .lg\:min-vw-60 {
+    min-width: 60vw;
+  }
+
+  .lg\:min-vw-70 {
+    min-width: 70vw;
+  }
+
+  .lg\:min-vw-75 {
+    min-width: 75vw;
+  }
+
+  .lg\:min-vw-80 {
+    min-width: 80vw;
+  }
+
+  .lg\:min-vw-90 {
+    min-width: 90vw;
+  }
+
+  .lg\:min-vw-100 {
+    min-width: 100vw;
+  }
+
+  .lg\:min-vw-third {
+    min-width: calc(100vw / 3);
+  }
+
+  .lg\:min-vw-two-thirds {
+    min-width: calc(100vw / 1.5);
   }/* All */
 
   .lg\:ma0 {
@@ -40508,6 +47863,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     letter-spacing: -.05em;
   }
 
+  .lg\:lh-none {
+    line-height: 0;
+  }
+
   .lg\:lh-solid {
     line-height: 1;
   }
@@ -40522,6 +47881,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:lh-tall {
     line-height: 1.7;
+  }
+
+  .lg\:group:hover .group-hover\:lh-none {
+    line-height: 0;
   }
 
   .lg\:group:hover .group-hover\:lh-solid {
@@ -40540,6 +47903,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     line-height: 1.7;
   }
 
+  .lg\:hover\:lh-none:hover {
+    line-height: 0;
+  }
+
   .lg\:hover\:lh-solid:hover {
     line-height: 1;
   }
@@ -40554,6 +47921,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .lg\:hover\:lh-tall:hover {
     line-height: 1.7;
+  }
+
+  .lg\:focus\:lh-none:focus {
+    line-height: 0;
   }
 
   .lg\:focus\:lh-solid:focus {
@@ -40577,7 +47948,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .lg\:measure-wide {
-    max-width: 80ch;
+    max-width: 75ch;
   }
 
   .lg\:measure {
@@ -45945,8 +53316,24 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     z-index: 5;
   }
 
+  .xl\:z-6 {
+    z-index: 6;
+  }
+
+  .xl\:z-7 {
+    z-index: 7;
+  }
+
+  .xl\:z-8 {
+    z-index: 8;
+  }
+
   .xl\:z-9 {
     z-index: 9;
+  }
+
+  .xl\:z-10 {
+    z-index: 10;
   }
 
   .xl\:z-99 {
@@ -46091,68 +53478,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .xl\:h-0 {
+    height: 0;
+  }
+
   .xl\:h-auto {
     height: auto;
   }
 
   .xl\:h-inherit {
     height: inherit;
+  }
+
+  .xl\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .xl\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .xl\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .xl\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .xl\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .xl\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .xl\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .xl\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .xl\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .xl\:max-h-none {
+    max-height: none;
+  }
+
+  .xl\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .xl\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .xl\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .xl\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .xl\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .xl\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .xl\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .xl\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .xl\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .xl\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .xl\:h-10 {
+    height: 10%;
+  }
+
+  .xl\:h-20 {
+    height: 20%;
+  }
+
   .xl\:h-25 {
     height: 25%;
+  }
+
+  .xl\:h-30 {
+    height: 30%;
+  }
+
+  .xl\:h-40 {
+    height: 40%;
   }
 
   .xl\:h-50 {
     height: 50%;
   }
 
+  .xl\:h-60 {
+    height: 60%;
+  }
+
+  .xl\:h-70 {
+    height: 70%;
+  }
+
   .xl\:h-75 {
     height: 75%;
+  }
+
+  .xl\:h-80 {
+    height: 80%;
+  }
+
+  .xl\:h-90 {
+    height: 90%;
   }
 
   .xl\:h-100 {
     height: 100%;
   }
 
-  .xl\:min-h-100 {
-    min-height: 100%;
+  .xl\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .xl\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .xl\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .xl\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .xl\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .xl\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .xl\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .xl\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .xl\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .xl\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .xl\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .xl\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .xl\:max-h-90 {
+    max-height: 90%;
   }
 
   .xl\:max-h-100 {
     max-height: 100%;
+  }
+
+  .xl\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .xl\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .xl\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .xl\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .xl\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .xl\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .xl\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .xl\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .xl\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .xl\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .xl\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .xl\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .xl\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .xl\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .xl\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .xl\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .xl\:vh-10 {
+    height: 10vh;
+  }
+
+  .xl\:vh-20 {
+    height: 20vh;
+  }
+
   .xl\:vh-25 {
     height: 25vh;
+  }
+
+  .xl\:vh-30 {
+    height: 30vh;
+  }
+
+  .xl\:vh-40 {
+    height: 40vh;
   }
 
   .xl\:vh-50 {
     height: 50vh;
   }
 
+  .xl\:vh-60 {
+    height: 60vh;
+  }
+
+  .xl\:vh-70 {
+    height: 70vh;
+  }
+
   .xl\:vh-75 {
     height: 75vh;
+  }
+
+  .xl\:vh-80 {
+    height: 80vh;
+  }
+
+  .xl\:vh-90 {
+    height: 90vh;
   }
 
   .xl\:vh-100 {
     height: 100vh;
   }
 
-  .xl\:min-vh-100 {
-    min-height: 100vh;
+  .xl\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .xl\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .xl\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .xl\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .xl\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .xl\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .xl\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .xl\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .xl\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .xl\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .xl\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .xl\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .xl\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .xl\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .xl\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .xl\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .xl\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .xl\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .xl\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .xl\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .xl\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .xl\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .xl\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .xl\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .xl\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .xl\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .xl\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .xl\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .xl\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .xl\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .xl\:group:hover .group-hover\:h1 {
@@ -46200,68 +53977,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .xl\:group:hover .group-hover\:h-0 {
+    height: 0;
+  }
+
   .xl\:group:hover .group-hover\:h-auto {
     height: auto;
   }
 
   .xl\:group:hover .group-hover\:h-inherit {
     height: inherit;
+  }
+
+  .xl\:group:hover .group-hover\:max-h1 {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .xl\:group:hover .group-hover\:max-h2 {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .xl\:group:hover .group-hover\:max-h3 {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .xl\:group:hover .group-hover\:max-h4 {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .xl\:group:hover .group-hover\:max-h5 {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .xl\:group:hover .group-hover\:max-h6 {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .xl\:group:hover .group-hover\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .xl\:group:hover .group-hover\:max-h8 {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .xl\:group:hover .group-hover\:max-h9 {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .xl\:group:hover .group-hover\:max-h-none {
+    max-height: none;
+  }
+
+  .xl\:group:hover .group-hover\:min-h1 {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .xl\:group:hover .group-hover\:min-h2 {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .xl\:group:hover .group-hover\:min-h3 {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .xl\:group:hover .group-hover\:min-h4 {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .xl\:group:hover .group-hover\:min-h5 {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .xl\:group:hover .group-hover\:min-h6 {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .xl\:group:hover .group-hover\:min-h7 {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .xl\:group:hover .group-hover\:min-h8 {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .xl\:group:hover .group-hover\:min-h9 {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .xl\:group:hover .group-hover\:min-h-none {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .xl\:group:hover .group-hover\:h-10 {
+    height: 10%;
+  }
+
+  .xl\:group:hover .group-hover\:h-20 {
+    height: 20%;
+  }
+
   .xl\:group:hover .group-hover\:h-25 {
     height: 25%;
+  }
+
+  .xl\:group:hover .group-hover\:h-30 {
+    height: 30%;
+  }
+
+  .xl\:group:hover .group-hover\:h-40 {
+    height: 40%;
   }
 
   .xl\:group:hover .group-hover\:h-50 {
     height: 50%;
   }
 
+  .xl\:group:hover .group-hover\:h-60 {
+    height: 60%;
+  }
+
+  .xl\:group:hover .group-hover\:h-70 {
+    height: 70%;
+  }
+
   .xl\:group:hover .group-hover\:h-75 {
     height: 75%;
+  }
+
+  .xl\:group:hover .group-hover\:h-80 {
+    height: 80%;
+  }
+
+  .xl\:group:hover .group-hover\:h-90 {
+    height: 90%;
   }
 
   .xl\:group:hover .group-hover\:h-100 {
     height: 100%;
   }
 
-  .xl\:group:hover .group-hover\:min-h-100 {
-    min-height: 100%;
+  .xl\:group:hover .group-hover\:h-third {
+    height: calc(100% / 3);
+  }
+
+  .xl\:group:hover .group-hover\:h-two-thirds {
+    height: calc(100% / 1.5);
+  }
+
+  .xl\:group:hover .group-hover\:max-h-10 {
+    max-height: 10%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-20 {
+    max-height: 20%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-25 {
+    max-height: 25%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-30 {
+    max-height: 30%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-40 {
+    max-height: 40%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-50 {
+    max-height: 50%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-60 {
+    max-height: 60%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-70 {
+    max-height: 70%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-75 {
+    max-height: 75%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-80 {
+    max-height: 80%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-90 {
+    max-height: 90%;
   }
 
   .xl\:group:hover .group-hover\:max-h-100 {
     max-height: 100%;
+  }
+
+  .xl\:group:hover .group-hover\:max-h-third {
+    max-height: calc(100% / 3);
+  }
+
+  .xl\:group:hover .group-hover\:max-h-two-thirds {
+    max-height: calc(100% / 1.5);
+  }
+
+  .xl\:group:hover .group-hover\:min-h-10 {
+    min-height: 10%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-20 {
+    min-height: 20%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-25 {
+    min-height: 25%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-30 {
+    min-height: 30%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-40 {
+    min-height: 40%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-50 {
+    min-height: 50%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-60 {
+    min-height: 60%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-70 {
+    min-height: 70%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-75 {
+    min-height: 75%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-80 {
+    min-height: 80%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-90 {
+    min-height: 90%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-100 {
+    min-height: 100%;
+  }
+
+  .xl\:group:hover .group-hover\:min-h-third {
+    min-height: calc(100% / 3);
+  }
+
+  .xl\:group:hover .group-hover\:min-h-two-thirds {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .xl\:group:hover .group-hover\:vh-10 {
+    height: 10vh;
+  }
+
+  .xl\:group:hover .group-hover\:vh-20 {
+    height: 20vh;
+  }
+
   .xl\:group:hover .group-hover\:vh-25 {
     height: 25vh;
+  }
+
+  .xl\:group:hover .group-hover\:vh-30 {
+    height: 30vh;
+  }
+
+  .xl\:group:hover .group-hover\:vh-40 {
+    height: 40vh;
   }
 
   .xl\:group:hover .group-hover\:vh-50 {
     height: 50vh;
   }
 
+  .xl\:group:hover .group-hover\:vh-60 {
+    height: 60vh;
+  }
+
+  .xl\:group:hover .group-hover\:vh-70 {
+    height: 70vh;
+  }
+
   .xl\:group:hover .group-hover\:vh-75 {
     height: 75vh;
+  }
+
+  .xl\:group:hover .group-hover\:vh-80 {
+    height: 80vh;
+  }
+
+  .xl\:group:hover .group-hover\:vh-90 {
+    height: 90vh;
   }
 
   .xl\:group:hover .group-hover\:vh-100 {
     height: 100vh;
   }
 
-  .xl\:group:hover .group-hover\:min-vh-100 {
-    min-height: 100vh;
+  .xl\:group:hover .group-hover\:vh-third {
+    height: calc(100vh / 3);
+  }
+
+  .xl\:group:hover .group-hover\:vh-two-thirds {
+    height: calc(100vh / 1.5);
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-10 {
+    max-height: 10vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-20 {
+    max-height: 20vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-25 {
+    max-height: 25vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-30 {
+    max-height: 30vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-40 {
+    max-height: 40vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-50 {
+    max-height: 50vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-60 {
+    max-height: 60vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-70 {
+    max-height: 70vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-75 {
+    max-height: 75vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-80 {
+    max-height: 80vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-90 {
+    max-height: 90vh;
   }
 
   .xl\:group:hover .group-hover\:max-vh-100 {
     max-height: 100vh;
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-third {
+    max-height: calc(100vh / 3);
+  }
+
+  .xl\:group:hover .group-hover\:max-vh-two-thirds {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-10 {
+    min-height: 10vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-20 {
+    min-height: 20vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-25 {
+    min-height: 25vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-30 {
+    min-height: 30vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-40 {
+    min-height: 40vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-50 {
+    min-height: 50vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-60 {
+    min-height: 60vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-70 {
+    min-height: 70vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-75 {
+    min-height: 75vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-80 {
+    min-height: 80vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-90 {
+    min-height: 90vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-third {
+    min-height: calc(100vh / 3);
+  }
+
+  .xl\:group:hover .group-hover\:min-vh-two-thirds {
+    min-height: calc(100vh / 1.5);
   }
 
   .xl\:hover\:h1:hover {
@@ -46309,68 +54476,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .xl\:hover\:h-0:hover {
+    height: 0;
+  }
+
   .xl\:hover\:h-auto:hover {
     height: auto;
   }
 
   .xl\:hover\:h-inherit:hover {
     height: inherit;
+  }
+
+  .xl\:hover\:max-h1:hover {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .xl\:hover\:max-h2:hover {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .xl\:hover\:max-h3:hover {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .xl\:hover\:max-h4:hover {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .xl\:hover\:max-h5:hover {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .xl\:hover\:max-h6:hover {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .xl\:hover\:max-h7:hover {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .xl\:hover\:max-h8:hover {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .xl\:hover\:max-h9:hover {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .xl\:hover\:max-h-none:hover {
+    max-height: none;
+  }
+
+  .xl\:hover\:min-h1:hover {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .xl\:hover\:min-h2:hover {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .xl\:hover\:min-h3:hover {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .xl\:hover\:min-h4:hover {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .xl\:hover\:min-h5:hover {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .xl\:hover\:min-h6:hover {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .xl\:hover\:min-h7:hover {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .xl\:hover\:min-h8:hover {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .xl\:hover\:min-h9:hover {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .xl\:hover\:min-h-none:hover {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .xl\:hover\:h-10:hover {
+    height: 10%;
+  }
+
+  .xl\:hover\:h-20:hover {
+    height: 20%;
+  }
+
   .xl\:hover\:h-25:hover {
     height: 25%;
+  }
+
+  .xl\:hover\:h-30:hover {
+    height: 30%;
+  }
+
+  .xl\:hover\:h-40:hover {
+    height: 40%;
   }
 
   .xl\:hover\:h-50:hover {
     height: 50%;
   }
 
+  .xl\:hover\:h-60:hover {
+    height: 60%;
+  }
+
+  .xl\:hover\:h-70:hover {
+    height: 70%;
+  }
+
   .xl\:hover\:h-75:hover {
     height: 75%;
+  }
+
+  .xl\:hover\:h-80:hover {
+    height: 80%;
+  }
+
+  .xl\:hover\:h-90:hover {
+    height: 90%;
   }
 
   .xl\:hover\:h-100:hover {
     height: 100%;
   }
 
-  .xl\:hover\:min-h-100:hover {
-    min-height: 100%;
+  .xl\:hover\:h-third:hover {
+    height: calc(100% / 3);
+  }
+
+  .xl\:hover\:h-two-thirds:hover {
+    height: calc(100% / 1.5);
+  }
+
+  .xl\:hover\:max-h-10:hover {
+    max-height: 10%;
+  }
+
+  .xl\:hover\:max-h-20:hover {
+    max-height: 20%;
+  }
+
+  .xl\:hover\:max-h-25:hover {
+    max-height: 25%;
+  }
+
+  .xl\:hover\:max-h-30:hover {
+    max-height: 30%;
+  }
+
+  .xl\:hover\:max-h-40:hover {
+    max-height: 40%;
+  }
+
+  .xl\:hover\:max-h-50:hover {
+    max-height: 50%;
+  }
+
+  .xl\:hover\:max-h-60:hover {
+    max-height: 60%;
+  }
+
+  .xl\:hover\:max-h-70:hover {
+    max-height: 70%;
+  }
+
+  .xl\:hover\:max-h-75:hover {
+    max-height: 75%;
+  }
+
+  .xl\:hover\:max-h-80:hover {
+    max-height: 80%;
+  }
+
+  .xl\:hover\:max-h-90:hover {
+    max-height: 90%;
   }
 
   .xl\:hover\:max-h-100:hover {
     max-height: 100%;
+  }
+
+  .xl\:hover\:max-h-third:hover {
+    max-height: calc(100% / 3);
+  }
+
+  .xl\:hover\:max-h-two-thirds:hover {
+    max-height: calc(100% / 1.5);
+  }
+
+  .xl\:hover\:min-h-10:hover {
+    min-height: 10%;
+  }
+
+  .xl\:hover\:min-h-20:hover {
+    min-height: 20%;
+  }
+
+  .xl\:hover\:min-h-25:hover {
+    min-height: 25%;
+  }
+
+  .xl\:hover\:min-h-30:hover {
+    min-height: 30%;
+  }
+
+  .xl\:hover\:min-h-40:hover {
+    min-height: 40%;
+  }
+
+  .xl\:hover\:min-h-50:hover {
+    min-height: 50%;
+  }
+
+  .xl\:hover\:min-h-60:hover {
+    min-height: 60%;
+  }
+
+  .xl\:hover\:min-h-70:hover {
+    min-height: 70%;
+  }
+
+  .xl\:hover\:min-h-75:hover {
+    min-height: 75%;
+  }
+
+  .xl\:hover\:min-h-80:hover {
+    min-height: 80%;
+  }
+
+  .xl\:hover\:min-h-90:hover {
+    min-height: 90%;
+  }
+
+  .xl\:hover\:min-h-100:hover {
+    min-height: 100%;
+  }
+
+  .xl\:hover\:min-h-third:hover {
+    min-height: calc(100% / 3);
+  }
+
+  .xl\:hover\:min-h-two-thirds:hover {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .xl\:hover\:vh-10:hover {
+    height: 10vh;
+  }
+
+  .xl\:hover\:vh-20:hover {
+    height: 20vh;
+  }
+
   .xl\:hover\:vh-25:hover {
     height: 25vh;
+  }
+
+  .xl\:hover\:vh-30:hover {
+    height: 30vh;
+  }
+
+  .xl\:hover\:vh-40:hover {
+    height: 40vh;
   }
 
   .xl\:hover\:vh-50:hover {
     height: 50vh;
   }
 
+  .xl\:hover\:vh-60:hover {
+    height: 60vh;
+  }
+
+  .xl\:hover\:vh-70:hover {
+    height: 70vh;
+  }
+
   .xl\:hover\:vh-75:hover {
     height: 75vh;
+  }
+
+  .xl\:hover\:vh-80:hover {
+    height: 80vh;
+  }
+
+  .xl\:hover\:vh-90:hover {
+    height: 90vh;
   }
 
   .xl\:hover\:vh-100:hover {
     height: 100vh;
   }
 
-  .xl\:hover\:min-vh-100:hover {
-    min-height: 100vh;
+  .xl\:hover\:vh-third:hover {
+    height: calc(100vh / 3);
+  }
+
+  .xl\:hover\:vh-two-thirds:hover {
+    height: calc(100vh / 1.5);
+  }
+
+  .xl\:hover\:max-vh-10:hover {
+    max-height: 10vh;
+  }
+
+  .xl\:hover\:max-vh-20:hover {
+    max-height: 20vh;
+  }
+
+  .xl\:hover\:max-vh-25:hover {
+    max-height: 25vh;
+  }
+
+  .xl\:hover\:max-vh-30:hover {
+    max-height: 30vh;
+  }
+
+  .xl\:hover\:max-vh-40:hover {
+    max-height: 40vh;
+  }
+
+  .xl\:hover\:max-vh-50:hover {
+    max-height: 50vh;
+  }
+
+  .xl\:hover\:max-vh-60:hover {
+    max-height: 60vh;
+  }
+
+  .xl\:hover\:max-vh-70:hover {
+    max-height: 70vh;
+  }
+
+  .xl\:hover\:max-vh-75:hover {
+    max-height: 75vh;
+  }
+
+  .xl\:hover\:max-vh-80:hover {
+    max-height: 80vh;
+  }
+
+  .xl\:hover\:max-vh-90:hover {
+    max-height: 90vh;
   }
 
   .xl\:hover\:max-vh-100:hover {
     max-height: 100vh;
+  }
+
+  .xl\:hover\:max-vh-third:hover {
+    max-height: calc(100vh / 3);
+  }
+
+  .xl\:hover\:max-vh-two-thirds:hover {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .xl\:hover\:min-vh-10:hover {
+    min-height: 10vh;
+  }
+
+  .xl\:hover\:min-vh-20:hover {
+    min-height: 20vh;
+  }
+
+  .xl\:hover\:min-vh-25:hover {
+    min-height: 25vh;
+  }
+
+  .xl\:hover\:min-vh-30:hover {
+    min-height: 30vh;
+  }
+
+  .xl\:hover\:min-vh-40:hover {
+    min-height: 40vh;
+  }
+
+  .xl\:hover\:min-vh-50:hover {
+    min-height: 50vh;
+  }
+
+  .xl\:hover\:min-vh-60:hover {
+    min-height: 60vh;
+  }
+
+  .xl\:hover\:min-vh-70:hover {
+    min-height: 70vh;
+  }
+
+  .xl\:hover\:min-vh-75:hover {
+    min-height: 75vh;
+  }
+
+  .xl\:hover\:min-vh-80:hover {
+    min-height: 80vh;
+  }
+
+  .xl\:hover\:min-vh-90:hover {
+    min-height: 90vh;
+  }
+
+  .xl\:hover\:min-vh-100:hover {
+    min-height: 100vh;
+  }
+
+  .xl\:hover\:min-vh-third:hover {
+    min-height: calc(100vh / 3);
+  }
+
+  .xl\:hover\:min-vh-two-thirds:hover {
+    min-height: calc(100vh / 1.5);
   }
 
   .xl\:focus\:h1:focus {
@@ -46418,68 +54975,458 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     height: var(--sizing-9);
   }
 
+  .xl\:focus\:h-0:focus {
+    height: 0;
+  }
+
   .xl\:focus\:h-auto:focus {
     height: auto;
   }
 
   .xl\:focus\:h-inherit:focus {
     height: inherit;
+  }
+
+  .xl\:focus\:max-h1:focus {
+    max-height: 1rem;
+    max-height: var(--sizing-1);
+  }
+
+  .xl\:focus\:max-h2:focus {
+    max-height: 2rem;
+    max-height: var(--sizing-2);
+  }
+
+  .xl\:focus\:max-h3:focus {
+    max-height: 4rem;
+    max-height: var(--sizing-3);
+  }
+
+  .xl\:focus\:max-h4:focus {
+    max-height: 8rem;
+    max-height: var(--sizing-4);
+  }
+
+  .xl\:focus\:max-h5:focus {
+    max-height: 16rem;
+    max-height: var(--sizing-5);
+  }
+
+  .xl\:focus\:max-h6:focus {
+    max-height: 32rem;
+    max-height: var(--sizing-6);
+  }
+
+  .xl\:focus\:max-h7:focus {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }
+
+  .xl\:focus\:max-h8:focus {
+    max-height: 64rem;
+    max-height: var(--sizing-8);
+  }
+
+  .xl\:focus\:max-h9:focus {
+    max-height: 96rem;
+    max-height: var(--sizing-9);
+  }
+
+  .xl\:focus\:max-h-none:focus {
+    max-height: none;
+  }
+
+  .xl\:focus\:min-h1:focus {
+    min-height: 1rem;
+    min-height: var(--sizing-1);
+  }
+
+  .xl\:focus\:min-h2:focus {
+    min-height: 2rem;
+    min-height: var(--sizing-2);
+  }
+
+  .xl\:focus\:min-h3:focus {
+    min-height: 4rem;
+    min-height: var(--sizing-3);
+  }
+
+  .xl\:focus\:min-h4:focus {
+    min-height: 8rem;
+    min-height: var(--sizing-4);
+  }
+
+  .xl\:focus\:min-h5:focus {
+    min-height: 16rem;
+    min-height: var(--sizing-5);
+  }
+
+  .xl\:focus\:min-h6:focus {
+    min-height: 32rem;
+    min-height: var(--sizing-6);
+  }
+
+  .xl\:focus\:min-h7:focus {
+    min-height: 48rem;
+    min-height: var(--sizing-7);
+  }
+
+  .xl\:focus\:min-h8:focus {
+    min-height: 64rem;
+    min-height: var(--sizing-8);
+  }
+
+  .xl\:focus\:min-h9:focus {
+    min-height: 96rem;
+    min-height: var(--sizing-9);
+  }
+
+  .xl\:focus\:min-h-none:focus {
+    min-height: none;
   }/* 
   * 
   * Percentage of parent height
   *
   */
 
+  .xl\:focus\:h-10:focus {
+    height: 10%;
+  }
+
+  .xl\:focus\:h-20:focus {
+    height: 20%;
+  }
+
   .xl\:focus\:h-25:focus {
     height: 25%;
+  }
+
+  .xl\:focus\:h-30:focus {
+    height: 30%;
+  }
+
+  .xl\:focus\:h-40:focus {
+    height: 40%;
   }
 
   .xl\:focus\:h-50:focus {
     height: 50%;
   }
 
+  .xl\:focus\:h-60:focus {
+    height: 60%;
+  }
+
+  .xl\:focus\:h-70:focus {
+    height: 70%;
+  }
+
   .xl\:focus\:h-75:focus {
     height: 75%;
+  }
+
+  .xl\:focus\:h-80:focus {
+    height: 80%;
+  }
+
+  .xl\:focus\:h-90:focus {
+    height: 90%;
   }
 
   .xl\:focus\:h-100:focus {
     height: 100%;
   }
 
-  .xl\:focus\:min-h-100:focus {
-    min-height: 100%;
+  .xl\:focus\:h-third:focus {
+    height: calc(100% / 3);
+  }
+
+  .xl\:focus\:h-two-thirds:focus {
+    height: calc(100% / 1.5);
+  }
+
+  .xl\:focus\:max-h-10:focus {
+    max-height: 10%;
+  }
+
+  .xl\:focus\:max-h-20:focus {
+    max-height: 20%;
+  }
+
+  .xl\:focus\:max-h-25:focus {
+    max-height: 25%;
+  }
+
+  .xl\:focus\:max-h-30:focus {
+    max-height: 30%;
+  }
+
+  .xl\:focus\:max-h-40:focus {
+    max-height: 40%;
+  }
+
+  .xl\:focus\:max-h-50:focus {
+    max-height: 50%;
+  }
+
+  .xl\:focus\:max-h-60:focus {
+    max-height: 60%;
+  }
+
+  .xl\:focus\:max-h-70:focus {
+    max-height: 70%;
+  }
+
+  .xl\:focus\:max-h-75:focus {
+    max-height: 75%;
+  }
+
+  .xl\:focus\:max-h-80:focus {
+    max-height: 80%;
+  }
+
+  .xl\:focus\:max-h-90:focus {
+    max-height: 90%;
   }
 
   .xl\:focus\:max-h-100:focus {
     max-height: 100%;
+  }
+
+  .xl\:focus\:max-h-third:focus {
+    max-height: calc(100% / 3);
+  }
+
+  .xl\:focus\:max-h-two-thirds:focus {
+    max-height: calc(100% / 1.5);
+  }
+
+  .xl\:focus\:min-h-10:focus {
+    min-height: 10%;
+  }
+
+  .xl\:focus\:min-h-20:focus {
+    min-height: 20%;
+  }
+
+  .xl\:focus\:min-h-25:focus {
+    min-height: 25%;
+  }
+
+  .xl\:focus\:min-h-30:focus {
+    min-height: 30%;
+  }
+
+  .xl\:focus\:min-h-40:focus {
+    min-height: 40%;
+  }
+
+  .xl\:focus\:min-h-50:focus {
+    min-height: 50%;
+  }
+
+  .xl\:focus\:min-h-60:focus {
+    min-height: 60%;
+  }
+
+  .xl\:focus\:min-h-70:focus {
+    min-height: 70%;
+  }
+
+  .xl\:focus\:min-h-75:focus {
+    min-height: 75%;
+  }
+
+  .xl\:focus\:min-h-80:focus {
+    min-height: 80%;
+  }
+
+  .xl\:focus\:min-h-90:focus {
+    min-height: 90%;
+  }
+
+  .xl\:focus\:min-h-100:focus {
+    min-height: 100%;
+  }
+
+  .xl\:focus\:min-h-third:focus {
+    min-height: calc(100% / 3);
+  }
+
+  .xl\:focus\:min-h-two-thirds:focus {
+    min-height: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport height
   *
   */
 
+  .xl\:focus\:vh-10:focus {
+    height: 10vh;
+  }
+
+  .xl\:focus\:vh-20:focus {
+    height: 20vh;
+  }
+
   .xl\:focus\:vh-25:focus {
     height: 25vh;
+  }
+
+  .xl\:focus\:vh-30:focus {
+    height: 30vh;
+  }
+
+  .xl\:focus\:vh-40:focus {
+    height: 40vh;
   }
 
   .xl\:focus\:vh-50:focus {
     height: 50vh;
   }
 
+  .xl\:focus\:vh-60:focus {
+    height: 60vh;
+  }
+
+  .xl\:focus\:vh-70:focus {
+    height: 70vh;
+  }
+
   .xl\:focus\:vh-75:focus {
     height: 75vh;
+  }
+
+  .xl\:focus\:vh-80:focus {
+    height: 80vh;
+  }
+
+  .xl\:focus\:vh-90:focus {
+    height: 90vh;
   }
 
   .xl\:focus\:vh-100:focus {
     height: 100vh;
   }
 
-  .xl\:focus\:min-vh-100:focus {
-    min-height: 100vh;
+  .xl\:focus\:vh-third:focus {
+    height: calc(100vh / 3);
+  }
+
+  .xl\:focus\:vh-two-thirds:focus {
+    height: calc(100vh / 1.5);
+  }
+
+  .xl\:focus\:max-vh-10:focus {
+    max-height: 10vh;
+  }
+
+  .xl\:focus\:max-vh-20:focus {
+    max-height: 20vh;
+  }
+
+  .xl\:focus\:max-vh-25:focus {
+    max-height: 25vh;
+  }
+
+  .xl\:focus\:max-vh-30:focus {
+    max-height: 30vh;
+  }
+
+  .xl\:focus\:max-vh-40:focus {
+    max-height: 40vh;
+  }
+
+  .xl\:focus\:max-vh-50:focus {
+    max-height: 50vh;
+  }
+
+  .xl\:focus\:max-vh-60:focus {
+    max-height: 60vh;
+  }
+
+  .xl\:focus\:max-vh-70:focus {
+    max-height: 70vh;
+  }
+
+  .xl\:focus\:max-vh-75:focus {
+    max-height: 75vh;
+  }
+
+  .xl\:focus\:max-vh-80:focus {
+    max-height: 80vh;
+  }
+
+  .xl\:focus\:max-vh-90:focus {
+    max-height: 90vh;
   }
 
   .xl\:focus\:max-vh-100:focus {
     max-height: 100vh;
+  }
+
+  .xl\:focus\:max-vh-third:focus {
+    max-height: calc(100vh / 3);
+  }
+
+  .xl\:focus\:max-vh-two-thirds:focus {
+    max-height: calc(100vh / 1.5);
+  }
+
+  .xl\:focus\:min-vh-10:focus {
+    min-height: 10vh;
+  }
+
+  .xl\:focus\:min-vh-20:focus {
+    min-height: 20vh;
+  }
+
+  .xl\:focus\:min-vh-25:focus {
+    min-height: 25vh;
+  }
+
+  .xl\:focus\:min-vh-30:focus {
+    min-height: 30vh;
+  }
+
+  .xl\:focus\:min-vh-40:focus {
+    min-height: 40vh;
+  }
+
+  .xl\:focus\:min-vh-50:focus {
+    min-height: 50vh;
+  }
+
+  .xl\:focus\:min-vh-60:focus {
+    min-height: 60vh;
+  }
+
+  .xl\:focus\:min-vh-70:focus {
+    min-height: 70vh;
+  }
+
+  .xl\:focus\:min-vh-75:focus {
+    min-height: 75vh;
+  }
+
+  .xl\:focus\:min-vh-80:focus {
+    min-height: 80vh;
+  }
+
+  .xl\:focus\:min-vh-90:focus {
+    min-height: 90vh;
+  }
+
+  .xl\:focus\:min-vh-100:focus {
+    min-height: 100vh;
+  }
+
+  .xl\:focus\:min-vh-third:focus {
+    min-height: calc(100vh / 3);
+  }
+
+  .xl\:focus\:min-vh-two-thirds:focus {
+    min-height: calc(100vh / 1.5);
   }
 
   .xl\:w1 {
@@ -46531,6 +55478,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     width: auto;
   }
 
+  .xl\:w-0 {
+    width: 0;
+  }
+
   .xl\:mw1 {
     max-width: 1rem;
     max-width: var(--sizing-1);
@@ -46578,6 +55529,55 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:mw-none {
     max-width: none;
+  }
+
+  .xl\:min-w1 {
+    min-width: 1rem;
+    min-width: var(--sizing-1);
+  }
+
+  .xl\:min-w2 {
+    min-width: 2rem;
+    min-width: var(--sizing-2);
+  }
+
+  .xl\:min-w3 {
+    min-width: 4rem;
+    min-width: var(--sizing-3);
+  }
+
+  .xl\:min-w4 {
+    min-width: 8rem;
+    min-width: var(--sizing-4);
+  }
+
+  .xl\:min-w5 {
+    min-width: 16rem;
+    min-width: var(--sizing-5);
+  }
+
+  .xl\:min-w6 {
+    min-width: 32rem;
+    min-width: var(--sizing-6);
+  }
+
+  .xl\:min-w7 {
+    min-width: 48rem;
+    min-width: var(--sizing-7);
+  }
+
+  .xl\:min-w8 {
+    min-width: 64rem;
+    min-width: var(--sizing-8);
+  }
+
+  .xl\:min-w9 {
+    min-width: 96rem;
+    min-width: var(--sizing-9);
+  }
+
+  .xl\:min-w-none {
+    min-width: none;
   }/* 
   * 
   * Percentage of parent width
@@ -46696,36 +55696,232 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     max-width: calc(100% / 1.5);
   }
 
+  .xl\:min-w-10 {
+    min-width: 10%;
+  }
+
+  .xl\:min-w-20 {
+    min-width: 20%;
+  }
+
+  .xl\:min-w-25 {
+    min-width: 25%;
+  }
+
+  .xl\:min-w-30 {
+    min-width: 30%;
+  }
+
+  .xl\:min-w-40 {
+    min-width: 40%;
+  }
+
+  .xl\:min-w-50 {
+    min-width: 50%;
+  }
+
+  .xl\:min-w-60 {
+    min-width: 60%;
+  }
+
+  .xl\:min-w-70 {
+    min-width: 70%;
+  }
+
+  .xl\:min-w-75 {
+    min-width: 75%;
+  }
+
+  .xl\:min-w-80 {
+    min-width: 80%;
+  }
+
+  .xl\:min-w-90 {
+    min-width: 90%;
+  }
+
   .xl\:min-w-100 {
     min-width: 100%;
+  }
+
+  .xl\:min-w-third {
+    min-width: calc(100% / 3);
+  }
+
+  .xl\:min-w-two-thirds {
+    min-width: calc(100% / 1.5);
   }/* 
   * 
   * Percentage of viewport width
   *
   */
 
+  .xl\:vw-10 {
+    width: 10vw;
+  }
+
+  .xl\:vw-20 {
+    width: 20vw;
+  }
+
   .xl\:vw-25 {
     width: 25vw;
+  }
+
+  .xl\:vw-30 {
+    width: 30vw;
+  }
+
+  .xl\:vw-40 {
+    width: 40vw;
   }
 
   .xl\:vw-50 {
     width: 50vw;
   }
 
+  .xl\:vw-60 {
+    width: 60vw;
+  }
+
+  .xl\:vw-70 {
+    width: 70vw;
+  }
+
   .xl\:vw-75 {
     width: 75vw;
+  }
+
+  .xl\:vw-80 {
+    width: 80vw;
+  }
+
+  .xl\:vw-90 {
+    width: 90vw;
   }
 
   .xl\:vw-100 {
     width: 100vw;
   }
 
-  .xl\:min-vw-100 {
-    min-width: 100vw;
+  .xl\:vw-third {
+    width: calc(100vw / 3);
+  }
+
+  .xl\:vw-two-thirds {
+    width: calc(100vw / 1.5);
+  }
+
+  .xl\:max-vw-10 {
+    max-width: 10vw;
+  }
+
+  .xl\:max-vw-20 {
+    max-width: 20vw;
+  }
+
+  .xl\:max-vw-25 {
+    max-width: 25vw;
+  }
+
+  .xl\:max-vw-30 {
+    max-width: 30vw;
+  }
+
+  .xl\:max-vw-40 {
+    max-width: 40vw;
+  }
+
+  .xl\:max-vw-50 {
+    max-width: 50vw;
+  }
+
+  .xl\:max-vw-60 {
+    max-width: 60vw;
+  }
+
+  .xl\:max-vw-70 {
+    max-width: 70vw;
+  }
+
+  .xl\:max-vw-75 {
+    max-width: 75vw;
+  }
+
+  .xl\:max-vw-80 {
+    max-width: 80vw;
+  }
+
+  .xl\:max-vw-90 {
+    max-width: 90vw;
   }
 
   .xl\:max-vw-100 {
     max-width: 100vw;
+  }
+
+  .xl\:max-vw-third {
+    max-width: calc(100vw / 3);
+  }
+
+  .xl\:max-vw-two-thirds {
+    max-width: calc(100vw / 1.5);
+  }
+
+  .xl\:min-vw-10 {
+    min-width: 10vw;
+  }
+
+  .xl\:min-vw-20 {
+    min-width: 20vw;
+  }
+
+  .xl\:min-vw-25 {
+    min-width: 25vw;
+  }
+
+  .xl\:min-vw-30 {
+    min-width: 30vw;
+  }
+
+  .xl\:min-vw-40 {
+    min-width: 40vw;
+  }
+
+  .xl\:min-vw-50 {
+    min-width: 50vw;
+  }
+
+  .xl\:min-vw-60 {
+    min-width: 60vw;
+  }
+
+  .xl\:min-vw-70 {
+    min-width: 70vw;
+  }
+
+  .xl\:min-vw-75 {
+    min-width: 75vw;
+  }
+
+  .xl\:min-vw-80 {
+    min-width: 80vw;
+  }
+
+  .xl\:min-vw-90 {
+    min-width: 90vw;
+  }
+
+  .xl\:min-vw-100 {
+    min-width: 100vw;
+  }
+
+  .xl\:min-vw-third {
+    min-width: calc(100vw / 3);
+  }
+
+  .xl\:min-vw-two-thirds {
+    min-width: calc(100vw / 1.5);
   }/* All */
 
   .xl\:ma0 {
@@ -49793,6 +58989,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     letter-spacing: -.05em;
   }
 
+  .xl\:lh-none {
+    line-height: 0;
+  }
+
   .xl\:lh-solid {
     line-height: 1;
   }
@@ -49807,6 +59007,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:lh-tall {
     line-height: 1.7;
+  }
+
+  .xl\:group:hover .group-hover\:lh-none {
+    line-height: 0;
   }
 
   .xl\:group:hover .group-hover\:lh-solid {
@@ -49825,6 +59029,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
     line-height: 1.7;
   }
 
+  .xl\:hover\:lh-none:hover {
+    line-height: 0;
+  }
+
   .xl\:hover\:lh-solid:hover {
     line-height: 1;
   }
@@ -49839,6 +59047,10 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
   .xl\:hover\:lh-tall:hover {
     line-height: 1.7;
+  }
+
+  .xl\:focus\:lh-none:focus {
+    line-height: 0;
   }
 
   .xl\:focus\:lh-solid:focus {
@@ -49862,7 +59074,7 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   */
 
   .xl\:measure-wide {
-    max-width: 80ch;
+    max-width: 75ch;
   }
 
   .xl\:measure {

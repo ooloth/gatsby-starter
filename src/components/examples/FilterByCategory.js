@@ -1,10 +1,4 @@
 class FilterByCategory extends Component {
-  static propTypes = {
-    defaultCategory: PropTypes.string.isRequired,
-    renderFilters: PropTypes.func.isRequired,
-    renderItems: PropTypes.func.isRequired
-  }
-
   state = {
     category: this.props.defaultCategory,
     items: this.props[this.props.defaultCategory]
@@ -15,7 +9,6 @@ class FilterByCategory extends Component {
 
   render() {
     const { category, items } = this.state
-    // console.log(`Rendering`)
 
     return (
       <Fragment>
@@ -24,6 +17,12 @@ class FilterByCategory extends Component {
       </Fragment>
     )
   }
+}
+
+FilterByCategory.propTypes = {
+  defaultCategory: PropTypes.string.isRequired,
+  renderFilters: PropTypes.func.isRequired,
+  renderItems: PropTypes.func.isRequired
 }
 
 /*
