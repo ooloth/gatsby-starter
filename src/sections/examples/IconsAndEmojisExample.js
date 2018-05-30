@@ -1,10 +1,10 @@
 const IconsAndEmojisExample = () => (
   <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Here are some icons and emojis:</h2>
-    <h3 className="pt3 mb2 f4">Icon file:</h3>
+    <h3 className="pt3 mb2 f4">SVG icon file:</h3>
     <Icon svg={instagram} ariaLabel="Instagram logo" className="f1 purple" />
 
-    <h3 className="mt4 mb2 f4 mt3">Icon component:</h3>
+    <h3 className="mt4 mb2 f4 mt3">SVG icon component:</h3>
     <Icon svg={FaBeer} ariaLabel="Mug of beer" className="f1 red" />
 
     <h3 className="mt4 mb2 f4 mt3">Emojis:</h3>

@@ -13,7 +13,6 @@ const IndexPage = ({ data }) => (
     <GSAPExample />
     <RevealExample data={data.allExampleYaml.edges} />
 
-    <ReadMoreExample />
     <CollapseExample />
 
     <FilterExample
@@ -148,7 +147,6 @@ import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
 
-import ReadMoreExample from '../sections/examples/ReadMoreExample'
 import CollapseExample from '../sections/examples/CollapseExample'
 // import ParallaxExample from '../sections/examples/ParallaxExample'
 // import ReactSpringExample from '../sections/examples/ReactSpringExample'

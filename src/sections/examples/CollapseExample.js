@@ -1,11 +1,22 @@
 const CollapseExample = () => (
-  <section className="mv6 pv5 bg-light-yellow">
-    <h2 className="pb3">Collapse Example</h2>
+  <section className="mv6 bg-light-green pa5 shadow-lg">
+    <h2 className="mb4">Read More / Collapse Examples</h2>
+
+    <h3 className="mb2">Read More only:</h3>
+    <VisibleParagraphs />
+    <Collapse
+      renderContent={() => <CollapsedParagraphs />}
+      renderToggle={(expanded, handleToggle) =>
+        !expanded && <ReadMore handleToggle={handleToggle} />
+      }
+    />
+
+    <h3 className="mt5 mb2">Read More & Read Less:</h3>
     <VisibleParagraphs />
     <Collapse
       renderContent={() => <CollapsedParagraphs />}
       renderToggle={(expanded, handleToggle) => (
-        <ExampleToggle expanded={expanded} handleToggle={handleToggle} />
+        <ReadMoreReadLess expanded={expanded} handleToggle={handleToggle} />
       )}
     />
   </section>
@@ -23,7 +34,7 @@ const VisibleParagraphs = () => {
       <p
         key={`paragraph-${index}`}
         dangerouslySetInnerHTML={{ __html: paragraph }}
-        className="container mt3 lh-copy"
+        className="mt3 lh-copy"
       />
     )
   })
@@ -58,13 +69,24 @@ const paragraphs = [
   `Curabitur auctor aliquam augue vitae auctor. Vivamus tincidunt tincidunt ex eget accumsan. Vestibulum interdum orci vel auctor dapibus. Aenean accumsan dui mauris, a vestibulum nulla volutpat a.`
 ]
 
+const ReadMore = ({ handleToggle }) => (
+  <button
+    onClick={handleToggle}
+    className="btn mt4"
+    // TODO: If the context is .tl, use this to center the button:
+    // className="relative left-50 transX--50"
+  >
+    Read More
+  </button>
+)
+
 /*
  *
- * Example Toggle
+ * Read More / Read Less Toggle
  * 
  */
 
-const ExampleToggle = ({ expanded, handleToggle }) => (
+const ReadMoreReadLess = ({ expanded, handleToggle }) => (
   <button onClick={handleToggle} className="btn mt4">
     Read {expanded ? `Less` : `More`}
   </button>
@@ -76,7 +98,7 @@ const ExampleToggle = ({ expanded, handleToggle }) => (
  * 
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import Collapse from '../../components/examples/Collapse'
 

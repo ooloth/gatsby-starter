@@ -1,5 +1,5 @@
 const TemplateExample = ({ data }) => (
-  <section className="container mv6 bg-light-yellow pv5">
+  <section className="container mv6 bg-light-yellow pa5 shadow-lg">
     <h2 className="mb2">Here are some auto-generated template pages</h2>
     <h4 className="mb4">(These are created programmatically in gatsby-node.)</h4>
 

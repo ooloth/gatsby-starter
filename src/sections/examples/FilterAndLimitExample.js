@@ -1,5 +1,5 @@
 const FilterAndLimitExample = ({ category1, category2 }) => (
-  <section className="mv6 pv5 bg-near-white">
+  <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Filter And Limit Example</h2>
 
     <FilterAndLimit

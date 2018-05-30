@@ -1,5 +1,5 @@
 const FlickityExample = ({ data }) => (
-  <section className="mv6 pv5 bg-light-green">
+  <section className="mv6 bg-light-yellow pa5 shadow-lg">
     <h2 className="mb1">Flickity Example</h2>
     <p className="mb4 b">(for sliding carousels)</p>
 

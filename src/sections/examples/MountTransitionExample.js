@@ -3,7 +3,7 @@
 // TODO: the above may show how to use this for page transitions as well...
 
 const MountTransitionExample = () => (
-  <section className="mv6 pv5 bg-near-white">
+  <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Mount & Unmount Transitions Example</h2>
     <p className="mb5">I trigger GSAP animations when I enter and exit</p>
     <AnimatingBoxes />
