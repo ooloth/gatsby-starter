@@ -36,7 +36,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-react-next`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-json`,
+    // `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`
     // {

@@ -33,10 +33,4 @@ INSTRUCTIONS:
   style={string || object, optional}
 />
 
-DOCS:
-
-- React Icons: http://gorangajic.github.io/react-icons/fa.html
-- React Icons (github): https://github.com/gorangajic/react-icons
-- React Inline SVG (github): https://github.com/gilbarbara/react-inlinesvg
-
 */

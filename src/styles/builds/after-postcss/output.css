@@ -1938,6 +1938,29 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 
 /* 
  *
+ * Blockquotes
+ *
+ */
+
+.quote {
+  max-width: 66ch;
+  line-height: 1.5;
+}
+
+.quote-source {
+  display: inline-flex;
+  padding-top: .5rem;
+  padding-top: var(--spacing-2);
+  font-style: normal;
+}
+
+.quote-link {
+  color: #357edd;
+  color: var(--blue);
+}
+
+/* 
+ *
  * Buttons
  *
  */

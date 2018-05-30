@@ -6,6 +6,16 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 
 /* 
  *
+ * Blockquotes
+ *
+ */
+
+.quote        { @apply .measure .lh-copy }
+.quote-source { @apply .inline-flex .pt2 .fs-normal }
+.quote-link   { @apply .blue }
+
+/* 
+ *
  * Buttons
  *
  */

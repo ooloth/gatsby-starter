@@ -32,6 +32,7 @@ const IndexPage = ({ data }) => (
     <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
     <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
+    <BlockquotesExample />
     <IconsAndEmojisExample />
 
     {/* <ReactSpringExample /> */}
@@ -161,6 +162,7 @@ import SlickExample from '../sections/examples/SlickExample'
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 
+import BlockquotesExample from '../sections/examples/BlockquotesExample'
 import IconsAndEmojisExample from '../sections/examples/IconsAndEmojisExample'
 
 import TwitterExample from '../sections/examples/TwitterExample'
