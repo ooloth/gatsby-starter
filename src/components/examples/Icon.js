@@ -1,4 +1,4 @@
-const Icon = ({ svg, className = ``, style = {} }) => {
+const Icon = ({ svg, ariaLabel, className = ``, style }) => {
   let Tag
   // react-inlinesvg component?
   if (typeof svg === `string`) Tag = SVG
@@ -8,7 +8,7 @@ const Icon = ({ svg, className = ``, style = {} }) => {
   return (
     <Tag
       src={Tag === SVG ? svg : undefined}
-      aria-hidden={true}
+      aria-label={ariaLabel}
       className={`inline-flex lh-none fill-current ${className}`}
       style={style}
     />
@@ -16,8 +16,9 @@ const Icon = ({ svg, className = ``, style = {} }) => {
 }
 
 Icon.propTypes = {
-  // Accept an imported svg file or a react component (e.g. from react-icons):
+  // Accept an imported svg file or a react-icons component:
   svg: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.func.isRequired]),
+  ariaLabel: PropTypes.string.isRequired,
   className: PropTypes.string,
   style: PropTypes.object
 }
@@ -45,7 +46,6 @@ INSTRUCTIONS:
 />
 
 1. Can use with an imported SVG file or with a react-icons component
-2. Can optionally include a link
 
 DOCS:
 
