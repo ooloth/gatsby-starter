@@ -18,7 +18,7 @@ Adapted from:
   *
   */
 
-  .measure-wide   { max-width: 80ch }
+  .measure-wide   { max-width: 75ch }
   .measure        { max-width: 66ch }
   .measure-medium { max-width: 55ch }
   .measure-narrow { max-width: 45ch }

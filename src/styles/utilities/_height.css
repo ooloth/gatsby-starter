@@ -23,17 +23,29 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   .h-auto    { height: auto }
   .h-inherit { height: inherit }
 
-  .mh1 { max-height: var(--sizing-1) }
-  .mh2 { max-height: var(--sizing-2) }
-  .mh3 { max-height: var(--sizing-3) }
-  .mh4 { max-height: var(--sizing-4) }
-  .mh5 { max-height: var(--sizing-5) }
-  .mh6 { max-height: var(--sizing-6) }
-  .mh7 { max-height: var(--sizing-7) }
-  .mh8 { max-height: var(--sizing-8) }
-  .mh9 { max-height: var(--sizing-9) }
+  .max-h1 { max-height: var(--sizing-1) }
+  .max-h2 { max-height: var(--sizing-2) }
+  .max-h3 { max-height: var(--sizing-3) }
+  .max-h4 { max-height: var(--sizing-4) }
+  .max-h5 { max-height: var(--sizing-5) }
+  .max-h6 { max-height: var(--sizing-6) }
+  .max-h7 { max-height: var(--sizing-7) }
+  .max-h8 { max-height: var(--sizing-8) }
+  .max-h9 { max-height: var(--sizing-9) }
 
-  .mh-none { max-height: none }
+  .max-h-none { max-height: none }
+
+  .min-h1 { min-height: var(--sizing-1) }
+  .min-h2 { min-height: var(--sizing-2) }
+  .min-h3 { min-height: var(--sizing-3) }
+  .min-h4 { min-height: var(--sizing-4) }
+  .min-h5 { min-height: var(--sizing-5) }
+  .min-h6 { min-height: var(--sizing-6) }
+  .min-h7 { min-height: var(--sizing-7) }
+  .min-h8 { min-height: var(--sizing-8) }
+  .min-h9 { min-height: var(--sizing-9) }
+
+  .min-h-none { min-height: none }
 
  /* 
   * 
@@ -57,24 +69,37 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   .h-third      { height: calc(100% / 3) }
   .h-two-thirds { height: calc(100% / 1.5) }
 
-  .mh-10  { max-height: 10% }
-  .mh-20  { max-height: 20% }
-  .mh-25  { max-height: 25% }
-  .mh-30  { max-height: 30% }
-  .mh-40  { max-height: 40% }
-  .mh-50  { max-height: 50% }
-  .mh-60  { max-height: 60% }
-  .mh-70  { max-height: 70% }
-  .mh-75  { max-height: 75% }
-  .mh-80  { max-height: 80% }
-  .mh-90  { max-height: 90% }
-  .mh-100 { max-height: 100% }
-
-  .mh-third      { max-height: calc(100% / 3) }
-  .mh-two-thirds { max-height: calc(100% / 1.5) }
-
-  .min-h-100 { min-height: 100% }
+  .max-h-10  { max-height: 10% }
+  .max-h-20  { max-height: 20% }
+  .max-h-25  { max-height: 25% }
+  .max-h-30  { max-height: 30% }
+  .max-h-40  { max-height: 40% }
+  .max-h-50  { max-height: 50% }
+  .max-h-60  { max-height: 60% }
+  .max-h-70  { max-height: 70% }
+  .max-h-75  { max-height: 75% }
+  .max-h-80  { max-height: 80% }
+  .max-h-90  { max-height: 90% }
   .max-h-100 { max-height: 100% }
+
+  .max-h-third      { max-height: calc(100% / 3) }
+  .max-h-two-thirds { max-height: calc(100% / 1.5) }
+
+  .min-h-10  { min-height: 10% }
+  .min-h-20  { min-height: 20% }
+  .min-h-25  { min-height: 25% }
+  .min-h-30  { min-height: 30% }
+  .min-h-40  { min-height: 40% }
+  .min-h-50  { min-height: 50% }
+  .min-h-60  { min-height: 60% }
+  .min-h-70  { min-height: 70% }
+  .min-h-75  { min-height: 75% }
+  .min-h-80  { min-height: 80% }
+  .min-h-90  { min-height: 90% }
+  .min-h-100 { min-height: 100% }
+
+  .min-h-third      { min-height: calc(100% / 3) }
+  .min-h-two-thirds { min-height: calc(100% / 1.5) }
 
  /* 
   * 
