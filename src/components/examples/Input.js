@@ -1,10 +1,17 @@
 // TODO: include label? wrapping the input or next to it? too layout-restrictive to include it?
 
-const Input = ({ type, name, label, placeholder, handleChange, className = `` }) => (
+const Input = ({
+  type,
+  name,
+  ariaLabel,
+  placeholder,
+  handleChange,
+  className = ``
+}) => (
   <input
     type={type}
     name={name}
-    aria-label={label}
+    aria-label={ariaLabel}
     placeholder={placeholder}
     onChange={handleChange}
     title={
@@ -21,7 +28,7 @@ const Input = ({ type, name, label, placeholder, handleChange, className = `` })
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   className: PropTypes.string

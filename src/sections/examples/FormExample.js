@@ -23,7 +23,7 @@ const FormFields = ({ handleChange }) => (
     <Input
       type="text"
       name="name"
-      label="Enter your full name"
+      ariaLabel="Enter your full name"
       placeholder="Full Name:"
       handleChange={handleChange}
       className="input mb4"
@@ -32,7 +32,7 @@ const FormFields = ({ handleChange }) => (
     <Input
       type="email"
       name="email"
-      label="Enter your email address"
+      ariaLabel="Enter your email address"
       placeholder="Email:"
       handleChange={handleChange}
       className="input mb4"
@@ -45,6 +45,7 @@ const FormFields = ({ handleChange }) => (
       placeholder="Message:"
       required
       onChange={handleChange}
+      data-gramm_editor="false"
       className="input mb4"
       style={{ resize: `none` }}
     />
