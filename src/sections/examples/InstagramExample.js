@@ -1,11 +1,20 @@
 // TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint.
 
 class InstagramExample extends Component {
+  state = { ready: false }
+
+  // TODO: replace this with loadjs call? test before/after for loading speed and bundle size... would that cause a flash of content change (e.g. if the slider is in the hero)?
+  // To prevent build/SSR errors, don't import Flickity until the window exists
+  componentDidMount = () => this.setState({ ready: true })
+
+  // TODO: still need this? Try PureComponent first if so? Or make this method allow updates on state changes only?
   // Prevent Instafeed from rendering posts multiple times
   // See: https://github.com/JeromeFitz/react-instafeed/issues/24#issuecomment-345556639
-  shouldComponentUpdate = () => false
+  // shouldComponentUpdate = () => false
 
   render() {
+    const { ready } = this.state
+
     const instafeedTarget = `instafeed`
     const instafeedTemplate = `
       <a href="{{link}}" target="_blank" rel="noopener nofollow" class="group relative w-third">
@@ -23,20 +32,22 @@ class InstagramExample extends Component {
         <h2 className="mb1">Here's an Instagram Feed</h2>
         <h5 className="mb4">(with overlays on hover)</h5>
 
-        <div id={instafeedTarget} className="flex container">
-          <Instafeed
-            limit="3"
-            ref={el => (this.instafeed = el)}
-            resolution="standard_resolution"
-            sortBy="most-recent"
-            target={instafeedTarget}
-            template={instafeedTemplate}
-            // For steps to generate the following settings, see my "API: Instagram" note
-            userId="279691891"
-            clientId="d34e19504cac4f0a943b99fe32911137"
-            accessToken="279691891.d34e195.0161d2d16d2046e182bede7cdf2cdb6c"
-          />
-        </div>
+        {ready && (
+          <div id={instafeedTarget} className="flex container">
+            <Instafeed
+              limit="3"
+              // ref={el => (this.instafeed = el)}
+              resolution="standard_resolution"
+              sortBy="most-recent"
+              target={instafeedTarget}
+              template={instafeedTemplate}
+              // For steps to generate the following settings, see my "API: Instagram" note
+              userId="279691891"
+              clientId="d34e19504cac4f0a943b99fe32911137"
+              accessToken="279691891.d34e195.0161d2d16d2046e182bede7cdf2cdb6c"
+            />
+          </div>
+        )}
       </div>
     )
   }

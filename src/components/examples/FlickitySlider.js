@@ -35,8 +35,6 @@ class FlickitySlider extends Component {
     const { data, layout, options = defaultOptions } = this.props
     const { Flickity } = this.state
 
-    console.log(`options`, options)
-
     return (
       Flickity && (
         <Flickity

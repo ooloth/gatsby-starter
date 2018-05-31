@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Add Site Title (10-70 characters)`,
     description: `Add site description (70-160 characters)`,
-    siteUrl: `https://www.site.com`,
+    siteUrl: `https://gatsbystarter.netlify.com/`,
     language: `en`,
     locale: `en_CA`,
     twitterHandle: `@handle`,

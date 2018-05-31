@@ -1,6 +1,6 @@
 const FilterAndLimitExample = ({ cat1, cat2 }) => (
   <section className="mv6 bg-near-white pa5 shadow-lg">
-    <h2 className="mb4">Filter And Limit Example</h2>
+    <h2 className="mb4">Filter and Limit Example</h2>
 
     <FilterAndLimit
       cat1={cat1} // the items in cat1
