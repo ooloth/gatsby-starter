@@ -3,11 +3,15 @@
 class InstagramExample extends PureComponent {
   state = { pageLoaded: false }
 
+  // Delay fetch until the page has fully loaded (remove or provide placeholder post content to prevent page jump)
+  // TODO: replace with Waypoint? What if this part of the page is in focus when it refreshes?
   componentDidMount = () => {
     window.addEventListener(`load`, () => this.setState({ pageLoaded: true }), {
       once: true
     })
   }
+
+  renderPlaceholder = () => {}
 
   render() {
     const { pageLoaded } = this.state
@@ -24,9 +28,17 @@ class InstagramExample extends PureComponent {
     </a>
   `
 
+    // const instafeedPlaceholder = (
+    //   <div className="w-third">
+    //     <div className="aspect-ratio aspect-ratio--1x1">
+    //       <div className="aspect-ratio--object" />
+    //     </div>
+    //   </div>
+    // )
+
     return (
       <div className="mv6 bg-light-yellow pa5 shadow-lg">
-        <h2 className="mb1">Here's an Instagram Feed</h2>
+        <h2 className="mb4">Here's an Instagram Feed</h2>
 
         {pageLoaded && (
           <div id={instafeedTarget} className="flex container">
@@ -54,7 +66,7 @@ class InstagramExample extends PureComponent {
  * 
  */
 
-import React, { PureComponent } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import Instafeed from 'react-instafeed'
 
 export default InstagramExample

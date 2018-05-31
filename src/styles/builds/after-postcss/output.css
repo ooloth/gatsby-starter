@@ -1916,9 +1916,77 @@ TODO: Make sure to scope all style to avoid conflicting with react-image-lightbo
           transform: translateX(100%);
 }
 
+/* Move the close button to the left side */
+
+.toolbar___1xYly {
+  justify-content: start !important;
+}
+
+/* 
+ *
+ * Twitter Fetcher
+ *
+ */
+
 /*
-@import './lightbox-react';
-@import './twitter-fetcher';
+ *
+ * Styling When Using Custom Markup (fetching data only)
+ *
+ */
+
+.tweet {
+  /* This class is applied automatically to URL links inside tweets (not hashtags) *//*
+  .link { @apply .blue }
+  *//* This class is applied automatically to hashtag links inside tweets *//*
+  .hashtag { @apply .blue }
+  */
+}
+
+/* Links inside tweets (including hashtags) */
+
+.tweet .customisable {
+  color: #357edd;
+  color: var(--blue);
+  transition: all .2s ease-in-out;
+}
+
+.tweet .customisable:hover {
+  color: #000;
+  color: var(--black);
+}
+
+/*
+ *
+ * Styling When Using Default Markup (all layout and styling happens here)
+ *
+ */
+
+/* Hide user */
+
+/*
+.user { @apply .dn }
+*/
+
+/* Style tweet */
+
+/*
+.tweet { @apply .ml-auto .mr-auto .measure .lh-title }
+*/
+
+/* Style links inside tweets */
+
+/*
+.tweet > a { 
+  @apply .underline .blue .animate;
+
+  &:hover { @apply .pink }
+}
+*/
+
+/* Hide interaction */
+
+/*
+.interact { @apply .dn }
 */
 
 /*
@@ -2258,11 +2326,13 @@ Inputs
 
 /* 
  *
- * Links
+ * Links (that are not inside tweets)
  *
  */
 
-.link {
+/* NOTE: The .customizable class is added to all Twitter links automatically" */
+
+.link:not(.customisable) {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
   border-width: .125rem;
   border-width: var(--border-width-1);
@@ -2287,7 +2357,7 @@ Inputs
   border-radius: 30px;
 }
 
-.link:hover {
+.link:not(.customisable):hover {
   border-color: #ff80cc;
   border-color: var(--pink);
   background-color: #ff80cc;

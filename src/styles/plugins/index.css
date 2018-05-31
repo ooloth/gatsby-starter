@@ -15,7 +15,6 @@
 @import './examples/react-image-lightbox'; 
 
 @import './examples/react-modal';
-/*
-@import './lightbox-react';
-@import './twitter-fetcher';
-*/
+
+@import './examples/lightbox-react';
+@import './examples/twitter-fetcher';

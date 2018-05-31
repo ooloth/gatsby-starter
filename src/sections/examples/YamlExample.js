@@ -3,7 +3,7 @@ const YamlExample = ({ data }) => (
     <h2 className="mb3">Here's some queried YAML content:</h2>
     <ul className="flex justify-between">
       {data.map((example, index) => {
-        return <Example key={`example-${index}`} example={example.node} />
+        return <Example key={index} example={example.node} />
       })}
     </ul>
   </section>

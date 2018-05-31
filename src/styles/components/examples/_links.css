@@ -1,10 +1,11 @@
 /* 
  *
- * Links
+ * Links (that are not inside tweets)
  *
  */
 
-.link {
+/* NOTE: The .customizable class is added to all Twitter links automatically" */
+.link:not(.customisable) {
   @apply .shadow-lg .bw1 .b--black .bg-black .pv2 .ph3 .lh-tall .ttu .tracked .white .animate;
   border-radius: 30px;
 
