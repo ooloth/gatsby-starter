@@ -1,11 +1,11 @@
 // TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint.
 
 class InstagramExample extends Component {
-  state = { ready: false }
+  state = { pageLoaded: false }
 
-  // TODO: replace this with loadjs call? test before/after for loading speed and bundle size... would that cause a flash of content change (e.g. if the slider is in the hero)?
-  // To prevent build/SSR errors, don't import Flickity until the window exists
-  componentDidMount = () => this.setState({ ready: true })
+  componentDidMount = () => {
+    window.addEventListener(`load`, () => this.setState({ pageLoaded: true }))
+  }
 
   // TODO: still need this? Try PureComponent first if so? Or make this method allow updates on state changes only?
   // Prevent Instafeed from rendering posts multiple times
@@ -13,7 +13,7 @@ class InstagramExample extends Component {
   // shouldComponentUpdate = () => false
 
   render() {
-    const { ready } = this.state
+    const { pageLoaded } = this.state
 
     const instafeedTarget = `instafeed`
     const instafeedTemplate = `
@@ -32,7 +32,7 @@ class InstagramExample extends Component {
         <h2 className="mb1">Here's an Instagram Feed</h2>
         <h5 className="mb4">(with overlays on hover)</h5>
 
-        {ready && (
+        {pageLoaded && (
           <div id={instafeedTarget} className="flex container">
             <Instafeed
               limit="3"
