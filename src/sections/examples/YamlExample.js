@@ -19,7 +19,6 @@ const Example = ({ example }) => (
   <li className="ph3 w-third">
     <Img
       sizes={example.image.childImageSharp.sizes}
-      position="0% 0%"
       alt={example.alt}
       className="shadow-lg"
     />

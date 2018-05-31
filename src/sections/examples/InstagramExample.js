@@ -1,16 +1,13 @@
 // TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint.
 
-class InstagramExample extends Component {
+class InstagramExample extends PureComponent {
   state = { pageLoaded: false }
 
   componentDidMount = () => {
-    window.addEventListener(`load`, () => this.setState({ pageLoaded: true }))
+    window.addEventListener(`load`, () => this.setState({ pageLoaded: true }), {
+      once: true
+    })
   }
-
-  // TODO: still need this? Try PureComponent first if so? Or make this method allow updates on state changes only?
-  // Prevent Instafeed from rendering posts multiple times
-  // See: https://github.com/JeromeFitz/react-instafeed/issues/24#issuecomment-345556639
-  // shouldComponentUpdate = () => false
 
   render() {
     const { pageLoaded } = this.state
@@ -30,18 +27,16 @@ class InstagramExample extends Component {
     return (
       <div className="mv6 bg-light-yellow pa5 shadow-lg">
         <h2 className="mb1">Here's an Instagram Feed</h2>
-        <h5 className="mb4">(with overlays on hover)</h5>
 
         {pageLoaded && (
           <div id={instafeedTarget} className="flex container">
             <Instafeed
               limit="3"
-              // ref={el => (this.instafeed = el)}
               resolution="standard_resolution"
               sortBy="most-recent"
               target={instafeedTarget}
               template={instafeedTemplate}
-              // For steps to generate the following settings, see my "API: Instagram" note
+              // To generate the following settings, see "API: Instagram" note
               userId="279691891"
               clientId="d34e19504cac4f0a943b99fe32911137"
               accessToken="279691891.d34e195.0161d2d16d2046e182bede7cdf2cdb6c"
@@ -59,7 +54,7 @@ class InstagramExample extends Component {
  * 
  */
 
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Instafeed from 'react-instafeed'
 
 export default InstagramExample

@@ -1,7 +1,13 @@
 class TwitterExample extends Component {
-  state = { tweets: [] }
+  state = { pageLoaded: false, tweets: null }
 
   componentDidMount = () => {
+    window.addEventListener(`load`, this.fetchTweets, {
+      once: true
+    })
+  }
+
+  fetchTweets = () => {
     twitterFetcher.fetch({
       profile: { screenName: `beyonce` }, // just update this part
       maxTweets: 3,
@@ -25,7 +31,7 @@ class TwitterExample extends Component {
     return (
       <section className="mv6 bg-lightest-blue pa5 shadow-lg">
         <h2 className="mb3">Here's a Twitter Feed</h2>
-        {tweets.length > 0 ? (
+        {tweets ? (
           <Fragment>
             {tweets.map((tweet, index) => {
               return (
