@@ -19,7 +19,7 @@ const FilterExample = ({ category1, category2 }) => (
  */
 
 const Filters = ({ handleFilter }) => (
-  <fieldset>
+  <fieldset className="mb3">
     <legend className="sr-only">Pick a category</legend>
     <FilterBtnRadio
       group="categories"

@@ -3,7 +3,7 @@ const FilterBtnRadio = ({
   category,
   label,
   handleFilter,
-  className,
+  className = ``,
   style
 }) => (
   <Fragment>
@@ -15,7 +15,7 @@ const FilterBtnRadio = ({
       onChange={handleFilter}
       className="filter-input"
     />
-    <label htmlFor={category} className={className} style={style}>
+    <label htmlFor={category} className={`filter-label ${className}`} style={style}>
       {label}
     </label>
   </Fragment>

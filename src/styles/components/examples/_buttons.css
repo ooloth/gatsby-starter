@@ -24,5 +24,8 @@ Buttons & Filter Buttons
 	&:checked + label {
     @apply .white;
 	}
-  
+
 }
+
+/* Prevent fieldset height from paritally collapsing when labels are the only children */
+.filter-label { @apply .inline-flex }

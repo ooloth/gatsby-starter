@@ -1,11 +1,7 @@
 class FilterByCategory extends Component {
-  state = {
-    category: this.props.defaultCategory,
-    items: this.props[this.props.defaultCategory]
-  }
+  state = { items: this.props[this.props.defaultCategory] }
 
-  handleFilter = e =>
-    this.setState({ category: e.target.value, items: this.props[e.target.value] })
+  handleFilter = e => this.setState({ items: this.props[e.target.value] })
 
   render() {
     return (

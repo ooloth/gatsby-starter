@@ -2240,6 +2240,12 @@ Buttons & Filter Buttons
   color: var(--white);
 }
 
+/* Prevent fieldset height from paritally collapsing when labels are the only children */
+
+.filter-label {
+  display: inline-flex;
+}
+
 /*
 
 Containers
