@@ -800,6 +800,12 @@ fieldset {
   border: 0;
 }
 
+/* Since clicking a radio button label triggers the input, match the default UX */
+
+input[type='radio'] + label {
+  cursor: pointer;
+}
+
 /* 
 
 Override Firefox's premature red box-shadow styling for invalid form inputs
@@ -2092,6 +2098,7 @@ Component classes
 .quote {
   max-width: 66ch;
   line-height: 1.5;
+  /* add quotation marks in ::after / ::before using content: open-quote / close-quote? */
 }
 
 .quote-source {
@@ -2224,6 +2231,13 @@ Buttons & Filter Buttons
 .filter-btn:hover {
   color: #ffd700;
   color: var(--yellow);
+}
+
+/* When the input is checked, adjust the styling of the NEXT label in the DOM */
+
+.filter-input:checked + label {
+  color: #fff;
+  color: var(--white);
 }
 
 /*

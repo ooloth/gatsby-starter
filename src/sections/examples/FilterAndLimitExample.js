@@ -3,8 +3,8 @@ const FilterAndLimitExample = ({ category1, category2 }) => (
     <h2 className="mb4">Filter And Limit Example</h2>
 
     <FilterAndLimit
-      category1={category1}
-      category2={category2}
+      category1={category1} // the items in category1
+      category2={category2} // the items in category2
       defaultCategory="category1"
       limit={3}
       renderFilters={(category, handleFilter) => (

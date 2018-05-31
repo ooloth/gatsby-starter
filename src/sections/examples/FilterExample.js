@@ -3,12 +3,10 @@ const FilterExample = ({ category1, category2 }) => (
     <h2 className="mb4">Filter Example</h2>
 
     <FilterByCategory
-      category1={category1}
-      category2={category2}
+      category1={category1} // the items in category1
+      category2={category2} // the items in category2
       defaultCategory="category1"
-      renderFilters={(category, handleFilter) => (
-        <Filters category={category} handleFilter={handleFilter} />
-      )}
+      renderFilters={handleFilter => <Filters handleFilter={handleFilter} />}
       renderItems={items => <Items items={items} />}
     />
   </section>
@@ -16,28 +14,29 @@ const FilterExample = ({ category1, category2 }) => (
 
 /*
  *
- * Filter Buttons
+ * Filters
  *
  */
 
-const Filters = ({ category, handleFilter }) => (
-  <Fragment>
-    <button
-      value="category1"
-      onClick={handleFilter}
-      className={`btn mh2 ${category === `category1` && `white`}`}
-    >
-      Category 1
-    </button>
+const Filters = ({ handleFilter }) => (
+  <fieldset>
+    <legend className="sr-only">Pick a category</legend>
+    <FilterBtnRadio
+      group="categories"
+      category="category1"
+      label="Category 1"
+      handleFilter={handleFilter}
+      className="btn mh2"
+    />
 
-    <button
-      value="category2"
-      onClick={handleFilter}
-      className={`btn mh2 ${category === `category2` && `white`}`}
-    >
-      Category 2
-    </button>
-  </Fragment>
+    <FilterBtnRadio
+      group="categories"
+      category="category2"
+      label="Category 2"
+      handleFilter={handleFilter}
+      className="btn mh2"
+    />
+  </fieldset>
 )
 
 /*
@@ -65,5 +64,6 @@ const Items = ({ items }) => (
 import React, { Fragment } from 'react'
 
 import FilterByCategory from '../../components/examples/FilterByCategory'
+import FilterBtnRadio from '../../components/examples/FilterBtnRadio'
 
 export default FilterExample

@@ -8,12 +8,10 @@ class FilterByCategory extends Component {
     this.setState({ category: e.target.value, items: this.props[e.target.value] })
 
   render() {
-    const { category, items } = this.state
-
     return (
       <Fragment>
-        {this.props.renderFilters(category, this.handleFilter)}
-        {this.props.renderItems(items)}
+        {this.props.renderFilters(this.handleFilter)}
+        {this.props.renderItems(this.state.items)}
       </Fragment>
     )
   }

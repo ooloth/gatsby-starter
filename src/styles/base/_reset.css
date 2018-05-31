@@ -98,6 +98,9 @@ textarea::placeholder { @apply .o-100 .black-50 }
 /* Reset Chrome and Firefox behaviour which sets a 'min-width: min-content;' on fieldsets: */
 fieldset { min-width: 0; border: 0 }
 
+/* Since clicking a radio button label triggers the input, match the default UX */
+input[type='radio'] + label { @apply .cursor-pointer }
+
 /* 
 
 Override Firefox's premature red box-shadow styling for invalid form inputs

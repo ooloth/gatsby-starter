@@ -4,7 +4,11 @@
     "commonjs": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jsx-a11y/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   "globals": {
     "__dirname": false,
     "graphql": false,
@@ -27,6 +31,7 @@
     "compat/compat": "error",
     "eqeqeq": ["error", "smart"],
     "indent": ["error", 2],
+    "jsx-a11y/label-has-for": [2, { "required": { "some": ["nesting", "id"] } }],
     "linebreak-style": ["error", "unix"],
     "no-control-regex": "off",
     "quotes": ["error", "backtick"],
