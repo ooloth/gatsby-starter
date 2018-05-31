@@ -1,15 +1,13 @@
-const FilterAndLimitExample = ({ category1, category2 }) => (
+const FilterAndLimitExample = ({ cat1, cat2 }) => (
   <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Filter And Limit Example</h2>
 
     <FilterAndLimit
-      category1={category1} // the items in category1
-      category2={category2} // the items in category2
-      defaultCategory="category1"
+      cat1={cat1} // the items in cat1
+      cat2={cat2} // the items in cat2
+      defaultCategory="cat1"
       limit={3}
-      renderFilters={(category, handleFilter) => (
-        <Filters category={category} handleFilter={handleFilter} />
-      )}
+      renderFilters={handleFilter => <Filters handleFilter={handleFilter} />}
       renderItems={items => <Items items={items} />}
       renderSeeMore={handleSeeMore => <SeeMore handleSeeMore={handleSeeMore} />}
     />
@@ -18,28 +16,31 @@ const FilterAndLimitExample = ({ category1, category2 }) => (
 
 /*
  *
- * Filter Buttons
+ * Filters
  *
  */
 
-const Filters = ({ category, handleFilter }) => (
-  <Fragment>
-    <button
-      value="category1"
-      onClick={handleFilter}
-      className={`btn mh2 ${category === `category1` && `white`}`}
-    >
-      Category 1
-    </button>
+const Filters = ({ handleFilter }) => (
+  <fieldset className="mb3">
+    <legend className="sr-only">Pick a category</legend>
 
-    <button
-      value="category2"
-      onClick={handleFilter}
-      className={`btn mh2 ${category === `category2` && `white`}`}
-    >
-      Category 2
-    </button>
-  </Fragment>
+    <FilterBtnRadio
+      group="cats"
+      category="cat1"
+      label="Category 1"
+      defaultChecked={true}
+      handleFilter={handleFilter}
+      className="btn mh2"
+    />
+
+    <FilterBtnRadio
+      group="cats"
+      category="cat2"
+      label="Category 2"
+      handleFilter={handleFilter}
+      className="btn mh2"
+    />
+  </fieldset>
 )
 
 /*
@@ -79,5 +80,6 @@ const SeeMore = ({ handleSeeMore }) => (
 import React, { Fragment } from 'react'
 
 import FilterAndLimit from '../../components/examples/FilterAndLimit'
+import FilterBtnRadio from '../../components/examples/FilterBtnRadio'
 
 export default FilterAndLimitExample

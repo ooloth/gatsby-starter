@@ -2,6 +2,7 @@ const FilterBtnRadio = ({
   group,
   category,
   label,
+  defaultChecked,
   handleFilter,
   className = ``,
   style
@@ -12,6 +13,7 @@ const FilterBtnRadio = ({
       name={group}
       id={category}
       value={category}
+      defaultChecked={defaultChecked}
       onChange={handleFilter}
       className="filter-input"
     />
@@ -25,6 +27,7 @@ FilterBtnRadio.propTypes = {
   group: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
+  defaultChecked: PropTypes.bool,
   handleFilter: PropTypes.func.isRequired,
   className: PropTypes.string,
   style: PropTypes.object
@@ -55,5 +58,6 @@ INSTRUCTIONS:
 />
 
 1. Wrap FilterBtnRadio components in a fieldset and include a legend as the first child.
+2. Make sure the "group" name is the same for all buttons in the group (and different from the other groups).
 
 */

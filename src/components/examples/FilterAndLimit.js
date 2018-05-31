@@ -1,6 +1,5 @@
 class FilterAndLimit extends Component {
   state = {
-    category: this.props.defaultCategory,
     items: this.props[this.props.defaultCategory],
     limit: this.props.limit,
     limited: true
@@ -8,7 +7,6 @@ class FilterAndLimit extends Component {
 
   handleFilter = e =>
     this.setState({
-      category: e.target.value,
       items: this.props[e.target.value],
       limit: this.props.limit,
       limited: true
@@ -20,19 +18,19 @@ class FilterAndLimit extends Component {
     const remaining = items.length - limit
 
     if (remaining > increment) {
-      this.setState(state => ({ limit: state.limit + increment }))
+      this.setState(prev => ({ limit: prev.limit + increment }))
     } else {
-      this.setState(state => ({ limit: state.limit + remaining, limited: false }))
+      this.setState(prev => ({ limit: prev.limit + remaining, limited: false }))
     }
   }
 
   render() {
-    const { category, items, limit, limited } = this.state
+    const { items, limit, limited } = this.state
     const visibleItems = items.slice(0, limit)
 
     return (
       <Fragment>
-        {this.props.renderFilters(category, this.handleFilter)}
+        {this.props.renderFilters(this.handleFilter)}
         {this.props.renderItems(visibleItems)}
         {limited && this.props.renderSeeMore(this.handleSeeMore)}
       </Fragment>

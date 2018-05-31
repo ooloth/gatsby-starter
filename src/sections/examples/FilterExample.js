@@ -25,6 +25,7 @@ const Filters = ({ handleFilter }) => (
       group="categories"
       category="category1"
       label="Category 1"
+      defaultChecked={true}
       handleFilter={handleFilter}
       className="btn mh2"
     />

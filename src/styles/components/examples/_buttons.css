@@ -1,8 +1,8 @@
 /*
-
-Buttons & Filter Buttons
-
-*/
+ *
+ * Buttons
+ *
+ */
 
 .btn { 
   @apply .bw1 .b--black .bg-black .pink .pv2 .ph3 .lh-solid .ttu .tracked .animate;
@@ -11,21 +11,3 @@ Buttons & Filter Buttons
 
   @media (--sm) { @apply .f4 }
 }
-
-.filter-btn {
-  @apply .mh2 .f3 .white .animate;
-  
-  &:hover { @apply .yellow }
-}
-
-/* When the input is checked, adjust the styling of the NEXT label in the DOM */
-.filter-input {
-
-	&:checked + label {
-    @apply .white;
-	}
-
-}
-
-/* Prevent fieldset height from paritally collapsing when labels are the only children */
-.filter-label { @apply .inline-flex }

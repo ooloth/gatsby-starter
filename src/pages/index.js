@@ -21,8 +21,8 @@ const IndexPage = ({ data }) => (
     />
 
     <FilterAndLimitExample
-      category1={data.allCategory1Yaml.edges}
-      category2={data.allCategory2Yaml.edges}
+      cat1={data.allCategory1Yaml.edges}
+      cat2={data.allCategory2Yaml.edges}
     />
 
     <FlickityExample data={data.allExampleYaml.edges} />
