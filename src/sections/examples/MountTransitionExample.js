@@ -26,7 +26,7 @@ class AnimatingBoxes extends Component {
 
   enterAnim = rtgChild => {
     loadjs.ready(`gsap`, () => {
-      TweenMax.from(rtgChild, 0.5, {
+      TweenMax.from(rtgChild, 0.6, {
         scale: 0,
         ease: `Power3.easeInOut`
       })
@@ -71,7 +71,7 @@ class AnimatingBoxes extends Component {
               appear={true}
               onEnter={this.enterAnim}
               onExit={this.exitAnim}
-              timeout={{ enter: 500, exit: 700 }} // required unless addEndListener is used
+              timeout={{ enter: 600, exit: 700 }} // required unless addEndListener is used
             >
               <p className="mv2 ml-auto mr-auto w5 b--black bw2 bg-pink pa4">box</p>
             </Transition>

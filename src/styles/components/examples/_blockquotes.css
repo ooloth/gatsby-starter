@@ -4,6 +4,9 @@
  *
  */
 
-.quote        { @apply .measure .lh-copy }
+.quote { 
+  @apply .measure .lh-copy; 
+  /* add quotation marks in ::after / ::before using content: open-quote / close-quote? */ 
+}
 .quote-source { @apply .inline-flex .pt2 .fs-normal }
 .quote-link   { @apply .blue }
