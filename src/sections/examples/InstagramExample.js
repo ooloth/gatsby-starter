@@ -1,4 +1,4 @@
-// TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint.
+// TODO: To improving loading speed, wrap all social embeds with react-waypoint (see AriaUmezawa > Socials.js > Accounts class for an example). However, don't add Waypoint directly to this component because shouldComponentUpdate must be set to false (to avoid duplicate feed content), which means it can't respond to message from Waypoint. <- Still true?
 
 class InstagramExample extends PureComponent {
   state = { pageLoaded: false }
@@ -10,8 +10,6 @@ class InstagramExample extends PureComponent {
       once: true
     })
   }
-
-  renderPlaceholder = () => {}
 
   render() {
     const { pageLoaded } = this.state
@@ -27,14 +25,6 @@ class InstagramExample extends PureComponent {
       </div>
     </a>
   `
-
-    // const instafeedPlaceholder = (
-    //   <div className="w-third">
-    //     <div className="aspect-ratio aspect-ratio--1x1">
-    //       <div className="aspect-ratio--object" />
-    //     </div>
-    //   </div>
-    // )
 
     return (
       <div className="mv6 bg-light-yellow pa5 shadow-lg">
@@ -66,7 +56,7 @@ class InstagramExample extends PureComponent {
  * 
  */
 
-import React, { Fragment, PureComponent } from 'react'
+import React, { PureComponent } from 'react'
 import Instafeed from 'react-instafeed'
 
 export default InstagramExample

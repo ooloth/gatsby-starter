@@ -1942,7 +1942,7 @@ TODO: Make sure to scope all style to avoid conflicting with react-image-lightbo
   */
 }
 
-/* Links inside tweets (including hashtags) */
+/* This class is applied automatically to all links inside tweets (including hashtags) */
 
 .tweet .customisable {
   color: #357edd;

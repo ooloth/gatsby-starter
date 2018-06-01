@@ -12,7 +12,7 @@
 
 .tweet {
 
-  /* Links inside tweets (including hashtags) */
+  /* This class is applied automatically to all links inside tweets (including hashtags) */
   .customisable { 
     @apply .blue .animate; 
   

@@ -1,61 +1,32 @@
-class TwitterExample extends Component {
-  state = { tweets: null }
+const TwitterExample = () => (
+  <section className="mv6 bg-lightest-blue pa5 shadow-lg">
+    <h2 className="mb3">Here's a Twitter Feed</h2>
 
-  // Delay fetch until the page has fully loaded (remove or provide placeholder tweet content to prevent page jump)
-  componentDidMount = () => {
-    window.addEventListener(`load`, this.fetchTweets, {
-      once: true
-    })
-  }
-
-  fetchTweets = () => {
-    twitterFetcher.fetch({
-      profile: { screenName: `beyonce` }, // update this value only
-      maxTweets: 3,
-      dataOnly: true,
-      enableLinks: true,
-      showUser: true,
-      showTime: false,
-      dateFunction: ``,
-      showRetweet: false,
-      customCallback: this.displayTweets, // passes a 'tweets' object
-      showInteraction: true,
-      showImages: false
-    })
-  }
-
-  displayTweets = tweets => this.setState({ tweets: tweets })
-
-  render() {
-    const { tweets } = this.state
-    console.log(`tweets`, tweets)
-
-    return (
-      <section className="mv6 bg-lightest-blue pa5 shadow-lg">
-        <h2 className="mb3">Here's a Twitter Feed</h2>
-        {tweets && (
-          <ul className="container">
-            {tweets.map(tweet => <Tweet key={tweet.tid} tweet={tweet} />)}
-          </ul>
-        )}
-      </section>
-    )
-  }
-}
+    <TwitterFeed
+      user="beyonce"
+      maxTweets={3}
+      render={tweets => <Tweets tweets={tweets} />}
+    />
+  </section>
+)
 
 /*
-{tweets.map(tweet => {
-  return (
-    <li
-      key={tweet.tid}
-      dangerouslySetInnerHTML={{ __html: tweet }}
-      className="container pv3"
-    />
-  )
-})}
-*/
+ *
+ * Tweets
+ *
+ */
 
-// TODO: extract the logic into a separate TwitterFeed component and use a render prop to add the example markup here
+const Tweets = ({ tweets }) => (
+  <ul className="container">
+    {tweets.map(tweet => <Tweet key={tweet.tid} tweet={tweet} />)}
+  </ul>
+)
+
+/*
+ *
+ * Tweet
+ *
+ */
 
 const Tweet = ({ tweet }) => (
   <li className="tweet pv4">
@@ -66,7 +37,13 @@ const Tweet = ({ tweet }) => (
   </li>
 )
 
-// TODO: Add some template author details to make future projects easy.
+/*
+ *
+ * Author
+ *
+ */
+
+// TODO: Add some default author details to make future projects easy.
 // const Author = ({ author }) => <div>Hi</div>
 
 /*
@@ -127,14 +104,14 @@ const Favorite = ({ id }) => (
  * 
  */
 
-import React, { Component } from 'react'
-import twitterFetcher from 'twitter-fetcher'
+import React from 'react'
+
+import Anchor from '../../components/Anchor'
+import Icon from '../../components/examples/Icon'
+import TwitterFeed from '../../components/examples/TwitterFeed'
 
 import comment from '../../svg/comment.svg'
 import heart from '../../svg/heart.svg'
 import retweet from '../../svg/retweet.svg'
-
-import Anchor from '../../components/Anchor'
-import Icon from '../../components/examples/Icon'
 
 export default TwitterExample

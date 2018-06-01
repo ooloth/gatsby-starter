@@ -1,39 +1,79 @@
-class Reveal extends React.Component {
+class Reveal extends Component {
   // Waypoint handlers
   handleWaypointEnter = () => this.props.transition(`REVEAL`)
-  handleWaypointLeave = () => {
-    const { reset, transition } = this.props
-    reset ? transition(`RESET`) : transition(`DONE`)
-  }
+  handleWaypointLeave = () =>
+    this.props.reset ? this.props.transition(`RESET`) : this.props.transition(`DONE`)
 
   // Imperative GSAP actions
   reveal = () => {
-    const { css, delay, duration, ease } = this.props
     loadjs.ready(`gsap`, () => {
-      // Clear inital style declarations
-      TweenMax.set(this.node, { clearProps: `all` })
+      TweenMax.set(this.node, { clearProps: `all` }) // Clear inital styles
 
-      // Tween from the styles in this.props.css to their natural values
-      this.node.animation = TweenMax.from(this.node, duration || 1, {
-        css: { ...css },
-        ease: ease || `Power4.easeInOut`,
-        delay: delay || 0.3
-      })
+      this.props.stagger ? this.animateFromStagger() : this.animateFrom()
     })
   }
 
-  reset = () =>
-    loadjs.ready(`gsap`, () => TweenMax.set(this.node, { ...this.props.css }))
+  animateFrom = () => {
+    const { css, delay, duration, ease } = this.props
+
+    this.node.animation = TweenMax.from(this.node, duration || 1, {
+      css: { ...css },
+      ease: ease || `Power4.easeInOut`,
+      delay: delay || 0.3
+    })
+  }
+
+  animateFromStagger = () => {
+    const { css, cycle, delay, duration, ease, staggerDelay } = this.props
+    const nodes = this.node.childNodes[0].childNodes
+
+    TweenMax.staggerFrom(
+      nodes,
+      duration || 1,
+      {
+        css: { ...css },
+        cycle: cycle,
+        delay: delay || 0.3,
+        ease: ease || `Power4.easeInOut`
+      },
+      staggerDelay || 0.3
+    )
+  }
+
+  wipeAnimation = () => {
+    if (this.props.stagger) {
+      this.node.childNodes[0].childNodes.forEach(node => {
+        TweenMax.killTweensOf(node)
+        TweenMax.set(node, { clearProps: `all` })
+      })
+    } else {
+      TweenMax.killTweensOf(this.node)
+      TweenMax.set(this.node, { clearProps: `all` })
+    }
+  }
+
+  reset = () => {
+    this.wipeAnimation()
+    TweenMax.set(this.node, { ...this.props.css })
+  }
 
   killAnimation = () => {
-    this.node.animation.kill()
+    this.wipeAnimation()
     TweenMax.set(this.node, { clearProps: `all` })
-    this.node.animation = null
   }
 
   render() {
     // console.log(`🗺 Reveal:`, this.props.machineState.value)
-    const { css, offsetTop, offsetBottom } = this.props
+    const {
+      css,
+      offsetTop,
+      offsetBottom,
+      className,
+      style,
+      tag,
+      children
+    } = this.props
+    const Tag = tag || `div`
 
     return (
       <div ref={el => (this.node = el)} style={{ ...css }}>
@@ -43,7 +83,9 @@ class Reveal extends React.Component {
           topOffset={offsetTop}
           bottomOffset={offsetBottom}
         >
-          <div>{this.props.children}</div>
+          <Tag className={className} style={style}>
+            {children}
+          </Tag>
         </Waypoint>
       </div>
     )
@@ -54,9 +96,15 @@ Reveal.propTypes = {
   css: PropTypes.object.isRequired,
   duration: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ease: PropTypes.string,
+  stagger: PropTypes.bool,
+  staggerDelay: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  cycle: PropTypes.object,
+  reset: PropTypes.bool,
   offsetTop: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   offsetBottom: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  reset: PropTypes.bool
+  tag: PropTypes.string,
+  className: PropTypes.string,
+  style: PropTypes.object
 }
 
 /*
@@ -91,7 +139,7 @@ const revealChart = {
  * 
  */
 
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import loadjs from 'loadjs'
@@ -116,5 +164,7 @@ INSTRUCTIONS:
 </Reveal>
 
 1. The node with ref needs to be outside the Waypoint component (that's why the extra div)
+2. Use the className prop to set overflow-hidden on the inner wrapper (helpful sometimes, but it also kills all shadows)
+3. Use the style prop to add styles to the inner wrapper
 
 */
