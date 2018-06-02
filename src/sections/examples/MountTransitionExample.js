@@ -10,53 +10,23 @@ const MountTransitionExample = () => (
   </section>
 )
 
-/* 
+/*
  *
  * Animating Boxes
- * 
+ *
  */
 
 class AnimatingBoxes extends Component {
-  state = { in: false, boxes: [`box`] }
+  // These contrived "boxes" stand in for real list items like images, events, etc.
+  state = { boxes: [{ text: `box`, id: 1 }] }
 
-  addBox = () => this.setState({ boxes: this.state.boxes.concat(`box`) })
+  addBox = () =>
+    this.setState({
+      boxes: this.state.boxes.concat({ text: `box`, id: shortid.generate() })
+    })
 
-  removeBox = () =>
+  removeBox = () => {
     this.setState({ boxes: this.state.boxes.slice(0, this.state.boxes.length - 1) })
-
-  enterAnim = rtgChild => {
-    loadjs.ready(`gsap`, () => {
-      TweenMax.from(rtgChild, 0.6, {
-        scale: 0,
-        ease: `Power3.easeInOut`
-      })
-    })
-  }
-
-  exitAnim = rtgChild => {
-    loadjs.ready(`gsap`, () => {
-      let tl = new TimelineMax()
-      tl
-        // Transition the exiting element out
-        .to(rtgChild, 0.5, {
-          scale: 0,
-          ease: `Power3.easeInOut`
-        })
-        // Collapse the remaining space gradually
-        .to(
-          rtgChild,
-          0.4,
-          {
-            margin: 0,
-            borderWidth: 0,
-            padding: 0,
-            lineHeight: 0,
-            fontSize: 0,
-            ease: `Power3.easeInOut`
-          },
-          `-=0.2`
-        )
-    })
   }
 
   render() {
@@ -65,19 +35,14 @@ class AnimatingBoxes extends Component {
     return (
       <Fragment>
         <TransitionGroup component={null}>
-          {boxes.map((box, index) => (
-            <Transition
-              key={index} // "in" prop is passed automatically by TransitionGroup
-              appear={true}
-              onEnter={this.enterAnim}
-              onExit={this.exitAnim}
-              timeout={{ enter: 600, exit: 700 }} // required unless addEndListener is used
-            >
+          {boxes.map(box => (
+            <Mount key={box.id}>
               <p className="mv2 ml-auto mr-auto w5 b--black bw2 bg-pink pa4">box</p>
-            </Transition>
+            </Mount>
           ))}
         </TransitionGroup>
 
+        {/* TIP: avoid margins right next to the mount animations (causes jank) */}
         <div>
           <button onClick={this.addBox} className="btn mt4 mr2">
             +
@@ -98,8 +63,9 @@ class AnimatingBoxes extends Component {
  */
 
 import React, { Component, Fragment } from 'react'
-import loadjs from 'loadjs'
-import Transition from 'react-transition-group/Transition'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
+import shortid from 'shortid'
+
+import Mount from '../../components/examples/Mount'
 
 export default MountTransitionExample
