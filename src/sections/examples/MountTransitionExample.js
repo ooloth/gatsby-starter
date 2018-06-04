@@ -37,7 +37,9 @@ class AnimatingBoxes extends Component {
         <TransitionGroup component={null}>
           {boxes.map(box => (
             <Mount key={box.id}>
-              <p className="mv2 ml-auto mr-auto w5 b--black bw2 bg-pink pa4">box</p>
+              <p className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4">
+                box
+              </p>
             </Mount>
           ))}
         </TransitionGroup>

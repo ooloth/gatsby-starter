@@ -50,14 +50,41 @@ const Filters = ({ handleFilter }) => (
  */
 
 const Items = ({ items }) => (
-  <Fragment>
-    {items.map((item, index) => (
-      <p key={index} className="mt3">
-        {item.node.text}
-      </p>
+  <TransitionGroup component={null}>
+    {items.map(item => (
+      <Mount
+        key={item.node.text}
+        animateExit={false}
+        // animateSpace={false}
+        appear={false}
+      >
+        <Item item={item.node} />
+      </Mount>
     ))}
-  </Fragment>
+  </TransitionGroup>
 )
+
+/* 
+
+No <Mount /> version:
+
+<Fragment>
+  {items.map(item => (
+    <p key={item.node.text} className="mt3">
+    {item.node.text}
+    </p>
+  ))}
+</Fragment> 
+
+*/
+
+/*
+ *
+ * Item
+ *
+ */
+
+const Item = ({ item }) => <p className="mt3">{item.text}</p>
 
 /*
  *
@@ -78,8 +105,10 @@ const SeeMore = ({ handleSeeMore }) => (
  */
 
 import React, { Fragment } from 'react'
+import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import FilterAndLimit from '../../components/examples/FilterAndLimit'
 import FilterBtnRadio from '../../components/examples/FilterBtnRadio'
+import Mount from '../../components/examples/Mount'
 
 export default FilterAndLimitExample

@@ -1,29 +1,20 @@
 class Mount extends Component {
   enterAnim = rtgChild => {
+    const { animateSpace = true } = this.props
+
     loadjs.ready(`gsap`, () => {
-      let tl = new TimelineMax()
-      tl
-        // Expand the new space gradually
-        .from(rtgChild, 0.4, {
-          margin: 0,
-          borderWidth: 0,
-          padding: 0,
-          lineHeight: 0,
-          fontSize: 0,
-          ease: `Power3.easeInOut`
-        })
-        // Transition the element in
-        .from(
-          rtgChild,
-          0.5,
-          {
-            scale: 0,
-            ease: `Power3.easeInOut`
-          },
-          `-=0.2`
-        )
+      if (animateSpace) this.enterAnimSpaceAndItem(rtgChild)
+      else this.enterAnimItemOnly(rtgChild)
     })
   }
+
+  enterAnimSpaceAndItem = rtgChild => {
+    let tl = new TimelineMax()
+    tl.from(rtgChild, 0.4, spaceAnimation) // Expand the new space gradually
+      .from(rtgChild, 0.5, itemAnimation, `-=0.2`) // Transition the element in
+  }
+
+  enterAnimItemOnly = rtgChild => TweenMax.from(rtgChild, 0.5, itemAnimation)
 
   exitAnim = rtgChild => {
     loadjs.ready(`gsap`, () => {
@@ -48,16 +39,24 @@ class Mount extends Component {
           },
           `-=0.2`
         )
+
+      // Release styles after animating out
+      // TweenMax.set(rtgChild, { clearProps: `all` })
     })
   }
 
   render() {
+    const { animateEnter = true, animateExit = true, appear = true } = this.props
+
     return (
       <Transition
         in={this.props.in}
-        appear={true}
+        appear={appear}
+        enter={animateEnter}
         onEnter={this.enterAnim}
+        exit={animateExit}
         onExit={this.exitAnim}
+        unmountOnExit={true}
         timeout={{ enter: 700, exit: 700 }} // required unless addEndListener is used
       >
         {this.props.children}
@@ -67,7 +66,31 @@ class Mount extends Component {
 }
 
 Mount.propTypes = {
+  animateEnter: PropTypes.bool,
+  animateExit: PropTypes.bool,
+  animateSpace: PropTypes.bool,
+  appear: PropTypes.bool,
   in: PropTypes.bool // passed automatically by <TransitionGroup /> parent
+}
+
+/*
+ *
+ * Animations
+ *
+ */
+
+const itemAnimation = {
+  scale: 0,
+  ease: `Power3.easeInOut`
+}
+
+const spaceAnimation = {
+  margin: 0,
+  borderWidth: 0,
+  padding: 0,
+  lineHeight: 0,
+  fontSize: 0,
+  ease: `Power3.easeInOut`
 }
 
 /* 

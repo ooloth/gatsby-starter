@@ -1,7 +1,7 @@
 const Quote = ({ quote, source, href, className, style }) => (
-  <blockquote cite={href ? href : undefined} className={className} style={style}>
+  <blockquote cite={href} className={className} style={style}>
     {/* Quotation */}
-    <p dangerouslySetInnerHTML={{ __html: quote }} className="quote" />
+    <p dangerouslySetInnerHTML={{ __html: quote }} className="quote-body" />
 
     {/* Source and link (optional) */}
     {source && href ? (
