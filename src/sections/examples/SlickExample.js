@@ -11,7 +11,7 @@ const FlickityExample = ({ data }) => (
 
 const Slide = ({ slide }) => (
   <div className="bg-pink w-100">
-    <Img sizes={slide.node.image.childImageSharp.sizes} alt={slide.node.alt} />
+    <Img fluid={slide.node.image.childImageSharp.fluid} alt={slide.node.alt} />
     <h3 dangerouslySetInnerHTML={{ __html: slide.node.title }} className="ph5" />
   </div>
 )

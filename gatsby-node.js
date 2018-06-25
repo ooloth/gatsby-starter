@@ -4,77 +4,148 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-const ExtractTextPlugin = require(`extract-text-webpack-plugin`)
+// exports.onCreateWebpackConfig = ({ stage, rules, loaders, plugins, actions }) => {
+//   const PRODUCTION = stage !== `develop`
+//   const isSSR = stage.includes(`html`)
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  switch (stage) {
-  case `develop`:
-    // Remove default loaders
-    config.removeLoader(`css`)
-    config.removeLoader(`less`)
-    config.removeLoader(`sass`)
-    config.removeLoader(`cssModules`)
-    config.removeLoader(`lessModules`)
-    config.removeLoader(`sassModules`)
+//   // See: https://github.com/webpack-contrib/css-loader#options
+//   const cssLoader = {
+//     loader: path.resolve(`css-loader`),
+//     options: {
+//       importLoaders: 1,
+//       sourceMap: !PRODUCTION
+//     }
+//   }
 
-    // Remove postcss from Gatsby's dev process and ignore partials
-    config.loader(`css`, {
-      test: /\.css$/,
-      exclude: [
-        /src\/styles\/components/,
-        /src\/styles\/fonts/,
-        /src\/styles\/plugins/,
-        /src\/styles\/reset/,
-        /src\/styles\/supports/,
-        /src\/styles\/utilities/
-      ],
-      loaders: [`style`, `css`]
-    })
+//   const postcssLoader = {
+//     loader: path.resolve(`postcss-loader`),
+//     plugins: [
+//       require(`precss`),
+//       require(`tailwindcss`)(`./src/styles/tailwind.js`),
+//       require(`autoprefixer`)()
+//     ]
+//   }
 
-    break
+//   const purgecssLoader = PRODUCTION ? {
+//     loader: ,
+//     content: [`public/index.html`, `src/**/*.js`],
+//   // css: [`src/styles/builds/after-postcss/output.css`],
+//   extractors: [
+//     {
+//       // custom extractor to allow special characters in class names (see: https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css-with-purgecss)
+//       extractor: class {
+//         static extract(content) {
+//           return content.match(/[A-z0-9-:/]+/g) || []
+//         }
+//       },
+//       extensions: [`html`, `js`]
+//     }
+//   ],
+//   whitelist: [`carousel-cell`, `cursor-not-allowed`, `filter-label`, `o-50`],
+//   // Add plugin prefixes here:
+//   whitelistPatterns: [
+//     /body/,
+//     /flickity/,
+//     /headroom/,
+//     /ReactModal/,
+//     /ril/,
+//     /slick/,
+//     /textarea/
+//   ]
+//   } : null
 
-  case `build-css`:
-    // Remove default loaders
-    config.removeLoader(`css`)
-    config.removeLoader(`less`)
-    config.removeLoader(`sass`)
-    config.removeLoader(`cssModules`)
-    config.removeLoader(`lessModules`)
-    config.removeLoader(`sassModules`)
+//   const cssRule = {
+//     test: /\.css$./,
+//     exclude: [
+//       /src\/styles\/components/,
+//       /src\/styles\/fonts/,
+//       /src\/styles\/plugins/,
+//       /src\/styles\/reset/,
+//       /src\/styles\/supports/,
+//       /src\/styles\/utilities/
+//     ],
+//     // NOTE: the loaders run from last to first...
+//     use: isSSR
+//       ? [loaders.null()]
+//       : [loaders.miniCssExtract(), cssLoader, postcssLoader, purgecssLoader]
+//   }
 
-    // Remove postcss from Gatsby's build process and ignore partials
-    config.loader(`css`, {
-      test: /\.css$/,
-      exclude: [
-        /src\/styles\/base/,
-        /src\/styles\/builds\/after-postcss/,
-        /src\/styles\/components/,
-        /src\/styles\/plugins/,
-        /src\/styles\/reset/,
-        /src\/styles\/supports/,
-        /src\/styles\/utilities/
-      ],
-      loader: ExtractTextPlugin.extract([`css?minimize`])
-    })
+//   actions.setWebpackConfig({
+//     module: {
+//       rules: cssRule
+//     }
+//     // TODO: enable absolute imports after I figure out how to make Path Intellisense work with it...
+//     // See: https://next.gatsbyjs.org/docs/add-custom-webpack-config/#absolute-imports
+//     // resolve: {
+//     //   modules: [path.resolve(__dirname, `src`), `node_modules`]
+//     // }
+//   })
+// }
 
-    break
+// const ExtractTextPlugin = require(`extract-text-webpack-plugin`)
 
-  case `build-html`:
-    // TODO: handle some of these by requiring in CDM (like FlickitySlider)?
-    // Ignore packages that causes errors during build because they refer to the document/window (make test an array if > 1):
-    config.loader(`null`, {
-      test: [
-        /intersection-observer/,
-        /lightbox-react/,
-        /react-image-lightbox/,
-        /twitter-fetcher/
-      ],
-      loader: `null-loader`
-    })
+exports.onCreateWebpackConfig = ({ actions, stage, rules, plugins, loaders }) => {
+  // const PRODUCTION = stage !== `develop`
+  // const isSSR = stage.includes(`html`)
 
-    break
+  // Enable CSS source maps in development
+  // See: https://github.com/webpack-contrib/css-loader#options
+  // const cssLoader = {
+  //   loader: path.resolve(`css-loader`),
+  //   options: {
+  //     sourceMap: !PRODUCTION
+  //   }
+  // }
+
+  // Cancel out webpack postcss plugins
+  // const postcssLoader = { loader: path.resolve(`postcss-loader`), plugins: null }
+
+  // Ignore partial CSS files at each stage
+  // const cssRule = {
+  //   test: /\.css$./,
+  //   exclude: [
+  //     /src\/styles\/base/,
+  //     /src\/styles\/components/,
+  //     /src\/styles\/plugins/,
+  //     /src\/styles\/supports/,
+  //     /src\/styles\/utilities/,
+  //     PRODUCTION && /src\/styles\/builds\/after-postcss/
+  //   ],
+  //   // NOTE: the loaders run from last to first...
+  //   use: [loaders.miniCssExtract(), `style`, cssLoader, postcssLoader]
+  // }
+
+  // Ignore problematic packages during build
+  const nullRule = stage === `build-html` && {
+    test: [
+      /intersection-observer/,
+      /lightbox-react/,
+      /react-image-lightbox/,
+      /twitter-fetcher/
+    ],
+    loader: `null-loader`
   }
-  return config
+
+  let configRules = []
+
+  switch (stage) {
+  case `build-html`:
+    configRules = configRules.concat([{ ...nullRule }])
+    break
+
+    // default:
+    //   configRules = configRules.concat([{ ...cssRule }])
+    //   break
+  }
+
+  // console.log(`configRules`, configRules)
+
+  // Update Webpack rules
+  actions.setWebpackConfig({
+    module: {
+      rules: configRules
+    }
+  })
 }
 
 /*
@@ -88,8 +159,8 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
 const path = require(`path`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     // TODO: update `allTemplateYaml` to correct file name

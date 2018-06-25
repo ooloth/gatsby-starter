@@ -1,11 +1,29 @@
-const Layout = ({ children, data }) => (
-  <Fragment>
-    <SiteMetadata site={data.site.siteMetadata} />
-    <Header />
-    {children()}
-    <Footer />
-    <BasicStructuredData />
-  </Fragment>
+const Base = ({ children }) => (
+  <StaticQuery
+    query={graphql`
+      query BaseQuery {
+        site {
+          siteMetadata {
+            description
+            language
+            locale
+            title
+            twitterHandle
+            siteUrl
+          }
+        }
+      }
+    `}
+    render={data => (
+      <Fragment>
+        <SiteMetadata site={data.site.siteMetadata} />
+        <Header />
+        {children}
+        <Footer />
+        <BasicStructuredData />
+      </Fragment>
+    )}
+  />
 )
 
 /*
@@ -124,35 +142,15 @@ const structuredData = `{
 
 /*
  *
- * Queries
- * 
- */
-
-export const query = graphql`
-  query BaseQuery {
-    site {
-      siteMetadata {
-        description
-        language
-        locale
-        title
-        twitterHandle
-        siteUrl
-      }
-    }
-  }
-`
-
-/*
- *
  * Imports & Exports
  * 
  */
 
 import React, { Fragment } from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Header from '../sections/Header'
 import Footer from '../sections/Footer'
 
-export default Layout
+export default Base

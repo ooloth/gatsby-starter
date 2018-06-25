@@ -1,6 +1,12 @@
 /*
  *
- * Base
+ * Main CSS file
+ *
+ */
+
+/*
+ *
+ * Base styles
  *
  */
 
@@ -36,7 +42,7 @@ body {
  * Add the correct display in IE 9-.
  */
 
-article,
+
 aside,
 footer,
 header,
@@ -177,6 +183,10 @@ img {
  * Hide the overflow in IE.
  */
 
+svg:not(:root) {
+  overflow: hidden;
+}
+
 /* Forms
    ========================================================================== */
 
@@ -256,12 +266,25 @@ button:-moz-focusring,
  * Correct the padding in Firefox.
  */
 
+fieldset {
+  padding: .35em .75em .625em;
+}
+
 /**
  * 1. Correct the text wrapping in Edge and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
 
 /**
  * 1. Add the correct display in IE 9-.
@@ -333,8 +356,8 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-
-
+details,
+/* 1 */
 menu {
   display: block;
 }
@@ -400,12 +423,11 @@ html {
  * Removes the default spacing and border for appropriate elements.
  */
 
-
+blockquote,
 h1,
 h2,
 h3,
 h4,
-h5,
 figure,
 p {
   margin: 0;
@@ -424,6 +446,11 @@ button {
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -578,11 +605,16 @@ html,
 body {
   /*
  Font-smoothing
- */
-  -webkit-font-smoothing: antialiased;
+ *//*
+ See: https://css-tricks.com/understanding-web-fonts-getting
+ *//*
+ -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -moz-font-feature-settings: "liga" on;
+ *//*
+ text-rendering: optimizeLegibility;
+ *//*
+ -moz-font-feature-settings: "liga" on;
+ */
 }
 
 /* 
@@ -643,13 +675,13 @@ li > ul {
 
 input,
 textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0;
   border-radius: 0;
   background-color: transparent;
   padding: 0;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   /* Fixes vertical alignment issues in iOS (don't add a specific line height to inputs): */
   line-height: normal;
   font-size: inherit;
@@ -687,6 +719,17 @@ textarea::placeholder {
 }
 
 /* Reset Chrome and Firefox behaviour which sets a 'min-width: min-content;' on fieldsets: */
+
+fieldset {
+  min-width: 0;
+  border: 0;
+}
+
+/* Since clicking a radio button label triggers the input, match the default UX */
+
+input[type='radio'] + label {
+  cursor: pointer;
+}
 
 /* 
 
@@ -832,16 +875,218 @@ textarea:focus {
 
 /*
  *
- * Plugins
+ * Plugin Styles (vendor + custom)
+ *
+ */
+
+/* Slider */
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-touch-callout: none;
+   -khtml-user-select: none;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.slick-list:focus {
+  outline: none;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slick-track:before,
+.slick-track:after {
+  display: table;
+  content: '';
+}
+
+.slick-track:after {
+  clear: both;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+
+[dir='rtl'] .slick-slide {
+  float: right;
+}
+
+.slick-slide img {
+  display: block;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-initialized .slick-slide {
+  display: block;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+/* 
+ *
+ *   Slick Slider 
+ *   ============
+ *
+ *   1. Display/hiding
+ *   2. Dimensions
+ *   3. Vertical alignment
+ *   4. Dots
+ *   5. Arrows
+ *   6. Other styling
  *
  */
 
 /*
-@import '../../node_modules/slick-carousel/slick/slick.css';
-@import './plugins/react-slick';
-*/
+ *
+ * 3. Vertical alignment
+ *
+ */
 
-/*! Flickity v2.1.1
+.slick-initialized .slick-slide {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 
+ *
+ * General 
+ *
+ */
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide,
+.slick-slide > div {
+  display: flex !important;
+  height: auto !important;
+}
+
+.slick-slide > div {
+  width: 100%;
+}
+
+/* .slick-list
+  overflow-x: hidden */
+
+/* 
+ *
+ * Arrows 
+ *
+ */
+
+/* .slick-slider
+  position: relative */
+
+/* 
+ *
+ * Dots 
+ *
+ */
+
+.slick-dots {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  margin: 0 1rem 1.25rem 0;
+  text-align: center;
+  list-style: none;
+}
+
+@media (-lg) {
+  .slick-dots {
+    top: 0;
+  }
+}
+
+.slick-dots > li {
+  display: inline-block;
+  margin-left: .75rem;
+  cursor: pointer;
+}
+
+@media (min-width: 62em) {
+  .slick-dots > li {
+    display: block;
+    margin: .5rem 0 0 0;
+  }
+}
+
+.slick-dots > li > button {
+  /* border: 3px solid pink; */
+  border-radius: 100%;
+  background-color: grey;
+  padding: 0;
+  height: .75rem;
+  width: .75rem;
+  color: transparent;
+  opacity: .5;
+  /* TODO: match the slider speed: */
+  transition: all 1s ease-in-out;
+  cursor: pointer;
+}
+
+.slick-dots > li.slick-active > button {
+  opacity: 1;
+  /* border: 3px solid pink; */
+  background-color: #9d1e2d;
+  /* height: 1.15rem; *//* width: 1.15rem; */
+}
+
+/*! Flickity v2.1.2
 https://flickity.metafizzy.co
 ---------------------------------------------- */
 
@@ -951,6 +1196,10 @@ https://flickity.metafizzy.co
  * Equal height cells hack: https://codepen.io/desandro/pen/ZXEGVq 
  *
  */
+
+.flickity-resize .carousel-cell {
+  min-height: 100%;
+}
 
 @-webkit-keyframes closeWindow {
   0% {
@@ -1541,331 +1790,96 @@ TODO: Make sure to scope all style to avoid conflicting with react-image-lightbo
           transform: translateX(100%);
 }
 
-/*
-@import './plugins/lightbox-react';
-@import './plugins/twitter-fetcher';
-*/
-
-/*
- *
- * New styles (TODO: add to Gatsby starter for future projects)
- *
- */
-
-/*
-
-NEW STYLES
-==========
-
-Add all new styles here (reset, plugin, utility, component) so they are easy to add to the Gatsby Starter project.
-
-*/
-
-/*
- *
- * Components
- *
- */
-
-/* 
-
-See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patterns-with-apply
-
-*/
+/* Move the close button to the left side */
 
 /* 
  *
- * Buttons
+ * Twitter Fetcher
  *
  */
 
-.btn {
-  border-width: .125rem;
-  border-width: var(--border-width-1);
-  border-color: #000;
-  border-color: var(--black);
-  background-color: #000;
-  background-color: var(--black);
-  color: #ff80cc;
-  color: var(--pink);
-  padding-top: .5rem;
-  padding-top: var(--spacing-2);
-  padding-bottom: .5rem;
-  padding-bottom: var(--spacing-2);
-  padding-left: 1rem;
-  padding-left: var(--spacing-3);
-  padding-right: 1rem;
-  padding-right: var(--spacing-3);
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  transition: all .2s ease-in-out;
-}
-
-.btn:hover {
-  background-color: #ff80cc;
-  background-color: var(--pink);
-  color: #000;
-  color: var(--black);
-}
-
-@media (min-width: 36em) {
-  .btn {
-    font-size: 1.25rem;
-    font-size: var(--font-size-4);
-  }
-}
-
-/* 
+/*
  *
- * Containers
+ * Styling When Using Custom Markup (fetching data only)
  *
  */
 
-.container {
+.tweet {
+  /* This class is applied automatically to URL links inside tweets (not hashtags) *//*
+  .link { @apply .blue }
+  *//* This class is applied automatically to hashtag links inside tweets *//*
+  .hashtag { @apply .blue }
+  */
+}
+
+/* This class is applied automatically to all links inside tweets (including hashtags) */
+
+/*
+ *
+ * Styling When Using Default Markup (all layout and styling happens here)
+ *
+ */
+
+/* Hide user */
+
+/*
+.user { @apply .dn }
+*/
+
+/* Style tweet */
+
+/*
+.tweet { @apply .ml-auto .mr-auto .measure .lh-title }
+*/
+
+/* Style links inside tweets */
+
+/*
+.tweet > a { 
+  @apply .underline .blue .animate;
+
+  &:hover { @apply .pink }
+}
+*/
+
+/* Hide interaction */
+
+/*
+.interact { @apply .dn }
+*/
+
+/*
+
+Component classes
+
+*/
+
+/* @import './examples/arrows'; */
+
+/*
+ *
+ * Blockquotes (classes to style the <Quote /> component)
+ *
+ */
+
+.quote-body {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-left: var(--spacing-3);
-  padding-right: 1rem;
-  padding-right: var(--spacing-3);
-  max-width: 64rem;
-  max-width: var(--sizing-8);
+  max-width: 66ch;
+  line-height: 1.5;
+  /* add quotation marks in ::after / ::before using content: open-quote / close-quote? */
 }
 
-@media (min-width: 48em) {
-  .container {
-    padding-left: 2rem;
-    padding-left: var(--spacing-4);
-    padding-right: 2rem;
-    padding-right: var(--spacing-4);
-  }
-}
-
-@media (min-width: 62em) {
-  .container {
-    padding-left: 4rem;
-    padding-left: var(--spacing-5);
-    padding-right: 4rem;
-    padding-right: var(--spacing-5);
-  }
-}
-
-.container {
-  /*
- @supports (display: grid) { @apply .mw9 }
- */
-}
-
-/* 
- *
- * Filter Buttons
- *
- */
-
-/* 
- *
- * Headings
- *
- */
-
-.heading {
-  font-size: 2.25rem;
-  font-size: var(--font-size-2);
-  color: #000;
-  color: var(--black);
-}
-
-/* 
- *
- * Icons
- *
- */
-
-.icon {
-  transition: all .2s ease-in-out;
-}
-
-.icon:hover {
-  color: #19a974;
-  color: var(--green);
-}
-
-/* 
- *
- * Inputs
- *
- */
-
-.input {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-color: #eee;
-  border-color: var(--light-gray);
-  padding-bottom: .25rem;
-  padding-bottom: var(--spacing-1);
-  width: 100%;
-  font-family: 'Courier New', courier, monospace;
-}
-
-/* 
- *
- * Links
- *
- */
-
-.link {
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-  border-width: .125rem;
-  border-width: var(--border-width-1);
-  border-color: #000;
-  border-color: var(--black);
-  background-color: #000;
-  background-color: var(--black);
+.quote-source {
+  display: inline-flex;
   padding-top: .5rem;
   padding-top: var(--spacing-2);
-  padding-bottom: .5rem;
-  padding-bottom: var(--spacing-2);
-  padding-left: 1rem;
-  padding-left: var(--spacing-3);
-  padding-right: 1rem;
-  padding-right: var(--spacing-3);
-  line-height: 1.7;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: #fff;
-  color: var(--white);
-  transition: all .2s ease-in-out;
-  border-radius: 30px;
+  font-style: normal;
 }
 
-.link:hover {
-  border-color: #ff80cc;
-  border-color: var(--pink);
-  background-color: #ff80cc;
-  background-color: var(--pink);
-  color: #000;
-  color: var(--black);
-}
-
-/* These go with the arrows in components/examples/Arrows */
-
-/* 
- *
- * Arrow down
- *
- */
-
-/* 
- *
- * Arrow left
- *
- */
-
-.arrow-left {
-  width: 70px;
-  height: 60px;
-  display: block;
-  float: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  z-index: 10;
-  bottom: 0;
-  left: 0;
-}
-
-.arrow-left .arrow-line {
-  width: 54px;
-  height: 2px;
-  top: 50%;
-  right: -28px;
-  position: absolute;
-  display: block;
-  margin: -1px 0 0 0;
-  background: #282828;
-  z-index: 1;
-}
-
-.arrow-left .arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 7px 6px 0;
-  border-color: transparent #282828 transparent transparent;
-  position: absolute;
-  z-index: 4;
-  display: block;
-  left: -4px;
-  top: -5px;
-}
-
-.arrow-left:hover .arrow-line {
-  transition-delay: 200ms;
-  -webkit-transform: translateX(-23px);
-          transform: translateX(-23px);
-}
-
-.group:hover .arrow-left .arrow-line {
-  transition-delay: 200ms;
-  -webkit-transform: translateX(-23px);
-          transform: translateX(-23px);
-}
-
-/* 
- *
- * Arrow right
- *
- */
-
-.arrow-right {
-  width: 70px;
-  height: 60px;
-  display: block;
-  float: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  z-index: 10;
-  bottom: 0;
-  right: 0;
-}
-
-.arrow-right .arrow-line {
-  width: 54px;
-  height: 2px;
-  top: 50%;
-  left: -28px;
-  position: absolute;
-  display: block;
-  margin: -1px 0 0 0;
-  background: #282828;
-  z-index: 1;
-}
-
-.arrow-right .arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 6px 0 6px 7px;
-  border-color: transparent transparent transparent #282828;
-  position: absolute;
-  z-index: 4;
-  display: block;
-  right: -4px;
-  top: -5px;
-}
-
-.arrow-right:hover .arrow-line {
-  transition-delay: 200ms;
-  -webkit-transform: translateX(23px);
-          transform: translateX(23px);
-}
-
-.group:hover .arrow-right .arrow-line {
-  transition-delay: 200ms;
-  -webkit-transform: translateX(23px);
-          transform: translateX(23px);
+.quote-link {
+  color: #357edd;
+  color: var(--blue);
 }
 
 /* These go with the burger in components/examples/BurgerAndOverlay */
@@ -1930,9 +1944,212 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 
 /*
  *
- * Supports
+ * Buttons
  *
  */
+
+.btn {
+  border-width: .125rem;
+  border-width: var(--border-width-1);
+  border-color: #000;
+  border-color: var(--black);
+  background-color: #000;
+  background-color: var(--black);
+  color: #ff80cc;
+  color: var(--pink);
+  padding-top: .5rem;
+  padding-top: var(--spacing-2);
+  padding-bottom: .5rem;
+  padding-bottom: var(--spacing-2);
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #ff80cc;
+  background-color: var(--pink);
+  color: #000;
+  color: var(--black);
+}
+
+@media (min-width: 36em) {
+  .btn {
+    font-size: 1.25rem;
+    font-size: var(--font-size-4);
+  }
+}
+
+/*
+
+Containers
+
+*/
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
+  max-width: 64rem;
+  max-width: var(--sizing-8);
+}
+
+@media (min-width: 48em) {
+  .container {
+    padding-left: 2rem;
+    padding-left: var(--spacing-4);
+    padding-right: 2rem;
+    padding-right: var(--spacing-4);
+  }
+}
+
+@media (min-width: 62em) {
+  .container {
+    padding-left: 4rem;
+    padding-left: var(--spacing-5);
+    padding-right: 4rem;
+    padding-right: var(--spacing-5);
+  }
+}
+
+.container {
+  /*
+ @supports (display: grid) { @apply .mw9 }
+ */
+}
+
+/*
+ *
+ * Filter Inputs & Labels
+ *
+ */
+
+/*
+ *
+ * Radio Buttons
+ *
+ */
+
+/* When the input is checked, adjust the styling of the NEXT label in the DOM */
+
+.filter-input:checked + label {
+  background-color: #ff80cc;
+  background-color: var(--pink);
+  color: #000;
+  color: var(--black);
+}
+
+/* Prevent the fieldset height from partially collapsing */
+
+.filter-label {
+  display: inline-flex;
+}
+
+/*
+ *
+ * Checkboxes
+ *
+ */
+
+/* ... */
+
+/* @import './examples/floating-shapes'; */
+
+/* 
+
+Headings
+
+*/
+
+/* 
+
+Icons
+
+*/
+
+.icon {
+  transition: all .2s ease-in-out;
+}
+
+.icon:hover {
+  color: #19a974;
+  color: var(--green);
+}
+
+/* 
+
+Inputs
+
+*/
+
+.input {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: #eee;
+  border-color: var(--light-gray);
+  padding-bottom: .25rem;
+  padding-bottom: var(--spacing-1);
+  width: 100%;
+  font-family: 'Courier New', courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+/* 
+ *
+ * Links (that are not inside tweets)
+ *
+ */
+
+/* NOTE: The .customizable class is added to all Twitter links automatically" */
+
+.link:not(.customisable) {
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
+  border-width: .125rem;
+  border-width: var(--border-width-1);
+  border-color: #000;
+  border-color: var(--black);
+  background-color: #000;
+  background-color: var(--black);
+  padding-top: .5rem;
+  padding-top: var(--spacing-2);
+  padding-bottom: .5rem;
+  padding-bottom: var(--spacing-2);
+  padding-left: 1rem;
+  padding-left: var(--spacing-3);
+  padding-right: 1rem;
+  padding-right: var(--spacing-3);
+  line-height: 1.7;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #fff;
+  color: var(--white);
+  transition: all .2s ease-in-out;
+  border-radius: 30px;
+}
+
+.link:not(.customisable):hover {
+  border-color: #ff80cc;
+  border-color: var(--pink);
+  background-color: #ff80cc;
+  background-color: var(--pink);
+  color: #000;
+  color: var(--black);
+}
+
+/* @import './examples/tooltips'; */
+
+/*
+
+Classes that rely on feature queries
+
+*/
 
 /* 
  * 
@@ -1964,10 +2181,10 @@ See: https://tailwindcss.com/docs/extracting-components#extracting-utility-patte
 }
 
 /*
- *
- * Utilities
- *
- */
+
+Utility classes
+
+*/
 
 /* Animations */
 
@@ -2594,10 +2811,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
   min-height: 0; /* 1 */
 }
 
-.flex-none {
-  flex: none;
-}
-
 /*
 
 FLOATS & CLEARFIX
@@ -2789,11 +3002,6 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: var(--sizing-4);
 }
 
-.h5 {
-  height: 16rem;
-  height: var(--sizing-5);
-}
-
 .h7 {
   height: 48rem;
   height: var(--sizing-7);
@@ -2881,9 +3089,9 @@ Adapted from:
 
 */
 
-.w5 {
-  width: 16rem;
-  width: var(--sizing-5);
+.mw5 {
+  max-width: 16rem;
+  max-width: var(--sizing-5);
 }
 
 /* 
@@ -2894,6 +3102,10 @@ Adapted from:
 
 .w-30 {
   width: 30%;
+}
+
+.w-50 {
+  width: 50%;
 }
 
 .w-100 {
@@ -2935,6 +3147,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-top: var(--spacing-4);
 }
 
+.mt5 {
+  margin-top: 4rem;
+  margin-top: var(--spacing-5);
+}
+
 /* Right */
 
 .mr2 {
@@ -2971,6 +3188,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 .mb5 {
   margin-bottom: 4rem;
   margin-bottom: var(--spacing-5);
+}
+
+.mb6 {
+  margin-bottom: 8rem;
+  margin-bottom: var(--spacing-6);
 }
 
 /* Left */
@@ -3096,6 +3318,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-top: var(--spacing-3);
 }
 
+.pt4 {
+  padding-top: 2rem;
+  padding-top: var(--spacing-4);
+}
+
 .pt6 {
   padding-top: 8rem;
   padding-top: var(--spacing-6);
@@ -3109,11 +3336,6 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 }
 
 /* Bottom */
-
-.pb3 {
-  padding-bottom: 1rem;
-  padding-bottom: var(--spacing-3);
-}
 
 .pb4 {
   padding-bottom: 2rem;
@@ -3146,25 +3368,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-bottom: var(--spacing-2);
 }
 
-.pv3 {
-  padding-top: 1rem;
-  padding-top: var(--spacing-3);
-  padding-bottom: 1rem;
-  padding-bottom: var(--spacing-3);
-}
-
 .pv4 {
   padding-top: 2rem;
   padding-top: var(--spacing-4);
   padding-bottom: 2rem;
   padding-bottom: var(--spacing-4);
-}
-
-.pv5 {
-  padding-top: 4rem;
-  padding-top: var(--spacing-5);
-  padding-bottom: 4rem;
-  padding-bottom: var(--spacing-5);
 }
 
 /* Horizontal (left + right) */
@@ -3193,6 +3401,10 @@ SVG
 Adapted from: https://tailwindcss.com/docs/svg
 
 */
+
+.fill-current {
+  fill: currentColor;
+}
 
 /* Tables */
 
@@ -3315,24 +3527,19 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--near-black);
 }
 
-.gray {
-  color: #777;
-  color: var(--gray);
-}
-
-.light-gray {
-  color: #eee;
-  color: var(--light-gray);
-}
-
 .white {
   color: #fff;
   color: var(--white);
 }
 
-.gold {
-  color: #ffb700;
-  color: var(--gold);
+.red {
+  color: #ff4136;
+  color: var(--red);
+}
+
+.purple {
+  color: #5e2ca5;
+  color: var(--purple);
 }
 
 .pink {
@@ -3359,6 +3566,11 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--hot-pink);
 }
 
+.hover\:blue:hover {
+  color: #357edd;
+  color: var(--blue);
+}
+
 /*
 
 FONT FAMILY GROUPS
@@ -3370,6 +3582,8 @@ Adapted from:
 
 */
 
+/* See: http://markdotto.com/2018/02/07/github-system-fonts/ */
+
 /*
  *
  * Monospace (for code) 
@@ -3377,11 +3591,11 @@ Adapted from:
  */
 
 code {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .courier {
-  font-family: 'Courier New', courier, monospace;
+  font-family: 'Courier New', courier, monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /*
@@ -3395,10 +3609,6 @@ code {
  * Serif
  *
  */
-
-.times {
-  font-family: times, serif;
-}
 
 /*
  *
@@ -3438,10 +3648,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
 .f6 {
   font-size: .875rem;
   font-size: var(--font-size-6);
-}
-
-.f-lead {
-  font-size: 1.125rem;
 }
 
 /*
@@ -3570,6 +3776,14 @@ LINE HEIGHT
 Adapted from: http://tachyons.io/docs/typography/line-height
 
 */
+
+.lh-none {
+  line-height: 0;
+}
+
+.lh-title {
+  line-height: 1.25;
+}
 
 .lh-copy {
   line-height: 1.5;

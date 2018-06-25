@@ -1,51 +1,56 @@
 const IndexPage = ({ data }) => (
-  <main id="main-content" tabIndex="-1" className="container tc">
-    <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
+  <Base>
+    <main id="main-content" tabIndex="-1" className="container tc">
+      <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
 
-    <Link to="/page-2/" className="link dib">
-      Go to page 2
-    </Link>
+      <Link to="/page-2/" className="link dib">
+        Go to page 2
+      </Link>
 
-    <YamlExample data={data.allExampleYaml.edges} />
-    <TemplateExample data={data.allTemplateYaml.edges} />
+      <YamlExample data={data.allExampleYaml.edges} />
+      <TemplateExample data={data.allTemplateYaml.edges} />
 
-    <MountTransitionExample />
-    <GSAPExample />
-    <RevealExample data={data.allExampleYaml.edges} />
+      <MountTransitionExample />
+      <GSAPExample />
+      <RevealExample data={data.allExampleYaml.edges} />
 
-    <CollapseExample />
+      <CollapseExample />
 
-    <FilterExample
-      category1={data.allCategory1Yaml.edges}
-      category2={data.allCategory2Yaml.edges}
-    />
+      <FilterExample
+        category1={data.allCategory1Yaml.edges}
+        category2={data.allCategory2Yaml.edges}
+      />
 
-    <FilterAndLimitExample
-      cat1={data.allCategory1Yaml.edges}
-      cat2={data.allCategory2Yaml.edges}
-    />
+      <FilterAndLimitExample
+        cat1={data.allCategory1Yaml.edges}
+        cat2={data.allCategory2Yaml.edges}
+      />
 
-    <FlickityExample data={data.allExampleYaml.edges} />
-    <SlickExample data={data.allExampleYaml.edges} />
+      {/* TODO: rewrite FlickityExample (causing an error in v2) */}
+      {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
+      <SlickExample data={data.allExampleYaml.edges} />
 
-    <ImageLightboxExample images={data.allLightboxImagesYaml.edges[0].node.images} />
-    <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
+      <ImageLightboxExample
+        images={data.allLightboxImagesYaml.edges[0].node.images}
+      />
+      <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
-    <BlockquotesExample />
-    <IconsAndEmojisExample />
+      <BlockquotesExample />
+      <IconsAndEmojisExample />
 
-    {/* <ReactSpringExample /> */}
+      {/* <ReactSpringExample /> */}
 
-    <TwitterExample />
-    <InstagramExample />
-    {/* <ParallaxExample /> */}
+      <TwitterExample />
+      <InstagramExample />
+      {/* <ParallaxExample /> */}
 
-    <FormExample />
+      <FormExample />
 
-    <ScrollTo href="#top" className="link dib mb5">
-      Back to top
-    </ScrollTo>
-  </main>
+      <ScrollTo href="#top" className="link dib mb5">
+        Back to top
+      </ScrollTo>
+    </main>
+  </Base>
 )
 
 /*
@@ -61,8 +66,8 @@ export const query = graphql`
         node {
           image {
             childImageSharp {
-              sizes(maxWidth: 672) {
-                ...GatsbyImageSharpSizes_withWebp
+              fluid(maxWidth: 672) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -101,11 +106,11 @@ export const query = graphql`
           url
           image {
             childImageSharp {
-              sizes(
+              fluid(
                 maxWidth: 500
                 duotone: { highlight: "#9eebcf", shadow: "#192550" }
               ) {
-                ...GatsbyImageSharpSizes_withWebp
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -117,11 +122,11 @@ export const query = graphql`
         node {
           images {
             childImageSharp {
-              thumbnail: sizes(maxWidth: 925) {
-                ...GatsbyImageSharpSizes_withWebp
+              thumbnail: fluid(maxWidth: 925) {
+                ...GatsbyImageSharpFluid_withWebp
               }
-              lightbox: resolutions(width: 1500) {
-                ...GatsbyImageSharpResolutions_withWebp
+              lightbox: fixed(width: 1500) {
+                ...GatsbyImageSharpFixed_withWebp
               }
             }
           }
@@ -138,7 +143,9 @@ export const query = graphql`
  */
 
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
+
+import Base from '../components/Base'
 
 import YamlExample from '../sections/examples/YamlExample'
 import TemplateExample from '../sections/examples/TemplateExample'

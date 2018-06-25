@@ -10,7 +10,7 @@ A wrapper around gatsby-image that includes:
 Use like this:
 
 <Img
-  sizes={sizes}
+  fluid={fluid}
   alt={alt}
   fit="cover" (optional; default: cover)
   position="50% 0%" (optional; default: 50% 50%)
@@ -50,7 +50,7 @@ class ImgObserver extends React.Component {
         <figure data-critical={this.props.critical}>
           {this.state.isIntersecting && (
             <Image
-              sizes={this.props.sizes}
+              fluid={this.props.fluid}
               alt={this.props.alt}
               className={this.props.className}
               style={this.props.style}

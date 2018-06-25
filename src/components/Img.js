@@ -13,8 +13,8 @@ const Img = props => {
 
   return (
     <Image
-      sizes={props.sizes}
-      resolutions={props.resolutions}
+      fluid={props.fluid}
+      fixed={props.fixed}
       alt={props.alt}
       className={props.className}
       style={props.style}
@@ -47,8 +47,8 @@ A wrapper around gatsby-image that includes an object-fit and object-position po
 Example:
 
 <Img
-  sizes={sizes}
-  resolutions={props.resolutions}
+  fluid={fluid}
+  fixed={props.fixed}
   alt={alt}
   objFit="cover" (optional; default: cover)
   objPosition="50% 0%" (optional; default: 50% 50%)

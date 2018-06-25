@@ -18,7 +18,7 @@ const YamlExample = ({ data }) => (
 const Example = ({ example }) => (
   <li className="ph3 w-third">
     <Img
-      sizes={example.image.childImageSharp.sizes}
+      fluid={example.image.childImageSharp.fluid}
       alt={example.alt}
       className="shadow-lg"
     />

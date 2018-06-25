@@ -92,7 +92,7 @@ const Images = ({ videos, handleImageClick, handleEnter }) => (
     {videos.map((video, index) => {
       return (
         <li key={`image-${index}`} className="group relative mt3 w-30 shadow-lg">
-          <Img sizes={video.node.image.childImageSharp.sizes} alt="" />
+          <Img fluid={video.node.image.childImageSharp.fluid} alt="" />
 
           {/* Overlay + Lightbox trigger */}
           <button

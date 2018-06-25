@@ -4,13 +4,15 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+// const React = require(`react`)
+
 /*
  *
  * Urgent polyfills (before first render)
  * 
  */
 
-exports.onClientEntry = () => {
+export const onClientEntry = () => {
   // NOTE: Don't polyfill Promise here (Gatsby already includes a Promise polyfill)
 
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
@@ -52,7 +54,7 @@ exports.onClientEntry = () => {
 
 import loadjs from 'loadjs'
 
-exports.onInitialClientRender = () => {
+export const onInitialClientRender = () => {
   // A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
   loadjs(
     `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`,

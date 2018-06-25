@@ -10,17 +10,19 @@ const Template = ({ data }) => {
   const template = data.allTemplateYaml.edges[0].node
 
   return (
-    <main id="main-content tc">
-      <PageMetadata page={template.pageMetadata} />
+    <Base>
+      <main id="main-content tc">
+        <PageMetadata page={template.pageMetadata} />
 
-      <h1 className="pv4 tc f1">Hi from {template.title}</h1>
+        <h1 className="pv4 tc f1">Hi from {template.title}</h1>
 
-      <div className="tc">
-        <Link to="/" className="link dib mb4">
-          Go back home
-        </Link>
-      </div>
-    </main>
+        <div className="tc">
+          <Link to="/" className="link dib mb4">
+            Go back home
+          </Link>
+        </div>
+      </main>
+    </Base>
   )
 }
 
@@ -55,8 +57,9 @@ export const query = graphql`
  */
 
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 
+import Base from '../components/Base'
 import PageMetadata from '../components/PageMetadata'
 
 export default Template

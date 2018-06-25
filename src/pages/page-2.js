@@ -1,11 +1,13 @@
 const SecondPage = ({ data }) => (
-  <main id="main-content" tabIndex="-1" className="container tc">
-    <PageMetadata page={data.metadata.siteMetadata.secondPage} />
-    <h1 className="pv4 f1">Hi from page 2</h1>
-    <Link to="/" className="link dib mb4">
-      Go back home
-    </Link>
-  </main>
+  <Base>
+    <main id="main-content" tabIndex="-1" className="container tc">
+      <PageMetadata page={data.metadata.siteMetadata.secondPage} />
+      <h1 className="pv4 f1">Hi from page 2</h1>
+      <Link to="/" className="link dib mb4">
+        Go back home
+      </Link>
+    </main>
+  </Base>
 )
 
 /*
@@ -35,8 +37,9 @@ export const query = graphql`
  */
 
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 
+import Base from '../components/Base'
 import PageMetadata from '../components/PageMetadata'
 
 export default SecondPage

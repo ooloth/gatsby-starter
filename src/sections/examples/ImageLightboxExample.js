@@ -60,7 +60,7 @@ const Images = ({ images, handleImageClick, handleEnter }) => (
     {images.map((image, index) => {
       return (
         <li key={`image-${index}`} className="group relative mt3 w-30">
-          <Img sizes={image.childImageSharp.thumbnail} alt="" />
+          <Img fluid={image.childImageSharp.thumbnail} alt="" />
 
           {/* Overlay + Lightbox trigger */}
           <button

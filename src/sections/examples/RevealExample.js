@@ -24,7 +24,7 @@ const RevealedImage = ({ image }) => (
     offsetBottom="125%"
   >
     <Img
-      sizes={image.image.childImageSharp.sizes}
+      fluid={image.image.childImageSharp.fluid}
       alt={image.alt}
       className="shadow-lg"
     />
@@ -56,7 +56,7 @@ const RevealedImages = ({ images }) => (
       return (
         <li key={index}>
           <Img
-            sizes={image.node.image.childImageSharp.sizes}
+            fluid={image.node.image.childImageSharp.fluid}
             alt={image.node.alt}
             className="shadow-lg"
           />
@@ -82,7 +82,7 @@ const RevealedImages = ({ images }) => (
     offsetBottom="100%"
   >
     <Img
-      sizes={example.image.childImageSharp.sizes}
+      fluid={example.image.childImageSharp.fluid}
       alt={example.alt}
       className="shadow-lg"
     />

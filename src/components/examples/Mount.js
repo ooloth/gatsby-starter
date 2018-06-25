@@ -122,4 +122,6 @@ INSTRUCTIONS:
 1. Either wrap in TransitionGroup and a .map() of items (in which case TG sends "in" prop automatically)
 2. Or, use alone and send "in" prop manually
 
+Docs: http://reactcommunity.org/react-transition-group/
+
 */
