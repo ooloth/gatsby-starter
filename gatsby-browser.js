@@ -15,6 +15,7 @@
 export const onClientEntry = () => {
   // NOTE: Don't polyfill Promise here (Gatsby already includes a Promise polyfill)
 
+  // TODO: will Babel 7 polyfill this for me?
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
   if (typeof window.IntersectionObserver === `undefined`) {
     require(`intersection-observer`)
@@ -83,12 +84,13 @@ export const onInitialClientRender = () => {
   //   )
   // }
 
+  // TODO: make sure Babel 7 auto-polyfills this...
   // Fetch polyfill for FormNetlify (IE)
-  if (typeof window.fetch === `undefined`) {
-    loadjs(
-      `https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js`,
-      `fetch`,
-      () => console.log(`👍 Fetch is polyfilled`)
-    )
-  }
+  // if (typeof window.fetch === `undefined`) {
+  //   loadjs(
+  //     `https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js`,
+  //     `fetch`,
+  //     () => console.log(`👍 Fetch is polyfilled`)
+  //   )
+  // }
 }

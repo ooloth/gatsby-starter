@@ -61,6 +61,7 @@ class Collapse extends Component {
           ref={el => (this.node = el)}
           className={`overflow-hidden ${className}`}
           style={{ height: 0 }}
+          hidden={!expanded}
         >
           {renderContent()}
         </div>
