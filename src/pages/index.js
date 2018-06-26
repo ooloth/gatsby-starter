@@ -16,6 +16,8 @@ const IndexPage = ({ data }) => (
 
       <CollapseExample />
 
+      <EventsByUpcomingAndPastExample />
+
       <FilterExample
         category1={data.allCategory1Yaml.edges}
         category2={data.allCategory2Yaml.edges}
@@ -46,6 +48,7 @@ const IndexPage = ({ data }) => (
 
       {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
       {/* <FormExample /> */}
+      <p>(The Form example is hidden by default.)</p>
 
       <ScrollTo href="#top" className="link dib mb5">
         Back to top
@@ -156,6 +159,8 @@ import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
 
 import CollapseExample from '../sections/examples/CollapseExample'
+import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
+
 // import ParallaxExample from '../sections/examples/ParallaxExample'
 // import ReactSpringExample from '../sections/examples/ReactSpringExample'
 

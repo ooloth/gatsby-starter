@@ -15,14 +15,6 @@ module.exports = {
     }
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-plugin-webpack-bundle-analyzer`,
-    //   options: {
-    //     defaultSizes: `gzip`,
-    //     disable: false,
-    //     production: true
-    //   }
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,12 +22,8 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-sitemap`
-    // },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
-    // `gatsby-transformer-json`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`
     // {
@@ -54,6 +42,14 @@ module.exports = {
     //       yandex: true,
     //       windows: true
     //     }
+    //   }
+    // },
+    // {
+    //   resolve: `gatsby-plugin-webpack-bundle-analyzer`,
+    //   options: {
+    //     defaultSizes: `gzip`,
+    //     disable: false,
+    //     production: true
     //   }
     // },
     // {
@@ -101,6 +97,21 @@ module.exports = {
     //   }
     // },
     // `gatsby-plugin-offline`,
+    // {
+    //   resolve: `gatsby-plugin-sitemap`
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-robots-txt',
+    //   Disable crawlers for Netlify deploy-previews:
+    //   options: isNetlifyProduction
+    //     ? { policy: [{ userAgent: '*' }] }
+    //     : {
+    //         policy: [{ userAgent: '*', disallow: ['/'] }],
+    //         sitemap: null,
+    //         host: null
+    //       }
+    // },
+    // `gatsby-plugin-netlify-cache`,
     // {
     //   resolve: `gatsby-plugin-netlify`, // must come last
     //   options: {
