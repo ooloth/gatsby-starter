@@ -4,5 +4,36 @@ Headings
 
 */
 
-.heading    { @apply .f2 .black }
-.subheading { @apply .f5 .ttu .tracked }
+/* Section headings */
+.heading { 
+  @apply .dib .relative .pv3 .pr4 .lora .f1 .ttl;
+
+  @media (min-width: 375px) { font-size: 3.5rem }
+  @media (min-width: 400px) { font-size: 4rem }
+  @media (--md) { font-size: 4.5rem }
+}
+
+
+
+/* Bars that extend to the edge of the left viewport */
+.heading-trail-white      { @apply .bg-white .transY--50 }
+.heading-trail-near-white { @apply .bg-near-white .transY--50 }
+
+.heading-trail-white::before,
+.heading-trail-near-white::before {
+  @apply .db .absolute .top-0 .left-0 .h-100;
+  content: '';
+  width: 99999px;
+  transform: translateX(-100%);
+}
+
+/* Color of each bar */
+.heading-trail-white::before      { @apply .bg-white }
+.heading-trail-near-white::before { @apply .bg-near-white }
+
+
+/* Headings with a blue underline */
+.heading-underline::after {
+  @apply .db .mt2 .bg-blue .pt1 .w4;
+  content: '';
+}

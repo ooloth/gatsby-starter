@@ -5,8 +5,8 @@
  */
 
 .quote-body { 
-  @apply .lh-copy; 
+  @apply .f4 .lh-copy; 
   /* add quotation marks in ::after / ::before using content: open-quote / close-quote? */ 
 }
-.quote-source { @apply .inline-flex .pt2 .fs-normal }
+.quote-source { @apply .mt3 .fs-normal }
 .quote-link   { @apply .blue }

@@ -5,7 +5,7 @@ Containers
 */
 
 .container { 
-  @apply .ml-auto .mr-auto .ph3 .mw8;
+  @apply .ml-auto .mr-auto .ph3 .mw9;
 
   @media (--md) { @apply .ph4 }
   @media (--lg) { @apply .ph5 }

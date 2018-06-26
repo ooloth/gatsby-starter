@@ -1997,14 +1997,15 @@ Component classes
  */
 
 .quote-body {
+  font-size: 1.25rem;
+  font-size: var(--font-size-4);
   line-height: 1.5;
   /* add quotation marks in ::after / ::before using content: open-quote / close-quote? */
 }
 
 .quote-source {
-  display: inline-flex;
-  padding-top: .5rem;
-  padding-top: var(--spacing-2);
+  margin-top: 1rem;
+  margin-top: var(--spacing-3);
   font-style: normal;
 }
 
@@ -2013,7 +2014,13 @@ Component classes
   color: var(--blue);
 }
 
-/* These go with the burger in components/examples/BurgerAndOverlay */
+/* 
+
+These go with the burger in Aria's components/BurgerAndOverlay 
+
+*/
+
+/* purgecss start ignore */
 
 .burger {
   position: fixed;
@@ -2073,6 +2080,122 @@ Component classes
   background-color: var(--hot-pink);
 }
 
+/* purgecss end ignore */
+
+/*
+
+Burger 2
+
+These go with the burger in Dan Cabena's components/Burger2AndOverlay
+
+https://codepen.io/mblode/pen/qEGWwB
+
+*/
+
+/* purgecss start ignore */
+
+.b-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  background-color: var(--white);
+  border-radius: 100%;
+  border-radius: var(--border-radius-circle);
+  padding: .5rem;
+  padding: var(--spacing-2);
+  border: transparent solid 2px;
+  width: 52px;
+  height: 52px;
+  transition: all .4s ease-in-out;
+  z-index: 12;
+}
+
+.b-menu:hover {
+  border: currentColor solid 2px;
+}
+
+.b-bun {
+  background: currentColor;
+  position: relative;
+  transition: all .4s ease;
+  /* Hacks to fix bars being too far left in the circle */
+}
+
+@media (min-width: 36em) {
+  .b-bun {
+    left: 1px;
+  }
+}
+
+@media (min-width: 62em) {
+  .b-bun {
+    left: 0;
+  }
+}
+
+.b-bun--top {
+  height: 2px;
+  top: -8px;
+  width: 27px;
+}
+
+.b-bun--mid {
+  height: 2px;
+  top: 0;
+  width: 27px;
+}
+
+.b-bun--bottom {
+  height: 2px;
+  top: 8px;
+  width: 27px;
+}
+
+.b-container {
+  position: relative;
+}
+
+.b-container:hover:not(.open) .bun-top,
+.b-container:hover:not(.open) .bun-mid,
+.b-container:hover:not(.open) .bun-bottom {
+  background: #fff;
+}
+
+.b-container.open .b-menu {
+  background-color: #333;
+  background-color: var(--dark-gray);
+}
+
+.b-container.open .b-menu:hover {
+  border-color: #fff;
+  border-color: var(--white);
+}
+
+.b-container.open .b-bun--top {
+  background: currentColor;
+  -webkit-transform: translateY(10px) rotate(45deg) scaleX(1.25);
+          transform: translateY(10px) rotate(45deg) scaleX(1.25);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.b-container.open .b-bun--mid {
+  opacity: 0;
+}
+
+.b-container.open .b-bun--bottom {
+  background: currentColor;
+  -webkit-transform: translateY(-10px) rotate(-45deg) scaleX(1.25);
+          transform: translateY(-10px) rotate(-45deg) scaleX(1.25);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+/* purgecss end ignore */
+
 /*
  *
  * Buttons
@@ -2129,8 +2252,8 @@ Containers
   padding-left: var(--spacing-3);
   padding-right: 1rem;
   padding-right: var(--spacing-3);
-  max-width: 64rem;
-  max-width: var(--sizing-8);
+  max-width: 96rem;
+  max-width: var(--sizing-9);
 }
 
 @media (min-width: 48em) {
@@ -2216,6 +2339,21 @@ Containers
   }
 }
 
+/* When the input is checked, adjust the styling of the NEXT label in the DOM */
+
+.carousel-input {
+  display: none;
+  /* &:checked + label {
+    @apply .bg-silver;
+	} */
+}
+
+/* Prevent the fieldset height from partially collapsing */
+
+.carousel-label {
+  display: inline-flex;
+}
+
 /*
  *
  * Filter Inputs & Labels
@@ -2264,18 +2402,95 @@ Headings
 
 */
 
+/* Section headings */
+
 .heading {
-  font-size: 2.25rem;
-  font-size: var(--font-size-2);
-  color: #000;
-  color: var(--black);
+  display: inline-block;
+  position: relative;
+  padding-top: 1rem;
+  padding-top: var(--spacing-3);
+  padding-bottom: 1rem;
+  padding-bottom: var(--spacing-3);
+  padding-right: 2rem;
+  padding-right: var(--spacing-4);
+  font-family: Lora, Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 3rem;
+  font-size: var(--font-size-1);
+  text-transform: lowercase;
 }
 
-.subheading {
-  font-size: 1rem;
-  font-size: var(--font-size-5);
-  text-transform: uppercase;
-  letter-spacing: .1em;
+@media (min-width: 375px) {
+  .heading {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 400px) {
+  .heading {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 48em) {
+  .heading {
+    font-size: 4.5rem;
+  }
+}
+
+/* Bars that extend to the edge of the left viewport */
+
+.heading-trail-white {
+  background-color: #fff;
+  background-color: var(--white);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.heading-trail-near-white {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.heading-trail-white::before,
+.heading-trail-near-white::before {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  content: '';
+  width: 99999px;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+/* Color of each bar */
+
+.heading-trail-white::before {
+  background-color: #fff;
+  background-color: var(--white);
+}
+
+.heading-trail-near-white::before {
+  background-color: #f4f4f4;
+  background-color: var(--near-white);
+}
+
+/* Headings with a blue underline */
+
+.heading-underline::after {
+  display: block;
+  margin-top: .5rem;
+  margin-top: var(--spacing-2);
+  background-color: #357edd;
+  background-color: var(--blue);
+  padding-top: .25rem;
+  padding-top: var(--spacing-1);
+  width: 8rem;
+  width: var(--sizing-4);
+  content: '';
 }
 
 /* 
@@ -2405,37 +2620,27 @@ Classes that rely on feature queries
 @supports (display: grid) {
   /* 
   * 
-  * Utilities
+  * Media
   *
   */
 
-  .span-2 {
-    grid-column: span 2;
+  @media (min-width: 36em) {
+    .media-grid {
+      display: grid;
+      grid-column-gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .span-3 {
-    grid-column: span 3;
-  }/* 
-  * 
-  * Home > Hero
-  *
-  */
+  @media (min-width: 48em) {
+    .media-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 
   @media (min-width: 62em) {
-    .home-hero-grid {
-      /*
- Grid layout
- */
-      display: grid;
-      grid-template-columns: 4fr 6fr;
-      align-items: end;
-      /*
- Reset margins & widths
- */
-    }
-
-    .home-hero-grid > div > div {
-      margin-bottom: 0;
+    .media-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

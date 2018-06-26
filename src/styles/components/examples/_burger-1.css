@@ -1,0 +1,36 @@
+/* 
+
+These go with the burger in Aria's components/BurgerAndOverlay 
+
+*/
+
+/* purgecss start ignore */
+
+.burger {
+  @apply .fixed .top-0 .right-0 .mr1 .bg-white .animate .cursor-pointer;
+
+  width: 70px;
+  height: 50px;
+  z-index: 10001;
+
+  @media (--md) { @apply .mr4 }
+  @media (--lg) { @apply .mr5 }
+}
+
+.burger-layer {
+  @apply .db .absolute .left-50 .origin-center;
+
+  width: 31px;
+  height: 4px;
+  background: #282828;
+  z-index: 5;
+  top: 23px;
+  margin: 0 0 0 -15px;
+}
+
+.burger-layer.top { transform: translateY(-8px) }
+.burger-layer.bottom { transform: translateY(8px); }
+
+.burger:hover .burger-layer { @apply .bg-hot-pink }
+
+/* purgecss end ignore */

@@ -9,26 +9,35 @@ class Mount extends Component {
   }
 
   enterAnimSpaceAndItem = rtgChild => {
+    let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.4
+    let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.5
+
     let tl = new TimelineMax()
-    tl.from(rtgChild, 0.4, spaceAnimation) // Expand the new space gradually
-      .from(rtgChild, 0.5, itemAnimation, `-=0.2`) // Transition the element in
+    tl.from(rtgChild, spaceDuration, spaceAnimation) // Expand the new space gradually
+      .from(rtgChild, itemDuration, itemAnimation, `-=0.2`) // Transition the element in
   }
 
-  enterAnimItemOnly = rtgChild => TweenMax.from(rtgChild, 0.5, itemAnimation)
+  enterAnimItemOnly = rtgChild => {
+    let duration = this.props.enterTimeout / 1000 || 0.5
+    TweenMax.from(rtgChild, duration, itemAnimation)
+  }
 
   exitAnim = rtgChild => {
     loadjs.ready(`gsap`, () => {
+      let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.5
+      let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.4
+
       let tl = new TimelineMax()
       tl
         // Transition the element out
-        .to(rtgChild, 0.5, {
+        .to(rtgChild, itemDuration, {
           scale: 0,
           ease: `Power3.easeInOut`
         })
         // Collapse the old space gradually
         .to(
           rtgChild,
-          0.4,
+          spaceDuration,
           {
             margin: 0,
             borderWidth: 0,
@@ -46,7 +55,13 @@ class Mount extends Component {
   }
 
   render() {
-    const { animateEnter = true, animateExit = true, appear = true } = this.props
+    const {
+      animateEnter = true,
+      animateExit = true,
+      appear = true,
+      enterTimeout = 700,
+      exitTimeout = 700
+    } = this.props
 
     return (
       <Transition
@@ -57,7 +72,7 @@ class Mount extends Component {
         exit={animateExit}
         onExit={this.exitAnim}
         unmountOnExit={true}
-        timeout={{ enter: 700, exit: 700 }} // required unless addEndListener is used
+        timeout={{ enter: enterTimeout, exit: exitTimeout }} // required unless addEndListener is used
       >
         {this.props.children}
       </Transition>
@@ -70,6 +85,8 @@ Mount.propTypes = {
   animateExit: PropTypes.bool,
   animateSpace: PropTypes.bool,
   appear: PropTypes.bool,
+  enterTimeout: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  exitTimeout: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   in: PropTypes.bool // passed automatically by <TransitionGroup /> parent
 }
 
@@ -80,7 +97,9 @@ Mount.propTypes = {
  */
 
 const itemAnimation = {
-  scale: 0,
+  autoAlpha: 0,
+  scale: 0.9,
+  y: 10,
   ease: `Power3.easeInOut`
 }
 

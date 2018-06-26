@@ -34,12 +34,12 @@ const Base = ({ children }) => (
 
 // Use PostCSS stylesheet in development and PostCSS/PurgeCSS stylesheet in production:
 switch (process.env.NODE_ENV) {
-case `development`:
-  require(`../styles/builds/after-postcss/output.css`)
-  break
-case `production`:
-  require(`../styles/builds/after-purgecss/output.css`)
-  break
+  case `development`:
+    require(`../styles/builds/after-postcss/output.css`)
+    break
+  case `production`:
+    require(`../styles/builds/after-purgecss/output.css`)
+    break
 }
 
 /*
@@ -50,7 +50,7 @@ case `production`:
 
 // See: https://github.com/nfl/react-helmet + https://megatags.co + https://gethead.info
 
-import siteImage from '../img/placeholder.jpg'
+import siteImage from '../img/placeholder-1.jpg'
 
 const SiteMetadata = ({ site }) => (
   <Helmet>

@@ -6,9 +6,11 @@ Component classes
 
 /* @import './examples/arrows'; */
 @import './examples/blockquotes';
-@import './examples/burger';
+@import './examples/burger-1';
+@import './examples/burger-2';
 @import './examples/buttons';
 @import './examples/containers';
+@import './examples/fading-carousel';
 @import './examples/filters';
 /* @import './examples/floating-shapes'; */
 @import './examples/headings';

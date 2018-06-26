@@ -13,17 +13,12 @@ const EventsByUpcomingAndPastExample = () => (
   </section>
 )
 
+// Events (list with most recent at the top)
 const events = [
   {
     node: {
-      title: `Event 1`,
-      lastDate: `Jan 1, 2017`
-    }
-  },
-  {
-    node: {
-      title: `Event 2`,
-      lastDate: `Jan 1, 2018`
+      title: `Event 4`,
+      lastDate: `Jan 1, 2020`
     }
   },
   {
@@ -34,8 +29,15 @@ const events = [
   },
   {
     node: {
-      title: `Event 4`,
-      lastDate: `Jan 1, 2020`
+      title: `Event 2`,
+      lastDate: `Jan 1, 2018`
+    }
+  },
+
+  {
+    node: {
+      title: `Event 1`,
+      lastDate: `Jan 1, 2017`
     }
   }
 ]

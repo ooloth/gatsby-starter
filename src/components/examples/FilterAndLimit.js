@@ -32,7 +32,7 @@ class FilterAndLimit extends Component {
     return (
       <Fragment>
         {this.props.renderFilters(this.handleFilter)}
-        {this.props.renderItems(visibleItems)}
+        {this.props.renderItems(items, visibleItems)}
         {limited && this.props.renderSeeMore(this.handleSeeMore)}
       </Fragment>
     )

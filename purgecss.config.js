@@ -12,7 +12,17 @@ module.exports = {
       extensions: [`html`, `js`]
     }
   ],
-  whitelist: [`carousel-cell`, `cursor-not-allowed`, `filter-label`, `o-50`],
+  whitelist: [
+    `carousel-cell`,
+    `carousel-input`,
+    `carousel-label`,
+    `bg-black`,
+    `bg-transparent`,
+    `cursor-not-allowed`,
+    `filter-label`,
+    `o-50`,
+    `o-0`
+  ],
   // Add plugin prefixes here:
   whitelistPatterns: [
     /body/,

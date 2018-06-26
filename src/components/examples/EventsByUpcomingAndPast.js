@@ -1,4 +1,9 @@
-const EventsByUpcomingAndPast = ({ events, children }) => {
+const EventsByUpcomingAndPast = ({
+  events,
+  reverseUpcoming = true,
+  reversePast = false,
+  children
+}) => {
   // Get today's date (midnight, local time)
   const today = new Date().setHours(0, 0, 0, 0)
 
@@ -17,12 +22,17 @@ const EventsByUpcomingAndPast = ({ events, children }) => {
 
   const [pastEvents, upcomingEvents] = splitEventsByTime(events)
 
+  if (reverseUpcoming) upcomingEvents.reverse()
+  if (reversePast) pastEvents.reverse()
+
   // TODO: make the reversability of each array configurable via props?
-  return children(upcomingEvents.reverse(), pastEvents)
+  return children(upcomingEvents, pastEvents)
 }
 
 EventsByUpcomingAndPast.propTypes = {
   events: PropTypes.array.isRequired,
+  reverseUpcoming: PropTypes.bool,
+  reversePast: PropTypes.bool,
   children: PropTypes.func.isRequired
 }
 

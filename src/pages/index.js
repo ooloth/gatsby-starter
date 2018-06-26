@@ -28,9 +28,16 @@ const IndexPage = ({ data }) => (
         cat2={data.allCategory2Yaml.edges}
       />
 
+      <FadingCarouselExample data={data.allExampleYaml.edges} />
       {/* TODO: rewrite FlickityExample (causing an error in v2) */}
       {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
       <SlickExample data={data.allExampleYaml.edges} />
+
+      <GalleryAndLightboxExample
+        portrait={data.allMediaPortraitYaml.edges}
+        onstage={data.allMediaOnstageYaml.edges}
+        video={data.allMediaVideoYaml.edges}
+      />
 
       <ImageLightboxExample
         images={data.allLightboxImagesYaml.edges[0].node.images}
@@ -104,6 +111,64 @@ export const query = graphql`
         }
       }
     }
+    allMediaPortraitYaml {
+      edges {
+        node {
+          image {
+            childImageSharp {
+              thumbnail: sizes(maxWidth: 1760) {
+                ...GatsbyImageSharpSizes_withWebp
+              }
+              lightbox: resolutions(width: 1500) {
+                ...GatsbyImageSharpResolutions_withWebp
+              }
+            }
+          }
+          alt
+          objPosition
+          caption
+          category
+        }
+      }
+    }
+    allMediaOnstageYaml {
+      edges {
+        node {
+          image {
+            childImageSharp {
+              thumbnail: sizes(maxWidth: 1760) {
+                ...GatsbyImageSharpSizes_withWebp
+              }
+              lightbox: resolutions(width: 1500) {
+                ...GatsbyImageSharpResolutions_withWebp
+              }
+            }
+          }
+          alt
+          objPosition
+          caption
+          category
+        }
+      }
+    }
+    allMediaVideoYaml {
+      edges {
+        node {
+          video
+          image {
+            childImageSharp {
+              thumbnail: sizes(maxWidth: 1760) {
+                ...GatsbyImageSharpSizes_withWebp
+              }
+            }
+          }
+          alt
+          objPosition
+          caption
+          category
+        }
+      }
+    }
     allLightboxVideosYaml {
       edges {
         node {
@@ -167,9 +232,11 @@ import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomin
 import FilterExample from '../sections/examples/FilterExample'
 import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
+import FadingCarouselExample from '../sections/examples/FadingCarouselExample'
 import FlickityExample from '../sections/examples/FlickityExample'
 import SlickExample from '../sections/examples/SlickExample'
 
+import GalleryAndLightboxExample from '../sections/examples/GalleryAndLightboxExample'
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 

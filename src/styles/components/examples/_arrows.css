@@ -6,6 +6,8 @@
  *
  */
 
+/* purgecss start ignore */
+
 .button-scroll-down {
   width: 48px;
   height: 48px;
@@ -155,3 +157,5 @@
   transition-delay: 200ms;
   transform: translateX(23px);
 }
+
+/* purgecss end ignore */
