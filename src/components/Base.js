@@ -42,9 +42,6 @@ case `production`:
   break
 }
 
-// Import open-source fonts from Typefaces (@font-face automatically injected)
-// import 'typeface-raleway'
-
 /*
  *
  * Metadata
@@ -69,6 +66,12 @@ const SiteMetadata = ({ site }) => (
     <meta name="description" content={site.description} />
     <meta name="image" content={site.siteUrl + siteImage} />
     <link rel="canonical" href={site.siteUrl} />
+
+    {/* Google fonts */}
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
 
     {/* Schema.org for Google */}
     <meta itemProp="name" content={site.title} />

@@ -10,6 +10,10 @@
  *
  */
 
+/* @import './font-face'; */
+
+/* Now using link tag with subfont package instead */
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -932,28 +936,6 @@ textarea:focus {
   width: 1px;
   white-space: nowrap;
 }
-
-/*
-
-@font-face {
-	font-family: 'Avenir Pro 45 Book';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Avenir Pro 45 Book'),
-		url('../fonts/Avenir-Pro-45-Book.woff2') format('woff2'),
-		url('../fonts/Avenir-Pro-45-Book.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Avenir Pro 85 Heavy';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Avenir Pro 85 Heavy'),
-		url('../fonts/Avenir-Pro-85-Heavy.woff2') format('woff2'),
-		url('../fonts/Avenir-Pro-85-Heavy.woff') format('woff');
-}
-
-*/
 
 /*
  *
@@ -2239,6 +2221,10 @@ Containers
  */
 
 /* When the input is checked, adjust the styling of the NEXT label in the DOM */
+
+.filter-input {
+  display: none;
+}
 
 .filter-input:checked + label {
   background-color: #ff80cc;
@@ -13354,6 +13340,10 @@ code,
   font-family: 'Josefin Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
+.news-cycle {
+  font-family: 'News Cycle', 'Arial Narrow', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
 .raleway {
   font-family: Raleway, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
@@ -13386,6 +13376,10 @@ code,
 
 .georgia {
   font-family: georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.lora {
+  font-family: Lora, Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 .times {

@@ -1,21 +1,18 @@
 /*
 
-@font-face {
-	font-family: 'Avenir Pro 45 Book';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Avenir Pro 45 Book'),
-		url('../fonts/Avenir-Pro-45-Book.woff2') format('woff2'),
-		url('../fonts/Avenir-Pro-45-Book.woff') format('woff');
-}
+Font-face declarations
 
-@font-face {
-	font-family: 'Avenir Pro 85 Heavy';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Avenir Pro 85 Heavy'),
-		url('../fonts/Avenir-Pro-85-Heavy.woff2') format('woff2'),
-		url('../fonts/Avenir-Pro-85-Heavy.woff') format('woff');
-}
+TODO: make the path to the fonts directory `../../../fonts/font-files.woff`
 
 */
+
+/* news-cycle-regular - latin-ext_latin */
+/* @font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 400;
+  src: local('News Cycle'), local('NewsCycle'),
+       url('../../../fonts/news-cycle-v14-latin-ext_latin-regular.woff2') format('woff2'),
+       url('../../../fonts/news-cycle-v14-latin-ext_latin-regular.woff') format('woff');
+} */
+

@@ -2,14 +2,15 @@ class FilterAndLimit extends Component {
   state = {
     items: this.props[this.props.defaultCategory],
     limit: this.props.limit,
-    limited: true
+    limited:
+      this.props[this.props.defaultCategory].length > this.props.limit ? true : false
   }
 
   handleFilter = e =>
     this.setState({
       items: this.props[e.target.value],
       limit: this.props.limit,
-      limited: true
+      limited: this.props[e.target.value].length > this.props.limit ? true : false
     })
 
   handleSeeMore = () => {

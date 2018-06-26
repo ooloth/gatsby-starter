@@ -63,6 +63,10 @@ code,
   font-family: 'Josefin Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' 
 }
 
+.news-cycle {
+  font-family: 'News Cycle', 'Arial Narrow', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+}
+
 .raleway { 
   font-family: Raleway, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' 
 }
@@ -95,6 +99,10 @@ code,
 
 .georgia { 
   font-family: georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' 
+}
+
+.lora { 
+  font-family: Lora, Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' 
 }
 
 .times { 

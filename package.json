@@ -69,7 +69,8 @@
     "purgecss": "^1.0.0",
     "stylelint": "^9.2.1",
     "stylelint-config-recommended": "^2.1.0",
-    "stylelint-no-unsupported-browser-features": "^3.0.0"
+    "stylelint-no-unsupported-browser-features": "^3.0.0",
+    "subfont": "^3.4.0"
   },
   "scripts": {
     "watch:postcss": "postcss src/styles/index.css -o src/styles/builds/after-postcss/output.css -w",
