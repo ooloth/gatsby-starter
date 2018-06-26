@@ -60,6 +60,17 @@ img[width], img[height] { max-width: none }
 
 a { text-decoration: none; color: inherit }
 
+/* 
+ *
+ * 4. Buttons
+ *
+ */
+
+button {
+  color: inherit;
+  letter-spacing: inherit;
+}
+
 /*
  *
  * 5. Lists

@@ -40,7 +40,13 @@ class BurgerAndOverlay extends Component {
         .fromTo(this.burgerBottom, 0.1, { y: `10px` }, { y: 0 }, `collapse`)
         .fromTo(this.burgerMiddle, 0.3, { opacity: 1 }, { opacity: 0 })
         .fromTo(this.burgerTop, 0.1, { rotationZ: 0 }, { rotationZ: -45 }, `rotate`)
-        .fromTo(this.burgerBottom, 0.1, { rotationZ: 0 }, { rotationZ: 45 }, `rotate`)
+        .fromTo(
+          this.burgerBottom,
+          0.1,
+          { rotationZ: 0 },
+          { rotationZ: 45 },
+          `rotate`
+        )
 
       if (menuOpen) {
         menuToggle.reverse() // animate burger
@@ -76,16 +82,25 @@ class BurgerAndOverlay extends Component {
           className="burger"
         >
           <span className="sr-only">Click to open menu main navigation</span>
-          <span ref={el => (this.burgerTop = el)} className="burger-layer top animate" />
-          <span ref={el => (this.burgerMiddle = el)} className="burger-layer animate" />
-          <span ref={el => (this.burgerBottom = el)} className="burger-layer bottom animate" />
+          <span
+            ref={el => (this.burgerTop = el)}
+            className="burger-layer top animate"
+          />
+          <span
+            ref={el => (this.burgerMiddle = el)}
+            className="burger-layer animate"
+          />
+          <span
+            ref={el => (this.burgerBottom = el)}
+            className="burger-layer bottom animate"
+          />
         </button>
         <Modal
           isOpen={menuOpen}
           onRequestClose={this.handleBurgerClick}
           closeTimeoutMS={500} // match exit animation timing
           overlayClassName="menu-modal-overlay flex justify-center items-center fixed fill"
-          className="menu-modal-content absolute right-0 top-0 bottom-0 bg-light-yellow tr"
+          className="menu-modal-content absolute right-0 top-0 bottom-0 overflow-scroll scrolling-touch bg-light-yellow tr"
         >
           <MenuContent data={data} closeMenu={this.handleBurgerClick} />
         </Modal>
