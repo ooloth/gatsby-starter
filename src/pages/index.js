@@ -44,7 +44,8 @@ const IndexPage = ({ data }) => (
       <InstagramExample />
       {/* <ParallaxExample /> */}
 
-      <FormExample />
+      {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
+      {/* <FormExample /> */}
 
       <ScrollTo href="#top" className="link dib mb5">
         Back to top
@@ -173,7 +174,7 @@ import IconsAndEmojisExample from '../sections/examples/IconsAndEmojisExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'
 
-import FormExample from '../sections/examples/FormExample'
+// import FormExample from '../sections/examples/FormExample'
 
 import ScrollTo from '../components/examples/ScrollTo'
 
