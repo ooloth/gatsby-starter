@@ -145,7 +145,7 @@ const nav = [{ url: `/`, text: `Home` }, { url: `/page-2/`, text: `Page 2` }]
  */
 
 import React, { Component, Fragment } from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import loadjs from 'loadjs'
 import Modal from 'react-modal'
 import noScroll from 'no-scroll'
