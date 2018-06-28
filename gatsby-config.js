@@ -1,3 +1,13 @@
+// Variables for gatsby-plugin-robots-txt:
+// const {
+//   NODE_ENV,
+//   URL: NETLIFY_SITE_URL = `https://www.ariaumezawa.com`,
+//   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+//   CONTEXT: NETLIFY_ENV = NODE_ENV
+// } = process.env
+// const isNetlifyProduction = NETLIFY_ENV === `production`
+// const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 module.exports = {
   siteMetadata: {
     title: `Add Site Title (10-70 characters)`,
@@ -52,6 +62,19 @@ module.exports = {
     //     production: true
     //   }
     // },
+    //   resolve: `gatsby-plugin-sitemap`
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-robots-txt',
+    //   Disable crawlers for Netlify deploy-previews:
+    //   options: isNetlifyProduction
+    //     ? { policy: [{ userAgent: '*' }] }
+    //     : {
+    //         policy: [{ userAgent: '*', disallow: ['/'] }],
+    //         sitemap: null,
+    //         host: null
+    //       }
+    // },
     // {
     //   resolve: `gatsby-plugin-manifest`, // must come before gatsby-plugin-offline
     //   options: {
@@ -98,19 +121,6 @@ module.exports = {
     // },
     // `gatsby-plugin-offline`,
     // {
-    //   resolve: `gatsby-plugin-sitemap`
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   Disable crawlers for Netlify deploy-previews:
-    //   options: isNetlifyProduction
-    //     ? { policy: [{ userAgent: '*' }] }
-    //     : {
-    //         policy: [{ userAgent: '*', disallow: ['/'] }],
-    //         sitemap: null,
-    //         host: null
-    //       }
-    // },
     // `gatsby-plugin-netlify-cache`,
     // {
     //   resolve: `gatsby-plugin-netlify`, // must come last
