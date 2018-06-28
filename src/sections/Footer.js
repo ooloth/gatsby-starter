@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="bg-black pa3 tc white">
+  <footer className="bg-black pa3 tc sans-serif white">
     <h1>I'm a footer</h1>
     <Copyright />
   </footer>

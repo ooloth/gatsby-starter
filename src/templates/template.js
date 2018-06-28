@@ -11,7 +11,7 @@ const Template = ({ data }) => {
 
   return (
     <Base>
-      <main id="main-content tc">
+      <main id="main-content tc sans-serif">
         <PageMetadata page={template.pageMetadata} />
 
         <h1 className="pv4 tc f1">Hi from {template.title}</h1>
