@@ -56,7 +56,7 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
       module: {
         rules: [
           {
-            test: /intersection-observer/,
+            test: [/intersection-observer/, /react-image-lightbox/],
             loader: `null-loader`
           }
         ]

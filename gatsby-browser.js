@@ -4,11 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// const React = require(`react`)
-
 /*
  *
- * Urgent polyfills (before first render)
+ * Urgent polyfills (needed before first render)
  * 
  */
 
@@ -19,7 +17,7 @@ export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
   if (typeof window.IntersectionObserver === `undefined`) {
     require(`intersection-observer`)
-    console.log(`👍 IntersectionObserver is polyfilled`)
+    // console.log(`👍 IntersectionObserver is polyfilled`)
   }
 
   // Object-fit/Object-position polyfill for gatsby-image (IE)
@@ -29,27 +27,27 @@ export const onClientEntry = () => {
     typeof testImg.style.objectPosition === `undefined`
   ) {
     require(`object-fit-images`)()
-    console.log(`👍 Object-fit/Object-position are polyfilled`)
+    // console.log(`👍 Object-fit/Object-position are polyfilled`)
   }
 
   // GSAP for site-wide animations
   loadjs(
     `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js`,
-    `gsap`,
-    () => console.log(`👍 GSAP is loaded`)
+    `gsap`
+    // () => console.log(`👍 GSAP is loaded`)
   )
 
   // GSAP's scrollToPlugin for sitewide smooth-scrolling
   loadjs(
     `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
-    `scrollToPlugin`,
-    () => console.log(`👍 scrollToPlugin is loaded`)
+    `scrollToPlugin`
+    // () => console.log(`👍 scrollToPlugin is loaded`)
   )
 }
 
 /*
  *
- * Non-urgent polyfills and global scripts (after first render)
+ * Non-urgent polyfills and scripts (needed after first render)
  * 
  */
 
@@ -58,8 +56,8 @@ import loadjs from 'loadjs'
 export const onInitialClientRender = () => {
   // A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
   loadjs(
-    `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`,
-    () => console.log(`👍 What-input is loaded`)
+    `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`
+    // () => console.log(`👍 What-input is loaded`)
   )
 
   // Google Analytics
