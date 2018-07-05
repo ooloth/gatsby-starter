@@ -4,7 +4,11 @@ Component classes
 
 */
 
-/* @import './examples/arrows'; */
+
+/* Comment out full list below and add the used components here */
+
+@import './examples/angles';
+@import './examples/arrows';
 @import './examples/blockquotes';
 @import './examples/burger-1';
 @import './examples/burger-2';
@@ -12,9 +16,9 @@ Component classes
 @import './examples/containers';
 @import './examples/fading-carousel';
 @import './examples/filters';
-/* @import './examples/floating-shapes'; */
+@import './examples/floating-shapes';
 @import './examples/headings';
 @import './examples/icons';
 @import './examples/inputs';
 @import './examples/links';
-/* @import './examples/tooltips'; */
+@import './examples/tooltips'; 

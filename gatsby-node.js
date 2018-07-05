@@ -4,18 +4,59 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const PurgeCssPlugin = require(`purgecss-webpack-plugin`)
+const path = require(`path`)
+const glob = require(`glob`)
+
+const PATHS = {
+  src: path.join(__dirname, `src`)
+}
+
+const purgeCssConfig = {
+  paths: glob.sync(`${PATHS.src}/**/*.js`, { nodir: true }),
+  extractors: [
+    {
+      // Custom extractor to allow special characters (like ":") in class names
+      // See: https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css-with-purgecss
+      extractor: class {
+        static extract(content) {
+          return content.match(/[A-Za-z0-9-_:/]+/g) || []
+        }
+      },
+      extensions: [`js`]
+    }
+  ],
+  whitelist: [
+    `carousel-cell`,
+    `carousel-input`,
+    `carousel-label`,
+    `bg-black`,
+    `bg-transparent`,
+    `cursor-not-allowed`,
+    `filter-label`,
+    `o-50`,
+    `o-0`
+  ],
+  whitelistPatterns: [/body/, /headroom/, /ReactModal/]
+}
+
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  if (stage.includes(`develop`)) return
+
+  // Add PurgeCSS in production
+  // See: https://github.com/gatsbyjs/gatsby/issues/5778#issuecomment-402481270
+  if (stage.includes(`build`)) {
+    actions.setWebpackConfig({
+      plugins: [new PurgeCssPlugin(purgeCssConfig)]
+    })
+  }
+
   if (stage === `build-html`) {
     actions.setWebpackConfig({
       module: {
         rules: [
           {
-            test: [
-              /intersection-observer/,
-              /lightbox-react/,
-              /react-image-lightbox/,
-              /twitter-fetcher/
-            ],
+            test: /intersection-observer/,
             loader: `null-loader`
           }
         ]
@@ -23,70 +64,6 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
     })
   }
 }
-
-// exports.onCreateWebpackConfig = ({ actions, stage, rules, plugins, loaders }) => {
-// const PRODUCTION = stage !== `develop`
-// const isSSR = stage.includes(`html`)
-
-// Enable CSS source maps in development
-// See: https://github.com/webpack-contrib/css-loader#options
-// const cssLoader = {
-//   loader: path.resolve(`css-loader`),
-//   options: {
-//     sourceMap: !PRODUCTION
-//   }
-// }
-
-// Cancel out webpack postcss plugins
-// const postcssLoader = { loader: path.resolve(`postcss-loader`), plugins: null }
-
-// Ignore partial CSS files at each stage
-// const cssRule = {
-//   test: /\.css$./,
-//   exclude: [
-//     /src\/styles\/base/,
-//     /src\/styles\/components/,
-//     /src\/styles\/plugins/,
-//     /src\/styles\/supports/,
-//     /src\/styles\/utilities/,
-//     PRODUCTION && /src\/styles\/builds\/after-postcss/
-//   ],
-//   // NOTE: the loaders run from last to first...
-//   use: [loaders.miniCssExtract(), `style`, cssLoader, postcssLoader]
-// }
-
-// Ignore problematic packages during build
-// const nullRule = stage === `build-html` && {
-//   test: [
-//     /intersection-observer/,
-//     /lightbox-react/,
-//     /react-image-lightbox/,
-//     /twitter-fetcher/
-//   ],
-//   loader: `null-loader`
-// }
-
-// let configRules = []
-
-// switch (stage) {
-// case `build-html`:
-//   configRules = configRules.concat([{ ...nullRule }])
-//   break
-
-//   // default:
-//   //   configRules = configRules.concat([{ ...cssRule }])
-//   //   break
-// }
-
-// console.log(`configRules`, configRules)
-
-// // Update Webpack rules
-// actions.setWebpackConfig({
-//   module: {
-//     rules: configRules
-//   }
-// })
-// }
 
 /*
  *
@@ -96,8 +73,6 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
 
 // See: https://www.gatsbyjs.org/tutorial/part-seven/
 // See: https://stackoverflow.com/questions/48652257/how-to-create-multiple-pages-from-single-json-files-in-gatsby
-
-const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions

@@ -10,6 +10,10 @@
  *
  */
 
+/* @import './font-face'; */
+
+/* Now using link tag with subfont package instead */
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -42,7 +46,7 @@ body {
  * Add the correct display in IE 9-.
  */
 
-article,
+
 aside,
 footer,
 header,
@@ -69,7 +73,7 @@ h1 {
  * 1. Add the correct display in IE.
  */
 
-figcaption,
+
 figure,
 main {
   /* 1 */
@@ -89,21 +93,10 @@ figure {
  * 2. Show the overflow in Edge and IE.
  */
 
-hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
-}
-
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-
-pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
 
 /* Text-level semantics
    ========================================================================== */
@@ -127,8 +120,7 @@ a {
  * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
  */
 
-b,
-strong {
+b {
   font-weight: inherit;
 }
 
@@ -136,8 +128,7 @@ strong {
  * Add the correct font weight in Chrome, Edge, and Safari.
  */
 
-b,
-strong {
+b {
   font-weight: bolder;
 }
 
@@ -146,9 +137,7 @@ strong {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-code,
-kbd,
-samp {
+code {
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
@@ -157,47 +146,18 @@ samp {
  * Add the correct font style in Android 4.3-.
  */
 
-dfn {
-  font-style: italic;
-}
-
 /**
  * Add the correct background and color in IE 9-.
  */
-
-mark {
-  background-color: #ff0;
-  color: #000;
-}
 
 /**
  * Add the correct font size in all browsers.
  */
 
-small {
-  font-size: 80%;
-}
-
 /**
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
 
 /* Embedded content
    ========================================================================== */
@@ -206,7 +166,7 @@ sup {
  * Add the correct display in IE 9-.
  */
 
-audio,
+
 video {
   display: inline-block;
 }
@@ -214,11 +174,6 @@ video {
 /**
  * Add the correct display in iOS 4-7.
  */
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
 
 /**
  * Remove the border on images inside links in IE 10-.
@@ -246,8 +201,6 @@ svg:not(:root) {
 
 button,
 input,
-optgroup,
-select,
 textarea {
   font-family: sans-serif; /* 1 */
   font-size: 100%; /* 1 */
@@ -271,8 +224,7 @@ input {
  * 1. Remove the inheritance of text transform in Firefox.
  */
 
-button,
-select {
+button {
   /* 1 */
   text-transform: none;
 }
@@ -342,11 +294,6 @@ legend {
  * 1. Add the correct display in IE 9-.
  * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
-
-progress {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
-}
 
 /**
  * Remove the default vertical scrollbar in IE.
@@ -434,10 +381,6 @@ summary {
  * Add the correct display in IE 9-.
  */
 
-canvas {
-  display: inline-block;
-}
-
 /**
  * Add the correct display in IE.
  */
@@ -485,17 +428,12 @@ html {
  */
 
 blockquote,
-dl,
-dd,
 h1,
 h2,
 h3,
 h4,
-h5,
-h6,
 figure,
-p,
-pre {
+p {
   margin: 0;
 }
 
@@ -519,19 +457,9 @@ fieldset {
   padding: 0;
 }
 
-ol,
+
 ul {
   margin: 0;
-}
-
-/**
- * Suppress the focus outline on elements that cannot be accessed via keyboard.
- * This prevents an unwanted focus outline from appearing around elements that
- * might still respond to pointer events.
- */
-
-[tabindex="-1"]:focus {
-  outline: none !important;
 }
 
 /**
@@ -595,12 +523,11 @@ textarea {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 button,
 input,
-optgroup,
-select,
 textarea {
   font-family: inherit;
 }
@@ -660,12 +587,27 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   /* Font-size */
+  font-size: 16px;
 }
 
 @media (min-width: 36em) {
   html,
   body {
-    font-size: 1.05rem;
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 48em) {
+  html,
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 62em) {
+  html,
+  body {
+    font-size: 19px;
   }
 }
 
@@ -716,13 +658,24 @@ a {
   color: inherit;
 }
 
+/* 
+ *
+ * 4. Buttons
+ *
+ */
+
+button {
+  color: inherit;
+  letter-spacing: inherit;
+}
+
 /*
  *
  * 5. Lists
  *
  */
 
-ol,
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -730,7 +683,7 @@ ul {
 
 /* Remove trailing margins from nested lists: */
 
-li > ol,
+
 li > ul {
   margin-bottom: 0;
 }
@@ -826,12 +779,6 @@ textarea:invalid {
  *
  */
 
-table {
-  border-collapse: collapse; /* Remove default table spacing */
-  border-spacing: 0;
-  width: 100%; /* Ensure tables fill up as much space as possible */
-}
-
 /*
  *
  * 8. iOS issues
@@ -843,7 +790,6 @@ table {
 input,
 textarea,
 button,
-select,
 label,
 a,
 ul {
@@ -927,28 +873,6 @@ textarea:focus {
 }
 
 /*
-
-@font-face {
-	font-family: 'Avenir Pro 45 Book';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Avenir Pro 45 Book'),
-		url('../fonts/Avenir-Pro-45-Book.woff2') format('woff2'),
-		url('../fonts/Avenir-Pro-45-Book.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Avenir Pro 85 Heavy';
-	font-style: normal;
-	font-weight: normal;
-	src: local('Avenir Pro 85 Heavy'),
-		url('../fonts/Avenir-Pro-85-Heavy.woff2') format('woff2'),
-		url('../fonts/Avenir-Pro-85-Heavy.woff') format('woff');
-}
-
-*/
-
-/*
  *
  * Plugin Styles (vendor + custom)
  *
@@ -980,11 +904,6 @@ textarea:focus {
 
 .slick-list:focus {
   outline: none;
-}
-
-.slick-list.dragging {
-  cursor: pointer;
-  cursor: hand;
 }
 
 .slick-slider .slick-track,
@@ -1033,10 +952,6 @@ textarea:focus {
 
 .slick-slide.slick-loading img {
   display: none;
-}
-
-.slick-slide.dragging img {
-  pointer-events: none;
 }
 
 .slick-initialized .slick-slide {
@@ -1194,26 +1109,6 @@ https://flickity.metafizzy.co
   height: 100%;
 }
 
-.flickity-enabled.is-draggable {
-  -webkit-tap-highlight-color: transparent;
-          tap-highlight-color: transparent;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.flickity-enabled.is-draggable .flickity-viewport {
-  cursor: move;
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-
-.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-}
-
 .flickity-button {
   position: absolute;
   background: hsla(0, 0%, 100%, .75);
@@ -1293,21 +1188,6 @@ https://flickity.metafizzy.co
 
 .flickity-rtl .flickity-page-dots {
   direction: rtl;
-}
-
-.flickity-page-dots .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 8px;
-  background: #333;
-  border-radius: 50%;
-  opacity: .25;
-  cursor: pointer;
-}
-
-.flickity-page-dots .dot.is-selected {
-  opacity: 1;
 }
 
 /*
@@ -1911,10 +1791,6 @@ TODO: Make sure to scope all style to avoid conflicting with react-image-lightbo
 
 /* Move the close button to the left side */
 
-.toolbar___1xYly {
-  justify-content: start !important;
-}
-
 /* 
  *
  * Twitter Fetcher
@@ -1936,17 +1812,6 @@ TODO: Make sure to scope all style to avoid conflicting with react-image-lightbo
 }
 
 /* This class is applied automatically to all links inside tweets (including hashtags) */
-
-.tweet .customisable {
-  color: #357edd;
-  color: var(--blue);
-  transition: all .2s ease-in-out;
-}
-
-.tweet .customisable:hover {
-  color: #000;
-  color: var(--black);
-}
 
 /*
  *
@@ -1997,17 +1862,15 @@ Component classes
  */
 
 .quote-body {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 66ch;
+  font-size: 1.25rem;
+  font-size: var(--font-size-4);
   line-height: 1.5;
   /* add quotation marks in ::after / ::before using content: open-quote / close-quote? */
 }
 
 .quote-source {
-  display: inline-flex;
-  padding-top: .5rem;
-  padding-top: var(--spacing-2);
+  margin-top: 1rem;
+  margin-top: var(--spacing-3);
   font-style: normal;
 }
 
@@ -2016,7 +1879,13 @@ Component classes
   color: var(--blue);
 }
 
-/* These go with the burger in components/examples/BurgerAndOverlay */
+/* 
+
+These go with the burger in Aria's components/BurgerAndOverlay 
+
+*/
+
+/* purgecss start ignore */
 
 .burger {
   position: fixed;
@@ -2076,6 +1945,122 @@ Component classes
   background-color: var(--hot-pink);
 }
 
+/* purgecss end ignore */
+
+/*
+
+Burger 2
+
+These go with the burger in Dan Cabena's components/Burger2AndOverlay
+
+https://codepen.io/mblode/pen/qEGWwB
+
+*/
+
+/* purgecss start ignore */
+
+.b-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #fff;
+  background-color: var(--white);
+  border-radius: 100%;
+  border-radius: var(--border-radius-circle);
+  padding: .5rem;
+  padding: var(--spacing-2);
+  border: transparent solid 2px;
+  width: 52px;
+  height: 52px;
+  transition: all .4s ease-in-out;
+  z-index: 12;
+}
+
+.b-menu:hover {
+  border: currentColor solid 2px;
+}
+
+.b-bun {
+  background: currentColor;
+  position: relative;
+  transition: all .4s ease;
+  /* Hacks to fix bars being too far left in the circle */
+}
+
+@media (min-width: 36em) {
+  .b-bun {
+    left: 1px;
+  }
+}
+
+@media (min-width: 62em) {
+  .b-bun {
+    left: 0;
+  }
+}
+
+.b-bun--top {
+  height: 2px;
+  top: -8px;
+  width: 27px;
+}
+
+.b-bun--mid {
+  height: 2px;
+  top: 0;
+  width: 27px;
+}
+
+.b-bun--bottom {
+  height: 2px;
+  top: 8px;
+  width: 27px;
+}
+
+.b-container {
+  position: relative;
+}
+
+.b-container:hover:not(.open) .bun-top,
+.b-container:hover:not(.open) .bun-mid,
+.b-container:hover:not(.open) .bun-bottom {
+  background: #fff;
+}
+
+.b-container.open .b-menu {
+  background-color: #333;
+  background-color: var(--dark-gray);
+}
+
+.b-container.open .b-menu:hover {
+  border-color: #fff;
+  border-color: var(--white);
+}
+
+.b-container.open .b-bun--top {
+  background: currentColor;
+  -webkit-transform: translateY(10px) rotate(45deg) scaleX(1.25);
+          transform: translateY(10px) rotate(45deg) scaleX(1.25);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.b-container.open .b-bun--mid {
+  opacity: 0;
+}
+
+.b-container.open .b-bun--bottom {
+  background: currentColor;
+  -webkit-transform: translateY(-10px) rotate(-45deg) scaleX(1.25);
+          transform: translateY(-10px) rotate(-45deg) scaleX(1.25);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+/* purgecss end ignore */
+
 /*
  *
  * Buttons
@@ -2132,8 +2117,8 @@ Containers
   padding-left: var(--spacing-3);
   padding-right: 1rem;
   padding-right: var(--spacing-3);
-  max-width: 64rem;
-  max-width: var(--sizing-8);
+  max-width: 96rem;
+  max-width: var(--sizing-9);
 }
 
 @media (min-width: 48em) {
@@ -2160,63 +2145,19 @@ Containers
  */
 }
 
-.container-not-centered {
-  padding-left: 1rem;
-  padding-left: var(--spacing-3);
-  padding-right: 1rem;
-  padding-right: var(--spacing-3);
-  max-width: 64rem;
-  max-width: var(--sizing-8);
+/* When the input is checked, adjust the styling of the NEXT label in the DOM */
+
+.carousel-input {
+  display: none;
+  /* &:checked + label {
+    @apply .bg-silver;
+	} */
 }
 
-@media (min-width: 48em) {
-  .container-not-centered {
-    padding-left: 2rem;
-    padding-left: var(--spacing-4);
-    padding-right: 2rem;
-    padding-right: var(--spacing-4);
-  }
-}
+/* Prevent the fieldset height from partially collapsing */
 
-@media (min-width: 62em) {
-  .container-not-centered {
-    padding-left: 4rem;
-    padding-left: var(--spacing-5);
-    padding-right: 4rem;
-    padding-right: var(--spacing-5);
-  }
-}
-
-@supports (display: grid) {
-  .container-not-centered {
-    max-width: 96rem;
-    max-width: var(--sizing-9);
-  }
-}
-
-.container-full {
-  padding-left: 1rem;
-  padding-left: var(--spacing-3);
-  padding-right: 1rem;
-  padding-right: var(--spacing-3);
-}
-
-@media (min-width: 48em) {
-  .container-full {
-    padding-left: 2rem;
-    padding-left: var(--spacing-4);
-    padding-right: 2rem;
-    padding-right: var(--spacing-4);
-  }
-}
-
-@media (min-width: 62em) {
-  .container-full {
-    padding-left: 4rem;
-    padding-left: var(--spacing-5);
-    padding-right: 4rem;
-    padding-right: var(--spacing-5);
-  }
+.carousel-label {
+  display: inline-flex;
 }
 
 /*
@@ -2232,6 +2173,11 @@ Containers
  */
 
 /* When the input is checked, adjust the styling of the NEXT label in the DOM */
+
+.filter-input {
+  display: none;
+  /* necessary to hide input in IE */
+}
 
 .filter-input:checked + label {
   background-color: #ff80cc;
@@ -2262,19 +2208,13 @@ Headings
 
 */
 
-.heading {
-  font-size: 2.25rem;
-  font-size: var(--font-size-2);
-  color: #000;
-  color: var(--black);
-}
+/* Section headings */
 
-.subheading {
-  font-size: 1rem;
-  font-size: var(--font-size-5);
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
+/* Bars that extend to the edge of the left viewport */
+
+/* Color of each bar */
+
+/* Headings with a blue underline */
 
 /* 
 
@@ -2289,17 +2229,6 @@ Icons
 .icon:hover {
   color: #19a974;
   color: var(--green);
-}
-
-.icon-on-green {
-  transition: all .2s ease-in-out;
-}
-
-.icon-on-green:hover {
-  color: #fff;
-  color: var(--white);
-  -webkit-filter: drop-shadow(0 15px 5px rgba(0, 0, 0, .11));
-          filter: drop-shadow(0 15px 5px rgba(0, 0, 0, .11));
 }
 
 /* 
@@ -2361,19 +2290,6 @@ Inputs
   color: var(--black);
 }
 
-.link-inline {
-  transition: all .2s ease-in-out;
-  border-bottom: 1px solid #ff80cc;
-  border-bottom: 1px solid var(--pink);
-  box-shadow: inset 0 -2px 0 0 #ff80cc;
-  box-shadow: inset 0 -2px 0 0 var(--pink);
-}
-
-.link-inline:hover {
-  box-shadow: inset 0 -12px 0 0 #ff80cc;
-  box-shadow: inset 0 -12px 0 0 var(--pink);
-}
-
 /* @import './examples/tooltips'; */
 
 /*
@@ -2394,37 +2310,27 @@ Classes that rely on feature queries
 @supports (display: grid) {
   /* 
   * 
-  * Utilities
+  * Media
   *
   */
 
-  .span-2 {
-    grid-column: span 2;
+  @media (min-width: 36em) {
+    .media-grid {
+      display: grid;
+      grid-column-gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .span-3 {
-    grid-column: span 3;
-  }/* 
-  * 
-  * Home > Hero
-  *
-  */
+  @media (min-width: 48em) {
+    .media-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 
   @media (min-width: 62em) {
-    .home-hero-grid {
-      /*
- Grid layout
- */
-      display: grid;
-      grid-template-columns: 4fr 6fr;
-      align-items: end;
-      /*
- Reset margins & widths
- */
-    }
-
-    .home-hero-grid > div > div {
-      margin-bottom: 0;
+    .media-grid {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }
@@ -2520,16 +2426,6 @@ Utility classes
           animation-delay: 3s;
 }
 
-.anim-delay-4 {
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
-}
-
-.anim-delay-5 {
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s;
-}
-
 /* Backgrounds */
 
 /*
@@ -2540,18 +2436,6 @@ BACKGROUND ATTACHMENT
 Adapted from: https://tailwindcss.com/docs/background-attachment
 
 */
-
-.bg-fixed {
-  background-attachment: fixed;
-}
-
-.bg-local {
-  background-attachment: local;
-}
-
-.bg-scroll {
-  background-attachment: scroll;
-}
 
 /*
 
@@ -2567,149 +2451,9 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--black);
 }
 
-.bg-near-black {
-  background-color: #111;
-  background-color: var(--near-black);
-}
-
-.bg-dark-gray {
-  background-color: #333;
-  background-color: var(--dark-gray);
-}
-
-.bg-mid-gray {
-  background-color: #555;
-  background-color: var(--mid-gray);
-}
-
-.bg-gray {
-  background-color: #777;
-  background-color: var(--gray);
-}
-
-.bg-silver {
-  background-color: #999;
-  background-color: var(--silver);
-}
-
-.bg-light-silver {
-  background-color: #aaa;
-  background-color: var(--light-silver);
-}
-
-.bg-moon-gray {
-  background-color: #ccc;
-  background-color: var(--moon-gray);
-}
-
-.bg-light-gray {
-  background-color: #eee;
-  background-color: var(--light-gray);
-}
-
 .bg-near-white {
   background-color: #f4f4f4;
   background-color: var(--near-white);
-}
-
-.bg-white {
-  background-color: #fff;
-  background-color: var(--white);
-}
-
-.bg-black-90 {
-  background-color: rgba(0, 0, 0, .9);
-  background-color: var(--black-90);
-}
-
-.bg-black-80 {
-  background-color: rgba(0, 0, 0, .8);
-  background-color: var(--black-80);
-}
-
-.bg-black-70 {
-  background-color: rgba(0, 0, 0, .7);
-  background-color: var(--black-70);
-}
-
-.bg-black-60 {
-  background-color: rgba(0, 0, 0, .6);
-  background-color: var(--black-60);
-}
-
-.bg-black-50 {
-  background-color: rgba(0, 0, 0, .5);
-  background-color: var(--black-50);
-}
-
-.bg-black-40 {
-  background-color: rgba(0, 0, 0, .4);
-  background-color: var(--black-40);
-}
-
-.bg-black-30 {
-  background-color: rgba(0, 0, 0, .3);
-  background-color: var(--black-30);
-}
-
-.bg-black-20 {
-  background-color: rgba(0, 0, 0, .2);
-  background-color: var(--black-20);
-}
-
-.bg-black-10 {
-  background-color: rgba(0, 0, 0, .1);
-  background-color: var(--black-10);
-}
-
-.bg-black-05 {
-  background-color: rgba(0, 0, 0, .05);
-  background-color: var(--black-05);
-}
-
-.bg-white-90 {
-  background-color: rgba(255, 255, 255, .9);
-  background-color: var(--white-90);
-}
-
-.bg-white-80 {
-  background-color: rgba(255, 255, 255, .8);
-  background-color: var(--white-80);
-}
-
-.bg-white-70 {
-  background-color: rgba(255, 255, 255, .7);
-  background-color: var(--white-70);
-}
-
-.bg-white-60 {
-  background-color: rgba(255, 255, 255, .6);
-  background-color: var(--white-60);
-}
-
-.bg-white-50 {
-  background-color: rgba(255, 255, 255, .5);
-  background-color: var(--white-50);
-}
-
-.bg-white-40 {
-  background-color: rgba(255, 255, 255, .4);
-  background-color: var(--white-40);
-}
-
-.bg-white-30 {
-  background-color: rgba(255, 255, 255, .3);
-  background-color: var(--white-30);
-}
-
-.bg-white-20 {
-  background-color: rgba(255, 255, 255, .2);
-  background-color: var(--white-20);
-}
-
-.bg-white-10 {
-  background-color: rgba(255, 255, 255, .1);
-  background-color: var(--white-10);
 }
 
 .bg-dark-red {
@@ -2727,16 +2471,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--light-red);
 }
 
-.bg-orange {
-  background-color: #ff6300;
-  background-color: var(--orange);
-}
-
-.bg-gold {
-  background-color: #ffb700;
-  background-color: var(--gold);
-}
-
 .bg-yellow {
   background-color: #ffd700;
   background-color: var(--yellow);
@@ -2750,16 +2484,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
 .bg-purple {
   background-color: #5e2ca5;
   background-color: var(--purple);
-}
-
-.bg-light-purple {
-  background-color: #a463f2;
-  background-color: var(--light-purple);
-}
-
-.bg-dark-pink {
-  background-color: #d5008f;
-  background-color: var(--dark-pink);
 }
 
 .bg-hot-pink {
@@ -2777,29 +2501,9 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--light-pink);
 }
 
-.bg-dark-green {
-  background-color: #137752;
-  background-color: var(--dark-green);
-}
-
-.bg-green {
-  background-color: #19a974;
-  background-color: var(--green);
-}
-
 .bg-light-green {
   background-color: #9eebcf;
   background-color: var(--light-green);
-}
-
-.bg-navy {
-  background-color: #001b44;
-  background-color: var(--navy);
-}
-
-.bg-dark-blue {
-  background-color: #00449e;
-  background-color: var(--dark-blue);
 }
 
 .bg-blue {
@@ -2807,29 +2511,9 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: var(--blue);
 }
 
-.bg-light-blue {
-  background-color: #96ccff;
-  background-color: var(--light-blue);
-}
-
 .bg-lightest-blue {
   background-color: #cdecff;
   background-color: var(--lightest-blue);
-}
-
-.bg-washed-blue {
-  background-color: #f6fffe;
-  background-color: var(--washed-blue);
-}
-
-.bg-washed-green {
-  background-color: #e8fdf5;
-  background-color: var(--washed-green);
-}
-
-.bg-washed-yellow {
-  background-color: #fffceb;
-  background-color: var(--washed-yellow);
 }
 
 .bg-washed-red {
@@ -2841,17 +2525,14 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_skins.cs
   background-color: transparent;
 }
 
-.bg-current {
-  background-color: currentColor;
-}
-
-.bg-inherit {
-  background-color: inherit;
-}
-
 .group:hover .group-hover\:bg-black-50 {
   background-color: rgba(0, 0, 0, .5);
   background-color: var(--black-50);
+}
+
+.hover\:bg-white:hover {
+  background-color: #fff;
+  background-color: var(--white);
 }
 
 /*
@@ -2862,51 +2543,6 @@ BACKGROUND POSITION
 Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_background-position.css
 
 */
-
-.bg-center {
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.bg-top {
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-
-.bg-right {
-  background-repeat: no-repeat;
-  background-position: center right;
-}
-
-.bg-bottom {
-  background-repeat: no-repeat;
-  background-position: bottom center;
-}
-
-.bg-left {
-  background-repeat: no-repeat;
-  background-position: center left;
-}
-
-.bg-top-right {
-  background-repeat: no-repeat;
-  background-position: top right;
-}
-
-.bg-top-left {
-  background-repeat: no-repeat;
-  background-position: top left;
-}
-
-.bg-bottom-right {
-  background-repeat: no-repeat;
-  background-position: bottom right;
-}
-
-.bg-bottom-left {
-  background-repeat: no-repeat;
-  background-position: bottom left;
-}
 
 /*
 
@@ -2919,22 +2555,6 @@ Adapted from: https://tailwindcss.com/docs/background-repeat
 
 */
 
-.bg-repeat {
-  background-repeat: repeat !important;
-}
-
-.bg-no-repeat {
-  background-repeat: no-repeat !important;
-}
-
-.bg-repeat-x {
-  background-repeat: repeat-x !important;
-}
-
-.bg-repeat-y {
-  background-repeat: repeat-y !important;
-}
-
 /*
 
 BACKGROUND SIZE
@@ -2945,14 +2565,6 @@ Often used in combination with background image set as an inline style on an htm
 Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_background-size.css
 
 */
-
-.bg-cover {
-  background-size: cover;
-}
-
-.bg-contain {
-  background-size: contain;
-}
 
 /* Borders & outlines */
 
@@ -2970,29 +2582,9 @@ Adapted from: http://tachyons.io/docs/themes/borders/
   border-width: 1px;
 }
 
-.bt {
-  border-top-style: solid;
-  border-top-width: 1px;
-}
-
 .br {
   border-right-style: solid;
   border-right-width: 1px;
-}
-
-.bb {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-}
-
-.bl {
-  border-left-style: solid;
-  border-left-width: 1px;
-}
-
-.bn {
-  border-style: none;
-  border-width: 0;
 }
 
 /*
@@ -3013,314 +2605,6 @@ Adapted from: http://tachyons.io/docs/themes/borders/
   border-color: var(--black);
 }
 
-.b--near-black {
-  border-color: #111;
-  border-color: var(--near-black);
-}
-
-.b--dark-gray {
-  border-color: #333;
-  border-color: var(--dark-gray);
-}
-
-.b--mid-gray {
-  border-color: #555;
-  border-color: var(--mid-gray);
-}
-
-.b--gray {
-  border-color: #777;
-  border-color: var(--gray);
-}
-
-.b--silver {
-  border-color: #999;
-  border-color: var(--silver);
-}
-
-.b--light-silver {
-  border-color: #aaa;
-  border-color: var(--light-silver);
-}
-
-.b--moon-gray {
-  border-color: #ccc;
-  border-color: var(--moon-gray);
-}
-
-.b--light-gray {
-  border-color: #eee;
-  border-color: var(--light-gray);
-}
-
-.b--near-white {
-  border-color: #f4f4f4;
-  border-color: var(--near-white);
-}
-
-.b--white {
-  border-color: #fff;
-  border-color: var(--white);
-}
-
-.b--white-90 {
-  border-color: rgba(255, 255, 255, .9);
-  border-color: var(--white-90);
-}
-
-.b--white-80 {
-  border-color: rgba(255, 255, 255, .8);
-  border-color: var(--white-80);
-}
-
-.b--white-70 {
-  border-color: rgba(255, 255, 255, .7);
-  border-color: var(--white-70);
-}
-
-.b--white-60 {
-  border-color: rgba(255, 255, 255, .6);
-  border-color: var(--white-60);
-}
-
-.b--white-50 {
-  border-color: rgba(255, 255, 255, .5);
-  border-color: var(--white-50);
-}
-
-.b--white-40 {
-  border-color: rgba(255, 255, 255, .4);
-  border-color: var(--white-40);
-}
-
-.b--white-30 {
-  border-color: rgba(255, 255, 255, .3);
-  border-color: var(--white-30);
-}
-
-.b--white-20 {
-  border-color: rgba(255, 255, 255, .2);
-  border-color: var(--white-20);
-}
-
-.b--white-10 {
-  border-color: rgba(255, 255, 255, .1);
-  border-color: var(--white-10);
-}
-
-.b--white-05 {
-  border-color: rgba(255, 255, 255, .05);
-  border-color: var(--white-05);
-}
-
-.b--white-025 {
-  border-color: rgba(255, 255, 255, .025);
-  border-color: var(--white-025);
-}
-
-.b--white-0125 {
-  border-color: rgba(255, 255, 255, .0125);
-  border-color: var(--white-0125);
-}
-
-.b--black-90 {
-  border-color: rgba(0, 0, 0, .9);
-  border-color: var(--black-90);
-}
-
-.b--black-80 {
-  border-color: rgba(0, 0, 0, .8);
-  border-color: var(--black-80);
-}
-
-.b--black-70 {
-  border-color: rgba(0, 0, 0, .7);
-  border-color: var(--black-70);
-}
-
-.b--black-60 {
-  border-color: rgba(0, 0, 0, .6);
-  border-color: var(--black-60);
-}
-
-.b--black-50 {
-  border-color: rgba(0, 0, 0, .5);
-  border-color: var(--black-50);
-}
-
-.b--black-40 {
-  border-color: rgba(0, 0, 0, .4);
-  border-color: var(--black-40);
-}
-
-.b--black-30 {
-  border-color: rgba(0, 0, 0, .3);
-  border-color: var(--black-30);
-}
-
-.b--black-20 {
-  border-color: rgba(0, 0, 0, .2);
-  border-color: var(--black-20);
-}
-
-.b--black-10 {
-  border-color: rgba(0, 0, 0, .1);
-  border-color: var(--black-10);
-}
-
-.b--black-05 {
-  border-color: rgba(0, 0, 0, .05);
-  border-color: var(--black-05);
-}
-
-.b--black-025 {
-  border-color: rgba(0, 0, 0, .025);
-  border-color: var(--black-025);
-}
-
-.b--black-0125 {
-  border-color: rgba(0, 0, 0, .0125);
-  border-color: var(--black-0125);
-}
-
-.b--dark-red {
-  border-color: #e7040f;
-  border-color: var(--dark-red);
-}
-
-.b--red {
-  border-color: #ff4136;
-  border-color: var(--red);
-}
-
-.b--light-red {
-  border-color: #ff725c;
-  border-color: var(--light-red);
-}
-
-.b--orange {
-  border-color: #ff6300;
-  border-color: var(--orange);
-}
-
-.b--gold {
-  border-color: #ffb700;
-  border-color: var(--gold);
-}
-
-.b--yellow {
-  border-color: #ffd700;
-  border-color: var(--yellow);
-}
-
-.b--light-yellow {
-  border-color: #fbf1a9;
-  border-color: var(--light-yellow);
-}
-
-.b--purple {
-  border-color: #5e2ca5;
-  border-color: var(--purple);
-}
-
-.b--light-purple {
-  border-color: #a463f2;
-  border-color: var(--light-purple);
-}
-
-.b--dark-pink {
-  border-color: #d5008f;
-  border-color: var(--dark-pink);
-}
-
-.b--hot-pink {
-  border-color: #ff41b4;
-  border-color: var(--hot-pink);
-}
-
-.b--pink {
-  border-color: #ff80cc;
-  border-color: var(--pink);
-}
-
-.b--light-pink {
-  border-color: #ffa3d7;
-  border-color: var(--light-pink);
-}
-
-.b--dark-green {
-  border-color: #137752;
-  border-color: var(--dark-green);
-}
-
-.b--green {
-  border-color: #19a974;
-  border-color: var(--green);
-}
-
-.b--light-green {
-  border-color: #9eebcf;
-  border-color: var(--light-green);
-}
-
-.b--navy {
-  border-color: #001b44;
-  border-color: var(--navy);
-}
-
-.b--dark-blue {
-  border-color: #00449e;
-  border-color: var(--dark-blue);
-}
-
-.b--blue {
-  border-color: #357edd;
-  border-color: var(--blue);
-}
-
-.b--light-blue {
-  border-color: #96ccff;
-  border-color: var(--light-blue);
-}
-
-.b--lightest-blue {
-  border-color: #cdecff;
-  border-color: var(--lightest-blue);
-}
-
-.b--washed-blue {
-  border-color: #f6fffe;
-  border-color: var(--washed-blue);
-}
-
-.b--washed-green {
-  border-color: #e8fdf5;
-  border-color: var(--washed-green);
-}
-
-.b--washed-yellow {
-  border-color: #fffceb;
-  border-color: var(--washed-yellow);
-}
-
-.b--washed-red {
-  border-color: #ffdfdf;
-  border-color: var(--washed-red);
-}
-
-.b--transparent {
-  border-color: transparent;
-  border-color: var(--transparent);
-}
-
-.b--current {
-  border-color: currentColor;
-}
-
-.b--inherit {
-  border-color: inherit;
-}
-
 /*
 
 BORDER RADIUS
@@ -3332,59 +2616,14 @@ Adapted from: http://tachyons.io/docs/themes/border-radius/
 
 */
 
-.br0 {
-  border-radius: 0;
-  border-radius: var(--border-radius-none);
-}
-
-.br1 {
-  border-radius: .125rem;
-  border-radius: var(--border-radius-1);
-}
-
-.br2 {
-  border-radius: .25rem;
-  border-radius: var(--border-radius-2);
-}
-
 .br3 {
   border-radius: .5rem;
   border-radius: var(--border-radius-3);
 }
 
-.br4 {
-  border-radius: 1rem;
-  border-radius: var(--border-radius-4);
-}
-
 .br-100 {
   border-radius: 100%;
   border-radius: var(--border-radius-circle);
-}
-
-.br-pill {
-  border-radius: 9999px;
-  border-radius: var(--border-radius-pill);
-}
-
-.br-top {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.br-right {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.br-bottom {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.br-left {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
 /*
@@ -3398,22 +2637,6 @@ Adapted from: http://tachyons.io/docs/themes/borders/
 
 */
 
-.b--dashed {
-  border-style: dashed;
-}
-
-.b--dotted {
-  border-style: dotted;
-}
-
-.b--solid {
-  border-style: solid;
-}
-
-.b--none {
-  border-style: none;
-}
-
 /*
 
 BORDER WIDTH
@@ -3425,11 +2648,6 @@ Adapted from: http://tachyons.io/docs/themes/borders/
 
 */
 
-.bw0 {
-  border-width: 0;
-  border-width: var(--border-width-none);
-}
-
 .bw1 {
   border-width: .125rem;
   border-width: var(--border-width-1);
@@ -3440,38 +2658,7 @@ Adapted from: http://tachyons.io/docs/themes/borders/
   border-width: var(--border-width-2);
 }
 
-.bw3 {
-  border-width: .5rem;
-  border-width: var(--border-width-3);
-}
-
-.bw4 {
-  border-width: 1rem;
-  border-width: var(--border-width-4);
-}
-
-.bw5 {
-  border-width: 2rem;
-  border-width: var(--border-width-5);
-}
-
 /* Resets */
-
-.bt-0 {
-  border-top-width: 0;
-}
-
-.br-0 {
-  border-right-width: 0;
-}
-
-.bb-0 {
-  border-bottom-width: 0;
-}
-
-.bl-0 {
-  border-left-width: 0;
-}
 
 /* Resets */
 
@@ -3488,18 +2675,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_outlines
 
 */
 
-.outline {
-  outline: 1px solid;
-}
-
-.outline-transparent {
-  outline: 1px solid transparent;
-}
-
-.outline-0 {
-  outline: 0;
-}
-
 /* Box shadow */
 
 /*
@@ -3511,24 +2686,12 @@ Adapted from: https://tailwindcss.com/docs/shadows
 
 */
 
-.shadow {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-}
-
 .shadow-md {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
 }
 
 .shadow-lg {
   box-shadow: 0 15px 30px 0 rgba(0, 0, 0, .11), 0 5px 15px 0 rgba(0, 0, 0, .08);
-}
-
-.shadow-inner {
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, .06);
-}
-
-.shadow-none {
-  box-shadow: none;
 }
 
 /*
@@ -3634,57 +2797,6 @@ Tachyons module for styling nested elements that are generated by a CMS.
 
 */
 
-.nested-copy-line-height p,
-.nested-copy-line-height ul,
-.nested-copy-line-height ol {
-  line-height: 1.5;
-}
-
-.nested-headline-line-height h1,
-.nested-headline-line-height h2,
-.nested-headline-line-height h3,
-.nested-headline-line-height h4,
-.nested-headline-line-height h5,
-.nested-headline-line-height h6 {
-  line-height: 1.25;
-}
-
-.nested-list-reset ul,
-.nested-list-reset ol {
-  padding-left: 0;
-  margin-left: 0;
-  list-style-type: none;
-}
-
-.nested-copy-indent p+p {
-  text-indent: 1em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.nested-copy-separator p+p {
-  margin-top: 1.5em;
-}
-
-.nested-img img {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-}
-
-.nested-links a {
-  color: #357edd;
-  color: var(--blue);
-  transition: color .15s ease-in;
-}
-
-.nested-links a:hover,
-.nested-links a:focus {
-  color: #96ccff;
-  color: var(--light-blue);
-  transition: color .15s ease-in;
-}
-
 /* Images */
 
 /*
@@ -3700,10 +2812,6 @@ Used to adapt inline images to their dimensions.
   object-fit: cover;
 }
 
-.object-contain {
-  object-fit: contain;
-}
-
 /*
 
 OBJECT FIT
@@ -3716,46 +2824,6 @@ Used to adapt inline images to their dimensions.
 .object-center {
   background-repeat: no-repeat;
   background-position: center center;
-}
-
-.object-top {
-  background-repeat: no-repeat;
-  background-position: top center;
-}
-
-.object-right {
-  background-repeat: no-repeat;
-  background-position: center right;
-}
-
-.object-bottom {
-  background-repeat: no-repeat;
-  background-position: bottom center;
-}
-
-.object-left {
-  background-repeat: no-repeat;
-  background-position: center left;
-}
-
-.object-top-right {
-  background-repeat: no-repeat;
-  background-position: top right;
-}
-
-.object-top-left {
-  background-repeat: no-repeat;
-  background-position: top left;
-}
-
-.object-bottom-right {
-  background-repeat: no-repeat;
-  background-position: bottom right;
-}
-
-.object-bottom-left {
-  background-repeat: no-repeat;
-  background-position: bottom left;
 }
 
 /* Interactivity */
@@ -3774,10 +2842,6 @@ Adapted from:
 
 /* Cursor */
 
-.cursor-auto {
-  cursor: auto;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -3788,29 +2852,7 @@ Adapted from:
 
 /* Pointer events */
 
-.pointer-events-none {
-  pointer-events: none;
-}
-
-.pointer-events-auto {
-  pointer-events: auto;
-}
-
 /* User select */
-
-.select-none {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.select-text {
-  -webkit-user-select: text;
-     -moz-user-select: text;
-      -ms-user-select: text;
-          user-select: text;
-}
 
 /* Cursor */
 
@@ -3850,16 +2892,6 @@ Adapted from: http://tachyons.io/docs/themes/hovers/,
 
 */
 
-.hide-child .child {
-  opacity: 0;
-}
-
-.hide-child:hover .child,
-.hide-child:focus .child,
-.hide-child:active .child {
-  opacity: 1;
-}
-
 /* Layout */
 
 /*
@@ -3870,239 +2902,15 @@ Adapted from: http://tachyons.io/docs/themes/hovers/,
 
 /* Column count */
 
-columns-2 {
-  -webkit-column-count: 2;
-          column-count: 2;
-}
-
-columns-3 {
-  -webkit-column-count: 3;
-          column-count: 3;
-}
-
-columns-4 {
-  -webkit-column-count: 4;
-          column-count: 4;
-}
-
 /* Column width */
 
-.column-w1 {
-  width: 1rem;
-  width: var(--sizing-1);
-}
-
-.column-w2 {
-  width: 2rem;
-  width: var(--sizing-2);
-}
-
-.column-w3 {
-  width: 4rem;
-  width: var(--sizing-3);
-}
-
-.column-w4 {
-  width: 8rem;
-  width: var(--sizing-4);
-}
-
-.column-w5 {
-  width: 16rem;
-  width: var(--sizing-5);
-}
-
-.column-w6 {
-  width: 32rem;
-  width: var(--sizing-6);
-}
-
-.column-w7 {
-  width: 48rem;
-  width: var(--sizing-7);
-}
-
-.column-w8 {
-  width: 64rem;
-  width: var(--sizing-8);
-}
-
-.column-w9 {
-  width: 96rem;
-  width: var(--sizing-9);
-}
-
-.column-w-10 {
-  width: 10%;
-}
-
-.column-w-20 {
-  width: 20%;
-}
-
-.column-w-25 {
-  width: 25%;
-}
-
-.column-w-30 {
-  width: 30%;
-}
-
-.column-w-40 {
-  width: 40%;
-}
-
-.column-w-50 {
-  width: 50%;
-}
-
-.column-w-60 {
-  width: 60%;
-}
-
-.column-w-70 {
-  width: 70%;
-}
-
-.column-w-75 {
-  width: 75%;
-}
-
-.column-w-80 {
-  width: 80%;
-}
-
-.column-w-90 {
-  width: 90%;
-}
-
-.column-w-100 {
-  width: 100%;
-}
-
-.column-w-third {
-  width: calc(100% / 3);
-}
-
-.column-w-two-thirds {
-  width: calc(100% / 1.5);
-}
-
 /* Column gap */
-
-.column-gap1 {
-  width: 1rem;
-  width: var(--sizing-1);
-}
-
-.column-gap2 {
-  width: 2rem;
-  width: var(--sizing-2);
-}
-
-.column-gap3 {
-  width: 4rem;
-  width: var(--sizing-3);
-}
-
-.column-gap4 {
-  width: 8rem;
-  width: var(--sizing-4);
-}
-
-.column-gap5 {
-  width: 16rem;
-  width: var(--sizing-5);
-}
-
-.column-gap6 {
-  width: 32rem;
-  width: var(--sizing-6);
-}
-
-.column-gap7 {
-  width: 48rem;
-  width: var(--sizing-7);
-}
-
-.column-gap8 {
-  width: 64rem;
-  width: var(--sizing-8);
-}
-
-.column-gap9 {
-  width: 96rem;
-  width: var(--sizing-9);
-}
-
-.column-gap-10 {
-  width: 10%;
-}
-
-.column-gap-20 {
-  width: 20%;
-}
-
-.column-gap-25 {
-  width: 25%;
-}
-
-.column-gap-30 {
-  width: 30%;
-}
-
-.column-gap-40 {
-  width: 40%;
-}
-
-.column-gap-50 {
-  width: 50%;
-}
-
-.column-gap-60 {
-  width: 60%;
-}
-
-.column-gap-70 {
-  width: 70%;
-}
-
-.column-gap-75 {
-  width: 75%;
-}
-
-.column-gap-80 {
-  width: 80%;
-}
-
-.column-gap-90 {
-  width: 90%;
-}
-
-.column-gap-100 {
-  width: 100%;
-}
-
-.column-gap-third {
-  width: calc(100% / 3);
-}
-
-.column-gap-two-thirds {
-  width: calc(100% / 1.5);
-}
 
 /*
  *
  * Column Break
  *
  */
-
-.break-avoid {
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
-}
 
 /* 
 
@@ -4123,10 +2931,6 @@ Adapted from: http://tachyons.io/docs/layout/display
   display: none;
 }
 
-.di {
-  display: inline;
-}
-
 .db {
   display: block;
 }
@@ -4139,44 +2943,7 @@ Adapted from: http://tachyons.io/docs/layout/display
   display: flex;
 }
 
-.inline-flex {
-  display: inline-flex;
-}
-
-.dt {
-  display: table;
-}
-
-.dit {
-  display: inline-table;
-}
-
-.dtc {
-  display: table-cell;
-}
-
-.dt-row {
-  display: table-row;
-}
-
-.dt-row-group {
-  display: table-row-group;
-}
-
-.dt-column {
-  display: table-column;
-}
-
-.dt-column-group {
-  display: table-column-group;
-}
-
 /* Set table to full width (all cells will be equal width) */
-
-.dt--fixed {
-  table-layout: fixed;
-  width: 100%;
-}
 
 /*
 
@@ -4193,96 +2960,20 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
   *
   */
 
-.flex-row {
-  flex-direction: row;
-}
-
-.flex-row-reverse {
-  flex-direction: row-reverse;
-}
-
 .flex-column {
   flex-direction: column;
-}
-
-.flex-column-reverse {
-  flex-direction: column-reverse;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.flex-nowrap {
-  flex-wrap: nowrap;
-}
-
-.flex-wrap-reverse {
-  flex-wrap: wrap-reverse;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-center {
   justify-content: center;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 .justify-between {
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
-}
-
-.items-stretch {
-  align-items: stretch;
-}
-
-.items-start {
-  align-items: flex-start;
-}
-
-.items-end {
-  align-items: flex-end;
-}
-
 .items-center {
   align-items: center;
-}
-
-.items-baseline {
-  align-items: baseline;
-}
-
-.content-stretch {
-  align-content: stretch;
-}
-
-.content-start {
-  align-content: flex-start;
-}
-
-.content-center {
-  align-content: center;
-}
-
-.content-end {
-  align-content: flex-end;
-}
-
-.content-between {
-  align-content: space-between;
-}
-
-.content-around {
-  align-content: space-around;
 }
 
 /*
@@ -4299,94 +2990,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.
   min-height: 0; /* 1 */
 }
 
-.flex-1 {
-  flex: 1;
-}
-
-.flex-grow-0 {
-  flex-grow: 0;
-}
-
-.flex-grow-1 {
-  flex-grow: 1;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
-}
-
-.flex-shrink-1 {
-  flex-shrink: 1;
-}
-
-.flex-none {
-  flex: none;
-}
-
-.self-auto {
-  align-self: auto;
-}
-
-.self-start {
-  align-self: flex-start;
-}
-
-.self-center {
-  align-self: center;
-}
-
-.self-end {
-  align-self: flex-end;
-}
-
-.self-baseline {
-  align-self: baseline;
-}
-
-.self-stretch {
-  align-self: stretch;
-}
-
-.order-0 {
-  order: 0;
-}
-
-.order-1 {
-  order: 1;
-}
-
-.order-2 {
-  order: 2;
-}
-
-.order-3 {
-  order: 3;
-}
-
-.order-4 {
-  order: 4;
-}
-
-.order-5 {
-  order: 5;
-}
-
-.order-6 {
-  order: 6;
-}
-
-.order-7 {
-  order: 7;
-}
-
-.order-8 {
-  order: 8;
-}
-
-.order-last {
-  order: 99999;
-}
-
 /*
 
 FLOATS & CLEARFIX
@@ -4400,34 +3003,6 @@ Adapted from:
 - http://nicolasgallagher.com/micro-clearfix-hack/
 
 */
-
-.cl {
-  clear: left;
-}
-
-.cr {
-  clear: right;
-}
-
-.cb {
-  clear: both;
-}
-
-.cn {
-  clear: none;
-}
-
-.fl {
-  float: left;
-}
-
-.fr {
-  float: right;
-}
-
-.fn {
-  float: none;
-}
 
 /*
 
@@ -4479,297 +3054,9 @@ Adapted from: http://tachyons.io/docs/layout/position/
   left: 0;
 }
 
-.top-1 {
-  top: .25rem;
-  top: var(--spacing-1);
-}
-
-.right-1 {
-  right: .25rem;
-  right: var(--spacing-1);
-}
-
-.bottom-1 {
-  bottom: .25rem;
-  bottom: var(--spacing-1);
-}
-
-.left-1 {
-  left: .25rem;
-  left: var(--spacing-1);
-}
-
-.top-2 {
-  top: .5rem;
-  top: var(--spacing-2);
-}
-
-.right-2 {
-  right: .5rem;
-  right: var(--spacing-2);
-}
-
-.bottom-2 {
-  bottom: .5rem;
-  bottom: var(--spacing-2);
-}
-
-.left-2 {
-  left: .5rem;
-  left: var(--spacing-2);
-}
-
-.top-3 {
-  top: 1rem;
-  top: var(--spacing-3);
-}
-
-.right-3 {
-  right: 1rem;
-  right: var(--spacing-3);
-}
-
-.bottom-3 {
-  bottom: 1rem;
-  bottom: var(--spacing-3);
-}
-
-.left-3 {
-  left: 1rem;
-  left: var(--spacing-3);
-}
-
-.top-4 {
-  top: 2rem;
-  top: var(--spacing-4);
-}
-
-.right-4 {
-  right: 2rem;
-  right: var(--spacing-4);
-}
-
-.bottom-4 {
-  bottom: 2rem;
-  bottom: var(--spacing-4);
-}
-
-.left-4 {
-  left: 2rem;
-  left: var(--spacing-4);
-}
-
-.top-5 {
-  top: 4rem;
-  top: var(--spacing-5);
-}
-
-.right-5 {
-  right: 4rem;
-  right: var(--spacing-5);
-}
-
-.bottom-5 {
-  bottom: 4rem;
-  bottom: var(--spacing-5);
-}
-
-.left-5 {
-  left: 4rem;
-  left: var(--spacing-5);
-}
-
-.top-6 {
-  top: 8rem;
-  top: var(--spacing-6);
-}
-
-.right-6 {
-  right: 8rem;
-  right: var(--spacing-6);
-}
-
-.bottom-6 {
-  bottom: 8rem;
-  bottom: var(--spacing-6);
-}
-
-.left-6 {
-  left: 8rem;
-  left: var(--spacing-6);
-}
-
-.top-7 {
-  top: 16rem;
-  top: var(--spacing-7);
-}
-
-.right-7 {
-  right: 16rem;
-  right: var(--spacing-7);
-}
-
-.bottom-7 {
-  bottom: 16rem;
-  bottom: var(--spacing-7);
-}
-
-.left-7 {
-  left: 16rem;
-  left: var(--spacing-7);
-}
-
 /* Negative spacing */
 
-.top--1 {
-  top: -var(--spacing-1);
-  top: -var(--spacing-1);
-}
-
-.right--1 {
-  right: -var(--spacing-1);
-  right: -var(--spacing-1);
-}
-
-.bottom--1 {
-  bottom: -var(--spacing-1);
-  bottom: -var(--spacing-1);
-}
-
-.left--1 {
-  left: -var(--spacing-1);
-  left: -var(--spacing-1);
-}
-
-.top--2 {
-  top: -var(--spacing-2);
-  top: -var(--spacing-2);
-}
-
-.right--2 {
-  right: -var(--spacing-2);
-  right: -var(--spacing-2);
-}
-
-.bottom--2 {
-  bottom: -var(--spacing-2);
-  bottom: -var(--spacing-2);
-}
-
-.left--2 {
-  left: -var(--spacing-2);
-  left: -var(--spacing-2);
-}
-
-.top--3 {
-  top: -var(--spacing-3);
-  top: -var(--spacing-3);
-}
-
-.right--3 {
-  right: -var(--spacing-3);
-  right: -var(--spacing-3);
-}
-
-.bottom--3 {
-  bottom: -var(--spacing-3);
-  bottom: -var(--spacing-3);
-}
-
-.left--3 {
-  left: -var(--spacing-3);
-  left: -var(--spacing-3);
-}
-
-.top--4 {
-  top: -var(--spacing-4);
-  top: -var(--spacing-4);
-}
-
-.right--4 {
-  right: -var(--spacing-4);
-  right: -var(--spacing-4);
-}
-
-.bottom--4 {
-  bottom: -var(--spacing-4);
-  bottom: -var(--spacing-4);
-}
-
-.left--4 {
-  left: -var(--spacing-4);
-  left: -var(--spacing-4);
-}
-
-.top--5 {
-  top: -var(--spacing-5);
-  top: -var(--spacing-5);
-}
-
-.right--5 {
-  right: -var(--spacing-5);
-  right: -var(--spacing-5);
-}
-
-.bottom--5 {
-  bottom: -var(--spacing-5);
-  bottom: -var(--spacing-5);
-}
-
-.left--5 {
-  left: -var(--spacing-5);
-  left: -var(--spacing-5);
-}
-
-.top--6 {
-  top: -var(--spacing-6);
-  top: -var(--spacing-6);
-}
-
-.right--6 {
-  right: -var(--spacing-6);
-  right: -var(--spacing-6);
-}
-
-.bottom--6 {
-  bottom: -var(--spacing-6);
-  bottom: -var(--spacing-6);
-}
-
-.left--6 {
-  left: -var(--spacing-6);
-  left: -var(--spacing-6);
-}
-
-.top--7 {
-  top: -var(--spacing-7);
-  top: -var(--spacing-7);
-}
-
-.right--7 {
-  right: -var(--spacing-7);
-  right: -var(--spacing-7);
-}
-
-.bottom--7 {
-  bottom: -var(--spacing-7);
-  bottom: -var(--spacing-7);
-}
-
-.left--7 {
-  left: -var(--spacing-7);
-  left: -var(--spacing-7);
-}
-
 /* Percentage spacing */
-
-.top-10 {
-  top: 10%;
-}
-
-.top-15 {
-  top: 15%;
-}
 
 .top-20 {
   top: 20%;
@@ -4783,403 +3070,35 @@ Adapted from: http://tachyons.io/docs/layout/position/
   top: 30%;
 }
 
-.top-40 {
-  top: 40%;
-}
-
 .top-50 {
   top: 50%;
-}
-
-.top-60 {
-  top: 60%;
-}
-
-.top-70 {
-  top: 70%;
-}
-
-.top-75 {
-  top: 75%;
-}
-
-.top-80 {
-  top: 80%;
 }
 
 .top-90 {
   top: 90%;
 }
 
-.top-100 {
-  top: 100%;
-}
-
-.right-10 {
-  right: 10%;
-}
-
-.right-15 {
-  right: 15%;
-}
-
-.right-20 {
-  right: 20%;
-}
-
-.right-25 {
-  right: 25%;
-}
-
-.right-30 {
-  right: 30%;
-}
-
-.right-40 {
-  right: 40%;
-}
-
-.right-50 {
-  right: 50%;
-}
-
-.right-60 {
-  right: 60%;
-}
-
-.right-70 {
-  right: 70%;
-}
-
-.right-75 {
-  right: 75%;
-}
-
-.right-80 {
-  right: 80%;
-}
-
-.right-90 {
-  right: 90%;
-}
-
-.right-100 {
-  right: 100%;
-}
-
-.bottom-10 {
-  bottom: 10%;
-}
-
-.bottom-15 {
-  bottom: 15%;
-}
-
-.bottom-20 {
-  bottom: 20%;
-}
-
-.bottom-25 {
-  bottom: 25%;
-}
-
-.bottom-30 {
-  bottom: 30%;
-}
-
-.bottom-40 {
-  bottom: 40%;
-}
-
-.bottom-50 {
-  bottom: 50%;
-}
-
-.bottom-60 {
-  bottom: 60%;
-}
-
-.bottom-70 {
-  bottom: 70%;
-}
-
-.bottom-75 {
-  bottom: 75%;
-}
-
-.bottom-80 {
-  bottom: 80%;
-}
-
-.bottom-90 {
-  bottom: 90%;
-}
-
-.bottom-100 {
-  bottom: 100%;
-}
-
 .left-10 {
   left: 10%;
-}
-
-.left-15 {
-  left: 15%;
-}
-
-.left-20 {
-  left: 20%;
 }
 
 .left-25 {
   left: 25%;
 }
 
-.left-30 {
-  left: 30%;
-}
-
-.left-40 {
-  left: 40%;
-}
-
 .left-50 {
   left: 50%;
-}
-
-.left-60 {
-  left: 60%;
 }
 
 .left-70 {
   left: 70%;
 }
 
-.left-75 {
-  left: 75%;
-}
-
 .left-80 {
   left: 80%;
 }
 
-.left-90 {
-  left: 90%;
-}
-
-.left-100 {
-  left: 100%;
-}
-
 /* Negative percentage spacing */
-
-.top--10 {
-  top: -10%;
-}
-
-.top--15 {
-  top: -15%;
-}
-
-.top--20 {
-  top: -20%;
-}
-
-.top--25 {
-  top: -25%;
-}
-
-.top--30 {
-  top: -30%;
-}
-
-.top--40 {
-  top: -40%;
-}
-
-.top--50 {
-  top: -50%;
-}
-
-.top--60 {
-  top: -60%;
-}
-
-.top--70 {
-  top: -70%;
-}
-
-.top--75 {
-  top: -75%;
-}
-
-.top--80 {
-  top: -80%;
-}
-
-.top--90 {
-  top: -90%;
-}
-
-.top--100 {
-  top: -100%;
-}
-
-.right--10 {
-  right: -10%;
-}
-
-.right--15 {
-  right: -15%;
-}
-
-.right--20 {
-  right: -20%;
-}
-
-.right--25 {
-  right: -25%;
-}
-
-.right--30 {
-  right: -30%;
-}
-
-.right--40 {
-  right: -40%;
-}
-
-.right--50 {
-  right: -50%;
-}
-
-.right--60 {
-  right: -60%;
-}
-
-.right--70 {
-  right: -70%;
-}
-
-.right--75 {
-  right: -75%;
-}
-
-.right--80 {
-  right: -80%;
-}
-
-.right--90 {
-  right: -90%;
-}
-
-.right--100 {
-  right: -100%;
-}
-
-.bottom--10 {
-  bottom: -10%;
-}
-
-.bottom--15 {
-  bottom: -15%;
-}
-
-.bottom--20 {
-  bottom: -20%;
-}
-
-.bottom--25 {
-  bottom: -25%;
-}
-
-.bottom--30 {
-  bottom: -30%;
-}
-
-.bottom--40 {
-  bottom: -40%;
-}
-
-.bottom--50 {
-  bottom: -50%;
-}
-
-.bottom--60 {
-  bottom: -60%;
-}
-
-.bottom--70 {
-  bottom: -70%;
-}
-
-.bottom--75 {
-  bottom: -75%;
-}
-
-.bottom--80 {
-  bottom: -80%;
-}
-
-.bottom--90 {
-  bottom: -90%;
-}
-
-.bottom--100 {
-  bottom: -100%;
-}
-
-.left--10 {
-  left: -10%;
-}
-
-.left--15 {
-  left: -15%;
-}
-
-.left--20 {
-  left: -20%;
-}
-
-.left--25 {
-  left: -25%;
-}
-
-.left--30 {
-  left: -30%;
-}
-
-.left--40 {
-  left: -40%;
-}
-
-.left--50 {
-  left: -50%;
-}
-
-.left--60 {
-  left: -60%;
-}
-
-.left--70 {
-  left: -70%;
-}
-
-.left--75 {
-  left: -75%;
-}
-
-.left--80 {
-  left: -80%;
-}
-
-.left--90 {
-  left: -90%;
-}
-
-.left--100 {
-  left: -100%;
-}
 
 /*
 
@@ -5190,81 +3109,8 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_z-index.
 
 */
 
-.z--1 {
-  z-index: -1;
-}
-
-.z-0 {
-  z-index: 0;
-}
-
-.z-1 {
-  z-index: 1;
-}
-
-.z-2 {
-  z-index: 2;
-}
-
-.z-3 {
-  z-index: 3;
-}
-
-.z-4 {
-  z-index: 4;
-}
-
-.z-5 {
-  z-index: 5;
-}
-
-.z-6 {
-  z-index: 6;
-}
-
-.z-7 {
-  z-index: 7;
-}
-
-.z-8 {
-  z-index: 8;
-}
-
-.z-9 {
-  z-index: 9;
-}
-
-.z-10 {
-  z-index: 10;
-}
-
-.z-99 {
-  z-index: 99;
-}
-
 .z-999 {
   z-index: 999;
-}
-
-.z-9999 {
-  z-index: 9999;
-}
-
-.z-max {
-  z-index: 2147483647;
-}
-
-.z-inherit {
-  z-index: inherit;
-}
-
-.z-initial {
-  z-index: auto;
-  z-index: initial;
-}
-
-.z-unset {
-  z-index: unset;
 }
 
 /* Sizing */
@@ -5293,54 +3139,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_aspect-r
 .aspect-ratio {
   height: 0;
   position: relative;
-}
-
-.aspect-ratio--2x1 {
-  padding-bottom: 50%;
-}
-
-.aspect-ratio--1x2 {
-  padding-bottom: 200%;
-}
-
-.aspect-ratio--16x9 {
-  padding-bottom: 56.25%;
-}
-
-.aspect-ratio--9x16 {
-  padding-bottom: 177.77%;
-}
-
-.aspect-ratio--4x3 {
-  padding-bottom: 75%;
-}
-
-.aspect-ratio--3x4 {
-  padding-bottom: 133.33%;
-}
-
-.aspect-ratio--6x4 {
-  padding-bottom: 66.6%;
-}
-
-.aspect-ratio--4x6 {
-  padding-bottom: 150%;
-}
-
-.aspect-ratio--8x5 {
-  padding-bottom: 62.5%;
-}
-
-.aspect-ratio--5x8 {
-  padding-bottom: 160%;
-}
-
-.aspect-ratio--7x5 {
-  padding-bottom: 71.42%;
-}
-
-.aspect-ratio--5x7 {
-  padding-bottom: 140%;
 }
 
 .aspect-ratio--1x1 {
@@ -5387,66 +3185,9 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   height: var(--sizing-4);
 }
 
-.h5 {
-  height: 16rem;
-  height: var(--sizing-5);
-}
-
-.h6 {
-  height: 32rem;
-  height: var(--sizing-6);
-}
-
 .h7 {
   height: 48rem;
   height: var(--sizing-7);
-}
-
-.h8 {
-  height: 64rem;
-  height: var(--sizing-8);
-}
-
-.h9 {
-  height: 96rem;
-  height: var(--sizing-9);
-}
-
-.h-0 {
-  height: 0;
-}
-
-.h-auto {
-  height: auto;
-}
-
-.h-inherit {
-  height: inherit;
-}
-
-.max-h1 {
-  max-height: 1rem;
-  max-height: var(--sizing-1);
-}
-
-.max-h2 {
-  max-height: 2rem;
-  max-height: var(--sizing-2);
-}
-
-.max-h3 {
-  max-height: 4rem;
-  max-height: var(--sizing-3);
-}
-
-.max-h4 {
-  max-height: 8rem;
-  max-height: var(--sizing-4);
-}
-
-.max-h5 {
-  max-height: 16rem;
-  max-height: var(--sizing-5);
 }
 
 .max-h6 {
@@ -5454,72 +3195,9 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   max-height: var(--sizing-6);
 }
 
-.max-h7 {
-  max-height: 48rem;
-  max-height: var(--sizing-7);
-}
-
-.max-h8 {
-  max-height: 64rem;
-  max-height: var(--sizing-8);
-}
-
-.max-h9 {
-  max-height: 96rem;
-  max-height: var(--sizing-9);
-}
-
-.max-h-none {
-  max-height: none;
-}
-
-.min-h1 {
-  min-height: 1rem;
-  min-height: var(--sizing-1);
-}
-
-.min-h2 {
-  min-height: 2rem;
-  min-height: var(--sizing-2);
-}
-
-.min-h3 {
-  min-height: 4rem;
-  min-height: var(--sizing-3);
-}
-
-.min-h4 {
-  min-height: 8rem;
-  min-height: var(--sizing-4);
-}
-
 .min-h5 {
   min-height: 16rem;
   min-height: var(--sizing-5);
-}
-
-.min-h6 {
-  min-height: 32rem;
-  min-height: var(--sizing-6);
-}
-
-.min-h7 {
-  min-height: 48rem;
-  min-height: var(--sizing-7);
-}
-
-.min-h8 {
-  min-height: 64rem;
-  min-height: var(--sizing-8);
-}
-
-.min-h9 {
-  min-height: 96rem;
-  min-height: var(--sizing-9);
-}
-
-.min-h-none {
-  min-height: none;
 }
 
 /* 
@@ -5528,172 +3206,12 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   *
   */
 
-.h-10 {
-  height: 10%;
-}
-
-.h-20 {
-  height: 20%;
-}
-
-.h-25 {
-  height: 25%;
-}
-
-.h-30 {
-  height: 30%;
-}
-
-.h-40 {
-  height: 40%;
-}
-
 .h-50 {
   height: 50%;
 }
 
-.h-60 {
-  height: 60%;
-}
-
-.h-70 {
-  height: 70%;
-}
-
-.h-75 {
-  height: 75%;
-}
-
-.h-80 {
-  height: 80%;
-}
-
-.h-90 {
-  height: 90%;
-}
-
 .h-100 {
   height: 100%;
-}
-
-.h-third {
-  height: calc(100% / 3);
-}
-
-.h-two-thirds {
-  height: calc(100% / 1.5);
-}
-
-.max-h-10 {
-  max-height: 10%;
-}
-
-.max-h-20 {
-  max-height: 20%;
-}
-
-.max-h-25 {
-  max-height: 25%;
-}
-
-.max-h-30 {
-  max-height: 30%;
-}
-
-.max-h-40 {
-  max-height: 40%;
-}
-
-.max-h-50 {
-  max-height: 50%;
-}
-
-.max-h-60 {
-  max-height: 60%;
-}
-
-.max-h-70 {
-  max-height: 70%;
-}
-
-.max-h-75 {
-  max-height: 75%;
-}
-
-.max-h-80 {
-  max-height: 80%;
-}
-
-.max-h-90 {
-  max-height: 90%;
-}
-
-.max-h-100 {
-  max-height: 100%;
-}
-
-.max-h-third {
-  max-height: calc(100% / 3);
-}
-
-.max-h-two-thirds {
-  max-height: calc(100% / 1.5);
-}
-
-.min-h-10 {
-  min-height: 10%;
-}
-
-.min-h-20 {
-  min-height: 20%;
-}
-
-.min-h-25 {
-  min-height: 25%;
-}
-
-.min-h-30 {
-  min-height: 30%;
-}
-
-.min-h-40 {
-  min-height: 40%;
-}
-
-.min-h-50 {
-  min-height: 50%;
-}
-
-.min-h-60 {
-  min-height: 60%;
-}
-
-.min-h-70 {
-  min-height: 70%;
-}
-
-.min-h-75 {
-  min-height: 75%;
-}
-
-.min-h-80 {
-  min-height: 80%;
-}
-
-.min-h-90 {
-  min-height: 90%;
-}
-
-.min-h-100 {
-  min-height: 100%;
-}
-
-.min-h-third {
-  min-height: calc(100% / 3);
-}
-
-.min-h-two-thirds {
-  min-height: calc(100% / 1.5);
 }
 
 /* 
@@ -5702,172 +3220,8 @@ Adapted from: http://tachyons.io/docs/layout/heights/
   *
   */
 
-.vh-10 {
-  height: 10vh;
-}
-
-.vh-20 {
-  height: 20vh;
-}
-
-.vh-25 {
-  height: 25vh;
-}
-
-.vh-30 {
-  height: 30vh;
-}
-
-.vh-40 {
-  height: 40vh;
-}
-
-.vh-50 {
-  height: 50vh;
-}
-
-.vh-60 {
-  height: 60vh;
-}
-
 .vh-70 {
   height: 70vh;
-}
-
-.vh-75 {
-  height: 75vh;
-}
-
-.vh-80 {
-  height: 80vh;
-}
-
-.vh-90 {
-  height: 90vh;
-}
-
-.vh-100 {
-  height: 100vh;
-}
-
-.vh-third {
-  height: calc(100vh / 3);
-}
-
-.vh-two-thirds {
-  height: calc(100vh / 1.5);
-}
-
-.max-vh-10 {
-  max-height: 10vh;
-}
-
-.max-vh-20 {
-  max-height: 20vh;
-}
-
-.max-vh-25 {
-  max-height: 25vh;
-}
-
-.max-vh-30 {
-  max-height: 30vh;
-}
-
-.max-vh-40 {
-  max-height: 40vh;
-}
-
-.max-vh-50 {
-  max-height: 50vh;
-}
-
-.max-vh-60 {
-  max-height: 60vh;
-}
-
-.max-vh-70 {
-  max-height: 70vh;
-}
-
-.max-vh-75 {
-  max-height: 75vh;
-}
-
-.max-vh-80 {
-  max-height: 80vh;
-}
-
-.max-vh-90 {
-  max-height: 90vh;
-}
-
-.max-vh-100 {
-  max-height: 100vh;
-}
-
-.max-vh-third {
-  max-height: calc(100vh / 3);
-}
-
-.max-vh-two-thirds {
-  max-height: calc(100vh / 1.5);
-}
-
-.min-vh-10 {
-  min-height: 10vh;
-}
-
-.min-vh-20 {
-  min-height: 20vh;
-}
-
-.min-vh-25 {
-  min-height: 25vh;
-}
-
-.min-vh-30 {
-  min-height: 30vh;
-}
-
-.min-vh-40 {
-  min-height: 40vh;
-}
-
-.min-vh-50 {
-  min-height: 50vh;
-}
-
-.min-vh-60 {
-  min-height: 60vh;
-}
-
-.min-vh-70 {
-  min-height: 70vh;
-}
-
-.min-vh-75 {
-  min-height: 75vh;
-}
-
-.min-vh-80 {
-  min-height: 80vh;
-}
-
-.min-vh-90 {
-  min-height: 90vh;
-}
-
-.min-vh-100 {
-  min-height: 100vh;
-}
-
-.min-vh-third {
-  min-height: calc(100vh / 3);
-}
-
-.min-vh-two-thirds {
-  min-height: calc(100vh / 1.5);
 }
 
 /* 
@@ -5915,10 +3269,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow
 
  */
 
-.overflow-visible {
-  overflow: visible;
-}
-
 .overflow-hidden {
   overflow: hidden;
 }
@@ -5927,72 +3277,10 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_overflow
   overflow: scroll;
 }
 
-.overflow-auto {
-  overflow: auto;
-}
-
-.overflow-x-visible {
-  overflow-x: visible;
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
-.overflow-x-scroll {
-  overflow-x: scroll;
-}
-
-.overflow-x-auto {
-  overflow-x: auto;
-}
-
-.overflow-y-visible {
-  overflow-y: visible;
-}
-
-.overflow-y-hidden {
-  overflow-y: hidden;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll;
-}
-
-.overflow-y-auto {
-  overflow-y: auto;
-}
-
 /* Scrolling */
-
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
 
 .scrolling-touch {
   -webkit-overflow-scrolling: touch;
-}
-
-.hide-scrollbar {
-  /* For IE */
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  scrollbar-face-color: transparent;
-  scrollbar-track-color: transparent;
-  scrollbar-3dlight-color: transparent;
-  scrollbar-darkshadow-color: transparent;
-  scrollbar-arrow-color: transparent;
-  /* For Chrome */
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-.hide-scrollbar {
-  /*
- For Firefox...? (Nothing yet.)
- */
 }
 
 /*
@@ -6006,155 +3294,9 @@ Adapted from:
 
 */
 
-.w1 {
-  width: 1rem;
-  width: var(--sizing-1);
-}
-
-.w2 {
-  width: 2rem;
-  width: var(--sizing-2);
-}
-
-.w3 {
-  width: 4rem;
-  width: var(--sizing-3);
-}
-
-.w4 {
-  width: 8rem;
-  width: var(--sizing-4);
-}
-
-.w5 {
-  width: 16rem;
-  width: var(--sizing-5);
-}
-
-.w6 {
-  width: 32rem;
-  width: var(--sizing-6);
-}
-
-.w7 {
-  width: 48rem;
-  width: var(--sizing-7);
-}
-
-.w8 {
-  width: 64rem;
-  width: var(--sizing-8);
-}
-
-.w9 {
-  width: 96rem;
-  width: var(--sizing-9);
-}
-
-.w-auto {
-  width: auto;
-}
-
-.w-0 {
-  width: 0;
-}
-
-.mw1 {
-  max-width: 1rem;
-  max-width: var(--sizing-1);
-}
-
-.mw2 {
-  max-width: 2rem;
-  max-width: var(--sizing-2);
-}
-
-.mw3 {
-  max-width: 4rem;
-  max-width: var(--sizing-3);
-}
-
-.mw4 {
-  max-width: 8rem;
-  max-width: var(--sizing-4);
-}
-
 .mw5 {
   max-width: 16rem;
   max-width: var(--sizing-5);
-}
-
-.mw6 {
-  max-width: 32rem;
-  max-width: var(--sizing-6);
-}
-
-.mw7 {
-  max-width: 48rem;
-  max-width: var(--sizing-7);
-}
-
-.mw8 {
-  max-width: 64rem;
-  max-width: var(--sizing-8);
-}
-
-.mw9 {
-  max-width: 96rem;
-  max-width: var(--sizing-9);
-}
-
-.mw-none {
-  max-width: none;
-}
-
-.min-w1 {
-  min-width: 1rem;
-  min-width: var(--sizing-1);
-}
-
-.min-w2 {
-  min-width: 2rem;
-  min-width: var(--sizing-2);
-}
-
-.min-w3 {
-  min-width: 4rem;
-  min-width: var(--sizing-3);
-}
-
-.min-w4 {
-  min-width: 8rem;
-  min-width: var(--sizing-4);
-}
-
-.min-w5 {
-  min-width: 16rem;
-  min-width: var(--sizing-5);
-}
-
-.min-w6 {
-  min-width: 32rem;
-  min-width: var(--sizing-6);
-}
-
-.min-w7 {
-  min-width: 48rem;
-  min-width: var(--sizing-7);
-}
-
-.min-w8 {
-  min-width: 64rem;
-  min-width: var(--sizing-8);
-}
-
-.min-w9 {
-  min-width: 96rem;
-  min-width: var(--sizing-9);
-}
-
-.min-w-none {
-  min-width: none;
 }
 
 /* 
@@ -6163,48 +3305,12 @@ Adapted from:
   *
   */
 
-.w-10 {
-  width: 10%;
-}
-
-.w-20 {
-  width: 20%;
-}
-
-.w-25 {
-  width: 25%;
-}
-
 .w-30 {
   width: 30%;
 }
 
-.w-40 {
-  width: 40%;
-}
-
 .w-50 {
   width: 50%;
-}
-
-.w-60 {
-  width: 60%;
-}
-
-.w-70 {
-  width: 70%;
-}
-
-.w-75 {
-  width: 75%;
-}
-
-.w-80 {
-  width: 80%;
-}
-
-.w-90 {
-  width: 90%;
 }
 
 .w-100 {
@@ -6215,295 +3321,11 @@ Adapted from:
   width: calc(100% / 3);
 }
 
-.w-two-thirds {
-  width: calc(100% / 1.5);
-}
-
-.mw-10 {
-  max-width: 10%;
-}
-
-.mw-20 {
-  max-width: 20%;
-}
-
-.mw-25 {
-  max-width: 25%;
-}
-
-.mw-30 {
-  max-width: 30%;
-}
-
-.mw-40 {
-  max-width: 40%;
-}
-
-.mw-50 {
-  max-width: 50%;
-}
-
-.mw-60 {
-  max-width: 60%;
-}
-
-.mw-70 {
-  max-width: 70%;
-}
-
-.mw-75 {
-  max-width: 75%;
-}
-
-.mw-80 {
-  max-width: 80%;
-}
-
-.mw-90 {
-  max-width: 90%;
-}
-
-.mw-100 {
-  max-width: 100%;
-}
-
-.mw-third {
-  max-width: calc(100% / 3);
-}
-
-.mw-two-thirds {
-  max-width: calc(100% / 1.5);
-}
-
-.min-w-10 {
-  min-width: 10%;
-}
-
-.min-w-20 {
-  min-width: 20%;
-}
-
-.min-w-25 {
-  min-width: 25%;
-}
-
-.min-w-30 {
-  min-width: 30%;
-}
-
-.min-w-40 {
-  min-width: 40%;
-}
-
-.min-w-50 {
-  min-width: 50%;
-}
-
-.min-w-60 {
-  min-width: 60%;
-}
-
-.min-w-70 {
-  min-width: 70%;
-}
-
-.min-w-75 {
-  min-width: 75%;
-}
-
-.min-w-80 {
-  min-width: 80%;
-}
-
-.min-w-90 {
-  min-width: 90%;
-}
-
-.min-w-100 {
-  min-width: 100%;
-}
-
-.min-w-third {
-  min-width: calc(100% / 3);
-}
-
-.min-w-two-thirds {
-  min-width: calc(100% / 1.5);
-}
-
 /* 
   * 
   * Percentage of viewport width
   *
   */
-
-.vw-10 {
-  width: 10vw;
-}
-
-.vw-20 {
-  width: 20vw;
-}
-
-.vw-25 {
-  width: 25vw;
-}
-
-.vw-30 {
-  width: 30vw;
-}
-
-.vw-40 {
-  width: 40vw;
-}
-
-.vw-50 {
-  width: 50vw;
-}
-
-.vw-60 {
-  width: 60vw;
-}
-
-.vw-70 {
-  width: 70vw;
-}
-
-.vw-75 {
-  width: 75vw;
-}
-
-.vw-80 {
-  width: 80vw;
-}
-
-.vw-90 {
-  width: 90vw;
-}
-
-.vw-100 {
-  width: 100vw;
-}
-
-.vw-third {
-  width: calc(100vw / 3);
-}
-
-.vw-two-thirds {
-  width: calc(100vw / 1.5);
-}
-
-.max-vw-10 {
-  max-width: 10vw;
-}
-
-.max-vw-20 {
-  max-width: 20vw;
-}
-
-.max-vw-25 {
-  max-width: 25vw;
-}
-
-.max-vw-30 {
-  max-width: 30vw;
-}
-
-.max-vw-40 {
-  max-width: 40vw;
-}
-
-.max-vw-50 {
-  max-width: 50vw;
-}
-
-.max-vw-60 {
-  max-width: 60vw;
-}
-
-.max-vw-70 {
-  max-width: 70vw;
-}
-
-.max-vw-75 {
-  max-width: 75vw;
-}
-
-.max-vw-80 {
-  max-width: 80vw;
-}
-
-.max-vw-90 {
-  max-width: 90vw;
-}
-
-.max-vw-100 {
-  max-width: 100vw;
-}
-
-.max-vw-third {
-  max-width: calc(100vw / 3);
-}
-
-.max-vw-two-thirds {
-  max-width: calc(100vw / 1.5);
-}
-
-.min-vw-10 {
-  min-width: 10vw;
-}
-
-.min-vw-20 {
-  min-width: 20vw;
-}
-
-.min-vw-25 {
-  min-width: 25vw;
-}
-
-.min-vw-30 {
-  min-width: 30vw;
-}
-
-.min-vw-40 {
-  min-width: 40vw;
-}
-
-.min-vw-50 {
-  min-width: 50vw;
-}
-
-.min-vw-60 {
-  min-width: 60vw;
-}
-
-.min-vw-70 {
-  min-width: 70vw;
-}
-
-.min-vw-75 {
-  min-width: 75vw;
-}
-
-.min-vw-80 {
-  min-width: 80vw;
-}
-
-.min-vw-90 {
-  min-width: 90vw;
-}
-
-.min-vw-100 {
-  min-width: 100vw;
-}
-
-.min-vw-third {
-  min-width: calc(100vw / 3);
-}
-
-.min-vw-two-thirds {
-  min-width: calc(100vw / 1.5);
-}
 
 /* Spacing */
 
@@ -6518,65 +3340,7 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* All */
 
-.ma0 {
-  margin: 0;
-}
-
-.ma1 {
-  margin: .25rem;
-  margin: var(--spacing-1);
-}
-
-.ma2 {
-  margin: .5rem;
-  margin: var(--spacing-2);
-}
-
-.ma3 {
-  margin: 1rem;
-  margin: var(--spacing-3);
-}
-
-.ma4 {
-  margin: 2rem;
-  margin: var(--spacing-4);
-}
-
-.ma5 {
-  margin: 4rem;
-  margin: var(--spacing-5);
-}
-
-.ma6 {
-  margin: 8rem;
-  margin: var(--spacing-6);
-}
-
-.ma7 {
-  margin: 16rem;
-  margin: var(--spacing-7);
-}
-
-.ma8 {
-  margin: 32rem;
-  margin: var(--spacing-8);
-}
-
 /* Top */
-
-.mt0 {
-  margin-top: 0;
-}
-
-.mt1 {
-  margin-top: .25rem;
-  margin-top: var(--spacing-1);
-}
-
-.mt2 {
-  margin-top: .5rem;
-  margin-top: var(--spacing-2);
-}
 
 .mt3 {
   margin-top: 1rem;
@@ -6593,65 +3357,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-top: var(--spacing-5);
 }
 
-.mt6 {
-  margin-top: 8rem;
-  margin-top: var(--spacing-6);
-}
-
-.mt7 {
-  margin-top: 16rem;
-  margin-top: var(--spacing-7);
-}
-
-.mt8 {
-  margin-top: 32rem;
-  margin-top: var(--spacing-8);
-}
-
 /* Right */
-
-.mr0 {
-  margin-right: 0;
-}
-
-.mr1 {
-  margin-right: .25rem;
-  margin-right: var(--spacing-1);
-}
 
 .mr2 {
   margin-right: .5rem;
   margin-right: var(--spacing-2);
-}
-
-.mr3 {
-  margin-right: 1rem;
-  margin-right: var(--spacing-3);
-}
-
-.mr4 {
-  margin-right: 2rem;
-  margin-right: var(--spacing-4);
-}
-
-.mr5 {
-  margin-right: 4rem;
-  margin-right: var(--spacing-5);
-}
-
-.mr6 {
-  margin-right: 8rem;
-  margin-right: var(--spacing-6);
-}
-
-.mr7 {
-  margin-right: 16rem;
-  margin-right: var(--spacing-7);
-}
-
-.mr8 {
-  margin-right: 32rem;
-  margin-right: var(--spacing-8);
 }
 
 .mr-auto {
@@ -6659,10 +3369,6 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 }
 
 /* Bottom */
-
-.mb0 {
-  margin-bottom: 0;
-}
 
 .mb1 {
   margin-bottom: .25rem;
@@ -6694,60 +3400,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-bottom: var(--spacing-6);
 }
 
-.mb7 {
-  margin-bottom: 16rem;
-  margin-bottom: var(--spacing-7);
-}
-
-.mb8 {
-  margin-bottom: 32rem;
-  margin-bottom: var(--spacing-8);
-}
-
 /* Left */
-
-.ml0 {
-  margin-left: 0;
-}
-
-.ml1 {
-  margin-left: .25rem;
-  margin-left: var(--spacing-1);
-}
 
 .ml2 {
   margin-left: .5rem;
   margin-left: var(--spacing-2);
-}
-
-.ml3 {
-  margin-left: 1rem;
-  margin-left: var(--spacing-3);
-}
-
-.ml4 {
-  margin-left: 2rem;
-  margin-left: var(--spacing-4);
-}
-
-.ml5 {
-  margin-left: 4rem;
-  margin-left: var(--spacing-5);
-}
-
-.ml6 {
-  margin-left: 8rem;
-  margin-left: var(--spacing-6);
-}
-
-.ml7 {
-  margin-left: 16rem;
-  margin-left: var(--spacing-7);
-}
-
-.ml8 {
-  margin-left: 32rem;
-  margin-left: var(--spacing-8);
 }
 
 .ml-auto {
@@ -6756,30 +3413,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 
 /* Vertical (top + bottom) */
 
-.mv0 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.mv1 {
-  margin-top: .25rem;
-  margin-top: var(--spacing-1);
-  margin-bottom: .25rem;
-  margin-bottom: var(--spacing-1);
-}
-
 .mv2 {
   margin-top: .5rem;
   margin-top: var(--spacing-2);
   margin-bottom: .5rem;
   margin-bottom: var(--spacing-2);
-}
-
-.mv3 {
-  margin-top: 1rem;
-  margin-top: var(--spacing-3);
-  margin-bottom: 1rem;
-  margin-bottom: var(--spacing-3);
 }
 
 .mv4 {
@@ -6789,13 +3427,6 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-bottom: var(--spacing-4);
 }
 
-.mv5 {
-  margin-top: 4rem;
-  margin-top: var(--spacing-5);
-  margin-bottom: 4rem;
-  margin-bottom: var(--spacing-5);
-}
-
 .mv6 {
   margin-top: 8rem;
   margin-top: var(--spacing-6);
@@ -6803,37 +3434,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-bottom: var(--spacing-6);
 }
 
-.mv7 {
-  margin-top: 16rem;
-  margin-top: var(--spacing-7);
-  margin-bottom: 16rem;
-  margin-bottom: var(--spacing-7);
-}
-
-.mv8 {
-  margin-top: 32rem;
-  margin-top: var(--spacing-8);
-  margin-bottom: 32rem;
-  margin-bottom: var(--spacing-8);
-}
-
 /* Horizontal (left + right) */
 
 .center {
   margin-right: auto;
   margin-left: auto;
-}
-
-.mh0 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.mh1 {
-  margin-left: .25rem;
-  margin-left: var(--spacing-1);
-  margin-right: .25rem;
-  margin-right: var(--spacing-1);
 }
 
 .mh2 {
@@ -6850,41 +3455,6 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   margin-right: var(--spacing-3);
 }
 
-.mh4 {
-  margin-left: 2rem;
-  margin-left: var(--spacing-4);
-  margin-right: 2rem;
-  margin-right: var(--spacing-4);
-}
-
-.mh5 {
-  margin-left: 4rem;
-  margin-left: var(--spacing-5);
-  margin-right: 4rem;
-  margin-right: var(--spacing-5);
-}
-
-.mh6 {
-  margin-left: 8rem;
-  margin-left: var(--spacing-6);
-  margin-right: 8rem;
-  margin-right: var(--spacing-6);
-}
-
-.mh7 {
-  margin-left: 16rem;
-  margin-left: var(--spacing-7);
-  margin-right: 16rem;
-  margin-right: var(--spacing-7);
-}
-
-.mh8 {
-  margin-left: 32rem;
-  margin-left: var(--spacing-8);
-  margin-right: 32rem;
-  margin-right: var(--spacing-8);
-}
-
 /*
 
 NEGATIVE MARGINS
@@ -6898,320 +3468,22 @@ Adapted from:
 
 /* All */
 
-.na0 {
-  margin: 0;
-}
-
-.na1 {
-  margin: calc(.25rem * -1);
-  margin: calc(var(--spacing-1) * -1);
-}
-
-.na2 {
-  margin: calc(.5rem * -1);
-  margin: calc(var(--spacing-2) * -1);
-}
-
-.na3 {
-  margin: calc(1rem * -1);
-  margin: calc(var(--spacing-3) * -1);
-}
-
-.na4 {
-  margin: calc(2rem * -1);
-  margin: calc(var(--spacing-4) * -1);
-}
-
-.na5 {
-  margin: calc(4rem * -1);
-  margin: calc(var(--spacing-5) * -1);
-}
-
-.na6 {
-  margin: calc(8rem * -1);
-  margin: calc(var(--spacing-6) * -1);
-}
-
-.na7 {
-  margin: calc(16rem * -1);
-  margin: calc(var(--spacing-7) * -1);
-}
-
 /* Top */
-
-.nt0 {
-  margin-top: 0;
-}
-
-.nt1 {
-  margin-top: calc(.25rem * -1);
-  margin-top: calc(var(--spacing-1) * -1);
-}
 
 .nt2 {
   margin-top: calc(.5rem * -1);
   margin-top: calc(var(--spacing-2) * -1);
 }
 
-.nt3 {
-  margin-top: calc(1rem * -1);
-  margin-top: calc(var(--spacing-3) * -1);
-}
-
-.nt4 {
-  margin-top: calc(2rem * -1);
-  margin-top: calc(var(--spacing-4) * -1);
-}
-
-.nt5 {
-  margin-top: calc(4rem * -1);
-  margin-top: calc(var(--spacing-5) * -1);
-}
-
-.nt6 {
-  margin-top: calc(8rem * -1);
-  margin-top: calc(var(--spacing-6) * -1);
-}
-
-.nt7 {
-  margin-top: calc(16rem * -1);
-  margin-top: calc(var(--spacing-7) * -1);
-}
-
 /* Right */
-
-.nr0 {
-  margin-right: 0;
-}
-
-.nr1 {
-  margin-right: calc(.25rem * -1);
-  margin-right: calc(var(--spacing-1) * -1);
-}
-
-.nr2 {
-  margin-right: calc(.5rem * -1);
-  margin-right: calc(var(--spacing-2) * -1);
-}
-
-.nr3 {
-  margin-right: calc(1rem * -1);
-  margin-right: calc(var(--spacing-3) * -1);
-}
-
-.nr4 {
-  margin-right: calc(2rem * -1);
-  margin-right: calc(var(--spacing-4) * -1);
-}
-
-.nr5 {
-  margin-right: calc(4rem * -1);
-  margin-right: calc(var(--spacing-5) * -1);
-}
-
-.nr6 {
-  margin-right: calc(8rem * -1);
-  margin-right: calc(var(--spacing-6) * -1);
-}
-
-.nr7 {
-  margin-right: calc(16rem * -1);
-  margin-right: calc(var(--spacing-7) * -1);
-}
 
 /* Bottom */
 
-.nb0 {
-  margin-bottom: 0;
-}
-
-.nb1 {
-  margin-bottom: calc(.25rem * -1);
-  margin-bottom: calc(var(--spacing-1) * -1);
-}
-
-.nb2 {
-  margin-bottom: calc(.5rem * -1);
-  margin-bottom: calc(var(--spacing-2) * -1);
-}
-
-.nb3 {
-  margin-bottom: calc(1rem * -1);
-  margin-bottom: calc(var(--spacing-3) * -1);
-}
-
-.nb4 {
-  margin-bottom: calc(2rem * -1);
-  margin-bottom: calc(var(--spacing-4) * -1);
-}
-
-.nb5 {
-  margin-bottom: calc(4rem * -1);
-  margin-bottom: calc(var(--spacing-5) * -1);
-}
-
-.nb6 {
-  margin-bottom: calc(8rem * -1);
-  margin-bottom: calc(var(--spacing-6) * -1);
-}
-
-.nb7 {
-  margin-bottom: calc(16rem * -1);
-  margin-bottom: calc(var(--spacing-7) * -1);
-}
-
 /* Left */
-
-.nl0 {
-  margin-left: 0;
-}
-
-.nl1 {
-  margin-left: calc(.25rem * -1);
-  margin-left: calc(var(--spacing-1) * -1);
-}
-
-.nl2 {
-  margin-left: calc(.5rem * -1);
-  margin-left: calc(var(--spacing-2) * -1);
-}
-
-.nl3 {
-  margin-left: calc(1rem * -1);
-  margin-left: calc(var(--spacing-3) * -1);
-}
-
-.nl4 {
-  margin-left: calc(2rem * -1);
-  margin-left: calc(var(--spacing-4) * -1);
-}
-
-.nl5 {
-  margin-left: calc(4rem * -1);
-  margin-left: calc(var(--spacing-5) * -1);
-}
-
-.nl6 {
-  margin-left: calc(8rem * -1);
-  margin-left: calc(var(--spacing-6) * -1);
-}
-
-.nl7 {
-  margin-left: calc(16rem * -1);
-  margin-left: calc(var(--spacing-7) * -1);
-}
 
 /* Vertical (top + bottom) */
 
-.nv0 {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.nv1 {
-  margin-top: calc(.25rem * -1);
-  margin-top: calc(var(--spacing-1) * -1);
-  margin-bottom: calc(.25rem * -1);
-  margin-bottom: calc(var(--spacing-1) * -1);
-}
-
-.nv2 {
-  margin-top: calc(.5rem * -1);
-  margin-top: calc(var(--spacing-2) * -1);
-  margin-bottom: calc(.5rem * -1);
-  margin-bottom: calc(var(--spacing-2) * -1);
-}
-
-.nv3 {
-  margin-top: calc(1rem * -1);
-  margin-top: calc(var(--spacing-3) * -1);
-  margin-bottom: calc(1rem * -1);
-  margin-bottom: calc(var(--spacing-3) * -1);
-}
-
-.nv4 {
-  margin-top: calc(2rem * -1);
-  margin-top: calc(var(--spacing-4) * -1);
-  margin-bottom: calc(2rem * -1);
-  margin-bottom: calc(var(--spacing-4) * -1);
-}
-
-.nv5 {
-  margin-top: calc(4rem * -1);
-  margin-top: calc(var(--spacing-5) * -1);
-  margin-bottom: calc(4rem * -1);
-  margin-bottom: calc(var(--spacing-5) * -1);
-}
-
-.nv6 {
-  margin-top: calc(8rem * -1);
-  margin-top: calc(var(--spacing-6) * -1);
-  margin-bottom: calc(8rem * -1);
-  margin-bottom: calc(var(--spacing-6) * -1);
-}
-
-.nv7 {
-  margin-top: calc(16rem * -1);
-  margin-top: calc(var(--spacing-7) * -1);
-  margin-bottom: calc(16rem * -1);
-  margin-bottom: calc(var(--spacing-7) * -1);
-}
-
 /* Horizontal (left + right) */
-
-.nh0 {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.nh1 {
-  margin-left: calc(.25rem * -1);
-  margin-left: calc(var(--spacing-1) * -1);
-  margin-right: calc(.25rem * -1);
-  margin-right: calc(var(--spacing-1) * -1);
-}
-
-.nh2 {
-  margin-left: calc(.5rem * -1);
-  margin-left: calc(var(--spacing-2) * -1);
-  margin-right: calc(.5rem * -1);
-  margin-right: calc(var(--spacing-2) * -1);
-}
-
-.nh3 {
-  margin-left: calc(1rem * -1);
-  margin-left: calc(var(--spacing-3) * -1);
-  margin-right: calc(1rem * -1);
-  margin-right: calc(var(--spacing-3) * -1);
-}
-
-.nh4 {
-  margin-left: calc(2rem * -1);
-  margin-left: calc(var(--spacing-4) * -1);
-  margin-right: calc(2rem * -1);
-  margin-right: calc(var(--spacing-4) * -1);
-}
-
-.nh5 {
-  margin-left: calc(4rem * -1);
-  margin-left: calc(var(--spacing-5) * -1);
-  margin-right: calc(4rem * -1);
-  margin-right: calc(var(--spacing-5) * -1);
-}
-
-.nh6 {
-  margin-left: calc(8rem * -1);
-  margin-left: calc(var(--spacing-6) * -1);
-  margin-right: calc(8rem * -1);
-  margin-right: calc(var(--spacing-6) * -1);
-}
-
-.nh7 {
-  margin-left: calc(16rem * -1);
-  margin-left: calc(var(--spacing-7) * -1);
-  margin-right: calc(16rem * -1);
-  margin-right: calc(var(--spacing-7) * -1);
-}
 
 /*
 
@@ -7223,15 +3495,6 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
 */
 
 /* All */
-
-.pa0 {
-  padding: 0;
-}
-
-.pa1 {
-  padding: .25rem;
-  padding: var(--spacing-1);
-}
 
 .pa2 {
   padding: .5rem;
@@ -7253,36 +3516,7 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding: var(--spacing-5);
 }
 
-.pa6 {
-  padding: 8rem;
-  padding: var(--spacing-6);
-}
-
-.pa7 {
-  padding: 16rem;
-  padding: var(--spacing-7);
-}
-
-.pa8 {
-  padding: 32rem;
-  padding: var(--spacing-8);
-}
-
 /* Top */
-
-.pt0 {
-  padding-top: 0;
-}
-
-.pt1 {
-  padding-top: .25rem;
-  padding-top: var(--spacing-1);
-}
-
-.pt2 {
-  padding-top: .5rem;
-  padding-top: var(--spacing-2);
-}
 
 .pt3 {
   padding-top: 1rem;
@@ -7294,87 +3528,19 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-top: var(--spacing-4);
 }
 
-.pt5 {
-  padding-top: 4rem;
-  padding-top: var(--spacing-5);
-}
-
 .pt6 {
   padding-top: 8rem;
   padding-top: var(--spacing-6);
 }
 
-.pt7 {
-  padding-top: 16rem;
-  padding-top: var(--spacing-7);
-}
-
-.pt8 {
-  padding-top: 32rem;
-  padding-top: var(--spacing-8);
-}
-
 /* Right */
-
-.pr0 {
-  padding-right: 0;
-}
-
-.pr1 {
-  padding-right: .25rem;
-  padding-right: var(--spacing-1);
-}
-
-.pr2 {
-  padding-right: .5rem;
-  padding-right: var(--spacing-2);
-}
 
 .pr3 {
   padding-right: 1rem;
   padding-right: var(--spacing-3);
 }
 
-.pr4 {
-  padding-right: 2rem;
-  padding-right: var(--spacing-4);
-}
-
-.pr5 {
-  padding-right: 4rem;
-  padding-right: var(--spacing-5);
-}
-
-.pr6 {
-  padding-right: 8rem;
-  padding-right: var(--spacing-6);
-}
-
-.pr7 {
-  padding-right: 16rem;
-  padding-right: var(--spacing-7);
-}
-
-.pr8 {
-  padding-right: 32rem;
-  padding-right: var(--spacing-8);
-}
-
 /* Bottom */
-
-.pb0 {
-  padding-bottom: 0;
-}
-
-.pb1 {
-  padding-bottom: .25rem;
-  padding-bottom: var(--spacing-1);
-}
-
-.pb2 {
-  padding-bottom: .5rem;
-  padding-bottom: var(--spacing-2);
-}
 
 .pb3 {
   padding-bottom: 1rem;
@@ -7391,50 +3557,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-bottom: var(--spacing-5);
 }
 
-.pb6 {
-  padding-bottom: 8rem;
-  padding-bottom: var(--spacing-6);
-}
-
-.pb7 {
-  padding-bottom: 16rem;
-  padding-bottom: var(--spacing-7);
-}
-
-.pb8 {
-  padding-bottom: 32rem;
-  padding-bottom: var(--spacing-8);
-}
-
 /* Left */
-
-.pl0 {
-  padding-left: 0;
-}
-
-.pl1 {
-  padding-left: .25rem;
-  padding-left: var(--spacing-1);
-}
-
-.pl2 {
-  padding-left: .5rem;
-  padding-left: var(--spacing-2);
-}
 
 .pl3 {
   padding-left: 1rem;
   padding-left: var(--spacing-3);
-}
-
-.pl4 {
-  padding-left: 2rem;
-  padding-left: var(--spacing-4);
-}
-
-.pl5 {
-  padding-left: 4rem;
-  padding-left: var(--spacing-5);
 }
 
 .pl6 {
@@ -7442,42 +3569,13 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-left: var(--spacing-6);
 }
 
-.pl7 {
-  padding-left: 16rem;
-  padding-left: var(--spacing-7);
-}
-
-.pl8 {
-  padding-left: 32rem;
-  padding-left: var(--spacing-8);
-}
-
 /* Vertical (top + bottom) */
-
-.pv0 {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.pv1 {
-  padding-top: .25rem;
-  padding-top: var(--spacing-1);
-  padding-bottom: .25rem;
-  padding-bottom: var(--spacing-1);
-}
 
 .pv2 {
   padding-top: .5rem;
   padding-top: var(--spacing-2);
   padding-bottom: .5rem;
   padding-bottom: var(--spacing-2);
-}
-
-.pv3 {
-  padding-top: 1rem;
-  padding-top: var(--spacing-3);
-  padding-bottom: 1rem;
-  padding-bottom: var(--spacing-3);
 }
 
 .pv4 {
@@ -7487,54 +3585,7 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-bottom: var(--spacing-4);
 }
 
-.pv5 {
-  padding-top: 4rem;
-  padding-top: var(--spacing-5);
-  padding-bottom: 4rem;
-  padding-bottom: var(--spacing-5);
-}
-
-.pv6 {
-  padding-top: 8rem;
-  padding-top: var(--spacing-6);
-  padding-bottom: 8rem;
-  padding-bottom: var(--spacing-6);
-}
-
-.pv7 {
-  padding-top: 16rem;
-  padding-top: var(--spacing-7);
-  padding-bottom: 16rem;
-  padding-bottom: var(--spacing-7);
-}
-
-.pv8 {
-  padding-top: 32rem;
-  padding-top: var(--spacing-8);
-  padding-bottom: 32rem;
-  padding-bottom: var(--spacing-8);
-}
-
 /* Horizontal (left + right) */
-
-.ph0 {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.ph1 {
-  padding-left: .25rem;
-  padding-left: var(--spacing-1);
-  padding-right: .25rem;
-  padding-right: var(--spacing-1);
-}
-
-.ph2 {
-  padding-left: .5rem;
-  padding-left: var(--spacing-2);
-  padding-right: .5rem;
-  padding-right: var(--spacing-2);
-}
 
 .ph3 {
   padding-left: 1rem;
@@ -7543,39 +3594,11 @@ Adapted from: http://tachyons.io/docs/layout/spacing/
   padding-right: var(--spacing-3);
 }
 
-.ph4 {
-  padding-left: 2rem;
-  padding-left: var(--spacing-4);
-  padding-right: 2rem;
-  padding-right: var(--spacing-4);
-}
-
 .ph5 {
   padding-left: 4rem;
   padding-left: var(--spacing-5);
   padding-right: 4rem;
   padding-right: var(--spacing-5);
-}
-
-.ph6 {
-  padding-left: 8rem;
-  padding-left: var(--spacing-6);
-  padding-right: 8rem;
-  padding-right: var(--spacing-6);
-}
-
-.ph7 {
-  padding-left: 16rem;
-  padding-left: var(--spacing-7);
-  padding-right: 16rem;
-  padding-right: var(--spacing-7);
-}
-
-.ph8 {
-  padding-left: 32rem;
-  padding-left: var(--spacing-8);
-  padding-right: 32rem;
-  padding-right: var(--spacing-8);
 }
 
 /* SVG */
@@ -7591,10 +3614,6 @@ Adapted from: https://tailwindcss.com/docs/svg
 
 .fill-current {
   fill: currentColor;
-}
-
-.stroke-current {
-  stroke: currentColor;
 }
 
 /* Tables */
@@ -7624,70 +3643,20 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotation
 
 */
 
-.rotate-45 {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.rotate-90 {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.rotate-135 {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-}
-
-.rotate-180 {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.rotate-225 {
-  -webkit-transform: rotate(225deg);
-          transform: rotate(225deg);
-}
-
-.rotate-270 {
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-.rotate-315 {
-  -webkit-transform: rotate(315deg);
-          transform: rotate(315deg);
-}
-
 /* 
  *
  * Transform origin
  *
  */
 
-.origin-top {
-  -webkit-transform-origin: top;
-          transform-origin: top;
-}
-
 .origin-right {
   -webkit-transform-origin: right;
           transform-origin: right;
 }
 
-.origin-bottom {
-  -webkit-transform-origin: bottom;
-          transform-origin: bottom;
-}
-
 .origin-left {
   -webkit-transform-origin: left;
           transform-origin: left;
-}
-
-.origin-center {
-  -webkit-transform-origin: center;
-          transform-origin: center;
 }
 
 /* 
@@ -7699,21 +3668,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_rotation
 .transX--50 {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-}
-
-.transY--50 {
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-.transX-0 {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-}
-
-.transY-0 {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
 }
 
 /*
@@ -7778,54 +3732,9 @@ Adapted from: http://tachyons.io/docs/themes/skins/
 
 */
 
-.black {
-  color: #000;
-  color: var(--black);
-}
-
 .near-black {
   color: #111;
   color: var(--near-black);
-}
-
-.dark-gray {
-  color: #333;
-  color: var(--dark-gray);
-}
-
-.mid-gray {
-  color: #555;
-  color: var(--mid-gray);
-}
-
-.gray {
-  color: #777;
-  color: var(--gray);
-}
-
-.silver {
-  color: #999;
-  color: var(--silver);
-}
-
-.light-silver {
-  color: #aaa;
-  color: var(--light-silver);
-}
-
-.moon-gray {
-  color: #ccc;
-  color: var(--moon-gray);
-}
-
-.light-gray {
-  color: #eee;
-  color: var(--light-gray);
-}
-
-.near-white {
-  color: #f4f4f4;
-  color: var(--near-white);
 }
 
 .white {
@@ -7833,134 +3742,9 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--white);
 }
 
-.black-90 {
-  color: rgba(0, 0, 0, .9);
-  color: var(--black-90);
-}
-
-.black-80 {
-  color: rgba(0, 0, 0, .8);
-  color: var(--black-80);
-}
-
-.black-70 {
-  color: rgba(0, 0, 0, .7);
-  color: var(--black-70);
-}
-
-.black-60 {
-  color: rgba(0, 0, 0, .6);
-  color: var(--black-60);
-}
-
-.black-50 {
-  color: rgba(0, 0, 0, .5);
-  color: var(--black-50);
-}
-
-.black-40 {
-  color: rgba(0, 0, 0, .4);
-  color: var(--black-40);
-}
-
-.black-30 {
-  color: rgba(0, 0, 0, .3);
-  color: var(--black-30);
-}
-
-.black-20 {
-  color: rgba(0, 0, 0, .2);
-  color: var(--black-20);
-}
-
-.black-10 {
-  color: rgba(0, 0, 0, .1);
-  color: var(--black-10);
-}
-
-.black-05 {
-  color: rgba(0, 0, 0, .05);
-  color: var(--black-05);
-}
-
-.white-90 {
-  color: rgba(255, 255, 255, .9);
-  color: var(--white-90);
-}
-
-.white-80 {
-  color: rgba(255, 255, 255, .8);
-  color: var(--white-80);
-}
-
-.white-70 {
-  color: rgba(255, 255, 255, .7);
-  color: var(--white-70);
-}
-
-.white-60 {
-  color: rgba(255, 255, 255, .6);
-  color: var(--white-60);
-}
-
-.white-50 {
-  color: rgba(255, 255, 255, .5);
-  color: var(--white-50);
-}
-
-.white-40 {
-  color: rgba(255, 255, 255, .4);
-  color: var(--white-40);
-}
-
-.white-30 {
-  color: rgba(255, 255, 255, .3);
-  color: var(--white-30);
-}
-
-.white-20 {
-  color: rgba(255, 255, 255, .2);
-  color: var(--white-20);
-}
-
-.white-10 {
-  color: rgba(255, 255, 255, .1);
-  color: var(--white-10);
-}
-
-.dark-red {
-  color: #e7040f;
-  color: var(--dark-red);
-}
-
 .red {
   color: #ff4136;
   color: var(--red);
-}
-
-.light-red {
-  color: #ff725c;
-  color: var(--light-red);
-}
-
-.orange {
-  color: #ff6300;
-  color: var(--orange);
-}
-
-.gold {
-  color: #ffb700;
-  color: var(--gold);
-}
-
-.yellow {
-  color: #ffd700;
-  color: var(--yellow);
-}
-
-.light-yellow {
-  color: #fbf1a9;
-  color: var(--light-yellow);
 }
 
 .purple {
@@ -7968,54 +3752,9 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--purple);
 }
 
-.light-purple {
-  color: #a463f2;
-  color: var(--light-purple);
-}
-
-.dark-pink {
-  color: #d5008f;
-  color: var(--dark-pink);
-}
-
-.hot-pink {
-  color: #ff41b4;
-  color: var(--hot-pink);
-}
-
 .pink {
   color: #ff80cc;
   color: var(--pink);
-}
-
-.light-pink {
-  color: #ffa3d7;
-  color: var(--light-pink);
-}
-
-.dark-green {
-  color: #137752;
-  color: var(--dark-green);
-}
-
-.green {
-  color: #19a974;
-  color: var(--green);
-}
-
-.light-green {
-  color: #9eebcf;
-  color: var(--light-green);
-}
-
-.navy {
-  color: #001b44;
-  color: var(--navy);
-}
-
-.dark-blue {
-  color: #00449e;
-  color: var(--dark-blue);
 }
 
 .blue {
@@ -8023,46 +3762,8 @@ Adapted from: http://tachyons.io/docs/themes/skins/
   color: var(--blue);
 }
 
-.light-blue {
-  color: #96ccff;
-  color: var(--light-blue);
-}
-
-.lightest-blue {
-  color: #cdecff;
-  color: var(--lightest-blue);
-}
-
-.washed-blue {
-  color: #f6fffe;
-  color: var(--washed-blue);
-}
-
-.washed-green {
-  color: #e8fdf5;
-  color: var(--washed-green);
-}
-
-.washed-yellow {
-  color: #fffceb;
-  color: var(--washed-yellow);
-}
-
-.washed-red {
-  color: #ffdfdf;
-  color: var(--washed-red);
-}
-
 .transparent {
   color: transparent;
-}
-
-.current-color {
-  color: currentColor;
-}
-
-.color-inherit {
-  color: inherit;
 }
 
 .group:hover .group-hover\:white {
@@ -8097,26 +3798,13 @@ Adapted from:
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-.serif {
-  font-family: Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.system-sans-serif {
-  font-family: sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.system-serif {
-  font-family: serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
 /*
  *
  * Monospace (for code) 
  *
  */
 
-code,
-.mono {
+code {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
@@ -8130,69 +3818,17 @@ code,
  *
  */
 
-.abeezee {
-  font-family: ABeeZee, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.avenir {
-  font-family: 'avenir next', avenir, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.helvetica {
-  font-family: 'helvetica neue', helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.josefin-sans {
-  font-family: 'Josefin Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.raleway {
-  font-family: Raleway, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
 /*
  *
  * Serif
  *
  */
 
-.athelas {
-  font-family: athelas, georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.baskerville {
-  font-family: baskerville, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.bodoni {
-  font-family: 'Bodoni MT', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.calisto {
-  font-family: 'Calisto MT', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.garamond {
-  font-family: garamond, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.georgia {
-  font-family: georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
-.times {
-  font-family: times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
 /*
  *
  * Cursive
  *
  */
-
-.lobster {
-  font-family: 'Lobster', cursive, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
 
 /*
 
@@ -8233,37 +3869,6 @@ Adapted from: https://github.com/tachyons-css/tachyons/blob/master/src/_type-sca
   font-size: var(--font-size-6);
 }
 
-.f7 {
-  font-size: .75rem;
-  font-size: var(--font-size-7);
-}
-
-.f-4 {
-  font-size: 4rem;
-}
-
-.f-5 {
-  font-size: 5rem;
-}
-
-.f-6 {
-  font-size: 6rem;
-}
-
-.f-headline {
-  font-size: 6rem;
-  font-size: var(--font-size-headline);
-}
-
-.f-subheadline {
-  font-size: 5rem;
-  font-size: var(--font-size-subheadline);
-}
-
-.f-lead {
-  font-size: 1.125rem;
-}
-
 /*
 
 FONT STYLE & DECORATION
@@ -8286,27 +3891,11 @@ Adapted from:
   font-style: italic;
 }
 
-.fs-normal {
-  font-style: normal;
-}
-
 /*
   *
   * Text decoration
   *
   */
-
-.strike {
-  text-decoration: line-through;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.no-underline {
-  text-decoration: none;
-}
 
 /*
   *
@@ -8314,26 +3903,8 @@ Adapted from:
   *
   */
 
-.ttc {
-  text-transform: capitalize;
-}
-
-.ttl {
-  text-transform: lowercase;
-}
-
 .ttu {
   text-transform: uppercase;
-}
-
-.ttn {
-  text-transform: none;
-}
-
-.small-caps {
-  -webkit-font-feature-settings: "c2sc";
-          font-feature-settings: "c2sc";
-  font-variant: small-caps;
 }
 
 /*
@@ -8399,42 +3970,6 @@ Adapted from: http://tachyons.io/docs/typography/font-weight/
 
 */
 
-.fw1 {
-  font-weight: 100;
-}
-
-.fw2 {
-  font-weight: 200;
-}
-
-.fw3 {
-  font-weight: 300;
-}
-
-.fw4 {
-  font-weight: 400;
-}
-
-.fw5 {
-  font-weight: 500;
-}
-
-.fw6 {
-  font-weight: 600;
-}
-
-.fw7 {
-  font-weight: 700;
-}
-
-.fw8 {
-  font-weight: 800;
-}
-
-.fw9 {
-  font-weight: 900;
-}
-
 .b {
   font-weight: bold;
 }
@@ -8452,22 +3987,6 @@ Adapted from: http://tachyons.io/docs/typography/tracking/
 
 */
 
-.tracked {
-  letter-spacing: .1em;
-}
-
-.tracked-sm {
-  letter-spacing: .05em;
-}
-
-.tracked-lg {
-  letter-spacing: .25em;
-}
-
-.tracked-tight {
-  letter-spacing: -.05em;
-}
-
 /*
 
 LINE HEIGHT
@@ -8479,10 +3998,6 @@ Adapted from: http://tachyons.io/docs/typography/line-height
 
 .lh-none {
   line-height: 0;
-}
-
-.lh-solid {
-  line-height: 1;
 }
 
 .lh-title {
@@ -8515,24 +4030,12 @@ Adapted from:
   *
   */
 
-.measure-wide {
-  max-width: 75ch;
-}
-
 .measure {
   max-width: 66ch;
 }
 
-.measure-medium {
-  max-width: 55ch;
-}
-
 .measure-narrow {
   max-width: 45ch;
-}
-
-.measure-tight {
-  max-width: 28ch;
 }
 
 /*
@@ -8547,47 +4050,11 @@ Adapted from:
 See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-text-string-in-react 
 */
 
-.ws-normal {
-  white-space: normal;
-}
-
-.nowrap {
-  white-space: nowrap;
-}
-
-.pre {
-  white-space: pre;
-}
-
-.pre-line {
-  white-space: pre-line;
-}
-
-.pre-wrap {
-  white-space: pre-wrap;
-}
-
 /*
   *
   * Word break
   *
   */
-
-.break-normal {
-  word-break: normal;
-}
-
-.break-all {
-  word-break: break-all;
-}
-
-.break-word {
-  word-break: break-word;
-}
-
-.break-none {
-  word-break: keep-all;
-}
 
 /*
   *
@@ -8597,21 +4064,11 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
 
 /* Combine with a width to truncate text, or leave as is to truncate at width of containing element. */
 
-.truncate {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 /*
   *
   * Indentation
   *
   */
-
-.indent {
-  text-indent: 1em;
-}
 
 /*
 
@@ -8634,10 +4091,6 @@ Adapted from: http://tachyons.io/docs/typography/text-align/
   text-align: center;
 }
 
-.tj {
-  text-align: justify;
-}
-
 /*
 
 VERTICAL ALIGN
@@ -8648,30 +4101,6 @@ Adapted from:
 - https://tailwindcss.com/docs/vertical-alignment
 
 */
-
-.v-top {
-  vertical-align: top;
-}
-
-.v-text-top {
-  vertical-align: text-top;
-}
-
-.v-mid {
-  vertical-align: middle;
-}
-
-.v-baseline {
-  vertical-align: baseline;
-}
-
-.v-bottom {
-  vertical-align: bottom;
-}
-
-.v-text-bottom {
-  vertical-align: text-bottom;
-}
 
 /* Visibility */
 
@@ -8684,52 +4113,8 @@ Adapted from: http://tachyons.io/docs/themes/opacity/
 
 */
 
-.o-100 {
-  opacity: 1;
-}
-
-.o-90 {
-  opacity: .9;
-}
-
-.o-80 {
-  opacity: .8;
-}
-
-.o-70 {
-  opacity: .7;
-}
-
-.o-60 {
-  opacity: .6;
-}
-
 .o-50 {
   opacity: .5;
-}
-
-.o-40 {
-  opacity: .4;
-}
-
-.o-30 {
-  opacity: .3;
-}
-
-.o-20 {
-  opacity: .2;
-}
-
-.o-10 {
-  opacity: .1;
-}
-
-.o-05 {
-  opacity: .05;
-}
-
-.o-025 {
-  opacity: .025;
 }
 
 .o-0 {
@@ -8760,11 +4145,6 @@ Adapted from:
 Text that is hidden but accessible - see: http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 
 */
-
-.clip {
-  position: fixed !important;
-  clip: rect(1px, 1px, 1px, 1px);
-}
 
 /* Variables (import here to override any variables above) */
 
@@ -8900,19 +4280,6 @@ Adapted from: http://tachyons.io/docs/debug/
 
 */
 
-.debug * {
-  outline: 1px solid #ff4136;
-  outline: 1px solid var(--red);
-}
-
-.debug-white * {
-  outline: 1px solid white;
-}
-
-.debug-black * {
-  outline: 1px solid black;
-}
-
 /*
 
 DEBUG GRID
@@ -8924,23 +4291,16 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
 */
 
-.debug-grid {
-  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=) repeat top left;
-}
-
-.debug-grid-16 {
-  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=) repeat top left;
-}
-
-.debug-grid-8-solid {
-  background: white url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==) repeat top left;
-}
-
-.debug-grid-16-solid {
-  background: white url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7) repeat top left;
-}
-
 /* @import './utilities/debug'; */
+
+/*
+
+NEW STYLES
+==========
+
+Add all new styles here (reset, plugin, utility, component) so they are easy to add to the Gatsby Starter project.
+
+*/
 
 @media (min-width: 36em) {/* Resets *//* Resets *//* Resets *//* Resets *//*
   .hover-shadow:focus,
@@ -9066,7 +4426,11 @@ Adapted from: http://tachyons.io/docs/debug-grid/
   * 
   * Percentage of viewport height
   *
-  *//* 
+  */
+
+  .sm\:w-auto {
+    width: auto;
+  }/* 
   * 
   * Percentage of parent width
   *
@@ -9078,7 +4442,12 @@ Adapted from: http://tachyons.io/docs/debug-grid/
 
   .sm\:mt0 {
     margin-top: 0;
-  }/* Right *//* Bottom *//* Left */
+  }/* Right */
+
+  .sm\:mr4 {
+    margin-right: 2rem;
+    margin-right: var(--spacing-4);
+  }/* Bottom *//* Left */
 
   .sm\:ml4 {
     margin-left: 2rem;
@@ -9506,7 +4875,17 @@ See:  https://stackoverflow.com/questions/35351706/how-to-render-a-multi-line-te
   *
   * Flex item
   *
-  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing *//* 
+  *//* 1. Fix for Chrome 44 bug. See: https://code.google.com/p/chromium/issues/detail?id=506893 *//* Positive spacing *//* Negative spacing *//* Percentage spacing *//* Negative percentage spacing */
+
+  .lg\:h7 {
+    height: 48rem;
+    height: var(--sizing-7);
+  }
+
+  .lg\:max-h7 {
+    max-height: 48rem;
+    max-height: var(--sizing-7);
+  }/* 
   * 
   * Percentage of parent height
   *
