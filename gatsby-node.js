@@ -59,7 +59,8 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
             test: [
               /intersection-observer/,
               /lightbox-react/,
-              /react-image-lightbox/
+              /react-image-lightbox/,
+              /twitter-fetcher/
             ],
             loader: `null-loader`
           }
