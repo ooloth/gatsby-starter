@@ -1,18 +1,43 @@
-const FilterAndLimitExample = ({ cat1, cat2 }) => (
-  <section className="mv6 bg-near-white pa5 shadow-lg">
-    <h2 className="mb4">Filter and Limit Example</h2>
+const FilterAndLimitExample = ({ cat1, cat2 }) => {
+  let limit = 3
 
-    <FilterAndLimit
-      cat1={cat1} // the items in cat1
-      cat2={cat2} // the items in cat2
-      defaultCategory="cat1"
-      limit={3}
-      renderFilters={handleFilter => <Filters handleFilter={handleFilter} />}
-      renderItems={items => <Items items={items} />}
-      renderSeeMore={handleSeeMore => <SeeMore handleSeeMore={handleSeeMore} />}
-    />
-  </section>
-)
+  // Wait for the document to exist
+  if (typeof window !== `undefined`) {
+    // Create a test element to check for grid support
+    const testEl = document.createElement(`div`)
+    testEl.style.display = `grid`
+
+    // If grid is supported, show more items initially on large screens
+    if (testEl.style.display === `grid`) {
+      if (window.matchMedia(`(min-width: 62em)`).matches) {
+        limit = 12
+      } else if (window.matchMedia(`(min-width: 48em)`).matches) {
+        limit = 9
+      } else if (window.matchMedia(`(min-width: 36em)`).matches) {
+        limit = 6
+      }
+    }
+  }
+
+  return (
+    <section className="mv6 bg-near-white pa5 shadow-lg">
+      <h2 className="mb4">Filter and Limit Example</h2>
+
+      <FilterAndLimit
+        cat1={cat1} // the items in cat1
+        cat2={cat2} // the items in cat2
+        defaultCategory="cat1"
+        limit={limit}
+        increment={limit}
+        renderFilters={handleFilter => <Filters handleFilter={handleFilter} />}
+        renderItems={(items, visibleItems) => (
+          <Items items={items} visibleItems={visibleItems} />
+        )}
+        renderSeeMore={handleSeeMore => <SeeMore handleSeeMore={handleSeeMore} />}
+      />
+    </section>
+  )
+}
 
 /*
  *
@@ -49,9 +74,9 @@ const Filters = ({ handleFilter }) => (
  *
  */
 
-const Items = ({ items }) => (
+const Items = ({ items, visibleItems }) => (
   <TransitionGroup component={null}>
-    {items.map(item => (
+    {visibleItems.map(item => (
       <Mount
         key={item.node.text}
         animateExit={false}

@@ -2594,8 +2594,17 @@ Containers
 /* When the input is checked, adjust the styling of the NEXT label in the DOM */
 
 .filter-input {
-  display: none;
-  /* necessary to hide input in IE */
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(1px);
+          clip-path: inset(1px);
+  height: 1px;
+  width: 1px;
+  white-space: nowrap;
+  /* necessary to hide input in IE while keeping it accessible */
 }
 
 .filter-input:checked + label {

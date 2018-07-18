@@ -6,7 +6,14 @@ class Anchor extends Component {
 
   render() {
     const { href, srText, className, style, children } = this.props
-    const isExternal = href.indexOf(`http`) === -1 ? false : true
+    const isExternal =
+      href.indexOf(`http`) === -1 &&
+      href.indexOf(`//`) === -1 &&
+      href.indexOf(`mailto:`) === -1 &&
+      href.indexOf(`tel:`) === -1 &&
+      href.indexOf(`pdf/`) === -1
+        ? false
+        : true
 
     return (
       <a
