@@ -59,8 +59,8 @@ class Mount extends Component {
       animateEnter = true,
       animateExit = true,
       appear = true,
-      enterTimeout = 700,
-      exitTimeout = 700
+      enterTimeout = 700, // Must be in milliseconds
+      exitTimeout = 700 // Must be in milliseconds
     } = this.props
 
     return (
