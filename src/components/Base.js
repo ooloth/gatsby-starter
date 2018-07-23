@@ -32,14 +32,7 @@ const Base = ({ children }) => (
  * 
  */
 
-import '../styles/builds/after-postcss/output.css'
-
-// Use PostCSS stylesheet in development and PostCSS/PurgeCSS stylesheet in production:
-// if (process.env.NODE_ENV === `development`) {
-//   require(`../styles/builds/after-postcss/output.css`)
-// } else if (process.env.NODE_ENV === `production`) {
-//   require(`../styles/builds/after-purgecss/output.css`)
-// }
+import '../styles/index.css'
 
 /*
  *
