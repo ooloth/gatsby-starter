@@ -1,0 +1,13 @@
+# Most recent at the top
+
+- title: Event 4
+  lastDate: 2020-01-01
+
+- title: Event 3
+  lastDate: 2019-01-01
+
+- title: Event 2
+  lastDate: 2018-01-01
+
+- title: Event 1
+  lastDate: 2017-01-01

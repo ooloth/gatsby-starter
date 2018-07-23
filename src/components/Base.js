@@ -20,7 +20,7 @@ const Base = ({ children }) => (
         <Header />
         {children}
         <Footer />
-        <BasicStructuredData />
+        <BasicStructuredData site={data.site.siteMetadata} />
       </Fragment>
     )}
   />
@@ -102,41 +102,29 @@ const SiteMetadata = ({ site }) => (
  * 
  */
 
-const BasicStructuredData = () => (
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{ __html: structuredData }}
-  />
-)
+const BasicStructuredData = ({ site }) => {
+  const structuredData = `{
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "email": "mailto:email@website.com",
+    "image": "${site.siteUrl + siteImage.replace(`js/../`, ``)}",
+    "jobTitle": "What they do",
+    "name": "Their name",
+    "url": "${site.siteUrl}",
+    "sameAs": [
+      "https://www.facebook.com/clientname",
+      "https://twitter.com/clientname",
+      "https://www.youtube.com/channel/clientchannel"
+    ]
+  }`
 
-const structuredData = `{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "address": {
-    "@type": "PostalAddress",
-    addressLocality: "Colorado Springs",
-    addressRegion: "CO",
-    postalCode: "80840",
-    streetAddress: "100 Main Street"
-  },
-  "email": "mailto:info@example.com",
-  "image": "janedoe.jpg",
-  "jobTitle": "Research Assistant",
-  "name": "Jane Doe",
-  "alumniOf": "Dartmouth",
-  "birthPlace": "Philadelphia, PA",
-  "birthDate": "1979.10.12",
-  "height": "72 inches",
-  "memberOf": "Republican Party",
-  "telephone": "(123) 456-6789",
-  "url": "http://www.example.com",
-  "sameAs": [
-    "https://www.facebook.com/name",
-    "https://www.linkedin.com/name",
-    "http://twitter.com/name",
-    "http://instagram.com/name"
-  ]
-}`
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: structuredData }}
+    />
+  )
+}
 
 /*
  *

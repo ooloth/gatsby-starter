@@ -1,6 +1,6 @@
 const SkipNav = ({ href }) => (
   <a href={href} className="sr-only">
-    Skip to main content
+    Skip navigation and go to main content
   </a>
 )
 
@@ -15,7 +15,7 @@ SkipNav.propTypes = {
  */
 
 import React from 'react'
-import PropTypes from 'react'
+import PropTypes from 'prop-types'
 
 export default SkipNav
 

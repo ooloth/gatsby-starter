@@ -24,8 +24,24 @@ const FilterAndLimitExample = ({ cat1, cat2 }) => {
       <h2 className="mb4">Filter and Limit Example</h2>
 
       <FilterAndLimit
-        cat1={cat1} // the items in cat1
-        cat2={cat2} // the items in cat2
+        cat1={cat1} // cat1 items
+        cat2={cat2} // cat2 items
+        defaultCategory="cat1"
+        limit={limit}
+        increment={limit}
+      >
+        {(items, visibleItems, limited, handleFilter, handleSeeMore) => (
+          <Fragment>
+            <Filters handleFilter={handleFilter} />
+            <Items items={items} visibleItems={visibleItems} />
+            {limited && <SeeMore handleSeeMore={handleSeeMore} />}
+          </Fragment>
+        )}
+      </FilterAndLimit>
+
+      {/* <FilterAndLimit
+        cat1={cat1} // cat1 items
+        cat2={cat2} // cat2 items
         defaultCategory="cat1"
         limit={limit}
         increment={limit}
@@ -34,7 +50,7 @@ const FilterAndLimitExample = ({ cat1, cat2 }) => {
           <Items items={items} visibleItems={visibleItems} />
         )}
         renderSeeMore={handleSeeMore => <SeeMore handleSeeMore={handleSeeMore} />}
-      />
+      /> */}
     </section>
   )
 }

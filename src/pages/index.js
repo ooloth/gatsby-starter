@@ -16,8 +16,6 @@ const IndexPage = ({ data }) => (
 
       <CollapseExample />
 
-      <EventsByUpcomingAndPastExample />
-
       <FilterExample
         category1={data.allCategory1Yaml.edges}
         category2={data.allCategory2Yaml.edges}
@@ -28,10 +26,7 @@ const IndexPage = ({ data }) => (
         cat2={data.allCategory2Yaml.edges}
       />
 
-      <FadingCarouselExample data={data.allExampleYaml.edges} />
-      {/* TODO: rewrite FlickityExample (causing an error in v2) */}
-      {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
-      <SlickExample data={data.allExampleYaml.edges} />
+      <LimitExample items={data.allExampleYaml.edges} />
 
       <GalleryAndLightboxExample
         portrait={data.allMediaPortraitYaml.edges}
@@ -44,14 +39,18 @@ const IndexPage = ({ data }) => (
       />
       <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
+      <FadingCarouselExample data={data.allExampleYaml.edges} />
+      {/* TODO: rewrite FlickityExample (causing an error in v2) */}
+      {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
+      <SlickExample data={data.allExampleYaml.edges} />
+
+      <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
+
       <BlockquotesExample />
       <IconsAndEmojisExample />
 
-      {/* <ReactSpringExample /> */}
-
       <TwitterExample />
       <InstagramExample />
-      {/* <ParallaxExample /> */}
 
       {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
       {/* <FormExample /> */}
@@ -202,6 +201,14 @@ export const query = graphql`
         }
       }
     }
+    allEventsYaml(sort: { fields: [lastDate], order: DESC }) {
+      edges {
+        node {
+          title
+          lastDate(formatString: "MMMM DD, YYYY")
+        }
+      }
+    }
   }
 `
 
@@ -226,10 +233,11 @@ import RevealExample from '../sections/examples/RevealExample'
 import CollapseExample from '../sections/examples/CollapseExample'
 import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
 
-// import ParallaxExample from '../sections/examples/ParallaxExample'
-// import ReactSpringExample from '../sections/examples/ReactSpringExample'
+// import ParallaxExample from '../sections/examples/wip/ParallaxExample'
+// import ReactSpringExample from '../sections/examples/wip/ReactSpringExample'
 
 import FilterExample from '../sections/examples/FilterExample'
+import LimitExample from '../sections/examples/LimitExample'
 import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
 import FadingCarouselExample from '../sections/examples/FadingCarouselExample'

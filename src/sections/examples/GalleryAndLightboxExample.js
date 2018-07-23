@@ -35,12 +35,15 @@ const GalleryAndLightboxExample = ({ portrait, onstage, video }) => {
         defaultCategory="portrait"
         limit={limit}
         increment={limit}
-        renderFilters={handleFilter => <Filters handleFilter={handleFilter} />}
-        renderItems={(items, visibleItems) => (
-          <Gallery items={items} visibleItems={visibleItems} />
+      >
+        {(items, visibleItems, limited, handleFilter, handleSeeMore) => (
+          <Fragment>
+            <Filters handleFilter={handleFilter} />
+            <Gallery items={items} visibleItems={visibleItems} />
+            {limited && <SeeMore handleSeeMore={handleSeeMore} />}
+          </Fragment>
         )}
-        renderSeeMore={handleSeeMore => <SeeMore handleSeeMore={handleSeeMore} />}
-      />
+      </FilterAndLimit>
     </section>
   )
 }
@@ -123,8 +126,8 @@ const ImageGallery = ({ items, visibleItems }) => (
 
 const VideoGallery = ({ items, visibleItems }) => (
   <VideoGalleryAndLightbox
-    galleryImages={visibleItems}
-    lightboxVideos={items}
+    galleryItems={visibleItems}
+    lightboxItems={items}
     renderGallery={(galleryImages, handleImageClick) => (
       <Thumbnails items={galleryImages} handleImageClick={handleImageClick} />
     )}

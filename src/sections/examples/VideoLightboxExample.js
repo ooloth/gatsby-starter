@@ -1,16 +1,10 @@
 // TODO: If first image is tiny, make sure all styles in styles/plugins/react-modal are scoped (since react-image-lightbox uses the bare react-modal classes to style its instance of react-modal).
 
 class VideoLightboxExample extends Component {
-  state = {
-    lightboxIsOpen: false,
-    videoIndex: null
-  }
+  state = { lightboxIsOpen: false, videoIndex: null }
 
-  handleImageClick = event => {
-    this.setState({ lightboxIsOpen: true, videoIndex: event.target.value })
-  }
-
-  handleEnter = event => event.charCode === 13 && this.handleImageClick(event)
+  handleImageClick = e =>
+    this.setState({ lightboxIsOpen: true, videoIndex: parseInt(e.target.value) })
 
   render() {
     /* Shouldn't need to update this line */

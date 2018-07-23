@@ -29,20 +29,29 @@ class FilterAndLimit extends Component {
     const { items, limit, limited } = this.state
     const visibleItems = items.slice(0, limit)
 
-    return (
-      <Fragment>
-        {this.props.renderFilters(this.handleFilter)}
-        {this.props.renderItems(items, visibleItems)}
-        {limited && this.props.renderSeeMore(this.handleSeeMore)}
-      </Fragment>
+    return this.props.children(
+      items,
+      visibleItems,
+      limited,
+      this.handleFilter,
+      this.handleSeeMore
     )
+
+    // return (
+    //   <Fragment>
+    //     {this.props.renderFilters(this.handleFilter)}
+    //     {this.props.renderItems(items, visibleItems)}
+    //     {limited && this.props.renderSeeMore(this.handleSeeMore)}
+    //   </Fragment>
+    // )
   }
 }
 
 FilterAndLimit.propTypes = {
+  children: PropTypes.func.isRequired,
   defaultCategory: PropTypes.string.isRequired,
-  renderFilters: PropTypes.func.isRequired,
-  renderItems: PropTypes.func.isRequired,
+  // renderFilters: PropTypes.func.isRequired,
+  // renderItems: PropTypes.func.isRequired,
   limit: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.number.isRequired

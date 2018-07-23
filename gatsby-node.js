@@ -38,7 +38,15 @@ const purgeCssConfig = {
     `o-50`,
     `o-0`
   ],
-  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /ril/, /slick/]
+  whitelistPatterns: [
+    /body/,
+    /flickity/,
+    /headroom/,
+    /ReactModal/,
+    /ril/,
+    /slick/,
+    /textarea/
+  ]
 }
 
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
