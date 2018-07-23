@@ -26,6 +26,7 @@ const purgeCssConfig = {
       extensions: [`js`]
     }
   ],
+  // TODO: remove unnecessary items:
   whitelist: [
     `carousel-cell`,
     `carousel-input`,
@@ -37,7 +38,7 @@ const purgeCssConfig = {
     `o-50`,
     `o-0`
   ],
-  whitelistPatterns: [/body/, /headroom/, /ReactModal/]
+  whitelistPatterns: [/body/, /headroom/, /ReactModal/, /ril/, /slick/]
 }
 
 exports.onCreateWebpackConfig = ({ actions, stage }) => {

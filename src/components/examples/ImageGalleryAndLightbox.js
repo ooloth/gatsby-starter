@@ -3,13 +3,15 @@
 class ImageGalleryAndLightbox extends Component {
   state = { lightboxIsOpen: false, photoIndex: 0 }
 
-  handleImageClick = e =>
+  handleImageClick = e => {
     this.setState({ lightboxIsOpen: true, photoIndex: parseInt(e.target.value) })
+    noScroll.on()
+  }
 
-  // TODO: move the nextIndex/prevIndex calcs up here (to prevent rerenders on click?)
-  // viewPrevImage = () => this.setState({ photoIndex: prevIndex })
-  // viewNextImage = () => this.setState({ photoIndex: nextIndex })
-  // closeLightbox = () => this.setState({ lightboxIsOpen: false })
+  handleCloseLightbox = () => {
+    noScroll.off()
+    this.setState({ lightboxIsOpen: false })
+  }
 
   render() {
     /* Shouldn't need to update this line */
@@ -40,7 +42,7 @@ class ImageGalleryAndLightbox extends Component {
             }
             onMovePrevRequest={() => this.setState({ photoIndex: prevIndex })}
             onMoveNextRequest={() => this.setState({ photoIndex: nextIndex })}
-            onCloseRequest={() => this.setState({ lightboxIsOpen: false })}
+            onCloseRequest={this.handleCloseLightbox}
             imageCaption={lightboxImages[photoIndex].node.caption}
             enableZoom={false}
             animationOnKeyInput={true}
@@ -72,6 +74,7 @@ ImageGalleryAndLightbox.propTypes = {
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
+import noScroll from 'no-scroll'
 
 export default ImageGalleryAndLightbox
 
