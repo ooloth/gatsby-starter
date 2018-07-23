@@ -25,10 +25,9 @@ body {
   overflow-x: hidden;
 
   /* Font-size */
-  font-size: 16px;
-  @media (--sm) { font-size: 17px }
-  @media (--md) { font-size: 18px }
-  @media (--lg) { font-size: 19px }
+  @media (--sm) { font-size: calc(16.5 / 16 * 1rem) }
+  @media (--md) { font-size: calc(17 / 16 * 1rem) }
+  @media (--lg) { font-size: calc(17.5 / 16 * 1rem) }
     
   /* Font-smoothing */
   /* See: https://css-tricks.com/understanding-web-fonts-getting */
