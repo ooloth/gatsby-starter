@@ -7,7 +7,7 @@ class Reveal extends Component {
   // Imperative GSAP actions
   reveal = () => {
     loadjs.ready(`gsap`, () => {
-      TweenMax.set(this.node, { clearProps: `all` }) // Clear inital styles
+      TweenLite.set(this.node, { clearProps: `all` }) // Clear inital styles
 
       this.props.stagger ? this.animateFromStagger() : this.animateFrom()
     })
@@ -16,7 +16,7 @@ class Reveal extends Component {
   animateFrom = () => {
     const { css, delay, duration, ease } = this.props
 
-    this.node.animation = TweenMax.from(this.node, duration || 1, {
+    this.node.animation = TweenLite.from(this.node, duration || 1, {
       css: { ...css },
       ease: ease || `Power4.easeInOut`,
       delay: delay || 0.3
@@ -27,7 +27,7 @@ class Reveal extends Component {
     const { css, cycle, delay, duration, ease, staggerDelay } = this.props
     const nodes = this.node.childNodes[0].childNodes
 
-    TweenMax.staggerFrom(
+    TweenLite.staggerFrom(
       nodes,
       duration || 1,
       {
@@ -43,23 +43,23 @@ class Reveal extends Component {
   wipeAnimation = () => {
     if (this.props.stagger) {
       this.node.childNodes[0].childNodes.forEach(node => {
-        TweenMax.killTweensOf(node)
-        TweenMax.set(node, { clearProps: `all` })
+        TweenLite.killTweensOf(node)
+        TweenLite.set(node, { clearProps: `all` })
       })
     } else {
-      TweenMax.killTweensOf(this.node)
-      TweenMax.set(this.node, { clearProps: `all` })
+      TweenLite.killTweensOf(this.node)
+      TweenLite.set(this.node, { clearProps: `all` })
     }
   }
 
   reset = () => {
     this.wipeAnimation()
-    TweenMax.set(this.node, { ...this.props.css })
+    TweenLite.set(this.node, { ...this.props.css })
   }
 
   killAnimation = () => {
     this.wipeAnimation()
-    TweenMax.set(this.node, { clearProps: `all` })
+    TweenLite.set(this.node, { clearProps: `all` })
   }
 
   render() {

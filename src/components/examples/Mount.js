@@ -12,14 +12,14 @@ class Mount extends Component {
     let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.4
     let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.5
 
-    let tl = new TimelineMax()
+    let tl = new TimelineLite()
     tl.from(rtgChild, spaceDuration, spaceAnimation) // Expand the new space gradually
       .from(rtgChild, itemDuration, itemAnimation, `-=0.2`) // Transition the element in
   }
 
   enterAnimItemOnly = rtgChild => {
     let duration = this.props.enterTimeout / 1000 || 0.5
-    TweenMax.from(rtgChild, duration, itemAnimation)
+    TweenLite.from(rtgChild, duration, itemAnimation)
   }
 
   exitAnim = rtgChild => {
@@ -27,7 +27,7 @@ class Mount extends Component {
       let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.5
       let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.4
 
-      let tl = new TimelineMax()
+      let tl = new TimelineLite()
       tl
         // Transition the element out
         .to(rtgChild, itemDuration, {
@@ -50,7 +50,7 @@ class Mount extends Component {
         )
 
       // Release styles after animating out
-      // TweenMax.set(rtgChild, { clearProps: `all` })
+      // TweenLite.set(rtgChild, { clearProps: `all` })
     })
   }
 

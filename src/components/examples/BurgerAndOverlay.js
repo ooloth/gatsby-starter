@@ -12,8 +12,8 @@ class BurgerAndOverlay extends Component {
     // Only apply hover states if menu is closed (to avoid conflicts with rotate animation)
     if (!this.state.menuOpen) {
       loadjs.ready(`gsap`, () => {
-        TweenMax.to(this.burgerTop, 0.05, { y: `-10px` })
-        TweenMax.to(this.burgerBottom, 0.05, { y: `10px` })
+        TweenLite.to(this.burgerTop, 0.05, { y: `-10px` })
+        TweenLite.to(this.burgerBottom, 0.05, { y: `10px` })
       })
     }
   }
@@ -23,8 +23,8 @@ class BurgerAndOverlay extends Component {
     // Only apply hover states if menu is closed (to avoid conflicts with rotate animation)
     if (!this.state.menuOpen) {
       loadjs.ready(`gsap`, () => {
-        TweenMax.to(this.burgerTop, 0.05, { y: `-8px` })
-        TweenMax.to(this.burgerBottom, 0.05, { y: `8px` })
+        TweenLite.to(this.burgerTop, 0.05, { y: `-8px` })
+        TweenLite.to(this.burgerBottom, 0.05, { y: `8px` })
       })
     }
   }
@@ -34,7 +34,7 @@ class BurgerAndOverlay extends Component {
 
     loadjs.ready(`gsap`, () => {
       // Define burger animation timeline
-      const menuToggle = new TimelineMax({ paused: true })
+      const menuToggle = new TimelineLite({ paused: true })
       menuToggle
         .fromTo(this.burgerTop, 0.1, { y: `-10px` }, { y: 0 }, `collapse`)
         .fromTo(this.burgerBottom, 0.1, { y: `10px` }, { y: 0 }, `collapse`)

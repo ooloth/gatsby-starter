@@ -14,7 +14,7 @@ class ScrollTo extends React.Component {
       // Need to include {autoKill: false} to prevent iOS from killing the scroll partway
       // See: https://greensock.com/forums/topic/15108-ios-10-scrolltoplugin/
 
-      TweenMax.to(window, durationInSeconds, {
+      TweenLite.to(window, durationInSeconds, {
         scrollTo: { y: href, offsetY: offset, autoKill: false },
         ease: easing
       })

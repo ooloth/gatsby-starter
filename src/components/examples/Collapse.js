@@ -22,13 +22,13 @@ class Collapse extends Component {
   expand = () => {
     loadjs.ready(`gsap`, () => {
       // Expand section to its natural height...
-      TweenMax.set(this.node, {
+      TweenLite.set(this.node, {
         height: `auto`,
         autoAlpha: 1
       })
 
       // ...from a starting height of 0
-      TweenMax.from(this.node, this.props.duration, {
+      TweenLite.from(this.node, this.props.duration, {
         height: 0,
         autoAlpha: 0,
         ease: this.props.ease
@@ -41,7 +41,7 @@ class Collapse extends Component {
   collapse = () => {
     loadjs.ready(`gsap`, () => {
       // Collapse section height to 0
-      TweenMax.to(this.node, this.props.duration, {
+      TweenLite.to(this.node, this.props.duration, {
         height: 0,
         autoAlpha: 0,
         ease: this.props.ease

@@ -11,7 +11,7 @@ class GSAPExample extends React.Component {
   // Imperative GSAP actions
   startAnimation = () => {
     loadjs.ready(`gsap`, () => {
-      this.node.animation = TweenMax.to(this.node, 1.5, {
+      this.node.animation = TweenLite.to(this.node, 1.5, {
         scale: 0.9,
         ease: `Power2.easeInOut`,
         repeat: -1,
@@ -23,7 +23,7 @@ class GSAPExample extends React.Component {
   resumeAnimation = () => this.node.animation.resume()
   killAnimation = () => {
     this.node.animation.kill()
-    TweenMax.set(this.node, { clearProps: `all` })
+    TweenLite.set(this.node, { clearProps: `all` })
     this.node.animation = null
   }
 
