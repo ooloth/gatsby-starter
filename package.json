@@ -69,7 +69,8 @@
     "stylelint": "^9.2.1",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-no-unsupported-browser-features": "^3.0.0",
-    "subfont": "^3.4.0"
+    "subfont": "^3.4.0",
+    "why-did-you-update": "^0.1.1"
   },
   "scripts": {
     "dev": "gatsby develop --https",

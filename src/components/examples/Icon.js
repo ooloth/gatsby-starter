@@ -9,7 +9,8 @@ const Icon = ({ svg, ariaLabel, className = ``, style = {} }) => {
     <Tag
       src={Tag === SVG ? svg : undefined}
       aria-label={ariaLabel}
-      className={`dib lh-none fill-current ${className}`}
+      // .pointer-events-none prevents the icon from hijacking a button's click event
+      className={`dib lh-none fill-current pointer-events-none ${className}`}
       style={{ width: `1em`, height: `1em`, ...style }}
     />
   )

@@ -140,6 +140,19 @@ const structuredData = `{
 
 /*
  *
+ * Monitor unnecessary rerenders...
+ *
+ */
+
+// TODO: Use this? Too many false-positives because of Reveal/Mount animations?
+
+// if (process.env.NODE_ENV !== `production`) {
+//   const { whyDidYouUpdate } = require(`why-did-you-update`)
+//   whyDidYouUpdate(React)
+// }
+
+/*
+ *
  * Imports & Exports
  * 
  */
