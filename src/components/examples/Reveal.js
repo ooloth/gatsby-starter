@@ -27,7 +27,7 @@ class Reveal extends Component {
     const { css, cycle, delay, duration, ease, staggerDelay } = this.props
     const nodes = this.node.childNodes[0].childNodes
 
-    TweenLite.staggerFrom(
+    TweenMax.staggerFrom(
       nodes,
       duration || 1,
       {
