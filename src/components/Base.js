@@ -59,6 +59,9 @@ const SiteMetadata = ({ site }) => (
     <meta name="image" content={site.siteUrl + siteImage} />
     <link rel="canonical" href={site.siteUrl} />
 
+    {/* Preconnect to CloudFlare CDN (for GSAP) */}
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
     {/* Google fonts */}
     <link
       href="https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=latin-ext"
