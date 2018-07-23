@@ -13,7 +13,6 @@
     "gatsby": "next",
     "gatsby-cli": "next",
     "gatsby-image": "next",
-    "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-netlify": "next",
     "gatsby-plugin-netlify-cache": "^0.1.0",

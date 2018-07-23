@@ -17,7 +17,7 @@ module.exports = {
     locale: `en_CA`,
     twitterHandle: `@handle`,
     facebookAppId: ``,
-    // image: update siteImage variable in layouts/index.js
+    // TODO: update siteImage variable in Base.js
     secondPage: {
       title: `Add Second Page Title`,
       description: `Add second page description (50-300 characters)`,
@@ -36,92 +36,56 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-transformer-yaml`
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-plugin-webpack-bundle-analyzer`,
+      options: {
+        defaultSizes: `gzip`,
+        disable: false,
+        production: true
+      }
+    }
+    // `gatsby-plugin-sitemap`,
     // {
-    //   resolve: `gatsby-plugin-favicon`,
+    //   resolve: `gatsby-plugin-robots-txt`,
+    //   // Disable crawlers for Netlify deploy-previews:
     //   options: {
-    //     logo: `./src/img/favicon.png`,
-    //     injectHTML: true,
-    //     icons: {
-    //       android: true,
-    //       appleIcon: true,
-    //       appleStartup: true,
-    //       coast: true,
-    //       favicons: true,
-    //       firefox: true,
-    //       twitter: true,
-    //       yandex: true,
-    //       windows: true
+    //     resolveEnv: () => NETLIFY_ENV,
+    //     env: {
+    //       production: {
+    //         policy: [{ userAgent: `*` }]
+    //       },
+    //       'branch-deploy': {
+    //         policy: [{ userAgent: `*`, disallow: [`/`] }],
+    //         sitemap: null,
+    //         host: null
+    //       },
+    //       'deploy-preview': {
+    //         policy: [{ userAgent: `*`, disallow: [`/`] }],
+    //         sitemap: null,
+    //         host: null
+    //       }
     //     }
     //   }
     // },
     // {
-    //   resolve: `gatsby-plugin-webpack-bundle-analyzer`,
+    //   resolve: `gatsby-plugin-manifest`,
     //   options: {
-    //     defaultSizes: `gzip`,
-    //     disable: false,
-    //     production: true
-    //   }
-    // },
-    //   resolve: `gatsby-plugin-sitemap`
-    // },
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   Disable crawlers for Netlify deploy-previews:
-    //   options: isNetlifyProduction
-    //     ? { policy: [{ userAgent: '*' }] }
-    //     : {
-    //         policy: [{ userAgent: '*', disallow: ['/'] }],
-    //         sitemap: null,
-    //         host: null
-    //       }
-    // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`, // must come before gatsby-plugin-offline
-    //   options: {
-    //     name: `Insert Site Title (max 45 characters)`,
-    //     short_name: `Insert Short Title (max 12 characters)`,
+    //     name: `J. Patrick Raftery`,
+    //     short_name: `JP Raftery`,
     //     start_url: `/`,
-    //     background_color: `#cd9d2c`,
-    //     theme_color: `#cd9d2c`,
-    //     display: `browser`, // use browser to enable share sheet, address bar
-    //     icons: [
-    //       // these file names don't need to be changed
-    //       {
-    //         src: `/favicons/android-chrome-192x192.png`,
-    //         sizes: `192x192`,
-    //         type: `image/png`
-    //       },
-    //       {
-    //         src: `/favicons/android-chrome-512x512.png`,
-    //         sizes: `512x512`,
-    //         type: `image/png`
-    //       },
-    //       {
-    //         src: `/favicons/apple-touch-icon.png`,
-    //         sizes: `180x180`,
-    //         type: `image/png`
-    //       },
-    //       {
-    //         src: `/favicons/favicon-16x16.png`,
-    //         sizes: `16x16`,
-    //         type: `image/png`
-    //       },
-    //       {
-    //         src: `/favicons/favicon-32x32.png`,
-    //         sizes: `32x32`,
-    //         type: `image/png`
-    //       },
-    //       {
-    //         src: `/favicons/mstile-150x150.png`,
-    //         sizes: `150x150`,
-    //         type: `image/png`
-    //       }
-    //     ]
+    //     // For splash screen when app launches:
+    //     background_color: `#3047ff`,
+    //     // For tool bar and task switcher:
+    //     theme_color: `#3047ff`,
+    //     display: `minimal_ui`,
+    //     // Multiple icons will be generated for various devices.
+    //     // Multiple favicons will be generated and added to each HTML page.
+    //     // This path is relative to the root of the site.
+    //     icon: `src/images/favicon.png`
     //   }
     // },
     // `gatsby-plugin-offline`,
-    // {
     // `gatsby-plugin-netlify-cache`,
     // {
     //   resolve: `gatsby-plugin-netlify`, // must come last
@@ -129,8 +93,9 @@ module.exports = {
     //     headers: {
     //       '/*.html': [`Cache-Control: public, max-age=0, must-revalidate`],
     //       '/*.js': [`Cache-Control: public, max-age=0, must-revalidate`],
+    //       '/icons/*': [`Cache-Control: public,max-age=31536000,immutable`],
     //       '/static/*': [`Cache-Control: public,max-age=31536000,immutable`],
-    //       '/favicons/*': [`Cache-Control: public,max-age=31536000,immutable`]
+    //       '/subfont/*': [`Cache-Control: public,max-age=31536000,immutable`]
     //     }
     //   }
     // }
