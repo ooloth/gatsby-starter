@@ -1,2 +1,11 @@
 # Redirect default Netlify subdomain to primary domain
-# https://SITE_NAME.netlify.com/* https://www.PRIMARY_DOMAIN.com/:splat 301!
+https://michaeluloth.netlify.com/* https://www.michaeluloth.com/:splat 301!
+
+# Redirect old urls to new urls
+# Test new rules here: https://play.netlify.com/redirects
+
+/opera            /   301!
+/web-design       /   301!
+/websites         /   301!
+/tax-preparation  /   301!
+/contact          /   301!  
