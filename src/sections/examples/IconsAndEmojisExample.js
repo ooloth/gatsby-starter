@@ -6,6 +6,7 @@ const IconsAndEmojisExample = () => (
 
     <h3 className="mt4 mb2 f4 mt3">SVG icon component:</h3>
     <Icon svg={FaBeer} ariaLabel="Mug of beer" className="f1 red" />
+    {/* <Heart /> */}
 
     <h3 className="mt4 mb2 f4 mt3">Emojis:</h3>
     <Emoji emoji="🕺" ariaLabel="A man dancing" className="f1" />
@@ -22,6 +23,9 @@ const IconsAndEmojisExample = () => (
 
 import React from 'react'
 import FaBeer from 'react-icons/lib/fa/beer'
+
+// TODO: try this way of using all SVGs via gatsby-plugin-ssr after the package updates for v2...
+// import { ReactComponent as Heart } from '../../svg/heart.svg'
 
 import Emoji from '../../components/examples/Emoji'
 import Icon from '../../components/examples/Icon'

@@ -37,6 +37,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`
+    // Not working yet with v2:
+    // {
+    //   resolve: `gatsby-plugin-svgr`,
+    //   options: {
+    //     icon: true,
+    //     viewBox: false
+    //     // see https://github.com/smooth-code/svgr for a list of all options
+    //   }
+    // }
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: `gatsby-plugin-robots-txt`,
