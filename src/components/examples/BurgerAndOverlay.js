@@ -73,7 +73,7 @@ class BurgerAndOverlay extends Component {
     const { data } = this.props
 
     return (
-      <Fragment>
+      <>
         <button
           ref={el => (this.burger = el)}
           onMouseEnter={this.handleBurgerMouseEnter}
@@ -104,7 +104,7 @@ class BurgerAndOverlay extends Component {
         >
           <MenuContent data={data} closeMenu={this.handleBurgerClick} />
         </Modal>
-      </Fragment>
+      </>
     )
   }
 }
@@ -144,7 +144,7 @@ const nav = [{ url: `/`, text: `Home` }, { url: `/page-2/`, text: `Page 2` }]
  * 
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import loadjs from 'loadjs'
 import Modal from 'react-modal'

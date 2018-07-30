@@ -26,7 +26,7 @@ class ImageGalleryAndLightbox extends Component {
       (photoIndex + lightboxImages.length - 1) % lightboxImages.length
 
     return (
-      <Fragment>
+      <>
         {renderGallery(galleryImages, this.handleImageClick)}
 
         {lightboxIsOpen && (
@@ -48,7 +48,7 @@ class ImageGalleryAndLightbox extends Component {
             animationOnKeyInput={true}
           />
         )}
-      </Fragment>
+      </>
     )
   }
 }
@@ -71,7 +71,7 @@ ImageGalleryAndLightbox.propTypes = {
  * 
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
 import noScroll from 'no-scroll'

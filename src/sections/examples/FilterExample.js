@@ -65,13 +65,13 @@ const Items = ({ items }) => (
 
 No <Mount /> version:
 
-<Fragment>
+<>
   {items.map(item => (
     <p key={item.node.text} className="mt3">
     {item.node.text}
     </p>
   ))}
-</Fragment> 
+</> 
 
 */
 
@@ -89,7 +89,7 @@ const Item = ({ item }) => <p className="mt3">{item.text}</p>
  *
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import FilterByCategory from '../../components/examples/FilterByCategory'

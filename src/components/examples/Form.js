@@ -46,7 +46,7 @@ class Form extends Component {
     // console.log(`Form:`, this.props.machineState.value)
 
     return (
-      <Fragment>
+      <>
         <State value={`!success`}>
           <form
             name={this.props.name}
@@ -73,7 +73,7 @@ class Form extends Component {
 
         <State value="error">{this.props.renderError()}</State>
         <State value="success">{this.props.renderSuccess()}</State>
-      </Fragment>
+      </>
     )
   }
 }
@@ -115,7 +115,7 @@ const formChart = {
 
 // See: https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { State, withStatechart } from 'react-automata'
 

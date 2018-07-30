@@ -22,10 +22,10 @@ const LimitExample = ({ items }) => {
 
       <Limit items={items} limit={limit} increment={limit}>
         {(visibleItems, limited, handleLoadMore) => (
-          <Fragment>
+          <>
             <Items items={visibleItems} />
             {limited && <LoadMore handleLoadMore={handleLoadMore} />}
-          </Fragment>
+          </>
         )}
       </Limit>
     </section>
@@ -80,7 +80,7 @@ const LoadMore = ({ handleLoadMore }) => (
  * 
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import Limit from '../../components/examples/Limit'

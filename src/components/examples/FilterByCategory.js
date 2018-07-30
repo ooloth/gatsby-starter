@@ -5,10 +5,10 @@ class FilterByCategory extends Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         {this.props.renderFilters(this.handleFilter)}
         {this.props.renderItems(this.state.items)}
-      </Fragment>
+      </>
     )
   }
 }
@@ -25,7 +25,7 @@ FilterByCategory.propTypes = {
  *
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default FilterByCategory

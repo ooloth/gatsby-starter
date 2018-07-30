@@ -7,7 +7,7 @@ const FilterBtnRadio = ({
   className = ``,
   style
 }) => (
-  <Fragment>
+  <>
     <input
       type="radio"
       name={group}
@@ -20,7 +20,7 @@ const FilterBtnRadio = ({
     <label htmlFor={category} className={`filter-label ${className}`} style={style}>
       {label}
     </label>
-  </Fragment>
+  </>
 )
 
 FilterBtnRadio.propTypes = {
@@ -39,7 +39,7 @@ FilterBtnRadio.propTypes = {
  *
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 export default FilterBtnRadio

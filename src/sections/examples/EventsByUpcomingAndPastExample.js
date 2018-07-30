@@ -4,10 +4,10 @@ const EventsByUpcomingAndPastExample = ({ events }) => (
 
     <EventsByUpcomingAndPast events={events}>
       {(upcomingEvents, pastEvents) => (
-        <Fragment>
+        <>
           <UpcomingEvents events={upcomingEvents} />
           <PastEvents events={pastEvents} />
-        </Fragment>
+        </>
       )}
     </EventsByUpcomingAndPast>
   </section>
@@ -20,12 +20,12 @@ const EventsByUpcomingAndPastExample = ({ events }) => (
  */
 
 const UpcomingEvents = ({ events }) => (
-  <Fragment>
+  <>
     <h3 className="mt5 f2">Upcoming events:</h3>
     <ul className="">
       {events.map(event => <Event key={event.node.title} event={event.node} />)}
     </ul>
-  </Fragment>
+  </>
 )
 
 /*
@@ -35,12 +35,12 @@ const UpcomingEvents = ({ events }) => (
  */
 
 const PastEvents = ({ events }) => (
-  <Fragment>
+  <>
     <h3 className="mt5 f2">Past events:</h3>
     <ul className="calendar-grid">
       {events.map(event => <Event key={event.node.title} event={event.node} />)}
     </ul>
-  </Fragment>
+  </>
 )
 
 /*
@@ -62,7 +62,7 @@ const Event = ({ event }) => (
  * 
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import EventsByUpcomingAndPast from '../../components/examples/EventsByUpcomingAndPast'
 

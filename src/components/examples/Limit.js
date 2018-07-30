@@ -52,10 +52,10 @@ INSTRUCTIONS:
 
 <Limit items={articles} limit={3} increment={3}>
   {(visibleItems, limited, handleLoadMore) => (
-    <Fragment>
+    <>
       <Items items={visibleItems} />
       {limited && <LoadMore handleLoadMore={handleLoadMore} />}
-    </Fragment>
+    </>
   )}
 </Limit>
 

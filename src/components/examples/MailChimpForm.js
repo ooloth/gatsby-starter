@@ -110,7 +110,7 @@ class MailChimpForm extends React.Component {
     } = this.props
 
     return (
-      <Fragment>
+      <>
         {/* Show the form until it has been submitted successfully */}
         {status !== `success` && (
           <form
@@ -190,11 +190,11 @@ class MailChimpForm extends React.Component {
         {/* Error message */}
         {status === `error` && (
           <p className="ml-auto mr-auto mt4 br3 bg-hot-pink pa2 measure-narrow tc white">
-            Oops, please make sure you've entered a valid email address (which isn't already
-            subscribed).
+            Oops, please make sure you've entered a valid email address (which isn't
+            already subscribed).
           </p>
         )}
-      </Fragment>
+      </>
     )
   }
 }
@@ -205,7 +205,7 @@ class MailChimpForm extends React.Component {
  * 
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import jsonp from 'jsonp'
 
 export default MailChimpForm

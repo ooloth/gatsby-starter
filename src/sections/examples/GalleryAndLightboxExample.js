@@ -37,11 +37,11 @@ const GalleryAndLightboxExample = ({ portrait, onstage, video }) => {
         increment={limit}
       >
         {(items, visibleItems, limited, handleFilter, handleSeeMore) => (
-          <Fragment>
+          <>
             <Filters handleFilter={handleFilter} />
             <Gallery items={items} visibleItems={visibleItems} />
             {limited && <SeeMore handleSeeMore={handleSeeMore} />}
-          </Fragment>
+          </>
         )}
       </FilterAndLimit>
     </section>
@@ -173,7 +173,7 @@ class Thumbnails extends React.Component {
             ))}
           </TransitionGroup>
         ) : (
-          <Fragment>
+          <>
             {/* To make sure the mount animation plays on first load, show an invisible version of the thumbnails until GSAP is ready (to avoid a space jump) */}
             {items.map((item, index) => (
               <Thumbnail
@@ -185,7 +185,7 @@ class Thumbnails extends React.Component {
                 className="o-0"
               />
             ))}
-          </Fragment>
+          </>
         )}
       </ul>
     )
@@ -242,7 +242,7 @@ const SeeMore = ({ handleSeeMore }) => (
  *
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import loadjs from 'loadjs'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 

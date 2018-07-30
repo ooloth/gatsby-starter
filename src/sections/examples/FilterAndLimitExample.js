@@ -31,11 +31,11 @@ const FilterAndLimitExample = ({ cat1, cat2 }) => {
         increment={limit}
       >
         {(items, visibleItems, limited, handleFilter, handleSeeMore) => (
-          <Fragment>
+          <>
             <Filters handleFilter={handleFilter} />
             <Items items={items} visibleItems={visibleItems} />
             {limited && <SeeMore handleSeeMore={handleSeeMore} />}
-          </Fragment>
+          </>
         )}
       </FilterAndLimit>
 
@@ -109,13 +109,13 @@ const Items = ({ items, visibleItems }) => (
 
 No <Mount /> version:
 
-<Fragment>
+<>
   {items.map(item => (
     <p key={item.node.text} className="mt3">
     {item.node.text}
     </p>
   ))}
-</Fragment> 
+</> 
 
 */
 
@@ -145,7 +145,7 @@ const SeeMore = ({ handleSeeMore }) => (
  *
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 
 import FilterAndLimit from '../../components/examples/FilterAndLimit'

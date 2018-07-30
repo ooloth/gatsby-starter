@@ -52,10 +52,10 @@ INSTRUCTIONS:
 
 <EventsByUpcomingAndPast events={events}>
   {(upcomingEvents, pastEvents) => (
-    <Fragment>
+    <>
       <UpcomingEvents events={upcomingEvents} />
       <PastEvents events={pastEvents} />
-    </Fragment>
+    </>
   )}
 </EventsByUpcomingAndPast>
 

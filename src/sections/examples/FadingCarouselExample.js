@@ -8,7 +8,7 @@ const FadingCarouselExample = ({ data }) => (
 
     <FadingCarousel slides={data}>
       {(slides, slideIndex, handleBtnClick) => (
-        <Fragment>
+        <>
           <CarouselSlides slides={slides} slideIndex={slideIndex} />
 
           <CarouselButtons
@@ -16,7 +16,7 @@ const FadingCarouselExample = ({ data }) => (
             slideIndex={slideIndex}
             handleChange={handleBtnClick}
           />
-        </Fragment>
+        </>
       )}
     </FadingCarousel>
   </section>

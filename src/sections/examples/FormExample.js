@@ -19,7 +19,7 @@ const FormExample = () => (
  */
 
 const FormFields = ({ handleChange }) => (
-  <Fragment>
+  <>
     <Input
       type="text"
       name="name"
@@ -53,7 +53,7 @@ const FormFields = ({ handleChange }) => (
     <button type="submit" className="btn">
       Send message
     </button>
-  </Fragment>
+  </>
 )
 
 /* 
@@ -89,7 +89,7 @@ const Success = () => (
  * 
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import Textarea from 'react-textarea-autosize'
 
 import Form from '../../components/examples/Form'

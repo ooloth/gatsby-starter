@@ -16,7 +16,7 @@ class VideoGalleryAndLightbox extends Component {
     const prevIndex = (videoIndex + lightboxItems.length - 1) % lightboxItems.length
 
     return (
-      <Fragment>
+      <>
         {renderGallery(galleryItems, this.handleImageClick)}
 
         {lightboxIsOpen && (
@@ -59,7 +59,7 @@ class VideoGalleryAndLightbox extends Component {
             animationOnKeyInput={true}
           />
         )}
-      </Fragment>
+      </>
     )
   }
 }
@@ -80,7 +80,7 @@ VideoGalleryAndLightbox.propTypes = {
  * 
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 // NOTE: A forked version of react-image-lightbox that supports non-image component children

@@ -33,7 +33,7 @@ class AnimatingBoxes extends Component {
     const { boxes } = this.state
 
     return (
-      <Fragment>
+      <>
         <TransitionGroup component={null}>
           {boxes.map(box => (
             <Mount key={box.id}>
@@ -53,7 +53,7 @@ class AnimatingBoxes extends Component {
             -
           </button>
         </div>
-      </Fragment>
+      </>
     )
   }
 }
@@ -64,7 +64,7 @@ class AnimatingBoxes extends Component {
  * 
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import shortid from 'shortid'
 

@@ -56,7 +56,7 @@ class Collapse extends Component {
     const { expanded } = this.state
 
     return (
-      <Fragment>
+      <>
         <div
           ref={el => (this.node = el)}
           className={`overflow-hidden ${className}`}
@@ -65,7 +65,7 @@ class Collapse extends Component {
           {renderContent()}
         </div>
         {renderToggle(expanded, this.handleToggle, this.handleKeyUp)}
-      </Fragment>
+      </>
     )
   }
 }
@@ -76,7 +76,7 @@ class Collapse extends Component {
  * 
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import loadjs from 'loadjs'
 

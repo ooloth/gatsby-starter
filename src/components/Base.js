@@ -15,13 +15,13 @@ const Base = ({ children }) => (
       }
     `}
     render={data => (
-      <Fragment>
+      <>
         <SiteMetadata site={data.site.siteMetadata} />
         <Header />
         {children}
         <Footer />
         <BasicStructuredData site={data.site.siteMetadata} />
-      </Fragment>
+      </>
     )}
   />
 )
@@ -145,7 +145,7 @@ const BasicStructuredData = ({ site }) => {
  * 
  */
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 

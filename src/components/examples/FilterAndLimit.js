@@ -38,11 +38,11 @@ class FilterAndLimit extends Component {
     )
 
     // return (
-    //   <Fragment>
+    //   <>
     //     {this.props.renderFilters(this.handleFilter)}
     //     {this.props.renderItems(items, visibleItems)}
     //     {limited && this.props.renderSeeMore(this.handleSeeMore)}
-    //   </Fragment>
+    //   </>
     // )
   }
 }
@@ -65,7 +65,7 @@ FilterAndLimit.propTypes = {
  *
  */
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default FilterAndLimit
