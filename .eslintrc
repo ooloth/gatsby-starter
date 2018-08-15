@@ -8,5 +8,8 @@
     "TimelineMax": false,
     "TweenLite": false,
     "TweenMax": false
+  },
+  "rules": {
+    "import/first": 0
   }
 }

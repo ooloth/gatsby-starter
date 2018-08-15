@@ -123,7 +123,6 @@ const MenuContent = ({ closeMenu }) => (
           <li key={`link-${index}`}>
             <Link
               to={link.url}
-              exact={true} // Prevents the home link from appearing active on every page
               className="db mb3 open-sans f3"
               activeClassName="blue"
             >
