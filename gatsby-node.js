@@ -4,6 +4,22 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+/*
+ *
+ * Environment variables (for Firebase)
+ *
+ */
+
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`
+// })
+
+/*
+ *
+ * PurgeCSS variables
+ *
+ */
+
 const PurgeCssPlugin = require(`purgecss-webpack-plugin`)
 const path = require(`path`)
 const glob = require(`glob`)
@@ -49,6 +65,12 @@ const purgeCssConfig = {
   ]
 }
 
+/*
+ *
+ * Webpack updates
+ *
+ */
+
 exports.onCreateWebpackConfig = ({ actions, stage }) => {
   if (stage.includes(`develop`)) return
 
@@ -81,7 +103,7 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
 
 /*
  *
- * Generate Template pages programmatically from template.yaml
+ * Template pages (generated programmatically from template.yaml)
  * 
  */
 
