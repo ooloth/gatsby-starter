@@ -44,6 +44,7 @@
     "react-helmet": "^5.2.0",
     "react-image-lightbox": "^5.0.0",
     "react-instafeed": "^0.4.0",
+    "react-intersection-observer": "^6.1.1",
     "react-media": "^1.8.0",
     "react-modal": "^3.4.5",
     "react-player": "^1.6.2",

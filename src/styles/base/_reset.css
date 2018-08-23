@@ -25,12 +25,13 @@ body {
   overflow-x: hidden;
 
   /* Font-size */
-  /* font-size: min font + (max font - min font) * (100vw - minScreenpx) / (maxScreen - minScreen) */
-  font-size: 16px + (24 - 16) * (100vw - 400px) / (800 - 400)
-
-  /* @media (--sm) { font-size: calc(16.5 / 16 * 1rem) }
+  @media (--sm) { font-size: calc(16.5 / 16 * 1rem) }
   @media (--md) { font-size: calc(17 / 16 * 1rem) }
-  @media (--lg) { font-size: calc(17.5 / 16 * 1rem) } */
+  @media (--lg) { font-size: calc(17.5 / 16 * 1rem) }
+
+  /* TODO: use this auto-resizing formula instead? Something strange about how it enlarges some text and reduces other text... */
+  /* font-size: minFnt + (maxFnt - minFot) * (100vw - minScrnPx) / (maxScrn - minScrn) */
+  /* font-size: calc(16px + (17.5 - 16) * (100vw - 320px) / (800 - 320)); */
     
   /* Font-smoothing */
   /* See: https://css-tricks.com/understanding-web-fonts-getting */
