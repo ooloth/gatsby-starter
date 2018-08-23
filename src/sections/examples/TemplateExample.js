@@ -4,9 +4,9 @@ const TemplateExample = ({ data }) => (
     <h4 className="mb4">(These are created programmatically in gatsby-node.)</h4>
 
     <ul className="flex justify-between">
-      {data.map((page, index) => {
+      {data.map((page, i) => {
         return (
-          <li key={`template-${index}`}>
+          <li key={i}>
             <Link to={`/${page.node.slug}/`} className="link dib mh3 ">
               {page.node.title}
             </Link>

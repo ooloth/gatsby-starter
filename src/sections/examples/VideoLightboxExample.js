@@ -83,16 +83,16 @@ class VideoLightboxExample extends Component {
 
 const Images = ({ videos, handleImageClick, handleEnter }) => (
   <ul className="flex justify-between">
-    {videos.map((video, index) => {
+    {videos.map((video, i) => {
       return (
-        <li key={`image-${index}`} className="group relative mt3 w-30 shadow-lg">
+        <li key={i} className="group relative mt3 w-30 shadow-lg">
           <Img fluid={video.node.image.childImageSharp.fluid} alt="" />
 
           {/* Overlay + Lightbox trigger */}
           <button
             onClick={handleImageClick}
             onKeyPress={handleEnter}
-            value={index}
+            value={i}
             className="flex justify-center items-center absolute fill bg-transparent w-100 group-hover:bg-black-50 courier f4 md:f3 transparent group-hover:white animate"
           >
             Watch Video

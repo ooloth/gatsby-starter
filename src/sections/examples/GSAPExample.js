@@ -9,9 +9,10 @@ class GSAPExample extends React.Component {
   handleKillAnimation = () => this.props.transition(`KILL`)
 
   // Imperative GSAP actions
+  // NOTE: Must use TweenMax to have yoyo option
   startAnimation = () => {
     loadjs.ready(`gsap`, () => {
-      this.node.animation = TweenLite.to(this.node, 1.5, {
+      this.node.animation = TweenMax.to(this.node, 1.5, {
         scale: 0.9,
         ease: `Power2.easeInOut`,
         repeat: -1,
@@ -28,7 +29,7 @@ class GSAPExample extends React.Component {
   }
 
   render() {
-    // console.log(`🗺 GSAPExample state:`, this.props.machineState.value)
+    console.log(`🗺 GSAPExample state:`, this.props.machineState.value)
 
     return (
       <section ref={el => (this.node = el)}>
@@ -44,34 +45,25 @@ class GSAPExample extends React.Component {
             </p>
 
             {/* Start Button */}
-            <Action
-              show={[`pauseAnimation`, `killAnimation`]}
-              hide={[`startAnimation`, `resumeAnimation`]}
-            >
+            <State is={[`idle`, `paused`, `killed`]}>
               <button onClick={this.handleStartAnimation} className="ph3">
                 Breathe!
               </button>
-            </Action>
+            </State>
 
             {/* Pause Button */}
-            <Action
-              show={[`startAnimation`, `resumeAnimation`]}
-              hide={[`pauseAnimation`, `killAnimation`]}
-            >
+            <State is="animated">
               <button onClick={this.handlePauseAnimation} className="ph3">
                 Pause breathing!
               </button>
-            </Action>
+            </State>
 
             {/* End Button */}
-            <Action
-              show={[`startAnimation`, `resumeAnimation`, `pauseAnimation`]}
-              hide={[`killAnimation`]}
-            >
+            <State is={[`animated`, `paused`]}>
               <button onClick={this.handleKillAnimation} className="ph3">
                 No more breathing!
               </button>
-            </Action>
+            </State>
           </div>
         </Waypoint>
       </section>
@@ -127,6 +119,6 @@ const animationChart = {
 import React from 'react'
 import Waypoint from 'react-waypoint'
 import loadjs from 'loadjs'
-import { Action, withStatechart } from 'react-automata'
+import { Action, State, withStateMachine } from 'react-automata'
 
-export default withStatechart(animationChart)(GSAPExample)
+export default withStateMachine(animationChart)(GSAPExample)

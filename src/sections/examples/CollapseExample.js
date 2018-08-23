@@ -29,10 +29,10 @@ const CollapseExample = () => (
  */
 
 const VisibleParagraphs = () => {
-  return paragraphs.slice(0, 1).map((paragraph, index) => {
+  return paragraphs.slice(0, 1).map((paragraph, i) => {
     return (
       <p
-        key={`paragraph-${index}`}
+        key={i}
         dangerouslySetInnerHTML={{ __html: paragraph }}
         className="mt3 lh-copy"
       />

@@ -1,4 +1,4 @@
-const IconsAndEmojisExample = () => (
+const SVGsAndEmojisExample = () => (
   <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Here are some SVGs and emojis:</h2>
 
@@ -32,4 +32,4 @@ import { ReactComponent as YouTubeLogo } from '../../svg/youtube-logo.svg'
 
 import Emoji from '../../components/examples/Emoji'
 
-export default IconsAndEmojisExample
+export default SVGsAndEmojisExample

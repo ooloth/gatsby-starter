@@ -1,4 +1,4 @@
-const Footer = () => (
+const Footer = ({ socialLinks }) => (
   <footer className="bg-black pa3 tc sans-serif white">
     <h1>I'm a footer</h1>
     <Copyright />
@@ -17,7 +17,8 @@ const Copyright = () => (
     All&nbsp;rights&nbsp;reserved. Brewed&nbsp;by&nbsp;
     <Anchor href="http://coffeeshopcreative.ca" className="">
       Coffeeshop&nbsp;Creative
-    </Anchor>.
+    </Anchor>
+    .
   </p>
 )
 

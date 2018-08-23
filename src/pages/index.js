@@ -47,7 +47,7 @@ const IndexPage = ({ data }) => (
       <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
       <BlockquotesExample />
-      <IconsAndEmojisExample />
+      <SVGsAndEmojisExample />
 
       <TwitterExample />
       <InstagramExample />
@@ -115,11 +115,11 @@ export const query = graphql`
         node {
           image {
             childImageSharp {
-              thumbnail: sizes(maxWidth: 1760) {
-                ...GatsbyImageSharpSizes_withWebp
+              thumbnail: fluid(maxWidth: 1760) {
+                ...GatsbyImageSharpFluid_withWebp
               }
-              lightbox: resolutions(width: 1500) {
-                ...GatsbyImageSharpResolutions_withWebp
+              lightbox: fixed(width: 1500) {
+                ...GatsbyImageSharpFixed_withWebp
               }
             }
           }
@@ -135,11 +135,11 @@ export const query = graphql`
         node {
           image {
             childImageSharp {
-              thumbnail: sizes(maxWidth: 1760) {
-                ...GatsbyImageSharpSizes_withWebp
+              thumbnail: fluid(maxWidth: 1760) {
+                ...GatsbyImageSharpFluid_withWebp
               }
-              lightbox: resolutions(width: 1500) {
-                ...GatsbyImageSharpResolutions_withWebp
+              lightbox: fixed(width: 1500) {
+                ...GatsbyImageSharpFixed_withWebp
               }
             }
           }
@@ -156,8 +156,8 @@ export const query = graphql`
           video
           image {
             childImageSharp {
-              thumbnail: sizes(maxWidth: 1760) {
-                ...GatsbyImageSharpSizes_withWebp
+              thumbnail: fluid(maxWidth: 1760) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -204,7 +204,10 @@ export const query = graphql`
     allEventsYaml(sort: { fields: [lastDate], order: DESC }) {
       edges {
         node {
-          title
+          title {
+            text
+            lang
+          }
           lastDate(formatString: "MMMM DD, YYYY")
         }
       }
@@ -249,7 +252,7 @@ import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 
 import BlockquotesExample from '../sections/examples/BlockquotesExample'
-import IconsAndEmojisExample from '../sections/examples/IconsAndEmojisExample'
+import SVGsAndEmojisExample from '../sections/examples/SVGsAndEmojisExample'
 
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'

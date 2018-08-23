@@ -155,7 +155,7 @@ class Thumbnails extends React.Component {
         {/* Show real images once GSAP is ready (to avoid an initial flash of content) */}
         {gsapReady ? (
           <TransitionGroup component={null}>
-            {items.map((item, index) => (
+            {items.map((item, i) => (
               <Mount
                 key={item.node.image.childImageSharp.thumbnail.src} // MUST be unique
                 animateSpace={false}
@@ -166,7 +166,7 @@ class Thumbnails extends React.Component {
                 <Thumbnail
                   item={item.node}
                   category={item.node.category}
-                  lightboxIndex={index}
+                  lightboxIndex={i}
                   handleImageClick={handleImageClick}
                 />
               </Mount>
@@ -175,12 +175,12 @@ class Thumbnails extends React.Component {
         ) : (
           <>
             {/* To make sure the mount animation plays on first load, show an invisible version of the thumbnails until GSAP is ready (to avoid a space jump) */}
-            {items.map((item, index) => (
+            {items.map((item, i) => (
               <Thumbnail
                 key={item.node.image.childImageSharp.thumbnail.src}
                 item={item.node}
                 category={item.node.category}
-                lightboxIndex={index}
+                lightboxIndex={i}
                 handleImageClick={handleImageClick}
                 className="o-0"
               />

@@ -1,14 +1,14 @@
 - images:
-  - ../img/placeholder-1.jpg
-  - ../img/placeholder-2.jpg
-  - ../img/placeholder-3.jpg
+  - ../images/placeholder-1.jpg
+  - ../images/placeholder-2.jpg
+  - ../images/placeholder-3.jpg
 
 - images:
-  - ../img/placeholder-4.jpg
-  - ../img/placeholder-5.jpg
-  - ../img/placeholder-6.jpg
+  - ../images/placeholder-4.jpg
+  - ../images/placeholder-5.jpg
+  - ../images/placeholder-6.jpg
 
 - images:
-  - ../img/placeholder-7.jpg
-  - ../img/placeholder-8.jpg
-  - ../img/placeholder-9.jpg
+  - ../images/placeholder-7.jpg
+  - ../images/placeholder-8.jpg
+  - ../images/placeholder-9.jpg

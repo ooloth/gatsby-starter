@@ -52,9 +52,9 @@ const RevealedImages = ({ images }) => (
       gridGap: `1rem`
     }}
   >
-    {images.map((image, index) => {
+    {images.map((image, i) => {
       return (
-        <li key={index}>
+        <li key={i}>
           <Img
             fluid={image.node.image.childImageSharp.fluid}
             alt={image.node.alt}
@@ -69,7 +69,7 @@ const RevealedImages = ({ images }) => (
 /* <Img
             
             example={example.node}
-            index={index}
+            index={i}
           />
         )
       })}

@@ -23,7 +23,9 @@ const UpcomingEvents = ({ events }) => (
   <>
     <h3 className="mt5 f2">Upcoming events:</h3>
     <ul className="">
-      {events.map(event => <Event key={event.node.title} event={event.node} />)}
+      {events.map(event => (
+        <Event key={event.node.lastDate} event={event.node} />
+      ))}
     </ul>
   </>
 )
@@ -38,7 +40,9 @@ const PastEvents = ({ events }) => (
   <>
     <h3 className="mt5 f2">Past events:</h3>
     <ul className="calendar-grid">
-      {events.map(event => <Event key={event.node.title} event={event.node} />)}
+      {events.map(event => (
+        <Event key={event.node.lastDate} event={event.node} />
+      ))}
     </ul>
   </>
 )
@@ -51,7 +55,7 @@ const PastEvents = ({ events }) => (
 
 const Event = ({ event }) => (
   <li className="mt4 lh-copy">
-    <h4>{event.title}</h4>
+    <h4 lang={event.title.lang}>{event.title.text}</h4>
     <p>{event.lastDate}</p>
   </li>
 )

@@ -57,16 +57,16 @@ class ImageLightboxExample extends Component {
 
 const Images = ({ images, handleImageClick, handleEnter }) => (
   <ul className="flex justify-between">
-    {images.map((image, index) => {
+    {images.map((image, i) => {
       return (
-        <li key={`image-${index}`} className="group relative mt3 w-30">
+        <li key={i} className="group relative mt3 w-30">
           <Img fluid={image.childImageSharp.thumbnail} alt="" />
 
           {/* Overlay + Lightbox trigger */}
           <button
             onClick={handleImageClick}
             onKeyPress={handleEnter}
-            value={index}
+            value={i}
             className="flex justify-center items-center absolute fill bg-transparent w-100 group-hover:bg-black-50 courier f4 md:f3 transparent group-hover:white animate"
           >
             View Image

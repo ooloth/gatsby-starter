@@ -63,13 +63,14 @@ class Reveal extends Component {
   }
 
   render() {
-    // console.log(`🗺 Reveal:`, this.props.machineState.value)
+    console.log(`🗺 Reveal:`, this.props.machineState.value)
+
     const {
       css,
       offsetTop,
       offsetBottom,
-      className,
-      style,
+      className = ``,
+      style = {},
       tag,
       children
     } = this.props
@@ -143,10 +144,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import loadjs from 'loadjs'
-import { withStatechart } from 'react-automata'
+import { withStateMachine } from 'react-automata'
 import Waypoint from 'react-waypoint'
 
-export default withStatechart(revealChart)(Reveal)
+export default withStateMachine(revealChart)(Reveal)
 
 /*
 

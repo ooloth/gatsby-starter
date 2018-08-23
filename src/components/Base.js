@@ -12,14 +12,33 @@ const Base = ({ children }) => (
             siteUrl
           }
         }
+        allLinksNavYaml {
+          edges {
+            node {
+              href
+              text
+            }
+          }
+        }
+        allLinksSocialYaml {
+          edges {
+            node {
+              href
+              text
+            }
+          }
+        }
       }
     `}
     render={data => (
       <>
         <SiteMetadata site={data.site.siteMetadata} />
-        <Header />
+        <Header
+          navLinks={data.allLinksNavYaml.edges}
+          socialLinks={data.allLinksSocialYaml.edges}
+        />
         {children}
-        <Footer />
+        <Footer socialLinks={data.allLinksSocialYaml.edges} />
         <BasicStructuredData site={data.site.siteMetadata} />
       </>
     )}
@@ -42,7 +61,7 @@ import '../styles/index.css'
 
 // See: https://github.com/nfl/react-helmet + https://megatags.co + https://gethead.info
 
-import siteImage from '../img/placeholder-1.jpg'
+import siteImage from '../images/placeholder-1.jpg'
 
 const SiteMetadata = ({ site }) => (
   <Helmet>

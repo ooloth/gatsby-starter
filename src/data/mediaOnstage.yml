@@ -1,34 +1,34 @@
-- image: ../img/placeholder-7.jpg
+- image: ../images/placeholder-7.jpg
   alt: Visual description of image contents
   objPosition: 50% 50%
   caption: 'Photo by Photographer #7'
   category: onstage
 
-- image: ../img/placeholder-8.jpg
+- image: ../images/placeholder-8.jpg
   alt: Visual description of image contents
   objPosition: 50% 50%
   caption: 'Photo by Photographer #8'
   category: onstage
 
-- image: ../img/placeholder-9.jpg
+- image: ../images/placeholder-9.jpg
   alt: Visual description of image contents
   objPosition: 50% 50%
   caption: 'Photo by Photographer #9'
   category: onstage
 
-- image: ../img/placeholder-10.jpg
+- image: ../images/placeholder-10.jpg
   alt: Visual description of image contents
   objPosition: 50% 50%
   caption: 'Photo by Photographer #10'
   category: onstage
 
-- image: ../img/placeholder-11.jpg
+- image: ../images/placeholder-11.jpg
   alt: Visual description of image contents
   objPosition: 50% 50%
   caption: 'Photo by Photographer #11'
   category: onstage
 
-- image: ../img/placeholder-12.jpg
+- image: ../images/placeholder-12.jpg
   alt: Visual description of image contents
   objPosition: 50% 50%
   caption: 'Photo by Photographer #12'

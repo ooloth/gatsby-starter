@@ -29,6 +29,7 @@ class ImageGalleryAndLightbox extends Component {
       <>
         {renderGallery(galleryImages, this.handleImageClick)}
 
+        {/* TODO: may need to remove references to "node" */}
         {lightboxIsOpen && (
           <Lightbox
             mainSrc={
@@ -92,11 +93,11 @@ INSTRUCTIONS:
 
 const Thumbnails = ({ items, handleImageClick }) => (
   <ul>
-    {items.map((item, index) => (
+    {items.map((item, i) => (
       <Item
         key={item.node.image}
         item={item.node}
-        lightboxIndex={index}
+        lightboxIndex={i}
         handleImageClick={handleImageClick}
       />
     ))}
@@ -105,7 +106,7 @@ const Thumbnails = ({ items, handleImageClick }) => (
 
 const Thumbnail = ({ item, lightboxIndex, handleImageClick }) => (
   <li className="relative">
-    <Img sizes={item.image.childImageSharp.thumbnail} alt={item.alt} />
+    <Img fluid={item.image.childImageSharp.thumbnail} alt={item.alt} />
 
     /* Overlay + Lightbox trigger *
     <button

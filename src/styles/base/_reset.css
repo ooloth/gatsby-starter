@@ -25,9 +25,12 @@ body {
   overflow-x: hidden;
 
   /* Font-size */
-  @media (--sm) { font-size: calc(16.5 / 16 * 1rem) }
+  /* font-size: min font + (max font - min font) * (100vw - minScreenpx) / (maxScreen - minScreen) */
+  font-size: 16px + (24 - 16) * (100vw - 400px) / (800 - 400)
+
+  /* @media (--sm) { font-size: calc(16.5 / 16 * 1rem) }
   @media (--md) { font-size: calc(17 / 16 * 1rem) }
-  @media (--lg) { font-size: calc(17.5 / 16 * 1rem) }
+  @media (--lg) { font-size: calc(17.5 / 16 * 1rem) } */
     
   /* Font-smoothing */
   /* See: https://css-tricks.com/understanding-web-fonts-getting */
