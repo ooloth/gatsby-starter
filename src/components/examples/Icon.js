@@ -1,3 +1,5 @@
+// FIXME: DEPRECATED IN FAVOUR OF GATSBY-PLUGIN-SVGR or REACT-ICONS...?
+
 const Icon = ({ svg, ariaLabel, className = ``, style = {} }) => {
   let Tag
   // react-inlinesvg component?

@@ -59,11 +59,20 @@ class BurgerAndOverlay extends Component {
   }
 
   openMenu = () => {
+    // Add class to body to use in _react-headroom.css while menu is open
+    // TODO: Update 200 to whatever the pinStart prop is in the end in Header.js
+    // if (window.scrollY >= 200) {
+    //   document.querySelector(`body`).classList.add(`menu-open`)
+    // }
+
     this.setState({ menuOpen: true })
     noScroll.on()
   }
 
   closeMenu = () => {
+    // Remove class from body used in _react-headroom.css while menu is open
+    // document.querySelector(`body`).classList.remove(`menu-open`)
+
     noScroll.off()
     this.setState({ menuOpen: false })
   }

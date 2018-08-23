@@ -7,42 +7,63 @@
  *
  */
 
-.headroom {
+.headroom-wrapper { @apply .fixed .z-max .animate }
+
+.headroom { @apply .fixed .top-0 .left-0 .w-100 .animate }
+
+.headroom--unfixed,
+.headroom--unpinned { @apply .transY--100 .o-0 }
+
+.headroom--pinned   { @apply .transY-0 .o-100 }
+
+/* .headroom--scrolled { @apply .o-100 } */
+
+/* Prevent Headroom from hiding while noScroll is on */
+/* .menu-open.ReactModal__Body--open .headroom {
+  @apply .transY-0 .o-100
+} */
+
+/* Hide headroom duplicate of header content from screen readers  */
+/* html[data-whatinput="keyboard"] .headroom-wrapper { @apply .dn } */
+
+/* OLD VERSION */
+
+/* .headroom {
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
-}
+} */
 
-.headroom--unfixed {
+/* .headroom--unfixed {
   position: relative;
   transform: translateY(0);
-}
+} */
 
-.headroom--scrolled {
+/* .headroom--scrolled {
   background-color: var(--purple);
   transition: all 200ms ease-in-out;
 
-  /* Disable on large screens (for this site only) */
+  /* Disable on large screens
   @media (--lg) { background-color: transparent }
-}
+} */
 
-.headroom--unpinned {
+/* .headroom--unpinned {
   position: fixed;
   transform: translateY(-100%);
 
-  /* Disable on large screens (for this site only) */
+  /* Disable on large screens
   @media (--lg) { position: relative }
-}
+} */
 
-.headroom--pinned {
+/* .headroom--pinned {
   position: fixed;
   transform: translateY(0%);
   
-  /* Disable on large screens (for this site only) */
+  /* Disable on large screens 
   @media (--lg) { position: relative }
-}
+} */
 
-.headroom-wrapper { 
+/* .headroom-wrapper { 
   @media (--lg) { margin-bottom: 1rem }
-}
+} */

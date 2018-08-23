@@ -10,6 +10,7 @@
     "TweenMax": false
   },
   "rules": {
-    "import/first": 0
+    "import/first": 0,
+    "no-use-before-define": 0
   }
 }
