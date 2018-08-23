@@ -10,6 +10,8 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "autoprefixer": "^9.0.1",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0-rc.1",
     "gatsby": "next",
     "gatsby-cli": "next",
     "gatsby-image": "next",
@@ -17,6 +19,7 @@
     "gatsby-plugin-netlify": "next",
     "gatsby-plugin-netlify-cache": "^0.1.0",
     "gatsby-plugin-offline": "next",
+    "gatsby-plugin-postcss": "next",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-robots-txt": "^1.2.0",
     "gatsby-plugin-sharp": "next",
@@ -31,6 +34,8 @@
     "loadjs": "^3.5.4",
     "no-scroll": "^2.1.1",
     "object-fit-images": "^3.2.3",
+    "precss": "^3.1.2",
+    "purgecss-webpack-plugin": "^1.2.0",
     "react": "^16.4.1",
     "react-automata": "^3.0.0",
     "react-dom": "^16.4.1",
@@ -51,13 +56,12 @@
     "react-waypoint": "^8.0.3",
     "shortid": "^2.2.8",
     "slick-carousel": "^1.8.1",
+    "subfont": "^3.6.0",
     "tailwindcss": "^0.6.1",
     "twitter-fetcher": "^18.0.2",
     "what-input": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0-rc.1",
-    "autoprefixer": "^9.0.1",
     "babel-eslint": "^8.2.3",
     "dotenv": "^6.0.0",
     "eslint": "^5.2.0",
@@ -66,13 +70,9 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0",
-    "gatsby-plugin-postcss": "next",
-    "precss": "^3.1.2",
-    "purgecss-webpack-plugin": "^1.2.0",
     "stylelint": "^9.4.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-no-unsupported-browser-features": "^3.0.1",
-    "subfont": "^3.6.0",
     "why-did-you-update": "^0.1.1"
   },
   "scripts": {
