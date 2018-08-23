@@ -11,21 +11,21 @@ These are the source files for [WEBSITE_TITLE's website](https://www.website.com
 ## How to add the site to your local dev environment
 
 To modify this site, make sure you have node, npm and Gatsby installed globally (if not,
-see [this
-tutorial](https://www.gatsbyjs.org/tutorial/part-one/#check-your-development-environment)
+see [this tutorial](https://www.gatsbyjs.org/tutorial/part-one/#check-your-development-environment)
 to get up and running).
 
 Then, make sure you have SSH set up on your local machine for Coffeeshop
-Creative's GitLab account. If you need to set this up, see [this
-link](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html) for
+Creative's GitLab account. If you need to set this up, see [this link](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html) for
 instructions.
 
 Finally, create a new local folder for this project, clone this repo,
 install the project dependencies, and run the 'dev' script:
 
+TODO: update REPO_NAME:
+
 ```
 // navigate to project folder, then run:
-git clone git@gitlab.com:coffeeshop/ashley-thouret-website.git
+git clone git@gitlab.com:coffeeshop/REPO_NAME.git
 npm install
 npm run dev
 ```
@@ -43,28 +43,23 @@ git push
 When you `git push` your changes, Netlify will automatically deploy the new
 version of the site. (You can set up email notifications in the site's settings on Netlify to alert you when the build succeeds or fails.)
 
-In general, add new images to `src/images` and update all text and image info in the relevant `JSON` file in `src/data/`. Confirm the build works by running `npm run build`, then `gatsby serve` before committing your changes.
+In general, add new images to `src/images` and update all text and image info in the relevant `YAML` file in `src/data/`. Confirm the build works by running `npm run build`, then `gatsby serve` before committing your changes.
 
 ### How to update text
 
-- Update the text in the relevant `JSON` file in `src/data/`.
-- To include a line-break (or any other special formatting), add inline HTML tags directly to the JSON string and then make sure the markup that outputs the string uses `dangerouslySetInnerHTML={{ __html: variable }}`.
+- Update the text in the relevant `YAML` file in `src/data/`.
+- To include a line-break (or any other special formatting), add inline HTML tags directly to the YAML string and then make sure the markup that outputs the string uses `dangerouslySetInnerHTML={{ __html: variable }}`.
 
 ### How to update images
 
 - Add the new images to `src/images/`.
-- Add the relevant image paths and alt text to the appropriate `JSON` file in `src/data/`.
-
-### How to update the header and footer
-
-- Make updates to the header directly in `src/sections/Header.js`
-- Make updates to the footer directly in `src/sections/Footer.js`
+- Add the relevant image paths and alt text to the appropriate `YAML` file in `src/data/`.
 
 ## How to get paid
 
 - Invoice (Stephen Bell? Client?) following each update
-- Rate for content updates: $50/batch
-- Rate for design updates: $50/hr (discuss first)
+- Rate for content updates: $50/batch ($100/batch on weekends)
+- Rate for design updates: $50/hr ($100/hour on weekends) (discuss first)
 
 ## Confused?
 

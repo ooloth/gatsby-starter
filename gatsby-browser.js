@@ -39,33 +39,39 @@ import loadjs from 'loadjs'
 
 export const onInitialClientRender = () => {
   // A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
-  loadjs(
-    `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`,
-    () => console.log(`👍 What-input is loaded`)
-  )
+  if (!loadjs.isDefined(`what-input`)) {
+    loadjs(
+      `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`,
+      () => console.log(`👍 What-input is loaded`)
+    )
+  }
 
   // GSAP for site-wide animations
   // TODO: add TimelineLite if needed
   // TODO: remove any parts I'm not using
-  loadjs(
-    [
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`,
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`
-    ],
-    `gsap`,
-    () => console.log(`👍 GSAP is loaded`)
-  )
+  if (!loadjs.isDefined(`gsap`)) {
+    loadjs(
+      [
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`
+      ],
+      `gsap`,
+      () => console.log(`👍 GSAP is loaded`)
+    )
+  }
 
   // GSAP's scrollToPlugin for sitewide smooth-scrolling
   // TODO: remove if not using
-  loadjs(
-    `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
-    `scrollToPlugin`,
-    () => console.log(`👍 scrollToPlugin is loaded`)
-  )
+  if (!loadjs.isDefined(`scrollToPlugin`)) {
+    loadjs(
+      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
+      `scrollToPlugin`,
+      () => console.log(`👍 scrollToPlugin is loaded`)
+    )
+  }
 
   // Google Analytics
   // loadjs(`https://www.googletagmanager.com/gtag/js?id=UA-9710963-3`, () => {
