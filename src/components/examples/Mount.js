@@ -97,8 +97,8 @@ Mount.propTypes = {
 
 const itemAnimation = {
   autoAlpha: 0,
-  scale: 0.8,
-  y: 10,
+  scale: 0.9,
+  y: 5,
   ease: `Back.easeInOut`
 }
 

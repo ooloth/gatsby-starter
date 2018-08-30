@@ -160,7 +160,7 @@ class Thumbnails extends React.Component {
                 key={item.node.image.childImageSharp.thumbnail.src} // MUST be unique
                 animateSpace={false}
                 animateExit={false}
-                enterTimeout={1000}
+                enterTimeout={700}
                 exitTimeout={0}
               >
                 <Thumbnail
