@@ -1,14 +1,27 @@
 class Reveal extends Component {
-  // Waypoint handlers
-  handleWaypointEnter = () => this.props.transition(`REVEAL`)
-  handleWaypointLeave = () =>
-    this.props.reset ? this.props.transition(`RESET`) : this.props.transition(`DONE`)
+  state = { isVisible: false }
 
-  // Imperative GSAP actions
+  // Waypoint handlers
+  handleWaypointEnter = () => {
+    if (!this.state.isVisible) {
+      this.setState({ isVisible: true }) // right away, to prevent duplicate reveals
+      this.reveal()
+    }
+  }
+
+  handleWaypointLeave = async () => {
+    if (this.props.reset) {
+      await this.resetAnimation()
+      this.setState({ isVisible: false }) // after reset, to prevent duplicate reveals
+    } else {
+      this.killAnimation()
+    }
+  }
+
+  // GSAP animations
   reveal = () => {
     loadjs.ready(`gsap`, () => {
       TweenLite.set(this.node, { clearProps: `all` }) // Clear inital styles
-
       this.props.stagger ? this.animateFromStagger() : this.animateFrom()
     })
   }
@@ -16,7 +29,7 @@ class Reveal extends Component {
   animateFrom = () => {
     const { css, delay, duration, ease } = this.props
 
-    this.node.animation = TweenLite.from(this.node, duration || 1, {
+    TweenLite.from(this.node, duration || 1, {
       css: { ...css },
       ease: ease || `Power4.easeInOut`,
       delay: delay || 0.3
@@ -52,24 +65,19 @@ class Reveal extends Component {
     }
   }
 
-  reset = () => {
-    this.wipeAnimation()
+  resetAnimation = async () => {
+    await this.wipeAnimation()
     TweenLite.set(this.node, { ...this.props.css })
   }
 
-  killAnimation = () => {
-    this.wipeAnimation()
-    TweenLite.set(this.node, { clearProps: `all` })
-  }
+  killAnimation = () => this.wipeAnimation()
 
   render() {
-    console.log(`🗺 Reveal:`, this.props.machineState.value)
-
     const {
       css,
-      offsetTop,
-      offsetBottom,
-      className = ``,
+      offsetTop = '125%',
+      offsetBottom = '125%',
+      className = '',
       style = {},
       tag,
       children
@@ -77,6 +85,7 @@ class Reveal extends Component {
     const Tag = tag || `div`
 
     return (
+      // Apply the initial CSS to the wrapper even for staggers to avoid a flash of items
       <div ref={el => (this.node = el)} style={{ ...css }}>
         <Waypoint
           onEnter={this.handleWaypointEnter}
@@ -110,32 +119,6 @@ Reveal.propTypes = {
 
 /*
  *
- * Reveal State Chart
- * 
- */
-
-const revealChart = {
-  initial: `hidden`,
-  states: {
-    hidden: {
-      on: {
-        REVEAL: { revealed: { actions: [`reveal`] } }
-      }
-    },
-
-    revealed: {
-      on: {
-        RESET: { hidden: { actions: [`reset`] } },
-        DONE: { done: { actions: [`killAnimation`] } }
-      }
-    },
-
-    done: {}
-  }
-}
-
-/*
- *
  * Imports & Exports
  * 
  */
@@ -144,10 +127,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import loadjs from 'loadjs'
-import { withStateMachine } from 'react-automata'
 import Waypoint from 'react-waypoint'
 
-export default withStateMachine(revealChart)(Reveal)
+export default Reveal
 
 /*
 

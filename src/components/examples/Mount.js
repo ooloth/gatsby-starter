@@ -9,23 +9,25 @@ class Mount extends Component {
   }
 
   enterAnimSpaceAndItem = rtgChild => {
-    let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.4
-    let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.5
+    let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.3
+    let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.3
 
     let tl = new TimelineLite()
-    tl.from(rtgChild, spaceDuration, spaceAnimation) // Expand the new space gradually
-      .from(rtgChild, itemDuration, itemAnimation, `-=0.2`) // Transition the element in
+    // Expand the new space gradually
+    tl.from(rtgChild, spaceDuration, spaceAnimation)
+      // Then, transition the element in
+      .from(rtgChild, itemDuration, itemAnimation, `-=0.2`)
   }
 
   enterAnimItemOnly = rtgChild => {
-    let duration = this.props.enterTimeout / 1000 || 0.5
+    let duration = this.props.enterTimeout / 1000 || 0.3
     TweenLite.from(rtgChild, duration, itemAnimation)
   }
 
   exitAnim = rtgChild => {
     loadjs.ready(`gsap`, () => {
-      let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.5
-      let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.4
+      let itemDuration = this.props.exitTimeout / 1000 - 0.2 || 0.3
+      let spaceDuration = (this.props.exitTimeout / 1000) * 0.8 || 0.3
 
       let tl = new TimelineLite()
       tl
@@ -34,7 +36,7 @@ class Mount extends Component {
           scale: 0,
           ease: `Power3.easeInOut`
         })
-        // Collapse the old space gradually
+        // Then, collapse the empty space gradually
         .to(
           rtgChild,
           spaceDuration,
@@ -46,11 +48,8 @@ class Mount extends Component {
             fontSize: 0,
             ease: `Power3.easeInOut`
           },
-          `-=0.2`
+          `-=0.1`
         )
-
-      // Release styles after animating out
-      // TweenLite.set(rtgChild, { clearProps: `all` })
     })
   }
 
@@ -98,9 +97,9 @@ Mount.propTypes = {
 
 const itemAnimation = {
   autoAlpha: 0,
-  scale: 0.9,
+  scale: 0.8,
   y: 10,
-  ease: `Power3.easeInOut`
+  ease: `Back.easeInOut`
 }
 
 const spaceAnimation = {
