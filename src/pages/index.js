@@ -42,7 +42,7 @@ const IndexPage = ({ data }) => (
       <FadingCarouselExample data={data.allExampleYaml.edges} />
       {/* TODO: rewrite FlickityExample (causing an error in v2) */}
       {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
-      <SlickExample data={data.allExampleYaml.edges} />
+      {/* <SlickExample data={data.allExampleYaml.edges} /> */}
 
       <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
@@ -244,8 +244,8 @@ import LimitExample from '../sections/examples/LimitExample'
 import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
 import FadingCarouselExample from '../sections/examples/FadingCarouselExample'
-import FlickityExample from '../sections/examples/FlickityExample'
-import SlickExample from '../sections/examples/SlickExample'
+// import FlickityExample from '../sections/examples/FlickityExample'
+// import SlickExample from '../sections/examples/SlickExample'
 
 import GalleryAndLightboxExample from '../sections/examples/GalleryAndLightboxExample'
 import ImageLightboxExample from '../sections/examples/ImageLightboxExample'

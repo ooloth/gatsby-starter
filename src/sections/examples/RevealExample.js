@@ -34,6 +34,39 @@ const RevealedImage = ({ image }) => (
 
 /*
  *
+ * Revealed Images
+ * 
+ */
+
+const RevealedImages = ({ images }) => (
+  <Reveal
+    css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
+    stagger={true}
+    staggerDelay={0.3}
+    reset={true}
+    tag="ul"
+    style={{
+      display: `grid`,
+      gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+      gridGap: `1rem`
+    }}
+  >
+    {images.map((image, i) => {
+      return (
+        <li key={i}>
+          <Img
+            fluid={image.node.image.childImageSharp.fluid}
+            alt={image.node.alt}
+            className="shadow-lg"
+          />
+        </li>
+      )
+    })}
+  </Reveal>
+)
+
+/*
+ *
  * Posed Image
  * 
  */
@@ -98,39 +131,6 @@ const RevealedImage = ({ image }) => (
 //     />
 //   </RevealPose>
 // )
-
-/*
- *
- * Revealed Images
- * 
- */
-
-const RevealedImages = ({ images }) => (
-  <Reveal
-    css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
-    stagger={true}
-    staggerDelay={0.3}
-    reset={true}
-    tag="ul"
-    style={{
-      display: `grid`,
-      gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
-      gridGap: `1rem`
-    }}
-  >
-    {images.map((image, i) => {
-      return (
-        <li key={i}>
-          <Img
-            fluid={image.node.image.childImageSharp.fluid}
-            alt={image.node.alt}
-            className="shadow-lg"
-          />
-        </li>
-      )
-    })}
-  </Reveal>
-)
 
 /*
  *
