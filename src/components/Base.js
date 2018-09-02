@@ -47,11 +47,16 @@ const Base = ({ children }) => (
 
 /*
  *
- * Global styles
+ * Global styles & preloaded static assets (e.g. above-the-fold images, audio, video, and self-hosted fonts not handled by subfont)
  * 
  */
 
 import '../styles/index.css'
+
+// TODO: remove these if not using
+// TODO: always test performance difference with/without these (e.g. compare live version to local built version)
+// import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
+// import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
 /*
  *
@@ -78,8 +83,28 @@ const SiteMetadata = ({ site }) => (
     <meta name="image" content={site.siteUrl + siteImage} />
     <link rel="canonical" href={site.siteUrl} />
 
-    {/* Preconnect to CloudFlare CDN (for GSAP) */}
+    {/* Preconnect to CloudFlare CDN (for GSAP) and Google Analytics */}
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    {/* TODO: uncomment these if ga-lit is used: */}
+    {/* <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://www.google-analytics.com" /> */}
+
+    {/* Preloaded above-the-fold static assets (fonts, images, audio, video) */}
+    {/* See the following link to determine the correct crossOrigin for each asset type: https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches#Cross-origin_fetches */}
+    {/* <link
+      rel="preload"
+      href={avenirHeavy}
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={avenirRegular}
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+    /> */}
 
     {/* Google fonts */}
     <link

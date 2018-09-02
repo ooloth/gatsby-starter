@@ -47,16 +47,15 @@ export const onInitialClientRender = () => {
   }
 
   // GSAP for site-wide animations
-  // TODO: add TimelineLite if needed
   // TODO: remove any parts I'm not using
   if (!loadjs.isDefined(`gsap`)) {
     loadjs(
       [
         `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`,
         `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
       ],
       `gsap`,
       () => console.log(`👍 GSAP is loaded`)
@@ -73,16 +72,27 @@ export const onInitialClientRender = () => {
     )
   }
 
-  // Google Analytics
-  // loadjs(`https://www.googletagmanager.com/gtag/js?id=UA-9710963-3`, () => {
-  //   window.dataLayer = window.dataLayer || []
-  //   function gtag() {
-  //     dataLayer.push(arguments)
-  //   }
+  // Google Analytics (using ga-lite to allow caching)
+  // See: https://github.com/jehna/ga-lite
+  // Don't waste any time on this on localhost
+  // if (window.location.hostname !== 'localhost') {
+  //   if (!loadjs.isDefined(`ga-lite`)) {
+  //     loadjs(
+  //       `https://cdn.jsdelivr.net/npm/ga-lite@2/dist/ga-lite.min.js`,
+  //       `ga-lite`,
+  //       () => {
+  //         // https://developers.google.com/analytics/devguides/collection/analyticsjs/cookies-user-id#automatic_cookie_domain_configuration
+  //         galite('create', 'UA-XXXXXXX-X', 'auto') // auto prevents tracking on localhost
+  //         galite('send', 'pageview')
 
-  //   gtag(`js`, new Date())
-  //   gtag(`config`, `UA-9710963-3`)
-  // })
+  //         // See: https://github.com/jehna/ga-lite#onunload-tracking
+  //         window.addEventListener('unload', () => {
+  //           galite('send', 'timing', 'JS Dependencies', 'unload')
+  //         })
+  //       }
+  //     )
+  //   }
+  // }
 
   // TODO: Remove if Babel 7 auto-polyfills this...
   // Fetch polyfill for FormNetlify (IE)

@@ -76,7 +76,7 @@ module.exports = {
     //     background_color: `#3047ff`,
     //     // For tool bar and task switcher:
     //     theme_color: `#3047ff`,
-    //     display: `minimal_ui`,
+    //     display: `minimal-ui`,
     //     // Multiple icons will be generated for various devices.
     //     // Multiple favicons will be generated and added to each HTML page.
     //     // This path is relative to the root of the site.
