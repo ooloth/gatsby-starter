@@ -8,11 +8,11 @@ const RevealExample = ({ data }) => (
     <h3 className="mt4 mb3">Array of items (GSAP):</h3>
     <RevealedImages images={data} />
 
-    {/* <h3 className="pt4 mb3">Single item (Pose):</h3> */}
-    {/* <PosedImage image={data[0].node} reset={true} /> */}
+    <h3 className="pt4 mb3">Single item (Pose):</h3>
+    <PosedImage image={data[0].node} reset={true} />
 
-    {/* <h3 className="mt4 mb3">Array of items (Pose):</h3> */}
-    {/* <PosedImages images={data} reset={true} /> */}
+    <h3 className="mt4 mb3">Array of items (Pose):</h3>
+    <PosedImages images={data} reset={true} />
   </section>
 )
 
@@ -71,51 +71,49 @@ const RevealedImages = ({ images }) => (
  * 
  */
 
-// class PosedImage extends React.Component {
-//   state = { isVisible: false }
+class PosedImage extends React.Component {
+  state = { isVisible: false }
 
-//   // Waypoint handlers
-//   handleWaypointEnter = () => this.setState({ isVisible: true })
-//   handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
+  // Waypoint handlers
+  handleWaypointEnter = () => this.setState({ isVisible: true })
+  handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
 
-//   render() {
-//     const { image } = this.props
-//     const { isVisible } = this.state
+  render() {
+    const { image } = this.props
+    const { isVisible } = this.state
 
-//     return (
-//       <Waypoint
-//         onEnter={this.handleWaypointEnter}
-//         onLeave={this.handleWaypointLeave}
-//         offsetTop="125%"
-//         offsetBottom="125%"
-//       >
-//         <RevealViaPose pose={isVisible ? 'visible' : 'hidden'}>
-//           <Img
-//             fluid={image.image.childImageSharp.fluid}
-//             alt={image.alt}
-//             className="shadow-lg"
-//           />
-//         </RevealViaPose>
-//       </Waypoint>
-//     )
-//   }
-// }
+    return (
+      <Waypoint
+        onEnter={this.handleWaypointEnter}
+        onLeave={this.handleWaypointLeave}
+        offsetTop="125%"
+        offsetBottom="125%"
+      >
+        <RevealViaPose pose={isVisible ? 'visible' : 'hidden'} className="shadow-lg">
+          <Img
+            fluid={image.image.childImageSharp.fluid}
+            alt={image.alt}
+            // className="shadow-lg"
+          />
+        </RevealViaPose>
+      </Waypoint>
+    )
+  }
+}
 
-// const tag = 'ul'
-
-// const RevealViaPose = posed.div({
-//   visible: {
-//     opacity: 1,
-//     y: 0,
-//     scale: 1,
-//     transition: {
-//       delay: 100,
-//       duration: 1000,
-//       ease: [0.77, 0, 0.175, 1] // quadInAndOut
-//     }
-//   },
-//   hidden: { opacity: 0, y: 40, scale: 0.8, transition: { duration: 0 } }
-// })
+const RevealViaPose = posed.div({
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1
+    // transition: {
+    //   delay: 100,
+    //   duration: 1000,
+    //   ease: [0.77, 0, 0.175, 1] // quadInAndOut
+    // }
+  },
+  hidden: { opacity: 0, y: 40, scale: 0.8, transition: { duration: 0 } }
+})
 
 // const PosedImage = ({ image }) => (
 //   <RevealPose
@@ -167,11 +165,10 @@ class PosedImages extends React.Component {
           {/* the "flipMove" prop determines if the space collapses after the animation completes or before */}
           {/* <PoseGroup pose={isVisible ? 'visible' : 'hidden'}> */}
           {images.map((image, i) => (
-            <Item key={i}>
+            <Item key={i} className="shadow-lg">
               <Img
                 fluid={image.node.image.childImageSharp.fluid}
                 alt={image.node.alt}
-                className="shadow-lg"
               />
             </Item>
           ))}
@@ -191,12 +188,12 @@ const itemConfig = {
   visible: {
     scale: 1,
     y: 0,
-    opacity: 1,
-    transition: {
-      // delay: 100,
-      duration: 1000,
-      ease: [0.77, 0, 0.175, 1]
-    }
+    opacity: 1
+    // transition: {
+    //   // delay: 100,
+    //   duration: 1000,
+    //   ease: [0.77, 0, 0.175, 1]
+    // }
   },
   hidden: { scale: 0.8, y: 40, opacity: 0, transition: { duration: 0 } }
 }
