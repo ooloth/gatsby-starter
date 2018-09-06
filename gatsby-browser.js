@@ -27,6 +27,20 @@ export const onClientEntry = () => {
     require(`object-fit-images`)()
     console.log(`👍 Object-fit/Object-position are polyfilled`)
   }
+
+  // Array.from and String.endsWith for react-pose (IE)
+  if (
+    typeof window.Array.from === `undefined` ||
+    typeof window.String.prototype.endsWith === `undefined`
+  ) {
+    if (!loadjs.isDefined(`react-pose-polyfills`)) {
+      loadjs(
+        `https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.from,String.prototype.endsWidth`,
+        `react-pose-polyfills`,
+        () => console.log(`👍 Array.from and String.endsWith are polyfilled`)
+      )
+    }
+  }
 }
 
 /*
@@ -42,6 +56,7 @@ export const onInitialClientRender = () => {
   if (!loadjs.isDefined(`what-input`)) {
     loadjs(
       `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`,
+      `what-input`,
       () => console.log(`👍 What-input is loaded`)
     )
   }

@@ -180,7 +180,7 @@ class PosedImages extends React.Component {
 }
 
 const listConfig = {
-  visible: { staggerChildren: 300 },
+  visible: { staggerChildren: 200 },
   initialPose: 'hidden'
 }
 
