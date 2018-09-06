@@ -70,7 +70,7 @@ import siteImage from '../images/placeholder-1.jpg'
 
 // Trigger polyfills for react-pose (IE)
 var a = Array.from('123')
-var b = String.endsWith('abc')
+var b = String.prototype.endsWith('abc')
 
 const SiteMetadata = ({ site }) => (
   <Helmet>
