@@ -28,16 +28,19 @@ export const onClientEntry = () => {
     console.log(`👍 Object-fit/Object-position are polyfilled`)
   }
 
-  // Array.from and String.endsWith for react-pose (IE)
+  // Array.from, Array.forEach and String.endsWith for react-pose (IE)
   if (
     typeof window.Array.from === `undefined` ||
     typeof window.String.prototype.endsWith === `undefined`
   ) {
     if (!loadjs.isDefined(`react-pose-polyfills`)) {
       loadjs(
-        `https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.from,String.prototype.endsWidth`,
+        `https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.from,Array.prototype.forEach,String.prototype.endsWidth`,
         `react-pose-polyfills`,
-        () => console.log(`👍 Array.from and String.endsWith are polyfilled`)
+        () =>
+          console.log(
+            `👍 Array.from, Array.forEach and String.endsWith are polyfilled`
+          )
       )
     }
   }
