@@ -29,21 +29,22 @@ export const onClientEntry = () => {
   }
 
   // Array.from, Array.forEach and String.endsWith for react-pose (IE)
-  if (
-    typeof window.Array.from === `undefined` ||
-    typeof window.String.prototype.endsWith === `undefined`
-  ) {
-    if (!loadjs.isDefined(`react-pose-polyfills`)) {
-      loadjs(
-        `https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.from,Array.prototype.forEach,String.prototype.endsWidth`,
-        `react-pose-polyfills`,
-        () =>
-          console.log(
-            `👍 Array.from, Array.forEach and String.endsWith are polyfilled`
-          )
-      )
-    }
-  }
+  // if (
+  //   typeof window.Array.from === `undefined` ||
+  //   typeof window.Array.prototype.forEach === `undefined` ||
+  //   typeof window.String.prototype.endsWith === `undefined`
+  // ) {
+  //   if (!loadjs.isDefined(`react-pose-polyfills`)) {
+  //     loadjs(
+  //       `https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.from,Array.prototype.forEach,String.prototype.endsWidth`,
+  //       `react-pose-polyfills`,
+  //       () =>
+  //         console.log(
+  //           `👍 Array.from, Array.forEach and String.endsWith are polyfilled`
+  //         )
+  //     )
+  //   }
+  // }
 }
 
 /*
