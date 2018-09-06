@@ -86,8 +86,8 @@ class PosedImage extends React.Component {
       <Waypoint
         onEnter={this.handleWaypointEnter}
         onLeave={this.handleWaypointLeave}
-        offsetTop="125%"
-        offsetBottom="125%"
+        offsetTop="150%"
+        offsetBottom="150%"
       >
         <RevealViaPose pose={isVisible ? 'visible' : 'hidden'} className="shadow-lg">
           <Img
@@ -151,14 +151,15 @@ class PosedImages extends React.Component {
       <Waypoint
         onEnter={this.handleWaypointEnter}
         onLeave={this.handleWaypointLeave}
-        offsetTop="125%"
-        offsetBottom="125%"
+        offsetTop="150%"
+        offsetBottom="150%"
       >
         <List
           style={{
             display: `grid`,
             gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
-            gridGap: `1rem`
+            gridGap: `1rem`,
+            alignItems: `start`
           }}
           pose={isVisible ? 'visible' : 'hidden'}
         >
@@ -180,7 +181,7 @@ class PosedImages extends React.Component {
 }
 
 const listConfig = {
-  visible: { staggerChildren: 200 },
+  visible: { staggerChildren: 100 },
   initialPose: 'hidden'
 }
 
