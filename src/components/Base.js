@@ -1,3 +1,5 @@
+// TODO: See KVP's Base.js for how to replace site with browser warning (last resort if issues can't be resolved)
+
 const Base = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -68,9 +70,9 @@ import '../styles/index.css'
 
 import siteImage from '../images/placeholder-1.jpg'
 
-// Trigger polyfills for react-pose (IE)
-var a = Array.from('123')
-var b = String.prototype.endsWith('abc')
+// TODO: Need to trigger polyfills for react-pose (IE)?
+// var a = Array.from('123')
+// var b = String.prototype.endsWith('abc')
 
 const SiteMetadata = ({ site }) => (
   <Helmet>
@@ -111,10 +113,10 @@ const SiteMetadata = ({ site }) => (
     /> */}
 
     {/* Google fonts */}
-    <link
+    {/* <link
       href="https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=latin-ext"
       rel="stylesheet"
-    />
+    /> */}
 
     {/* Schema.org for Google */}
     <meta itemProp="name" content={site.title} />
@@ -165,6 +167,33 @@ const BasicStructuredData = ({ site }) => {
       "https://www.youtube.com/channel/clientchannel"
     ]
   }`
+
+  // TODO: use this shape instead for a business listing:
+  // const structuredData = `{
+  //   "@context": "http://schema.org",
+  //   "@type": "LocalBusiness",
+  //   "@id": "${site.siteUrl}",
+  //   "name": "Kings Valley Paving",
+  //   "address": {
+  //     "@type": "PostalAddress",
+  //     "streetAddress": "305 Healey Rd., Unit A",
+  //     "addressLocality": "Bolton",
+  //     "addressRegion": "ON",
+  //     "postalCode": "L7E 5C1",
+  //     "addressCountry": "CA"
+  //   },
+  //   "url": "${site.siteUrl}",
+  //   "email": "mailto:info@kingsvalleypaving.com",
+  //   "telephone": "+18448575464",
+  //   "image": "${site.siteUrl + siteImage.replace(`js/../`, ``)}",
+  //   "sameAs": [
+  //     "https://www.facebook.com/kingsvalleypaving",
+  //     "https://twitter.com/KingsPaving",
+  //     "https://www.instagram.com/Kingsvalleypavingtoronto"
+  //     "https://www.youtube.com/channel/UCCwwOazTvD1yU-VkkiaSjZA",
+  //     "https://www.linkedin.com/company/kings-valley-paving-inc/"
+  //   ]
+  // }`
 
   return (
     <script

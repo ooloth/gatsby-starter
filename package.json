@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/plugin-transform-react-constant-elements": "^7.0.0-rc.1",
     "autoprefixer": "^9.1.3",
+    "formik": "^1.3.1",
     "gatsby": "next",
     "gatsby-cli": "next",
     "gatsby-image": "next",
@@ -24,11 +25,13 @@
     "gatsby-plugin-robots-txt": "^1.3.0",
     "gatsby-plugin-sharp": "next",
     "gatsby-plugin-sitemap": "next",
+    "gatsby-plugin-subfont": "^1.0.1",
     "gatsby-plugin-svgr": "next",
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-sharp": "next",
     "gatsby-transformer-yaml": "next",
     "intersection-observer": "^0.5.0",
+    "is_js": "^0.9.0",
     "jsonp": "^0.2.1",
     "lightbox-react": "^0.1.5",
     "loadjs": "^3.5.4",
@@ -63,7 +66,8 @@
     "subfont": "^3.6.1",
     "tailwindcss": "^0.6.5",
     "twitter-fetcher": "^18.0.2",
-    "what-input": "^5.1.1"
+    "what-input": "^5.1.1",
+    "yup": "^0.26.6"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",

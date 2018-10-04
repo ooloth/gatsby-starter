@@ -37,12 +37,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-plugin-svgr`,
-      options: {
-        // see https://github.com/smooth-code/svgr for a list of all options
-      }
-    }
+    `gatsby-plugin-svgr`
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: `gatsby-plugin-robots-txt`,
@@ -89,6 +84,10 @@ module.exports = {
     //   resolve: `gatsby-plugin-netlify`, // must come last
     //   options: {
     //     headers: {
+    //        // First one is required for the HSTS list:
+    //       '/*': [
+    //        `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`
+    //      ],
     //       '/*.html': [`Cache-Control: public, max-age=0, must-revalidate`],
     //       '/*.js': [`Cache-Control: public, max-age=0, must-revalidate`],
     //       '/sw.js': [`Cache-Control: no-cache`],
@@ -97,6 +96,7 @@ module.exports = {
     //       '/subfont/*': [`Cache-Control: public,max-age=31536000,immutable`]
     //     }
     //   }
-    // }
+    // },
+    // `gatsby-plugin-subfont`
   ]
 }

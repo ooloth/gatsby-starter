@@ -42,7 +42,7 @@ const RevealedImages = ({ images }) => (
   <Reveal
     css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
     stagger={true}
-    staggerDelay={0.3}
+    staggerDelay={0.2}
     reset={true}
     tag="ul"
     style={{
@@ -181,7 +181,7 @@ class PosedImages extends React.Component {
 }
 
 const listConfig = {
-  visible: { staggerChildren: 100 },
+  visible: { staggerChildren: 150 },
   initialPose: 'hidden'
 }
 

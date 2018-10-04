@@ -58,6 +58,9 @@ class Form extends Component {
             {/* This hidden input is required by Netlify */}
             <input type="hidden" name="form-name" value={this.props.name} />
 
+            {/* Hidden bot field */}
+            <input name="bot-field" className="sr-only" />
+
             {/* Generate hidden inputs in the order I want them to appear on Netlify */}
             {this.props.fieldOrder.map(name => {
               return <input key={name} type="hidden" name={name} className="dn" />

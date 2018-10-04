@@ -6,6 +6,21 @@
 
 .animate { transition: all .2s ease-in-out }
 
+/*
+ *
+ * General animations
+ *
+ */
+
+.fade-in { animation: fadeIn 2s }
+
+/* TODO: use animation-delay instead of this timing */
+@keyframes fadeIn {
+  0%   { opacity: 0 }
+  70%  { opacity: 0 }
+  100% { opacity: 1 }
+}
+
 /* 
  *
  * Ball Animations

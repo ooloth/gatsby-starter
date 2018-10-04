@@ -123,3 +123,19 @@ export const onInitialClientRender = () => {
   //   )
   // }
 }
+
+/*
+ *
+ * Add React Context
+ *
+ */
+
+// See: https://github.com/fabe/gatsby-universal/blob/master/gatsby-browser.js
+
+// import React from 'react'
+// import AppProvider from './src/store/provider'
+
+// // React Context in Browser
+// export const wrapRootElement = ({ element }) => {
+//   return <AppProvider>{element}</AppProvider>
+// }
