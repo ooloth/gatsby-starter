@@ -65,8 +65,8 @@ const FormFields = ({ handleChange }) => (
 // TODO: Extract common classes into a Tailwinds component class
 const Error = () => (
   <div className="ml-auto lg:ml0 mr-auto courier lh-copy tc lg:tl measure-narrow">
-    Success! Thanks for getting in touch. <br className="dn lg:di" />Aria will get
-    back to you soon!
+    Success! Thanks for getting in touch. <br className="dn lg:di" />
+    Aria will get back to you soon!
   </div>
 )
 
@@ -92,7 +92,7 @@ const Success = () => (
 import React from 'react'
 import Textarea from 'react-textarea-autosize'
 
-import Form from '../../components/examples/Form'
+import Form from '../../components/examples/old/Form'
 import Input from '../../components/examples/Input'
 
 export default FormExample

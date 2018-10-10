@@ -78,13 +78,10 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.11.1",
-    "stylelint": "^9.5.0",
-    "stylelint-config-recommended": "^2.1.0",
-    "stylelint-no-unsupported-browser-features": "^3.0.1",
     "why-did-you-update": "^0.1.1"
   },
   "scripts": {
     "dev": "gatsby develop --https",
-    "build": "gatsby build && subfont public -i --inline-css"
+    "build": "gatsby build"
   }
 }

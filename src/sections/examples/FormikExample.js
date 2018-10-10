@@ -3,12 +3,16 @@ const Contact = () => (
     <h2 className="">Formik Example</h2>
 
     <ContactForm
-    // invitation={invitation}
-    // services={services}
-    // successMessage={successMessage}
+      invitation={invitation}
+      services={items}
+      successMessage={successMessage}
     />
   </section>
 )
+
+const invitation = 'Sign up!'
+const items = [`Item 1`, `Item 2`, `Item 3`]
+const successMessage = 'Nice!'
 
 /*
  *
@@ -73,6 +77,7 @@ class ContactForm extends Component {
   state = { sentSuccessfully: false }
 
   render() {
+    // TODO: update props as needed
     const { invitation, services, successMessage } = this.props
     const { sentSuccessfully } = this.state
 
@@ -85,6 +90,7 @@ class ContactForm extends Component {
             <p className="mb3 sm:pb2 md:pb3 measure lh-copy">{invitation}</p>
 
             <Formik
+              // TODO: update based on actual fields
               initialValues={{
                 Name: '',
                 Email: '',
@@ -97,13 +103,12 @@ class ContactForm extends Component {
               validateOnBlur={false}
               onSubmit={async values => {
                 if (typeof window.fetch !== `undefined`) {
+                  // TODO: update form name
                   const sentSuccessfully = await submitFormToNetlify(
                     'Contact',
                     values
                   )
                   this.setState({ sentSuccessfully })
-                  // sentSuccessfully && this.setState({ sentSuccessfully: true })
-                  // console.log({ sentSuccessfully })
                 } else {
                   console.log(
                     `🚧 Fetch is not supported in this browser. Fix that first!`
@@ -113,32 +118,20 @@ class ContactForm extends Component {
             >
               {({ values, errors, touched, isValidating, isSubmitting }) => (
                 <Form name="Contact" netlify="true" netlify-honeypot="bot-field">
-                  {/* This hidden input is required by Netlify */}
-                  <input
-                    type="hidden"
-                    name="form-name"
-                    value="Contact"
-                    className="dn"
-                  />
+                  {/* Required by Netlify to track form name */}
+                  {/* TODO: update value to match form name */}
+                  <input type="hidden" name="form-name" value="Contact" />
 
                   {/* Honeypot */}
-                  <p className="dn">
-                    <label htmlFor="bot-field">
-                      Don’t fill this out if you're human: <input name="bot-field" />
-                    </label>
-                  </p>
+                  <input name="bot-field" hidden />
 
-                  {/* Control the input order in the submissions */}
-                  <input type="text" name="Name" hidden={true} className="dn" />
-                  <input type="email" name="Email" hidden={true} className="dn" />
-                  <input type="tel" name="Phone" hidden={true} className="dn" />
-                  <textarea name="Address" hidden={true} className="dn" />
-                  <input
-                    type="checkbox"
-                    name="Services"
-                    hidden={true}
-                    className="dn"
-                  />
+                  {/* Input copies to control input order in the submissions */}
+                  {/* TODO: update based on actual fields */}
+                  <input type="text" name="Name" hidden />
+                  <input type="email" name="Email" hidden />
+                  <input type="tel" name="Phone" hidden />
+                  <textarea name="Address" hidden />
+                  <input type="checkbox" name="Services" hidden />
 
                   {/* Checkboxes - using the FieldArray so I can validate at least one chosen */}
                   {/* See: https://codesandbox.io/s/o5pw1vx916 */}
@@ -153,26 +146,21 @@ class ContactForm extends Component {
                         render={arrayHelpers => (
                           <>
                             {services.map(service => (
-                              <div
-                                key={service.node.heading}
-                                className="heading mt3"
-                              >
+                              <div key={service} className="heading mt3">
                                 <label
-                                  key={service.node.heading}
-                                  htmlFor={service.node.heading}
+                                  key={service}
+                                  htmlFor={service}
                                   className="custom-checkbox"
                                 >
                                   <input
                                     name="Services"
                                     type="checkbox"
-                                    value={service.node.heading}
-                                    id={service.node.heading}
-                                    checked={values.Services.includes(
-                                      service.node.heading
-                                    )}
+                                    value={service}
+                                    id={service}
+                                    checked={values.Services.includes(service)}
                                     onChange={e => {
                                       if (e.target.checked)
-                                        arrayHelpers.push(service.node.heading)
+                                        arrayHelpers.push(service)
                                       else {
                                         const index = values.Services.indexOf(
                                           service
@@ -185,9 +173,7 @@ class ContactForm extends Component {
                                   <span className="checkmark" />
 
                                   {/* Visible text label */}
-                                  <span className="checkbox-label">
-                                    {service.node.heading}
-                                  </span>
+                                  <span className="checkbox-label">{service}</span>
                                 </label>
                               </div>
                             ))}
@@ -272,13 +258,13 @@ class ContactForm extends Component {
                     Submit
                   </button>
 
-                  {/* TODO: save this output in my FormikExample (helpful!) */}
-                  {/* <pre className="bg-near-white pa3">
+                  {/* TODO: hide this output before launching */}
+                  <pre className="bg-near-white pa3">
                     values: {JSON.stringify(values, null, 2)}
                   </pre>
                   <pre className="bg-near-white pa3">
                     errors: {JSON.stringify(errors, null, 2)}
-                  </pre> */}
+                  </pre>
                 </Form>
               )}
             </Formik>
@@ -289,36 +275,25 @@ class ContactForm extends Component {
   }
 }
 
-// const services = [
-//   'Driveway Paving',
-//   'Parking Lot Paving',
-//   'Roadway Paving',
-//   'Landscaping',
-//   'Hydrovacuum Excavation',
-//   'Concrete'
-// ]
-
 // Send the form
 const submitFormToNetlify = async (formName, formValues) => {
-  let sendStatus
+  let submitted
 
-  // alert(createURL({ 'form-name': formName, ...formValues }))
-
-  await fetch(`/`, {
+  // NOTE: "no-cache" avoids sending to the service worker, which silently fails
+  await fetch(`/?no-cache=1`, {
     method: `POST`,
     headers: { 'Content-Type': `application/x-www-form-urlencoded` },
     body: createURL({ 'form-name': formName, ...formValues })
   })
     .then(() => {
-      console.log('Form sent successfully!')
-      sendStatus = true
+      submitted = true
     })
     .catch(error => {
       console.log(`🚧 Form submission error:`, error)
-      sendStatus = false
+      submitted = false
     })
 
-  return sendStatus
+  return submitted
 }
 
 // Create the URL encoding for the form submission
@@ -326,6 +301,7 @@ const createURL = data =>
   Object.keys(data)
     .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
     .join(`&`)
+    .replace(/%2C/gi, '%2C%20') // add a space after any commas in array results
 
 // See: https://github.com/jquense/yup
 // TODO: too heavy on first load? defer until after load?

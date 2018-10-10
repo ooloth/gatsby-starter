@@ -53,8 +53,9 @@ const IndexPage = ({ data }) => (
       <InstagramExample />
 
       {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
+      <p className="pb5">(The Form example is hidden by default.)</p>
+      {/* <FormikExample /> */}
       {/* <FormExample /> */}
-      <p>(The Form example is hidden by default.)</p>
 
       <ScrollTo href="#top" className="link dib mb5">
         Back to top
@@ -257,6 +258,7 @@ import SVGsAndEmojisExample from '../sections/examples/SVGsAndEmojisExample'
 import TwitterExample from '../sections/examples/TwitterExample'
 import InstagramExample from '../sections/examples/InstagramExample'
 
+// import FormikExample from '../sections/examples/FormikExample'
 // import FormExample from '../sections/examples/FormExample'
 
 import ScrollTo from '../components/examples/ScrollTo'

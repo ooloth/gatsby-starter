@@ -41,7 +41,7 @@ const Base = ({ children }) => (
         />
         {children}
         <Footer socialLinks={data.allLinksSocialYaml.edges} />
-        <BasicStructuredData site={data.site.siteMetadata} />
+        <StructuredData site={data.site.siteMetadata} />
       </>
     )}
   />
@@ -55,8 +55,9 @@ const Base = ({ children }) => (
 
 import '../styles/index.css'
 
-// TODO: remove these if not using
+// TODO: remove these preloaded critical asset imports if not using
 // TODO: always test performance difference with/without these (e.g. compare live version to local built version)
+// NOTE: do NOT preload images since there is no way to know which generated image copy should be preloaded. Only preload static/unmanipulated assets that are also critical (e.g. self-hosted fonts).
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 // import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
 
@@ -95,7 +96,7 @@ const SiteMetadata = ({ site }) => (
     {/* <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://www.google-analytics.com" /> */}
 
-    {/* Preloaded above-the-fold static assets (fonts, images, audio, video) */}
+    {/* Preloaded above-the-fold static assets (fonts, audio, video) */}
     {/* See the following link to determine the correct crossOrigin for each asset type: https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches#Cross-origin_fetches */}
     {/* <link
       rel="preload"
@@ -148,11 +149,11 @@ const SiteMetadata = ({ site }) => (
 
 /*
  *
- * Basic Structured Data
+ * Structured Data
  * 
  */
 
-const BasicStructuredData = ({ site }) => {
+const StructuredData = ({ site }) => {
   const structuredData = `{
     "@context": "http://schema.org",
     "@type": "Person",
@@ -173,7 +174,7 @@ const BasicStructuredData = ({ site }) => {
   //   "@context": "http://schema.org",
   //   "@type": "LocalBusiness",
   //   "@id": "${site.siteUrl}",
-  //   "name": "Kings Valley Paving",
+  //   "name": "Company Name",
   //   "address": {
   //     "@type": "PostalAddress",
   //     "streetAddress": "305 Healey Rd., Unit A",
@@ -183,15 +184,15 @@ const BasicStructuredData = ({ site }) => {
   //     "addressCountry": "CA"
   //   },
   //   "url": "${site.siteUrl}",
-  //   "email": "mailto:info@kingsvalleypaving.com",
+  //   "email": "mailto:name@company.com",
   //   "telephone": "+18448575464",
   //   "image": "${site.siteUrl + siteImage.replace(`js/../`, ``)}",
   //   "sameAs": [
-  //     "https://www.facebook.com/kingsvalleypaving",
-  //     "https://twitter.com/KingsPaving",
-  //     "https://www.instagram.com/Kingsvalleypavingtoronto"
-  //     "https://www.youtube.com/channel/UCCwwOazTvD1yU-VkkiaSjZA",
-  //     "https://www.linkedin.com/company/kings-valley-paving-inc/"
+  //     "https://www.facebook.com/user",
+  //     "https://twitter.com/user",
+  //     "https://www.instagram.com/user",
+  //     "https://www.youtube.com/channel/user",
+  //     "https://www.linkedin.com/company/user"
   //   ]
   // }`
 

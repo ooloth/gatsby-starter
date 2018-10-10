@@ -11,47 +11,71 @@ const BrowserWarning = ({ title }) => (
 
       <p className="pt4 measure lh-copy sm:f4">
         Please visit {title} in a modern browser like
-        {` `}
-        <Anchor
-          href="https://www.google.com/chrome"
-          className="blue underline animate hover:black"
-        >
-          Chrome
-        </Anchor>
-        ,{` `}
-        <Anchor
-          href="https://www.mozilla.org/en-GB/firefox/new"
-          className="blue underline animate hover:black"
-        >
-          Firefox
-        </Anchor>
-        ,{` `}
-        <Anchor
-          href="https://support.apple.com/downloads/safari"
-          className="blue underline animate hover:black"
-        >
-          Safari
-        </Anchor>
-        ,{` `}
-        <Anchor
-          href="https://www.microsoft.com/en-gb/windows/microsoft-edge"
-          className="blue underline animate hover:black"
-        >
-          Edge
-        </Anchor>
-        , or
-        {` `}
-        <Anchor
-          href="https://www.opera.com/download"
-          className="blue underline animate hover:black"
-        >
-          Opera
-        </Anchor>
-        .
+        {browsers.map((browser, i) => (
+          <Fragment key={i}>
+            {i < browsers.length - 1 ? ` ` : ` or `}
+
+            <Anchor
+              key={i}
+              href={browser.href}
+              className="blue underline animate hover:black"
+            >
+              {browser.text}
+            </Anchor>
+
+            {i < browsers.length - 2 ? `,` : i === browsers.length - 1 ? `.` : null}
+          </Fragment>
+        ))}
       </p>
     </div>
+
+    {/* Hidden copy of Contact form (needed by Netlify's bots on first render) */}
+    {/* <FormCopy /> */}
   </main>
 )
+
+/*
+ *
+ * Browser List
+ *
+ */
+
+const browsers = [
+  { href: 'https://www.google.com/chrome', text: 'Chrome' },
+  { href: 'https://www.mozilla.org/en-GB/firefox/new', text: 'Firefox' },
+  { href: 'https://support.apple.com/downloads/safari', text: 'Safari' },
+  { href: 'https://www.microsoft.com/en-gb/windows/microsoft-edge', text: 'Edge' },
+  { href: 'https://www.opera.com/download', text: 'Opera' }
+]
+
+/*
+ *
+ * Form Copy
+ *
+ */
+
+// TODO: If using, update form name and form fields
+// const FormCopy = () => (
+//   <form
+//     name="Contact"
+//     data-netlify="true"
+//     data-netlify-honeypot="bot-field"
+//     className="dn"
+//   >
+//     {/* Form name */}
+//     <input type="hidden" name="form-name" value="Contact" />
+
+//     {/* Honeypot */}
+//     <input name="bot-field" />
+
+//     {/* Input copies to control input order in the submissions */}
+//     <input type="text" name="Name" />
+//     <input type="email" name="Email" />
+//     <input type="tel" name="Phone" />
+//     <textarea name="Address" />
+//     <input type="checkbox" name="Services" />
+//   </form>
+// )
 
 /*
  *
@@ -59,7 +83,7 @@ const BrowserWarning = ({ title }) => (
  * 
  */
 
-import React from 'react'
+import React, { Fragment } from 'react'
 
 import Anchor from './Anchor'
 

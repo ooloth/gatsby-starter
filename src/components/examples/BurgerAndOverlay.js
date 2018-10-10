@@ -84,6 +84,7 @@ class BurgerAndOverlay extends Component {
           onMouseEnter={this.handleBurgerMouseEnter}
           onMouseLeave={this.handleBurgerMouseLeave}
           onClick={this.handleBurgerClick}
+          aria-expanded={menuOpen}
           className="burger"
         >
           <span className="sr-only">Click to open menu main navigation</span>

@@ -47,7 +47,7 @@ class Form extends Component {
 
     return (
       <>
-        <State value={`!success`}>
+        <State is={['start', 'sending', 'error']}>
           <form
             name={this.props.name}
             method="post"
@@ -74,8 +74,8 @@ class Form extends Component {
           </form>
         </State>
 
-        <State value="error">{this.props.renderError()}</State>
-        <State value="success">{this.props.renderSuccess()}</State>
+        <State is="error">{this.props.renderError()}</State>
+        <State is="success">{this.props.renderSuccess()}</State>
       </>
     )
   }
@@ -120,6 +120,6 @@ const formChart = {
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { State, withStatechart } from 'react-automata'
+import { State, withStateMachine } from 'react-automata'
 
-export default withStatechart(formChart)(Form)
+export default withStateMachine(formChart)(Form)

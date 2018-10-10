@@ -4,16 +4,40 @@ Headings
 
 */
 
-/* Section headings */
-.heading { 
-  @apply .dib .relative .pv3 .pr4 .lora .f1 .ttl;
+.heading,
+.page-heading,
+.section-heading,
+.section-subheading { 
+  @apply .ultra .fw4 .ttu; 
+  line-height: 1.05;
+  /* @apply .ultra .ttu .tracked-sm; */ 
+  }
 
-  @media (min-width: 375px) { font-size: 3.5rem }
-  @media (min-width: 400px) { font-size: 4rem }
-  @media (--md) { font-size: 4.5rem }
+/* Note: largest is "Concrete" on Home page */
+.page-heading {
+  font-size: 2.45rem;
+
+  @media (min-width: 360px) { font-size: 2.6rem }
+  @media (min-width: 400px) { font-size: 2.95rem }
+  @media (--sm) { font-size: 3.5rem }
 }
 
+/* Note: largest is "Testimonials" on Home page */
+.section-heading {
+  font-size: 1.7rem;
 
+  @media (min-width: 360px) { font-size: 1.95rem }
+  @media (min-width: 400px) { font-size: 2.15rem }
+  @media (--sm) { font-size: 2.9rem }
+}
+
+.section-subheading { 
+  font-size: 1.3rem;
+
+  @media (min-width: 360px) { font-size: 1.45rem }
+  @media (min-width: 400px) { font-size: 1.6rem }
+  @media (--sm) { font-size: 1.75rem }
+}
 
 /* Bars that extend to the edge of the left viewport */
 .heading-trail-white      { @apply .bg-white .transY--50 }
