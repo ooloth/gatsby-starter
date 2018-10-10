@@ -11,6 +11,8 @@ PreCSS is powered by the following plugins (in this order):
 
 */
 
+// TODO: if the precss package breaks, switch to gatsby-plugin-sass with tailwind/autoprefixer included in its options: lets me write .sass files, which is nice, but UI updates happen slightly slower after saving
+
 module.exports = {
   plugins: [
     require(`precss`),
