@@ -13,6 +13,7 @@ const IndexPage = ({ data }) => (
       <MountTransitionExample />
       <GSAPExample />
       <RevealExample data={data.allExampleYaml.edges} />
+      <ReactSpringExample />
 
       <CollapseExample />
 
@@ -233,6 +234,7 @@ import TemplateExample from '../sections/examples/TemplateExample'
 import MountTransitionExample from '../sections/examples/MountTransitionExample'
 import GSAPExample from '../sections/examples/GSAPExample'
 import RevealExample from '../sections/examples/RevealExample'
+import ReactSpringExample from '../sections/examples/ReactSpringExample'
 
 import CollapseExample from '../sections/examples/CollapseExample'
 import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
