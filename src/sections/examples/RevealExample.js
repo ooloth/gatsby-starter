@@ -5,11 +5,11 @@ const RevealExample = ({ data }) => (
     <h3 className="mb3">Single item (GSAP):</h3>
     <RevealedImage image={data[0].node} />
 
-    <h3 className="mt4 mb3">Array of items (GSAP):</h3>
-    <RevealedImages images={data} />
-
     <h3 className="pt4 mb3">Single item (Pose):</h3>
     <PosedImage image={data[0].node} reset={true} />
+
+    <h3 className="mt4 mb3">Array of items (GSAP):</h3>
+    <RevealedImages images={data} />
 
     <h3 className="mt4 mb3">Array of items (Pose):</h3>
     <PosedImages images={data} reset={true} />
@@ -90,11 +90,7 @@ class PosedImage extends React.Component {
         offsetBottom="150%"
       >
         <RevealViaPose pose={isVisible ? 'visible' : 'hidden'} className="shadow-lg">
-          <Img
-            fluid={image.image.childImageSharp.fluid}
-            alt={image.alt}
-            // className="shadow-lg"
-          />
+          <Img fluid={image.image.childImageSharp.fluid} alt={image.alt} />
         </RevealViaPose>
       </Waypoint>
     )
@@ -107,9 +103,9 @@ const RevealViaPose = posed.div({
     y: 0,
     scale: 1
     // transition: {
-    //   delay: 100,
-    //   duration: 1000,
-    //   ease: [0.77, 0, 0.175, 1] // quadInAndOut
+    // delay: 100
+    // duration: 1000,
+    // ease: [0.77, 0, 0.175, 1] // quadInAndOut
     // }
   },
   hidden: { opacity: 0, y: 40, scale: 0.8, transition: { duration: 0 } }

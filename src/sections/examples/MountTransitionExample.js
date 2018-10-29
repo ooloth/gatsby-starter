@@ -137,7 +137,7 @@ import React, { Component } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import shortid from 'shortid'
-// import { Transition, animated, interpolate } from 'react-spring'
+import { Transition, Spring, animated, config, interpolate } from 'react-spring'
 
 import Mount from '../../components/examples/Mount'
 
