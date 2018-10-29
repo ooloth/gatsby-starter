@@ -1,34 +1,22 @@
-class Anchor extends Component {
-  // Prevent link clicks from triggering click event handlers on parent components
-  // See: https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
-  // See: https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child
-  handleClick = e => e.stopPropagation()
+import React from 'react'
+import PropTypes from 'prop-types'
 
-  render() {
-    const { href, srText, className, style, children } = this.props
-    const isExternal =
-      href.indexOf(`http`) === -1 &&
-      href.indexOf(`//`) === -1 &&
-      href.indexOf(`mailto:`) === -1 &&
-      href.indexOf(`tel:`) === -1 &&
-      href.indexOf(`pdf/`) === -1
-        ? false
-        : true
+function Anchor({ href, srText, className, style, children }) {
+  const isExternal = href.match(/http|\/\/|mailto:|tel:|pdf\//)
 
-    return (
-      <a
-        href={href}
-        onClick={this.handleClick}
-        target={isExternal ? `_blank` : null}
-        rel={isExternal ? `noopener` : null}
-        className={className}
-        style={style}
-      >
-        {srText && <span className="sr-only">{srText}</span>}
-        {children}
-      </a>
-    )
-  }
+  return (
+    <a
+      href={href}
+      onClick={e => e.stopPropagation()} // avoid firing parent event handlers
+      target={isExternal ? `_blank` : null}
+      rel={isExternal ? `noopener` : null}
+      className={className}
+      style={style}
+    >
+      {srText && <span className="sr-only">{srText}</span>}
+      {children}
+    </a>
+  )
 }
 
 Anchor.propTypes = {
@@ -44,15 +32,6 @@ Anchor.propTypes = {
   ])
 }
 
-/*
- *
- * Imports & Exports
- * 
- */
-
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-
 export default Anchor
 
 /*
@@ -60,5 +39,8 @@ export default Anchor
 INSTRUCTIONS:
 
 <Anchor href="" srText="" className="" style="">Link</Anchor>
+
+- See: https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
+- See: https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child
 
 */

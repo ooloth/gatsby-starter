@@ -1,7 +1,7 @@
 - image: ../images/placeholder-1.jpg
   alt: I'm an alt tag!
   title: I'm Title 1
-  description: I'm an inline <a href="https://www.google.ca" target="_blank" rel="noopener nofollow" class="link-inline">Link</a>
+  description: I'm an inline <a href="https://www.google.ca" target="_blank" rel="noopener" class="link-inline">Link</a>
   link: https://www.google.ca
 
 - image: ../images/placeholder-2.jpg

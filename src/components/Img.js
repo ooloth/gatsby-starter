@@ -1,3 +1,6 @@
+import React from 'react'
+import Image from 'gatsby-image'
+
 function Img({ objFit = `cover`, objPosition = `50% 50%`, ...props }) {
   return (
     <Image
@@ -11,15 +14,6 @@ function Img({ objFit = `cover`, objPosition = `50% 50%`, ...props }) {
     />
   )
 }
-
-/*
- *
- * Imports & Exports
- * 
- */
-
-import React from 'react'
-import Image from 'gatsby-image'
 
 export default Img
 
