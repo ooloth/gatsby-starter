@@ -11,6 +11,12 @@ const MountTransitionExample = () => (
 
     <h3 className="pt5 mb4">React Pose version</h3>
     <AnimatingPoses />
+
+    <h3 className="pt5 mb4">React Spring version</h3>
+    <AnimatingSprings />
+
+    <h3 className="pt5 mb4">Counter</h3>
+    <Counter initialCount={1} />
   </section>
 )
 
@@ -127,17 +133,98 @@ const Box = posed.li({
   }
 })
 
+/*
+ *
+ * Animating Springs
+ *
+ */
+
+const AnimatingSprings = memo(function AnimatingSprings() {
+  const [boxes, setBoxes] = useState([{ text: `box`, id: 1 }])
+
+  function addBox() {
+    setBoxes(boxes => [...boxes, { text: `box`, id: shortid.generate() }])
+  }
+
+  function removeBox() {
+    setBoxes(boxes.slice(0, boxes.length - 1))
+  }
+
+  return (
+    <>
+      <Transition
+        items={boxes}
+        keys={box => box.id}
+        from={{ transform: 'scale(0)' }}
+        enter={{ transform: 'scale(1)' }}
+        leave={{ transform: 'scale(0)' }}
+      >
+        {box => props => (
+          <div
+            className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4"
+            style={props}
+          >
+            {box.text}
+          </div>
+        )}
+      </Transition>
+
+      <div>
+        <button onClick={addBox} className="btn mt4 mr2">
+          +
+        </button>
+        <button onClick={removeBox} className="btn ml2">
+          -
+        </button>
+      </div>
+    </>
+  )
+})
+
+const Counter = memo(function Counter({ initialCount }) {
+  const [count, setCount] = useState(initialCount)
+
+  const addOne = () => setCount(count => count + 1)
+  const subtractOne = () => setCount(count => count - 1)
+  const reset = () => setCount(0)
+
+  return (
+    <>
+      <p>Count: {count}</p>
+
+      <button onClick={reset} className="btn">
+        Reset
+      </button>
+
+      <button onClick={addOne} className="btn mt3 mh3">
+        +
+      </button>
+
+      <button onClick={subtractOne} className="btn">
+        -
+      </button>
+    </>
+  )
+})
+
 /* 
  *
  * Imports & Exports
  * 
  */
 
-import React, { Component } from 'react'
+import React, { Component, useState, memo } from 'react'
 import posed, { PoseGroup } from 'react-pose'
 import TransitionGroup from 'react-transition-group/TransitionGroup'
 import shortid from 'shortid'
-import { Transition, Spring, animated, config, interpolate } from 'react-spring'
+import {
+  Transition,
+  Spring,
+  animated,
+  config,
+  interpolate,
+  useSpring
+} from 'react-spring'
 
 import Mount from '../../components/examples/Mount'
 

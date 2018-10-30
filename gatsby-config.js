@@ -32,6 +32,7 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,

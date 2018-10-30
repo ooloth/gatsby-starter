@@ -1,3 +1,5 @@
+// TODO: check out https://popmotion.io/pose/examples/accordion/
+
 class Accordion extends Component {
   state = { expanded: false }
 

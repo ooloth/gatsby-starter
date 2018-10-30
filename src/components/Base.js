@@ -1,51 +1,53 @@
 // TODO: See KVP's Base.js for how to replace site with browser warning (last resort if issues can't be resolved)
 
-const Base = ({ children }) => (
-  <StaticQuery
-    query={graphql`
-      query BaseQuery {
-        site {
-          siteMetadata {
-            description
-            language
-            locale
-            title
-            twitterHandle
-            siteUrl
+function Base({ children }) {
+  return (
+    <StaticQuery
+      query={graphql`
+        query BaseQuery {
+          site {
+            siteMetadata {
+              description
+              language
+              locale
+              title
+              twitterHandle
+              siteUrl
+            }
           }
-        }
-        allLinksNavYaml {
-          edges {
-            node {
-              href
-              text
+          allLinksNavYaml {
+            edges {
+              node {
+                href
+                text
+              }
+            }
+          }
+          allLinksSocialYaml {
+            edges {
+              node {
+                href
+                text
+              }
             }
           }
         }
-        allLinksSocialYaml {
-          edges {
-            node {
-              href
-              text
-            }
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <SiteMetadata site={data.site.siteMetadata} />
-        <Header
-          navLinks={data.allLinksNavYaml.edges}
-          socialLinks={data.allLinksSocialYaml.edges}
-        />
-        {children}
-        <Footer socialLinks={data.allLinksSocialYaml.edges} />
-        <StructuredData site={data.site.siteMetadata} />
-      </>
-    )}
-  />
-)
+      `}
+      render={data => (
+        <>
+          <SiteMetadata site={data.site.siteMetadata} />
+          <Header
+            navLinks={data.allLinksNavYaml.edges}
+            socialLinks={data.allLinksSocialYaml.edges}
+          />
+          {children}
+          <Footer socialLinks={data.allLinksSocialYaml.edges} />
+          <StructuredData site={data.site.siteMetadata} />
+        </>
+      )}
+    />
+  )
+}
 
 /*
  *
@@ -75,30 +77,31 @@ import siteImage from '../images/placeholder-1.jpg'
 // var a = Array.from('123')
 // var b = String.prototype.endsWith('abc')
 
-const SiteMetadata = ({ site }) => (
-  <Helmet>
-    {/* HTML language */}
-    <html itemScope itemType="http://schema.org/WebPage" lang={site.language} />
+function SiteMetadata({ site }) {
+  return (
+    <Helmet>
+      {/* HTML language */}
+      <html itemScope itemType="http://schema.org/WebPage" lang={site.language} />
 
-    {/* Title comes first (meta charset and viewport are automatically included) */}
-    <title itemProp="name" lang={site.language}>
-      {site.title}
-    </title>
+      {/* Title comes first (meta charset and viewport are automatically included) */}
+      <title itemProp="name" lang={site.language}>
+        {site.title}
+      </title>
 
-    {/* Search engine */}
-    <meta name="description" content={site.description} />
-    <meta name="image" content={site.siteUrl + siteImage} />
-    <link rel="canonical" href={site.siteUrl} />
+      {/* Search engine */}
+      <meta name="description" content={site.description} />
+      <meta name="image" content={site.siteUrl + siteImage} />
+      <link rel="canonical" href={site.siteUrl} />
 
-    {/* Preconnect to CloudFlare CDN (for GSAP) and Google Analytics */}
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    {/* TODO: uncomment these if ga-lit is used: */}
-    {/* <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+      {/* Preconnect to CloudFlare CDN (for GSAP) and Google Analytics */}
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+      {/* TODO: uncomment these if ga-lit is used: */}
+      {/* <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://www.google-analytics.com" /> */}
 
-    {/* Preloaded above-the-fold static assets (fonts, audio, video) */}
-    {/* See the following link to determine the correct crossOrigin for each asset type: https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches#Cross-origin_fetches */}
-    {/* <link
+      {/* Preloaded above-the-fold static assets (fonts, audio, video) */}
+      {/* See the following link to determine the correct crossOrigin for each asset type: https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches#Cross-origin_fetches */}
+      {/* <link
       rel="preload"
       href={avenirHeavy}
       as="font"
@@ -113,39 +116,42 @@ const SiteMetadata = ({ site }) => (
       crossOrigin="anonymous"
     /> */}
 
-    {/* Google fonts */}
-    {/* <link
+      {/* Google fonts */}
+      {/* <link
       href="https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=latin-ext"
       rel="stylesheet"
     /> */}
 
-    {/* Schema.org for Google */}
-    <meta itemProp="name" content={site.title} />
-    <meta itemProp="description" content={site.description} />
-    <meta itemProp="image" content={site.siteUrl + siteImage} />
+      {/* Schema.org for Google */}
+      <meta itemProp="name" content={site.title} />
+      <meta itemProp="description" content={site.description} />
+      <meta itemProp="image" content={site.siteUrl + siteImage} />
 
-    {/* Twitter */}
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={site.title} />
-    <meta name="twitter:description" content={site.description} />
-    <meta name="twitter:image:src" content={site.siteUrl + siteImage} />
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={site.title} />
+      <meta name="twitter:description" content={site.description} />
+      <meta name="twitter:image:src" content={site.siteUrl + siteImage} />
 
-    {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
-    <meta property="og:title" content={site.title} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={site.siteUrl} />
-    <meta property="og:image" content={site.siteUrl + siteImage} />
-    <meta property="og:description" content={site.description} />
-    <meta property="og:site_name" content={site.title} />
-    <meta property="og:locale" content={site.locale} />
+      {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
+      <meta property="og:title" content={site.title} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={site.siteUrl} />
+      <meta property="og:image" content={site.siteUrl + siteImage} />
+      <meta property="og:description" content={site.description} />
+      <meta property="og:site_name" content={site.title} />
+      <meta property="og:locale" content={site.locale} />
 
-    {/* Non-essential, but required for analytics */}
-    {site.facebookAppId && (
-      <meta property="fb:app_id" content={site.facebookAppId} />
-    )}
-    {site.twitterHandle && <meta name="twitter:site" content={site.twitterHandle} />}
-  </Helmet>
-)
+      {/* Non-essential, but required for analytics */}
+      {site.facebookAppId && (
+        <meta property="fb:app_id" content={site.facebookAppId} />
+      )}
+      {site.twitterHandle && (
+        <meta name="twitter:site" content={site.twitterHandle} />
+      )}
+    </Helmet>
+  )
+}
 
 /*
  *
@@ -153,7 +159,7 @@ const SiteMetadata = ({ site }) => (
  * 
  */
 
-const StructuredData = ({ site }) => {
+function StructuredData({ site }) {
   const structuredData = `{
     "@context": "http://schema.org",
     "@type": "Person",
@@ -203,19 +209,6 @@ const StructuredData = ({ site }) => {
     />
   )
 }
-
-/*
- *
- * Monitor unnecessary rerenders...
- *
- */
-
-// TODO: Use this? Too many false-positives because of Reveal/Mount animations?
-
-// if (process.env.NODE_ENV !== `production`) {
-//   const { whyDidYouUpdate } = require(`why-did-you-update`)
-//   whyDidYouUpdate(React)
-// }
 
 /*
  *

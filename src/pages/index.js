@@ -3,15 +3,15 @@ const IndexPage = ({ data }) => (
     <main id="main-content" tabIndex="-1" className="container tc sans-serif">
       <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
 
-      <Link to="/page-2/" className="link dib">
+      {/* <Link to="/page-2/" className="link dib">
         Go to page 2
       </Link>
 
       <YamlExample data={data.allExampleYaml.edges} />
-      <TemplateExample data={data.allTemplateYaml.edges} />
+      <TemplateExample data={data.allTemplateYaml.edges} /> */}
 
       <MountTransitionExample />
-      <GSAPExample />
+      {/* <GSAPExample />
       <RevealExample data={data.allExampleYaml.edges} />
       <ReactSpringExample />
 
@@ -40,23 +40,25 @@ const IndexPage = ({ data }) => (
       />
       <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
-      <FadingCarouselExample data={data.allExampleYaml.edges} />
+      <FadingCarouselExample data={data.allExampleYaml.edges} /> */}
       {/* TODO: rewrite FlickityExample (causing an error in v2) */}
       {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
       {/* <SlickExample data={data.allExampleYaml.edges} /> */}
 
-      <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
+      {/* <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
       <BlockquotesExample />
       <SVGsAndEmojisExample />
 
       <TwitterExample />
-      <InstagramExample />
+      <InstagramExample /> */}
 
       {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
       <p className="pb5">(The Form example is hidden by default.)</p>
       {/* <FormikExample /> */}
       {/* <FormExample /> */}
+
+      {/* <StyledSystemExample /> */}
 
       <ScrollTo href="#top" className="link dib mb5">
         Back to top
@@ -262,6 +264,8 @@ import InstagramExample from '../sections/examples/InstagramExample'
 
 // import FormikExample from '../sections/examples/FormikExample'
 // import FormExample from '../sections/examples/FormExample'
+
+import StyledSystemExample from '../sections/examples/StyledSystemExample'
 
 import ScrollTo from '../components/examples/ScrollTo'
 
