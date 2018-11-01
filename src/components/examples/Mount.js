@@ -1,3 +1,29 @@
+// function MountWithHooks({
+//   animateEnter = true,
+//   animateExit = true,
+//   appear = true,
+//   enterTimeout = 700, // Must be in milliseconds
+//   exitTimeout = 700, // Must be in milliseconds
+//   ...props
+// }) {
+//   return (
+//     <>
+//       <Transition
+//         in={props.in}
+//         appear={appear}
+//         enter={animateEnter}
+//         onEnter={this.enterAnim}
+//         exit={animateExit}
+//         onExit={this.exitAnim}
+//         unmountOnExit={true}
+//         timeout={{ enter: enterTimeout, exit: exitTimeout }} // required unless addEndListener is used
+//       >
+//         {this.props.children}
+//       </Transition>
+//     </>
+//   )
+// }
+
 class Mount extends Component {
   enterAnim = rtgChild => {
     const { animateSpace = true } = this.props

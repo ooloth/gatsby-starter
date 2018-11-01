@@ -5,14 +5,20 @@ const RevealExample = ({ data }) => (
     <h3 className="mb3">Single item (GSAP):</h3>
     <RevealedImage image={data[0].node} />
 
-    <h3 className="pt4 mb3">Single item (Pose):</h3>
+    <h3 className="pt4 mb3">Single item (React Pose):</h3>
     <PosedImage image={data[0].node} reset={true} />
+
+    <h3 className="pt4 mb3">Single item (React Spring):</h3>
+    <SprungImage image={data[0].node} reset={true} />
 
     <h3 className="mt4 mb3">Array of items (GSAP):</h3>
     <RevealedImages images={data} />
 
-    <h3 className="mt4 mb3">Array of items (Pose):</h3>
+    <h3 className="mt4 mb3">Array of items (React Pose):</h3>
     <PosedImages images={data} reset={true} />
+
+    <h3 className="mt4 mb3">Array of items (React Spring):</h3>
+    <SprungImages images={data} reset={true} />
   </section>
 )
 
@@ -222,6 +228,118 @@ const Item = posed.li(itemConfig)
 
 /*
  *
+ * Sprung Image
+ * 
+ */
+
+class SprungImage extends React.Component {
+  state = { isVisible: false }
+
+  // Waypoint handlers
+  handleWaypointEnter = () => this.setState({ isVisible: true })
+  handleWaypointLeave = () => this.setState({ isVisible: false })
+
+  render() {
+    const { image } = this.props
+    const { isVisible } = this.state
+
+    console.log({ isVisible })
+
+    return (
+      <Waypoint
+        onEnter={this.handleWaypointEnter}
+        onLeave={this.handleWaypointLeave}
+        offsetTop="400%"
+        offsetBottom="400%"
+      >
+        <div>
+          <Transition
+            items={isVisible}
+            from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
+            enter={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
+            leave={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
+            // config={config.gentle}
+          >
+            {isVisible =>
+              isVisible &&
+              (props => (
+                <Img
+                  fluid={image.image.childImageSharp.fluid}
+                  alt={image.alt}
+                  className="shadow-lg"
+                  style={props}
+                />
+              ))
+            }
+          </Transition>
+        </div>
+      </Waypoint>
+    )
+  }
+}
+
+/*
+ *
+ * Sprung Images
+ * 
+ */
+
+class SprungImages extends React.Component {
+  state = { isVisible: false }
+
+  // Waypoint handlers
+  handleWaypointEnter = () => this.setState({ isVisible: true })
+  handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
+
+  render() {
+    const { images } = this.props
+    const { isVisible } = this.state
+
+    return (
+      <Waypoint
+        onEnter={this.handleWaypointEnter}
+        onLeave={this.handleWaypointLeave}
+        offsetTop="200%"
+        offsetBottom="200%"
+      >
+        {isVisible ? (
+          <div
+            style={{
+              display: `grid`,
+              gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+              gridGap: `1rem`,
+              alignItems: `start`
+            }}
+          >
+            <Transition
+              items={images}
+              keys={(image, i) => i}
+              from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
+              enter={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
+              leave={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
+              // delay={300}
+              trail={300}
+            >
+              {image => props => (
+                <Img
+                  fluid={image.node.image.childImageSharp.fluid}
+                  alt={image.node.alt}
+                  className="shadow-lg"
+                  style={props}
+                />
+              )}
+            </Transition>
+          </div>
+        ) : (
+          <div />
+        )}
+      </Waypoint>
+    )
+  }
+}
+
+/*
+ *
  * Imports & Exports
  * 
  */
@@ -232,6 +350,14 @@ import Img from '../../components/Img'
 import posed, { PoseGroup } from 'react-pose'
 import Reveal from '../../components/examples/Reveal'
 // import RevealPose from '../../components/examples/RevealPose'
+import {
+  Transition,
+  Spring,
+  animated,
+  config,
+  interpolate,
+  useSpring
+} from 'react-spring'
 import Waypoint from 'react-waypoint'
 
 export default RevealExample

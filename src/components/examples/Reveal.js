@@ -1,3 +1,56 @@
+// import Observer from 'react-intersection-observer'
+
+// function useIntersectionObserver(target, root) {
+//   const [isIntersecting, setIntersecting] = React.useState(false)
+
+//   React.useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting !== isIntersecting) {
+//           setIntersecting(entry.isIntersecting)
+//         }
+//       },
+//       {
+//         rootMargin: '0px',
+//         root: root.current
+//       }
+//     )
+//     if (target.current) {
+//       observer.observe(target.current)
+//     }
+//     return () => {
+//       observer.unobserve(target.current)
+//     }
+//   }, [])
+
+//   return isIntersecting
+// }
+
+// export function Reveal2({
+//   css,
+//   offsetTop = `125%`,
+//   offsetBottom = `125%`,
+//   className = ``,
+//   style = {},
+//   tag: Tag = `div`,
+//   children,
+//   ...props
+// }) {
+//   // const [isIntersecting, setIsIntersecting] = React.useState(false)
+
+//   const ref = React.useRef()
+
+//   const visible = useIntersectionObserver(ref)
+
+//   console.log({ visible })
+
+//   return (
+//     // <Observer {...props} onChange={e => setIsIntersecting(e.isIntersecting)}>
+//     <Tag ref={ref}>{children}</Tag>
+//     // </Observer>
+//   )
+// }
+
 class Reveal extends Component {
   state = { isVisible: false }
 

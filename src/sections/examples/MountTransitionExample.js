@@ -158,6 +158,7 @@ const AnimatingSprings = memo(function AnimatingSprings() {
         from={{ transform: 'scale(0)' }}
         enter={{ transform: 'scale(1)' }}
         leave={{ transform: 'scale(0)' }}
+        config={config.stiff}
       >
         {box => props => (
           <div
