@@ -9,6 +9,7 @@ Component classes
 
 @import './examples/angles';
 @import './examples/arrows';
+@import './examples/arrows-aria';
 @import './examples/blockquotes';
 @import './examples/burger-1';
 @import './examples/burger-2';

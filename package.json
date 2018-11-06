@@ -85,7 +85,7 @@
     "eslint-plugin-react": "^7.11.1"
   },
   "scripts": {
-    "dev": "gatsby develop --https",
+    "dev": "gatsby develop",
     "build": "gatsby build"
   }
 }
