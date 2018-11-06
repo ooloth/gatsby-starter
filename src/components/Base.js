@@ -1,4 +1,4 @@
-// TODO: See KVP's Base.js for how to replace site with browser warning (last resort if issues can't be resolved)
+// TODO: See Peter's Base.js for how to replace site with browser warning (last resort if issues can't be resolved)
 
 function Base({ children }) {
   return (

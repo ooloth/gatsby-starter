@@ -7,6 +7,8 @@ Containers
 .container { 
   @apply .ml-auto .mr-auto .ph3 .mw9;
 
+  /* TODO: try padding-left: 3%; padding-right: 3% instead? */
+
   @media (--md) { @apply .ph4 }
   @media (--lg) { @apply .ph5 }
 

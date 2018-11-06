@@ -12,7 +12,6 @@
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
-  // TODO: will Babel 7 polyfill this for me?
   if (typeof window.IntersectionObserver === `undefined`) {
     require(`intersection-observer`)
     console.log(`👍 IntersectionObserver is polyfilled`)
@@ -27,24 +26,6 @@ export const onClientEntry = () => {
     require(`object-fit-images`)()
     console.log(`👍 Object-fit/Object-position are polyfilled`)
   }
-
-  // Array.from, Array.forEach and String.endsWith for react-pose (IE)
-  // if (
-  //   typeof window.Array.from === `undefined` ||
-  //   typeof window.Array.prototype.forEach === `undefined` ||
-  //   typeof window.String.prototype.endsWith === `undefined`
-  // ) {
-  //   if (!loadjs.isDefined(`react-pose-polyfills`)) {
-  //     loadjs(
-  //       `https://cdn.polyfill.io/v2/polyfill.min.js?features=Array.from,Array.prototype.forEach,String.prototype.endsWidth`,
-  //       `react-pose-polyfills`,
-  //       () =>
-  //         console.log(
-  //           `👍 Array.from, Array.forEach and String.endsWith are polyfilled`
-  //         )
-  //     )
-  //   }
-  // }
 }
 
 /*

@@ -73,6 +73,15 @@ class BurgerAndOverlay extends Component {
     this.setState({ menuOpen: false })
   }
 
+  // See Peter's site for a working implementation:
+  // slideBodyLeft = () => {
+  //   const menuWidth = document.querySelector(`.menu-modal-content`).offsetWidth
+
+  //   document.body.setAttribute(`style`, `transform: translateX(-${menuWidth}px)`)
+  // }
+
+  // slideBodyRight = () => document.body.setAttribute(`style`, `transform: none`)
+
   render() {
     const { menuOpen } = this.state
     const { navLinks } = this.props

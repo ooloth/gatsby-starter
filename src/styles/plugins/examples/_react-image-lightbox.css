@@ -74,4 +74,4 @@ justify-content: space-between; */
   color: hsl(0, 0%, 0%, 0.8); 
 } */
 
-.ril__captionContent { margin: 0 auto; }
+.ril__captionContent { @apply .ml-auto .mr-auto }

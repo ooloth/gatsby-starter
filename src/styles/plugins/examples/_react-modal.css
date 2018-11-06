@@ -76,3 +76,15 @@ TODO: Make sure to scope all style to avoid conflicting with react-image-lightbo
 .menu-modal-content.ReactModal__Content--before-close {
   transform: translateX(100%);
 }
+
+/* If sliding the whole body when modal opens, use this instead */
+/* 
+.menu-modal-overlay.ReactModal__Overlay { z-index: 10000 !important }
+.menu-modal-content.ReactModal__Content { transform: translateX(100%) }
+
+body {
+  @apply .bg-near-white;
+  transform: none; /* NOTE: do NOT set this to translateX(0) if using RIL */ /*
+  transition: transform 0.5s var(--easeInOutCubic);
+}
+*/
