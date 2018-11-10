@@ -98,8 +98,7 @@ function SiteMetadata({ site }) {
       <link rel="canonical" href={site.siteUrl} />
 
       {/* Preconnect to CloudFlare CDN (for GSAP) and Google Analytics */}
-      <link rel="preconnect" href="https://unpkg.com" />
-      {/* <link rel="preconnect" href="https://cdnjs.cloudflare.com" /> */}
+      <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
       {/* TODO: uncomment these if ga-lit is used: */}
       {/* <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://www.google-analytics.com" /> */}
