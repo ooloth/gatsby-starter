@@ -36,12 +36,16 @@ function Base({ children }) {
       render={data => (
         <>
           <SiteMetadata site={data.site.siteMetadata} />
+
           <Header
             navLinks={data.allLinksNavYaml.edges}
             socialLinks={data.allLinksSocialYaml.edges}
           />
+
           {children}
+
           <Footer socialLinks={data.allLinksSocialYaml.edges} />
+
           <StructuredData site={data.site.siteMetadata} />
         </>
       )}
@@ -52,7 +56,7 @@ function Base({ children }) {
 /*
  *
  * Global styles & preloaded static assets (e.g. above-the-fold images, audio, video, and self-hosted fonts not handled by subfont)
- * 
+ *
  */
 
 import '../styles/index.css'
@@ -66,7 +70,7 @@ import '../styles/index.css'
 /*
  *
  * Metadata
- * 
+ *
  */
 
 // See: https://github.com/nfl/react-helmet + https://megatags.co + https://gethead.info
@@ -131,7 +135,9 @@ function SiteMetadata({ site }) {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={site.title} />
       <meta name="twitter:description" content={site.description} />
-      <meta name="twitter:image:src" content={site.siteUrl + siteImage} />
+      <meta name="twitter:image" content={site.siteUrl + siteImage} />
+      {/* TODO: okay to remove this version from starter? decide after running debugger */}
+      {/* <meta name="twitter:image:src" content={site.siteUrl + siteImage} /> */}
 
       {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
       <meta property="og:title" content={site.title} />
@@ -156,7 +162,7 @@ function SiteMetadata({ site }) {
 /*
  *
  * Structured Data
- * 
+ *
  */
 
 function StructuredData({ site }) {
@@ -213,7 +219,7 @@ function StructuredData({ site }) {
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'

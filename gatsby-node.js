@@ -49,6 +49,7 @@ const purgeCssConfig = {
     `o-0`
   ],
   whitelistPatterns: [
+    /html/,
     /body/,
     /flickity/,
     /headroom/,
@@ -98,7 +99,7 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
 /*
  *
  * Template pages (generated programmatically from template.yaml)
- * 
+ *
  */
 
 // See: https://www.gatsbyjs.org/tutorial/part-seven/

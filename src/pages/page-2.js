@@ -1,24 +1,28 @@
-const SecondPage = ({ data }) => (
-  <Base>
-    <main id="main-content" tabIndex="-1" className="container tc sans-serif">
-      <PageMetadata page={data.metadata.siteMetadata.secondPage} />
-      <h1 className="pv4 f1">Hi from page 2</h1>
-      <Link to="/" className="link dib mb4">
-        Go back home
-      </Link>
-    </main>
-  </Base>
-)
+function SecondPage({ data }) {
+  return (
+    <Base>
+      <PageMetadata page={data.site.siteMetadata.secondPage} />
+
+      <main id="main-content" tabIndex="-1" className="container tc sans-serif">
+        <h1 className="pv4 f1">Hi from page 2</h1>
+
+        <Link to="/" className="link dib mb4">
+          Go back home
+        </Link>
+      </main>
+    </Base>
+  )
+}
 
 /*
  *
  * Queries
- * 
+ *
  */
 
 export const query = graphql`
-  query SecondPageQuery {
-    metadata: site {
+  query {
+    site {
       siteMetadata {
         secondPage {
           description
@@ -33,7 +37,7 @@ export const query = graphql`
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'

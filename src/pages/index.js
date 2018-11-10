@@ -1,80 +1,82 @@
-const IndexPage = ({ data }) => (
-  <Base>
-    <main id="main-content" tabIndex="-1" className="container tc sans-serif">
-      <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
+function IndexPage({ data }) {
+  return (
+    <Base>
+      <main id="main-content" tabIndex="-1" className="container tc sans-serif">
+        <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
 
-      <Link to="/page-2/" className="link dib">
-        Go to page 2
-      </Link>
+        <Link to="/page-2/" className="link dib">
+          Go to page 2
+        </Link>
 
-      <YamlExample data={data.allExampleYaml.edges} />
-      <TemplateExample data={data.allTemplateYaml.edges} />
+        <YamlExample data={data.allExampleYaml.edges} />
+        <TemplateExample data={data.allTemplateYaml.edges} />
 
-      <MountTransitionExample />
-      <GSAPExample />
-      <RevealExample data={data.allExampleYaml.edges} />
-      <ReactSpringExample />
+        <MountTransitionExample />
+        <GSAPExample />
+        <RevealExample data={data.allExampleYaml.edges} />
+        <ReactSpringExample />
 
-      <CollapseExample />
+        <CollapseExample />
 
-      <FilterExample
-        category1={data.allCategory1Yaml.edges}
-        category2={data.allCategory2Yaml.edges}
-      />
+        <FilterExample
+          category1={data.allCategory1Yaml.edges}
+          category2={data.allCategory2Yaml.edges}
+        />
 
-      <FilterAndLimitExample
-        cat1={data.allCategory1Yaml.edges}
-        cat2={data.allCategory2Yaml.edges}
-      />
+        <FilterAndLimitExample
+          cat1={data.allCategory1Yaml.edges}
+          cat2={data.allCategory2Yaml.edges}
+        />
 
-      <LimitExample items={data.allExampleYaml.edges} />
+        <LimitExample items={data.allExampleYaml.edges} />
 
-      <GalleryAndLightboxExample
-        portrait={data.allMediaPortraitYaml.edges}
-        onstage={data.allMediaOnstageYaml.edges}
-        video={data.allMediaVideoYaml.edges}
-      />
+        <GalleryAndLightboxExample
+          portrait={data.allMediaPortraitYaml.edges}
+          onstage={data.allMediaOnstageYaml.edges}
+          video={data.allMediaVideoYaml.edges}
+        />
 
-      <ImageLightboxExample
-        images={data.allLightboxImagesYaml.edges[0].node.images}
-      />
-      <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
+        <ImageLightboxExample
+          images={data.allLightboxImagesYaml.edges[0].node.images}
+        />
+        <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
-      <FadingCarouselExample data={data.allExampleYaml.edges} />
-      {/* TODO: rewrite FlickityExample (causing an error in v2) */}
-      {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
-      {/* <SlickExample data={data.allExampleYaml.edges} /> */}
+        <FadingCarouselExample data={data.allExampleYaml.edges} />
+        {/* TODO: rewrite FlickityExample (causing an error in v2) */}
+        {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
+        {/* <SlickExample data={data.allExampleYaml.edges} /> */}
 
-      <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
+        <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
-      <BlockquotesExample />
-      <SVGsAndEmojisExample />
+        <BlockquotesExample />
+        <SVGsAndEmojisExample />
 
-      <TwitterExample />
-      <InstagramExample />
+        <TwitterExample />
+        <InstagramExample />
 
-      {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
-      <p className="pb5">(The Form example is hidden by default.)</p>
-      {/* <FormikExample /> */}
-      {/* <FormExample /> */}
+        {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
+        <p className="pb5">(The Form example is hidden by default.)</p>
+        {/* <FormikExample /> */}
+        {/* <FormExample /> */}
 
-      <StyledSystemExample />
+        <StyledSystemExample />
 
-      <ScrollTo href="#top" className="link dib mb5">
-        Back to top
-      </ScrollTo>
-    </main>
-  </Base>
-)
+        <ScrollTo href="#top" className="link dib mb5">
+          Back to top
+        </ScrollTo>
+      </main>
+    </Base>
+  )
+}
 
 /*
  *
  * Queries
- * 
+ *
  */
 
 export const query = graphql`
-  query IndexPageQuery {
+  query {
     allExampleYaml {
       edges {
         node {
@@ -222,7 +224,7 @@ export const query = graphql`
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'
