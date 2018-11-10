@@ -7,7 +7,7 @@
 /*
  *
  * Urgent polyfills (needed before first render)
- * 
+ *
  */
 
 export const onClientEntry = () => {
@@ -31,7 +31,7 @@ export const onClientEntry = () => {
 /*
  *
  * Non-urgent polyfills and scripts (needed after first render)
- * 
+ *
  */
 
 import loadjs from 'loadjs'
@@ -51,11 +51,16 @@ export const onInitialClientRender = () => {
   if (!loadjs.isDefined(`gsap`)) {
     loadjs(
       [
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
+        `https://unpkg.com/gsap@2.0.2/umd/TweenLite.js`,
+        `https://unpkg.com/gsap@2.0.2/umd/TweenMax.js`,
+        `https://unpkg.com/gsap@2.0.2/umd/CSSPlugin.js`,
+        `https://unpkg.com/gsap@2.0.2/umd/TimelineMax.js`,
+        `https://unpkg.com/gsap@2.0.2/umd/TimelineLite.js`
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
       ],
       `gsap`,
       () => console.log(`👍 GSAP is loaded`)
@@ -66,13 +71,15 @@ export const onInitialClientRender = () => {
   // TODO: remove if not using
   if (!loadjs.isDefined(`scrollToPlugin`)) {
     loadjs(
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
+      `https://unpkg.com/gsap@2.0.2/umd/ScrollToPlugin.js`,
+      // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
       `scrollToPlugin`,
       () => console.log(`👍 scrollToPlugin is loaded`)
     )
   }
 
   // Google Analytics (using ga-lite to allow caching)
+  // TODO: replace with unpkg CDN
   // See: https://github.com/jehna/ga-lite
   // Don't waste any time on this on localhost
   // if (window.location.hostname !== 'localhost') {
@@ -95,6 +102,7 @@ export const onInitialClientRender = () => {
   // }
 
   // TODO: Remove if Babel 7 auto-polyfills this...
+  // TODO: if used, replace with unpkg CDN
   // Fetch polyfill for FormNetlify (IE)
   // if (typeof window.fetch === `undefined`) {
   //   loadjs(
