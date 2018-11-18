@@ -5,8 +5,8 @@ const RevealExample = ({ data }) => (
     <h3 className="mb3">Single item (GSAP):</h3>
     <RevealedImage image={data[0].node} />
 
-    <h3 className="pt4 mb3">Single item (React Pose):</h3>
-    <PosedImage image={data[0].node} reset={true} />
+    {/* <h3 className="pt4 mb3">Single item (React Pose):</h3>
+    <PosedImage image={data[0].node} reset={true} /> */}
 
     <h3 className="pt4 mb3">Single item (React Spring):</h3>
     <SprungImage image={data[0].node} reset={true} />
@@ -14,8 +14,8 @@ const RevealExample = ({ data }) => (
     <h3 className="mt4 mb3">Array of items (GSAP):</h3>
     <RevealedImages images={data} />
 
-    <h3 className="mt4 mb3">Array of items (React Pose):</h3>
-    <PosedImages images={data} reset={true} />
+    {/* <h3 className="mt4 mb3">Array of items (React Pose):</h3>
+    <PosedImages images={data} reset={true} /> */}
 
     <h3 className="mt4 mb3">Array of items (React Spring):</h3>
     <SprungImages images={data} reset={true} />
@@ -25,7 +25,7 @@ const RevealExample = ({ data }) => (
 /*
  *
  * Revealed Image
- * 
+ *
  */
 
 const RevealedImage = ({ image }) => (
@@ -41,7 +41,7 @@ const RevealedImage = ({ image }) => (
 /*
  *
  * Revealed Images
- * 
+ *
  */
 
 const RevealedImages = ({ images }) => (
@@ -74,7 +74,7 @@ const RevealedImages = ({ images }) => (
 /*
  *
  * Posed Image
- * 
+ *
  */
 
 class PosedImage extends React.Component {
@@ -135,7 +135,7 @@ const RevealViaPose = posed.div({
 /*
  *
  * Posed Images
- * 
+ *
  */
 
 class PosedImages extends React.Component {
@@ -229,7 +229,7 @@ const Item = posed.li(itemConfig)
 /*
  *
  * Sprung Image
- * 
+ *
  */
 
 class SprungImage extends React.Component {
@@ -253,35 +253,37 @@ class SprungImage extends React.Component {
         offsetBottom="400%"
       >
         <div>
-          <Transition
-            items={isVisible}
+          <Spring
+            native
             from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-            enter={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
-            leave={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-            // config={config.gentle}
+            to={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible
+                ? 'translateY(0) scale(1)'
+                : 'translateY(40px) scale(0.8)'
+            }}
           >
-            {isVisible =>
-              isVisible &&
-              (props => (
-                <Img
-                  fluid={image.image.childImageSharp.fluid}
-                  alt={image.alt}
-                  className="shadow-lg"
-                  style={props}
-                />
-              ))
-            }
-          </Transition>
+            {props => (
+              <AnimatedImage
+                fluid={image.image.childImageSharp.fluid}
+                alt={image.alt}
+                className="shadow-lg"
+                style={props}
+              />
+            )}
+          </Spring>
         </div>
       </Waypoint>
     )
   }
 }
 
+const AnimatedImage = animated(Img)
+
 /*
  *
  * Sprung Images
- * 
+ *
  */
 
 class SprungImages extends React.Component {
@@ -302,37 +304,38 @@ class SprungImages extends React.Component {
         offsetTop="200%"
         offsetBottom="200%"
       >
-        {isVisible ? (
-          <div
-            style={{
-              display: `grid`,
-              gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
-              gridGap: `1rem`,
-              alignItems: `start`
-            }}
-          >
-            <Transition
-              items={images}
-              keys={(image, i) => i}
+        <div
+          style={{
+            display: `grid`,
+            gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+            gridGap: `1rem`,
+            alignItems: `start`
+          }}
+        >
+          {images.map((image, i) => (
+            <Spring
+              native
+              key={i}
               from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-              enter={{ opacity: 1, transform: 'translateY(0) scale(1)' }}
-              leave={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-              // delay={300}
-              trail={300}
+              to={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible
+                  ? 'translateY(0) scale(1)'
+                  : 'translateY(40px) scale(0.8)'
+              }}
+              delay={300 + i * 300}
             >
-              {image => props => (
-                <Img
+              {props => (
+                <AnimatedImage
                   fluid={image.node.image.childImageSharp.fluid}
                   alt={image.node.alt}
                   className="shadow-lg"
                   style={props}
                 />
               )}
-            </Transition>
-          </div>
-        ) : (
-          <div />
-        )}
+            </Spring>
+          ))}
+        </div>
       </Waypoint>
     )
   }
@@ -341,7 +344,7 @@ class SprungImages extends React.Component {
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'
