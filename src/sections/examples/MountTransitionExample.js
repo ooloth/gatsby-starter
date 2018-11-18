@@ -6,17 +6,14 @@ const MountTransitionExample = () => (
   <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Mount & Unmount Transitions Example</h2>
 
-    <h3 className="mb4">GSAP version</h3>
+    {/* <h3 className="mb4">GSAP version</h3>
     <AnimatingBoxes />
 
     <h3 className="pt5 mb4">React Pose version</h3>
-    <AnimatingPoses />
+    <AnimatingPoses /> */}
 
     <h3 className="pt5 mb4">React Spring version</h3>
     <AnimatingSprings />
-
-    <h3 className="pt5 mb4">Counter</h3>
-    <Counter initialCount={1} />
   </section>
 )
 
@@ -139,7 +136,7 @@ const Box = posed.li({
  *
  */
 
-const AnimatingSprings = memo(function AnimatingSprings() {
+function AnimatingSprings() {
   const [boxes, setBoxes] = useState([{ text: `box`, id: 1 }])
 
   function addBox() {
@@ -153,20 +150,45 @@ const AnimatingSprings = memo(function AnimatingSprings() {
   return (
     <>
       <Transition
+        native
         items={boxes}
         keys={box => box.id}
-        from={{ transform: 'scale(0)' }}
-        enter={{ transform: 'scale(1)' }}
-        leave={{ transform: 'scale(0)' }}
-        config={config.stiff}
+        from={{
+          margin: 0,
+          borderWidth: 0,
+          padding: 0,
+          lineHeight: 0,
+          fontSize: 0,
+          transform: 'scale(0)'
+        }}
+        enter={{
+          margin: `0.5rem auto`,
+          borderWidth: `.25rem`,
+          padding: `2rem`,
+          lineHeight: `1.15`,
+          fontSize: `1rem`,
+          height: `auto`,
+          transform: 'scale(1)'
+        }}
+        leave={[
+          { transform: 'scale(0)' },
+          {
+            margin: 0,
+            borderWidth: 0,
+            padding: 0,
+            lineHeight: 0,
+            fontSize: 0,
+            height: 0
+          }
+        ]}
       >
         {box => props => (
-          <div
+          <animated.div
             className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4"
             style={props}
           >
             {box.text}
-          </div>
+          </animated.div>
         )}
       </Transition>
 
@@ -180,38 +202,12 @@ const AnimatingSprings = memo(function AnimatingSprings() {
       </div>
     </>
   )
-})
+}
 
-const Counter = memo(function Counter({ initialCount }) {
-  const [count, setCount] = useState(initialCount)
-
-  const addOne = () => setCount(count => count + 1)
-  const subtractOne = () => setCount(count => count - 1)
-  const reset = () => setCount(0)
-
-  return (
-    <>
-      <p>Count: {count}</p>
-
-      <button onClick={reset} className="btn">
-        Reset
-      </button>
-
-      <button onClick={addOne} className="btn mt3 mh3">
-        +
-      </button>
-
-      <button onClick={subtractOne} className="btn">
-        -
-      </button>
-    </>
-  )
-})
-
-/* 
+/*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React, { Component, useState, memo } from 'react'
