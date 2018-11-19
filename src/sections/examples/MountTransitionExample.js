@@ -6,14 +6,13 @@ const MountTransitionExample = () => (
   <section className="mv6 bg-near-white pa5 shadow-lg">
     <h2 className="mb4">Mount & Unmount Transitions Example</h2>
 
+    <AnimatingSprings />
+
     {/* <h3 className="mb4">GSAP version</h3>
     <AnimatingBoxes />
 
     <h3 className="pt5 mb4">React Pose version</h3>
     <AnimatingPoses /> */}
-
-    <h3 className="pt5 mb4">React Spring version</h3>
-    <AnimatingSprings />
   </section>
 )
 
