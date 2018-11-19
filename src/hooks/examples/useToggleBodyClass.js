@@ -21,9 +21,13 @@ export default useToggleBodyClass
  *
  */
 
-// function Home() {
-//   const [night, setNight] = useState(false)
-//   useToggleBodyClass(night, [`dark`, `light`])
-// }
+/*
 
-// See: https://twitter.com/thekitze/status/1060835281090285568
+See: https://twitter.com/thekitze/status/1060835281090285568
+
+function Home() {
+  const [night, setNight] = useState(false)
+  useToggleBodyClass(night, [`dark`, `light`])
+}
+
+*/
