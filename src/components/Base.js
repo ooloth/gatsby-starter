@@ -225,8 +225,9 @@ function StructuredData({ site }) {
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { setConfig } from 'react-hot-loader' // TODO: remove when HMR useState bug fixed
-setConfig({ pureSFC: true }) // TODO: remove when useState is fixed in development
+// FIXME: can't use this if also using Spring (see error in RevealExample)
+// import { setConfig } from 'react-hot-loader' // TODO: remove when HMR useState bug fixed
+// setConfig({ pureSFC: true }) // TODO: remove when useState is fixed in development
 
 import Header from '../sections/Header'
 import Footer from '../sections/Footer'
