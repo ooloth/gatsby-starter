@@ -94,6 +94,7 @@ export const query = graphql`
         }
       }
     }
+
     allTemplateYaml {
       edges {
         node {
@@ -102,6 +103,7 @@ export const query = graphql`
         }
       }
     }
+
     allCategory1Yaml {
       edges {
         node {
@@ -109,6 +111,7 @@ export const query = graphql`
         }
       }
     }
+
     allCategory2Yaml {
       edges {
         node {
@@ -116,6 +119,7 @@ export const query = graphql`
         }
       }
     }
+
     allMediaPortraitYaml {
       edges {
         node {
@@ -136,6 +140,7 @@ export const query = graphql`
         }
       }
     }
+
     allMediaOnstageYaml {
       edges {
         node {
@@ -156,6 +161,7 @@ export const query = graphql`
         }
       }
     }
+
     allMediaVideoYaml {
       edges {
         node {
@@ -174,6 +180,7 @@ export const query = graphql`
         }
       }
     }
+
     allLightboxVideosYaml {
       edges {
         node {
@@ -191,6 +198,7 @@ export const query = graphql`
         }
       }
     }
+
     allLightboxImagesYaml {
       edges {
         node {
@@ -207,6 +215,7 @@ export const query = graphql`
         }
       }
     }
+
     allEventsYaml(sort: { fields: [lastDate], order: DESC }) {
       edges {
         node {
@@ -218,6 +227,24 @@ export const query = graphql`
         }
       }
     }
+
+    # If manually marking events as upcoming/past:
+    # upcomingEvents: allEventsYaml(filter: { upcoming: { eq: true } }) {
+    #  edges {
+    #    node {
+    #      title
+    #    }
+    #  }
+    #}
+
+    # If I want to filter AND limit (fast than doing this later in JS):
+    # allArticlesYaml(filter: { category: { eq: "press-releases" } }, limit: 3) {
+    #   edges {
+    #     node {
+    #       title
+    #     }
+    #   }
+    # }
   }
 `
 
