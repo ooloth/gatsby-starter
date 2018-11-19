@@ -32,7 +32,9 @@ function Base({ children }) {
         }
       `}
       render={data => (
-        <Suspense fallback={<div />}>
+        // TODO: engage Suspense if needed (doesn't work with gatsby build at the moment, but should work on Netlify)
+        // <Suspense fallback={<div />}>
+        <>
           <SiteMetadata site={data.site.siteMetadata} />
 
           <Header links={data.allLinksYaml.edges} />
@@ -42,7 +44,8 @@ function Base({ children }) {
           <Footer links={data.allLinksYaml.edges} />
 
           <StructuredData site={data.site.siteMetadata} />
-        </Suspense>
+        </>
+        // </Suspense>
       )}
     />
   )
