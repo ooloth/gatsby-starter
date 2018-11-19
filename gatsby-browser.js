@@ -104,6 +104,17 @@ export const onInitialClientRender = () => {
   //     () => console.log(`👍 Fetch is polyfilled`)
   //   )
   // }
+
+  // TODO: Enable this nuclear option if needed to solve IE errors (e.g. for react-spring)
+  // if (condition) {
+  //   if (!loadjs.isDefined(`gsap`)) {
+  //     loadjs(
+  //       `https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js`,
+  //       `babel-polyfill`,
+  //       () => console.log(`👍 Babel polyfill is polyfilled`)
+  //     )
+  //   }
+  // }
 }
 
 /*
