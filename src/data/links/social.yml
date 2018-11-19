@@ -1,0 +1,9 @@
+social:
+  - href: mailto:username@gmail.com
+    text: Email
+
+  - href: https://www.instagram.com/username
+    text: Instagram
+
+  - href: https://twitter.com/username
+    text: Twitter

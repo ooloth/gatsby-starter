@@ -4,7 +4,7 @@ function Base({ children }) {
   return (
     <StaticQuery
       query={graphql`
-        query BaseQuery {
+        query {
           site {
             siteMetadata {
               description
@@ -15,19 +15,17 @@ function Base({ children }) {
               siteUrl
             }
           }
-          allLinksNavYaml {
+          allLinksYaml {
             edges {
               node {
-                href
-                text
-              }
-            }
-          }
-          allLinksSocialYaml {
-            edges {
-              node {
-                href
-                text
+                nav {
+                  href
+                  text
+                }
+                social {
+                  href
+                  text
+                }
               }
             }
           }
@@ -37,14 +35,11 @@ function Base({ children }) {
         <>
           <SiteMetadata site={data.site.siteMetadata} />
 
-          <Header
-            navLinks={data.allLinksNavYaml.edges}
-            socialLinks={data.allLinksSocialYaml.edges}
-          />
+          <Header links={data.allLinksYaml.edges} />
 
           {children}
 
-          <Footer socialLinks={data.allLinksSocialYaml.edges} />
+          <Footer links={data.allLinksYaml.edges} />
 
           <StructuredData site={data.site.siteMetadata} />
         </>

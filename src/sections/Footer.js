@@ -1,4 +1,4 @@
-const Footer = ({ socialLinks }) => (
+const Footer = ({ links }) => (
   <footer className="bg-black pa3 tc sans-serif white">
     <h1>I'm a footer</h1>
     <Copyright />
@@ -8,7 +8,7 @@ const Footer = ({ socialLinks }) => (
 /*
  *
  * Copyright
- * 
+ *
  */
 
 const Copyright = () => (
@@ -25,7 +25,7 @@ const Copyright = () => (
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'
