@@ -18,119 +18,6 @@ const MountTransitionExample = () => (
 
 /*
  *
- * Animating Boxes
- *
- */
-
-class AnimatingBoxes extends Component {
-  // These contrived "boxes" stand in for real list items like images, events, etc.
-  state = { boxes: [{ text: `box`, id: 1 }] }
-
-  addBox = () =>
-    this.setState({
-      boxes: this.state.boxes.concat({ text: `box`, id: shortid.generate() })
-    })
-
-  removeBox = () => {
-    this.setState({ boxes: this.state.boxes.slice(0, this.state.boxes.length - 1) })
-  }
-
-  render() {
-    const { boxes } = this.state
-
-    return (
-      <>
-        <TransitionGroup component={null}>
-          {boxes.map(box => (
-            <Mount key={box.id}>
-              <p className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4">
-                box
-              </p>
-            </Mount>
-          ))}
-        </TransitionGroup>
-
-        {/* TIP: avoid margins right next to the mount animations (causes jank) */}
-        <div>
-          <button onClick={this.addBox} className="btn mt4 mr2">
-            +
-          </button>
-          <button onClick={this.removeBox} className="btn ml2">
-            -
-          </button>
-        </div>
-      </>
-    )
-  }
-}
-
-/*
- *
- * Animating Poses
- *
- */
-
-class AnimatingPoses extends Component {
-  // These contrived "boxes" stand in for real list items like images, events, etc.
-  state = { boxes: [{ text: `box`, id: 1 }] }
-
-  addBox = () =>
-    this.setState({
-      boxes: this.state.boxes.concat({ text: `box`, id: shortid.generate() })
-    })
-
-  removeBox = () => {
-    this.setState({ boxes: this.state.boxes.slice(0, this.state.boxes.length - 1) })
-  }
-
-  render() {
-    const { boxes } = this.state
-
-    return (
-      <>
-        <ul>
-          {/* the "flipMove" prop determines if the space collapses after the animation completes or before */}
-          <PoseGroup animateOnMount={true} flipMove={false}>
-            {boxes.map(box => (
-              <Box
-                key={box.id}
-                className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4"
-              >
-                box
-              </Box>
-            ))}
-          </PoseGroup>
-        </ul>
-
-        {/* TIP: avoid margins right next to the mount animations (causes jank) */}
-        <div>
-          <button onClick={this.addBox} className="btn mt4 mr2">
-            +
-          </button>
-          <button onClick={this.removeBox} className="btn ml2">
-            -
-          </button>
-        </div>
-      </>
-    )
-  }
-}
-
-const List = posed.ul()
-
-const Box = posed.li({
-  enter: {
-    scale: 1
-    // transition: { type: 'spring', stiffness: 500, damping: 29 }
-  },
-  exit: {
-    scale: 0
-    // transition: { duration: 0 }
-  }
-})
-
-/*
- *
  * Animating Springs
  *
  */
@@ -152,45 +39,18 @@ const AnimatingSprings = memo(function AnimatingSprings() {
         native
         items={boxes}
         keys={box => box.id}
-        from={{
-          marginTop: 0,
-          marginBottom: 0,
-          borderWidth: 0,
-          padding: 0,
-          lineHeight: 0,
-          fontSize: 0,
-          transform: 'scale(0)'
-        }}
-        enter={{
-          marginTop: `0.5rem`,
-          marginBottom: `0.5rem`,
-          borderWidth: `0.25rem`,
-          padding: `2rem`,
-          lineHeight: 1.15,
-          fontSize: `1rem`,
-          height: `auto`,
-          transform: 'scale(1)'
-        }}
+        from={{ transform: 'scale(0)' }}
+        enter={{ height: `auto`, transform: 'scale(1)' }}
         leave={[
           { transform: 'scale(0)' },
-          // Animate space out (remove if not using):
-          {
-            marginTop: 0,
-            marginBottom: 0,
-            borderWidth: 0,
-            padding: 0,
-            lineHeight: 0,
-            fontSize: 0,
-            height: 0
-          }
+          { height: 0 } // Animate space out (remove if not using)
         ]}
       >
         {box => props => (
-          <animated.div
-            className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4 overflow-hidden"
-            style={props}
-          >
-            {box.text}
+          <animated.div className="overflow-hidden" style={props}>
+            <p className="mv1 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4">
+              {box.text}
+            </p>
           </animated.div>
         )}
       </Transition>
@@ -206,6 +66,119 @@ const AnimatingSprings = memo(function AnimatingSprings() {
     </>
   )
 })
+
+/*
+ *
+ * Animating Boxes
+ *
+ */
+
+// class AnimatingBoxes extends Component {
+//   // These contrived "boxes" stand in for real list items like images, events, etc.
+//   state = { boxes: [{ text: `box`, id: 1 }] }
+
+//   addBox = () =>
+//     this.setState({
+//       boxes: this.state.boxes.concat({ text: `box`, id: shortid.generate() })
+//     })
+
+//   removeBox = () => {
+//     this.setState({ boxes: this.state.boxes.slice(0, this.state.boxes.length - 1) })
+//   }
+
+//   render() {
+//     const { boxes } = this.state
+
+//     return (
+//       <>
+//         <TransitionGroup component={null}>
+//           {boxes.map(box => (
+//             <Mount key={box.id}>
+//               <p className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4">
+//                 box
+//               </p>
+//             </Mount>
+//           ))}
+//         </TransitionGroup>
+
+//         {/* TIP: avoid margins right next to the mount animations (causes jank) */}
+//         <div>
+//           <button onClick={this.addBox} className="btn mt4 mr2">
+//             +
+//           </button>
+//           <button onClick={this.removeBox} className="btn ml2">
+//             -
+//           </button>
+//         </div>
+//       </>
+//     )
+//   }
+// }
+
+/*
+ *
+ * Animating Poses
+ *
+ */
+
+// class AnimatingPoses extends Component {
+//   // These contrived "boxes" stand in for real list items like images, events, etc.
+//   state = { boxes: [{ text: `box`, id: 1 }] }
+
+//   addBox = () =>
+//     this.setState({
+//       boxes: this.state.boxes.concat({ text: `box`, id: shortid.generate() })
+//     })
+
+//   removeBox = () => {
+//     this.setState({ boxes: this.state.boxes.slice(0, this.state.boxes.length - 1) })
+//   }
+
+//   render() {
+//     const { boxes } = this.state
+
+//     return (
+//       <>
+//         <ul>
+//           {/* the "flipMove" prop determines if the space collapses after the animation completes or before */}
+//           <PoseGroup animateOnMount={true} flipMove={false}>
+//             {boxes.map(box => (
+//               <Box
+//                 key={box.id}
+//                 className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4"
+//               >
+//                 box
+//               </Box>
+//             ))}
+//           </PoseGroup>
+//         </ul>
+
+//         {/* TIP: avoid margins right next to the mount animations (causes jank) */}
+//         <div>
+//           <button onClick={this.addBox} className="btn mt4 mr2">
+//             +
+//           </button>
+//           <button onClick={this.removeBox} className="btn ml2">
+//             -
+//           </button>
+//         </div>
+//       </>
+//     )
+//   }
+// }
+
+// const List = posed.ul()
+
+// const Box = posed.li({
+//   enter: {
+//     scale: 1
+//     // transition: { type: 'spring', stiffness: 500, damping: 29 }
+//   },
+//   exit: {
+//     scale: 0
+//     // transition: { duration: 0 }
+//   }
+// })
 
 /*
  *
