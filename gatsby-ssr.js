@@ -1,5 +1,24 @@
 /*
  *
+ * Fallback content if JS is disabled
+ *
+ */
+
+// TODO: only implement this if Lighthouse tells me to
+// See: https://github.com/gatsbyjs/gatsby/issues/9085#issuecomment-429580470
+
+// const React = require('react')
+
+// exports.onRenderBody = ({ setPreBodyComponents }) => {
+//   setPreBodyComponents([
+//     <noscript key="noscript">
+//       Please enable JavaScript in your browser to view this site.
+//     </noscript>
+//   ])
+// }
+
+/*
+ *
  * Add React Context
  *
  */
