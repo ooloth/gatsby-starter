@@ -136,7 +136,7 @@ const Box = posed.li({
  *
  */
 
-function AnimatingSprings() {
+const AnimatingSprings = memo(function AnimatingSprings() {
   const [boxes, setBoxes] = useState([{ text: `box`, id: 1 }])
 
   function addBox() {
@@ -154,7 +154,8 @@ function AnimatingSprings() {
         items={boxes}
         keys={box => box.id}
         from={{
-          margin: 0,
+          marginTop: 0,
+          marginBottom: 0,
           borderWidth: 0,
           padding: 0,
           lineHeight: 0,
@@ -162,18 +163,21 @@ function AnimatingSprings() {
           transform: 'scale(0)'
         }}
         enter={{
-          margin: `0.5rem auto`,
-          borderWidth: `.25rem`,
+          marginTop: `0.5rem`,
+          marginBottom: `0.5rem`,
+          borderWidth: `0.25rem`,
           padding: `2rem`,
-          lineHeight: `1.15`,
+          lineHeight: 1.15,
           fontSize: `1rem`,
           height: `auto`,
           transform: 'scale(1)'
         }}
         leave={[
           { transform: 'scale(0)' },
+          // Animate space out (remove if not using):
           {
-            margin: 0,
+            marginTop: 0,
+            marginBottom: 0,
             borderWidth: 0,
             padding: 0,
             lineHeight: 0,
@@ -184,7 +188,7 @@ function AnimatingSprings() {
       >
         {box => props => (
           <animated.div
-            className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4"
+            className="mv2 ml-auto mr-auto w-50 mw5 b--black bw2 bg-pink pa4 overflow-hidden"
             style={props}
           >
             {box.text}
@@ -202,7 +206,7 @@ function AnimatingSprings() {
       </div>
     </>
   )
-}
+})
 
 /*
  *
