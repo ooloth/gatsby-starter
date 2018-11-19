@@ -2,8 +2,8 @@ const RevealExample = ({ data }) => (
   <section className="pb5">
     <h2 className="mb4">These use Reveal to appear magically on scroll</h2>
 
-    <h3 className="mb3">Single item (GSAP):</h3>
-    <RevealedImage image={data[0].node} />
+    {/* <h3 className="mb3">Single item (GSAP):</h3>
+    <RevealedImage image={data[0].node} /> */}
 
     {/* <h3 className="pt4 mb3">Single item (React Pose):</h3>
     <PosedImage image={data[0].node} reset={true} /> */}
@@ -11,8 +11,8 @@ const RevealExample = ({ data }) => (
     <h3 className="pt4 mb3">Single item (React Spring):</h3>
     <SprungImage image={data[0].node} reset={true} />
 
-    <h3 className="mt4 mb3">Array of items (GSAP):</h3>
-    <RevealedImages images={data} />
+    {/* <h3 className="mt4 mb3">Array of items (GSAP):</h3>
+    <RevealedImages images={data} /> */}
 
     {/* <h3 className="mt4 mb3">Array of items (React Pose):</h3>
     <PosedImages images={data} reset={true} /> */}
@@ -243,8 +243,6 @@ class SprungImage extends React.Component {
     const { image } = this.props
     const { isVisible } = this.state
 
-    console.log({ isVisible })
-
     return (
       <Waypoint
         onEnter={this.handleWaypointEnter}
@@ -312,29 +310,26 @@ class SprungImages extends React.Component {
             alignItems: `start`
           }}
         >
-          {images.map((image, i) => (
-            <Spring
-              native
-              key={i}
-              from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-              to={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible
-                  ? 'translateY(0) scale(1)'
-                  : 'translateY(40px) scale(0.8)'
-              }}
-              delay={300 + i * 300}
-            >
-              {props => (
-                <AnimatedImage
-                  fluid={image.node.image.childImageSharp.fluid}
-                  alt={image.node.alt}
-                  className="shadow-lg"
-                  style={props}
-                />
-              )}
-            </Spring>
-          ))}
+          <Trail
+            items={images}
+            keys={image => image.node.image.childImageSharp.fluid.src}
+            from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
+            to={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible
+                ? 'translateY(0) scale(1)'
+                : 'translateY(40px) scale(0.8)'
+            }}
+          >
+            {image => props => (
+              <AnimatedImage
+                fluid={image.node.image.childImageSharp.fluid}
+                alt={image.node.alt}
+                className="shadow-lg"
+                style={props}
+              />
+            )}
+          </Trail>
         </div>
       </Waypoint>
     )
@@ -353,9 +348,11 @@ import Img from '../../components/Img'
 import posed, { PoseGroup } from 'react-pose'
 import Reveal from '../../components/examples/Reveal'
 // import RevealPose from '../../components/examples/RevealPose'
+
 import {
   Transition,
   Spring,
+  Trail,
   animated,
   config,
   interpolate,
