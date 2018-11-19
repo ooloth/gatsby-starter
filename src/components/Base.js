@@ -32,7 +32,7 @@ function Base({ children }) {
         }
       `}
       render={data => (
-        <>
+        <Suspense fallback={<div />}>
           <SiteMetadata site={data.site.siteMetadata} />
 
           <Header links={data.allLinksYaml.edges} />
@@ -42,7 +42,7 @@ function Base({ children }) {
           <Footer links={data.allLinksYaml.edges} />
 
           <StructuredData site={data.site.siteMetadata} />
-        </>
+        </Suspense>
       )}
     />
   )
@@ -131,8 +131,6 @@ function SiteMetadata({ site }) {
       <meta name="twitter:title" content={site.title} />
       <meta name="twitter:description" content={site.description} />
       <meta name="twitter:image" content={site.siteUrl + siteImage} />
-      {/* TODO: okay to remove this version from starter? decide after running debugger */}
-      {/* <meta name="twitter:image:src" content={site.siteUrl + siteImage} /> */}
 
       {/* Open Graph general (Facebook, Pinterest, Slack & Google+) */}
       <meta property="og:title" content={site.title} />
@@ -217,7 +215,7 @@ function StructuredData({ site }) {
  *
  */
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 // FIXME: can't use this if also using Spring (see error in RevealExample)
