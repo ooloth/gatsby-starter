@@ -24,19 +24,87 @@ const RevealExample = ({ data }) => (
 
 /*
  *
+ * Sprung Image
+ *
+ */
+
+const AnimatedImage = animated(Img)
+
+// Using React.memo so the useOnScreen hook will run properly (since the other HMR fix breaks react-spring with a ref error)
+const SprungImage = React.memo(function SprungImageWithHooks({ image }) {
+  const ref = useRef()
+  const onScreen = useOnScreen(ref)
+
+  const [props] = useSpring({
+    opacity: onScreen ? 1 : 0,
+    transform: onScreen ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.8)',
+    from: { opacity: 0, transform: 'translateY(40px) scale(0.8)' }
+  })
+
+  return (
+    <animated.div ref={ref} style={props}>
+      <Img
+        fluid={image.image.childImageSharp.fluid}
+        alt={image.alt}
+        className="shadow-lg"
+      />
+    </animated.div>
+  )
+})
+
+const SprungImages = React.memo(function SprungImageWithHooks({ images }) {
+  const ref = useRef()
+  const onScreen = useOnScreen(ref)
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        display: `grid`,
+        gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+        gridGap: `1rem`,
+        alignItems: `start`
+      }}
+    >
+      <Trail
+        items={images}
+        keys={image => image.node.image.childImageSharp.fluid.src}
+        from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
+        to={{
+          opacity: onScreen ? 1 : 0,
+          transform: onScreen
+            ? 'translateY(0) scale(1)'
+            : 'translateY(40px) scale(0.8)'
+        }}
+      >
+        {image => props => (
+          <AnimatedImage
+            fluid={image.node.image.childImageSharp.fluid}
+            alt={image.node.alt}
+            className="shadow-lg"
+            style={props}
+          />
+        )}
+      </Trail>
+    </div>
+  )
+})
+
+/*
+ *
  * Revealed Image
  *
  */
 
-const RevealedImage = ({ image }) => (
-  <Reveal css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }} reset={true}>
-    <Img
-      fluid={image.image.childImageSharp.fluid}
-      alt={image.alt}
-      className="shadow-lg"
-    />
-  </Reveal>
-)
+// const RevealedImage = ({ image }) => (
+//   <Reveal css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }} reset={true}>
+//     <Img
+//       fluid={image.image.childImageSharp.fluid}
+//       alt={image.alt}
+//       className="shadow-lg"
+//     />
+//   </Reveal>
+// )
 
 /*
  *
@@ -44,32 +112,32 @@ const RevealedImage = ({ image }) => (
  *
  */
 
-const RevealedImages = ({ images }) => (
-  <Reveal
-    css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
-    stagger={true}
-    staggerDelay={0.2}
-    reset={true}
-    tag="ul"
-    style={{
-      display: `grid`,
-      gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
-      gridGap: `1rem`
-    }}
-  >
-    {images.map((image, i) => {
-      return (
-        <li key={i}>
-          <Img
-            fluid={image.node.image.childImageSharp.fluid}
-            alt={image.node.alt}
-            className="shadow-lg"
-          />
-        </li>
-      )
-    })}
-  </Reveal>
-)
+// const RevealedImages = ({ images }) => (
+//   <Reveal
+//     css={{ opacity: 0, transform: `translateY(40px) scale(.8)` }}
+//     stagger={true}
+//     staggerDelay={0.2}
+//     reset={true}
+//     tag="ul"
+//     style={{
+//       display: `grid`,
+//       gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+//       gridGap: `1rem`
+//     }}
+//   >
+//     {images.map((image, i) => {
+//       return (
+//         <li key={i}>
+//           <Img
+//             fluid={image.node.image.childImageSharp.fluid}
+//             alt={image.node.alt}
+//             className="shadow-lg"
+//           />
+//         </li>
+//       )
+//     })}
+//   </Reveal>
+// )
 
 /*
  *
@@ -77,45 +145,45 @@ const RevealedImages = ({ images }) => (
  *
  */
 
-class PosedImage extends React.Component {
-  state = { isVisible: false }
+// class PosedImage extends React.Component {
+//   state = { isVisible: false }
 
-  // Waypoint handlers
-  handleWaypointEnter = () => this.setState({ isVisible: true })
-  handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
+//   // Waypoint handlers
+//   handleWaypointEnter = () => this.setState({ isVisible: true })
+//   handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
 
-  render() {
-    const { image } = this.props
-    const { isVisible } = this.state
+//   render() {
+//     const { image } = this.props
+//     const { isVisible } = this.state
 
-    return (
-      <Waypoint
-        onEnter={this.handleWaypointEnter}
-        onLeave={this.handleWaypointLeave}
-        offsetTop="150%"
-        offsetBottom="150%"
-      >
-        <RevealViaPose pose={isVisible ? 'visible' : 'hidden'} className="shadow-lg">
-          <Img fluid={image.image.childImageSharp.fluid} alt={image.alt} />
-        </RevealViaPose>
-      </Waypoint>
-    )
-  }
-}
+//     return (
+//       <Waypoint
+//         onEnter={this.handleWaypointEnter}
+//         onLeave={this.handleWaypointLeave}
+//         offsetTop="150%"
+//         offsetBottom="150%"
+//       >
+//         <RevealViaPose pose={isVisible ? 'visible' : 'hidden'} className="shadow-lg">
+//           <Img fluid={image.image.childImageSharp.fluid} alt={image.alt} />
+//         </RevealViaPose>
+//       </Waypoint>
+//     )
+//   }
+// }
 
-const RevealViaPose = posed.div({
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1
-    // transition: {
-    // delay: 100
-    // duration: 1000,
-    // ease: [0.77, 0, 0.175, 1] // quadInAndOut
-    // }
-  },
-  hidden: { opacity: 0, y: 40, scale: 0.8, transition: { duration: 0 } }
-})
+// const RevealViaPose = posed.div({
+//   visible: {
+//     opacity: 1,
+//     y: 0,
+//     scale: 1
+//     // transition: {
+//     // delay: 100
+//     // duration: 1000,
+//     // ease: [0.77, 0, 0.175, 1] // quadInAndOut
+//     // }
+//   },
+//   hidden: { opacity: 0, y: 40, scale: 0.8, transition: { duration: 0 } }
+// })
 
 // const PosedImage = ({ image }) => (
 //   <RevealPose
@@ -138,71 +206,71 @@ const RevealViaPose = posed.div({
  *
  */
 
-class PosedImages extends React.Component {
-  state = { isVisible: false }
+// class PosedImages extends React.Component {
+//   state = { isVisible: false }
 
-  // Waypoint handlers
-  handleWaypointEnter = () => this.setState({ isVisible: true })
-  handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
+//   // Waypoint handlers
+//   handleWaypointEnter = () => this.setState({ isVisible: true })
+//   handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
 
-  render() {
-    const { images } = this.props
-    const { isVisible } = this.state
+//   render() {
+//     const { images } = this.props
+//     const { isVisible } = this.state
 
-    return (
-      <Waypoint
-        onEnter={this.handleWaypointEnter}
-        onLeave={this.handleWaypointLeave}
-        offsetTop="150%"
-        offsetBottom="150%"
-      >
-        <List
-          style={{
-            display: `grid`,
-            gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
-            gridGap: `1rem`,
-            alignItems: `start`
-          }}
-          pose={isVisible ? 'visible' : 'hidden'}
-        >
-          {/* the "flipMove" prop determines if the space collapses after the animation completes or before */}
-          {/* <PoseGroup pose={isVisible ? 'visible' : 'hidden'}> */}
-          {images.map((image, i) => (
-            <Item key={i} className="shadow-lg">
-              <Img
-                fluid={image.node.image.childImageSharp.fluid}
-                alt={image.node.alt}
-              />
-            </Item>
-          ))}
-          {/* </PoseGroup> */}
-        </List>
-      </Waypoint>
-    )
-  }
-}
+//     return (
+//       <Waypoint
+//         onEnter={this.handleWaypointEnter}
+//         onLeave={this.handleWaypointLeave}
+//         offsetTop="150%"
+//         offsetBottom="150%"
+//       >
+//         <List
+//           style={{
+//             display: `grid`,
+//             gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+//             gridGap: `1rem`,
+//             alignItems: `start`
+//           }}
+//           pose={isVisible ? 'visible' : 'hidden'}
+//         >
+//           {/* the "flipMove" prop determines if the space collapses after the animation completes or before */}
+//           {/* <PoseGroup pose={isVisible ? 'visible' : 'hidden'}> */}
+//           {images.map((image, i) => (
+//             <Item key={i} className="shadow-lg">
+//               <Img
+//                 fluid={image.node.image.childImageSharp.fluid}
+//                 alt={image.node.alt}
+//               />
+//             </Item>
+//           ))}
+//           {/* </PoseGroup> */}
+//         </List>
+//       </Waypoint>
+//     )
+//   }
+// }
 
-const listConfig = {
-  visible: { staggerChildren: 150 },
-  initialPose: 'hidden'
-}
+// const listConfig = {
+//   visible: { staggerChildren: 150 },
+//   initialPose: 'hidden'
+// }
 
-const itemConfig = {
-  visible: {
-    scale: 1,
-    y: 0,
-    opacity: 1
-    // transition: {
-    //   // delay: 100,
-    //   duration: 1000,
-    //   ease: [0.77, 0, 0.175, 1]
-    // }
-  },
-  hidden: { scale: 0.8, y: 40, opacity: 0, transition: { duration: 0 } }
-}
+// const itemConfig = {
+//   visible: {
+//     scale: 1,
+//     y: 0,
+//     opacity: 1
+//     // transition: {
+//     //   // delay: 100,
+//     //   duration: 1000,
+//     //   ease: [0.77, 0, 0.175, 1]
+//     // }
+//   },
+//   hidden: { scale: 0.8, y: 40, opacity: 0, transition: { duration: 0 } }
+// }
 
-const List = posed.ul(listConfig)
-const Item = posed.li(itemConfig)
+// const List = posed.ul(listConfig)
+// const Item = posed.li(itemConfig)
 
 /* <Img
             
@@ -228,127 +296,12 @@ const Item = posed.li(itemConfig)
 
 /*
  *
- * Sprung Image
- *
- */
-
-class SprungImage extends React.Component {
-  state = { isVisible: false }
-
-  // Waypoint handlers
-  handleWaypointEnter = () => this.setState({ isVisible: true })
-  handleWaypointLeave = () => this.setState({ isVisible: false })
-
-  render() {
-    const { image } = this.props
-    const { isVisible } = this.state
-
-    return (
-      <Waypoint
-        onEnter={this.handleWaypointEnter}
-        onLeave={this.handleWaypointLeave}
-        offsetTop="400%"
-        offsetBottom="400%"
-      >
-        <div>
-          <Spring
-            native
-            from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-            to={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible
-                ? 'translateY(0) scale(1)'
-                : 'translateY(40px) scale(0.8)'
-            }}
-          >
-            {props => (
-              <AnimatedImage
-                fluid={image.image.childImageSharp.fluid}
-                alt={image.alt}
-                className="shadow-lg"
-                style={props}
-              />
-            )}
-          </Spring>
-        </div>
-      </Waypoint>
-    )
-  }
-}
-
-const AnimatedImage = animated(Img)
-
-/*
- *
- * Sprung Images
- *
- */
-
-class SprungImages extends React.Component {
-  state = { isVisible: false }
-
-  // Waypoint handlers
-  handleWaypointEnter = () => this.setState({ isVisible: true })
-  handleWaypointLeave = () => this.props.reset && this.setState({ isVisible: false })
-
-  render() {
-    const { images } = this.props
-    const { isVisible } = this.state
-
-    return (
-      <Waypoint
-        onEnter={this.handleWaypointEnter}
-        onLeave={this.handleWaypointLeave}
-        offsetTop="200%"
-        offsetBottom="200%"
-      >
-        <div
-          style={{
-            display: `grid`,
-            gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
-            gridGap: `1rem`,
-            alignItems: `start`
-          }}
-        >
-          <Trail
-            items={images}
-            keys={image => image.node.image.childImageSharp.fluid.src}
-            from={{ opacity: 0, transform: 'translateY(40px) scale(0.8)' }}
-            to={{
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible
-                ? 'translateY(0) scale(1)'
-                : 'translateY(40px) scale(0.8)'
-            }}
-          >
-            {image => props => (
-              <AnimatedImage
-                fluid={image.node.image.childImageSharp.fluid}
-                alt={image.node.alt}
-                className="shadow-lg"
-                style={props}
-              />
-            )}
-          </Trail>
-        </div>
-      </Waypoint>
-    )
-  }
-}
-
-/*
- *
  * Imports & Exports
  *
  */
 
-import React from 'react'
-
-import Img from '../../components/Img'
-import posed, { PoseGroup } from 'react-pose'
-import Reveal from '../../components/examples/Reveal'
-// import RevealPose from '../../components/examples/RevealPose'
-
+import React, { useRef } from 'react'
+import Waypoint from 'react-waypoint'
 import {
   Transition,
   Spring,
@@ -358,6 +311,12 @@ import {
   interpolate,
   useSpring
 } from 'react-spring'
-import Waypoint from 'react-waypoint'
+
+import useOnScreen from '../../hooks/examples/useOnScreen'
+
+import Img from '../../components/Img'
+// import posed, { PoseGroup } from 'react-pose'
+// import Reveal from '../../components/examples/Reveal'
+// import RevealPose from '../../components/examples/RevealPose'
 
 export default RevealExample
