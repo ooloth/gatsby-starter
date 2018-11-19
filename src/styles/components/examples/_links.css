@@ -23,4 +23,13 @@
   box-shadow: inset 0 -2px 0px 0px var(--pink);
 
   &:hover { box-shadow: inset 0 -12px 0px 0px var(--pink) }
+
+  /*
+    
+    TODO: if I'm having multiline issues with this styling, check out these:
+
+    1. https://codepen.io/chriscoyier/pen/ZRpZLx/
+    2. https://codepen.io/shelaine/pen/zJWMNQ
+
+  */
 }
