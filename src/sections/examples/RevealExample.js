@@ -2,23 +2,23 @@ const RevealExample = ({ data }) => (
   <section className="pb5">
     <h2 className="mb4">These use Reveal to appear magically on scroll</h2>
 
+    <h3 className="pt4 mb3">Single item:</h3>
+    <SprungImage image={data[0].node} reset={true} />
+
+    <h3 className="mt4 mb3">Array of items:</h3>
+    <SprungImages images={data} reset={true} />
+
     {/* <h3 className="mb3">Single item (GSAP):</h3>
     <RevealedImage image={data[0].node} /> */}
 
     {/* <h3 className="pt4 mb3">Single item (React Pose):</h3>
     <PosedImage image={data[0].node} reset={true} /> */}
 
-    <h3 className="pt4 mb3">Single item (React Spring):</h3>
-    <SprungImage image={data[0].node} reset={true} />
-
     {/* <h3 className="mt4 mb3">Array of items (GSAP):</h3>
     <RevealedImages images={data} /> */}
 
     {/* <h3 className="mt4 mb3">Array of items (React Pose):</h3>
     <PosedImages images={data} reset={true} /> */}
-
-    <h3 className="mt4 mb3">Array of items (React Spring):</h3>
-    <SprungImages images={data} reset={true} />
   </section>
 )
 
