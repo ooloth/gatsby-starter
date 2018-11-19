@@ -43,7 +43,7 @@ const AnimatingSprings = memo(function AnimatingSprings() {
         enter={{ height: `auto`, transform: 'scale(1)' }}
         leave={[
           { transform: 'scale(0)' },
-          { height: 0 } // Animate space out (remove if not using)
+          { height: 0 } // Animate space out after scaling (remove if not using)
         ]}
       >
         {box => props => (

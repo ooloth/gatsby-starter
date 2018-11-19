@@ -1,4 +1,4 @@
-const TwitterExample = () => (
+const ReactSpringExample = () => (
   <section className="mv6 bg-lightest-blue pa5 shadow-lg">
     <h2 className="mb3">React-Spring Examples</h2>
 
@@ -34,10 +34,10 @@ const TwitterExample = () => (
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'
 import { Spring, animated, interpolate, config } from 'react-spring'
 
-export default TwitterExample
+export default ReactSpringExample
