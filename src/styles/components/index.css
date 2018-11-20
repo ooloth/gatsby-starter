@@ -16,6 +16,7 @@ Component classes
 @import './examples/buttons';
 @import './examples/checkbox';
 @import './examples/containers';
+@import './examples/dropcap';
 @import './examples/emoji';
 @import './examples/fading-carousel';
 @import './examples/filters';

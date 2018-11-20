@@ -65,6 +65,7 @@ Utility classes
 @import './rotation';
 @import './transform-origin';
 @import './translate';
+@import './scale';
 
 /* Typography */
 @import './color';
