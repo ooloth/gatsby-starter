@@ -12,12 +12,17 @@
  *
  */
 
-.fade-in { animation: fadeIn 2s }
+.fade-in { animation: fadeIn 1s var(--easeInOutCubic) forwards }
 
-/* TODO: use animation-delay instead of this timing */
+/* 
+
+TODO: if applicable, control staggering via inline animation-delay styling
+
+e.g. style={{ animationDelay: `calc(250ms + ${navLinks.length * 100}ms)` }}
+
+*/
 @keyframes fadeIn {
   0%   { opacity: 0 }
-  70%  { opacity: 0 }
   100% { opacity: 1 }
 }
 
