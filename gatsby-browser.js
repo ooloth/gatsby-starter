@@ -95,6 +95,17 @@ export const onInitialClientRender = () => {
   //   }
   // }
 
+  // TODO: Enable this nuclear option if needed to solve IE errors (e.g. for react-spring)
+  // Babel-polyfill for IE (includes everything except fetch)
+  // if (!loadjs.isDefined(`babel-polyfill`)) {
+  //   if (typeof window.Symbol === `undefined`) {
+  //     loadjs(
+  //       `https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js`,
+  //       `babel-polyfill`
+  //     )
+  //   }
+  // }
+
   // TODO: Remove if Babel 7 auto-polyfills this...
   // Fetch polyfill for FormNetlify (IE)
   // if (typeof window.fetch === `undefined`) {
@@ -103,17 +114,6 @@ export const onInitialClientRender = () => {
   //     `fetch`,
   //     () => console.log(`👍 Fetch is polyfilled`)
   //   )
-  // }
-
-  // TODO: Enable this nuclear option if needed to solve IE errors (e.g. for react-spring)
-  // if (condition) {
-  //   if (!loadjs.isDefined(`gsap`)) {
-  //     loadjs(
-  //       `https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js`,
-  //       `babel-polyfill`,
-  //       () => console.log(`👍 Babel polyfill is polyfilled`)
-  //     )
-  //   }
   // }
 }
 
