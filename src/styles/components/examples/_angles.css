@@ -29,7 +29,7 @@ These styles accompany the Angle.js component
 }
 
 /* Vertical triangle rotations */
-/* .rotate-right-from-top {
+.rotate-right-from-top {
   transform: rotate(.1deg);
   transform-origin: left top;
-} */
+}
