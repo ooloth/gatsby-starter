@@ -9,10 +9,10 @@ const YamlExample = ({ data }) => (
   </section>
 )
 
-/* 
+/*
  *
  * Example
- * 
+ *
  */
 
 const Example = ({ example }) => (
@@ -36,7 +36,7 @@ const Example = ({ example }) => (
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'

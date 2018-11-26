@@ -1,10 +1,6 @@
 const FadingCarouselExample = ({ data }) => (
   <section className="mv6 bg-light-yellow pa5 shadow-lg">
     <h2 className="mb3">Fading Carousel Example</h2>
-    <p className="ml-auto mr-auto mb4 measure-narrow lh-copy f4">
-      (The height of the carousel's ul is currently fixed. Setting an aspect ratio on
-      the ul might also work...)
-    </p>
 
     <FadingCarousel slides={data}>
       {(slides, slideIndex, handleBtnClick) => (
@@ -21,6 +17,7 @@ const FadingCarouselExample = ({ data }) => (
     </FadingCarousel>
   </section>
 )
+
 /*
  *
  * Carousel Slides
@@ -28,14 +25,16 @@ const FadingCarouselExample = ({ data }) => (
  */
 
 const CarouselSlides = ({ slides, slideIndex }) => (
-  <ul className="relative vh-70 min-h5 max-h6 lg:h7 lg:max-h7">
+  <ul className="flex items-center">
     {slides.map((slide, i) => (
       <CarouselSlide
         key={i}
         slide={slide.node}
-        className={`absolute top-0 left-0 w-100 h-100 ${
-          i !== slideIndex ? `o-0` : ``
-        }`}
+        className={`flex-none w-100 ${i !== slideIndex ? `o-0` : `o-100`}`}
+        style={{
+          transform: `translateX(calc(${i} * -100%))`,
+          transition: `opacity 1s`
+        }}
       />
     ))}
   </ul>
@@ -47,17 +46,15 @@ const CarouselSlides = ({ slides, slideIndex }) => (
  *
  */
 
-const CarouselSlide = ({ slide, className }) => (
-  <li className={`${className}`} style={{ transition: `opacity 1s` }}>
+const CarouselSlide = ({ slide, className, style }) => (
+  <li className={`container ${className}`} style={style}>
     <Img
       fluid={slide.image.childImageSharp.fluid}
       alt={slide.alt}
-      // objPostion={slide.objPosition}
-      // className="top-0 left-0 w-100 h-100"
-      // style={{ position: `absolute` }}
+      className="aspect-ratio aspect-ratio--16x9"
     />
 
-    <h3>{slide.title}</h3>
+    <h3 className="pv3">{slide.title}</h3>
   </li>
 )
 
@@ -102,7 +99,7 @@ const CarouselButtons = ({ slides, slideIndex, handleChange }) => (
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React, { Fragment } from 'react'

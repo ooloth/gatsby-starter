@@ -27,4 +27,7 @@ import React from 'react'
 import SlickSlider from '../../components/examples/SlickSlider'
 import Img from '../../components/Img'
 
+import '../../../node_modules/slick-carousel/slick/slick.css'
+import './../../styles/plugins/examples/react-slick.css'
+
 export default FlickityExample

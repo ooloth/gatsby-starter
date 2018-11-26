@@ -36,12 +36,14 @@ TwitterFeed.propTypes = {
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import twitterFetcher from 'twitter-fetcher'
+
+import '../../styles/plugins/examples/twitter-fetcher.css'
 
 export default TwitterFeed
 

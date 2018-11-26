@@ -63,19 +63,22 @@ ImageGalleryAndLightbox.propTypes = {
 /*
  *
  * Images
- * 
+ *
  */
 
 /*
  *
  * Import & Exports
- * 
+ *
  */
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Lightbox from 'react-image-lightbox'
 import noScroll from 'no-scroll'
+
+import '../../../node_modules/react-image-lightbox/style.css'
+import '../../styles/plugins/examples/react-image-lightbox.css'
 
 export default ImageGalleryAndLightbox
 

@@ -59,8 +59,6 @@ function IndexPage({ data }) {
         {/* <FormikExample /> */}
         {/* <FormExample /> */}
 
-        <StyledSystemExample />
-
         <ScrollTo href="#top" className="link dib mb5">
           Back to top
         </ScrollTo>
@@ -293,8 +291,6 @@ import InstagramExample from '../sections/examples/InstagramExample'
 
 // import FormikExample from '../sections/examples/FormikExample'
 // import FormExample from '../sections/examples/FormExample'
-
-import StyledSystemExample from '../sections/examples/StyledSystemExample'
 
 import ScrollTo from '../components/examples/ScrollTo'
 

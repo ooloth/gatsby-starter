@@ -45,41 +45,53 @@ See: https://github.com/streamich/use-media/blob/master/src/index.ts
 
 USAGE:
 
-function Articles({ articles }) {
+function Items({ items }) {
   const gridSupported = useDetectGridSupport()
   const mdScreen = useMediaQuery(`(min-width: 48em)`)
   const xlScreen = useMediaQuery(`(min-width: 75em)`)
 
-  const [limit, setLimit] = useState(() => setLimitByScreenSize())
-  const [visibleArticles, setVisibleArticles] = useState(articles)
+  const [limit, setLimit] = useState(() => setLimitByBreakpoint())
 
-  useEffect(
-    async () => {
-      await setLimit(setLimitByScreenSize)
-      setVisibleArticles(articles.slice(0, limit))
-    },
-    [limit, gridSupported, mdScreen, xlScreen]
-  )
+  function calculateLimit() {
+    if (limit === 999) return 999 // If user has clicked show all, set to 999
+    return setLimitByBreakpoint() // Otherwise, calculate by breakpoint
+  }
 
-  function setLimitByScreenSize() {
-    let limitByScreen
-
+  function setLimitByBreakpoint() {
+    let limitByScreen = 3
     if (gridSupported) {
-      if (mdScreen) limitByScreen = 2
-      if (xlScreen) limitByScreen = 3
-    } else {
-      limitByScreen = 3
+      if (mdScreen) limitByScreen = 4
+      if (xlScreen) limitByScreen = 9
     }
-
     return limitByScreen
   }
 
+  useEffect(() => setLimit(calculateLimit), [
+    limit,
+    gridSupported,
+    mdScreen,
+    xlScreen
+  ])
+
+  // Computed properties
+  const visibleItems = items.slice(0, limit)
+  const limited = visibleItems < items
+
   return (
-    <ul className="articles-grid nt5 pt3 md:pt4 pb5">
-      {visibleArticles.map(article => (
-        <Article key={article.node.title} article={article.node} />
-      ))}
-    </ul>
+    <>
+      <ul>
+        {visibleItems.map(article => (
+          <Item key={item.node.title} item={item.node} />
+        ))}
+      </ul>
+
+      <button
+        onClick={() => setLimit(999)}
+        aria-expanded={false}
+      >
+        See all items
+      </button>
+    </>
   )
 }
 

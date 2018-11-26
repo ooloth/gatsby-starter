@@ -16,10 +16,9 @@ Utility classes
 
 /* Borders & outlines */
 @import './border';
-@import './border-color';
-@import './border-radius';
 @import './border-style';
-@import './border-width';
+@import './border-radius';
+@import './border-color';
 @import './outline';
 
 /* Box shadow */

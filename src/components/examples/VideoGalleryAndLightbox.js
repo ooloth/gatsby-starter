@@ -71,13 +71,13 @@ VideoGalleryAndLightbox.propTypes = {
 /*
  *
  * Images
- * 
+ *
  */
 
 /*
  *
  * Import & Exports
- * 
+ *
  */
 
 import React, { Component } from 'react'
@@ -86,6 +86,8 @@ import PropTypes from 'prop-types'
 // NOTE: A forked version of react-image-lightbox that supports non-image component children
 import Lightbox from 'lightbox-react'
 import ReactPlayer from 'react-player'
+
+import '../../styles/plugins/examples/lightbox-react.css'
 
 export default VideoGalleryAndLightbox
 

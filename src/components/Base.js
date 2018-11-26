@@ -34,7 +34,8 @@ function Base({ children }) {
       render={data => (
         // TODO: engage Suspense if needed (doesn't work with gatsby build at the moment, but should work on Netlify)
         // <Suspense fallback={<div />}>
-        <>
+        // See https://reactjs.org/docs/strict-mode.html
+        <StrictMode>
           <SiteMetadata site={data.site.siteMetadata} />
 
           <Header links={data.allLinksYaml.edges} />
@@ -44,7 +45,7 @@ function Base({ children }) {
           <Footer links={data.allLinksYaml.edges} />
 
           <StructuredData site={data.site.siteMetadata} />
-        </>
+        </StrictMode>
         // </Suspense>
       )}
     />
@@ -74,10 +75,6 @@ import '../styles/index.css'
 // See: https://github.com/nfl/react-helmet + https://megatags.co + https://gethead.info
 
 import siteImage from '../images/placeholder-1.jpg'
-
-// TODO: Need to trigger polyfills for react-pose (IE)?
-// var a = Array.from('123')
-// var b = String.prototype.endsWith('abc')
 
 function SiteMetadata({ site }) {
   return (
@@ -218,7 +215,7 @@ function StructuredData({ site }) {
  *
  */
 
-import React, { Suspense } from 'react'
+import React, { StrictMode, Suspense } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 // FIXME: can't use this if also using Spring (see error in RevealExample)

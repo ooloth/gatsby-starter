@@ -32,7 +32,6 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
-    `gatsby-plugin-styled-components`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
@@ -80,6 +79,15 @@ module.exports = {
     //   }
     // },
     // `gatsby-plugin-offline`,
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: 'TRACKING_CODE_HERE',
+    //     head: true, // Puts tracking script in the head instead of the body
+    //     anonymize: true, // Setting this parameter is optional
+    //     respectDNT: true // Setting this parameter is also optional
+    //   }
+    // },
     // `gatsby-plugin-netlify-cache`,
     // {
     //   resolve: `gatsby-plugin-netlify`, // must come last

@@ -52,7 +52,7 @@ class ImageLightboxExample extends Component {
 /*
  *
  * Images
- * 
+ *
  */
 
 const Images = ({ images, handleImageClick, handleEnter }) => (
@@ -80,11 +80,14 @@ const Images = ({ images, handleImageClick, handleEnter }) => (
 /*
  *
  * Import & Exports
- * 
+ *
  */
 
 import React, { Component } from 'react'
 import Lightbox from 'react-image-lightbox'
+
+import '../../../node_modules/react-image-lightbox/style.css'
+import '../../styles/plugins/examples/react-image-lightbox.css'
 
 import Img from '../../components/Img'
 

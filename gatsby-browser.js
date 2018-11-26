@@ -73,7 +73,6 @@ export const onInitialClientRender = () => {
   }
 
   // Google Analytics (using ga-lite to allow caching)
-  // TODO: replace with unpkg CDN?
   // See: https://github.com/jehna/ga-lite
   // Don't waste any time on this on localhost
   // if (window.location.hostname !== 'localhost') {
@@ -95,19 +94,18 @@ export const onInitialClientRender = () => {
   //   }
   // }
 
-  // TODO: Enable this nuclear option if needed to solve IE errors (e.g. for react-spring)
   // Babel-polyfill for IE (includes everything except fetch)
   // if (!loadjs.isDefined(`babel-polyfill`)) {
   //   if (typeof window.Symbol === `undefined`) {
   //     loadjs(
   //       `https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js`,
-  //       `babel-polyfill`
+  //       `babel-polyfill`,
+  //       console.log(`babel-polyfill is loaded`)
   //     )
   //   }
   // }
 
-  // TODO: Remove if Babel 7 auto-polyfills this...
-  // Fetch polyfill for FormNetlify (IE)
+  // Fetch polyfill for IE
   // if (typeof window.fetch === `undefined`) {
   //   loadjs(
   //     `https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js`,

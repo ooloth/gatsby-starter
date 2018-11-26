@@ -1,3 +1,51 @@
+// TODO: complete this hooks version (which works on Ashley's site) by adding a React Spring animated burger
+
+// function BurgerAndOverlay({ navLinks, className = `` }) {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+//   useEffect(() => {
+//     // Bind modal to appElement (http://reactcommunity.org/react-modal/accessibility/)
+//     Modal.setAppElement(`#___gatsby`)
+//   })
+
+//   function openMenu() {
+//     setIsMenuOpen(true)
+//     noScroll.on()
+//   }
+
+//   function closeMenu() {
+//     noScroll.off()
+//     setIsMenuOpen(false)
+//   }
+
+//   return (
+//     <>
+//       <button
+//         onClick={openMenu}
+//         aria-expanded={isMenuOpen}
+//         className={className}
+//         style={{ fontSize: `1.35rem` }}
+//       >
+//         <span className="sr-only">Menu</span>
+//         <span aria-hidden="true" className="dn sm:di pr2 f3 fw4">
+//           Menu
+//         </span>
+//         {/* <BarsSVG className="icon" /> */}
+//       </button>
+
+//       <Modal
+//         isOpen={isMenuOpen}
+//         onRequestClose={closeMenu}
+//         closeTimeoutMS={500} // match exit animation timing
+//         overlayClassName="menu-modal-overlay fixed fill"
+//         className="menu-modal-content absolute fill overflow-auto scrolling-touch bg-white"
+//       >
+//         <MenuContent navLinks={navLinks} closeMenu={closeMenu} />
+//       </Modal>
+//     </>
+//   )
+// }
+
 class BurgerAndOverlay extends Component {
   state = { menuOpen: false }
 
@@ -66,11 +114,16 @@ class BurgerAndOverlay extends Component {
   }
 
   closeMenu = () => {
-    // Remove class from body used in _react-headroom.css while menu is open
-    // document.querySelector(`body`).classList.remove(`menu-open`)
+    // this.slideBodyRight()
 
     noScroll.off()
     this.setState({ menuOpen: false })
+
+    // reset burger hover state
+    loadjs.ready(`gsap`, () => {
+      TweenLite.to(this.burgerTop, 0.05, { y: `-8px` })
+      TweenLite.to(this.burgerBottom, 0.05, { y: `8px` })
+    })
   }
 
   // See Peter's site for a working implementation:
@@ -128,7 +181,7 @@ class BurgerAndOverlay extends Component {
 /*
  *
  * Menu Content
- * 
+ *
  */
 
 const MenuContent = ({ navLinks, closeMenu }) => (
@@ -158,13 +211,15 @@ const nav = [{ url: `/`, text: `Home` }, { url: `/page-2/`, text: `Page 2` }]
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import loadjs from 'loadjs'
 import Modal from 'react-modal'
 import noScroll from 'no-scroll'
+
+import '../../styles/plugins/examples/react-modal.css'
 
 export default BurgerAndOverlay

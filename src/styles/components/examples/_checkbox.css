@@ -19,7 +19,7 @@
 
 /* Custom checkbox styling */
 .checkmark { 
-  @apply .absolute .top-0 .left-0 .ba .bw1 .br2 .b--yellow .bg-near-white .cursor-pointer;
+  @apply .absolute .top-0 .left-0 .ba-1 .br2 .b--yellow .bg-near-white .cursor-pointer;
 
   width: 1em;
   height: 1em;

@@ -28,6 +28,8 @@
   @media (--xl) { @apply .ph5 }
 }
 
+.page-width { @apply .ml-auto .mr-auto .mw9 }
+
 /* TODO: adjust breakout width as needed */
 /* https://www.lullabot.com/articles/unexpected-power-of-viewport-units-in-css */
 .break-out { @apply .relative .left-50 .transX--50 .vw-100 }

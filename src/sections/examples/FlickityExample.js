@@ -28,4 +28,7 @@ import FlickitySlider from '../../components/examples/FlickitySlider'
 import FlickitySlide from '../../components/examples/FlickitySlide'
 import Img from '../../components/Img'
 
+import '../../../node_modules/flickity/dist/flickity.min.css'
+import '../../styles/plugins/examples/react-flickity-component.css'
+
 export default FlickityExample

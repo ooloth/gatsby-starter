@@ -78,7 +78,7 @@ class VideoLightboxExample extends Component {
 /*
  *
  * Images
- * 
+ *
  */
 
 const Images = ({ videos, handleImageClick, handleEnter }) => (
@@ -106,7 +106,7 @@ const Images = ({ videos, handleImageClick, handleEnter }) => (
 /*
  *
  * Import & Exports
- * 
+ *
  */
 
 import React, { Component } from 'react'
@@ -114,6 +114,8 @@ import React, { Component } from 'react'
 // NOTE: A forked version of react-image-lightbox that supports non-image component children
 import Lightbox from 'lightbox-react'
 import ReactPlayer from 'react-player'
+
+import '../../styles/plugins/examples/lightbox-react.css'
 
 import Img from '../../components/Img'
 
