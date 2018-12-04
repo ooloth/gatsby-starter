@@ -30,8 +30,7 @@ const RevealExample = ({ data }) => (
 
 const AnimatedImage = animated(Img)
 
-// Using React.memo so the useOnScreen hook will run properly (since the other HMR fix breaks react-spring with a ref error)
-const SprungImage = React.memo(function SprungImageWithHooks({ image }) {
+function SprungImage({ image }) {
   const ref = useRef()
   const onScreen = useOnScreen(ref)
 
@@ -50,9 +49,15 @@ const SprungImage = React.memo(function SprungImageWithHooks({ image }) {
       />
     </animated.div>
   )
-})
+}
 
-const SprungImages = React.memo(function SprungImageWithHooks({ images }) {
+/*
+ *
+ * Sprung Images
+ *
+ */
+
+function SprungImages({ images }) {
   const ref = useRef()
   const onScreen = useOnScreen(ref)
 
@@ -88,7 +93,7 @@ const SprungImages = React.memo(function SprungImageWithHooks({ images }) {
       </Trail>
     </div>
   )
-})
+}
 
 /*
  *
