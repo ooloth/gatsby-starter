@@ -1,4 +1,4 @@
-const Footer = ({ links }) => (
+const Footer = ({ socialLinks }) => (
   <footer className="bg-black pa3 tc sans-serif white">
     <h1>I'm a footer</h1>
     <Copyright />

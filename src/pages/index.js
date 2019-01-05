@@ -8,6 +8,10 @@ function IndexPage({ data }) {
           Go to page 2
         </Link>
 
+        <StyledCompExample />
+
+        <AirtableExample />
+
         <YamlExample data={data.allExampleYaml.edges} />
         <TemplateExample data={data.allTemplateYaml.edges} />
 
@@ -256,6 +260,10 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Base from '../components/Base'
+
+import StyledCompExample from '../sections/examples/StyledCompExample/StyledCompExample'
+
+import AirtableExample from '../sections/examples/AirtableExample'
 
 import YamlExample from '../sections/examples/YamlExample'
 import TemplateExample from '../sections/examples/TemplateExample'

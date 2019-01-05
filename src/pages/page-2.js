@@ -1,7 +1,8 @@
 function SecondPage({ data }) {
   return (
     <Base>
-      <PageMetadata page={data.site.siteMetadata.secondPage} />
+      <Metadata page={data.site.siteMetadata.secondPage} />
+      {/* <PageMetadata page={data.site.siteMetadata.secondPage} /> */}
 
       <main id="main-content" tabIndex="-1" className="container tc sans-serif">
         <h1 className="pv4 f1">Hi from page 2</h1>
@@ -44,6 +45,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Base from '../components/Base'
-import PageMetadata from '../components/PageMetadata'
+import Metadata from '../components/Metadata'
+// import PageMetadata from '../components/PageMetadata'
 
 export default SecondPage

@@ -1,4 +1,4 @@
-const Header = ({ links }) => (
+const Header = ({ navLinks, socialLinks }) => (
   <header id="top" className="bg-black pa3 tc sans-serif white">
     <h1>I'm a header</h1>
 
@@ -6,7 +6,7 @@ const Header = ({ links }) => (
       Skip Navigation
     </a>
 
-    <BurgerAndOverlay links={links.nav} />
+    <BurgerAndOverlay navLinks={navLinks} />
   </header>
 )
 

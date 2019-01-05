@@ -10,14 +10,34 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Add Site Title (10-70 characters)`,
-    description: `Add site description (70-160 characters)`,
-    siteUrl: `https://gatsbystarter.netlify.com`, // no slash at the end
-    language: `en`,
+    // TODO: delete unused lines (or give a value of ``)
+    title: `Site Title (10-70 characters)`,
+    jobTitle: `What they do (if not included in the site title)`,
+    description: `Site description (70-160 characters)`,
+    siteUrl: `https://www.client.com`, // no trailing slash
+    lang: `en`,
     locale: `en_CA`,
-    twitterHandle: `@handle`,
+    email: `email@client.com`,
+    telephone: `+18001234567`,
+    address: {
+      street: `305 Healey Rd., Unit A`,
+      locality: `Toronto`,
+      region: `ON`,
+      postalCode: `L7# 5C1`,
+      country: `CA`
+    },
+    socialLinks: [
+      `https://www.youtube.com/user`,
+      `https://twitter.com/user`,
+      `https://www.facebook.com/user`,
+      `https://www.instagram.com/user`,
+      `https://medium.com/user`,
+      `https://github.com/user`
+    ],
+    structuredDataType: `LocalBusiness`, // or Person
+    twitterSite: `@handle`,
+    twitterCreator: `@ooloth`,
     facebookAppId: ``,
-    // TODO: update siteImage variable in Base.js
     secondPage: {
       title: `Add Second Page Title`,
       description: `Add second page description (50-300 characters)`,
@@ -33,6 +53,7 @@ module.exports = {
       }
     },
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
