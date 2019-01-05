@@ -21,6 +21,6 @@ const Link = styled(Anchor)`
 
 import React from 'react'
 import styled from 'styled-components'
-import { Anchor } from '../../../components/sc'
+import Anchor from '../../../components-sc/Anchor'
 
 export default Item

@@ -27,6 +27,6 @@ const Heading = styled.h2`
 
 import React from 'react'
 import styled from 'styled-components'
-import { container } from '../../sc-styles/shared'
+import { container } from '../../styles-sc/shared'
 
 export default AirtableExample

@@ -18,6 +18,10 @@ function Base({ children }) {
           // ]}
           />
 
+          <CustomProperties />
+          <Reset />
+          {/* <FontFace /> */}
+
           <Header
             navLinks={data.allLinksNavYaml.edges}
             socialLinks={data.allLinksSocialYaml.edges}
@@ -74,7 +78,9 @@ import Metadata from '../components/Metadata'
 import Header from '../sections/Header'
 import Footer from '../sections/Footer'
 
-import '../styles/index.css'
+import CustomProperties from '../styles-sc/CustomProperties'
+import Reset from '../styles-sc/Reset'
+// import FontFace from '../styles-sc/FontFace'
 
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 // import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'

@@ -37,6 +37,6 @@ const List = styled.ul`
 import React from 'react'
 import styled from 'styled-components'
 import Item from './Item'
-import { container } from '../../../sc-styles/shared'
+import { container } from '../../../styles-sc/shared'
 
 export default StyledCompExample

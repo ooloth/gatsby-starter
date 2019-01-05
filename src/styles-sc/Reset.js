@@ -614,6 +614,6 @@ const Reset = createGlobalStyle`
 `
 
 import { createGlobalStyle } from 'styled-components'
-import { screens } from '../sc-styles/shared'
+import { screens } from '../styles-sc/shared'
 
 export default Reset
