@@ -1,4 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+// TODO: break "size" values into separate scales for space ('s'), width ('w') and height ('h'), and border-width ('bw')?
+
+// TODO: add variables for all the utilities I have that use a scale (but not negative size/space since I can just put a '-' in front of the positive values)
 
 const CustomProperties = createGlobalStyle`
   :root {
@@ -35,27 +37,27 @@ const CustomProperties = createGlobalStyle`
     --ls3: .1em;
     --ls4: .25em;
  
-    /* Spacing and Sizing Scale (margin, padding, width, height, border width) */
-    --size1: .125rem;
-    --size2: .25rem;
-    --size3: .5rem;
-    --size4: .75rem;
-    --size5: 1rem;
-    --size6: 1.5rem;
-    --size7: 2rem;
-    --size8: 3rem;
-    --size9: 4rem;
-    --size10: 6rem;
-    --size11: 8rem;
-    --size12: 12rem;
-    --size13: 16rem;
-    --size14: 24rem;
-    --size15: 32rem;
-    --size16: 40rem;
-    --size17: 48rem;
-    --size18: 64rem;
-    --size19: 80rem;
-    --size20: 96rem;
+    /* Space and Size Scale (margin, padding, width, height, border width) */
+    --s1: .125rem;
+    --s2: .25rem;
+    --s3: .5rem;
+    --s4: .75rem;
+    --s5: 1rem;
+    --s6: 1.5rem;
+    --s7: 2rem;
+    --s8: 3rem;
+    --s9: 4rem;
+    --s10: 6rem;
+    --s11: 8rem;
+    --s12: 12rem;
+    --s13: 16rem;
+    --s14: 24rem;
+    --s15: 32rem;
+    --s16: 40rem;
+    --s17: 48rem;
+    --s18: 64rem;
+    --s19: 80rem;
+    --s20: 96rem;
 
     /* Border radius */
     --r0: 0;
@@ -187,5 +189,7 @@ const CustomProperties = createGlobalStyle`
     
   }
 `
+
+import { createGlobalStyle } from 'styled-components'
 
 export default CustomProperties

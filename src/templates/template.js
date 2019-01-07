@@ -1,9 +1,9 @@
 /*
  *
- * This template is used to lay out the INSERT PAGE CATEGORY 
+ * This template is used to lay out the INSERT PAGE CATEGORY
  * pages that are generated programatically by gatsby-node
  * using the data entered in INSERT-FILE.yaml.
- * 
+ *
  */
 
 const Template = ({ data }) => {
@@ -29,7 +29,7 @@ const Template = ({ data }) => {
 /*
  *
  * Queries
- * 
+ *
  */
 
 export const query = graphql`
@@ -53,13 +53,13 @@ export const query = graphql`
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Base from '../components/Base'
+import Base from '../components-sc/Base'
 import PageMetadata from '../components/PageMetadata'
 
 export default Template

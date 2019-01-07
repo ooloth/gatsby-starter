@@ -41,7 +41,8 @@ const Reset = createGlobalStyle`
    * 5. Prevent adjustments of font size after orientation changes in
    *    IE on Windows Phone and in iOS.
    * 6. Breaks words to prevent overflow in all browsers (opinionated).
-   * 7. Increase the base font size as the screen gets larger (opinionated).
+   * 7. Increase the base font size as the screen gets larger (uses
+   *    % instead of px to respect the user's chosen base font size).
    */
 
   html {
@@ -67,10 +68,10 @@ const Reset = createGlobalStyle`
     -webkit-text-size-adjust: 100%; /* 5 */
     word-break: break-word; /* 6 */
 
-    font-size: 16px; 
-    @media (${screens.sm}) { font-size: 16.5px }
-    @media (${screens.md}) { font-size: 17px }
-    @media (${screens.lg}) { font-size: 17.5px } /* 7 */
+    font-size: 100%;
+    ${media.sm` font-size: calc(100% * 16.5/16) `}
+    ${media.md` font-size: calc(100% * 17/16) `}
+    ${media.lg` font-size: calc(100% * 17.5/16) `} /* 7 */
   }
 
   /* Sections
@@ -614,6 +615,6 @@ const Reset = createGlobalStyle`
 `
 
 import { createGlobalStyle } from 'styled-components'
-import { screens } from '../styles-sc/shared'
+import { media } from '../styles-sc/shared'
 
 export default Reset

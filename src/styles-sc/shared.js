@@ -1,19 +1,31 @@
-import { css, keyframes } from 'styled-components'
-
 // TODO: move all component styles here (the @apply ones)
 
-/* Breakpoints
- * =========== */
+import { css, keyframes } from 'styled-components'
 
-export const screens = {
-  sm: `min-width: 36em`,
-  md: `min-width: 48em`,
-  lg: `min-width: 62em`,
-  xl: `min-width: 75em`
+/* MEDIA QUERIES
+ * ================================================================ */
+
+const breakpoints = {
+  sm: 36,
+  md: 48,
+  lg: 62,
+  xl: 75
 }
 
-/* Styling Combinations
- * ==================== */
+// Iterate through the sizes and create a media template
+// See: https://www.styled-components.com/docs/advanced#media-templates
+export const media = Object.keys(breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${breakpoints[label]}em) {
+      ${css(...args)}
+    }
+  `
+
+  return acc
+}, {})
+
+/* STYLING COMBOS
+ * ================================================================ */
 
 /**
  * Container for limited-width content.
@@ -22,19 +34,19 @@ export const screens = {
 export const container = css`
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--size5);
-  padding-right: var(--size5);
-  max-width: var(--size20);
+  padding-left: var(--s5);
+  padding-right: var(--s5);
+  max-width: var(--s20);
 
-  @media (${screens.md}) {
-    padding-left: var(--size7);
-    padding-right: var(--size7);
-  }
+  ${media.md`
+    padding-left: var(--s7);
+    padding-right: var(--s7);
+  `}
 
-  @media (${screens.xl}) {
-    padding-left: var(--size9);
-    padding-right: var(--size9);
-  }
+  ${media.xl`
+    padding-left: var(--s9);
+    padding-right: var(--s9);
+  `}
 
   /* Use a smaller max width in IE? */
   /* @supports (display: grid) { max-width: ${p => p.theme.s20} } */
@@ -69,8 +81,8 @@ export const truncate = css`
   white-space: nowrap;
 `
 
-/* Animations
- * ========== */
+/* ANIMATIONS
+ * ================================================================ */
 
 /**
  * Spin one rotation.
@@ -80,8 +92,8 @@ export const spin = keyframes`
   to { transform: rotate(360deg) }
 `
 
-/* How to Use
- * ========== */
+/* INSTRUCTIONS
+ * ================================================================ */
 
 // const StyledComponent = styled.div`
 //   ${container}

@@ -10,19 +10,19 @@ function AirtableExample() {
 
 const Section = styled.section`
   ${container}
-  padding-top: var(--size11);
-  padding-bottom: var(--size11);
+  padding-top: var(--s11);
+  padding-bottom: var(--s11);
 `
 
 const Inner = styled.div`
-  padding: var(--size9) 0;
+  padding: var(--s9) 0;
   box-shadow: var(--shadow5);
   background-color: var(--pink3);
   text-align: center;
 `
 
 const Heading = styled.h2`
-  margin-bottom: var(--size5);
+  margin-bottom: var(--s5);
 `
 
 import React from 'react'

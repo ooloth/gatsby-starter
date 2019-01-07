@@ -13,6 +13,7 @@ const Wrapper = styled.li`
 const Link = styled(Anchor)`
   color: ${p => p.white && `white`};
   transition: var(--trans1);
+
   &:hover {
     letter-spacing: var(--ls3);
     color: var(--gray9);
