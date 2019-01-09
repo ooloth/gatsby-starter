@@ -1,18 +1,25 @@
 function IndexPage({ data }) {
   return (
     <Base>
-      <main id="main-content" tabIndex="-1" className="container tc sans-serif">
-        <h1 className="mt5 pb4 f1">Gatsby Starter</h1>
+      {/* <Main
+        rows={{
+          title: <Heading size="large">Gatsby Starter</Heading>,
+          link: <Link to="/page-2/">Go to page 2</Link>,
+          grid: <StyledCompExample />,
+          airtable: <AirtableExample />
+        }}
+      /> */}
 
-        <Link to="/page-2/" className="link dib">
-          Go to page 2
-        </Link>
+      <Main id="main-content" tabIndex="-1">
+        <Header ga="😄">
+          <Heading size="large">Gatsby Starter</Heading>
+          <Link to="/page-2/">Go to page 2</Link>
+        </Header>
 
-        <StyledCompExample />
+        <StyledCompExample ga="🤓" />
+        <AirtableExample ga="💨" />
 
-        <AirtableExample />
-
-        <YamlExample data={data.allExampleYaml.edges} />
+        {/* <YamlExample data={data.allExampleYaml.edges} />
         <TemplateExample data={data.allTemplateYaml.edges} />
 
         <MountTransitionExample />
@@ -45,31 +52,60 @@ function IndexPage({ data }) {
         />
         <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
-        <FadingCarouselExample data={data.allExampleYaml.edges} />
+        <FadingCarouselExample data={data.allExampleYaml.edges} /> */}
         {/* TODO: rewrite FlickityExample (causing an error in v2) */}
         {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
         {/* <SlickExample data={data.allExampleYaml.edges} /> */}
 
-        <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
+        {/* <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
         <BlockquotesExample />
         <SVGsAndEmojisExample />
 
         <TwitterExample />
-        <InstagramExample />
+        <InstagramExample /> */}
 
         {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
-        <p className="pb5">(The Form example is hidden by default.)</p>
+        {/* <p className="pb5">(The Form example is hidden by default.)</p> */}
         {/* <FormikExample /> */}
         {/* <FormExample /> */}
 
-        <ScrollTo href="#top" className="link dib mb5">
+        {/* <ScrollTo href="#top" className="link dib mb5">
           Back to top
-        </ScrollTo>
-      </main>
+        </ScrollTo> */}
+      </Main>
     </Base>
   )
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const Main = styled.main`
+  display: grid;
+  grid-template-rows:
+    var(--s4)
+    [😄] auto
+    var(--s6)
+    [🤓] auto
+    var(--s6)
+    [💨] auto
+    var(--s6);
+`
+
+// const Main = styled(Layout)`
+//   grid-template-rows:
+//     0.5rem
+//     [title] auto
+//     0.5rem
+//     [link] auto
+//     2rem
+//     [grid] auto
+//     4rem
+//     [airtable] auto
+//     4rem;
+// `
+
+///////////////////////////////////////////////////////////////////////////////////
 
 /*
  *
@@ -258,52 +294,51 @@ export const query = graphql`
 
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import Layout from 'layup/styled'
 
-// Styled Components:
-
-import Base from '../components-sc/Base'
-
-import StyledCompExample from '../sections-sc/examples/StyledCompExample/StyledCompExample'
-
-import AirtableExample from '../sections-sc/examples/AirtableExample'
+import Base from '../ui/sections/Base'
+import StyledCompExample from '../ui/sections/examples/StyledCompExample'
+import AirtableExample from '../ui/sections/examples/AirtableExample'
+import { Header, Heading } from '../ui/elements'
 
 // TailwindCSS Styles:
 
-import YamlExample from '../sections/examples/YamlExample'
-import TemplateExample from '../sections/examples/TemplateExample'
+// import YamlExample from '../sections/examples/YamlExample'
+// import TemplateExample from '../sections/examples/TemplateExample'
 
-import MountTransitionExample from '../sections/examples/MountTransitionExample'
-import GSAPExample from '../sections/examples/GSAPExample'
-import RevealExample from '../sections/examples/RevealExample'
-import ReactSpringExample from '../sections/examples/ReactSpringExample'
+// import MountTransitionExample from '../sections/examples/MountTransitionExample'
+// import GSAPExample from '../sections/examples/GSAPExample'
+// import RevealExample from '../sections/examples/RevealExample'
+// import ReactSpringExample from '../sections/examples/ReactSpringExample'
 
-import CollapseExample from '../sections/examples/CollapseExample'
-import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
+// import CollapseExample from '../sections/examples/CollapseExample'
+// import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
 
 // import ParallaxExample from '../sections/examples/wip/ParallaxExample'
 // import ReactSpringExample from '../sections/examples/wip/ReactSpringExample'
 
-import FilterExample from '../sections/examples/FilterExample'
-import LimitExample from '../sections/examples/LimitExample'
-import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
+// import FilterExample from '../sections/examples/FilterExample'
+// import LimitExample from '../sections/examples/LimitExample'
+// import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
-import FadingCarouselExample from '../sections/examples/FadingCarouselExample'
+// import FadingCarouselExample from '../sections/examples/FadingCarouselExample'
 // import FlickityExample from '../sections/examples/FlickityExample'
 // import SlickExample from '../sections/examples/SlickExample'
 
-import GalleryAndLightboxExample from '../sections/examples/GalleryAndLightboxExample'
-import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
-import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
+// import GalleryAndLightboxExample from '../sections/examples/GalleryAndLightboxExample'
+// import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
+// import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 
-import BlockquotesExample from '../sections/examples/BlockquotesExample'
-import SVGsAndEmojisExample from '../sections/examples/SVGsAndEmojisExample'
+// import BlockquotesExample from '../sections/examples/BlockquotesExample'
+// import SVGsAndEmojisExample from '../sections/examples/SVGsAndEmojisExample'
 
-import TwitterExample from '../sections/examples/TwitterExample'
-import InstagramExample from '../sections/examples/InstagramExample'
+// import TwitterExample from '../sections/examples/TwitterExample'
+// import InstagramExample from '../sections/examples/InstagramExample'
 
 // import FormikExample from '../sections/examples/FormikExample'
 // import FormExample from '../sections/examples/FormExample'
 
-import ScrollTo from '../components/examples/ScrollTo'
+// import ScrollTo from '../components/examples/ScrollTo'
 
 export default IndexPage

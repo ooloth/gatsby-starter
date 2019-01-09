@@ -44,7 +44,7 @@ export const query = graphql`
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Base from '../components-sc/Base'
+import Base from '../ui/sections/Base'
 import Metadata from '../components/Metadata'
 // import PageMetadata from '../components/PageMetadata'
 
