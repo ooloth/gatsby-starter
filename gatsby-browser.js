@@ -17,15 +17,16 @@ export const onClientEntry = () => {
     console.log(`👍 IntersectionObserver is polyfilled`)
   }
 
+  // TODO: enable if supporting IE, otherwise remove
   // Object-fit/Object-position polyfill for gatsby-image (IE)
-  const testImg = document.createElement(`img`)
-  if (
-    typeof testImg.style.objectFit === `undefined` ||
-    typeof testImg.style.objectPosition === `undefined`
-  ) {
-    require(`object-fit-images`)()
-    console.log(`👍 Object-fit/Object-position are polyfilled`)
-  }
+  // const testImg = document.createElement(`img`)
+  // if (
+  //   typeof testImg.style.objectFit === `undefined` ||
+  //   typeof testImg.style.objectPosition === `undefined`
+  // ) {
+  //   require(`object-fit-images`)()
+  //   console.log(`👍 Object-fit/Object-position are polyfilled`)
+  // }
 }
 
 /*
@@ -46,32 +47,33 @@ export const onInitialClientRender = () => {
     )
   }
 
+  // TODO: delete any parts I'm not using:
   // GSAP for site-wide animations
-  // TODO: remove any parts I'm not using
-  if (!loadjs.isDefined(`gsap`)) {
-    loadjs(
-      [
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
-        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
-      ],
-      `gsap`,
-      () => console.log(`👍 GSAP is loaded`)
-    )
-  }
+  // if (!loadjs.isDefined(`gsap`)) {
+  //   loadjs(
+  //     [
+  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
+  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
+  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
+  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
+  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
+  //     ],
+  //     `gsap`,
+  //     () => console.log(`👍 GSAP is loaded`)
+  //   )
+  // }
 
+  // TODO: delete if not using:
   // GSAP's scrollToPlugin for sitewide smooth-scrolling
-  // TODO: remove if not using
-  if (!loadjs.isDefined(`scrollToPlugin`)) {
-    loadjs(
-      `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
-      `scrollToPlugin`,
-      () => console.log(`👍 scrollToPlugin is loaded`)
-    )
-  }
+  // if (!loadjs.isDefined(`scrollToPlugin`)) {
+  //   loadjs(
+  //     `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/plugins/ScrollToPlugin.min.js`,
+  //     `scrollToPlugin`,
+  //     () => console.log(`👍 scrollToPlugin is loaded`)
+  //   )
+  // }
 
+  // TODO: delete if not using:
   // Google Analytics (using ga-lite to allow caching)
   // See: https://github.com/jehna/ga-lite
   // Don't waste any time on this on localhost
@@ -94,6 +96,7 @@ export const onInitialClientRender = () => {
   //   }
   // }
 
+  // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
   // if (!loadjs.isDefined(`babel-polyfill`)) {
   //   if (typeof window.Symbol === `undefined`) {
@@ -105,6 +108,7 @@ export const onInitialClientRender = () => {
   //   }
   // }
 
+  // TODO: delete if not using:
   // Fetch polyfill for IE
   // if (typeof window.fetch === `undefined`) {
   //   loadjs(

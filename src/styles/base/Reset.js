@@ -586,7 +586,9 @@ const Reset = createGlobalStyle`
   }
 `
 
+///////////////////////////////////////////////////////////////////////////////////
+
 import { createGlobalStyle } from 'styled-components'
-import { media } from '../styles/shared'
+import { media } from '../mixins/media'
 
 export default Reset

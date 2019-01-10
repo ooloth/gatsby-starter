@@ -26,6 +26,7 @@ const Heading = styled.h2`
     if (p.small) return `var(--smallHeading)`
     else return `var(--normalHeading)`
   }};
+  ${p => p.fw && `font-weight: ${p.fw}00;`}
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -33,6 +34,6 @@ const Heading = styled.h2`
 import styled from 'styled-components'
 
 import { boxStyles } from './Box'
-import { media } from '../../styles/shared'
+import { media } from '../../styles'
 
 export default Heading

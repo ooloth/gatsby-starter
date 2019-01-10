@@ -92,7 +92,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Box, Button, Heading, Item, List, Section, Text } from '../../elements'
-import { media } from '../../../styles/shared'
+import { media } from '../../../styles'
 
 export default StyledCompExample
 

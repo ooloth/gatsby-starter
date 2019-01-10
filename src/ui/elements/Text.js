@@ -1,4 +1,6 @@
 // TODO: add props for styling variants (e.g. 'align')
+// TODO: share common text styles with heading (separate the unique styles)
+
 export const textStyles = css`
   /* Set custom properties */
   --largeText: var(--f4);
@@ -17,9 +19,11 @@ export const textStyles = css`
   ${p => p.ls && `letter-spacing: var(--ls${p.ls};`}
   font-size: ${p => {
     if (p.large) return `var(--largeText)`
+    if (p.normal) return `var(--normalText)`
     if (p.small) return `var(--smallText)`
-    else return `var(--normalText)`
+    else return `inherit`
   }};
+  ${p => p.fw && `font-weight: ${p.fw}00;`}
 `
 
 const Text = styled.p`

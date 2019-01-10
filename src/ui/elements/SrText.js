@@ -18,6 +18,5 @@ const SrText = styled.span`
 ///////////////////////////////////////////////////////////////////////////////////
 
 import styled from 'styled-components'
-// import { srOnly } from '../../styles/shared'
 
 export default SrText

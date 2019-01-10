@@ -1,6 +1,9 @@
-// TODO: See Peter's/AZOOR's Base.js for how to replace site with browser warning (last resort if issues can't be resolved)
-
 function Base({ children }) {
+  const [isIE, setIsIE] = useState(true)
+  // const [isIE, setIsIE] = useState(false)
+
+  // useEffect(() => setIsIE(is.ie()), [])
+
   return (
     <StaticQuery
       query={BASE_QUERY}
@@ -22,29 +25,39 @@ function Base({ children }) {
           <Reset />
           {/* <FontFace /> */}
 
-          {/* <Header
-            navLinks={data.allLinksNavYaml.edges}
-            socialLinks={data.allLinksSocialYaml.edges}
-          /> */}
+          {isIE ? (
+            <BrowserWarning title={data.site.siteMetadata.title} />
+          ) : (
+            <>
+              <Top
+                navLinks={data.allLinksNavYaml.edges}
+                socialLinks={data.allLinksSocialYaml.edges}
+              />
 
-          {children}
+              {children}
 
-          {/* <Footer socialLinks={data.allLinksSocialYaml.edges} /> */}
+              <Bottom
+                navLinks={data.allLinksNavYaml.edges}
+                socialLinks={data.allLinksSocialYaml.edges}
+              />
+            </>
+          )}
         </>
       )}
     />
   )
 }
 
-/*
- *
- * Queries
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
-//  TODO: query email and social links from gatsby-config instead (and delete YML duplicates)
+//  TODO: query email and social links from gatsby-config instead (and delete YML duplicates)?
 const BASE_QUERY = graphql`
   query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allLinksNavYaml {
       edges {
         node {
@@ -64,22 +77,18 @@ const BASE_QUERY = graphql`
   }
 `
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-// import { ThemeProvider } from 'styled-components'
+import is from 'is_js'
 
 import { Metadata } from '../elements'
-// import Header from '../sections/Header'
-// import Footer from '../sections/Footer'
+import BrowserWarning from './BrowserWarning'
+import Top from './Top'
+import Bottom from './Bottom'
 
-import CustomProperties from '../../styles/CustomProperties'
-import Reset from '../../styles/Reset'
+import { CustomProperties, Reset } from '../../styles'
 // import FontFace from '../styles/FontFace'
 
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'

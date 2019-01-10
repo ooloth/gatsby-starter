@@ -30,14 +30,15 @@ Anchor.propTypes = {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-// TODO: create variants (as separate components or with props?)
+// TODO: create more variants
 
 const StyledAnchor = styled.a`
   ${textStyles}
+  color: ${p => p.inline && `var(--blue)`};
   transition: var(--trans1);
 
   &:hover {
-    color: var(--gray9);
+    color: ${p => p.inline && `var(--black)`};
   }
 `
 

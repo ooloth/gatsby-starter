@@ -218,6 +218,5 @@ const CustomProperties = createGlobalStyle`
 `
 
 import { createGlobalStyle } from 'styled-components'
-import { media } from '../styles/shared'
 
 export default CustomProperties

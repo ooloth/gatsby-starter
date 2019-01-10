@@ -87,6 +87,14 @@ export const Article = styled.article`
   ${boxStyles}
 `
 
+export const Aside = styled.aside`
+  ${boxStyles}
+`
+
+export const Footer = styled.footer`
+  ${boxStyles}
+`
+
 export const Header = styled.header`
   ${boxStyles}
 `
@@ -115,4 +123,4 @@ export const Section = styled.section`
 
 import styled, { css } from 'styled-components'
 
-import { container } from '../../styles/shared'
+import { container } from '../../styles'
