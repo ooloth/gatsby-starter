@@ -20,11 +20,7 @@ Metadata.propTypes = {
   preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 }
 
-/*
- *
- * Page
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 function PageMetadata({ site, page, preconnect, preload }) {
   // Use sitewide metadata unless overridden by page-specific metadata
@@ -115,11 +111,7 @@ function PageMetadata({ site, page, preconnect, preload }) {
   )
 }
 
-/*
- *
- * Structured Data
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 function StructuredData({ site, image }) {
   const sameAs = site.socialLinks.map(link => `"${link}"`)
@@ -156,11 +148,7 @@ function StructuredData({ site, image }) {
   )
 }
 
-/*
- *
- * Queries
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 const SITE_QUERY = graphql`
   query {
@@ -186,11 +174,7 @@ const SITE_QUERY = graphql`
   }
 `
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
 import PropTypes from 'prop-types'

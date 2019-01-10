@@ -2,25 +2,21 @@
 function StyledCompExample(props) {
   return (
     <Section container {...props}>
-      <Content shadow bg="purple">
-        <Heading>Custom Grid Example (using grid for all spacing)</Heading>
-
+      <Content shadow bg="purple2">
+        <Heading>Custom Grid Example</Heading>
+        <Text>This example uses grid for all spacing.</Text>
         <Things things={things} />
-
         <Paragraphs paragraphs={paragraphs} />
-
         <Button>Press Me</Button>
       </Content>
     </Section>
   )
 }
 
-const Content = styled.div`
+const Content = styled(Box)`
   display: grid;
   grid-row-gap: var(--s5);
   justify-items: center;
-  ${p => p.shadow && `box-shadow: var(--shadow5);`};
-  ${p => p.bg === `purple` && `background-color: var(--purple2);`};
   padding: var(--s8) var(--s5);
   text-align: center;
 `
@@ -29,17 +25,17 @@ const Content = styled.div`
 
 function Things({ things }) {
   return (
-    <ThingsList>
+    <Thingies bg="pink1">
       {things.map(thing => (
-        <Thing key={thing.content} ga={thing.ga} bg={thing.bg && thing.bg}>
+        <Item key={thing.content} ga={thing.ga} bg={thing.bg && thing.bg}>
           {thing.content}
-        </Thing>
+        </Item>
       ))}
-    </ThingsList>
+    </Thingies>
   )
 }
 
-const ThingsList = styled.ul`
+const Thingies = styled(List)`
   display: grid;
   grid:
     '.  .  .' var(--s2)
@@ -47,8 +43,7 @@ const ThingsList = styled.ul`
     '.  .  .' var(--s5)
     '.  🌮 🌮' auto
     / 1fr 1fr 1fr;
-  background-color: white;
-  width: 100%;
+  justify-self: stretch;
 
   ${media.lg`
     grid:
@@ -60,24 +55,23 @@ const ThingsList = styled.ul`
   `}
 `
 
-const Thing = styled.li`
-  ${p => p.ga && `grid-area: ${p.ga};`}
-  background-color: ${p => (p.bg === `pink` ? `var(--pink3)` : `var(--gray5)`)};
-`
+const things = [
+  { ga: `🍕`, content: `🍕`, bg: `pink3` },
+  { ga: `🌮`, content: `🌮`, bg: `gray4` }
+]
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Paragraphs({ paragraphs }) {
   return (
     <Article>
-      <Heading as="h3" size="small">
+      <Heading as="h3" small>
         Paragraphs (using grid-gap for spacing)
       </Heading>
-      <ParagraphGroup>
-        {paragraphs.map(paragraph => (
-          <Text key={paragraph}>{paragraph}</Text>
-        ))}
-      </ParagraphGroup>
+
+      {paragraphs.map(paragraph => (
+        <Text key={paragraph}>{paragraph}</Text>
+      ))}
     </Article>
   )
 }
@@ -87,28 +81,17 @@ const Article = styled.article`
   grid-row-gap: var(--s4);
 `
 
-const ParagraphGroup = styled.div`
-  display: grid;
-  grid-row-gap: var(--s4);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const things = [{ ga: `🍕`, content: `🍕`, bg: `pink` }, { ga: `🌮`, content: `🌮` }]
-
 const paragraphs = [
   `Lorem ipsum dolor sit amet, consectetur adipisicing elit. At molestias porro unde ullam esse dolorum ipsa quidem laborum rem suscipit aliquam, modi est, eum incidunt minus libero tempore velit aspernatur.`,
-  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum pariatur officiis adipisci amet ducimus sint minima sapiente quos. Explicabo architecto minima asperiores ratione dolorum in, nihil voluptatem consectetur omnis quidem?`,
-  `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eaque, inventore aliquam consequuntur quidem, tenetur animi doloribus neque doloremque rem reprehenderit eius expedita voluptatibus mollitia molestiae laboriosam placeat accusamus assumenda?`
+  `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum pariatur officiis adipisci amet ducimus sint minima sapiente quos. Explicabo architecto minima asperiores ratione dolorum in, nihil voluptatem consectetur omnis quidem?`
 ]
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { Button, Heading, Section, Text } from '../../elements'
-
 import React from 'react'
 import styled from 'styled-components'
 
+import { Box, Button, Heading, Item, List, Section, Text } from '../../elements'
 import { media } from '../../../styles/shared'
 
 export default StyledCompExample

@@ -2,11 +2,15 @@
 // TODO: set any dedicated custom properties here (like Heading.js)
 
 const Image = styled(Img)`
-  ${p => p.ga && `grid-area: ${p.ga};`}
+  ${boxStyles}
 `
+
+///////////////////////////////////////////////////////////////////////////////////
 
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+
+import { boxStyles } from './Box'
 
 export default Image
 

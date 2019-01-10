@@ -28,24 +28,27 @@ Anchor.propTypes = {
   ])
 }
 
-// TODO: add props for styling variants (e.g. 'color')
-// TODO: set any dedicated custom properties here (like Heading.js)
+///////////////////////////////////////////////////////////////////////////////////
+
+// TODO: create variants (as separate components or with props?)
 
 const StyledAnchor = styled.a`
-  ${p => p.ga && `grid-area: ${p.ga};`}
-  color: ${p => p.white && `white`};
+  ${textStyles}
   transition: var(--trans1);
 
   &:hover {
-    letter-spacing: var(--ls3);
     color: var(--gray9);
   }
 `
 
+///////////////////////////////////////////////////////////////////////////////////
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import SrText from './SrText'
+import { textStyles } from './Text'
 
 export default Anchor
 

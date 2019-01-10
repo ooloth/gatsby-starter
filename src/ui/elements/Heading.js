@@ -1,27 +1,38 @@
 const Heading = styled.h2`
   /* Set custom properties */
   --largeHeading: var(--f7);
-  --heading: var(--f6);
+  --normalHeading: var(--f6);
   --smallHeading: var(--f5);
-  --body: var(--f3);
 
   ${media.md`
     --largeHeading: var(--f8);
-    --heading: var(--f7);
+    --normalHeading: var(--f7);
     --smallHeading: var(--f6);
   `}
 
   /* Use custom properties */
-  ${p => p.ga && `grid-area: ${p.ga};`}
+  ${boxStyles}
+  text-align: ${p => {
+    if (p.tl) return `left`
+    if (p.tc) return `center`
+    if (p.tr) return `right`
+    else return `inherit`
+  }};
   line-height: var(--lh1);
+  ${p => p.ls && `letter-spacing: var(--ls${p.ls};`}
+  font-family: var(--headingFont);
   font-size: ${p => {
-    if (p.size === `large`) return `var(--largeHeading)`
-    if (p.size === `small`) return `var(--smallHeading)`
-    else return `var(--heading)`
+    if (p.large) return `var(--largeHeading)`
+    if (p.small) return `var(--smallHeading)`
+    else return `var(--normalHeading)`
   }};
 `
 
+///////////////////////////////////////////////////////////////////////////////////
+
 import styled from 'styled-components'
+
+import { boxStyles } from './Box'
 import { media } from '../../styles/shared'
 
 export default Heading

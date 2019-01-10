@@ -8,11 +8,7 @@ SkipNav.propTypes = {
   href: PropTypes.string.isRequired
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
 import PropTypes from 'prop-types'

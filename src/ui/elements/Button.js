@@ -1,11 +1,13 @@
-// TODO: add props for styling variants (e.g. 'color')
-// TODO: set any dedicated custom properties here (like Heading.js)
+// TODO: create variants?
 
 const Button = styled.button`
-  ${p => p.ga && `grid-area: ${p.ga};`}
+  ${boxStyles}
   padding: var(--s2) var(--s3);
 `
 
+///////////////////////////////////////////////////////////////////////////////////
+
 import styled from 'styled-components'
+import { boxStyles } from './Box'
 
 export default Button
