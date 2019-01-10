@@ -1,8 +1,7 @@
 function Base({ children }) {
-  const [isIE, setIsIE] = useState(true)
-  // const [isIE, setIsIE] = useState(false)
+  const [isIE, setIsIE] = useState(false)
 
-  // useEffect(() => setIsIE(is.ie()), [])
+  useEffect(() => setIsIE(is.ie()), [])
 
   return (
     <StaticQuery

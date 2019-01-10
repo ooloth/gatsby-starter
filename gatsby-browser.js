@@ -4,11 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-/*
- *
- * Urgent polyfills (needed before first render)
- *
- */
+// Urgent polyfills (needed before first render)
+///////////////////////////////////////////////////////////////////////////////////
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
@@ -29,11 +26,8 @@ export const onClientEntry = () => {
   // }
 }
 
-/*
- *
- * Non-urgent polyfills and scripts (needed after first render)
- *
- */
+// Non-urgent polyfills and scripts (needed after first render)
+///////////////////////////////////////////////////////////////////////////////////
 
 import loadjs from 'loadjs'
 
@@ -119,11 +113,9 @@ export const onInitialClientRender = () => {
   // }
 }
 
-/*
- *
- * Add React Context
- *
- */
+// TODO: delete if not using:
+// Add React Context
+///////////////////////////////////////////////////////////////////////////////////
 
 // See: https://github.com/fabe/gatsby-universal/blob/master/gatsby-browser.js
 

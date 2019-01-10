@@ -1,6 +1,6 @@
 function BrowserWarning({ title }) {
   return (
-    <main className="fade-in flex items-center container vh-100 pv6 sans-serif">
+    <>
       <Warning>
         <Box css={{ maxWidth: `28rem`, letterSpacing: `-0.025rem` }}>
           <Heading as="h1" fw={9} css="font-size: var(--f10); white-space: nowrap">
@@ -30,11 +30,11 @@ function BrowserWarning({ title }) {
             ))}
           </Text>
         </Box>
-
-        {/* Hidden copy of Contact form (needed by Netlify's bots on first render) */}
-        {/* <FormCopy /> */}
       </Warning>
-    </main>
+
+      {/* TODO: if necessary (how to check?), activate hidden copy of Contact form (needed by Netlify's bots on first render) */}
+      {/* <FormCopy /> */}
+    </>
   )
 }
 
@@ -62,6 +62,7 @@ const browsers = [
 // TODO: If using a Netlify form, update form name and form fields below
 
 // const FormCopy = () => (
+//  <aside>
 //   <form
 //     name="Contact"
 //     data-netlify="true"
@@ -81,6 +82,7 @@ const browsers = [
 //     <textarea name="Address" />
 //     <input type="checkbox" name="Services" />
 //   </form>
+//  </aside>
 // )
 
 ///////////////////////////////////////////////////////////////////////////////////
