@@ -45,7 +45,7 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Base from '../ui/sections/Base'
-import Metadata from '../components/Metadata'
+import { Metadata } from '../ui/elements'
 // import PageMetadata from '../components/PageMetadata'
 
 export default SecondPage
