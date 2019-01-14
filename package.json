@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-tailyons",
   "description": "Gatsby Starter Tailyons",
-  "repository": "gitlab:ooloth/gatsby-starter-tailyons.git",
+  "repository": "github:ooloth/gatsby-starter.git",
   "version": "1.0.0",
   "author": "Michael Uloth <hello@michaeluloth.com>",
   "browserslist": [
@@ -31,6 +31,7 @@
     "gatsby-plugin-subfont": "^1.0.3",
     "gatsby-plugin-svgr": "^2.0.1",
     "gatsby-source-filesystem": "^2.0.10",
+    "gatsby-source-wordpress": "^3.0.22",
     "gatsby-transformer-sharp": "^2.1.9",
     "gatsby-transformer-yaml": "^2.1.6",
     "intersection-observer": "^0.5.1",
