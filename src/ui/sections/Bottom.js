@@ -14,7 +14,7 @@ function FinePrint() {
     <Text>
       &copy; {new Date().getFullYear()} Insert Site Name.
       All&nbsp;rights&nbsp;reserved. Brewed&nbsp;by&nbsp;
-      <Anchor href="http://coffeeshopcreative.ca">Coffeeshop&nbsp;Creative</Anchor>.
+      <Link href="http://coffeeshopcreative.ca">Coffeeshop&nbsp;Creative</Link>.
     </Text>
   )
 }
@@ -23,6 +23,6 @@ function FinePrint() {
 
 import React from 'react'
 
-import { Anchor, Footer, Heading, Text } from '../elements'
+import { Link, Footer, Heading, Text } from '../elements'
 
 export default Bottom

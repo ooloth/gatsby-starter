@@ -17,9 +17,9 @@ function BrowserWarning({ title }) {
               <Fragment key={i}>
                 {i < browsers.length - 1 ? ` ` : ` or `}
 
-                <Anchor key={i} href={browser.href} inline>
+                <Link key={i} href={browser.href} inline>
                   {browser.text}
-                </Anchor>
+                </Link>
 
                 {i < browsers.length - 2
                   ? `,`
@@ -90,6 +90,6 @@ const browsers = [
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-import { Anchor, Box, Heading, Main, Text } from '../elements'
+import { Link, Box, Heading, Main, Text } from '../elements'
 
 export default BrowserWarning

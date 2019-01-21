@@ -1,7 +1,8 @@
-function Anchor({ href, srText, children, ...props }) {
+function Link({ href, srText, children, ...props }) {
   const isExternal = href.match(/http|\/\/|mailto:|tel:|pdf\//)
+  const isId = href.match(/^#/)
 
-  return (
+  return isExternal || isId ? (
     <StyledAnchor
       href={href}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
@@ -12,10 +13,19 @@ function Anchor({ href, srText, children, ...props }) {
       {srText && <SrText>{srText}</SrText>}
       {children}
     </StyledAnchor>
+  ) : (
+    <StyledGatsbyLink
+      to={href}
+      onClick={e => e.stopPropagation()} // avoid firing parent event handlers
+      {...props}
+    >
+      {srText && <SrText>{srText}</SrText>}
+      {children}
+    </StyledGatsbyLink>
   )
 }
 
-Anchor.propTypes = {
+Link.propTypes = {
   href: PropTypes.string.isRequired,
   srText: PropTypes.string, // if anchor has no visible text
   className: PropTypes.string,
@@ -31,33 +41,42 @@ Anchor.propTypes = {
 ///////////////////////////////////////////////////////////////////////////////////
 
 // TODO: create more variants
+const linkStyles = css`
+${textStyles}
+color: ${p => p.inline && `var(--blue)`};
+transition: var(--trans1);
+
+&:hover {
+  color: ${p => p.inline && `var(--black)`};
+}
+
+`
 
 const StyledAnchor = styled.a`
-  ${textStyles}
-  color: ${p => p.inline && `var(--blue)`};
-  transition: var(--trans1);
+  ${linkStyles}
+`
 
-  &:hover {
-    color: ${p => p.inline && `var(--black)`};
-  }
+const StyledGatsbyLink = styled(GatsbyLink)`
+  ${linkStyles}
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { Link as GatsbyLink } from 'gatsby'
+import styled, { css } from 'styled-components'
 
 import SrText from './SrText'
 import { textStyles } from './Text'
 
-export default Anchor
+export default Link
 
 /*
 
 INSTRUCTIONS:
 
-<Anchor href="" srText="" className="" style="">Link</Anchor>
+<Link href="" srText="" className="" style="">Link</Link>
 
 - See: https://stackoverflow.com/questions/1369035/how-do-i-prevent-a-parents-onclick-event-from-firing-when-a-child-anchor-is-cli
 - See: https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child

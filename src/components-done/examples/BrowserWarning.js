@@ -15,13 +15,13 @@ const BrowserWarning = ({ title }) => (
           <Fragment key={i}>
             {i < browsers.length - 1 ? ` ` : ` or `}
 
-            <Anchor
+            <Link
               key={i}
               href={browser.href}
               className="blue underline animate hover:black"
             >
               {browser.text}
-            </Anchor>
+            </Link>
 
             {i < browsers.length - 2 ? `,` : i === browsers.length - 1 ? `.` : null}
           </Fragment>
@@ -80,11 +80,11 @@ const browsers = [
 /*
  *
  * Imports & Exports
- * 
+ *
  */
 
 import React, { Fragment } from 'react'
 
-import Anchor from './Anchor'
+import Link from './Link'
 
 export default BrowserWarning
