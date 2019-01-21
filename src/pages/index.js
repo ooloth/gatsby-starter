@@ -295,11 +295,11 @@ export const query = graphql`
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Layout from 'layup/styled'
+// import Layout from 'layup/styled'
 
-import Base from '../ui/sections/Base'
-import StyledCompExample from '../ui/sections/examples/StyledCompExample'
-import AirtableExample from '../ui/sections/examples/AirtableExample'
+import Base from '../ui/Base'
+import StyledCompExample from '../ui/examples/StyledCompExample'
+import AirtableExample from '../ui/examples/AirtableExample'
 import { Header, Heading } from '../ui/elements'
 
 // TailwindCSS Styles:

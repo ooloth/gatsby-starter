@@ -23,6 +23,6 @@ function FinePrint() {
 
 import React from 'react'
 
-import { Link, Footer, Heading, Text } from '../elements'
+import { Link, Footer, Heading, Text } from './elements'
 
 export default Bottom

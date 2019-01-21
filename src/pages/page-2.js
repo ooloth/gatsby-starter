@@ -43,7 +43,7 @@ export const query = graphql`
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Base from '../ui/sections/Base'
+import Base from '../ui/Base'
 import { Metadata } from '../ui/elements'
 
 export default SecondPage

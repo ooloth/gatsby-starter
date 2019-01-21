@@ -12,7 +12,7 @@ function Top({ navLinks, socialLinks }) {
 
 import React from 'react'
 
-import { Header, Heading, SkipNav } from '../elements'
+import { Header, Heading, SkipNav } from './elements'
 // import BurgerAndOverlay from '../components/examples/BurgerAndOverlay'
 
 export default Top

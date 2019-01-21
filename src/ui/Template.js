@@ -59,7 +59,7 @@ export const query = graphql`
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Base from '../sections/Base'
+import Base from './Base'
 // import PageMetadata from '../components/PageMetadata'
 
 export default Template

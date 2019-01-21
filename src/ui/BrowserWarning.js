@@ -90,6 +90,6 @@ const browsers = [
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-import { Link, Box, Heading, Main, Text } from '../elements'
+import { Link, Box, Heading, Main, Text } from './elements'
 
 export default BrowserWarning

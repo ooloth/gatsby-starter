@@ -82,12 +82,12 @@ import React, { useState, useEffect } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import is from 'is_js'
 
-import { Metadata } from '../elements'
+import { Metadata } from './elements'
 import BrowserWarning from './BrowserWarning'
 import Top from './Top'
 import Bottom from './Bottom'
 
-import { CustomProperties, Reset } from '../../styles'
+import { CustomProperties, Reset } from '../styles'
 // import FontFace from '../styles/FontFace'
 
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'

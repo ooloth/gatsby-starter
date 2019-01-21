@@ -18,6 +18,6 @@ const Inner = styled(Box)`
 import React from 'react'
 import styled from 'styled-components'
 
-import { Box, Heading, Section } from '../../elements'
+import { Box, Heading, Section } from '../elements'
 
 export default AirtableExample
