@@ -584,6 +584,16 @@ const Reset = createGlobalStyle`
     display: inherit;
     position: absolute;
   }
+
+  /**
+   * Turn off all animations if the user prefers reduced motion.
+   */
+  @media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
