@@ -6,7 +6,7 @@ function SecondPage({ data }) {
       <main id="main-content" tabIndex="-1" className="container tc sans-serif">
         <h1 className="pv4 f1">Hi from page 2</h1>
 
-        <Link to="/" className="link dib mb4">
+        <Link href="/" className="link dib mb4">
           Go back home
         </Link>
       </main>
@@ -14,11 +14,7 @@ function SecondPage({ data }) {
   )
 }
 
-/*
- *
- * Queries
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 export const query = graphql`
   query {
@@ -34,14 +30,11 @@ export const query = graphql`
   }
 `
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import { Link } from '../ui/elements'
 
 import Base from '../ui/Base'
 import { Metadata } from '../ui/elements'

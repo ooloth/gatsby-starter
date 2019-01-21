@@ -13,7 +13,7 @@ function IndexPage({ data }) {
       <Main id="main-content" tabIndex="-1">
         <Header ga="😄">
           <Heading size="large">Gatsby Starter</Heading>
-          <Link to="/page-2/">Go to page 2</Link>
+          <Link href="/page-2/">Go to page 2</Link>
         </Header>
 
         <StyledCompExample ga="🤓" />
@@ -106,12 +106,6 @@ const Main = styled.main`
 // `
 
 ///////////////////////////////////////////////////////////////////////////////////
-
-/*
- *
- * Queries
- *
- */
 
 export const query = graphql`
   query {
@@ -286,21 +280,17 @@ export const query = graphql`
   }
 `
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 // import Layout from 'layup/styled'
 
 import Base from '../ui/Base'
-import StyledCompExample from '../ui/examples/StyledCompExample'
-import AirtableExample from '../ui/examples/AirtableExample'
-import { Header, Heading } from '../ui/elements'
+import StyledCompExample from '../ui/@examples/StyledCompExample'
+import AirtableExample from '../ui/@examples/AirtableExample'
+import { Header, Heading, Link } from '../ui/elements'
 
 // TailwindCSS Styles:
 
