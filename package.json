@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-tailyons",
-  "description": "Gatsby Starter Tailyons",
+  "name": "gatsby-starter",
+  "description": "Gatsby Starter",
   "repository": "github:ooloth/gatsby-starter.git",
   "version": "1.0.0",
   "author": "Michael Uloth <hello@michaeluloth.com>",
