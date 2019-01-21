@@ -1,12 +1,15 @@
-// TODO: add props for width/max-width/min-width and height/max-height/min-height?
-// TODO: set any dedicated custom properties here (like Heading.js)
-
 // TODO: add propTypes to validate the type of each prop (e.g. a number for padding)
 
 export const boxStyles = css`
   ${p => p.ga && `grid-area: ${p.ga};`}
 
   ${p => p.container && container}
+
+  ${p => p.position && `position: ${p.position}`}
+  ${p => p.top && `top: ${p.top}`}
+  ${p => p.right && `right: ${p.right}`}
+  ${p => p.left && `left: ${p.left}`}
+  ${p => p.bottom && `bottom: ${p.bottom}`}
 
   /* TODO: remove these now to avoid ever using them? */
   /* For prototyping only (TODO: refactor patterns into separate Box instances with their own local custom properties, e.g. --sectionPadding) */
@@ -72,6 +75,8 @@ export const boxStyles = css`
       if (typeof p.minHeight === `string`) return `max-height: ${p.minHeight};`
     }
   }}
+
+  ${p => p.measure && `max-width: var(--measure${p.measure}`}
 
   ${p => p.color && `color: var(--${p.color});`}
   ${p => p.o && `opacity: ${p.o};`}

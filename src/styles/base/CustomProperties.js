@@ -77,6 +77,12 @@ const CustomProperties = createGlobalStyle`
     --s16: 64rem;
     --s17: 96rem;
 
+    /* Max-widths */
+    --measure1: 45ch;
+    --measure2: 55ch;
+    --measure3: 66ch;
+    --measure4: 75ch;
+
     /* Border width */
     --bw0: 0;
     --bw1: .0625rem;
@@ -111,6 +117,7 @@ const CustomProperties = createGlobalStyle`
     --trans4: all 0.5s ease-in-out;
 
     /* Cubic beziers (from https://easings.net) */
+    /* TODO: delete unused values */
     --easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
     --easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
     --easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -144,7 +151,10 @@ const CustomProperties = createGlobalStyle`
     --easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
    
     /* Colors */
-    --surpriseColor: orange;
+    /* TODO: add/move actual colours here */
+
+    /* Prototyping colors */
+    /* TODO: remove these when the project is done */
 
     /* Blacks */
     --black01: hsla(0, 0%, 0%, .01);
@@ -190,30 +200,39 @@ const CustomProperties = createGlobalStyle`
     --gray9: hsl(0, 0%, 23%);
     --gray10: hsl(0, 0%, 13%);
 
-    /* Pinks (Vivid) */
-    --purple1: hsl(262, 90%, 96%);
-    --purple2: hsl(262, 100%, 88%);
-    --purple3: hsl(262, 100%, 78%);
-    --purple4: hsl(264, 96%, 70%);
-    --purple5: hsl(268, 82%, 60%);
-    --purple6: hsl(273, 80%, 49%);
-    --purple7: hsl(274, 87%, 43%);
-    --purple8: hsl(274, 87%, 37%);
-    --purple9: hsl(274, 87%, 31%);
-    --purple10: hsl(276, 91%, 23%);
-    
-    /* Pinks */
-    --pink1: hsl(329, 100%, 94%);
-    --pink2: hsl(330, 87%, 85%);
-    --pink3: hsl(330, 77%, 76%);
-    --pink4: hsl(330, 72%, 65%);
-    --pink5: hsl(330, 66%, 57%);
-    --pink6: hsl(330, 63%, 47%);
-    --pink7: hsl(330, 68%, 40%);
-    --pink8: hsl(330, 70%, 36%);
-    --pink9: hsl(331, 74%, 27%);
-    --pink10: hsl(330, 79%, 20%);
-    
+    /* Tachyons grays */
+    --near-black: #111;
+    --dark-gray:#333;
+    --mid-gray:#555;
+    --gray: #777;
+    --silver: #999;
+    --light-silver: #aaa;
+    --moon-gray: #ccc;
+    --light-gray: #eee;
+    --near-white: #f4f4f4;
+
+    /* Tachyons colors */
+    --dark-red: #e7040f;
+    --red: #ff4136;
+    --light-red: #ff725c;
+    --orange: #ff6300;
+    --gold: #ffb700;
+    --yellow: #ffd700;
+    --light-yellow: #fbf1a9;
+    --purple: #5e2ca5;
+    --light-purple: #a463f2;
+    --dark-pink: #d5008f;
+    --hot-pink: #ff41b4;
+    --pink: #ff80cc;
+    --light-pink: #ffa3d7;
+    --dark-green: #137752;
+    --green: #19a974;
+    --light-green: #9eebcf;
+    --navy: #001b44;
+    --dark-blue: #00449e;
+    --blue: #357edd;
+    --light-blue: #96ccff;
+    --lightest-blue: #cdecff;
   }
 `
 

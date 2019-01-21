@@ -2,7 +2,7 @@
 function StyledCompExample(props) {
   return (
     <Section container {...props}>
-      <Content shadow bg="purple2">
+      <Content shadow bg="lightest-blue">
         <Heading>Custom Grid Example</Heading>
         <Text>This example uses grid for all spacing.</Text>
         <Things things={things} />
@@ -25,7 +25,7 @@ const Content = styled(Box)`
 
 function Things({ things }) {
   return (
-    <Thingies bg="pink1">
+    <Thingies bg="light-pink">
       {things.map(thing => (
         <Item key={thing.content} ga={thing.ga} bg={thing.bg && thing.bg}>
           {thing.content}

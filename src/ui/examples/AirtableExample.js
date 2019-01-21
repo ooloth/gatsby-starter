@@ -11,7 +11,7 @@ function AirtableExample(props) {
 const Inner = styled(Box)`
   padding: var(--s9) 0;
   /* box-shadow: var(--shadow5); */
-  background-color: var(--pink3);
+  background-color: var(--pink);
   text-align: center;
 `
 
