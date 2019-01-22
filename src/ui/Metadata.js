@@ -181,6 +181,6 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import siteImage from '../../images/placeholder-1.jpg'
+import siteImage from '../images/placeholder-1.jpg'
 
 export default Metadata

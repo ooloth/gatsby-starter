@@ -54,6 +54,6 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Base from '../Base'
-import { Metadata } from '../elements'
+import Metadata from '../Metadata'
 
 export default Template

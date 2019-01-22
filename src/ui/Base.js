@@ -82,7 +82,7 @@ import React, { useState, useEffect } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import is from 'is_js'
 
-import { Metadata } from './elements'
+import Metadata from './Metadata'
 import BrowserWarning from './BrowserWarning'
 import Top from './Top'
 import Bottom from './Bottom'

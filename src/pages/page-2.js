@@ -37,6 +37,6 @@ import { graphql } from 'gatsby'
 import { Link } from '../ui/elements'
 
 import Base from '../ui/Base'
-import { Metadata } from '../ui/elements'
+import Metadata from '../ui/Metadata'
 
 export default SecondPage
