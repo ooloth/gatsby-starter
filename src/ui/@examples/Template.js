@@ -2,15 +2,17 @@
  *
  * This template is used to lay out the INSERT PAGE CATEGORY
  * pages that are generated programatically by gatsby-node
- * using the data entered in INSERT-FILE.yaml.
+ * using the data in INSERT-FILE.yml.
  *
  */
 
-const Template = ({ data }) => {
+function Template({ data }) {
   const template = data.allTemplateYaml.edges[0].node
 
   return (
     <Base>
+      <Metadata page={template.pageMetadata} />
+
       <main id="main-content tc sans-serif">
         {/* <PageMetadata page={template.pageMetadata} /> */}
 
@@ -26,14 +28,10 @@ const Template = ({ data }) => {
   )
 }
 
-/*
- *
- * Queries
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 export const query = graphql`
-  query ProductionPageQuery($slug: String!) {
+  query($slug: String!) {
     allTemplateYaml(filter: { slug: { eq: $slug } }) {
       edges {
         node {
@@ -50,16 +48,12 @@ export const query = graphql`
   }
 `
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 
-import Base from './Base'
-// import PageMetadata from '../components/PageMetadata'
+import Base from '../Base'
+import { Metadata } from '../elements'
 
 export default Template

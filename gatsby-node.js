@@ -126,7 +126,7 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: node.slug,
           // TODO: update `template.js` to correct file name
-          component: path.resolve(`./src/ui/Template.js`),
+          component: path.resolve(`./src/ui/@examples/Template.js`),
 
           // Send additional data to page from YAML (or query inside template)
           context: {
