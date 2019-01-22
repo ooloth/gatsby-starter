@@ -21,8 +21,8 @@ export const query = graphql`
     site {
       siteMetadata {
         secondPage {
-          description
           title
+          description
           url
         }
       }
