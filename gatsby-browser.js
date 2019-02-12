@@ -14,6 +14,14 @@ export const onClientEntry = () => {
     console.log(`👍 IntersectionObserver is polyfilled`)
   }
 
+  // TODO: remove if not using
+  // Scroll Behaviour polyfill (Safari, IE)
+  // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
+  //   const smoothScroll = require(`smoothscroll-polyfill`)
+  //   smoothScroll.polyfill()
+  //   console.log(`👍 Scroll Behavior is polyfilled`)
+  // }
+
   // TODO: enable if supporting IE, otherwise remove
   // Object-fit/Object-position polyfill for gatsby-image (IE)
   // const testImg = document.createElement(`img`)
