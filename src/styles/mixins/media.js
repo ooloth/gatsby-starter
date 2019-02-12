@@ -2,14 +2,14 @@ const breakpoints = {
   sm: 36,
   md: 48,
   lg: 62,
-  xl: 75
+  xl: 75,
 }
 
 // Iterate through the sizes and create a media template
 // See: https://www.styled-components.com/docs/advanced#media-templates
 export const media = Object.keys(breakpoints).reduce((acc, label) => {
   acc[label] = (...args) => css`
-    @media (min-width: ${breakpoints[label]}em) {
+    @media only screen and (min-width: ${breakpoints[label]}em) {
       ${css(...args)}
     }
   `

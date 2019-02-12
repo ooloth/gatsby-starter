@@ -1,5 +1,3 @@
-// TODO: switch to using local custom properties for the changing values and just change the variables at each breakpoint
-
 // TODO: switch to a grid-based solution instead? (e.g. 1fr on the outsides...)
 
 export const container = css`
