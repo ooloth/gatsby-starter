@@ -1,36 +1,29 @@
 function BrowserWarning({ title }) {
   return (
     <>
-      <Warning>
-        <Box css={{ maxWidth: `28rem`, letterSpacing: `-0.025rem` }}>
-          <Heading as="h1" fw={9} css="font-size: var(--f10); white-space: nowrap">
-            Apologies.
-          </Heading>
+      <Wrapper>
+        <div>
+          <h1>
+            <LargeText>Apologies.</LargeText>
+            <SmallerText>This browser is no longer&nbsp;supported.</SmallerText>
+          </h1>
 
-          <Heading pt={6} fw={8} css="font-size: var(--f8)">
-            This browser is outdated and no longer supported.
-          </Heading>
-
-          <Text large pt={6}>
-            Please visit {title} in a modern browser like
+          <Text>
+            Please visit {title} in a modern browser like{` `}
             {browsers.map((browser, i) => (
               <Fragment key={i}>
-                {i < browsers.length - 1 ? ` ` : ` or `}
-
-                <Link key={i} href={browser.href} inline>
-                  {browser.text}
-                </Link>
+                <Link href={browser.href}>{browser.text}</Link>
 
                 {i < browsers.length - 2
-                  ? `,`
-                  : i === browsers.length - 1
-                  ? `.`
-                  : null}
+                  ? `, `
+                  : i === browsers.length - 2
+                  ? ` or `
+                  : `.`}
               </Fragment>
             ))}
           </Text>
-        </Box>
-      </Warning>
+        </div>
+      </Wrapper>
 
       {/* TODO: if necessary (how to check?), activate hidden copy of Contact form (needed by Netlify's bots on first render) */}
       {/* <FormCopy /> */}
@@ -38,13 +31,59 @@ function BrowserWarning({ title }) {
   )
 }
 
-const Warning = styled(Main)`
+BrowserWarning.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const Wrapper = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 6%;
   height: 100vh;
   text-align: center;
+  letter-spacing: -0.025rem;
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const LargeText = styled.span`
+  font-size: var(--f10);
+  font-weight: 900;
+  white-space: nowrap;
+
+  ${media.sm`
+    font-size: var(--f11);
+  `}
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const SmallerText = styled.span`
+  display: block;
+  padding-top: var(--s7);
+  font-size: var(--f7);
+  font-weight: 800;
+
+  ${media.sm`
+    font-size: var(--f8);
+  `}
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const Text = styled.p`
+  ${copy}
+  margin: 0 auto;
+  padding-top: var(--s7);
+  max-width: 24rem;
+  font-size: var(--f4);
+
+  ${media.sm`
+    font-size: var(--f5);
+  `}
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +93,7 @@ const browsers = [
   { href: 'https://www.mozilla.org/en-GB/firefox/new', text: 'Firefox' },
   { href: 'https://support.apple.com/downloads/safari', text: 'Safari' },
   { href: 'https://www.microsoft.com/en-gb/windows/microsoft-edge', text: 'Edge' },
-  { href: 'https://www.opera.com/download', text: 'Opera' }
+  { href: 'https://www.opera.com/download', text: 'Opera' },
 ]
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -88,8 +127,10 @@ const browsers = [
 ///////////////////////////////////////////////////////////////////////////////////
 
 import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Link, Box, Heading, Main, Text } from './elements'
+import { Link } from './elements'
+import { copy, media } from '../styles'
 
 export default BrowserWarning
