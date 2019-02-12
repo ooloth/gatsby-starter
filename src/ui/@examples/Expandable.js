@@ -1,31 +1,17 @@
 function Expandable({ as, children, className, config, expanded, ...rest }) {
   const Component = as
+  const ref = useRef()
+  const { height } = useMeasure(ref)
+  const [containerHeight, setContainerHeight] = useSpring(() => ({ height: 0 }))
+
+  setContainerHeight({ height: expanded ? height : 0 })
 
   return (
-    <Measure offset margin>
-      {({ measureRef, contentRect: { offset, margin } }) => (
-        <Spring
-          native
-          from={{ height: 0 }}
-          to={{
-            height: expanded ? offset.height + margin.bottom + margin.top : 0
-          }}
-          config={config}
-        >
-          {style => (
-            <animated.div style={{ overflow: 'hidden', ...style }} {...rest}>
-              <Component
-                ref={measureRef}
-                className={className}
-                style={{ overflow: 'auto' }}
-              >
-                {children}
-              </Component>
-            </animated.div>
-          )}
-        </Spring>
-      )}
-    </Measure>
+    <animated.div style={{ overflow: 'hidden', ...containerHeight }} {...rest}>
+      <Component ref={ref} className={className} style={{ overflow: 'auto' }}>
+        {children}
+      </Component>
+    </animated.div>
   )
 }
 
@@ -34,20 +20,21 @@ Expandable.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   config: PropTypes.object,
-  expanded: PropTypes.bool
+  expanded: PropTypes.bool,
 }
 
 Expandable.defaultProps = {
   as: `div`,
-  expanded: false
+  expanded: false,
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-import Measure from 'react-measure'
-import { Spring, animated } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
+
+import useMeasure from '../logic/useMeasure'
 
 export default Expandable
 

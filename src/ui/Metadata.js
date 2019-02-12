@@ -17,7 +17,7 @@ function Metadata({ page, preconnect, preload }) {
 Metadata.propTypes = {
   page: PropTypes.object,
   preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -131,10 +131,10 @@ function StructuredData({ site, image }) {
       `
       "address": {
         "@type": "PostalAddress",
-        ${site.address.street && `"streetAddress": ${site.address.street},`}
-        ${site.address.locality && `"addressLocality": ${site.address.locality},`}
-        ${site.address.region && `"addressRegion": ${site.address.region},`}
-        ${site.address.country && `"addressCountry": ${site.address.country}`}
+        ${site.address.street && `"streetAddress": "${site.address.street}",`}
+        ${site.address.locality && `"addressLocality": "${site.address.locality}",`}
+        ${site.address.region && `"addressRegion": "${site.address.region}",`}
+        ${site.address.country && `"addressCountry": "${site.address.country}"`}
       },
     `}
     "sameAs": [${sameAs}]
