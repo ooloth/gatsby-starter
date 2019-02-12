@@ -22,7 +22,6 @@ function Base({ children }) {
 
           <CustomProperties />
           <Reset />
-          {/* <FontFace /> */}
 
           {isIE ? (
             <BrowserWarning title={data.site.siteMetadata.title} />
@@ -88,7 +87,7 @@ import Top from './Top'
 import Bottom from './Bottom'
 
 import { CustomProperties, Reset } from '../styles'
-// import FontFace from '../styles/FontFace'
+// import '../styles/base/font-face.css'
 
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 // import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'

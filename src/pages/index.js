@@ -1,15 +1,6 @@
 function IndexPage({ data }) {
   return (
     <Base>
-      {/* <Main
-        rows={{
-          title: <Heading size="large">Gatsby Starter</Heading>,
-          link: <Link to="/page-2/">Go to page 2</Link>,
-          grid: <StyledCompExample />,
-          airtable: <AirtableExample />
-        }}
-      /> */}
-
       <Main id="main-content" tabIndex="-1">
         <Header ga="😄">
           <Heading size="large">Gatsby Starter</Heading>
@@ -91,19 +82,6 @@ const Main = styled.main`
     [💨] auto
     var(--s6);
 `
-
-// const Main = styled(Layout)`
-//   grid-template-rows:
-//     0.5rem
-//     [title] auto
-//     0.5rem
-//     [link] auto
-//     2rem
-//     [grid] auto
-//     4rem
-//     [airtable] auto
-//     4rem;
-// `
 
 ///////////////////////////////////////////////////////////////////////////////////
 
