@@ -1,7 +1,7 @@
 function VideoThumbnailAndDialogExample({ video }) {
   return (
     <Section>
-      <h2>Video Thumbnail and Dialog Example</h2>
+      <h2>Video Thumbnail and Dialog Example (manual dialog trigger)</h2>
       <Code>useMachine, dialogMachine, @reach/dialog, react-spring</Code>
       <VideoThumbnailAndDialog video={video} />
     </Section>
@@ -19,7 +19,7 @@ const Section = styled.section`
 const Code = styled.code`
   display: inline-flex;
   margin-top: var(--s1);
-  background-color: var(--light-pink);
+  background-color: var(--lightest-blue);
   padding: var(--s1) 0;
 `
 
@@ -58,7 +58,7 @@ function VideoThumbnailAndDialog({ video }) {
               </CloseButton>
 
               <Content>
-                <Player url={video.url} playing />
+                <Player url={video.url} controls={true} playing />
               </Content>
             </Overlay>
           )
@@ -105,9 +105,9 @@ const Player = styled(YouTubePlayer)`
 const CloseButton = styled.button`
   display: block;
   position: absolute;
-  z-index: 102;
   top: var(--s4);
   right: var(--s4);
+  z-index: 102;
   border: none;
   background: transparent;
   font-size: var(--f3);

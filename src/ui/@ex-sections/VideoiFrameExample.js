@@ -2,9 +2,8 @@ function VideoiFrameExample() {
   return (
     <Section>
       <h2>Video iFrame Example</h2>
-      <Code>iframe embed code</Code>
+      <Code>youtube embed code</Code>
 
-      {/* <h3>iFrame</h3> */}
       <EmbedWrapper>
         <Embed
           src="https://www.youtube.com/embed/ZTLAx3VDX7g"
@@ -28,7 +27,7 @@ const Section = styled.section`
 const Code = styled.code`
   display: inline-flex;
   margin-top: var(--s1);
-  background-color: var(--light-pink);
+  background-color: var(--lightest-blue);
   padding: var(--s1) 0;
 `
 

@@ -31,7 +31,7 @@ const Section = styled.section`
 const Code = styled.code`
   display: inline-flex;
   margin-top: var(--s1);
-  background-color: var(--light-pink);
+  background-color: var(--lightest-blue);
   padding: var(--s1) 0;
 `
 
