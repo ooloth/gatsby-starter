@@ -58,6 +58,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-svgr`,
+    `gatsby-plugin-webpack-bundle-analyzer`,
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: `gatsby-plugin-robots-txt`,

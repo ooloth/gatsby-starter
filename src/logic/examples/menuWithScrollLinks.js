@@ -68,4 +68,4 @@ function scrollToIdIfHrefSaved(ctx) {
 import { Machine } from 'xstate'
 import noScroll from 'no-scroll'
 
-import scrollToId from '../logic/scrollToId'
+import scrollToId from './scrollToId'

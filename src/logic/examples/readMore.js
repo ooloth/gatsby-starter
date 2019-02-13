@@ -38,4 +38,4 @@ export function useExpandOnLargeScreens(send) {
 import { useEffect } from 'react'
 import { Machine } from 'xstate'
 
-import useMediaQuery from '../logic/useMediaQuery'
+import useMediaQuery from './useMediaQuery'

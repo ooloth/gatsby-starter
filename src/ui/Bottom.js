@@ -1,7 +1,6 @@
 function Bottom({ navLinks, socialLinks }) {
   return (
     <Footer>
-      <Heading as="h1">Site Title</Heading>
       <FinePrint />
     </Footer>
   )
@@ -9,20 +8,28 @@ function Bottom({ navLinks, socialLinks }) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+const Footer = styled.footer`
+  background-color: var(--light-pink);
+  padding: var(--s4);
+`
+
+///////////////////////////////////////////////////////////////////////////////////
+
 function FinePrint() {
   return (
-    <Text>
-      &copy; {new Date().getFullYear()} Insert Site Name.
-      All&nbsp;rights&nbsp;reserved. Brewed&nbsp;by&nbsp;
+    <p>
+      &copy; {new Date().getFullYear()} Site Title. All&nbsp;rights&nbsp;reserved.
+      Brewed&nbsp;by&nbsp;
       <Link href="http://coffeeshopcreative.ca">Coffeeshop&nbsp;Creative</Link>.
-    </Text>
+    </p>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import React from 'react'
+import styled from 'styled-components'
 
-import { Link, Footer, Heading, Text } from './elements'
+import { Link } from './elements'
 
 export default Bottom

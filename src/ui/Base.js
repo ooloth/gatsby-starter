@@ -1,7 +1,7 @@
 function Base({ children }) {
   const [isIE, setIsIE] = useState(false)
 
-  useEffect(() => setIsIE(is.ie()), [])
+  // useEffect(() => setIsIE(is.ie()), [])
 
   return (
     <StaticQuery
@@ -9,15 +9,11 @@ function Base({ children }) {
       render={data => (
         <>
           <Metadata
-          // preload={[
-          //   { href: avenirRegular, as: `font`, type: `font/woff2` },
-          //   { href: avenirHeavy, as: `font`, type: `font/woff2` }
-          // ]}
-          // preconnect={[
-          //   `https://cdnjs.cloudflare.com`,
-          //   `https://cdn.jsdelivr.net`,
-          //   `https://www.google-analytics.com`
-          // ]}
+            // preload={[
+            //   { href: avenirRegular, as: `font`, type: `font/woff2` },
+            //   { href: avenirHeavy, as: `font`, type: `font/woff2` }
+            // ]}
+            preconnect={[`https://unpkg.com`]}
           />
 
           <CustomProperties />

@@ -155,15 +155,18 @@ const SITE_QUERY = graphql`
     site {
       siteMetadata {
         title
+        jobTitle
         description
         siteUrl
         lang
         locale
         email
+        telephone
         twitterSite
         twitterCreator
         socialLinks
         address {
+          street
           locality
           region
           country

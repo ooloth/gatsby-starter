@@ -1,18 +1,38 @@
 function Top({ navLinks, socialLinks }) {
   return (
     <Header>
-      <Heading as="h1">Site Title</Heading>
+      <h1>
+        <Link href="/">Site Title</Link>
+      </h1>
+
       <SkipNav href="#main-content" />
-      {/* <BurgerAndOverlay navLinks={navLinks} /> */}
+
+      <nav>
+        <Link href="/page-2/">Page 2</Link>
+      </nav>
+
+      <MenuToggleAndOverlay navLinks={navLinks} socialLinks={socialLinks} />
     </Header>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React from 'react'
+const Header = styled.header`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  background-color: var(--light-pink);
+  padding: var(--s4);
+`
 
-import { Header, Heading, SkipNav } from './elements'
-// import BurgerAndOverlay from '../components/examples/BurgerAndOverlay'
+///////////////////////////////////////////////////////////////////////////////////
+
+import React from 'react'
+import styled from 'styled-components'
+
+import { Link, SkipNav } from './elements'
+import MenuToggleAndOverlay from './@ex-components/MenuToggleAndOverlay'
 
 export default Top

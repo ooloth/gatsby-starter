@@ -86,12 +86,12 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
               /intersection-observer/,
               /lightbox-react/,
               /react-image-lightbox/,
-              /twitter-fetcher/
+              /twitter-fetcher/,
             ],
-            loader: `null-loader`
-          }
-        ]
-      }
+            loader: `null-loader`,
+          },
+        ],
+      },
     })
   }
 }
@@ -126,12 +126,12 @@ exports.createPages = ({ graphql, actions }) => {
         createPage({
           path: node.slug,
           // TODO: update `template.js` to correct file name
-          component: path.resolve(`./src/ui/@examples/Template.js`),
+          component: path.resolve(`./src/ui/@ex-templates/Template.js`),
 
           // Send additional data to page from YAML (or query inside template)
           context: {
-            slug: node.slug
-          }
+            slug: node.slug,
+          },
         })
       })
       resolve()

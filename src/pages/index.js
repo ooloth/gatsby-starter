@@ -1,24 +1,18 @@
 function IndexPage({ data }) {
   return (
     <Base>
-      <Main id="main-content" tabIndex="-1">
-        <Header ga="😄">
-          <Heading size="large">Gatsby Starter</Heading>
-          <Link href="/page-2/">Go to page 2</Link>
-        </Header>
+      <main id="main-content" tabIndex="-1">
+        <ExpandableExample />
+        <VideoiFrameExample />
+        <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} />
 
-        <StyledCompExample ga="🤓" />
-        <AirtableExample ga="💨" />
-
-        {/* <YamlExample data={data.allExampleYaml.edges} />
+        {/* 
         <TemplateExample data={data.allTemplateYaml.edges} />
 
         <MountTransitionExample />
         <GSAPExample />
         <RevealExample data={data.allExampleYaml.edges} />
         <ReactSpringExample />
-
-        <CollapseExample />
 
         <FilterExample
           category1={data.allCategory1Yaml.edges}
@@ -64,29 +58,33 @@ function IndexPage({ data }) {
         {/* <ScrollTo href="#top" className="link dib mb5">
           Back to top
         </ScrollTo> */}
-      </Main>
+      </main>
     </Base>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const Main = styled.main`
-  display: grid;
-  grid-template-rows:
-    var(--s4)
-    [😄] auto
-    var(--s6)
-    [🤓] auto
-    var(--s6)
-    [💨] auto
-    var(--s6);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 export const query = graphql`
   query {
+    allVideosYaml {
+      edges {
+        node {
+          url
+          image {
+            file {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            alt
+          }
+        }
+      }
+    }
+
     allExampleYaml {
       edges {
         node {
@@ -191,23 +189,23 @@ export const query = graphql`
       }
     }
 
-    allLightboxVideosYaml {
-      edges {
-        node {
-          url
-          image {
-            childImageSharp {
-              fluid(
-                maxWidth: 500
-                duotone: { highlight: "#9eebcf", shadow: "#192550" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
+    # allLightboxVideosYaml {
+    #   edges {
+    #     node {
+    #       url
+    #       image {
+    #         childImageSharp {
+    #           fluid(
+    #             maxWidth: 500
+    #             duotone: { highlight: "#9eebcf", shadow: "#192550" }
+    #           ) {
+    #             ...GatsbyImageSharpFluid_withWebp
+    #           }
+    #         }
+    #       }
+    #     }
+    #   }
+    #  }
 
     allLightboxImagesYaml {
       edges {
@@ -262,17 +260,12 @@ export const query = graphql`
 
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
-// import Layout from 'layup/styled'
 
 import Base from '../ui/Base'
-import StyledCompExample from '../ui/@examples/StyledCompExample'
-import AirtableExample from '../ui/@examples/AirtableExample'
-import { Header, Heading, Link } from '../ui/elements'
+import ExpandableExample from '../ui/@ex-sections/ExpandableExample'
+import VideoiFrameExample from '../ui/@ex-sections/VideoiFrameExample'
+import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAndDialogExample'
 
-// TailwindCSS Styles:
-
-// import YamlExample from '../sections/examples/YamlExample'
 // import TemplateExample from '../sections/examples/TemplateExample'
 
 // import MountTransitionExample from '../sections/examples/MountTransitionExample'
@@ -280,7 +273,6 @@ import { Header, Heading, Link } from '../ui/elements'
 // import RevealExample from '../sections/examples/RevealExample'
 // import ReactSpringExample from '../sections/examples/ReactSpringExample'
 
-// import CollapseExample from '../sections/examples/CollapseExample'
 // import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
 
 // import ParallaxExample from '../sections/examples/wip/ParallaxExample'

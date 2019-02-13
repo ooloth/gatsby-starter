@@ -43,7 +43,7 @@ export const onInitialClientRender = () => {
   // A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
   if (!loadjs.isDefined(`what-input`)) {
     loadjs(
-      `https://cdnjs.cloudflare.com/ajax/libs/what-input/5.0.5/what-input.min.js`,
+      `https://unpkg.com/what-input@5.1.3/dist/what-input.js`,
       `what-input`,
       () => console.log(`👍 What-input is loaded`)
     )

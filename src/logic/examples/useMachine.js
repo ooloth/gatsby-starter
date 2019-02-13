@@ -1,8 +1,12 @@
-export function useMachine(machine) {
-  // Keep track of the current machine state
-  const [current, setCurrent] = useState(machine.initialState)
+function useMachine(machine) {
+  /**
+   * 1. Keep track of the current machine state
+   * 2. Start the service (only once!)
+   * 3. Stop the service when the component unmounts
+   */
 
-  // Start the service (only once!)
+  const [current, setCurrent] = useState(machine.initialState) /* 1 */
+
   const service = useMemo(
     () =>
       interpret(machine)
@@ -12,12 +16,11 @@ export function useMachine(machine) {
         })
         .start(),
     []
-  )
+  ) /* 2 */
 
-  // Stop the service when the component unmounts
   useEffect(() => {
     return () => service.stop()
-  }, [])
+  }, []) /* 3 */
 
   return [current, service.send]
 }
@@ -25,7 +28,11 @@ export function useMachine(machine) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useState, useMemo, useEffect } from 'react'
-import { interpret } from 'xstate/lib/interpreter' /*) 
+import { interpret } from 'xstate/lib/interpreter'
+
+export default useMachine
+
+/* 
 
 function Toggle() {
   const [current, send] = useMachine(toggleMachine);

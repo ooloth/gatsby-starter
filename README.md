@@ -1,5 +1,9 @@
 # WEBSITE_TITLE website
 
+<!-- TODO: replace with snippet from Netlify > Settings > Netlify status badges-->
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4320c2f4-c85f-40fe-8b79-7ff91da5a7d7/deploy-status)](https://app.netlify.com/sites/website/deploys)
+
 These are the source files for [WEBSITE_TITLE's website](https://www.website.com).
 
 ## Overview
@@ -19,7 +23,7 @@ instructions.
 Finally, create a new local folder for this project, clone this repo,
 install the project dependencies, and run the 'dev' script:
 
-TODO: update REPO_NAME:
+<!-- TODO: update REPO_NAME: -->
 
 ```
 // navigate to project folder, then run:
