@@ -4,6 +4,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4320c2f4-c85f-40fe-8b79-7ff91da5a7d7/deploy-status)](https://app.netlify.com/sites/website/deploys)
 
+<!-- TODO: update all WEBSITE_TITLE -->
+<!-- TODO: update website.com -->
 These are the source files for [WEBSITE_TITLE's website](https://www.website.com).
 
 ## Overview
