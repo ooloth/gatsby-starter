@@ -2,7 +2,11 @@ function IndexPage({ data }) {
   return (
     <Base>
       <main id="main-content" tabIndex="-1">
-        <ExpandableExample />
+        <AccordionExample />
+        <DialogExample />
+        <LimitExample />
+        <PopUpExample />
+        <ReadMoreExample />
         <VideoiFrameExample />
         <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} />
 
@@ -262,7 +266,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Base from '../ui/Base'
-import ExpandableExample from '../ui/@ex-sections/ExpandableExample'
+import AccordionExample from '../ui/@ex-sections/AccordionExample'
+import DialogExample from '../ui/@ex-sections/DialogExample'
+import LimitExample from '../ui/@ex-sections/LimitExample'
+import PopUpExample from '../ui/@ex-sections/PopUpExample'
+import ReadMoreExample from '../ui/@ex-sections/ReadMoreExample'
 import VideoiFrameExample from '../ui/@ex-sections/VideoiFrameExample'
 import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAndDialogExample'
 
