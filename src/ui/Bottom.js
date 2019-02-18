@@ -17,13 +17,19 @@ const Footer = styled.footer`
 
 function FinePrint() {
   return (
-    <p>
+    <Text>
       &copy; {new Date().getFullYear()} Site Title. All&nbsp;rights&nbsp;reserved.
       Brewed&nbsp;by&nbsp;
       <Link href="http://coffeeshopcreative.ca">Coffeeshop&nbsp;Creative</Link>.
-    </p>
+    </Text>
   )
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const Text = styled.p`
+  ${copy}
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -31,5 +37,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Link } from './elements'
+import { copy } from '../styles'
 
 export default Bottom

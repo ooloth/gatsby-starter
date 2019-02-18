@@ -10,9 +10,9 @@ function ReadMoreExample() {
       <VisibleParagraphs paragraphs={paragraphs.slice(0, 1)} />
 
       {state.value === `collapsed` && (
-        <button onClick={() => send('EXPAND')} aria-expanded={false}>
+        <ReadMore onClick={() => send('EXPAND')} aria-expanded={false}>
           Read more
-        </button>
+        </ReadMore>
       )}
 
       <HiddenParagraphs
@@ -45,6 +45,12 @@ function VisibleParagraphs({ paragraphs }) {
     <Text key={paragraph} dangerouslySetInnerHTML={{ __html: paragraph }} />
   ))
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+
+const ReadMore = styled.button`
+  margin-top: var(--s4);
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
