@@ -2,7 +2,7 @@ function VideoThumbnailAndDialogExample({ video }) {
   return (
     <Section>
       <h2>Video Thumbnail + Dialog</h2>
-      <Code>useMachine, dialogMachine, @reach/dialog, react-spring</Code>
+      <Code>@reach/dialog, useMachine, dialogMachine, useTransition</Code>
       <VideoThumbnailAndDialog video={video} />
     </Section>
   )
