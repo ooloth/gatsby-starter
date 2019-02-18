@@ -1,17 +1,20 @@
-function ExpandableExample() {
+function ReadMoreExample() {
   const [state, send] = useMachine(readMoreMachine)
   useExpandOnLargeScreens(send)
 
   return (
     <Section>
-      <h2>Expandable Example</h2>
-      <Code>useMachine, readMoreMachine, useExpandOnLargeScreens</Code>
+      <h2>Read More</h2>
+      <Code>Expandable, useMachine, readMoreMachine, useExpandOnLargeScreens</Code>
+
       <VisibleParagraphs paragraphs={paragraphs.slice(0, 1)} />
+
       {state.value === `collapsed` && (
         <button onClick={() => send('EXPAND')} aria-expanded={false}>
           Read more
         </button>
       )}
+
       <HiddenParagraphs
         expanded={state.value === `expanded`}
         paragraphs={paragraphs.slice(1)}
@@ -82,4 +85,4 @@ import {
 } from '../../logic/examples/readMore'
 import { copy } from '../../styles'
 
-export default ExpandableExample
+export default ReadMoreExample
