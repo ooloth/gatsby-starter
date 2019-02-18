@@ -21,6 +21,7 @@ export const limitMachine = Machine(
     id: 'limitMachine',
     context: {
       limit: 3, // update default externally
+      previousLimit: null,
       limitsByScreen: { xl: 6, sm: 4, xs: 3 }, // update defaults externally
       screen: 'xs', // update default externally
     },
@@ -43,7 +44,7 @@ export const limitMachine = Machine(
   {
     actions: {
       setLimitByScreen: (ctx, e) => setLimitByScreen(ctx, e),
-      showAllItems: assign({ limit: () => 999 }),
+      showAllItems: ctx => showAllItems(ctx),
     },
   }
 )
@@ -52,8 +53,11 @@ export const limitMachine = Machine(
 
 function setLimitByScreen(ctx, event) {
   // If triggered by resizing the viewport, update the screen value in context
-  if (typeof event.screen !== `undefined`) ctx.screen = event.screen
+  if (event.screen) {
+    ctx.screen = event.screen
+  }
 
+  // In any case, set the limit based on the screen value now in context
   ctx.limit = ctx.limitsByScreen[ctx.screen]
 }
 
@@ -72,7 +76,9 @@ export function useRecalculateLimit(state, send) {
     if (lg && `lg` in state.context.limitsByScreen) screen = `lg`
     if (xl && `xl` in state.context.limitsByScreen) screen = `xl`
 
-    send({ type: `RECALCULATE_LIMIT`, screen: screen })
+    if (screen !== state.context.screen) {
+      send({ type: `RECALCULATE_LIMIT`, screen: screen })
+    }
   }
 
   useEffect(() => recalculateLimit(), [sm, md, lg, xl])
@@ -81,12 +87,23 @@ export function useRecalculateLimit(state, send) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 export function limitItems(state, items) {
+  if (typeof state.context.limit === `undefined`) return []
   return items.slice(0, state.context.limit)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useEffect } from 'react'
-import { Machine, assign } from 'xstate'
+function showAllItems(ctx) {
+  // To enable trailing from the new item index, save the previous limit
+  ctx.previousLimit = ctx.limit
 
-import useMediaQuery from '../logic/useMediaQuery'
+  // Update the new limit to any high number
+  ctx.limit = 999
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
+import { useEffect } from 'react'
+import { Machine } from 'xstate'
+
+import useMediaQuery from './useMediaQuery'
