@@ -91,7 +91,7 @@ const MenuButton = styled.button``
 
 const Overlay = animated(styled(DialogOverlay)`
   && {
-    z-index: 1;
+    z-index: 101;
     overflow: hidden;
   }
 `)
