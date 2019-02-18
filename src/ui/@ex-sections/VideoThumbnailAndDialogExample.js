@@ -164,7 +164,6 @@ const PlayButton = styled.button`
   width: 100%;
   height: 100%;
   font-size: var(--f7);
-  font-weight: 900;
   text-transform: uppercase;
   color: hsla(0, 100%, 100%, 0%);
   transition: all 0.2s ease-in-out;
