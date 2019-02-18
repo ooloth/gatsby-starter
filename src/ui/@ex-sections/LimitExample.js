@@ -61,7 +61,7 @@ function Items({ visibleItems, previousLimit }) {
   // Isolate the new items (so they can be animated)
   let newItems = visibleItems
   if (previousLimit) {
-    newItems = visibleItems.slice(previousLimit + 1)
+    newItems = visibleItems.slice(previousLimit)
   }
 
   // Limit the trail length to the length of the newItems array
