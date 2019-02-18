@@ -76,6 +76,12 @@ function PageMetadata({ site, page, preconnect, preload }) {
             />
           ))}
 
+        {/* TODO: remove if not using subfont */}
+        {/* <link
+          href="https://fonts.googleapis.com/css?family=Raleway:500,500i,900&amp;subset=latin-ext"
+          rel="stylesheet"
+        /> */}
+
         {/* Schema.org for Google */}
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
