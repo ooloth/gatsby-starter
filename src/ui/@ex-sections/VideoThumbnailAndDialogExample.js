@@ -1,7 +1,7 @@
 function VideoThumbnailAndDialogExample({ video }) {
   return (
     <Section>
-      <h2>Video Thumbnail and Dialog Example (manual dialog trigger)</h2>
+      <h2>Video Thumbnail + Dialog</h2>
       <Code>useMachine, dialogMachine, @reach/dialog, react-spring</Code>
       <VideoThumbnailAndDialog video={video} />
     </Section>

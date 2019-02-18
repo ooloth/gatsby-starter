@@ -1,8 +1,8 @@
 function VideoiFrameExample() {
   return (
     <Section>
-      <h2>Video iFrame Example</h2>
-      <Code>youtube embed code</Code>
+      <h2>Video iFrame</h2>
+      <Code>youtube embed</Code>
 
       <EmbedWrapper>
         <Embed
