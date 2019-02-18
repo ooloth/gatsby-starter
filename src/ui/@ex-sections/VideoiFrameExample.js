@@ -42,7 +42,6 @@ const EmbedWrapper = styled.div`
 ///////////////////////////////////////////////////////////////////////////////////
 
 const Embed = styled.iframe`
-  border: none;
   ${aspectRatioChild}
 `
 
