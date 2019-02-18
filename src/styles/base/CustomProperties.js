@@ -108,6 +108,7 @@ const CustomProperties = createGlobalStyle`
     --shadow3: 0 5px 15px hsla(0, 0%, 0%, .2);
     --shadow4: 0 10px 24px hsla(0, 0%, 0%, .2);
     --shadow5: 0 15px 35px hsla(0, 0%, 0%, .2);
+    --shadow6: 0 10px 50px hsla(0, 0%, 0%, 0.33);
     --inset: inset 0 2px 2px hsla(0, 0%, 0%, .1);
 
     /* Transitions */
