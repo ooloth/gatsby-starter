@@ -3,6 +3,8 @@ function Base({ children }) {
 
   useEffect(() => setIsIE(is.ie()), [])
 
+  console.log({ isIE })
+
   return (
     <StaticQuery
       query={BASE_QUERY}
