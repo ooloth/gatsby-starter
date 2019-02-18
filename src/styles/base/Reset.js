@@ -201,6 +201,10 @@ const Reset = createGlobalStyle`
     vertical-align: middle;
   }
 
+  iframe {
+    border: none;
+  }
+
   /* img {
     max-width: 100%;
     height: auto;
