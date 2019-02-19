@@ -50,7 +50,7 @@ const Item = styled(animated.p)`
 
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { config, animated, useSpring } from 'react-spring'
+import { config, animated, useSpring } from 'react-spring/web.cjs'
 
 import useOnScreen from '../../logic/examples/useOnScreen'
 
