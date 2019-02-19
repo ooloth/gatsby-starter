@@ -5,7 +5,7 @@ const SkipNav = ({ href }) => (
 )
 
 SkipNav.propTypes = {
-  href: PropTypes.string.isRequired
+  href: PropTypes.string.isRequired,
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -13,7 +13,7 @@ SkipNav.propTypes = {
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { SrText } from './'
+import { SrText } from './SrText'
 
 export default SkipNav
 
