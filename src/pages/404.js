@@ -102,6 +102,6 @@ import styled from 'styled-components'
 
 import Base from '../ui/Base'
 import { Link } from '../ui/elements'
-import { copy, media, underlineThatGrowsOnHover } from '../styles'
+import { copy, media } from '../styles'
 
 export default NotFoundPage

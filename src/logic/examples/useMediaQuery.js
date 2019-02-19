@@ -1,37 +1,30 @@
 function useMediaQuery(query, defaultMatches) {
   const [matches, setMatches] = useState(defaultMatches)
 
-  useEffect(
-    () => {
-      if (typeof window !== `undefined`) {
-        let mounted = true
-        const mediaQuery = window.matchMedia(query)
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      let mounted = true
+      const mediaQuery = window.matchMedia(query)
 
-        const onChange = () => {
-          if (!mounted) return
-          setMatches(!!mediaQuery.matches)
-        }
-
-        mediaQuery.addListener(onChange)
-        setMatches(mediaQuery.matches)
-
-        return () => {
-          mounted = false
-          mediaQuery.removeListener(onChange)
-        }
+      const onChange = () => {
+        if (!mounted) return
+        setMatches(!!mediaQuery.matches)
       }
-    },
-    [query]
-  )
+
+      mediaQuery.addListener(onChange)
+      setMatches(mediaQuery.matches)
+
+      return () => {
+        mounted = false
+        mediaQuery.removeListener(onChange)
+      }
+    }
+  }, [query])
 
   return matches
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useState, useEffect } from 'react'
 

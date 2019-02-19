@@ -163,7 +163,7 @@ const items = [
 
 import React from 'react'
 import styled from 'styled-components'
-import { animated, config, useTrail, useTransition } from 'react-spring'
+import { animated, useTrail } from 'react-spring'
 
 import useMachine from '../../logic/examples/useMachine'
 import {

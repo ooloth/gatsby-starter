@@ -21,11 +21,7 @@ function useTwitterFeed(user, count = 3) {
   return feed
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useEffect, useState } from 'react'
 import twitterFetcher from 'twitter-fetcher'

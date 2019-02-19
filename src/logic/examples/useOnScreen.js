@@ -17,7 +17,7 @@ function useOnScreen(ref, rootMargin = '0px') {
       },
       {
         // TODO: allow separate control of top/bottom?
-        rootMargin: rootMargin
+        rootMargin: rootMargin,
       }
     )
     if (ref.current) {
@@ -32,11 +32,7 @@ function useOnScreen(ref, rootMargin = '0px') {
   return isIntersecting
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useState, useEffect } from 'react'
 

@@ -18,11 +18,7 @@ function useDetectGridSupport() {
   return browserSupportsGrid
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useState, useEffect } from 'react'
 

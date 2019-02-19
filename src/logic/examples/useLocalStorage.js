@@ -29,11 +29,7 @@ function useLocalStorage(key, initialValue) {
   return [item, setValue]
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useState } from 'React'
 

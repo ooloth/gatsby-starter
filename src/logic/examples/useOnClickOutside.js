@@ -19,11 +19,7 @@ function useOnClickOutside(ref, handler) {
   }, []) // Empty array ensures that effect is only run on mount and unmount
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useEffect } from 'react'
 

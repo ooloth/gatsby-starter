@@ -25,11 +25,7 @@ function useHover() {
   return [ref, value]
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useRef, useState, useEffect } from 'react'
 

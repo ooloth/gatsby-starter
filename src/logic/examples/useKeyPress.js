@@ -30,11 +30,7 @@ function useKeyPress(targetKey) {
   return keyPressed
 }
 
-/*
- *
- * Imports & Exports
- *
- */
+///////////////////////////////////////////////////////////////////////////////////
 
 import { useState, useEffect } from 'react'
 
