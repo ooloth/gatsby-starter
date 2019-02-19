@@ -20,8 +20,8 @@ function Base({ children }) {
             preconnect={[`https://unpkg.com`]}
           />
 
-          <CustomProperties />
-          <Reset />
+          {/* <CustomProperties />
+          <Reset /> */}
 
           {isIE ? (
             <BrowserWarning title={data.site.siteMetadata.title} />
@@ -83,10 +83,10 @@ import is from 'is_js'
 
 import Metadata from './Metadata'
 import BrowserWarning from './BrowserWarning'
-import Top from './Top'
-import Bottom from './Bottom'
+// import Top from './Top'
+// import Bottom from './Bottom'
 
-import { CustomProperties, Reset } from '../styles'
+// import { CustomProperties, Reset } from '../styles'
 // import '../styles/base/font-face.css'
 
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
