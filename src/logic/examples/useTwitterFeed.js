@@ -11,7 +11,7 @@ function useTwitterFeed(user, count = 3) {
       enableLinks: true,
       showRetweet: false,
       // lang: `en`,
-      customCallback: tweets => setFeed(tweets)
+      customCallback: tweets => setFeed(tweets),
     })
 
     // Cancel on unmount:
@@ -30,7 +30,7 @@ function useTwitterFeed(user, count = 3) {
 import { useEffect, useState } from 'react'
 import twitterFetcher from 'twitter-fetcher'
 
-import '../styles/plugins/twitter-fetcher.css'
+// import '../styles/plugins/twitter-fetcher.css'
 
 export default useTwitterFeed
 
