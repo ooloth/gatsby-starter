@@ -4,31 +4,20 @@ function IndexPage({ data }) {
       <main id="main-content">
         <AccordionExample />
         <DialogExample />
+        <FilterAndLimitExample />
         <LimitExample />
+        <MailChimpExample />
         <PopUpExample />
         <ReadMoreExample />
+        <RevealOnScrollExample />
+        <ScrollToIdExample />
+        <TwitterFeedExample />
         <VideoiFrameExample />
         <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} />
 
         {/* 
         <TemplateExample data={data.allTemplateYaml.edges} />
-
-        <MountTransitionExample />
-        <GSAPExample />
         <RevealExample data={data.allExampleYaml.edges} />
-        <ReactSpringExample />
-
-        <FilterExample
-          category1={data.allCategory1Yaml.edges}
-          category2={data.allCategory2Yaml.edges}
-        />
-
-        <FilterAndLimitExample
-          cat1={data.allCategory1Yaml.edges}
-          cat2={data.allCategory2Yaml.edges}
-        />
-
-        <LimitExample items={data.allExampleYaml.edges} />
 
         <GalleryAndLightboxExample
           portrait={data.allMediaPortraitYaml.edges}
@@ -39,6 +28,7 @@ function IndexPage({ data }) {
         <ImageLightboxExample
           images={data.allLightboxImagesYaml.edges[0].node.images}
         />
+
         <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
         <FadingCarouselExample data={data.allExampleYaml.edges} /> */}
@@ -48,9 +38,7 @@ function IndexPage({ data }) {
 
         {/* <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
-        <BlockquotesExample />
         <SVGsAndEmojisExample />
-
         <TwitterExample />
         <InstagramExample /> */}
 
@@ -58,10 +46,6 @@ function IndexPage({ data }) {
         {/* <p className="pb5">(The Form example is hidden by default.)</p> */}
         {/* <FormikExample /> */}
         {/* <FormExample /> */}
-
-        {/* <ScrollTo href="#top" className="link dib mb5">
-          Back to top
-        </ScrollTo> */}
       </main>
     </Base>
   )
@@ -89,45 +73,11 @@ export const query = graphql`
       }
     }
 
-    allExampleYaml {
-      edges {
-        node {
-          image {
-            childImageSharp {
-              fluid(maxWidth: 672) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-          alt
-          title
-          description
-          link
-        }
-      }
-    }
-
     allTemplateYaml {
       edges {
         node {
           title
           slug
-        }
-      }
-    }
-
-    allCategory1Yaml {
-      edges {
-        node {
-          text
-        }
-      }
-    }
-
-    allCategory2Yaml {
-      edges {
-        node {
-          text
         }
       }
     }
@@ -193,41 +143,6 @@ export const query = graphql`
       }
     }
 
-    # allLightboxVideosYaml {
-    #   edges {
-    #     node {
-    #       url
-    #       image {
-    #         childImageSharp {
-    #           fluid(
-    #             maxWidth: 500
-    #             duotone: { highlight: "#9eebcf", shadow: "#192550" }
-    #           ) {
-    #             ...GatsbyImageSharpFluid_withWebp
-    #           }
-    #         }
-    #       }
-    #     }
-    #   }
-    #  }
-
-    allLightboxImagesYaml {
-      edges {
-        node {
-          images {
-            childImageSharp {
-              thumbnail: fluid(maxWidth: 925) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-              lightbox: fixed(width: 1500) {
-                ...GatsbyImageSharpFixed_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
-
     allEventsYaml(sort: { fields: [lastDate], order: DESC }) {
       edges {
         node {
@@ -240,7 +155,7 @@ export const query = graphql`
       }
     }
 
-    # If manually marking events as upcoming/past:
+    # TODO: If manually marking events as upcoming/past:
     # upcomingEvents: allEventsYaml(filter: { upcoming: { eq: true } }) {
     #  edges {
     #    node {
@@ -249,7 +164,7 @@ export const query = graphql`
     #  }
     #}
 
-    # If I want to filter AND limit (fast than doing this later in JS):
+    # TODO: If I want to filter AND limit (fast than doing this later in JS):
     # allArticlesYaml(filter: { category: { eq: "press-releases" } }, limit: 3) {
     #   edges {
     #     node {
@@ -268,27 +183,22 @@ import { graphql } from 'gatsby'
 import Base from '../ui/Base'
 import AccordionExample from '../ui/@ex-sections/AccordionExample'
 import DialogExample from '../ui/@ex-sections/DialogExample'
+import FilterAndLimitExample from '../ui/@ex-sections/FilterAndLimitExample'
 import LimitExample from '../ui/@ex-sections/LimitExample'
+import MailChimpExample from '../ui/@ex-sections/MailChimpExample'
 import PopUpExample from '../ui/@ex-sections/PopUpExample'
 import ReadMoreExample from '../ui/@ex-sections/ReadMoreExample'
+import RevealOnScrollExample from '../ui/@ex-sections/RevealOnScrollExample'
+import ScrollToIdExample from '../ui/@ex-sections/ScrollToIdExample'
+import TwitterFeedExample from '../ui/@ex-sections/TwitterFeedExample'
 import VideoiFrameExample from '../ui/@ex-sections/VideoiFrameExample'
 import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAndDialogExample'
 
 // import TemplateExample from '../sections/examples/TemplateExample'
 
-// import MountTransitionExample from '../sections/examples/MountTransitionExample'
-// import GSAPExample from '../sections/examples/GSAPExample'
 // import RevealExample from '../sections/examples/RevealExample'
-// import ReactSpringExample from '../sections/examples/ReactSpringExample'
 
 // import EventsByUpcomingAndPastExample from '../sections/examples/EventsByUpcomingAndPastExample'
-
-// import ParallaxExample from '../sections/examples/wip/ParallaxExample'
-// import ReactSpringExample from '../sections/examples/wip/ReactSpringExample'
-
-// import FilterExample from '../sections/examples/FilterExample'
-// import LimitExample from '../sections/examples/LimitExample'
-// import FilterAndLimitExample from '../sections/examples/FilterAndLimitExample'
 
 // import FadingCarouselExample from '../sections/examples/FadingCarouselExample'
 // import FlickityExample from '../sections/examples/FlickityExample'
@@ -298,7 +208,6 @@ import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAnd
 // import ImageLightboxExample from '../sections/examples/ImageLightboxExample'
 // import VideoLightboxExample from '../sections/examples/VideoLightboxExample'
 
-// import BlockquotesExample from '../sections/examples/BlockquotesExample'
 // import SVGsAndEmojisExample from '../sections/examples/SVGsAndEmojisExample'
 
 // import TwitterExample from '../sections/examples/TwitterExample'
@@ -306,7 +215,5 @@ import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAnd
 
 // import FormikExample from '../sections/examples/FormikExample'
 // import FormExample from '../sections/examples/FormExample'
-
-// import ScrollTo from '../components/examples/ScrollTo'
 
 export default IndexPage
