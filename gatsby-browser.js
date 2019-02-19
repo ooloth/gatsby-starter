@@ -26,10 +26,16 @@ export const onClientEntry = () => {
     }
   }
 
-  loadjs(
-    `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.from%2CSet`,
-    console.log(`Set and Array.from are polyfilled`)
-  )
+  // For React Spring, polyfill Array.from, Object.entries, Set
+  if (!loadjs.isDefined(`polyfill-io`)) {
+    if (typeof Array.from === `undefined`) {
+      loadjs(
+        `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.from%2CSet%2CObject.entries`,
+        `polyfill-io`,
+        console.log(`Array.from, Object.entries, and Set are polyfilled`)
+      )
+    }
+  }
 
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
