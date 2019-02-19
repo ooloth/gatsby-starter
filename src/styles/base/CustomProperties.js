@@ -93,14 +93,14 @@ const CustomProperties = createGlobalStyle`
     --bw6: 2rem;
 
     /* Border radius */
-    --br0: 0;
-    --br1: .125rem;
-    --br2: .25rem;
-    --br3: .375rem;
-    --br4: .5rem;
-    --br5: .75rem;
-    --br6: 1rem;
-    --br100: 100%;
+    --r0: 0;
+    --r1: .125rem;
+    --r2: .25rem;
+    --r3: .375rem;
+    --r4: .5rem;
+    --r5: .75rem;
+    --r6: 1rem;
+    --r100: 100%;
 
     /* Shadows */
     --shadow1: 0 1px 3px hsla(0, 0%, 0%, .2);
