@@ -13,30 +13,27 @@ export const onClientEntry = () => {
   //   require(`intersection-observer`)
   //   console.log(`👍 IntersectionObserver is polyfilled`)
   // }
-
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
-  if (!loadjs.isDefined(`babel-polyfill`)) {
-    if (typeof window.Symbol === `undefined`) {
-      loadjs(
-        `https://unpkg.com/@babel/polyfill`,
-        `babel-polyfill`,
-        console.log(`babel-polyfill is loaded`)
-      )
-    }
-  }
-
+  // if (!loadjs.isDefined(`babel-polyfill`)) {
+  //   if (typeof window.Symbol === `undefined`) {
+  //     loadjs(
+  //       `https://unpkg.com/@babel/polyfill`,
+  //       `babel-polyfill`,
+  //       console.log(`babel-polyfill is loaded`)
+  //     )
+  //   }
+  // }
   // For React Spring, polyfill Array.from, Object.entries, Set
-  if (!loadjs.isDefined(`polyfill-io`)) {
-    if (typeof Array.from === `undefined`) {
-      loadjs(
-        `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.from%2CSet%2CObject.entries`,
-        `polyfill-io`,
-        console.log(`Array.from, Object.entries, and Set are polyfilled`)
-      )
-    }
-  }
-
+  // if (!loadjs.isDefined(`polyfill-io`)) {
+  //   if (typeof Array.from === `undefined`) {
+  //     loadjs(
+  //       `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.from%2CSet%2CObject.entries`,
+  //       `polyfill-io`,
+  //       console.log(`Array.from, Object.entries, and Set are polyfilled`)
+  //     )
+  //   }
+  // }
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
   // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
@@ -44,7 +41,6 @@ export const onClientEntry = () => {
   //   smoothScroll.polyfill()
   //   console.log(`👍 Scroll Behavior is polyfilled`)
   // }
-
   // TODO: enable if supporting IE, otherwise remove
   // Object-fit/Object-position polyfill for gatsby-image (IE)
   // const testImg = document.createElement(`img`)
