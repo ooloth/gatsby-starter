@@ -1,6 +1,6 @@
 function Top({ navLinks, socialLinks }) {
   return (
-    <Header>
+    <Header id="top">
       <h1>
         <Link href="/">Site Title</Link>
       </h1>
