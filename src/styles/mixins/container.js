@@ -22,4 +22,4 @@ export const container = css`
 
 import { css } from 'styled-components'
 
-import { media } from '../mixins/media'
+import { media } from './media'
