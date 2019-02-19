@@ -27,10 +27,10 @@ function Base({ children }) {
             <BrowserWarning title={data.site.siteMetadata.title} />
           ) : (
             <>
-              <Top
+              {/* <Top
                 navLinks={data.allLinksNavYaml.edges}
                 socialLinks={data.allLinksSocialYaml.edges}
-              />
+              /> */}
 
               {children}
 

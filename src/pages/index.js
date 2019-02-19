@@ -2,7 +2,7 @@ function IndexPage({ data }) {
   return (
     <Base>
       <main id="main-content">
-        <AccordionExample />
+        {/* <AccordionExample />
         <DialogExample />
         <FilterAndLimitExample />
         <LimitExample />
@@ -13,7 +13,7 @@ function IndexPage({ data }) {
         <ScrollToIdExample />
         <TwitterFeedExample />
         <VideoiFrameExample />
-        <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} />
+        <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} /> */}
 
         {/* 
         <TemplateExample data={data.allTemplateYaml.edges} />
