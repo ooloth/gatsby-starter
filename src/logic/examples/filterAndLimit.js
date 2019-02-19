@@ -22,9 +22,10 @@ export const filterAndLimitMachine = Machine(
   {
     id: 'filterAndLimitMachine',
     context: {
-      category: 'default', // update default externally
+      category: 'all', // update default externally
       limit: 3, // update default externally
-      limitsByScreen: { xl: 6, sm: 4, xs: 3 }, // update defaults externally
+      previousLimit: 0,
+      limitsByScreen: { xl: 8, lg: 6, sm: 4, xs: 3 }, // update defaults externally
       screen: 'xs', // update default externally
     },
     initial: 'newCategory',
@@ -52,10 +53,10 @@ export const filterAndLimitMachine = Machine(
   },
   {
     actions: {
-      changeCategory: assign({ category: (ctx, event) => event.category }),
       setLimitByScreen: (ctx, event) => setLimitByScreen(ctx, event),
       updateCurrentScreen: assign({ screen: (ctx, event) => event.screen }),
-      showAllItems: assign({ limit: () => 999 }),
+      changeCategory: (ctx, event) => changeCategory(ctx, event),
+      showAllItems: ctx => showAllItems(ctx),
     },
   }
 )
@@ -64,8 +65,9 @@ export const filterAndLimitMachine = Machine(
 
 function setLimitByScreen(ctx, event) {
   // If triggered by resizing the viewport, update the screen value in context
-  if (typeof event.screen !== `undefined`) ctx.screen = event.screen
+  if (event.screen) ctx.screen = event.screen
 
+  // In any case, set the limit based on the screen value now in context
   ctx.limit = ctx.limitsByScreen[ctx.screen]
 }
 
@@ -92,7 +94,18 @@ export function useRecalculateLimit(state, send) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+function changeCategory(ctx, event) {
+  // To enable trailing the entire new list, set the previous limit to 0
+  ctx.previousLimit = 0
+
+  // Update the category
+  ctx.category = event.category
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
 export function filterItemsByCategory(state, items) {
+  if (state.context.category === `all`) return items
   return items.filter(item => item.category === state.context.category)
 }
 
@@ -104,7 +117,17 @@ export function limitItems(state, items) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+function showAllItems(ctx) {
+  // To enable trailing from the new item index, save the previous limit
+  ctx.previousLimit = ctx.limit
+
+  // Update the new limit to any high number
+  ctx.limit = 999
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
 import { useEffect } from 'react'
 import { Machine, assign } from 'xstate'
 
-import useMediaQuery from '../logic/useMediaQuery'
+import useMediaQuery from './useMediaQuery'
