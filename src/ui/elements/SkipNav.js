@@ -13,7 +13,7 @@ SkipNav.propTypes = {
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { SrText } from './SrText'
+import SrText from './SrText'
 
 export default SkipNav
 
