@@ -27,10 +27,10 @@ function Base({ children }) {
             <BrowserWarning title={data.site.siteMetadata.title} />
           ) : (
             <>
-              {/* <Top
+              <Top
                 navLinks={data.allLinksNavYaml.edges}
                 socialLinks={data.allLinksSocialYaml.edges}
-              /> */}
+              />
 
               {children}
 
@@ -83,7 +83,7 @@ import is from 'is_js'
 
 import Metadata from './Metadata'
 import BrowserWarning from './BrowserWarning'
-// import Top from './Top'
+import Top from './Top'
 import Bottom from './Bottom'
 
 import { CustomProperties, Reset } from '../styles'

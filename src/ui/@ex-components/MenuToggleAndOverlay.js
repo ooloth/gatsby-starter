@@ -193,7 +193,13 @@ const SocialLink = styled(MenuLink)``
 
 import React, { useRef } from 'react'
 import styled from 'styled-components'
-import { animated, config, useChain, useTrail, useTransition } from 'react-spring'
+import {
+  animated,
+  config,
+  useChain,
+  useTrail,
+  useTransition,
+} from 'react-spring/web.cjs'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 
