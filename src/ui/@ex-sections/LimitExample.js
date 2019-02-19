@@ -4,8 +4,8 @@ function LimitExample() {
     limitsByScreen: { xl: 8, lg: 6, sm: 4, xs: 3 },
   })
   const [state, send] = useMachine(itemsMachine)
-  useRecalculateLimit(state, send)
 
+  useRecalculateLimit(state, send)
   const visibleItems = limitItems(state, items)
   const limited = state.context.limit < items.length
 

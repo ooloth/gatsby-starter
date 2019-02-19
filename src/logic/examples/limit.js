@@ -22,7 +22,7 @@ export const limitMachine = Machine(
     context: {
       limit: 3, // update default externally
       previousLimit: null,
-      limitsByScreen: { xl: 6, sm: 4, xs: 3 }, // update defaults externally
+      limitsByScreen: { xl: 8, lg: 6, sm: 4, xs: 3 }, // update defaults externally
       screen: 'xs', // update default externally
     },
     initial: 'limited',
@@ -53,9 +53,7 @@ export const limitMachine = Machine(
 
 function setLimitByScreen(ctx, event) {
   // If triggered by resizing the viewport, update the screen value in context
-  if (event.screen) {
-    ctx.screen = event.screen
-  }
+  if (event.screen) ctx.screen = event.screen
 
   // In any case, set the limit based on the screen value now in context
   ctx.limit = ctx.limitsByScreen[ctx.screen]
