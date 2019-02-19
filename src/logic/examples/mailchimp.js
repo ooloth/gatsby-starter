@@ -3,7 +3,8 @@ export const mailchimpMachine = Machine(
     id: `mailchimpMachine`,
     context: {
       valid: false,
-      mailchimpUrl: `https://facebook.us16.list-manage.com/subscribe/post?u=8355d284bef397e518268b616&amp;id=c9e1d34cef`,
+      // TODO: update url (from the embed code in MailChimp > Lists)
+      // mailchimpUrl: `https://facebook.us16.list-manage.com/subscribe/post?u=8355d284bef397e518268b616&amp;id=c9e1d34cef`,
     },
     initial: `entering`,
     states: {
