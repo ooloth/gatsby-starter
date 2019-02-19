@@ -26,6 +26,11 @@ export const onClientEntry = () => {
     }
   }
 
+  loadjs(
+    `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.from%2CSet`,
+    console.log(`Set and Array.from are polyfilled`)
+  )
+
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
   // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
