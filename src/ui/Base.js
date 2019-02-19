@@ -83,7 +83,7 @@ import is from 'is_js'
 
 import Metadata from './Metadata'
 import BrowserWarning from './BrowserWarning'
-import Top from './Top'
+// import Top from './Top'
 import Bottom from './Bottom'
 
 import { CustomProperties, Reset } from '../styles'
