@@ -31,11 +31,7 @@ function PopUpExample() {
               style={{ opacity: props.opacity }}
             >
               <Content style={{ transform: props.transform }}>
-                <Close onClick={() => send('CLOSE')}>
-                  <SrText>Close</SrText>
-                  <Times />
-                </Close>
-
+                <Close onClick={() => send('CLOSE')}>Close dialog</Close>
                 <p>Pop-up content goes here...</p>
               </Content>
             </Overlay>
@@ -62,20 +58,13 @@ const Code = styled.code`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const OpenDialog = styled.button`
-  display: flex;
-  margin-top: var(--s4);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 const Overlay = styled(animated(DialogOverlay))`
   && {
     display: flex;
     z-index: 1;
     justify-content: center;
     align-items: center;
-    background-color: hsla(0, 100%, 100%, 0.9);
+    background-color: hsla(0, 0%, 0%, 0.8);
   }
 `
 
@@ -96,25 +85,7 @@ const Content = styled(animated(DialogContent))`
 ///////////////////////////////////////////////////////////////////////////////////
 
 const Close = styled.button`
-  position: absolute;
-  top: var(--s4);
-  right: var(--s4);
-  margin-bottom: var(--s3);
-  border: none;
-  background-color: transparent;
-  font-size: var(--f6);
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const Times = styled(TimesSVG)`
-  width: 1em;
-  height: 1em;
-  transition: color 0.2s ease-in-out;
-
-  &:hover {
-    color: var(--light-pink);
-  }
+  margin-bottom: var(--s4);
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -134,10 +105,8 @@ import { DialogOverlay, DialogContent } from '@reach/dialog'
 // TODO: import this once per project:
 // import '@reach/dialog/styles.css'
 
-import { SrText } from '../elements'
 import useMachine from '../../logic/examples/useMachine'
 import { popUpMachine } from '../../logic/examples/popUp'
-import { ReactComponent as TimesSVG } from '../../svg/times.svg'
 import { copy } from '../../styles'
 
 export default PopUpExample

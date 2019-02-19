@@ -52,10 +52,7 @@ function VideoThumbnailAndDialog({ video }) {
               onDismiss={() => send('CLOSE')}
               style={{ opacity: props.opacity }}
             >
-              <CloseButton onClick={() => send('CLOSE')}>
-                <CloseIcon aria-hidden="true" />
-                Close
-              </CloseButton>
+              <Close onClick={() => send('CLOSE')}>Close dialog</Close>
 
               <Content>
                 <Player url={video.url} controls={true} playing />
@@ -102,31 +99,11 @@ const Player = styled(YouTubePlayer)`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const CloseButton = styled.button`
-  display: block;
+const Close = styled.button`
   position: absolute;
   top: var(--s4);
   right: var(--s4);
   z-index: 102;
-  border: none;
-  background: transparent;
-  font-size: var(--f3);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: white;
-  transition: color 0.2s ease-in-out;
-
-  &:hover {
-    color: var(--light-pink);
-  }
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
-const CloseIcon = styled(TimesSVG)`
-  display: block;
-  margin: 0 auto;
-  width: 2em;
 `
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +181,6 @@ import { DialogOverlay, DialogContent } from '@reach/dialog'
 import useMachine from '../../logic/examples/useMachine'
 import { dialogMachine } from '../../logic/examples/dialog'
 import { ReactComponent as PlaySVG } from '../../svg/play.svg'
-import { ReactComponent as TimesSVG } from '../../svg/times.svg'
 import {
   aspectRatioParent,
   ratio16x9,
