@@ -1,7 +1,7 @@
 function BrowserWarning({ title }) {
   return (
     <>
-      <Wrapper>
+      {/* <Wrapper>
         <div>
           <h1>
             <LargeText>Apologies.</LargeText>
@@ -23,7 +23,7 @@ function BrowserWarning({ title }) {
             ))}
           </Text>
         </div>
-      </Wrapper>
+      </Wrapper> */}
 
       {/* TODO: if necessary (how to check?), activate hidden copy of Contact form (needed by Netlify's bots on first render) */}
       {/* <FormCopy /> */}

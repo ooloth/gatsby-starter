@@ -9,10 +9,10 @@
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
-  if (typeof window.IntersectionObserver === `undefined`) {
-    require(`intersection-observer`)
-    console.log(`👍 IntersectionObserver is polyfilled`)
-  }
+  // if (typeof window.IntersectionObserver === `undefined`) {
+  //   require(`intersection-observer`)
+  //   console.log(`👍 IntersectionObserver is polyfilled`)
+  // }
 
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
@@ -53,14 +53,13 @@ import loadjs from 'loadjs'
 
 export const onInitialClientRender = () => {
   // A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
-  if (!loadjs.isDefined(`what-input`)) {
-    loadjs(
-      `https://unpkg.com/what-input@5.1.3/dist/what-input.js`,
-      `what-input`,
-      () => console.log(`👍 What-input is loaded`)
-    )
-  }
-
+  // if (!loadjs.isDefined(`what-input`)) {
+  //   loadjs(
+  //     `https://unpkg.com/what-input@5.1.3/dist/what-input.js`,
+  //     `what-input`,
+  //     () => console.log(`👍 What-input is loaded`)
+  //   )
+  // }
   // TODO: delete any parts I'm not using:
   // GSAP for site-wide animations
   // if (!loadjs.isDefined(`gsap`)) {
@@ -76,7 +75,6 @@ export const onInitialClientRender = () => {
   //     () => console.log(`👍 GSAP is loaded`)
   //   )
   // }
-
   // TODO: delete if not using:
   // GSAP's scrollToPlugin for sitewide smooth-scrolling
   // if (!loadjs.isDefined(`scrollToPlugin`)) {
@@ -86,7 +84,6 @@ export const onInitialClientRender = () => {
   //     () => console.log(`👍 scrollToPlugin is loaded`)
   //   )
   // }
-
   // TODO: delete if not using:
   // Google Analytics (using ga-lite to allow caching)
   // See: https://github.com/jehna/ga-lite
@@ -100,7 +97,6 @@ export const onInitialClientRender = () => {
   //         // https://developers.google.com/analytics/devguides/collection/analyticsjs/cookies-user-id#automatic_cookie_domain_configuration
   //         galite('create', 'UA-XXXXXXX-X', 'auto') // auto prevents tracking on localhost
   //         galite('send', 'pageview')
-
   //         // See: https://github.com/jehna/ga-lite#onunload-tracking
   //         window.addEventListener('unload', () => {
   //           galite('send', 'timing', 'JS Dependencies', 'unload')
@@ -109,7 +105,6 @@ export const onInitialClientRender = () => {
   //     )
   //   }
   // }
-
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
   // if (!loadjs.isDefined(`babel-polyfill`)) {
@@ -121,7 +116,6 @@ export const onInitialClientRender = () => {
   //     )
   //   }
   // }
-
   // TODO: delete if not using:
   // Fetch polyfill for IE
   // if (typeof window.fetch === `undefined`) {

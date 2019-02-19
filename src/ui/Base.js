@@ -34,10 +34,10 @@ function Base({ children }) {
 
               {children}
 
-              <Bottom
+              {/* <Bottom
                 navLinks={data.allLinksNavYaml.edges}
                 socialLinks={data.allLinksSocialYaml.edges}
-              />
+              /> */}
             </>
           )}
         </>
