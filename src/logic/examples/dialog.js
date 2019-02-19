@@ -22,8 +22,8 @@ export const dialogMachine = Machine(
   },
   {
     actions: {
-      lockScrolling: () => noScroll.on(),
-      unlockScrolling: () => noScroll.off(),
+      lockScrolling: () => disableBodyScroll(),
+      unlockScrolling: () => enableBodyScroll(),
     },
   }
 )
@@ -31,4 +31,4 @@ export const dialogMachine = Machine(
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { Machine } from 'xstate'
-import noScroll from 'no-scroll'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'

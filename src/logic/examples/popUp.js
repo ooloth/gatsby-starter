@@ -40,9 +40,9 @@ export const popUpMachine = Machine(
   },
   {
     actions: {
-      lockScrolling: () => noScroll.on(),
       setDateLastOpenedToToday: ctx => setDateLastOpenedToToday(ctx),
-      unlockScrolling: () => noScroll.off(),
+      lockScrolling: () => disableBodyScroll(),
+      unlockScrolling: () => enableBodyScroll(),
     },
   },
   {
@@ -83,4 +83,4 @@ function setDateLastOpenedToToday(ctx) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { Machine } from 'xstate'
-import noScroll from 'no-scroll'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'

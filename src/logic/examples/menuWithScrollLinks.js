@@ -37,9 +37,9 @@ export const menuWithScrollLinksMachine = Machine(
   },
   {
     actions: {
-      lockScrolling: () => noScroll.on(),
+      lockScrolling: () => disableBodyScroll(),
       saveHrefIfLinkClicked: (ctx, event) => saveHrefIfLinkClicked(ctx, event),
-      unlockScrolling: () => noScroll.off(),
+      unlockScrolling: () => enableBodyScroll(),
       scrollToIdIfHrefSaved: ctx => scrollToIdIfHrefSaved(ctx),
     },
   }
@@ -66,6 +66,6 @@ function scrollToIdIfHrefSaved(ctx) {
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { Machine } from 'xstate'
-import noScroll from 'no-scroll'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 import scrollToId from './scrollToId'
