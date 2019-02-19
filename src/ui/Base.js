@@ -27,17 +27,17 @@ function Base({ children }) {
             <BrowserWarning title={data.site.siteMetadata.title} />
           ) : (
             <>
-              {/* <Top
+              <Top
                 navLinks={data.allLinksNavYaml.edges}
                 socialLinks={data.allLinksSocialYaml.edges}
-              /> */}
+              />
 
               {children}
 
-              {/* <Bottom
+              <Bottom
                 navLinks={data.allLinksNavYaml.edges}
                 socialLinks={data.allLinksSocialYaml.edges}
-              /> */}
+              />
             </>
           )}
         </>
@@ -83,8 +83,8 @@ import is from 'is_js'
 
 import Metadata from './Metadata'
 import BrowserWarning from './BrowserWarning'
-// import Top from './Top'
-// import Bottom from './Bottom'
+import Top from './Top'
+import Bottom from './Bottom'
 
 import { CustomProperties, Reset } from '../styles'
 // import '../styles/base/font-face.css'
