@@ -14,6 +14,18 @@ export const onClientEntry = () => {
     console.log(`👍 IntersectionObserver is polyfilled`)
   }
 
+  // TODO: delete if not using:
+  // Babel-polyfill for IE (includes everything except fetch)
+  if (!loadjs.isDefined(`babel-polyfill`)) {
+    if (typeof window.Symbol === `undefined`) {
+      loadjs(
+        `https://unpkg.com/@babel/polyfill`,
+        `babel-polyfill`,
+        console.log(`babel-polyfill is loaded`)
+      )
+    }
+  }
+
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
   // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
