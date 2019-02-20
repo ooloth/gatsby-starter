@@ -15,15 +15,16 @@ export const onClientEntry = () => {
   // }
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
-  // if (!loadjs.isDefined(`babel-polyfill`)) {
-  //   if (typeof window.Symbol === `undefined`) {
-  //     loadjs(
-  //       `https://unpkg.com/@babel/polyfill`,
-  //       `babel-polyfill`,
-  //       console.log(`babel-polyfill is loaded`)
-  //     )
-  //   }
-  // }
+  if (!loadjs.isDefined(`babel-polyfill`)) {
+    if (typeof window.Symbol === `undefined`) {
+      loadjs(
+        `https://unpkg.com/@babel/polyfill`,
+        `babel-polyfill`,
+        console.log(`babel-polyfill is loaded`)
+      )
+    }
+  }
+
   // For React Spring, polyfill Array.from, Object.entries, Set
   // if (!loadjs.isDefined(`polyfill-io`)) {
   //   if (typeof Array.from === `undefined`) {
