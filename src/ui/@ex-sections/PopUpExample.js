@@ -75,7 +75,6 @@ const Content = styled(animated(DialogContent))`
     position: relative;
     box-shadow: var(--shadow5);
     overflow: hidden;
-    border-radius: var(--r5);
     padding: var(--s6) var(--s4);
     width: 90vw;
     max-width: var(--s14);
