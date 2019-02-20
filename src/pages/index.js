@@ -2,18 +2,18 @@ function IndexPage({ data }) {
   return (
     <Base>
       <main id="main-content">
-        {/* <AccordionExample /> */}
-        {/* <DialogExample /> */}
-        {/* <FilterAndLimitExample /> */}
-        {/* <LimitExample /> */}
-        {/* <MailChimpExample /> */}
-        {/* <PopUpExample /> */}
-        {/* <ReadMoreExample /> */}
+        <AccordionExample />
+        <DialogExample />
+        <FilterAndLimitExample />
+        <LimitExample />
+        <MailChimpExample />
+        <PopUpExample />
+        <ReadMoreExample />
         <RevealOnScrollExample />
-        {/* <ScrollToIdExample /> */}
-        {/* <TwitterFeedExample /> */}
-        {/* <VideoiFrameExample /> */}
-        {/* <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} /> */}
+        <ScrollToIdExample />
+        <TwitterFeedExample />
+        <VideoiFrameExample />
+        <VideoThumbnailAndDialogExample video={data.allVideosYaml.edges[0].node} />
 
         {/* 
         <TemplateExample data={data.allTemplateYaml.edges} />
@@ -181,18 +181,18 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Base from '../ui/Base'
-// import AccordionExample from '../ui/@ex-sections/AccordionExample'
-// import DialogExample from '../ui/@ex-sections/DialogExample'
-// import FilterAndLimitExample from '../ui/@ex-sections/FilterAndLimitExample'
-// import LimitExample from '../ui/@ex-sections/LimitExample'
-// import MailChimpExample from '../ui/@ex-sections/MailChimpExample'
-// import PopUpExample from '../ui/@ex-sections/PopUpExample'
-// import ReadMoreExample from '../ui/@ex-sections/ReadMoreExample'
+import AccordionExample from '../ui/@ex-sections/AccordionExample'
+import DialogExample from '../ui/@ex-sections/DialogExample'
+import FilterAndLimitExample from '../ui/@ex-sections/FilterAndLimitExample'
+import LimitExample from '../ui/@ex-sections/LimitExample'
+import MailChimpExample from '../ui/@ex-sections/MailChimpExample'
+import PopUpExample from '../ui/@ex-sections/PopUpExample'
+import ReadMoreExample from '../ui/@ex-sections/ReadMoreExample'
 import RevealOnScrollExample from '../ui/@ex-sections/RevealOnScrollExample'
-// import ScrollToIdExample from '../ui/@ex-sections/ScrollToIdExample'
-// import TwitterFeedExample from '../ui/@ex-sections/TwitterFeedExample'
-// import VideoiFrameExample from '../ui/@ex-sections/VideoiFrameExample'
-// import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAndDialogExample'
+import ScrollToIdExample from '../ui/@ex-sections/ScrollToIdExample'
+import TwitterFeedExample from '../ui/@ex-sections/TwitterFeedExample'
+import VideoiFrameExample from '../ui/@ex-sections/VideoiFrameExample'
+import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAndDialogExample'
 
 // import TemplateExample from '../sections/examples/TemplateExample'
 

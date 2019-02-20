@@ -9,10 +9,11 @@
 
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
-  // if (typeof window.IntersectionObserver === `undefined`) {
-  //   require(`intersection-observer`)
-  //   console.log(`👍 IntersectionObserver is polyfilled`)
-  // }
+  if (typeof window.IntersectionObserver === `undefined`) {
+    require(`intersection-observer`)
+    console.log(`👍 IntersectionObserver is polyfilled`)
+  }
+
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
   // if (!loadjs.isDefined(`babel-polyfill`)) {
@@ -25,15 +26,15 @@ export const onClientEntry = () => {
   //   }
   // }
   // For React Spring, polyfill Array.from, Object.entries, Set
-  if (!loadjs.isDefined(`polyfill-io`)) {
-    if (typeof Array.from === `undefined`) {
-      loadjs(
-        `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.prototype.fill`,
-        `polyfill-io`,
-        console.log(`Array.from, Object.entries, and Set are polyfilled`)
-      )
-    }
-  }
+  // if (!loadjs.isDefined(`polyfill-io`)) {
+  //   if (typeof Array.from === `undefined`) {
+  //     loadjs(
+  //       `https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default%2CArray.prototype.fill`,
+  //       `polyfill-io`,
+  //       console.log(`Array.from, Object.entries, and Set are polyfilled`)
+  //     )
+  //   }
+  // }
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
   // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
@@ -60,13 +61,14 @@ import loadjs from 'loadjs'
 
 export const onInitialClientRender = () => {
   // A11Y: Detect keyboard vs. mouse vs. touch input (for focus styling)
-  // if (!loadjs.isDefined(`what-input`)) {
-  //   loadjs(
-  //     `https://unpkg.com/what-input@5.1.3/dist/what-input.js`,
-  //     `what-input`,
-  //     () => console.log(`👍 What-input is loaded`)
-  //   )
-  // }
+  if (!loadjs.isDefined(`what-input`)) {
+    loadjs(
+      `https://unpkg.com/what-input@5.1.3/dist/what-input.js`,
+      `what-input`,
+      () => console.log(`👍 What-input is loaded`)
+    )
+  }
+
   // TODO: delete any parts I'm not using:
   // GSAP for site-wide animations
   // if (!loadjs.isDefined(`gsap`)) {
