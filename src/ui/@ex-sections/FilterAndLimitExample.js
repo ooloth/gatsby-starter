@@ -1,4 +1,4 @@
-function LimitExample() {
+function FilterAndLimitExample() {
   const itemsMachine = filterAndLimitMachine.withContext({
     category: 'all',
     limit: 3,
@@ -173,4 +173,4 @@ import {
   limitItems,
 } from '../../logic/examples/filterAndLimit'
 
-export default LimitExample
+export default FilterAndLimitExample
