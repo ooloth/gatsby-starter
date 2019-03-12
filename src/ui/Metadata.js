@@ -155,6 +155,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import useSiteMetadata from '../data/useSiteMetadata'
-import siteImage from '../images/alaina-viau-social-media.jpg'
+import siteImage from '../images/placeholder-1.jpg'
 
 export default Metadata
