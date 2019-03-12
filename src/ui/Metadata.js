@@ -1,32 +1,11 @@
 function Metadata({ page, preconnect, preload }) {
-  return (
-    <StaticQuery
-      query={SITE_QUERY}
-      render={data => (
-        <PageMetadata
-          site={data.site.siteMetadata}
-          page={page}
-          preconnect={preconnect}
-          preload={preload}
-        />
-      )}
-    />
-  )
-}
+  const site = useSiteMetadata()
 
-Metadata.propTypes = {
-  page: PropTypes.object,
-  preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-}
-
-///////////////////////////////////////////////////////////////////////////////////
-
-function PageMetadata({ site, page, preconnect, preload }) {
   // Use sitewide metadata unless overridden by page-specific metadata
   const lang = page ? (page.lang ? page.lang : site.lang) : site.lang
 
-  const title = page ? (page.title ? page.title : site.title) : site.title
+  let title = page ? (page.title ? page.title : site.title) : site.title
+  title = title.replace(`&nbsp;`, ` `)
 
   const description = page
     ? page.description
@@ -77,10 +56,10 @@ function PageMetadata({ site, page, preconnect, preload }) {
           ))}
 
         {/* TODO: remove if not using subfont */}
-        {/* <link
-          href="https://fonts.googleapis.com/css?family=Raleway:500,500i,900&amp;subset=latin-ext"
+        <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,700"
           rel="stylesheet"
-        /> */}
+        />
 
         {/* Schema.org for Google */}
         <meta itemProp="name" content={title} />
@@ -117,30 +96,45 @@ function PageMetadata({ site, page, preconnect, preload }) {
   )
 }
 
+Metadata.propTypes = {
+  page: PropTypes.object,
+  preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+}
+
 ///////////////////////////////////////////////////////////////////////////////////
 
 function StructuredData({ site, image }) {
+  const {
+    structuredDataType,
+    siteUrl,
+    title,
+    jobTitle,
+    description,
+    email,
+    telephone,
+  } = site
+  const { street, locality, region, country } = site.address
   const sameAs = site.socialLinks.map(link => `"${link}"`)
 
   const structuredData = `{
     "@context": "http://schema.org",
-    "@type": "${site.structuredDataType}",
-    "@id": "${site.siteUrl}",
-    "name": "${site.title}",
-    ${site.jobTitle && `"jobTitle": "${site.jobTitle}",`}
-    "description": "${site.description}",
-    "url": "${site.siteUrl}",
+    "@type": "${structuredDataType}",
+    "@id": "${siteUrl}",
+    "name": "${title}",
+    ${jobTitle && `"jobTitle": "${jobTitle}",`}
+    "description": "${description}",
+    "url": "${siteUrl}",
     "image": "${image.replace(`js/../`, ``)}",
-    ${site.email && `"email": "mailto:${site.email}",`}
-    ${site.telephone && `"telephone": "${site.telephone}",`}
-    ${site.address &&
-      `
-      "address": {
+    ${email && `"email": "mailto:${email}",`}
+    ${telephone && `"telephone": "${telephone}",`}
+    ${(street || locality || region || country) &&
+      `"address": {
         "@type": "PostalAddress",
-        ${site.address.street && `"streetAddress": "${site.address.street}",`}
-        ${site.address.locality && `"addressLocality": "${site.address.locality}",`}
-        ${site.address.region && `"addressRegion": "${site.address.region}",`}
-        ${site.address.country && `"addressCountry": "${site.address.country}"`}
+        ${street && `"streetAddress": "${street}",`}
+        ${locality && `"addressLocality": "${locality}",`}
+        ${region && `"addressRegion": "${region}",`}
+        ${country && `"addressCountry": "${country}"`}
       },
     `}
     "sameAs": [${sameAs}]
@@ -156,40 +150,11 @@ function StructuredData({ site, image }) {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const SITE_QUERY = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        jobTitle
-        description
-        siteUrl
-        lang
-        locale
-        email
-        telephone
-        twitterSite
-        twitterCreator
-        socialLinks
-        address {
-          street
-          locality
-          region
-          country
-        }
-        structuredDataType
-      }
-    }
-  }
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 import React from 'react'
 import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import siteImage from '../images/placeholder-1.jpg'
+import useSiteMetadata from '../data/useSiteMetadata'
+import siteImage from '../images/alaina-viau-social-media.jpg'
 
 export default Metadata
