@@ -10,7 +10,7 @@
 
 module.exports = {
   siteMetadata: {
-    // TODO: delete unused lines (or give a value of ``)
+    // TODO: set unused properties to `` (removing the line breaks the query)
     title: `Site Title (10-70 characters)`,
     jobTitle: `What they do (if not included in the site title)`,
     description: `Site description (70-160 characters)`,
