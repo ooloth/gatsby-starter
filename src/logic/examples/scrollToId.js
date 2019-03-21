@@ -8,7 +8,7 @@ function scrollToId(id) {
   const domRect = el.getBoundingClientRect()
   animateScroll.scrollMore(domRect.top, {
     duration: 1500,
-    smooth: 'easeInOutQuart',
+    smooth: 'easeInOutQuint',
   })
 }
 
