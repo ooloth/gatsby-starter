@@ -1,7 +1,11 @@
 function LimitExample() {
   const itemsMachine = limitMachine.withContext({
-    limit: 3,
-    limitsByScreen: { xl: 8, lg: 6, sm: 4, xs: 3 },
+    // default values:
+    ...limitMachine.context,
+
+    // TODO: remove .withContext() if I'm not updating any defaults
+    // updated values:
+    limitsByScreen: { lg: 8, sm: 6, xs: 3 },
   })
   const [state, send] = useMachine(itemsMachine)
 
