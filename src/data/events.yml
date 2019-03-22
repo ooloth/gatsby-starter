@@ -3,19 +3,23 @@
 - title:
     text: Event 4
     lang: en
-  lastDate: 2020-01-01
+  lastDate: 2021-01-01
+  upcoming: true # TODO: remove if sorting into upcoming/past programmatically
 
 - title:
     text: Event 3
     lang: en
-  lastDate: 2019-01-01
+  lastDate: 2020-01-01
+  upcoming: true # TODO: remove if sorting into upcoming/past programmatically
 
 - title:
     text: Event 2
     lang: en
-  lastDate: 2018-01-01
+  lastDate: 2019-01-01
+  upcoming: false # TODO: remove if sorting into upcoming/past programmatically
 
 - title:
     text: Event 1
     lang: en
-  lastDate: 2017-01-01
+  lastDate: 2018-01-01
+  upcoming: false # TODO: remove if sorting into upcoming/past programmatically

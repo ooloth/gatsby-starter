@@ -1,4 +1,6 @@
 function NotFoundPage() {
+  // const navLinks = useNavLinks()
+
   return (
     <Base>
       <Wrapper>
@@ -12,7 +14,7 @@ function NotFoundPage() {
           <RealLink href="/">Home</RealLink>
 
           {/* <Text>How about one of these instead?</Text> */}
-          {/* <ul>{data.allLinksNavYaml.edges.map...}</ul> */}
+          {/* <ul>{navLinks.map...}</ul> */}
         </div>
       </Wrapper>
     </Base>
@@ -82,26 +84,12 @@ const RealLink = styled(Link)`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-// export const query = graphql`
-//   query {
-//     allLinksNavYaml {
-//       edges {
-//         node {
-//           href
-//           text
-//         }
-//       }
-//     }
-//   }
-// `
-
-///////////////////////////////////////////////////////////////////////////////////
-
 import React from 'react'
 import styled from 'styled-components'
 
 import Base from '../ui/Base'
 import { Link } from '../ui/elements'
+// import useNavLinks from '../data/useNavLinks'
 import { copy, media } from '../styles'
 
 export default NotFoundPage

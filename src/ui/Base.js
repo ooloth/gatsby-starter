@@ -1,88 +1,53 @@
 function Base({ children }) {
   const [isIE, setIsIE] = useState(false)
+  const { title } = useSiteMetadata()
+  const navLinks = useNavLinks()
+  const socialLinks = useSocialLinks()
 
   useEffect(() => {
     setIsIE(is.ie())
   }, [])
 
   return (
-    <StaticQuery
-      query={BASE_QUERY}
-      render={data => (
+    <>
+      <Metadata
+        // preload={[
+        //   { href: avenirRegular, as: `font`, type: `font/woff2` },
+        //   { href: avenirHeavy, as: `font`, type: `font/woff2` }
+        // ]}
+        preconnect={[`https://unpkg.com`]}
+      />
+
+      <CustomProperties />
+      <Reset />
+
+      {isIE ? (
+        <BrowserWarning title={title} />
+      ) : (
         <>
-          <Metadata
-            // preload={[
-            //   { href: avenirRegular, as: `font`, type: `font/woff2` },
-            //   { href: avenirHeavy, as: `font`, type: `font/woff2` }
-            // ]}
-            preconnect={[`https://unpkg.com`]}
-          />
-
-          <CustomProperties />
-          <Reset />
-
-          {isIE ? (
-            <BrowserWarning title={data.site.siteMetadata.title} />
-          ) : (
-            <>
-              <Top
-                navLinks={data.allLinksNavYaml.edges}
-                socialLinks={data.allLinksSocialYaml.edges}
-              />
-
-              {children}
-
-              <Bottom
-                navLinks={data.allLinksNavYaml.edges}
-                socialLinks={data.allLinksSocialYaml.edges}
-              />
-            </>
-          )}
+          <Top navLinks={navLinks} socialLinks={socialLinks} />
+          {children}
+          <Bottom navLinks={navLinks} socialLinks={socialLinks} />
         </>
       )}
-    />
+    </>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-//  TODO: query email and social links from gatsby-config instead (and delete YML duplicates)?
-const BASE_QUERY = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allLinksNavYaml {
-      edges {
-        node {
-          href
-          text
-        }
-      }
-    }
-    allLinksSocialYaml {
-      edges {
-        node {
-          href
-          text
-        }
-      }
-    }
-  }
-`
-
-///////////////////////////////////////////////////////////////////////////////////
-
 import React, { useState, useEffect } from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+
 import is from 'is_js'
 
 import Metadata from './Metadata'
 import BrowserWarning from './BrowserWarning'
 import Top from './Top'
 import Bottom from './Bottom'
+
+import useSiteMetadata from '../data/useSiteMetadata'
+import useNavLinks from '../data/examples/useNavLinks'
+import useSocialLinks from '../data/examples/useSocialLinks'
 
 import { CustomProperties, Reset } from '../styles'
 // import '../styles/base/font-face.css'

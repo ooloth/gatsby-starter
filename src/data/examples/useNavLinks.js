@@ -1,12 +1,12 @@
 // See: https://www.gatsbyjs.org/blog/2019-02-20-introducing-use-static-query/
 
-// TODO: if not using, delete data/linksSocial.yml as well
+// TODO: if not using, delete data/linksNav.yml as well
 
-function useSocialLinks() {
-  const { allLinksSocialYaml } = useStaticQuery(
+function useNavLinks() {
+  const { allLinksNavYaml } = useStaticQuery(
     graphql`
       query {
-        allLinksSocialYaml {
+        allLinksNavYaml {
           edges {
             node {
               href
@@ -18,19 +18,19 @@ function useSocialLinks() {
     `
   )
 
-  return allLinksSocialYaml.edges
+  return allLinksNavYaml.edges
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useSocialLinks
+export default useNavLinks
 
 /*
 
-import useSocialLinks from '../data/useSocialLinks'
+import useNavLinks from '../data/useNavLinks'
 
-const socialLinks = useSocialLinks()
+const navLinks = useNavLinks()
 
 */
