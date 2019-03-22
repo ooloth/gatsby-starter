@@ -1,10 +1,16 @@
-function Expandable({ as, children, className, config, expanded, ...rest }) {
+function Expandable({ as, children, className, duration, expanded, ...rest }) {
   const Component = as
   const ref = useRef()
   const { height } = useMeasure(ref)
   const [containerHeight, setContainerHeight] = useSpring(() => ({ height: 0 }))
 
-  setContainerHeight({ height: expanded ? height : 0 })
+  // setContainerHeight({ height: expanded ? height : 0 })
+  setContainerHeight({
+    height: expanded ? height : 0,
+    config: duration
+      ? { duration: duration, easing: easeCubicInOut }
+      : config.default,
+  })
 
   return (
     <animated.div style={{ overflow: 'hidden', ...containerHeight }} {...rest}>
@@ -16,11 +22,11 @@ function Expandable({ as, children, className, config, expanded, ...rest }) {
 }
 
 Expandable.propTypes = {
+  expanded: PropTypes.bool,
+  duration: PropTypes.number,
   as: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  config: PropTypes.object,
-  expanded: PropTypes.bool,
 }
 
 Expandable.defaultProps = {
@@ -32,7 +38,8 @@ Expandable.defaultProps = {
 
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, config } from 'react-spring'
+import { easeCubicInOut } from 'd3-ease'
 
 import useMeasure from '../../logic/examples/useMeasure'
 
