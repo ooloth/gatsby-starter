@@ -33,7 +33,10 @@ export const filterAndLimitMachine = Machine(
       newCategory: {
         onEntry: 'setLimitByScreen',
         on: {
-          CHANGE_CATEGORY: { actions: 'changeCategory' },
+          CHANGE_CATEGORY: {
+            cond: (ctx, event) => event.category !== ctx.category,
+            actions: 'changeCategory',
+          },
           RECALCULATE_LIMIT: { actions: 'setLimitByScreen' },
           VIEW_ALL: 'allVisible',
         },
@@ -44,6 +47,7 @@ export const filterAndLimitMachine = Machine(
         on: {
           CHANGE_CATEGORY: {
             target: 'newCategory',
+            cond: (ctx, event) => event.category !== ctx.category,
             actions: 'changeCategory',
           },
           RECALCULATE_LIMIT: { actions: 'updateCurrentScreen' },
@@ -104,7 +108,11 @@ function changeCategory(ctx, event) {
 
 export function filterItemsByCategory(state, items) {
   if (state.context.category === `all`) return items
-  return items.filter(item => item.category === state.context.category)
+
+  return items.filter(item => {
+    if (item.category) return item.category === state.context.category
+    if (item.node.category) return item.node.category === state.context.category
+  })
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
