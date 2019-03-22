@@ -9,7 +9,7 @@ function useMediaOnstageData() {
         allMediaOnstageYaml {
           edges {
             node {
-              image {
+              file {
                 childImageSharp {
                   thumbnail: fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid_withWebp
