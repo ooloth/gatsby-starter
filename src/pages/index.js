@@ -19,6 +19,8 @@ function IndexPage() {
         <LightboxExample />
         <LimitExample />
         <MailChimpExample />
+        {/* TODO: activate form ONLY when needed (or Netlify will register it) */}
+        {/* <NetlifyFormExample /> */}
         <PopUpExample />
         <ReadMoreExample />
         <RevealOnScrollExample />
@@ -35,10 +37,6 @@ function IndexPage() {
           video={data.allMediaVideoYaml.edges}
         />
 
-        <ImageLightboxExample
-          images={data.allLightboxImagesYaml.edges[0].node.images}
-        />
-
         <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
 
         <FadingCarouselExample data={data.allExampleYaml.edges} /> */}
@@ -49,13 +47,9 @@ function IndexPage() {
         {/* <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
 
         <SVGsAndEmojisExample />
-        <TwitterExample />
         <InstagramExample /> */}
 
-        {/* TODO: activate ONLY if site has a form (so Netlify doesn't register it unnecessarily) */}
-        {/* <p className="pb5">(The Form example is hidden by default.)</p> */}
         {/* <FormikExample /> */}
-        {/* <FormExample /> */}
       </main>
     </Base>
   )
@@ -73,6 +67,7 @@ import FilterAndLimitExample from '../ui/@ex-sections/FilterAndLimitExample'
 import LightboxExample from '../ui/@ex-sections/LightboxExample'
 import LimitExample from '../ui/@ex-sections/LimitExample'
 import MailChimpExample from '../ui/@ex-sections/MailChimpExample'
+import NetlifyFormExample from '../ui/@ex-sections/NetlifyFormExample'
 import PopUpExample from '../ui/@ex-sections/PopUpExample'
 import ReadMoreExample from '../ui/@ex-sections/ReadMoreExample'
 import RevealOnScrollExample from '../ui/@ex-sections/RevealOnScrollExample'
@@ -94,7 +89,6 @@ import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAnd
 // import TwitterExample from '../sections/examples/TwitterExample'
 // import InstagramExample from '../sections/examples/InstagramExample'
 // import FormikExample from '../sections/examples/FormikExample'
-// import FormExample from '../sections/examples/FormExample'
 
 // Example Data
 import useVideosData from '../data/examples/useVideosData'
