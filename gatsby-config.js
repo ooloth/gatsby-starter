@@ -24,7 +24,7 @@ module.exports = {
       locality: `Toronto`,
       region: `ON`,
       postalCode: `L7# 5C1`,
-      country: `CA`,
+      country: `CA`
     },
     socialLinks: [
       `https://www.youtube.com/user`,
@@ -32,7 +32,7 @@ module.exports = {
       `https://www.facebook.com/user`,
       `https://www.instagram.com/user`,
       `https://medium.com/user`,
-      `https://github.com/user`,
+      `https://github.com/user`
     ],
     structuredDataType: `LocalBusiness`, // or Person
     twitterSite: `@handle`,
@@ -41,24 +41,25 @@ module.exports = {
     secondPage: {
       title: `Add Second Page Title`,
       description: `Add second page description (50-300 characters)`,
-      url: `https://www.site.com/second`,
-    },
+      url: `https://www.site.com/second`
+    }
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
-      },
+        path: `${__dirname}/src/`
+      }
     },
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-svgr`,
-    `gatsby-plugin-webpack-bundle-analyzer`,
+    `gatsby-plugin-webpack-bundle-analyzer`
     // `gatsby-plugin-sitemap`,
     // {
     //   resolve: `gatsby-plugin-robots-txt`,
@@ -128,5 +129,5 @@ module.exports = {
     //   }
     // },
     // `gatsby-plugin-subfont`
-  ],
+  ]
 }
