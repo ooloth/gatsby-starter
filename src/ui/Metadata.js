@@ -97,7 +97,13 @@ function Metadata({ page, preconnect, preload }) {
 }
 
 Metadata.propTypes = {
-  page: PropTypes.object,
+  page: PropTypes.shape({
+    lang: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    url: PropTypes.string,
+    type: PropTypes.string,
+  }),
   preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
