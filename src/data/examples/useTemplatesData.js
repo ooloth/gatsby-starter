@@ -2,7 +2,7 @@
 
 // TODO: if not using, delete data/templates.yml as well
 
-function useTemplates() {
+function useTemplatesData() {
   const { allTemplatesYaml } = useStaticQuery(
     graphql`
       query {
@@ -25,12 +25,12 @@ function useTemplates() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useTemplates
+export default useTemplatesData
 
 /*
 
-import useTemplates from '../data/useTemplates'
+import useTemplatesData from '../data/useTemplatesData'
 
-const templates = useTemplates()
+const templates = useTemplatesData()
 
 */

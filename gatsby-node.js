@@ -32,10 +32,10 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
 // See: https://www.gatsbyjs.org/docs/debugging-async-lifecycles/
 
 exports.createPages = async function({ actions, graphql }) {
-  // TODO: update `allTemplateYaml` to correct file name
+  // TODO: update `allTemplatesYaml` to correct file name
   await graphql(`
     {
-      allTemplateYaml {
+      allTemplatesYaml {
         edges {
           node {
             slug
@@ -44,8 +44,8 @@ exports.createPages = async function({ actions, graphql }) {
       }
     }
   `).then(result => {
-    // TODO: update `allTemplateYaml` to correct file name
-    result.data.allTemplateYaml.edges.forEach(edge => {
+    // TODO: update `allTemplatesYaml` to correct file name
+    result.data.allTemplatesYaml.edges.forEach(edge => {
       actions.createPage({
         path: edge.node.slug,
         // TODO: update `Template.js` to correct file name
