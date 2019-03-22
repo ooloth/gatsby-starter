@@ -90,11 +90,6 @@ const LiWithCSSAnimation = styled.li`
 ///////////////////////////////////////////////////////////////////////////////////
 
 function Thumbnail({ image, titleForAltText, lightboxIndex, isLightboxOpen, send }) {
-  console.log({ image })
-  console.log(
-    `image.file.childImageSharp.thumbnail`,
-    image.file.childImageSharp.thumbnail
-  )
   return (
     <Wrapper>
       <Image
