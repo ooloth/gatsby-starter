@@ -67,19 +67,15 @@ export function useRecalculateLimit(state, send) {
   const lg = useMediaQuery(`(min-width: 62em)`)
   const xl = useMediaQuery(`(min-width: 75em)`)
 
-  function recalculateLimit() {
+  useEffect(() => {
     let screen = `xs`
     if (sm && `sm` in state.context.limitsByScreen) screen = `sm`
     if (md && `md` in state.context.limitsByScreen) screen = `md`
     if (lg && `lg` in state.context.limitsByScreen) screen = `lg`
     if (xl && `xl` in state.context.limitsByScreen) screen = `xl`
 
-    if (screen !== state.context.screen) {
-      send({ type: `RECALCULATE_LIMIT`, screen: screen })
-    }
-  }
-
-  useEffect(() => recalculateLimit(), [sm, md, lg, xl])
+    send({ type: `RECALCULATE_LIMIT`, screen: screen })
+  }, [sm, md, lg, xl, state.context.limitsByScreen, send])
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

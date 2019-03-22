@@ -24,13 +24,11 @@ export const readMoreMachine = Machine({
 export function useExpandOnLargeScreens(send) {
   const mdScreen = useMediaQuery(`(min-width: 48em)`)
 
-  function expandIfScreenIsLarge() {
+  useEffect(() => {
     if (mdScreen) {
       send('EXPAND')
     }
-  }
-
-  useEffect(() => expandIfScreenIsLarge(), [mdScreen])
+  }, [mdScreen, send])
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

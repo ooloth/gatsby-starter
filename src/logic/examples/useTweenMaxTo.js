@@ -3,18 +3,18 @@ function useTweenMaxTo(duration, config, onMount = false) {
 
   useEffect(() => {
     if (onMount) animate()
-  }, [ref])
+  }, [ref, onMount, animate])
 
-  function animate() {
+  const animate = useCallback(() => {
     loadjs.ready(`gsap`, () => TweenMax.to(ref.current, duration, config))
-  }
+  }, [config, duration])
 
   return [ref, animate]
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 // import { TweenMax } from 'gsap'
 import loadjs from 'loadjs'
 

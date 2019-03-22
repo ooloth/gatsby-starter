@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 function useMachine(machine) {
   /**
    * 1. Keep track of the current machine state

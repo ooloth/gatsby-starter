@@ -16,7 +16,7 @@ function useTwitterFeed(user, count = 3) {
 
     // Cancel on unmount:
     return () => twitterFetcher.callback(() => null)
-  }, [])
+  }, [count, user])
 
   return feed
 }

@@ -13,7 +13,7 @@ plugins:
 - react-hooks
 
 rules:
-  import/first: 0
-  no-use-before-define: 0
-  react-hooks/rules-of-hooks: 2
-  # react-hooks/reactive-deps: 2
+  import/first: 'off'
+  no-use-before-define: 'off'
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn

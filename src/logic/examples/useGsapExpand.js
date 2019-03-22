@@ -3,18 +3,18 @@ function useGsapExpand(duration, config, onMount = false) {
 
   useEffect(() => {
     if (onMount) expand()
-  }, [ref])
+  }, [ref, onMount, expand])
 
-  function expand() {
+  const expand = useCallback(() => {
     loadjs.ready(`gsap`, () => TweenMax.to(ref.current, duration, config))
-  }
+  }, [config, duration])
 
   return [ref, expand]
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 // import { TweenMax } from 'gsap'
 import loadjs from 'loadjs'
 

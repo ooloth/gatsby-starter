@@ -2,8 +2,9 @@ function useOnScreen(ref, rootMargin = '0px') {
   // State and setter for storing whether element is visible
   const [isIntersecting, setIntersecting] = useState(false)
 
-  let observer
   useEffect(() => {
+    let observer
+    const current = ref.current
     // if (typeof window.IntersectionObserver !== `undefined`) {
     observer = new IntersectionObserver(
       ([entry]) => {
@@ -12,7 +13,7 @@ function useOnScreen(ref, rootMargin = '0px') {
 
         // TODO: uncomment to run only once
         // if (entry.isIntersecting === true) {
-        //   observer.unobserve(ref.current)
+        //   observer.unobserve(current)
         // }
       },
       {
@@ -20,14 +21,14 @@ function useOnScreen(ref, rootMargin = '0px') {
         rootMargin: rootMargin,
       }
     )
-    if (ref.current) {
-      observer.observe(ref.current)
+    if (current) {
+      observer.observe(current)
     }
     return () => {
-      observer.unobserve(ref.current)
+      observer.unobserve(current)
     }
     // }
-  }, []) // Empty array ensures that effect is only run on mount and unmount
+  }, [ref, rootMargin]) // Empty array ensures that effect is only run on mount and unmount
 
   return isIntersecting
 }
