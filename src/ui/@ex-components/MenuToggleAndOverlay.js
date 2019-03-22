@@ -1,6 +1,5 @@
 function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   const [state, send] = useMachine(menuWithScrollLinksMachine)
-
   const isOpen = state.value === `open`
 
   // See: https://codesandbox.io/embed/zn2q57vn13
@@ -13,12 +12,23 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   const configIn = { mass: 5, tension: 2000, friction: 200, precision: 0.00001 }
   const configOut = { mass: 5, tension: 4000, friction: 200 }
 
+  const rootRef = useRef(null)
   const menuTransitionRef = useRef()
   const menuTransitions = useTransition(isOpen, null, {
     ref: menuTransitionRef,
-    from: { x: 0, bg: `hsla(0, 100%, 100%, 0)` },
-    enter: { x: 1, bg: `hsla(0, 100%, 100%, 0.9)` },
-    leave: { x: 0, bg: `hsla(0, 100%, 100%, 0)` },
+    from: { x: 0, bg: `hsla(0, 100%, 100%, 0)`, blur: 0 },
+    enter: { x: 1, bg: `hsla(0, 100%, 100%, 0.9)`, blur: 8 },
+    leave: { x: 0, bg: `hsla(0, 100%, 100%, 0)`, blur: 0 },
+    // See: https://twitter.com/ryanflorence/status/1108436669433171968
+    // See: https://gist.github.com/ryanflorence/03a4b3d314c0525f2d5bd79a32bb5ef2
+    onFrame: (item, state, props) => {
+      if (item) {
+        if (!rootRef.current) {
+          rootRef.current = document.getElementById('___gatsby')
+        }
+        rootRef.current.style.filter = `blur(${props.blur}px)`
+      }
+    },
     onRest: () => send('CLOSE_OVERLAY'), // must manually close after dialog is out
   })
 
@@ -52,18 +62,18 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
       </MenuButton>
 
       {menuTransitions.map(
-        ({ item, key, props }) =>
+        ({ item, key, props: { x, bg } }) =>
           item && (
             <Overlay
               key={key}
               isOpen={state.value !== `closed`}
               onDismiss={() => send('CLOSE')}
-              style={{ backgroundColor: props.bg }}
+              // style={{ backgroundColor: bg }}
             >
               <Content
                 style={{
                   transformOrigin: `right`,
-                  transform: props.x.interpolate(x => `scaleX(${x})`),
+                  transform: x.interpolate(x => `scaleX(${x})`),
                 }}
               >
                 <MenuContent
@@ -93,6 +103,7 @@ const Overlay = animated(styled(DialogOverlay)`
   && {
     z-index: 101;
     overflow: hidden;
+    background-color: transparent;
   }
 `)
 
