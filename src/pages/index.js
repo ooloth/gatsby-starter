@@ -16,6 +16,7 @@ function IndexPage() {
         <AccordionExample />
         <DialogExample />
         <FilterAndLimitExample />
+        <LightboxExample />
         <LimitExample />
         <MailChimpExample />
         <PopUpExample />
@@ -69,6 +70,7 @@ import Base from '../ui/Base'
 import AccordionExample from '../ui/@ex-sections/AccordionExample'
 import DialogExample from '../ui/@ex-sections/DialogExample'
 import FilterAndLimitExample from '../ui/@ex-sections/FilterAndLimitExample'
+import LightboxExample from '../ui/@ex-sections/LightboxExample'
 import LimitExample from '../ui/@ex-sections/LimitExample'
 import MailChimpExample from '../ui/@ex-sections/MailChimpExample'
 import PopUpExample from '../ui/@ex-sections/PopUpExample'
