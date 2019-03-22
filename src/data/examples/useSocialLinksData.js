@@ -2,7 +2,7 @@
 
 // TODO: if not using, delete data/linksSocial.yml as well
 
-function useSocialLinks() {
+function useSocialLinksData() {
   const { allLinksSocialYaml } = useStaticQuery(
     graphql`
       query {
@@ -25,12 +25,12 @@ function useSocialLinks() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useSocialLinks
+export default useSocialLinksData
 
 /*
 
-import useSocialLinks from '../data/useSocialLinks'
+import useSocialLinksData from '../data/useSocialLinksData'
 
-const socialLinks = useSocialLinks()
+const socialLinks = useSocialLinksData()
 
 */

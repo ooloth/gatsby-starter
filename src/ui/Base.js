@@ -1,8 +1,8 @@
 function Base({ children }) {
   const [isIE, setIsIE] = useState(false)
   const { title } = useSiteMetadata()
-  const navLinks = useNavLinks()
-  const socialLinks = useSocialLinks()
+  const navLinks = useNavLinksData()
+  const socialLinks = useSocialLinksData()
 
   useEffect(() => {
     setIsIE(is.ie())
@@ -46,8 +46,8 @@ import Top from './Top'
 import Bottom from './Bottom'
 
 import useSiteMetadata from '../data/useSiteMetadata'
-import useNavLinks from '../data/examples/useNavLinks'
-import useSocialLinks from '../data/examples/useSocialLinks'
+import useNavLinksData from '../data/examples/useNavLinksData'
+import useSocialLinksData from '../data/examples/useSocialLinksData'
 
 import { CustomProperties, Reset } from '../styles'
 // import '../styles/base/font-face.css'

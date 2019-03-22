@@ -1,5 +1,5 @@
 function NotFoundPage() {
-  // const navLinks = useNavLinks()
+  // const navLinks = useNavLinksData()
 
   return (
     <Base>
@@ -89,7 +89,7 @@ import styled from 'styled-components'
 
 import Base from '../ui/Base'
 import { Link } from '../ui/elements'
-// import useNavLinks from '../data/useNavLinks'
+// import useNavLinks from '../data/useNavLinksData'
 import { copy, media } from '../styles'
 
 export default NotFoundPage

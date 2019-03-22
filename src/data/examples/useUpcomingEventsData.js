@@ -4,7 +4,7 @@
 
 // TODO: if not using, consider deleting data/events.yml as well
 
-function useUpcomingEvents() {
+function useUpcomingEventsData() {
   const { allEventsYaml } = useStaticQuery(
     graphql`
       query {
@@ -30,12 +30,12 @@ function useUpcomingEvents() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useUpcomingEvents
+export default useUpcomingEventsData
 
 /*
 
-import useUpcomingEvents from '../data/useUpcomingEvents'
+import useUpcomingEventsData from '../data/useUpcomingEventsData'
 
-const upcomingEvents = useUpcomingEvents()
+const upcomingEvents = useUpcomingEventsData()
 
 */

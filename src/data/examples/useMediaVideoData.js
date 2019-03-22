@@ -1,21 +1,19 @@
 // See: https://www.gatsbyjs.org/blog/2019-02-20-introducing-use-static-query/
 
-// TODO: if not using, delete data/mediaPortrait.yml as well
+// TODO: if not using, delete data/mediaVideo.yml as well
 
-function useMediaPortrait() {
-  const { allMediaPortraitYaml } = useStaticQuery(
+function useMediaVideoData() {
+  const { allMediaVideoYaml } = useStaticQuery(
     graphql`
       query {
-        allMediaPortraitYaml {
+        allMediaVideoYaml {
           edges {
             node {
+              video
               image {
                 childImageSharp {
                   thumbnail: fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid_withWebp
-                  }
-                  lightbox: fixed(width: 1500) {
-                    ...GatsbyImageSharpFixed_withWebp
                   }
                 }
               }
@@ -30,19 +28,19 @@ function useMediaPortrait() {
     `
   )
 
-  return allMediaPortraitYaml.edges
+  return allMediaVideoYaml.edges
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useMediaPortrait
+export default useMediaVideoData
 
 /*
 
-import useMediaPortrait from '../data/useMediaPortrait'
+import useMediaVideoData from '../data/useMediaVideoData'
 
-const mediaPortrait = useMediaPortrait()
+const mediaVideo = useMediaVideoData()
 
 */

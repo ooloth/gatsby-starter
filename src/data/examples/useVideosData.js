@@ -2,7 +2,7 @@
 
 // TODO: if not using, delete data/videos.yml as well
 
-function useVideos() {
+function useVideosData() {
   const { allVideosYaml } = useStaticQuery(
     graphql`
       query {
@@ -34,12 +34,12 @@ function useVideos() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useVideos
+export default useVideosData
 
 /*
 
-import useVideos from '../data/useVideos'
+import useVideosData from '../data/useVideosData'
 
-const videos = useVideos()
+const videos = useVideosData()
 
 */

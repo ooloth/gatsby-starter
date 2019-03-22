@@ -4,7 +4,7 @@
 
 // TODO: if not using, consider deleting data/items.yml as well
 
-function useFilteredSortedAndLimitedItems() {
+function useFilteredSortedAndLimitedItemsData() {
   const { allItemsYaml } = useStaticQuery(
     graphql`
       query {
@@ -31,12 +31,12 @@ function useFilteredSortedAndLimitedItems() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useFilteredSortedAndLimitedItems
+export default useFilteredSortedAndLimitedItemsData
 
 /*
 
-import useFilteredSortedAndLimitedItems from '../data/useFilteredSortedAndLimitedItems'
+import useFilteredSortedAndLimitedItemsData from '../data/useFilteredSortedAndLimitedItemsData'
 
-const filteredSortedAndLimitedItems = useFilteredSortedAndLimitedItems()
+const filteredSortedAndLimitedItems = useFilteredSortedAndLimitedItemsData()
 
 */

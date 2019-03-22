@@ -1,14 +1,14 @@
 function IndexPage() {
   // Example Data (TODO: remove if not using)
-  const videos = useVideos()
-  // const filteredSortedAndLimitedItems = useFilteredSortedAndLimitedItems()
-  // const events = useEvents()
-  // const upcomingEvents = useUpcomingEvents()
-  // const pastEvents = usePastEvents()
-  // const mediaOnstage = useMediaOnstage()
-  // const mediaPortrait = useMediaPortrait()
-  // const mediaVideo = useMediaVideo()
-  // const templates = useTemplates()
+  const videos = useVideosData()
+  // const filteredSortedAndLimitedItems = useFilteredSortedAndLimitedItemsData()
+  // const events = useEventsData()
+  // const upcomingEvents = useUpcomingEventsData()
+  // const pastEvents = usePastEventsData()
+  // const mediaOnstage = useMediaOnstageData()
+  // const mediaPortrait = useMediaPortraitData()
+  // const mediaVideo = useMediaVideoData()
+  // const templates = useTemplatesData()
 
   return (
     <Base>
@@ -22,15 +22,12 @@ function IndexPage() {
         <ReadMoreExample />
         <RevealOnScrollExample />
         <ScrollToIdExample />
-        <TemplateExample />
+        <TemplatesExample />
         <TwitterFeedExample />
         <VideoiFrameExample />
         <VideoThumbnailAndDialogExample video={videos[0].node} />
 
         {/* 
-        <TemplateExample data={data.allTemplatesYaml.edges} />
-        <RevealExample data={data.allExampleYaml.edges} />
-
         <GalleryAndLightboxExample
           portrait={data.allMediaPortraitYaml.edges}
           onstage={data.allMediaOnstageYaml.edges}
@@ -78,7 +75,7 @@ import PopUpExample from '../ui/@ex-sections/PopUpExample'
 import ReadMoreExample from '../ui/@ex-sections/ReadMoreExample'
 import RevealOnScrollExample from '../ui/@ex-sections/RevealOnScrollExample'
 import ScrollToIdExample from '../ui/@ex-sections/ScrollToIdExample'
-import TemplateExample from '../ui/@ex-sections/TemplateExample'
+import TemplatesExample from '../ui/@ex-sections/TemplatesExample'
 import TwitterFeedExample from '../ui/@ex-sections/TwitterFeedExample'
 import VideoiFrameExample from '../ui/@ex-sections/VideoiFrameExample'
 import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAndDialogExample'
@@ -98,14 +95,14 @@ import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAnd
 // import FormExample from '../sections/examples/FormExample'
 
 // Example Data
-import useVideos from '../data/examples/useVideos'
-// import useFilteredSortedAndLimitedItems from '../data/examples/useFilteredSortedAndLimitedItems'
-// import useEvents from '../data/examples/useEvents'
-// import useUpcomingEvents from '../data/examples/useUpcomingEvents'
-// import usePastEvents from '../data/examples/usePastEvents'
-// import useMediaOnstage from '../data/examples/useMediaOnstage'
-// import useMediaPortrait from '../data/examples/useMediaPortrait'
-// import useMediaVideo from '../data/examples/useMediaVideo'
-// import useTemplates from '../data/examples/useTemplates'
+import useVideosData from '../data/examples/useVideosData'
+// import useFilteredSortedAndLimitedItemsData from '../data/examples/useFilteredSortedAndLimitedItemsData'
+// import useEventsData from '../data/examples/useEventsData'
+// import useUpcomingEventsData from '../data/examples/useUpcomingEventsData'
+// import usePastEventsData from '../data/examples/usePastEventsData'
+// import useMediaOnstageData from '../data/examples/useMediaOnstageData'
+// import useMediaPortraitData from '../data/examples/useMediaPortraitData'
+// import useMediaVideoData from '../data/examples/useMediaVideoData'
+// import useTemplatesData from '../data/examples/useTemplatesData'
 
 export default IndexPage

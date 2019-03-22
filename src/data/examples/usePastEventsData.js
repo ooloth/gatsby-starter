@@ -1,12 +1,14 @@
 // See: https://www.gatsbyjs.org/blog/2019-02-20-introducing-use-static-query/
 
+// Note: use this instead of useEvents.js if I'm manually marking events as upcoming or past and I want to avoid filtering them in the client
+
 // TODO: if not using, consider deleting data/events.yml as well
 
-function useEvents() {
+function usePastEventsData() {
   const { allEventsYaml } = useStaticQuery(
     graphql`
       query {
-        allEventsYaml(sort: { fields: [lastDate], order: DESC }) {
+        allEventsYaml(filter: { upcoming: { ne: true } }) {
           edges {
             node {
               title {
@@ -28,12 +30,12 @@ function useEvents() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useEvents
+export default usePastEventsData
 
 /*
 
-import useEvents from '../data/useEvents'
+import usePastEventsData from '../data/usePastEventsData'
 
-const events = useEvents()
+const pastEvents = usePastEventsData()
 
 */

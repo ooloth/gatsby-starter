@@ -2,7 +2,7 @@
 
 // TODO: if not using, delete data/linksNav.yml as well
 
-function useNavLinks() {
+function useNavLinksData() {
   const { allLinksNavYaml } = useStaticQuery(
     graphql`
       query {
@@ -25,12 +25,12 @@ function useNavLinks() {
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useNavLinks
+export default useNavLinksData
 
 /*
 
-import useNavLinks from '../data/useNavLinks'
+import useNavLinksData from '../data/useNavLinksData'
 
-const navLinks = useNavLinks()
+const navLinks = useNavLinksData()
 
 */

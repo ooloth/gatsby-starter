@@ -1,12 +1,12 @@
 // See: https://www.gatsbyjs.org/blog/2019-02-20-introducing-use-static-query/
 
-// TODO: if not using, delete data/mediaOnstage.yml as well
+// TODO: if not using, delete data/mediaPortrait.yml as well
 
-function useMediaOnstage() {
-  const { allMediaOnstageYaml } = useStaticQuery(
+function useMediaPortraitData() {
+  const { allMediaPortraitYaml } = useStaticQuery(
     graphql`
       query {
-        allMediaOnstageYaml {
+        allMediaPortraitYaml {
           edges {
             node {
               image {
@@ -30,19 +30,19 @@ function useMediaOnstage() {
     `
   )
 
-  return allMediaOnstageYaml.edges
+  return allMediaPortraitYaml.edges
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default useMediaOnstage
+export default useMediaPortraitData
 
 /*
 
-import useMediaOnstage from '../data/useMediaOnstage'
+import useMediaPortraitData from '../data/useMediaPortraitData'
 
-const mediaOnstage = useMediaOnstage()
+const mediaPortrait = useMediaPortraitData()
 
 */
