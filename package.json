@@ -79,6 +79,7 @@
   },
   "scripts": {
     "dev": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "serve": "gatsby clean && gatsby build && gatsby serve"
   }
 }
