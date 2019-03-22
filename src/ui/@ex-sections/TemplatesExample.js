@@ -1,8 +1,6 @@
 function TemplatesExample() {
   const templates = useTemplatesData()
 
-  console.log({ templates })
-
   return (
     <Section>
       <h2>Template</h2>
