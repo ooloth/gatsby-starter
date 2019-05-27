@@ -13,7 +13,7 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   const configOut = { mass: 5, tension: 4000, friction: 200 }
 
   const rootRef = useRef()
-  if (typeof window !== undefined) {
+  if (typeof document !== undefined) {
     rootRef.current = document.getElementById('___gatsby')
   }
 
