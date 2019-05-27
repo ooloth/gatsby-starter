@@ -25,6 +25,7 @@ export const onClientEntry = () => {
   //     )
   //   }
   // }
+
   // For React Spring, polyfill Array.from, Object.entries, Set
   // if (!loadjs.isDefined(`polyfill-io`)) {
   //   if (typeof Array.from === `undefined`) {
@@ -35,6 +36,7 @@ export const onClientEntry = () => {
   //     )
   //   }
   // }
+
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
   // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
@@ -42,6 +44,7 @@ export const onClientEntry = () => {
   //   smoothScroll.polyfill()
   //   console.log(`👍 Scroll Behavior is polyfilled`)
   // }
+
   // TODO: enable if supporting IE, otherwise remove
   // Object-fit/Object-position polyfill for gatsby-image (IE)
   // const testImg = document.createElement(`img`)
@@ -71,19 +74,20 @@ export const onInitialClientRender = () => {
 
   // TODO: delete any parts I'm not using:
   // GSAP for site-wide animations
-  // if (!loadjs.isDefined(`gsap`)) {
-  //   loadjs(
-  //     [
-  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
-  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
-  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
-  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
-  //       `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
-  //     ],
-  //     `gsap`,
-  //     () => console.log(`👍 GSAP is loaded`)
-  //   )
-  // }
+  if (!loadjs.isDefined(`gsap`)) {
+    loadjs(
+      [
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js`,
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js`,
+        // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
+        `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
+      ],
+      `gsap`,
+      () => console.log(`👍 GSAP is loaded`)
+    )
+  }
+
   // TODO: delete if not using:
   // GSAP's scrollToPlugin for sitewide smooth-scrolling
   // if (!loadjs.isDefined(`scrollToPlugin`)) {
@@ -114,6 +118,7 @@ export const onInitialClientRender = () => {
   //     )
   //   }
   // }
+
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
   // if (!loadjs.isDefined(`babel-polyfill`)) {
@@ -125,6 +130,7 @@ export const onInitialClientRender = () => {
   //     )
   //   }
   // }
+
   // TODO: delete if not using:
   // Fetch polyfill for IE
   // if (typeof window.fetch === `undefined`) {

@@ -1,13 +1,4 @@
 function Base({ children }) {
-  const [isIE, setIsIE] = useState(false)
-  const { title } = useSiteMetadata()
-  const navLinks = useNavLinksData()
-  const socialLinks = useSocialLinksData()
-
-  useEffect(() => {
-    setIsIE(is.ie())
-  }, [])
-
   return (
     <>
       <Metadata
@@ -17,37 +8,23 @@ function Base({ children }) {
         // ]}
         preconnect={[`https://unpkg.com`]}
       />
-
       <CustomProperties />
       <Reset />
 
-      {isIE ? (
-        <BrowserWarning title={title} />
-      ) : (
-        <>
-          <Top navLinks={navLinks} socialLinks={socialLinks} />
-          {children}
-          <Bottom navLinks={navLinks} socialLinks={socialLinks} />
-        </>
-      )}
+      <Top />
+      {children}
+      <Bottom />
     </>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React, { useState, useEffect } from 'react'
-
-import is from 'is_js'
+import React from 'react'
 
 import Metadata from './Metadata'
-import BrowserWarning from './BrowserWarning'
 import Top from './Top'
 import Bottom from './Bottom'
-
-import useSiteMetadata from '../data/useSiteMetadata'
-import useNavLinksData from '../data/examples/useNavLinksData'
-import useSocialLinksData from '../data/examples/useSocialLinksData'
 
 import { CustomProperties, Reset } from '../styles'
 // import '../styles/base/font-face.css'

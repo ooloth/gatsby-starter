@@ -5,7 +5,7 @@ function FilterAndLimitExample() {
 
     // TODO: remove .withContext() if I'm not updating any defaults
     // updated values:
-    limitsByScreen: { lg: 8, sm: 6, xs: 3 },
+    limitsByScreen: { lg: 8, sm: 6, xs: 3 }
   })
   const [state, send] = useMachine(itemsMachine)
 
@@ -13,7 +13,8 @@ function FilterAndLimitExample() {
   const itemsInCategory = filterItemsByCategory(state, items)
   const visibleItems = limitItems(state, itemsInCategory)
   const limited = state.context.limit < itemsInCategory.length
-  const viewAllText = state.context.category === `all` ? `` : state.context.category
+  const viewAllText =
+    state.context.category === `all` ? `` : state.context.category
 
   return (
     <Section>
@@ -111,7 +112,7 @@ function Items({ visibleItems, previousLimit }) {
   const trail = useTrail(newItems.length, {
     opacity: 1,
     transform: `translateY(0%)`,
-    from: { opacity: 0, transform: `translateY(25%)` },
+    from: { opacity: 0, transform: `translateY(25%)` }
   })
 
   return (
@@ -139,8 +140,6 @@ const List = styled.ul`
   grid-column-gap: var(--s4);
 `
 
-///////////////////////////////////////////////////////////////////////////////////
-
 const Item = styled(animated.li)`
   margin-top: var(--s4);
   background-color: var(--light-pink);
@@ -159,7 +158,7 @@ const items = [
   { text: `Item 7`, category: `odd` },
   { text: `Item 8`, category: `even` },
   { text: `Item 9`, category: `odd` },
-  { text: `Item 10`, category: `even` },
+  { text: `Item 10`, category: `even` }
 ]
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -173,7 +172,7 @@ import {
   filterAndLimitMachine,
   useRecalculateLimit,
   filterItemsByCategory,
-  limitItems,
+  limitItems
 } from '../../logic/examples/filterAndLimit'
 
 export default FilterAndLimitExample

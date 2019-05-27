@@ -30,7 +30,7 @@ const Code = styled.code`
 function Images({ images }) {
   const imagesMachine = lightboxMachine.withContext({
     ...lightboxMachine.context,
-    imageCount: images.length,
+    imageCount: images.length
   })
   const [state, send] = useMachine(imagesMachine)
 

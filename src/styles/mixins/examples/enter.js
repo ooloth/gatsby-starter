@@ -2,6 +2,7 @@ export const enter = keyframes`
   from {
     opacity: 0;
     transform: scale(0.9);
+    visibility: hidden;
   }
   to {
     opacity: 1;

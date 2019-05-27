@@ -1,9 +1,9 @@
-function Bottom({ navLinks, socialLinks }) {
+function Bottom() {
   return (
     <Footer>
       <Text>
-        &copy; {new Date().getFullYear()} Site Title. All&nbsp;rights&nbsp;reserved.
-        Brewed&nbsp;by&nbsp;
+        &copy; {new Date().getFullYear()} Site Title.
+        All&nbsp;rights&nbsp;reserved. Brewed&nbsp;by&nbsp;
         <Link href="http://coffeeshopcreative.ca">Coffeeshop&nbsp;Creative</Link>.
       </Text>
     </Footer>

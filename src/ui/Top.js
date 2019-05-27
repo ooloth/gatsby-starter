@@ -1,24 +1,26 @@
-function Top({ navLinks, socialLinks }) {
+function Top() {
+  const navLinks = useNavLinksData()
+  const socialLinks = useSocialLinksData()
+
   return (
-    <Header id="top">
-      <h1>
-        <Link href="/">Site Title</Link>
-      </h1>
-
+    <>
       <SkipNav href="#main-content" />
+      <Nav id="top">
+        <h1>
+          <Link href="/">Site Title</Link>
+        </h1>
 
-      <nav>
-        <Link href="/page-2/">Page 2</Link>
-      </nav>
+        <Link href="/animations/">Animations</Link>
 
-      <MenuToggleAndOverlay navLinks={navLinks} socialLinks={socialLinks} />
-    </Header>
+        <MenuToggleAndOverlay navLinks={navLinks} socialLinks={socialLinks} />
+      </Nav>
+    </>
   )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-const Header = styled.header`
+const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -34,5 +36,7 @@ import styled from 'styled-components'
 
 import { Link, SkipNav } from './elements'
 import MenuToggleAndOverlay from './@ex-components/MenuToggleAndOverlay'
+import useNavLinksData from '../data/examples/useNavLinksData'
+import useSocialLinksData from '../data/examples/useSocialLinksData'
 
 export default Top

@@ -6,13 +6,15 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   const trail = {
     opacity: isOpen ? 1 : 0,
     transform: isOpen ? `translateY(0%)` : `translateY(25%)`,
-    from: { opacity: 0, transform: `translateY(25%)` },
+    from: { opacity: 0, transform: `translateY(25%)` }
   }
 
   const configIn = { mass: 5, tension: 2000, friction: 200, precision: 0.00001 }
   const configOut = { mass: 5, tension: 4000, friction: 200 }
 
-  const rootRef = useRef(null)
+  const rootRef = useRef()
+  rootRef.current = document.getElementById('___gatsby')
+
   const menuTransitionRef = useRef()
   const menuTransitions = useTransition(isOpen, null, {
     ref: menuTransitionRef,
@@ -29,21 +31,21 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
         rootRef.current.style.filter = `blur(${props.blur}px)`
       }
     },
-    onRest: () => send('CLOSE_OVERLAY'), // must manually close after dialog is out
+    onRest: () => send('CLOSE_OVERLAY') // must manually close after dialog is out
   })
 
   const navLinkTrailRef = useRef()
   const navLinkTrail = useTrail(navLinks.length, {
     ref: navLinkTrailRef,
     config: isOpen ? configIn : configOut,
-    ...trail,
+    ...trail
   })
 
   const socialLinkTrailRef = useRef()
   const socialLinkTrail = useTrail(socialLinks.length, {
     ref: socialLinkTrailRef,
     config: isOpen ? config.default : configOut,
-    ...trail,
+    ...trail
   })
 
   // Orchestrate the 3 animations above in a sequence
@@ -73,7 +75,7 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
               <Content
                 style={{
                   transformOrigin: `right`,
-                  transform: x.interpolate(x => `scaleX(${x})`),
+                  transform: x.interpolate(x => `scaleX(${x})`)
                 }}
               >
                 <MenuContent
@@ -97,8 +99,6 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
 
 const MenuButton = styled.button``
 
-///////////////////////////////////////////////////////////////////////////////////
-
 const Overlay = animated(styled(DialogOverlay)`
   && {
     z-index: 101;
@@ -106,8 +106,6 @@ const Overlay = animated(styled(DialogOverlay)`
     background-color: transparent;
   }
 `)
-
-///////////////////////////////////////////////////////////////////////////////////
 
 const Content = animated(styled(DialogContent)`
   && {
@@ -132,7 +130,7 @@ function MenuContent({
   navLinks,
   navLinkTrail,
   socialLinks,
-  socialLinkTrail,
+  socialLinkTrail
 }) {
   return (
     <Aside>
@@ -172,31 +170,19 @@ const Aside = styled.aside`
   ${copy}
 `
 
-///////////////////////////////////////////////////////////////////////////////////
-
 const CloseButton = styled.button``
-
-///////////////////////////////////////////////////////////////////////////////////
 
 const NavLinks = styled.ul`
   padding-top: var(--s5);
 `
 
-///////////////////////////////////////////////////////////////////////////////////
-
 const SocialLinks = styled.ul`
   padding-top: var(--s5);
 `
 
-///////////////////////////////////////////////////////////////////////////////////
-
 const MenuLink = styled(Link)``
 
-///////////////////////////////////////////////////////////////////////////////////
-
 const NavLink = styled(MenuLink)``
-
-///////////////////////////////////////////////////////////////////////////////////
 
 const SocialLink = styled(MenuLink)``
 
