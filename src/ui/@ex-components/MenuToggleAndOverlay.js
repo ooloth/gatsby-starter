@@ -13,7 +13,9 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   const configOut = { mass: 5, tension: 4000, friction: 200 }
 
   const rootRef = useRef()
-  rootRef.current = document.getElementById('___gatsby')
+  if (typeof window !== undefined) {
+    rootRef.current = document.getElementById('___gatsby')
+  }
 
   const menuTransitionRef = useRef()
   const menuTransitions = useTransition(isOpen, null, {
