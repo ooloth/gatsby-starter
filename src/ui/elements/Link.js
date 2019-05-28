@@ -7,10 +7,9 @@ function Link({ href, srText, children, ...props }) {
       href={href}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       target={isExternal ? `_blank` : null}
-      rel={isExternal ? `noopener` : null}
+      rel={isExternal ? `noopener noreferrer` : null}
       {...props}
     >
-      {srText && <SrText>{srText}</SrText>}
       {children}
     </a>
   ) : (
@@ -19,7 +18,6 @@ function Link({ href, srText, children, ...props }) {
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       {...props}
     >
-      {srText && <SrText>{srText}</SrText>}
       {children}
     </GatsbyLink>
   )
@@ -27,10 +25,7 @@ function Link({ href, srText, children, ...props }) {
 
 Link.propTypes = {
   href: PropTypes.string.isRequired,
-  srText: PropTypes.string, // if anchor has no visible text
-  className: PropTypes.string,
-  style: PropTypes.object,
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -38,8 +33,6 @@ Link.propTypes = {
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
-
-import SrText from './SrText'
 
 export default Link
 
