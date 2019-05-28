@@ -27,14 +27,21 @@ const Code = styled.code`
 ///////////////////////////////////////////////////////////////////////////////////
 
 function RevealWithCSS() {
-  const [revealed, setRevealed] = React.useState(true)
+  const [revealed, setRevealed] = React.useState(false)
 
   return (
     <>
-      <Heading>CSS</Heading>
+      <Heading>
+        CSS{' '}
+        <span aria-label="works" role="img">
+          ✅
+        </span>
+      </Heading>
+
       <button onClick={() => setRevealed(!revealed)}>
         {revealed ? `Hide` : `Show`}
       </button>
+
       <CSSItem revealed={revealed}>Box</CSSItem>
     </>
   )
@@ -63,7 +70,7 @@ const CSSItem = styled(Item)`
 ///////////////////////////////////////////////////////////////////////////////////
 
 function RevealWithGSAP() {
-  const [revealed, setRevealed] = React.useState(true)
+  const [revealed, setRevealed] = React.useState(false)
   const itemRef = React.useRef()
 
   function toggleRevealed() {
@@ -88,11 +95,20 @@ function RevealWithGSAP() {
 
   return (
     <>
-      <Heading>GSAP</Heading>
+      <Heading>
+        GSAP{' '}
+        <span aria-label="works" role="img">
+          ✅
+        </span>
+      </Heading>
+
       <button onClick={() => toggleRevealed()}>
         {revealed ? `Hide` : `Show`}
       </button>
-      <Item ref={itemRef}>Box</Item>
+
+      <Item ref={itemRef} style={{ transform: `scale(.9)`, opacity: 0 }}>
+        Box
+      </Item>
     </>
   )
 }
@@ -100,7 +116,7 @@ function RevealWithGSAP() {
 ///////////////////////////////////////////////////////////////////////////////////
 
 function RevealWithReactSpring() {
-  const [revealed, setRevealed] = React.useState(true)
+  const [revealed, setRevealed] = React.useState(false)
 
   const animatedStyles = useSpring({
     opacity: revealed ? 1 : 0,
@@ -109,10 +125,17 @@ function RevealWithReactSpring() {
 
   return (
     <>
-      <Heading>React Spring</Heading>
+      <Heading>
+        React Spring{' '}
+        <span aria-label="works" role="img">
+          ✅
+        </span>
+      </Heading>
+
       <button onClick={() => setRevealed(!revealed)}>
         {revealed ? `Hide` : `Show`}
       </button>
+
       <ReactSpringItem style={animatedStyles}>Box</ReactSpringItem>
     </>
   )
@@ -125,14 +148,21 @@ const ReactSpringItem = animated(Item)
 ///////////////////////////////////////////////////////////////////////////////////
 
 function RevealWithPose() {
-  const [revealed, setRevealed] = React.useState(true)
+  const [revealed, setRevealed] = React.useState(false)
 
   return (
     <>
-      <Heading>Pose</Heading>
+      <Heading>
+        Pose{' '}
+        <span aria-label="works" role="img">
+          ✅
+        </span>
+      </Heading>
+
       <button onClick={() => setRevealed(!revealed)}>
         {revealed ? `Hide` : `Show`}
       </button>
+
       <PosedItem pose={revealed ? 'revealed' : 'hidden'}>Box</PosedItem>
     </>
   )
