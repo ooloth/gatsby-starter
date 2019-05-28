@@ -2,6 +2,13 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   const [state, send] = useMachine(menuWithScrollLinksMachine)
   const isOpen = state.value === `open`
 
+  const rootRef = useRef()
+  useEffect(() => {
+    if (typeof document !== `undefined` && !rootRef.current) {
+      rootRef.current = document.getElementById('___gatsby')
+    }
+  })
+
   // See: https://codesandbox.io/embed/zn2q57vn13
   const trail = {
     opacity: isOpen ? 1 : 0,
@@ -11,11 +18,6 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
 
   const configIn = { mass: 5, tension: 2000, friction: 200, precision: 0.00001 }
   const configOut = { mass: 5, tension: 4000, friction: 200 }
-
-  const rootRef = useRef()
-  if (typeof document !== `undefined`) {
-    rootRef.current = document.getElementById('___gatsby')
-  }
 
   const menuTransitionRef = useRef()
   const menuTransitions = useTransition(isOpen, null, {
@@ -101,15 +103,15 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
 
 const MenuButton = styled.button``
 
-const Overlay = animated(styled(DialogOverlay)`
+const Overlay = styled(animated(DialogOverlay))`
   && {
     z-index: 101;
     overflow: hidden;
     background-color: transparent;
   }
-`)
+`
 
-const Content = animated(styled(DialogContent)`
+const Content = styled(animated(DialogContent))`
   && {
     position: absolute;
     top: 0;
@@ -123,7 +125,7 @@ const Content = animated(styled(DialogContent)`
     padding: 0;
     width: auto;
   }
-`)
+`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -190,7 +192,7 @@ const SocialLink = styled(MenuLink)``
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { animated, config, useChain, useTrail, useTransition } from 'react-spring'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
