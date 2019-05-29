@@ -6,6 +6,7 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
   useEffect(() => {
     if (typeof document !== `undefined` && !rootRef.current) {
       rootRef.current = document.getElementById('___gatsby')
+      rootRef.current.style.transform = `translateZ(0)` // fixes blur in Safari
     }
   })
 
@@ -31,6 +32,7 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
       if (item) {
         if (!rootRef.current) {
           rootRef.current = document.getElementById('___gatsby')
+          rootRef.current.style.transform = `translateZ(0)` // fixes blur in Safari
         }
         rootRef.current.style.filter = `blur(${props.blur}px)`
       }
