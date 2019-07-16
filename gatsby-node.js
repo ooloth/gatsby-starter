@@ -6,8 +6,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-exports.onCreateWebpackConfig = ({ actions, stage }) => {
-  if (stage === `build-html`) {
+// See: https://www.gatsbyjs.org/docs/debugging-html-builds
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
         rules: [
@@ -16,12 +18,12 @@ exports.onCreateWebpackConfig = ({ actions, stage }) => {
               /intersection-observer/,
               /lightbox-react/,
               /react-image-lightbox/,
-              /twitter-fetcher/,
+              /twitter-fetcher/
             ],
-            loader: `null-loader`,
-          },
-        ],
-      },
+            use: loaders.null()
+          }
+        ]
+      }
     })
   }
 }
@@ -51,8 +53,8 @@ exports.createPages = async function({ actions, graphql }) {
         // TODO: update `Template.js` to correct template file name and path
         component: require.resolve(`./src/ui/@ex-templates/Template.js`),
         context: {
-          slug: edge.node.slug, // this variable will be available in query
-        },
+          slug: edge.node.slug // this variable will be available in query
+        }
       })
     })
   })
