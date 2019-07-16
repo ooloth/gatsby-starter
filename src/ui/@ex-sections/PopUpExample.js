@@ -29,7 +29,8 @@ function PopUpExample() {
       <Code>@reach/dialog, useMachine, popUpMachine, useTransition</Code>
 
       <Text>
-        This pop-up will appear once per day in each browser after a 10 second delay.
+        This pop-up will appear once per day in each browser after a 10 second
+        delay.
       </Text>
 
       {transitions.map(
@@ -106,7 +107,7 @@ import styled from 'styled-components'
 import { useTransition, animated } from 'react-spring'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 
-// TODO: import this once per project:
+// TODO: import this once per project (e.g. in Base.js):
 // import '@reach/dialog/styles.css'
 
 import useMachine from '../../logic/examples/useMachine'

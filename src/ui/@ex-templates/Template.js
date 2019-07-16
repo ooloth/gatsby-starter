@@ -34,7 +34,7 @@ function Template({ data }) {
         page={{
           title: `${template.title.replace(`&nbsp;`, ` `)} | ${title}`,
           description: template.description,
-          url: `${siteUrl}/${template.slug}`,
+          url: `${siteUrl}/${template.slug}`
         }}
       />
 
@@ -101,7 +101,7 @@ import styled from 'styled-components'
 import Base from '../Base'
 import Metadata from '../Metadata'
 import { Link, SrText } from '../elements'
-import useSiteMetadata from '../../data/useSiteMetadata'
+import useSiteMetadata from '../../queries/useSiteMetadata'
 import useTemplatesData from '../../data/examples/useTemplatesData'
 
 export default Template
