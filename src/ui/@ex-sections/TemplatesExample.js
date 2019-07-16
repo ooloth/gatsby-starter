@@ -47,7 +47,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Link from '../elements/Link'
-import useTemplatesData from '../../data/examples/useTemplatesData'
+import useTemplatesData from '../../queries/examples/useTemplatesData'
 import { copy } from '../../styles'
 
 export default TemplatesExample

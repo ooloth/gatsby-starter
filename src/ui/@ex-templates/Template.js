@@ -102,6 +102,6 @@ import Base from '../Base'
 import Metadata from '../Metadata'
 import { Link, SrText } from '../elements'
 import useSiteMetadata from '../../queries/useSiteMetadata'
-import useTemplatesData from '../../data/examples/useTemplatesData'
+import useTemplatesData from '../../queries/examples/useTemplatesData'
 
 export default Template

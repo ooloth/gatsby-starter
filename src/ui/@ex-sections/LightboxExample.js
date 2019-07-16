@@ -152,7 +152,7 @@ import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 import '../../styles/plugins/examples/react-image-lightbox.css'
 
-import useMediaPortraitData from '../../data/examples/useMediaPortraitData'
+import useMediaPortraitData from '../../queries/examples/useMediaPortraitData'
 import useMachine from '../../logic/examples/useMachine'
 import { lightboxMachine } from '../../logic/examples/lightbox'
 import { enter, media } from '../../styles'

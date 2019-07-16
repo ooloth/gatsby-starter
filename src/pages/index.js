@@ -91,14 +91,14 @@ import VideoThumbnailAndDialogExample from '../ui/@ex-sections/VideoThumbnailAnd
 // import FormikExample from '../sections/examples/FormikExample'
 
 // Example Data
-import useVideosData from '../data/examples/useVideosData'
-// import useFilteredSortedAndLimitedItemsData from '../data/examples/useFilteredSortedAndLimitedItemsData'
-// import useEventsData from '../data/examples/useEventsData'
-// import useUpcomingEventsData from '../data/examples/useUpcomingEventsData'
-// import usePastEventsData from '../data/examples/usePastEventsData'
-// import useMediaOnstageData from '../data/examples/useMediaOnstageData'
-// import useMediaPortraitData from '../data/examples/useMediaPortraitData'
-// import useMediaVideoData from '../data/examples/useMediaVideoData'
-// import useTemplatesData from '../data/examples/useTemplatesData'
+import useVideosData from '../queries/examples/useVideosData'
+// import useFilteredSortedAndLimitedItemsData from '../queries/examples/useFilteredSortedAndLimitedItemsData'
+// import useEventsData from '../queries/examples/useEventsData'
+// import useUpcomingEventsData from '../queries/examples/useUpcomingEventsData'
+// import usePastEventsData from '../queries/examples/usePastEventsData'
+// import useMediaOnstageData from '../queries/examples/useMediaOnstageData'
+// import useMediaPortraitData from '../queries/examples/useMediaPortraitData'
+// import useMediaVideoData from '../queries/examples/useMediaVideoData'
+// import useTemplatesData from '../queries/examples/useTemplatesData'
 
 export default IndexPage

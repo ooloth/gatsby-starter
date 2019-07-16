@@ -205,8 +205,8 @@ import { DialogOverlay, DialogContent } from '@reach/dialog'
 import { Link } from '../elements'
 import useMachine from '../../logic/examples/useMachine'
 import { menuWithScrollLinksMachine } from '../../logic/examples/menuWithScrollLinks'
-import useNavLinksData from '../../data/examples/useNavLinksData'
-import useSocialLinksData from '../../data/examples/useSocialLinksData'
+import useNavLinksData from '../../queries/examples/useNavLinksData'
+import useSocialLinksData from '../../queries/examples/useSocialLinksData'
 import { copy } from '../../styles'
 
 export default MenuToggleAndOverlay
