@@ -8,12 +8,12 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 export const onClientEntry = () => {
+  // TODO: delete if not using:
   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
-  if (typeof window.IntersectionObserver === `undefined`) {
-    require(`intersection-observer`)
-    console.log(`👍 IntersectionObserver is polyfilled`)
-  }
-
+  // if (typeof window.IntersectionObserver === `undefined`) {
+  //   require(`intersection-observer`)
+  //   console.log(`👍 IntersectionObserver is polyfilled`)
+  // }
   // TODO: delete if not using:
   // Babel-polyfill for IE (includes everything except fetch)
   // if (!loadjs.isDefined(`babel-polyfill`)) {
@@ -25,7 +25,7 @@ export const onClientEntry = () => {
   //     )
   //   }
   // }
-
+  // TODO: delete if not using:
   // For React Spring, polyfill Array.from, Object.entries, Set
   // if (!loadjs.isDefined(`polyfill-io`)) {
   //   if (typeof Array.from === `undefined`) {
@@ -36,7 +36,6 @@ export const onClientEntry = () => {
   //     )
   //   }
   // }
-
   // TODO: remove if not using
   // Scroll Behaviour polyfill (Safari, IE)
   // if (typeof document.documentElement.style.scrollBehavior === `undefined`) {
@@ -44,7 +43,6 @@ export const onClientEntry = () => {
   //   smoothScroll.polyfill()
   //   console.log(`👍 Scroll Behavior is polyfilled`)
   // }
-
   // TODO: enable if supporting IE, otherwise remove
   // Object-fit/Object-position polyfill for gatsby-image (IE)
   // const testImg = document.createElement(`img`)
