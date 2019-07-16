@@ -1,5 +1,5 @@
 function Link({ href, srText, children, ...props }) {
-  const isExternal = href.match(/http|\/\/|mailto:|tel:|pdf\//)
+  const isExternal = href.match(/http|\/\/|mailto:|tel:|static\/|pdf\//)
   const isId = href.match(/^#/)
 
   return isExternal || isId ? (
@@ -7,9 +7,10 @@ function Link({ href, srText, children, ...props }) {
       href={href}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       target={isExternal ? `_blank` : null}
-      rel={isExternal ? `noopener noreferrer` : null}
+      rel={isExternal ? `noopener` : null}
       {...props}
     >
+      {srText && <SrText>{srText}</SrText>}
       {children}
     </a>
   ) : (
@@ -18,6 +19,7 @@ function Link({ href, srText, children, ...props }) {
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       {...props}
     >
+      {srText && <SrText>{srText}</SrText>}
       {children}
     </GatsbyLink>
   )
@@ -25,6 +27,7 @@ function Link({ href, srText, children, ...props }) {
 
 Link.propTypes = {
   href: PropTypes.string.isRequired,
+  srText: PropTypes.string, // if anchor has no visible text
   children: PropTypes.node
 }
 
@@ -33,6 +36,8 @@ Link.propTypes = {
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
+
+import SrText from './SrText'
 
 export default Link
 
