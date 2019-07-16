@@ -85,7 +85,9 @@ function Metadata({ page, preconnect, preload }) {
         {site.facebookAppId && (
           <meta property="fb:app_id" content={site.facebookAppId} />
         )}
-        {site.twitterSite && <meta name="twitter:site" content={site.twitterSite} />}
+        {site.twitterSite && (
+          <meta name="twitter:site" content={site.twitterSite} />
+        )}
         {site.twitterCreator && (
           <meta name="twitter:site" content={site.twitterCreator} />
         )}
@@ -102,10 +104,10 @@ Metadata.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     url: PropTypes.string,
-    type: PropTypes.string,
+    type: PropTypes.string
   }),
   preconnect: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  preload: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -118,7 +120,7 @@ function StructuredData({ site, image }) {
     jobTitle,
     description,
     email,
-    telephone,
+    telephone
   } = site
   const { street, locality, region, country } = site.address
   const sameAs = site.socialLinks.map(link => `"${link}"`)
@@ -160,7 +162,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import useSiteMetadata from '../data/useSiteMetadata'
+import useSiteMetadata from '../queries/useSiteMetadata'
 import siteImage from '../images/placeholder-1.jpg'
 
 export default Metadata

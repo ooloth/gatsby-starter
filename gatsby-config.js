@@ -12,8 +12,8 @@ module.exports = {
   siteMetadata: {
     // TODO: set unused properties to `` (removing the line breaks the query)
     title: `Site Title (10-70 characters)`,
-    jobTitle: `What they do (if not included in the site title)`,
-    description: `Site description (70-160 characters)`,
+    jobTitle: ``,
+    description: `Site description (70-156 characters)`,
     siteUrl: `https://www.client.com`, // no trailing slash
     lang: `en`,
     locale: `en_CA`,
@@ -23,7 +23,7 @@ module.exports = {
       street: `305 Healey Rd., Unit A`,
       locality: `Toronto`,
       region: `ON`,
-      postalCode: `L7# 5C1`,
+      postalCode: `L7K 5C1`,
       country: `CA`
     },
     socialLinks: [
