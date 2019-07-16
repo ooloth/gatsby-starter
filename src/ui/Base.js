@@ -28,6 +28,7 @@ import Bottom from './Bottom'
 
 import { CustomProperties, Reset } from '../styles'
 // import '../styles/base/font-face.css'
+import '@reach/dialog/styles.css'
 
 // import avenirRegular from '../fonts/AvenirNextLTPro-Regular.woff2'
 // import avenirHeavy from '../fonts/AvenirNextLTPro-Heavy.woff2'
