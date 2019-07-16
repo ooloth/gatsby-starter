@@ -7,30 +7,28 @@ function useMediaPortraitData() {
     graphql`
       query {
         allMediaPortraitYaml {
-          edges {
-            node {
-              file {
-                childImageSharp {
-                  thumbnail: fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                  lightbox: fixed(width: 1500) {
-                    ...GatsbyImageSharpFixed_withWebp
-                  }
+          nodes {
+            file {
+              childImageSharp {
+                thumbnail: fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+                lightbox: fixed(width: 1500) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
-              alt
-              objPosition
-              caption
-              category
             }
+            alt
+            objPosition
+            caption
+            category
           }
         }
       }
     `
   )
 
-  return allMediaPortraitYaml.edges
+  return allMediaPortraitYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

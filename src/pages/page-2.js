@@ -1,9 +1,9 @@
 function SecondPage() {
-  const secondPageMetadata = useSecondPageMetadata()
+  const { secondPage } = useSiteMetadata()
 
   return (
     <Base>
-      <Metadata page={secondPageMetadata} />
+      <Metadata page={secondPage} />
       <main id="main-content" tabIndex="-1">
         <h1
           css={`
@@ -23,6 +23,6 @@ import React from 'react'
 
 import Base from '../ui/Base'
 import Metadata from '../ui/Metadata'
-import useSecondPageMetadata from '../data/examples/useSecondPageMetadata'
+import useSiteMetadata from '../queries/useSiteMetadata'
 
 export default SecondPage

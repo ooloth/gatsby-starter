@@ -1,7 +1,4 @@
 function Top() {
-  const navLinks = useNavLinksData()
-  const socialLinks = useSocialLinksData()
-
   return (
     <>
       <SkipNav href="#main-content" />
@@ -9,10 +6,8 @@ function Top() {
         <h1>
           <Link href="/">Site Title</Link>
         </h1>
-
         <Link href="/animations/">Animations</Link>
-
-        <MenuToggleAndOverlay navLinks={navLinks} socialLinks={socialLinks} />
+        <MenuToggleAndOverlay />
       </Nav>
     </>
   )
@@ -20,6 +15,7 @@ function Top() {
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+// NOTE: using a "nav" here to allow "header" to be used as a unique landmark on each page (e.g. for the hero area)
 const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +32,5 @@ import styled from 'styled-components'
 
 import { Link, SkipNav } from './elements'
 import MenuToggleAndOverlay from './@ex-components/MenuToggleAndOverlay'
-import useNavLinksData from '../data/examples/useNavLinksData'
-import useSocialLinksData from '../data/examples/useSocialLinksData'
 
 export default Top

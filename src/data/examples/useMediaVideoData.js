@@ -7,28 +7,26 @@ function useMediaVideoData() {
     graphql`
       query {
         allMediaVideoYaml {
-          edges {
-            node {
-              video
-              image {
-                childImageSharp {
-                  thumbnail: fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+          nodes {
+            video
+            image {
+              childImageSharp {
+                thumbnail: fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
-              alt
-              objPosition
-              caption
-              category
             }
+            alt
+            objPosition
+            caption
+            category
           }
         }
       }
     `
   )
 
-  return allMediaVideoYaml.edges
+  return allMediaVideoYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

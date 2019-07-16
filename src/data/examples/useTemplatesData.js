@@ -7,18 +7,16 @@ function useTemplatesData() {
     graphql`
       query {
         allTemplatesYaml {
-          edges {
-            node {
-              title
-              slug
-            }
+          nodes {
+            title
+            slug
           }
         }
       }
     `
   )
 
-  return allTemplatesYaml.edges
+  return allTemplatesYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

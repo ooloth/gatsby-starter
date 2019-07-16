@@ -28,23 +28,23 @@ function IndexPage() {
         <TemplatesExample />
         <TwitterFeedExample />
         <VideoiFrameExample />
-        <VideoThumbnailAndDialogExample video={videos[0].node} />
+        <VideoThumbnailAndDialogExample video={videos[0]} />
 
         {/* 
         <GalleryAndLightboxExample
-          portrait={data.allMediaPortraitYaml.edges}
-          onstage={data.allMediaOnstageYaml.edges}
-          video={data.allMediaVideoYaml.edges}
+          portrait={data.allMediaPortraitYaml.nodes}
+          onstage={data.allMediaOnstageYaml.nodes}
+          video={data.allMediaVideoYaml.nodes}
         />
 
-        <VideoLightboxExample videos={data.allLightboxVideosYaml.edges} />
+        <VideoLightboxExample videos={data.allLightboxVideosYaml.nodes} />
 
-        <FadingCarouselExample data={data.allExampleYaml.edges} /> */}
+        <FadingCarouselExample data={data.allExampleYaml.nodes} /> */}
         {/* TODO: rewrite FlickityExample (causing an error in v2) */}
-        {/* <FlickityExample data={data.allExampleYaml.edges} /> */}
-        {/* <SlickExample data={data.allExampleYaml.edges} /> */}
+        {/* <FlickityExample data={data.allExampleYaml.nodes} /> */}
+        {/* <SlickExample data={data.allExampleYaml.nodes} /> */}
 
-        {/* <EventsByUpcomingAndPastExample events={data.allEventsYaml.edges} />
+        {/* <EventsByUpcomingAndPastExample events={data.allEventsYaml.nodes} />
 
         <SVGsAndEmojisExample />
         <InstagramExample /> */}

@@ -7,19 +7,17 @@ function useVideosData() {
     graphql`
       query {
         allVideosYaml {
-          edges {
-            node {
-              url
-              image {
-                file {
-                  childImageSharp {
-                    fluid(maxWidth: 800) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
+          nodes {
+            url
+            image {
+              file {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
-                alt
               }
+              alt
             }
           }
         }
@@ -27,7 +25,7 @@ function useVideosData() {
     `
   )
 
-  return allVideosYaml.edges
+  return allVideosYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

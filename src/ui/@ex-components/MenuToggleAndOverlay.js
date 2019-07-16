@@ -1,4 +1,7 @@
-function MenuToggleAndOverlay({ navLinks, socialLinks }) {
+function MenuToggleAndOverlay() {
+  const navLinks = useNavLinksData()
+  const socialLinks = useSocialLinksData()
+
   const [state, send] = useMachine(menuWithScrollLinksMachine)
   const isOpen = state.value === `open`
 
@@ -86,7 +89,7 @@ function MenuToggleAndOverlay({ navLinks, socialLinks }) {
               >
                 <MenuContent
                   closeDialog={event =>
-                    send({ type: 'CLOSE', href: event.target.href, e: event })
+                    send('CLOSE', { href: event.target.href, e: event })
                   }
                   navLinks={navLinks}
                   navLinkTrail={navLinkTrail}
@@ -198,11 +201,12 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { animated, config, useChain, useTrail, useTransition } from 'react-spring'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
-import '@reach/dialog/styles.css'
 
 import { Link } from '../elements'
 import useMachine from '../../logic/examples/useMachine'
 import { menuWithScrollLinksMachine } from '../../logic/examples/menuWithScrollLinks'
+import useNavLinksData from '../../data/examples/useNavLinksData'
+import useSocialLinksData from '../../data/examples/useSocialLinksData'
 import { copy } from '../../styles'
 
 export default MenuToggleAndOverlay

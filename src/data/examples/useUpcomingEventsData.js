@@ -9,21 +9,19 @@ function useUpcomingEventsData() {
     graphql`
       query {
         allEventsYaml(filter: { upcoming: { eq: true } }) {
-          edges {
-            node {
-              title {
-                text
-                lang
-              }
-              lastDate(formatString: "MMMM DD, YYYY")
+          nodes {
+            title {
+              text
+              lang
             }
+            lastDate(formatString: "MMMM DD, YYYY")
           }
         }
       }
     `
   )
 
-  return allEventsYaml.edges
+  return allEventsYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -7,18 +7,16 @@ function useSocialLinksData() {
     graphql`
       query {
         allLinksSocialYaml {
-          edges {
-            node {
-              href
-              text
-            }
+          nodes {
+            href
+            text
           }
         }
       }
     `
   )
 
-  return allLinksSocialYaml.edges
+  return allLinksSocialYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

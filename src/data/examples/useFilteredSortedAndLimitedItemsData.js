@@ -13,18 +13,16 @@ function useFilteredSortedAndLimitedItemsData() {
           sort: { fields: [date], order: DESC }
           limit: 10
         ) {
-          edges {
-            node {
-              title
-              date(formatString: "MMMM DD, YYYY")
-            }
+          nodes {
+            title
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }
     `
   )
 
-  return allItemsYaml.edges
+  return allItemsYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

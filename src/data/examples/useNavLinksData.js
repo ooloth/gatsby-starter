@@ -7,18 +7,16 @@ function useNavLinksData() {
     graphql`
       query {
         allLinksNavYaml {
-          edges {
-            node {
-              href
-              text
-            }
+          nodes {
+            href
+            text
           }
         }
       }
     `
   )
 
-  return allLinksNavYaml.edges
+  return allLinksNavYaml.nodes
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
