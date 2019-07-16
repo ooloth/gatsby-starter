@@ -27,7 +27,7 @@ function NetlifyForm() {
   const [state, send] = useMachine(netlifyFormMachine)
 
   function handleChange(e) {
-    send({ type: `UPDATE_FIELD`, name: e.target.name, value: e.target.value })
+    send(`UPDATE_FIELD`, { name: e.target.name, value: e.target.value })
   }
 
   function handleSubmit(e) {
@@ -87,8 +87,8 @@ function NetlifyForm() {
 
           {state.value === `error` && (
             <AlertText>
-              Oops! Something went wrong... Please confirm each field contains valid
-              content and try again.
+              Oops! Something went wrong... Please confirm each field contains
+              valid content and try again.
             </AlertText>
           )}
 

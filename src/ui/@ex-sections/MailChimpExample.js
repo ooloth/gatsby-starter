@@ -2,7 +2,7 @@ function MailChimpExample() {
   const [state, send] = useMachine(mailchimpMachine)
 
   function handleChange(e) {
-    send({ type: `UPDATE_FIELD`, name: e.target.name, value: e.target.value })
+    send(`UPDATE_FIELD`, { name: e.target.name, value: e.target.value })
   }
 
   function handleSubmit(e) {

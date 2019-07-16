@@ -76,7 +76,7 @@ function Filter({ value, category, send }) {
   return (
     <Button
       value={value}
-      onClick={() => send({ type: 'CHANGE_CATEGORY', category: value })}
+      onClick={() => send('CHANGE_CATEGORY', { category: value })}
       aria-pressed={category === value}
     >
       {value} items

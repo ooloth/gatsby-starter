@@ -16,7 +16,7 @@ function DialogExample() {
         rootRef.current.style.filter = `blur(${props.blur}px)`
       }
     },
-    onRest: () => send('CLOSE_OVERLAY'), // must manually close after dialog is out
+    onRest: () => send('CLOSE_OVERLAY') // must manually close after dialog is out
   })
 
   return (
@@ -37,7 +37,7 @@ function DialogExample() {
             >
               <Content
                 style={{
-                  transform: y.interpolate(y => `translate3d(0rem, ${y}rem, 0rem)`),
+                  transform: y.interpolate(y => `translate3d(0rem, ${y}rem, 0rem)`)
                 }}
               >
                 <Close onClick={() => send('CLOSE')}>Close dialog</Close>
@@ -100,7 +100,7 @@ import styled from 'styled-components'
 import { useTransition, animated } from 'react-spring'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 
-// TODO: import this once per project:
+// TODO: import this once per project (e.g. in Base.js):
 // import '@reach/dialog/styles.css'
 
 import useMachine from '../../logic/examples/useMachine'
