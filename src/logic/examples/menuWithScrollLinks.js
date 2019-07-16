@@ -12,36 +12,36 @@ export const menuWithScrollLinksMachine = Machine(
     id: 'menuWithScrollLinksMachine',
     initial: 'closed',
     context: {
-      href: ``,
+      href: ``
     },
     states: {
       closed: {
-        on: { OPEN: 'open' },
+        on: { OPEN: 'open' }
       },
 
       open: {
-        onEntry: 'lockScrolling',
+        entry: 'lockScrolling',
         on: {
           CLOSE: {
             target: 'closing',
-            actions: 'saveHrefIfLinkClicked',
-          },
-        },
+            actions: 'saveHrefIfLinkClicked'
+          }
+        }
       },
 
       closing: {
         on: { CLOSE_OVERLAY: 'closed' },
-        onExit: ['unlockScrolling', 'scrollToIdIfHrefSaved'],
-      },
-    },
+        exit: ['unlockScrolling', 'scrollToIdIfHrefSaved']
+      }
+    }
   },
   {
     actions: {
       lockScrolling: () => disableBodyScroll(),
       saveHrefIfLinkClicked: (ctx, event) => saveHrefIfLinkClicked(ctx, event),
       unlockScrolling: () => enableBodyScroll(),
-      scrollToIdIfHrefSaved: ctx => scrollToIdIfHrefSaved(ctx),
-    },
+      scrollToIdIfHrefSaved: ctx => scrollToIdIfHrefSaved(ctx)
+    }
   }
 )
 

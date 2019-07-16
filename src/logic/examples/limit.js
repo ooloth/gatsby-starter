@@ -23,29 +23,29 @@ export const limitMachine = Machine(
       limit: 3, // update default externally
       previousLimit: null,
       limitsByScreen: { xl: 8, lg: 6, sm: 4, xs: 3 }, // update defaults externally
-      screen: 'xs', // update default externally
+      screen: 'xs' // update default externally
     },
     initial: 'limited',
     states: {
       limited: {
-        onEntry: 'setLimitByScreen',
+        entry: 'setLimitByScreen',
         on: {
           RECALCULATE_LIMIT: 'limited',
           VIEW_ALL: {
             target: 'unlimited',
-            actions: 'showAllItems',
-          },
-        },
+            actions: 'showAllItems'
+          }
+        }
       },
 
-      unlimited: {},
-    },
+      unlimited: {}
+    }
   },
   {
     actions: {
       setLimitByScreen: (ctx, e) => setLimitByScreen(ctx, e),
-      showAllItems: ctx => showAllItems(ctx),
-    },
+      showAllItems: ctx => showAllItems(ctx)
+    }
   }
 )
 
@@ -74,7 +74,7 @@ export function useRecalculateLimit(state, send) {
     if (lg && `lg` in state.context.limitsByScreen) screen = `lg`
     if (xl && `xl` in state.context.limitsByScreen) screen = `xl`
 
-    send({ type: `RECALCULATE_LIMIT`, screen: screen })
+    send(`RECALCULATE_LIMIT`, { screen: screen })
   }, [sm, md, lg, xl, state.context.limitsByScreen, send])
 }
 

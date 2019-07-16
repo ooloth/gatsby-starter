@@ -6,25 +6,25 @@ export const dialogMachine = Machine(
     initial: 'closed',
     states: {
       closed: {
-        on: { OPEN: 'open' },
+        on: { OPEN: 'open' }
       },
 
       open: {
-        onEntry: 'lockScrolling',
-        on: { CLOSE: 'closing' },
+        entry: 'lockScrolling',
+        on: { CLOSE: 'closing' }
       },
 
       closing: {
         on: { CLOSE_OVERLAY: 'closed' },
-        onExit: 'unlockScrolling',
-      },
-    },
+        exit: 'unlockScrolling'
+      }
+    }
   },
   {
     actions: {
       lockScrolling: () => disableBodyScroll(),
-      unlockScrolling: () => enableBodyScroll(),
-    },
+      unlockScrolling: () => enableBodyScroll()
+    }
   }
 )
 

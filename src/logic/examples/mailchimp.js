@@ -2,7 +2,7 @@ export const mailchimpMachine = Machine(
   {
     id: `mailchimpMachine`,
     context: {
-      valid: false,
+      valid: false
       // TODO: update url (from the embed code in MailChimp > Lists)
       // mailchimpUrl: `https://facebook.us16.list-manage.com/subscribe/post?u=8355d284bef397e518268b616&amp;id=c9e1d34cef`,
     },
@@ -11,15 +11,15 @@ export const mailchimpMachine = Machine(
       entering: {
         on: {
           UPDATE_FIELD: {
-            actions: [`updateField`, `validateField`],
+            actions: [`updateField`, `validateField`]
           },
           // SUBMIT: `validating`,
-          SUBMIT: `sending`,
-        },
+          SUBMIT: `sending`
+        }
       },
 
       // validating: {
-      //   onEntry: `validateAllFields`,
+      //   entry: `validateAllFields`,
       //   on: {
       //     VALID: `sending`,
       //     INVALID: `error`,
@@ -30,17 +30,17 @@ export const mailchimpMachine = Machine(
         invoke: {
           src: 'sendFormToMailchimp',
           onDone: 'success',
-          onError: 'error',
-        },
+          onError: 'error'
+        }
       },
 
       error: {
-        onEntry: `logError`,
-        on: { SUBMIT: `sending` },
+        entry: `logError`,
+        on: { SUBMIT: `sending` }
       },
 
-      success: {},
-    },
+      success: {}
+    }
   },
   {
     actions: {
@@ -49,12 +49,12 @@ export const mailchimpMachine = Machine(
       validateField: (ctx, e) => validateField(ctx, e),
       // validateAllFields: (ctx, e) => validateAllFields(ctx, e),
       logError: (ctx, e) =>
-        console.log(`error: `, e.error, `\nresult: `, e.result, `\nmsg: `, e.msg),
+        console.log(`error: `, e.error, `\nresult: `, e.result, `\nmsg: `, e.msg)
     },
 
     services: {
-      sendFormToMailchimp: (ctx, e) => sendFormToMailchimp(ctx, e),
-    },
+      sendFormToMailchimp: (ctx, e) => sendFormToMailchimp(ctx, e)
+    }
   }
 )
 

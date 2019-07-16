@@ -3,46 +3,47 @@ export const netlifyFormMachine = Machine(
     id: `netlifyFormMachine`,
     context: {
       formName: `Contact`, // update default name externally
-      values: {},
+      values: {}
     },
     initial: `filling`,
     states: {
       filling: {
         on: {
           UPDATE_FIELD: {
-            actions: [`updateField`, `logValues`],
+            actions: [`updateField`, `logValues`]
           },
-          SUBMIT: `sending`,
-        },
+          SUBMIT: `sending`
+        }
       },
 
       sending: {
         invoke: {
           src: 'sendFormToNetlify',
           onDone: 'success',
-          onError: 'error',
-        },
+          onError: 'error'
+        }
       },
 
       error: {
-        onEntry: `logError`,
-        on: { SUBMIT: `sending` },
+        entry: `logError`,
+        on: { SUBMIT: `sending` }
       },
 
-      success: {},
-    },
+      success: {}
+    }
   },
   {
     actions: {
       updateField: (ctx, e) => updateField(ctx, e),
-      logValues: (ctx, e) => console.log(`ctx.values: `, ctx.values, `\nevent: `, e),
+      logValues: (ctx, e) =>
+        console.log(`ctx.values: `, ctx.values, `\nevent: `, e),
       logError: (ctx, e) =>
-        console.log(`error: `, e.error, `\nresult: `, e.result, `\nmsg: `, e.msg),
+        console.log(`error: `, e.error, `\nresult: `, e.result, `\nmsg: `, e.msg)
     },
 
     services: {
-      sendFormToNetlify: ctx => sendFormToNetlify(ctx),
-    },
+      sendFormToNetlify: ctx => sendFormToNetlify(ctx)
+    }
   }
 )
 
@@ -57,13 +58,13 @@ function updateField(ctx, e) {
 async function sendFormToNetlify(ctx) {
   const encodedUrl = await constructEncodedUrl({
     'form-name': ctx.formName,
-    ...ctx.values,
+    ...ctx.values
   })
 
   return fetch(`/`, {
     method: `POST`,
     headers: { 'Content-Type': `application/x-www-form-urlencoded` },
-    body: encodedUrl,
+    body: encodedUrl
   })
 }
 
@@ -74,7 +75,8 @@ async function sendFormToNetlify(ctx) {
 function constructEncodedUrl(formDataObject) {
   return Object.keys(formDataObject)
     .map(
-      key => encodeURIComponent(key) + `=` + encodeURIComponent(formDataObject[key])
+      key =>
+        encodeURIComponent(key) + `=` + encodeURIComponent(formDataObject[key])
     )
     .join(`&`)
 }

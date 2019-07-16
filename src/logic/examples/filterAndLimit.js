@@ -26,42 +26,42 @@ export const filterAndLimitMachine = Machine(
       limit: 3, // update default externally
       previousLimit: 0,
       limitsByScreen: { xl: 8, lg: 6, sm: 4, xs: 3 }, // update defaults externally
-      screen: 'xs', // update default externally
+      screen: 'xs' // update default externally
     },
     initial: 'newCategory',
     states: {
       newCategory: {
-        onEntry: 'setLimitByScreen',
+        entry: 'setLimitByScreen',
         on: {
           CHANGE_CATEGORY: {
             cond: (ctx, event) => event.category !== ctx.category,
-            actions: 'changeCategory',
+            actions: 'changeCategory'
           },
           RECALCULATE_LIMIT: { actions: 'setLimitByScreen' },
-          VIEW_ALL: 'allVisible',
-        },
+          VIEW_ALL: 'allVisible'
+        }
       },
 
       allVisible: {
-        onEntry: 'showAllItems',
+        entry: 'showAllItems',
         on: {
           CHANGE_CATEGORY: {
             target: 'newCategory',
             cond: (ctx, event) => event.category !== ctx.category,
-            actions: 'changeCategory',
+            actions: 'changeCategory'
           },
-          RECALCULATE_LIMIT: { actions: 'updateCurrentScreen' },
-        },
-      },
-    },
+          RECALCULATE_LIMIT: { actions: 'updateCurrentScreen' }
+        }
+      }
+    }
   },
   {
     actions: {
       setLimitByScreen: (ctx, event) => setLimitByScreen(ctx, event),
       updateCurrentScreen: assign({ screen: (ctx, event) => event.screen }),
       changeCategory: (ctx, event) => changeCategory(ctx, event),
-      showAllItems: ctx => showAllItems(ctx),
-    },
+      showAllItems: ctx => showAllItems(ctx)
+    }
   }
 )
 
@@ -90,7 +90,7 @@ export function useRecalculateLimit(state, send) {
     if (lg && `lg` in state.context.limitsByScreen) screen = `lg`
     if (xl && `xl` in state.context.limitsByScreen) screen = `xl`
 
-    send({ type: `RECALCULATE_LIMIT`, screen: screen })
+    send(`RECALCULATE_LIMIT`, { screen: screen })
   }, [sm, md, lg, xl, state.context.limitsByScreen, send])
 }
 

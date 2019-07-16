@@ -94,7 +94,7 @@ const animationChart = {
     },
 
     paused: {
-      onEntry: `pauseAnimation`,
+      entry: `pauseAnimation`,
       on: {
         ANIMATE: { animated: { actions: [`resumeAnimation`] } },
         KILL: `killed`
@@ -102,7 +102,7 @@ const animationChart = {
     },
 
     killed: {
-      onEntry: `killAnimation`,
+      entry: `killAnimation`,
       on: {
         ANIMATE: { animated: { actions: [`startAnimation`] } }
       }

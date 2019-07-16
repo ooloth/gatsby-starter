@@ -16,37 +16,37 @@ export const popUpMachine = Machine(
         on: {
           OPEN: {
             target: 'timer',
-            cond: ctx => wasNotAlreadyShownToday(ctx),
-          },
-        },
+            cond: ctx => wasNotAlreadyShownToday(ctx)
+          }
+        }
       },
 
       timer: {
         after: {
-          10000: 'open', // after 10 seconds, transition to open
-        },
+          10000: 'open' // after 10 seconds, transition to open
+        }
       },
 
       open: {
-        onEntry: ['lockScrolling', 'setDateLastOpenedToToday'],
-        on: { CLOSE: 'closing' },
+        entry: ['lockScrolling', 'setDateLastOpenedToToday'],
+        on: { CLOSE: 'closing' }
       },
 
       closing: {
         on: { CLOSE_OVERLAY: 'closed' },
-        onExit: 'unlockScrolling',
-      },
-    },
+        exit: 'unlockScrolling'
+      }
+    }
   },
   {
     actions: {
       setDateLastOpenedToToday: ctx => setDateLastOpenedToToday(ctx),
       lockScrolling: () => disableBodyScroll(),
-      unlockScrolling: () => enableBodyScroll(),
-    },
+      unlockScrolling: () => enableBodyScroll()
+    }
   },
   {
-    dateLastOpened: getDateLastOpenedFromLocalStorage(),
+    dateLastOpened: getDateLastOpenedFromLocalStorage()
   }
 )
 

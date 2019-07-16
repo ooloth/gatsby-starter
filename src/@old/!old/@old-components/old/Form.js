@@ -95,7 +95,7 @@ const formChart = {
     },
 
     sending: {
-      onEntry: `sendForm`,
+      entry: `sendForm`,
       on: {
         ERROR: `error`,
         SUCCESS: `success`

@@ -8,35 +8,35 @@ export const lightboxMachine = Machine(
       currentIndex: null,
       nextIndex: null,
       prevIndex: null,
-      imageCount: null, // update this value externally
+      imageCount: null // update this value externally
     },
     states: {
       closed: {
-        onEntry: 'unlockScrolling',
+        entry: 'unlockScrolling',
         on: {
           OPEN: {
             target: 'open',
-            actions: 'setLightboxIndeces',
-          },
+            actions: 'setLightboxIndeces'
+          }
         },
-        onExit: 'lockScrolling',
+        exit: 'lockScrolling'
       },
 
       open: {
-        onEntry: 'setLightboxIndeces',
+        entry: 'setLightboxIndeces',
         on: {
           SET_INDEX: 'open',
-          CLOSE: 'closed',
-        },
-      },
-    },
+          CLOSE: 'closed'
+        }
+      }
+    }
   },
   {
     actions: {
       setLightboxIndeces: (ctx, event) => setLightboxIndeces(ctx, event),
       lockScrolling: () => disableBodyScroll(),
-      unlockScrolling: () => enableBodyScroll(),
-    },
+      unlockScrolling: () => enableBodyScroll()
+    }
   }
 )
 
