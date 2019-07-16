@@ -41,11 +41,11 @@ function Images({ images }) {
       <List>
         {images.map((image, i) => (
           <LiWithCSSAnimation
-            key={image.node.file.childImageSharp.thumbnail.src}
+            key={image.file.childImageSharp.thumbnail.src}
             style={{ animationDelay: `calc(${i * 100}ms)` }}
           >
             <Thumbnail
-              image={image.node}
+              image={image}
               lightboxIndex={i}
               isLightboxOpen={state.value === `open`}
               send={send}
@@ -62,8 +62,8 @@ function Images({ images }) {
           prevSrc={images[prevIndex].node.file.childImageSharp.lightbox.src}
           imageCaption={images[currentIndex].node.caption}
           onCloseRequest={() => send('CLOSE')}
-          onMovePrevRequest={() => send({ type: 'SET_INDEX', index: prevIndex })}
-          onMoveNextRequest={() => send({ type: 'SET_INDEX', index: nextIndex })}
+          onMovePrevRequest={() => send('SET_INDEX', { index: prevIndex })}
+          onMoveNextRequest={() => send('SET_INDEX', { index: nextIndex })}
           enableZoom={false}
           animationOnKeyInput={true}
         />
@@ -89,7 +89,13 @@ const LiWithCSSAnimation = styled.li`
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-function Thumbnail({ image, titleForAltText, lightboxIndex, isLightboxOpen, send }) {
+function Thumbnail({
+  image,
+  titleForAltText,
+  lightboxIndex,
+  isLightboxOpen,
+  send
+}) {
   return (
     <Wrapper>
       <Image
@@ -98,7 +104,7 @@ function Thumbnail({ image, titleForAltText, lightboxIndex, isLightboxOpen, send
       />
       <OpenLightbox
         value={lightboxIndex}
-        onClick={() => send({ type: 'OPEN', index: lightboxIndex })}
+        onClick={() => send('OPEN', { index: lightboxIndex })}
         aria-expanded={isLightboxOpen}
       >
         View Image

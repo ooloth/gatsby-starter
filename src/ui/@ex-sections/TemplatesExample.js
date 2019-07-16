@@ -8,8 +8,8 @@ function TemplatesExample() {
 
       <ul>
         {templates.map(template => (
-          <PageLink key={template.node.title} href={`/${template.node.slug}/`}>
-            Go to page "{template.node.title}"
+          <PageLink key={template.title} href={`/${template.slug}/`}>
+            Go to page "{template.title}"
           </PageLink>
         ))}
       </ul>
