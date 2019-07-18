@@ -91,6 +91,14 @@ function Metadata({ page, preconnect, preload }) {
         {site.twitterCreator && (
           <meta name="twitter:site" content={site.twitterCreator} />
         )}
+
+        {/* Google Search Console verification */}
+        {site.googleSiteVerification && (
+          <meta
+            name="google-site-verification"
+            content={site.googleSiteVerification}
+          />
+        )}
       </Helmet>
 
       <StructuredData site={site} image={image} />

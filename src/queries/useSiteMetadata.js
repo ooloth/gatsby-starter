@@ -26,6 +26,7 @@ function useSiteMetadata() {
             twitterSite
             twitterCreator
             facebookAppId
+            googleSiteVerification
             secondPage {
               title
               description

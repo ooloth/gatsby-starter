@@ -38,6 +38,7 @@ module.exports = {
     twitterSite: `@handle`,
     twitterCreator: `@ooloth`,
     facebookAppId: ``,
+    googleSiteVerification: ``, // for Google Search Console
     secondPage: {
       title: `Add Second Page Title`,
       description: `Add second page description (50-300 characters)`,
