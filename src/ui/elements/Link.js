@@ -7,7 +7,7 @@ function Link({ href, srText, children, ...props }) {
       href={href}
       onClick={e => e.stopPropagation()} // avoid firing parent event handlers
       target={isExternal ? `_blank` : null}
-      rel={isExternal ? `noopener` : null}
+      rel={isExternal ? `noopener noreferrer` : null}
       {...props}
     >
       {srText && <SrText>{srText}</SrText>}
