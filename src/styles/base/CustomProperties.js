@@ -13,7 +13,7 @@ const CustomProperties = createGlobalStyle`
       /* Android 4+ */ Roboto,
       /* Ubuntu 10.10+ */ Ubuntu,
       /* Gnome 3+ */ Cantarell,
-      /* KDE Plasma 5+ */ Noto Sans,
+      /* KDE Plasma 5+ */ "Noto Sans",
       /* fallback */ sans-serif,
       /* macOS emoji */ "Apple Color Emoji",
       /* Windows emoji */ "Segoe UI Emoji",
@@ -23,11 +23,11 @@ const CustomProperties = createGlobalStyle`
     --codeFont: 
       /* macOS 10.10+ */ Menlo,
       /* Windows 6+ */ Consolas,
-      /* Android 4+ */ Roboto Mono,
-      /* Ubuntu 10.10+ */ Ubuntu Monospace,
-      /* KDE Plasma 5+ */ Noto Mono,
-      /* KDE Plasma 4+ */ Oxygen Mono,
-      /* Linux/OpenOffice fallback */ Liberation Mono,
+      /* Android 4+ */ "Roboto Mono",
+      /* Ubuntu 10.10+ */ "Ubuntu Monospace",
+      /* KDE Plasma 5+ */ "Noto Mono",
+      /* KDE Plasma 4+ */ "Oxygen Mono",
+      /* Linux/OpenOffice fallback */ "Liberation Mono",
       /* fallback */ monospace;
 
     /* Type scale (apply to local variables rather than using directly) */
@@ -236,6 +236,8 @@ const CustomProperties = createGlobalStyle`
     --lightest-blue: #cdecff;
   }
 `
+
+///////////////////////////////////////////////////////////////////////////////////
 
 import { createGlobalStyle } from 'styled-components'
 
