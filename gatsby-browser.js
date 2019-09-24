@@ -65,8 +65,8 @@ export const onInitialClientRender = () => {
   if (!loadjs.isDefined(`what-input`)) {
     loadjs(
       `https://unpkg.com/what-input@5.1.3/dist/what-input.js`,
-      `what-input`,
-      () => console.log(`👍 What-input is loaded`)
+      `what-input`
+      // () => console.log(`👍 What-input is loaded`)
     )
   }
 
@@ -81,8 +81,8 @@ export const onInitialClientRender = () => {
         // `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js`,
         `https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineLite.min.js`
       ],
-      `gsap`,
-      () => console.log(`👍 GSAP is loaded`)
+      `gsap`
+      // () => console.log(`👍 GSAP is loaded`)
     )
   }
 
