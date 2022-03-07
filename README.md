@@ -11,8 +11,6 @@ These are the source files for [WEBSITE_TITLE's website](https://www.website.com
 ## Overview
 
 - WEBSITE_TITLE's site is built in React using [Gatsby](https://www.gatsbyjs.org).
-- It's hosted through Coffeeshop Creative's [Netlify](https://www.netlify.com)
-	account.
 
 ## How to add the site to your local dev environment
 
@@ -22,11 +20,11 @@ Then, make sure you have SSH set up on your local machine to connect to your Git
 
 Finally, clone this repo to your local machine, install the project dependencies, and run the 'dev' script:
 
-<!-- TODO: update REPO_NAME: -->
+<!-- TODO: update ORG_NAME + REPO_NAME: -->
 
 ```
 // navigate to parent folder, then run:
-git clone git@github.com:coffeeshop/REPO_NAME.git
+git clone git@github.com:ORG_NAME/REPO_NAME.git
 npm install
 npm run dev
 ```
@@ -58,12 +56,6 @@ To prevent issues on the live site, always confirm the build works locally by ru
 
 ### TODO: Add any exceptional updating instructions here...
 
-## How to get paid
-
-- Invoice Stephen Bell following each update.
-- Rate for content updates: $100/batch.
-- Rate for design updates: $50/hr ($100/hour on weekends) (Always discuss this type of update before doing any work to confirm whether there is a cap on the billing.)
-
 ## Confused?
 
 * Learn more about [Gatsby](https://www.gatsbyjs.org/tutorial/) and
@@ -71,4 +63,3 @@ To prevent issues on the live site, always confirm the build works locally by ru
 * Learn more about [Netlify](https://www.netlify.com/docs/).
 * Learn more about [GitHub](https://help.github.com/en#dotcom).
 * Learn more about [git](https://git-scm.com/doc).
-* Feel free to contact me with questions at hello@michaeluloth.com.
